@@ -240,11 +240,60 @@
                         If the object is cooling, then <m>\dv{T}{t}\lt0</m>.
                         On the other hand, if <m>T\lt A</m> then <m>\dv{T}{t}\gt0</m> since the object would be heating up in this case.
                         The only way for this to occur is if <m>k\lt0</m>.
-                        There
                     </p>
                 </solution>
             </example>
+            <p>
+                Most of the mathematical models we'll look at will take the form of an IVP.
+            </p>
+            <example xml:id="example-an-ivp-modeling-a-falling-object">
+                <title>An IVP modeling a falling object</title>
+                <statement>
+                    <p>
+                        A ball weighing <quantity><mag>0.5</mag><unit prefix="kilo" base="gram"/></quantity> is dropped from a height of <quantity><mag>100</mag><unit base="meter"/></quantity> and is acted upon by gravity and air resistance.
+                        Assuming that the force of air resistance is proportional to the velocity of the ball, what is an IVP that models the movement of the ball?
+                    </p>
+                </statement>
+                <solution>
+                    <p>
+                        What we need to do is to translate this physical situation into mathematics, and to do that we need to start assigning names to the quantities of interest.
+                        The quantities that matter in this problem are the movement of the ball, the force of gravity and the force of air resistance.
+                        We'll name them as follows:
+                        <md>
+                            <mrow>\text{height of the ball <m>t</m> seconds after its released} &amp;= y(t) </mrow>
+                            <mrow>\text{force of gravity} &amp;= F_{G} = mg = -4.9</mrow>
+                            <mrow>\text{force of air resistance} &amp;= F_{R} = k\dv{y}{t} </mrow>
+                        </md>
+                        where <m>C</m> is negative (since air resistance should act <em>against</em> velocity).
+                        To get a differential equation out of all this, we'll use Newton's Second Law (which is actually a second-order ODE in disguise).
+                        This says that the net force on the ball should be equal to its mass times acceleration: <m>F = ma</m>.
+                        So we have
+                        <me>F_{G}+F_{R} = 0.5\dv[2]{y}{t}</me>
+                        or just
+                        <me>-4.9+k\dv{y}{t} = 0.5\dv[2]{y}{t}.</me>
+                        The initial condition in this case would be <m>y(0) = 100</m>.
+                        So our IVP is
+                        <me>-4.9+k\dv{y}{t} = 0.5\dv[2]{y}{t}, y(0) = 100.</me>
+                    </p>
+                </solution>
+            </example>
+            <p>
+                One quick note about the IVP in <xref ref="example-an-ivp-modeling-a-falling-object" text="type-global" />
+                The differential equation was second-order, but there was only one corresponding initial condition.
+                As we'll see later, this is not enough to find a unique solution to this IVP.
+                For most IVPs we'll solve, we'll need as many initial conditions as the order of the ODE.
+                Something to look forward to.
+            </p>
         </subsection>
+        <conclusion>
+            <p>
+                Now that we have a rough idea of what an ODE and an IVP actually are, we can move on to solving them.
+                In the next section, we'll look at a method that we can use to visualize ODEs and their solutions and another method that can be used to approximate solutions of ODEs.
+            </p>
+            <p>
+                SUGGESTED PROBLEMS: 1-13 odd
+            </p>
+        </conclusion>
     </section>
 <!-- I'm keeping these here for now in case I need to see how this is done later. -->
 <!--     <xi:include href="./sage/integers-sage.xml" />
