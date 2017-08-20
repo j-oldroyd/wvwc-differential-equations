@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mathbook xmlns:xi="http://www.w3.org/2001/XInclude" xml:lang="en-US">
+
+	<!-- Custom LaTeX settings... I hope. -->
+	<!-- Custom LaTeX settings... I hope. -->
+	<docinfo>
+		<macros>
+			\newcommand{\RR}{\mathbb{R}}
+			\newcommand{\QQ}{\mathbb{Q}}
+			\newcommand{\NN}{\mathbb{N}}
+			\newcommand{\ZZ}{\mathbb{Z}}
+			\newcommand{\CC}{\mathbb{C}}
+			\renewcommand{\th}{\text{th}}
+			<!-- \renewcommand{\vec}[1]{\mathbf{#1}} -->
+			\newcommand{\vv}[1]{\mathbf{#1}}
+			\newcommand{\grad}{\nabla}
+			\newcommand{\vecm}[1]{\bm{#1}}
+			\newcommand{\Sum}[2]{\sum_{#1}^{#2}}	
+			\newcommand{\Int}[2]{\int_{#1}^{#2}}
+			\newcommand{\limit}[2]{\lim_{#1\to#2}}
+			\newcommand{\Laplace}[1]{\mathcal{L}\set*{#1}}
+			\newcommand{\iLaplace}[1]{\mathcal{L}^{-1}\set*{#1}}
+			\newcommand{\dv}[3][]{\dfrac{d^{#1} #2}{d #3^{#1}}}
+			\newcommand{\pdv}[3][]{\dfrac{\partial^{#1} #2}{\partial #3^{#1}}}
+			\newcommand{\dotprod}[1]{\left\langle #1 \right\rangle}
+			% Inline vector... hopefully looks better than \irow.
+			\newcommand{\ivec}[1]{%
+			    \renewcommand{\arraystretch}{.8}%
+			    \begin{bmatrix}#1\end{bmatrix}%
+			  }
+			\newcommand{\proj}[2]{\operatorname{proj}_{#1} #2}
+		</macros>
+		<latex-preamble>
+			\usepackage{physics}
+			\usepackage{caption}
+		</latex-preamble>
+		<latex-image-preamble>
+			<!-- \usepackage{siunitx} -->
+			\usepackage{pgfplots}
+			\usepackage{tikz-qtree}
+			\pgfplotsset{compat=newest}
+			\usetikzlibrary{decorations.markings,decorations.pathreplacing,arrows,calc}
+			% These are the TikZ-PGFPlots settings I need.
+			\pgfplotsset{mystyle/.style={%
+				view={120}{30},
+				axis lines=center,
+		        width=6cm,
+				xlabel=$x$, xlabel style={at=(current axis.right of origin), anchor=west},
+				ylabel=$y$, ylabel style={at=(current axis.above origin), anchor=south},
+		        grid=both,
+		        vector/.style={-stealth,blue,very thick}, 
+                vector guide/.style={dashed,red,thick}
+		        }}
+
+			\pgfplotsset{numberline/.style={%
+				axis x line = center,
+				axis y line = none,
+				xlabel = {$x$},
+				ymin=0,
+				ymax=0}}
+
+			\tikzset{
+			  jumpdot/.style={mark=*,solid},
+			  excl/.append style={jumpdot,fill=white},
+			  incl/.append style={jumpdot,fill=black},
+			}
+		</latex-image-preamble>
+		<!-- this is the default, but supresses a warning -->
+        <!-- <cross-references text="type-global" />
+        <search>
+            <google>
+                <cx>008832104071767086392:woji51c1uko</cx>
+            </google>
+        </search> -->
+	</docinfo>
+	
+	<book xml:id="wvwc-differential-equations">
+		<title>Differential Equations Lecture Notes for Fall 2016</title>
+		<subtitle>West Virginia Wesleyan College</subtitle>
+		<!-- <xi:include href="./frontmatter.xml" /> 	 Title, authors, etc. -->
+
+		<xi:include href="./intro-to-odes.xml" /> 	<!-- Definition and basic examples of ODEa -->
+		<xi:include href="./fourier-analysis.xml" /> 	<!-- Definition and basic examples of Fourier series -->
+		<xi:include href="./partial-differential-equations.xml" /> 	<!-- Definition and basic examples of PDEs -->
+		<xi:include href="./backmatter.xml" /> <!-- Index and whatnot. -->
+	</book>
+</mathbook>
