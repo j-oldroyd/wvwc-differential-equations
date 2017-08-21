@@ -351,7 +351,7 @@
                                 size(200);
 
                                 //This is to draw the slope field.
-                                real func1(real x,real y) {return -y-sin(x);}
+                                real func1(real x) {return x*(1-x);}
                                 add(slopefield(func1,(-3,-3),(3,3),20,deepgreen));
 
                                 //This draws the axes.
