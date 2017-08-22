@@ -424,7 +424,7 @@
                                     ytick={-1,...,3},
                                     samples=3
                                 ]
-                                \addplot3 [blue, thick, quiver={u={1/(\length)}, v={(x-y)/(\length)}}, scale arrows=0.05] {0};
+                                \addplot3 [blue, thick, quiver={u={1/(\length)}, v={(x-y)/(\length)}, scale arrows=0.75}] {0};
                                 \addplot[only marks,mark=*] table{%
                                 % 0 3
                                 1   1
