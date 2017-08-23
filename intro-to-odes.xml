@@ -460,7 +460,7 @@
                         If we do so, we get the following diagram:
                     </p>
                     <figure xml:id="figure-dirfield1">
-                        <image>
+                        <image width="50%">
                             <asymptote>
                                 import graph;
                                 import slopefield;
@@ -469,7 +469,7 @@
                                 size(200);
 
                                 //This is to draw the slope field.
-                                real func1(real x) {return x*(1-x);}
+                                real func1(real x, real y) {return y*(1-y);}
                                 add(slopefield(func1,(-3,-3),(3,3),20,deepgreen));
 
                                 //This draws the axes.
@@ -481,7 +481,69 @@
                     </figure>
                 </solution>
             </example>
+            <p>
+                Direction fields are useful because they provide a means to obtain information about a differential equation (and the corresponding model) without actually having to solve the differential equation.
+                This is often done by drawing a <term>solution curve</term> through a direction field, which represents a solution of an initial value problem corresponding to the ODE the direction field is drawn from.
+                To draw a solution curve, just pick a point in the direction field and follow along the slopes as best you can.
+            </p>
+            <example xml:id="example-information-from-a-solution-curve">
+                <title>Information from a solution curve</title>
+                <statement>
+                    <p>
+                        Let <m>x(t)</m> represent the solution of the initial value problem
+                        <md>
+                            <mrow>x' &amp; = x(1-x) </mrow>
+                            <mrow>x(0) &amp; = \frac{1}{2}. </mrow>
+                        </md>
+                        Determine <m>\lim_{t\to\infty}x(t)</m>.
+                    </p>
+                </statement>
+                <solution>
+                    <p>
+                        Since we don't know how to solve this IVP yet, we'll make use of the direction field from <xref ref="example-plotting-a-direction-field-with-a-cas" text="type-global" /> to find an approximate solution curve.
+                        Since the initial condition is <m>x(0) = \frac{1}{2}</m>, this means that the solution must pass through the point <m>(0,\frac{1}{2})</m>.
+                        So if we start at this point and trace a curve that flows with the direction field, we get the following solution curve:
+                    </p>
+                    <figure xml:id="figure-solcurve1">
+                        <image width="50%">
+                            <asymptote>
+                                import graph;
+                                import slopefield;
+                                import fontsize;
+                                defaultpen(fontsize(9pt));
+                                size(200);
+
+                                //This is to draw the slope field.
+                                real func1(real x, real y) {return y*(1-y);}
+                                real xmin=-3, xmax=3;
+                                real ymin=-3, ymax=3;
+
+                                add(slopefield(func1,(xmin,ymin),(xmax,ymax),20,deepgreen+0.4bp,Arrow));
+
+                                pair C=(0,0.5);
+                                draw(curve(C,func1,(xmin,ymin),(xmax,ymax)),deepblue+1bp);
+
+                                label("$(0,\frac{1}{2})$",C,NE,UnFill);
+                                dot(C,UnFill);
+
+                                //This draws the axes.
+                                xaxis("$t$",xmin=-3,xmax=3.3,fontsize(11pt),LeftTicks,ArcArrow(SimpleHead));
+                                yaxis("$x$",ymin=-3,ymax=3.3,fontsize(11pt),RightTicks,ArcArrow(SimpleHead));
+                            </asymptote>
+                        </image>
+                        <caption>The solution curve corresponding to the initial condition <m>x(0) = \frac{1}{2}</m>.</caption>
+                    </figure>
+                    <p>
+                        So it appears that <m>\lim_{t\to\infty}x(t) = 1</m>.
+                    </p>
+                </solution>
+            </example>
         </subsection>
+        <conclusion>
+            <p>
+                SUGGESTED PROBLEMS: 1-7 odd
+            </p>
+        </conclusion>
     </section>
 <!-- I'm keeping these here for now in case I need to see how this is done later. -->
 <!--     <xi:include href="./sage/integers-sage.xml" />
