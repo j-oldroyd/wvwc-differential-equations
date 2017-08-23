@@ -297,6 +297,11 @@
     </section>
     <section xml:id="section-direction-fields">
         <title>Direction Fields</title>
+        <introduction>
+            <p>
+                This section corresponds to Section 1.2 from the textbook.
+            </p>
+        </introduction>
         <subsection xml:id="subsection-direction-fields-and-solution-curves">
             <title>Direction Fields and Solution Curves</title>
             <p>
