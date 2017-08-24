@@ -602,6 +602,44 @@
                     </p>
                 </solution>
             </example>
+            <example xml:id="example-newton-s-law-of-cooling-again">
+                <title>Newton's Law of Cooling again</title>
+                <statement>
+                    <p>
+                        A metal plate is removed from an oven and placed in a room.
+                        The temperature of the plate is <m>100^{\circ}</m> Celsius and the temperature of the room is fixed at <m>15^{\circ}</m> Celsius.
+                        After <m>20</m> minutes the temperature of the plate drops to <m>90^{\circ}</m> Celsius.
+                        How hot is the plate after five hours?
+                    </p>
+                </statement>
+                <solution>
+                    <p>
+                        Let <m>T(t)</m> denote the temperature of the plate <m>t</m> minutes after being removed from the oven and let <m>A(t)</m> denote the temperature of the room <m>t</m> minutes after the plate is removed from the oven.
+                        Then <m>T(0) = 100</m> and Newton's Law of Cooling says that
+                    </p>
+                    <me>\dv{T}{t} = k(T-15).</me>
+                    <p>
+                        To answer this question we need to find <m>T</m>, and although we don't know <m>k</m> at the moment we can still make some progress just by remembering that it's a constant.
+                        This ODE is separable, so we'll separate variables and integrate both sides to get 
+                        <me>\ln(T-15) = kt+C</me>
+                        which simplifies to <m>T-15 = C_{1}e^{kt}</m> or just <m>T = 15+C_{1}e^{kt}</m>.
+                    </p>
+                    <p>
+                        Now we need to find <m>C_{1}</m> and <m>k</m>.
+                        To find <m>C_{1}</m>, we just use the initial condition to get <m>C_{1} = 85</m>.
+                        The only piece of information that we have left to find <m>k</m> is the fact that the temperature of the plate drops to <m>90</m> after <m>20</m> minutes.
+                        In other words, <m>T(20) = 90</m>.
+                        Therefore 
+                        <me>90 = 15+85e^{20k}</me>
+                        which becomes
+                        <me>\ln\frac{75}{85} = 20k</me>.
+                        Therefore <m>k = \frac{1}{20}\ln\frac{15}{17}\approx-.006.</m>
+                    </p>
+                    <p>
+                        So, finally, <m>T(t) = 15+85e^{-.006t}</m> and the temperature after five hours is <m>T(300)\approx28</m>.
+                    </p>
+                </solution>
+            </example>
         </subsection>
     </section>
 
