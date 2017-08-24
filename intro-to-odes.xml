@@ -550,6 +550,61 @@
             </p>
         </conclusion>
     </section>
+    <section xml:id="section-separable-odes-and-substitution">
+        <title>Separable ODEs and Substitution</title>
+        <introduction>
+            <p>
+                This section corresponds to Section 1.3 from the text.
+            </p>
+        </introduction>
+        <subsection xml:id="subsection-separable-odes">
+            <title>Separable ODEs</title>
+            <p>
+                The simplest ODEs to solve are the first-order ODEs of the form <m>\dv{y}{x} = f(x)</m>.
+                The Fundamental Theorem of Calculus guarantees that the solution <m>y</m> is given by <m>y = \int f(x)\,dx</m>.
+            </p>
+            <fn>
+                Rather, the Fundamental Theorem of Calculus guarantees that the solution will be <m>y=\int f(x)\,dx</m> as long as <m>f</m> is a continuous function.
+            </fn>
+            <p>
+                Another type of ODE that is relatively straightforward to solve is the <term>separable ODE</term>, which is a first-order ODE that can be written in the form
+            </p>
+            <me>\dv{y}{x} = f(x)g(y).</me>
+            <p>
+                These ODEs can be solved by integration as well, but only after some rearranging.
+            </p>
+            <example xml:id="example-solving-a-separable-ode">
+                <title>Solving a separable ODE</title>
+                <statement>
+                    <p>
+                        Solve the IVP given by <m>y' = x+4xy^{2}, y(0)=1</m>.
+                    </p>
+                </statement>
+                <solution>
+                    <p>
+                        The first step to solving this IVP is to solve the ODE <m>y' = x+4xy^{2}</m>.
+                        It may not look like it at first, but this ODE is separable since we can rewrite it as <m>y' = x(1+4y^{2})</m>.
+                        To solve this ODE, we need to move the <m>y</m> terms to the left hand side of the equation and the <m>x</m> terms to the right hand side.
+                        We'll abuse notation a little bit to do so by rewriting <m>y' = \dv{y}{x}</m> and treating <m>\dv{y}{x}</m> as a fraction, but it won't get us into too much trouble here:
+                    </p>
+                    <md>
+                        <mrow>\dv{y}{x} = x(1+4y^{2}) &amp;\Rightarrow \frac{dy}{1+4y^{2}} = x\,dx </mrow>
+                        <mrow> &amp;\Rightarrow \int\frac{dy}{1+4y^{2}}  = \int x\,dx </mrow>
+                        <mrow> &amp;\Rightarrow \frac{1}{2}\tan^{-1}(2y)  = \frac{1}{2}x^{2}+C </mrow>
+                        <mrow> &amp;\Rightarrow \tan^{-1}(2y)  = x^{2}+C_{1} </mrow>
+                    </md>
+                    <p>
+                        At this step we can either leave the solution as is (in <term>implicit form</term>) or solve for <m>y</m> to get an <term>explicit form</term>.
+                        We'll leave this in implicit form and then plug in the initial condition to get
+                        <me>\tan^{-1}(2) = C_{1}.</me>
+                        So the implicit solution of this IVP is given by 
+                        <me>\tan^{-1}(2y) = x^{2}+\tan^{-1}(2).</me>
+                    </p>
+                </solution>
+            </example>
+        </subsection>
+    </section>
+
 <!-- I'm keeping these here for now in case I need to see how this is done later. -->
 <!--     <xi:include href="./sage/integers-sage.xml" />
     <xi:include href="./sage/integers-sage-exercises.xml" /> -->
