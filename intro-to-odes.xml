@@ -641,6 +641,71 @@
                 </solution>
             </example>
         </subsection>
+        <subsection xml:id="subsection-substitution-methods">
+            <title>Substitution Methods</title>
+            <p>
+                At this point we can only solve a couple types of differential equations.
+                An ODE that isn't of the form <m>\dv{y}{x} = f(x)</m> or separable may prove troublesome.
+                However, there are certain cases where we can rewrite an ODE into one of these forms by using the right substitution.
+            </p>
+            <example xml:id="example-substitution-to-solve-an-ode">
+                <title>Substitution to solve an ODE</title>
+                <statement>
+                    <p>
+                        Find the general solution of <m>y' = (x+y+3)^{2}</m>.
+                    </p>
+                </statement>
+                <solution>
+                    <p>
+                        This ODE is not separable and we can't just integrate it (since the right hand side depends on the dependent variable).
+                        However, the form of the right hand side suggests a substitution: <m>u = x+y+3</m>.
+                        This would simplify things quite a bit, leaving us with <m>y'=u^{2}</m>.
+                        The only problem with this is that <m>y'</m> depends on <m>x</m>, not <m>u</m>.
+                        We must rewrite <m>y'</m> in terms of the new variable <m>u</m>, which isn't too bad.
+                        Since <m>u = x+y+3</m>, we get <m>y' = u'-1</m>.
+                        Therefore the ODE becomes
+                        <me>u'-1 = u^{2}\text{ or just }\dv{u}{x} = 1+u^{2}.</me>
+                    </p>
+                    <p>
+                        This new ODE <em>is</em> separable, and so we separate variables and integrate to get <m>\tan^{-1}u = x+C</m>.
+                        If we don't care about finding an explicit solution, then we can just replace <m>u</m> to get the equation back in terms of <m>y</m>.
+                        So our (implicit) general solution is <m>\tan^{-1}(x+y+3) = x+C</m>.
+                    </p>
+                </solution>
+            </example>
+            <example xml:id="example-a-less-obvious-substitution">
+                <title>A less obvious substitution</title>
+                <statement>
+                    <p>
+                        Find an explicit solution of <m>xy'=x+y</m>.
+                    </p>
+                </statement>
+                <solution>
+                    <p>
+                        It's tough to see what to do right away, so we'll try simplifying the ODE first.
+                        In particular, we'll solve for <m>y'</m> to get
+                        <me>y' = 1+\frac{y}{x}.</me>
+                        If we stare at this for a while, we might convince ourselves that the right hand side really just depends on <m>\frac{y}{x}</m>, so we'll try replacing that with <m>u</m>.
+                        Then the ODE becomes <m>y'=1+u</m>.
+                    </p>
+                    <p>
+                        Once again, this is much simpler but we need to rewrite <m>y'</m> in terms of <m>u</m>.
+                        Since <m>u=\frac{y}{x}</m>, this means that <m>y=ux</m> and so <m>y' = u+u'x</m>.
+                        Then the ODE becomes
+                        <me>u+x\dv{u}{x} = 1+u\text{ or just } x\dv{u}{x} = 1</me>.
+                    </p>
+                    <p>
+                        This new ODE can be rearranged to get <m>\dv{u}{x} = \frac{1}{x}</m>, and so <m>u = \ln|x|+C</m>.
+                        Getting back in terms of <m>y</m>, we have <m>\frac{y}{x} = \ln|x|+C</m> or just <m>y = x\ln|x|+Cx</m>.
+                    </p>
+                </solution>
+            </example>
+        </subsection>
+        <conclusion>
+            <p>
+                SUGGESTED PROBLEMS: 3, 5, 9, 11, 15, 19, 25
+            </p>
+        </conclusion>
     </section>
 
 <!-- I'm keeping these here for now in case I need to see how this is done later. -->
