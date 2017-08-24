@@ -14,11 +14,23 @@
     <title>Fourier Analysis</title>
 
     <introduction>
-        <p>Our goal now is to move to solving <em>partial</em> differential equations (PDEs), which are differential equations that involve multiple independent variables. Such equations are particularly useful for modeling quantities that depend on position <m>x</m> and time <m>t</m>. It turns out that these partial differential equations often involve periodic functions. So our first step to solving PDEs will be to find useful descriptions of periodic (and in some cases, non-periodic) functions.</p>
+        <p>
+            Our goal now is to move to solving <em>partial</em> differential equations (PDEs), which are differential equations that involve multiple independent variables. 
+            Such equations are particularly useful for modeling quantities that depend on position <m>x</m> and time <m>t</m>. 
+            It turns out that these partial differential equations often involve periodic functions. 
+            So our first step to solving PDEs will be to find useful descriptions of periodic (and in some cases, non-periodic) functions.
+        </p>
     </introduction>
     <section xml:id="section-fourier-series">
         <title>Fourier Series</title>
-        <p>The main idea behind Fourier series, and the field of harmonic analysis in general, is to represent more complicated objects in terms of simpler objects. A fundamental example of this idea comes from the field of linear algebra in the form of <em>orthonormal bases</em>. Knowing an orthonormal basis for a vector space <m>V</m> can greatly simplify linear algebra in that vector space. In this section, we'll do something similar with periodic functions.</p>
+        <introduction>
+            <p>
+                The h idea behind Fourier series, and the field of harmonic analysis in general, is to represent more complicated objects in terms of simpler objects. 
+                A fundamental example of this idea comes from the field of linear algebra in the form of <em>orthonormal bases</em>. 
+                Knowing an orthonormal basis for a vector space <m>V</m> can greatly simplify linear algebra in that vector space. 
+                In this section, we'll do something similar with periodic functions.
+            </p>
+        </introduction>
         <subsection xml:id="subsection-periodic-functions">
             <title>Periodic Functions</title>
             <p>Consider the function <m>f(x)</m> given by the following graph:</p>
@@ -64,7 +76,7 @@
             <p>If we look at the graph, we see that it repeats itself if we wait long enough. Functions that have this property are called <term>periodic functions</term>.</p>
             <definition xml:id="definition-periodic-functions">
                 <title>Periodic Functions</title>
-                <index><main>Functions</main><sub>periodic</sub></index>
+                <idx><h>Functions</h><h>periodic</h></idx>
                 <statement>
                     <p>Let <m>f(x)</m> be a real function defined for all <m>x</m>. We say that <m>f</m> is a periodic function if there exists a positive number <m>p</m> such that
                     <me>
@@ -110,7 +122,7 @@
             <title>Trigonometric Series and Fourier Series</title>
             <definition xml:id="definition-trigonometric-series">
                 <title>Trigonometric Series</title>
-                <index><main>Series</main><sub>trigonometric</sub></index>
+                <idx><h>Series</h><h>trigonometric</h></idx>
                 <statement>
                     <p>A trigonometric series is a series of the form
                     <me>\sum_{k=0}^{\infty}(a_{k}\cos kx+b_{k}\sin kx) = a_{0} + \sum_{k=1}^{\infty}(a_{k}\cos kx+b_{k}\sin kx)</me>
@@ -123,7 +135,7 @@
 
             <theorem xml:id="theorem-orthogonality-relations">
                 <title>Orthogonality Relations</title>
-                <index><main>Orthogonality relations</main></index>
+                <idx><h>Orthogonality relations</h></idx>
                 <statement>
                     <p>Let <m>m,n</m> be whole numbers with <m>m,n>0</m>. Then
                     <me>\int_{-\pi}^{\pi}\sin mx\cos nx\,dx = 0</me>
@@ -169,7 +181,7 @@
 
             <theorem xml:id="theorem-fourier-series-coefficients">
                 <title>Fourier Series Coefficients</title>
-                <index><main>Fourier series</main><sub>Coefficients</sub></index>
+                <idx><h>Fourier series</h><h>Coefficients</h></idx>
                 <statement>
                     <p>Let <m>f(x)</m> be a periodic function with period <m>2\pi</m>. Then the Fourier coefficients of <m>f(x)</m> are given by<md>
                     <mrow>a_{0} &amp;= \frac{1}{2\pi}\int_{-\pi}^{\pi}f(x)\,dx</mrow>
@@ -236,7 +248,7 @@
 
                 <theorem xml:id="theorem-pointwise-convergence-of-fourier-series">
                     <title>Fourier Series of Piecewise Continuous Functions</title>
-                    <index><main>Fourier series</main><sub>convergence</sub></index>
+                    <idx><h>Fourier series</h><h>convergence</h></idx>
                     <statement>
                         <p>Let <m>f(x)</m> be a piecewise continuous function on the interval <m>-\pi\leq x\leq\pi</m>, and suppose that it's also periodic with period <m>2\pi</m>, and is differentiable everywhere that it's continuous. Then the Fourier series of <m>f(x)</m> converges to <m>f(x)</m> except at the points where <m>f(x)</m> is continuous.</p>
                     </statement>
@@ -265,7 +277,7 @@
 
             <theorem xml:id="theorem-fourier-series-of-functions-with-arbitrary-period">
                 <title>Fourier Series of Functions with Arbitrary Period</title>
-                <index><main>Fourier series</main><sub>Functions with period <m>2L</m></sub></index>
+                <idx><h>Fourier series</h><h>Functions with period <m>2L</m></h></idx>
                 <statement>
                     <p>Let <m>f(x)</m> be a function with period <m>p = 2L</m>. Then the Fourier coefficients of <m>f(x)</m> are given by
                     <md>
@@ -325,7 +337,7 @@
 
         <definition xml:id="definition-even-and-odd-functions">
             <title>Even and Odd Functions</title>
-            <index><main>Even and odd functions</main></index>
+            <idx><h>Even and odd functions</h></idx>
             <statement>
                 <p>Let <m>f(x)</m> be a function. We say that <m>f(x)</m> is<md>
                 <mrow>\text{even if } &amp; f(-x) = f(x)</mrow>
@@ -337,7 +349,7 @@
 
         <theorem xml:id="theorem-fourier-series-of-even-and-odd-functions">
             <title>Fourier Series of Even and Odd Functions</title>
-            <index><main>Fourier series</main><sub>Fourier series for even and odd functions</sub></index>
+            <idx><h>Fourier series</h><h>Fourier series for even and odd functions</h></idx>
             <statement>
                 <p>Let <m>f(x)</m> be a periodic function with period <m>p = 2L</m>, with corresponding Fourier series
                 <me>a_{0}+\sum_{k=1}^{\infty}\left(a_{k}\cos\left(\frac{k\pi}{L}x\right)+b_{k}\sin\left(\frac{k\pi}{L}x\right)\right).</me>
@@ -345,11 +357,11 @@
             </statement>
         </theorem>
 
-        <p>In Examples <xref ref="example-fourier-series-of-x-cubed" /> and <xref ref="example-fourier-series-of-x-squared" /> we began with functions that typically aren't thought of as periodic and found their Fourier series. Essentially what we did was we restricted our view of each function to a limited interval<fn xml:id="footnote-periodic-extensions"> <m>[-\pi,\pi]</m> in the case of <m>x^{3}</m> and <m>[-1,1]</m> in the case of <m>x^{2}</m></fn> and then viewed that segment as defining a periodic function. This is the main idea behind <term>even and odd extensions</term> of functions.</p>
+        <p>In Examples <xref ref="example-fourier-series-of-x-cubed" /> and <xref ref="example-fourier-series-of-x-squared" /> we began with functions that typically aren't thought of as periodic and found their Fourier series. Essentially what we did was we restricted our view of each function to a limited interval<fn xml:id="footnote-periodic-extensions"> <m>[-\pi,\pi]</m> in the case of <m>x^{3}</m> and <m>[-1,1]</m> in the case of <m>x^{2}</m></fn> and then viewed that segment as defining a periodic function. This is the h idea behind <term>even and odd extensions</term> of functions.</p>
 
         <definition xml:id="definition-even-and-odd-extensions">
             <title>Even and Odd Extensions</title>
-            <index><main>Fourier series</main><sub>Even and odd extensions</sub></index>
+            <idx><h>Fourier series</h><h>Even and odd extensions</h></idx>
             <statement>
                 <p>Let <m>f(x)</m> be a function defined on <m>[0,L]</m>. The even extension of <m>f(x)</m> is the even periodic function defined by extending the graph of <m>f(x)</m> on <m>[0,L]</m> to the rest of the real numbers in such a way that the resulting function is even and has period <m>2L</m>. The odd extension of <m>f(x)</m> is defined similarly.</p>
             </statement>
@@ -359,7 +371,7 @@
 
         <theorem xml:id="theorem-fourier-coefficients-of-even-and-odd-functions">
             <title>Fourier Coefficients of Even and Odd Functions</title>
-            <index><main>Fourier series</main><sub>Fourier coefficients for even and odd functions</sub></index>
+            <idx><h>Fourier series</h><h>Fourier coefficients for even and odd functions</h></idx>
             <statement>
                 <p>Let <m>f(x)</m> be periodic with period <m>2L</m>. If <m>f</m> is even, then the Fourier coefficients of <m>f(x)</m> satisfy
                 <me>a_{0} = \frac{1}{L}\int_{0}^{L}f(x)\,dx, a_{k} = \frac{2}{L}\int_{0}^{L}f(x)\cos\left(\frac{k\pi}{L}x\right)\,dx\text{ and } b_{k} = 0</me>
@@ -410,7 +422,7 @@
             <p>First, we recall <term>Euler's formula</term>.</p>
             <theorem xml:id="theorem-euler-s-formula">
                 <title>Euler's Formula</title>
-                <index><main>Euler's formula</main></index>
+                <idx><h>Euler's formula</h></idx>
                 <statement>
                     <p>Let <m>x</m> be a real number. Then
                     <me>e^{ix} = \cos x+i\sin x.</me> Furthermore, we can write
@@ -422,7 +434,7 @@
             for functions <m>f(x)</m> with period <m>p=2L</m>. We will also include the statement of Theorem <xref ref="theorem-pointwise-convergence-of-fourier-series" /> in this new context.</p>
             <theorem xml:id="theorem-complex-fourier-series">
                 <title>Complex Fourier Series</title>
-                <index><main>Fourier series</main><sub>complex form</sub></index>
+                <idx><h>Fourier series</h><h>complex form</h></idx>
                 <statement>
                     <p>Let <m>f(x)</m> be a piecewise smooth function with period <m>p=2L</m>. Then the complex Fourier series of <m>f(x)</m> is given by
                     <me>\sum_{k=-\infty}^{\infty}c_{k}e^{i\frac{k\pi}{L}x},</me>
@@ -465,7 +477,7 @@
 
             <theorem xml:id="theorem-real-fourier-series-from-complex-fourier-series">
                 <title>Real Fourier Series from Complex Fourier Series</title>
-                <index><main>Fourier series</main><sub>convert complex to real</sub></index>
+                <idx><h>Fourier series</h><h>convert complex to real</h></idx>
                 <statement>
                     <p>Suppose <m>f(x)</m> has the complex Fourier series
                     <me>\sum_{k=-\infty}^{\infty}c_{k}e^{i\frac{k\pi}{L}x}.</me>
@@ -511,7 +523,7 @@
 
             <theorem xml:id="theorem-parseval-s-identity">
                 <title>Parseval's Identity</title>
-                <index><main>Fourier series</main><sub>Parseval's identity</sub></index>
+                <idx><h>Fourier series</h><h>Parseval's identity</h></idx>
                 <statement>
                     <p>Let <m>f(x)</m> denote a piecewise-differentiable (real-valued) function on <m>[-L,L]</m> with real Fourier coefficients <m>a_{k},b_{k}</m> and complex Fourier coefficients <m>c_{k}</m>. If <m>\int_{-L}^{L}f(x)^{2}\,dx</m> exists and is finite, then
                     <me>\frac{1}{2L}\int_{-L}^{L}f(x)^{2}\,dx = a^{2}_{0} + \frac{1}{2}\sum_{k=1}^{\infty}(a^{2}_{k}+b^{2}_{k}) = \sum_{k=-\infty}^{\infty}|c_{k}|^{2}.</me></p>
@@ -522,7 +534,7 @@
 
             <example xml:id="example-the-basel-problem">
                 <title>The Basel Problem</title>
-                <index><main>Basel problem</main></index>
+                <idx><h>Basel problem</h></idx>
                 <p>In the early <m>18^{\text{th}}</m> century, one of the most renowned problems in mathematics was the Basel problem, which asked for the value of 
                 <me>\sum_{k=1}^{\infty}\frac{1}{k^{2}}.</me>
                 Euler was the first person to show that the sum is actually <m>\frac{\pi^{2}}{6},</m> and it was this solution that made him famous<fn>Or at least math famous.</fn> in the first place. We can solve this by using Parseval's identity. To do so, let <m>f(x) = x</m> for <m>-1&lt; x &lt; 1</m>. Then with a little bit of work we can find the (real) Fourier coefficients:
@@ -559,7 +571,7 @@
 
     	<definition xml:id="definition-absolutely-integrable-functions">
     	    <title>Absolutely Integrable Functions</title>
-    	    <index><main>Absolutely Integrable Functions</main></index>
+    	    <idx><h>Absolutely Integrable Functions</h></idx>
     	    <statement>
     	    	<p>Let <m>f(x)</m> be a piecewise continuous function. Then <m>f(x)</m> is absolutely integrable if <m>\int_{-\infty}^{\infty}|f(x)|\,dx&lt;\infty.</m></p>
     	    </statement>
@@ -567,7 +579,7 @@
 
     	<definition xml:id="definition-the-fourier-transform">
     	    <title>The Fourier Transform</title>
-    	    <index><main>Fourier Transform</main><sub>definition</sub></index>
+    	    <idx><h>Fourier Transform</h><h>definition</h></idx>
     	    <statement>
     	    	<p>Let <m>f(x)</m> be an absolutely integrable piecewise continuous function. The Fourier transform of <m>f(x)</m> is the function <m>\hat{f}(\omega)</m> defined by
     	    	<me>\hat{f}(\omega) = \frac{1}{\sqrt{2\pi}}\int_{-\infty}^{\infty}f(x)e^{-i\omega x}\,dx.</me>
@@ -587,11 +599,11 @@
     	    </md></p>
     	</example>
 
-    	<p>As with the Laplace transform, the Fourier transform of a function is said to be in the <term>frequency domain</term>. In fact, the magnitude of <m>\hat{f}(\omega)</m> represents the <term>frequency content</term> of the function <m>f(x)</m> (thought of as a signal) at the frequency <m>\omega</m>. It's also a quick jump to get the <term>inverse Fourier transform</term>.</p>
+    	<p>As with the Laplace transform, the Fourier transform of a function is said to be in the <term>frequency doh</term>. In fact, the magnitude of <m>\hat{f}(\omega)</m> represents the <term>frequency content</term> of the function <m>f(x)</m> (thought of as a signal) at the frequency <m>\omega</m>. It's also a quick jump to get the <term>inverse Fourier transform</term>.</p>
 
     	<definition xml:id="definition-the-inverse-fourier-transform">
     	    <title>The Inverse Fourier Transform</title>
-    	    <index><main>Fourier Transform</main><sub>inverse transform</sub></index>
+    	    <idx><h>Fourier Transform</h><h>inverse transform</h></idx>
     	    <statement>
     	    	<p>The inverse Fourier transform of <m>\hat{f}(\omega)</m> is 
     	    	<me>\mathcal{F}^{-1}(\hat{f}) = \frac{1}{\sqrt{2\pi}}\int_{-\infty}^{\infty}\hat{f}(\omega)e^{i\omega x}\,d\omega.</me></p>
@@ -600,7 +612,7 @@
 
     	<theorem xml:id="theorem-fourier-integral-representation">
     	    <title>Fourier Inversion Theorem</title>
-    	    <index><main>Fourier Transform</main><sub>inversion theorem</sub></index>
+    	    <idx><h>Fourier Transform</h><h>inversion theorem</h></idx>
     	    <statement>
     	    	<p>Let <m>f(x)</m> be an absolutely integrable, piecewise differentiable function. Then <m>f(x) = \mathcal{F}^{-1}(\hat{f})</m> wherever <m>f(x)</m> is continuous.</p>
     	    </statement>
@@ -629,7 +641,7 @@
 
 		<theorem xml:id="theorem-fourier-transforms-and-derivatives">
 		    <title>Fourier Transforms and Derivatives</title>
-		    <index><main>Fourier Transform</main><sub>transforms fo derivatives</sub></index>
+		    <idx><h>Fourier Transform</h><h>transforms fo derivatives</h></idx>
 		    <statement>
 		    	<p>Let <m>f(x)</m> be differentiable with derivative <m>f'(x)</m>. Suppose that both <m>f(x)</m> and <m>f'(x)</m> are absolutely integrable. Then
 		    	<me>\mathcal{F}(f') = i\omega\hat{f}(\omega).</me></p>
@@ -640,7 +652,7 @@
 
 		<theorem xml:id="theorem-convolution-theorem">
 		    <title>Convolution Theorem</title>
-		    <index><main>Fourier Transform</main><sub>convolution theorem</sub></index>
+		    <idx><h>Fourier Transform</h><h>convolution theorem</h></idx>
 		    <statement>
 		    	<p>Suppose that <m>f(x),g(x)</m> are piecewise continuous, bounded and absolutely integrable. Define <m>f\ast g</m> by
 		    	<me>f\ast g = \int_{-\infty}^{\infty}f(\tau)g(x-\tau)\,d\tau.</me>
