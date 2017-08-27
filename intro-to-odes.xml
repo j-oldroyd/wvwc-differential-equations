@@ -767,6 +767,51 @@
                     </p>
                 </solution>
             </example>
+            <p>
+                The function <m>e^{2x}</m> that we used in <xref ref="example-solving-a-first-order-linear-ode" text="type-global" /> is called an <term>integrating factor</term>.
+                Integrating factors are our primary tool in solving first-order linear ODEs.
+                In general, to solve a first-order linear ODE <m>y' +P(x)y=Q(x)</m> the first thing you must do is to multiply through it by the integrating factor <m>e^{\int P(x)\,dx}</m>.
+            </p>
+            <example xml:id="example-solving-a-first-order-linear-ode-in-disguise">
+                <title>Solving a first-order linear ODE in disguise</title>
+                <statement>
+                    <p>
+                        Solve the second-order ODE given by
+                        <me>tx''+\frac{t}{1+t^{2}}x' = \frac{2t^{2}}{(1+t^{2})^{2}}e^{-\tan^{-1}t}</me>
+                        with initial conditions <m>x(0) = x'(0) = -1.</m>
+                    </p>
+                </statement>
+                <solution>
+                    <p>
+                        Even though this is a second-order ODE, we can rewrite it as a first-order ODE using the substitution <m>u = x'</m>.
+                        Then the ODE becomes
+                        <me>tu+\frac{t}{1+t^{2}}u = \frac{2t^{2}}{(1+t^{2})^{2}}e^{-\tan^{-1}t}.</me>
+                        If we divide through by <m>t</m>, we get
+                        <me>u+\frac{1}{1+t^{2}}u = \frac{2t}{(1+t^{2})^{2}}e^{-\tan^{-1}t}.</me>
+                        This can be solved by integrating factors since it takes the form given in <xref ref="definition-first-order-linear-odes" text="type-global" />.
+                        The integrating factor we need is given by
+                        <me>e^{\int \frac{1}{1+t^{2}}\,dt} = e^{\tan^{-1}t}.</me>
+                    </p>
+                    <p>
+                        Now we multiply through the ODE by this integrating factor and rewrite the left hand side using the product rule to get
+                        <me>\dv{}{t}[e^{\tan^{-1}t}u] = \frac{2t}{(1+t^{2})^{2}}.</me>
+                        At this step we can integrate both sides to get
+                        <me>e^{\tan^{-1}t}u = -\frac{1}{1+t^{2}}+C,</me>
+                        which becomes
+                        <me>x' = -\frac{e^{-\tan^{-1}t}}{1+t^{2}}+Ce^{-\tan^{-1}t}.</me>
+                    </p>
+                    <p>
+                        If we plug in the initial condition <m>x'(0) = -1</m>, this forces <m>C=0</m>.
+                        Hence
+                        <me>x' = -\frac{e^{-\tan^{-1}t}}{1+t^{2}}.</me>
+                        Now we integrate one last time to get <m>x</m>:
+                        <me>x = e^{-\tan^{-1}t}+D.</me>
+                        If we use the last initial condition <m>x(0)=-1</m>, we see that <m>D = -2</m>.
+                        Hence the solution of this IVP is 
+                        <me>x = e^{-\tan^{-1}t}-2.</me>
+                    </p>
+                </solution>
+            </example>
         </subsection>
     </section>
 
