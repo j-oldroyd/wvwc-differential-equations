@@ -707,6 +707,68 @@
             </p>
         </conclusion>
     </section>
+    <section xml:id="section-first-order-linear-odes">
+        <title>First-Order Linear ODEs</title>
+        <introduction>
+            <p>
+                In this section we introduce a new type of ODE that we can solve, in addition to separable ODEs and "simple" ODEs of the form <m>y'=f(x)</m>.
+                The ODEs that we'll consider in this section are <term>first-order linear ODEs</term>.
+            </p>
+            <definition xml:id="definition-first-order-linear-odes">
+                <title>First-Order Linear ODEs</title>
+                <idx><h>first-order ODEs</h><h>first-order linear ODEs</h></idx>
+                <statement>
+                    <p>
+                        A first-order ODE is said to be linear if it can be written in the following form:
+                        <me>\dv{y}{x} + P(x)y = Q(x).</me>
+                    </p>
+                </statement>
+            </definition>
+            <p>
+                We've actually seen such an ODE all the way back in <xref ref="example-an-ivp-modeling-a-falling-object" text="type-global" />.
+                The ODE that we came up with in that problem can be rewritten as a first-order linear ODE with the right substitution (say, <m>u = y'</m>).
+                Our first goal in this section is then to figure out how to solve these ODEs.
+            </p>
+        </introduction>
+        <subsection xml:id="subsection-integrating-factors">
+            <title>Integrating Factors</title>
+            <p>
+                To get a sense of how to solve first-order linear ODEs, we'll try some relatively simple examples first.
+            </p>
+            <example xml:id="example-solving-a-first-order-linear-ode">
+                <title>Solving a first-order linear ODE</title>
+                <statement>
+                    <p>
+                        Find the general solution of <m>\dv{y}{x}+2y = x</m>.
+                    </p>
+                </statement>
+                <solution>
+                    <p>
+                        First, note that the ODE is indeed a first-order linear ODE since it takes the form given in <xref ref="definition-first-order-linear-odes" text="type-global" />.
+                        If we stare at the ODE for a bit, we might think that the left hand side looks like something we'd get after using the product rule.
+                        Just compare <m>(fg)' = fg'+f'g</m> with <m>\dv{y}{x}+2y</m>, and it appears that the unknown function <m>y</m> is taking the place of <m>g</m> in the product rule formula.
+                        If we could just figure out what the function <m>f</m> is supposed to be, then we could drastically simplify the left hand side of the ODE.
+                    </p>
+                    <p>
+                        Unfortunately, there is no such function <m>f</m> that works here.
+                        If there were, we'd have to have <m>f'=2</m> and <m>f=2x</m>, and clearly we aren't multiplying <m>\dv{y}{x}</m> by <m>2x</m> in the ODE.
+                        But we can pull a dirty trick here!
+                        We'll multiply through the ODE by <m>e^{2x}</m> to get the new ODE
+                        <me>e^{2x}\dv{y}{x}+2e^{2x}y = xe^{2x}.</me>
+                        It might not be all that obvious why this helps us out, but now the left hand side can be simplified by the product rule:
+                        <me>e^{2x}\dv{y}{x}+2e^{2x}y = \dv{}{x}[e^{2x}y].</me>
+                    </p>
+                    <p>
+                        So we can rewrite the entire ODE as
+                        <me>\dv{}{x}[e^{2x}y] = xe^{2x}.</me>
+                        We can integrate this on both sides to get <m>e^{2x}y = \int xe^{2x}\,dx</m>, or just
+                        <me>e^{2x}y = \frac{1}{2}xe^{2x} - \frac{1}{4}e^{2x}+C.</me>
+                        The explicit solution would be <m>y = \frac{1}{2}x - \frac{1}{4} + Ce^{-2x}</m>.
+                    </p>
+                </solution>
+            </example>
+        </subsection>
+    </section>
 
 <!-- I'm keeping these here for now in case I need to see how this is done later. -->
 <!--     <xi:include href="./sage/integers-sage.xml" />
