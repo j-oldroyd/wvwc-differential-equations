@@ -729,6 +729,9 @@
                 The ODE that we came up with in that problem can be rewritten as a first-order linear ODE with the right substitution (say, <m>u = y'</m>).
                 Our first goal in this section is then to figure out how to solve these ODEs.
             </p>
+            <p>
+                Note that this section corresponds to Section 1.5 from the text.
+            </p>
         </introduction>
         <subsection xml:id="subsection-integrating-factors">
             <title>Integrating Factors</title>
@@ -813,6 +816,65 @@
                 </solution>
             </example>
         </subsection>
+        <subsection xml:id="subsection-applications">
+            <title>Applications</title>
+            <p>
+                A common application of first-order linear ODEs is in modeling "mixture" problems.
+                Suppose we have a tank which contains a solution (mixture of solute and solvent, such as salt and water).
+                Some amount of solution is also flowing into and out of the tank.
+                We want to measure the amount of solute in the tank at time <m>t</m>, call this amount <m>x(t)</m>.
+                Then <m>x(t)</m> will change depending on how the solute flows into and out of the tank, making it a prime target for a differential equation.
+            </p>
+            <p>
+                If we set
+                <md>
+                    <mrow>c_{i} &amp; =\text{concentration of solute flowing in} </mrow>
+                    <mrow>c_{o} &amp; =\text{concentration of solute flowing out} </mrow>
+                    <mrow>r_{i} &amp; =\text{rate solution is flowing in} </mrow>
+                    <mrow>r_{o} &amp; = \text{rate solution is flowing out} </mrow>
+                </md>
+                then we can say that
+                <me>\dv{x}{t} = r_{i}c_{i} - r_{o}c_{o} = r_{i}c_{i} - r_{0}\frac{x(t)}{V(t)}</me>
+                where <m>V(t)</m> is the volume of solution in the tank at time <m>t</m>.
+                <fn>We assume that <m>c_{i},r_{i},r_{o}</m> are all constant.</fn>
+                Furthermore, if we let <m>V_{0} = V(0)</m> denote the initial volume of the solution in the tank then we can say that <m>V(t) = V_{0} + (r_{i}-r_{0})t.</m>
+                Hence the amount of solute <m>x(t)</m> obeys the first-order linear ODE
+                <me>\dv{x}{t} = r_{i}c_{i} - \frac{r_{o}}{V_{0}+(r_{i}-r_{o})t}x.</me>
+            </p>
+            <example xml:id="example-salt-in-a-tank">
+                <title>Salt in a tank</title>
+                <statement>
+                    <p>
+                        A tank contains <quantity><mag>100</mag><unit base="liter"/></quantity> of a solution consisting of <quantity><mag>50</mag><unit base="gram" prefix="kilo"/></quantity> of salt dissolved in water.
+                        Solution containing <quantity><mag>1</mag><unit base="gram" prefix="kilo"/><per base="liter"/></quantity> of salt is pumped into the tank at a rate of <quantity><mag>2</mag><unit base="liter"/><per base="minute"/></quantity> and the well-mixed solution is pumped out at the rate of <quantity><mag>3</mag><unit base="liter"/><per base="minute"/></quantity>.
+                        How much salt will be in the tank after <m>t</m> minutes?
+                    </p>
+                </statement>
+                <solution>
+                    <p>
+                        Let <m>x(t)</m> denote the amount of salt in the tank after <m>t</m> minutes, so <m>x(0) = 50</m>.
+                        Then 
+                        <me>\dv{x}{t} = r_{i}c_{i}-r_{o}c_{o} = 2\cdot1-3\frac{x}{100-t}.</me>
+                        We can rearrange this to get
+                        <me>\dv{x}{t} + \frac{3}{100-t}x = 2.</me>
+                        This ODE is linear and has integrating factor <m>(100-t)^{-3}</m>.
+                        Multiplying through the ODE by the integrating factor and rewriting it using the product rule then gives us
+                        <me>\dv{}{t}[(100-t)^{-3}x] = 2(100-t)^{-3}.</me>
+                    </p>
+                    <p>
+                        Now we can integrate both sides to get
+                        <me>(100-t)^{-3}x = (100-t)^{-2}+C</me>
+                        or just <m>x = 100-t+C(100-t)^{3}</m>.
+                        Finally, the initial condition can be used to show that <m>C = -\frac{1}{20000}</m>, so <m>x = 100-t - \frac{1}{20000}(100-t)^{3}</m>.
+                    </p>
+                </solution>
+            </example>
+        </subsection>
+        <conclusion>
+            <p>
+                SUGGESTED PROBLEMS: 3-11 odd, 31, 33.
+            </p>
+        </conclusion>
     </section>
 
 <!-- I'm keeping these here for now in case I need to see how this is done later. -->
