@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!--********************************************************************
+
+*********************************************************************-->
+<!-- This file was originally part of the book     -->
+<!-- (as copied on 2015/07/12)                     -->
+<!--                                               -->
+<!--   Abstract Algebra: Theory and Applications   -->
+<!--                                               -->
+<!-- Copyright (C) 1997-2014  Thomas W. Judson     -->
+
+<chapter xml:id="linear-odes-constant-coefficients" xmlns:xi="http://www.w3.org/2001/XInclude">
+    <title>Linear ODEs with Constant Coefficients</title>
+
+    <introduction>
+        <p>
+            Now we move on to solving linear ODEs with constant coefficients.
+            We'll start with solving second-order ODEs.
+        </p>
+    </introduction>
+
+    <section xml:id="section-second-order-linear-odes">
+        <title>Second-Order Linear ODEs</title>
+        <introduction>
+            <p>
+                Recall that a second-order ODE is an ODE whose highest derivative is the second derivative.
+                In this section, we'll look at how to solve second-order ODEs of a special type.
+                Our method of solution here will be generalized to many, many other ODEs.
+            </p>
+        </introduction>
+        <subsection xml:id="subsection-types-of-linear-odes">
+            <title>Types of Linear ODEs</title>
+            <p>
+                A first-order ODE is linear if it can be written in the form <m>y'+P(x)y = Q(x)</m> (see <xref ref="definition-first-order-linear-odes" text="type-global" />).
+                We have a similar definition for second-order ODEs.
+            </p>
+            <definition xml:id="definition-second-order-linear-odes">
+                <title>Second-Order Linear ODEs</title>
+                <idx><h>second-order ODEs</h><h>second-order linear ODEs</h><h>homogeneous and nonhomogeneous</h></idx>
+                <statement>
+                    <p>
+                        A second-order ODE is <term>linear</term> if it can be written in the form
+                        <me>y''+P(x)y'+Q(x)y = R(x).</me>
+                        A second-order linear ODE is <term>homogeneous</term> if <m>R(x) = 0</m> and <term>nonhomogeneous</term> if <m>R(x)\neq0</m>.
+                    </p>
+                </statement>
+            </definition>
+            <example xml:id="example-types-of-second-order-odes">
+                <title>Types of second-order ODEs</title>
+                <p>
+                    Consider the following ODEs:
+                    <ol>
+                        <li><m>y'' = y' - \sin^{2}x</m> is linear but nonhomogeneous.</li>
+                        <li><m>\dv[2]{x}{t} - x^{3} = 0</m> is nonlinear.</li>
+                        <li><m>\sqrt{x}e^{\tan^{-1}x}y'' = x^{2}y</m> is linear and homogeneous.</li>
+                    </ol>
+                </p>
+            </example>
+        </subsection>
+    </section>
+<!-- I'm keeping these here for now in case I need to see how this is done later. -->
+<!--     <xi:include href="./sage/integers-sage.xml" />
+    <xi:include href="./sage/integers-sage-exercises.xml" /> -->
+
+</chapter>
