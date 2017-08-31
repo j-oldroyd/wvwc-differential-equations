@@ -79,7 +79,8 @@
 		<subtitle>West Virginia Wesleyan College</subtitle>
 		<!-- <xi:include href="./frontmatter.xml" /> 	 Title, authors, etc. -->
 
-		<xi:include href="./intro-to-odes.xml" /> 	<!-- Definition and basic examples of ODEa -->
+		<xi:include href="./intro-to-odes.xml" /> 	<!-- Definition and basic examples of ODEs -->
+		<xi:include href="./linear-odes-constant-coefficients.xml" /> <!-- Solutions of linear ODEs with constant coefficeints. -->
 		<xi:include href="./fourier-analysis.xml" /> 	<!-- Definition and basic examples of Fourier series -->
 		<xi:include href="./partial-differential-equations.xml" /> 	<!-- Definition and basic examples of PDEs -->
 		<xi:include href="./backmatter.xml" /> <!-- Index and whatnot. -->
