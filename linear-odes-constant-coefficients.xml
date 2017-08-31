@@ -57,6 +57,55 @@
                     </ol>
                 </p>
             </example>
+            <p>
+                Newton's Second Law is a great source of linear second-order ODEs, as <xref ref="example-a-second-order-model" text="type-global" /> shows.
+                However, we will first need to state <term>Hooke's Law</term>.
+            </p>
+            <theorem xml:id="theorem-hooke-s-law">
+                <title>Hooke's Law</title>
+                <idx>Hooke's Law</idx>
+                <statement>
+                    <p>
+                        Consider an object attached to a spring.
+                        The force exerted by the spring on the object is directly proportional to the displacement of the object from the spring's equilibrium, or at rest, position.
+                    </p>
+                </statement>
+            </theorem>
+            <example xml:id="example-a-second-order-model">
+                <title>A second-order model</title>
+                <statement>
+                    <p>
+                        An object of mass <quantity><mag>4</mag><unit base="gram" prefix="kilo"/></quantity> is attached to a horizontal, frictionless spring.
+                        Let <m>x=0</m> denote the equilibrium position of the spring and let <m>x(t)</m> denote the displacement of the mass from the spring's equilibrium position.
+                        The only force acting on the mass is the force of the spring itself.
+                        Find a mathematical model for <m>x(t)</m>.
+                    </p>
+                </statement>
+                <solution>
+                    <p>
+                        Let <m>F_{S}</m> denote the force of the spring on the mass.
+                        Then by <xref ref="theorem-hooke-s-law" text="type-global" /> we must have <m>F_{S} = -kx</m> for some <m>k&gt;0</m>.
+                        Now, by Newton's Second Law we must also have <m>F_{S} = 4x''</m>.
+                        Hence
+                        <me>4x'' = -kx\quad\text{or}\quad4x''+kx = 0.</me>
+                        So the motion of the mass is modeled by a linear, second-order homogeneous ODE.
+                    </p>
+                    <aside>
+                        <p>
+                            The reason we take <m>F_{S} = -kx</m> in Hooke's Law is because we want to emphasize that the spring force is a <em>restoring force</em>, since it acts against the displacement of the mass.
+                        </p>
+                    </aside>
+                </solution>
+            </example>
+            <p>
+                The general trend that we will see for mathematical models using linear ODEs is that they will be homogeneous if we assume that there is no external force, and nonhomogeneous if we assume there is an external force.
+            </p>
+        </subsection>
+        <subsection xml:id="subsection-solutions-of-second-order-homogeneous-equations">
+            <title>Solutions of Second-Order Homogeneous Equations</title>
+            <p>
+                
+            </p>
         </subsection>
     </section>
 <!-- I'm keeping these here for now in case I need to see how this is done later. -->
