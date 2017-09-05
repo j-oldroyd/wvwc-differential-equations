@@ -208,6 +208,63 @@
                     </p>
                 </solution>
             </example>
+            <p>
+                Although it wasn't too hard to see that the functions in <xref ref="example-linear-independence-of-sine-and-cosine" text="type-global" /> were linearly independent, in other cases it can be much trickier (especially when we move to higher order ODEs).
+                For example, suppose we set <m>f(t) = -5(t-15)^{2} + 450</m> and <m>g(t) = 12t(30-t)</m>.
+                Then it's not obvious at all that these two functions are linearly dependent!
+                In fact,
+                <me>\frac{2}{5}f(t) - \frac{1}{6}g(t) = 0.</me>
+                So generally when we try to determine if two functions are linearly independent, we'll make use of the <term>Wronskian</term>.
+            </p>
+            <definition xml:id="definition-wronskian-of-two-functions">
+                <title>Wronskian of Two Functions</title>
+                <idx><h>Wronskian</h><h>two functions</h></idx>
+                <statement>
+                    <p>
+                        Let <m>f</m> and <m>g</m> denote two differentiable functions.
+                        The Wronskian of <m>f</m> and <m>g</m>, denoted <m>W(f,g)</m>, is given by
+                        <me>W(f,g) = \left|\begin{matrix} f &amp; g \\ f' &amp; g' \end{matrix}\right| = fg' - f'g.</me>
+                    </p>
+                </statement>
+            </definition>
+            <theorem xml:id="theorem-linear-independence-and-the-wronskian">
+                <title>Linear Independence and the Wronskian</title>
+                <statement>
+                    <p>
+                        Let <m>f</m> and <m>g</m> be two functions that are differentiable on some interval <m>I</m>.
+                        Then <m>f</m> and <m>g</m> are linearly independent on <m>I</m> if <m>W(f,g) \neq 0</m> <em>somewhere</em> <m>I</m>.
+                        Conversely, if <m>W(f,g) = 0</m> <em>and</em> <m>f</m> and <m>g</m> can both be represented by power series on <m>I</m>, then <m>f</m> and <m>g</m> are linearly dependent.
+                    </p>
+                </statement>
+            </theorem>
+            <example xml:id="example-using-the-wronskian">
+                <title>Using the Wronskian</title>
+                <p>
+                    If we let <m>f(t) = -5(t-15)^{2} + 450</m> and <m>g(t) = 12t(30-t)</m> and compute their Wronskian, we obtain (after a fair bit of algebra) <m>W(f,g) = 0</m>.
+                    Since <m>f</m> and <m>g</m> can clearly be represented by power series on any interval <m>I</m> (since, being polynomials, they already <em>are</em> power series), this means that the two functions are linearly independent.
+                </p>
+            </example>
+            <p>
+                We'll try a more complicated example next where the interval needs to be specified.
+            </p>
+            <example xml:id="example-linear-independence-using-the-wronskian">
+                <title>Linear independence using the Wronskian</title>
+                <statement>
+                    <p>
+                        Let
+                        <me>x_{1} = t\cos\ln t\quad\text{and}\quad t\sin\ln t.</me>
+                        Show that <m>x_{1}</m> and <m>x_{2}</m> are linearly independent on <m>(0,\infty)</m>.
+                    </p>
+                </statement>
+                <solution>
+                    <p>
+                        First, we compute <m>W(x_{1},x_{2})</m>:
+                        <me>W(x_{1},x_{2}) = (t\cos\ln t)(\sin\ln t + \cos\ln t) - (t\sin\ln t)(\cos\ln t - \sin\ln t) = t(\cos^{2}\ln t + \sin^{2}\ln t) = t.</me>
+                    </p>
+                    So <m>W(x_{1},x_{2}) = t</m>, which is clearly nonzero on the interval <m>(0,\infty)</m>.
+                    Hence <m>x_{1}</m> and <m>x_{2}</m> are linearly independent.
+                </solution>
+            </example>
         </subsection>
     </section>
 <!-- I'm keeping these here for now in case I need to see how this is done later. -->
