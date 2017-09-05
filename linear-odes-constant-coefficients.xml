@@ -245,7 +245,22 @@
                 </p>
             </example>
             <p>
-                We'll try a more complicated example next where the interval needs to be specified.
+                We mentioned earlier that we'll try to find a basis of solutions for linear ODEs.
+                Now that we have the concept of linear independence and the Wronskian for checking if two functions are linearly independent, we can make the following definition.
+            </p>
+            <definition xml:id="definition-basis-of-solutions">
+                <title>Basis of Solutions</title>
+                <idx><h>second-order ODEs</h><h>second-order linear ODEs</h><h>basis</h></idx>
+                <statement>
+                    <p>
+                        Let <m>y_{1}</m> and <m>y_{2}</m> denote solutions of some second-order linear homogeneous ODE.
+                        We call <m>\{y_{1},y_{2}\}</m> a <term>basis</term> if <m>y_{1}</m> and <m>y_{2}</m> are also linearly independent.
+                    </p>
+                </statement>
+            </definition>
+            <p>
+                Once we have a basis for a second-order linear homogeneous ODE, we can solve any IVP that we wish involving that ODE.
+                In particular, if <m>\{y_{1},y_{2}\}</m> is a basis for such an ODE, then <em>every</em> solution of the ODE can be written as a linear combination of <m>y_{1}</m> and <m>y_{2}</m>.
             </p>
             <example xml:id="example-linear-independence-using-the-wronskian">
                 <title>Linear independence using the Wronskian</title>
@@ -253,19 +268,32 @@
                     <p>
                         Let
                         <me>x_{1} = t\cos\ln t\quad\text{and}\quad t\sin\ln t.</me>
-                        Show that <m>x_{1}</m> and <m>x_{2}</m> are linearly independent on <m>(0,\infty)</m>.
+                        Given that these functions are both solutions of 
+                        <me>t^{2}x'' - tx' + 2x = 0,</me>
+                        solve the corresponding IVP with initial conditions <m>x(1) = 1, x'(1) = -1</m>.
                     </p>
                 </statement>
                 <solution>
                     <p>
+                        We need to start by showing that <m>\{x_{1},x_{2}\}</m> is a basis for the ODE.
                         First, we compute <m>W(x_{1},x_{2})</m>:
                         <me>W(x_{1},x_{2}) = (t\cos\ln t)(\sin\ln t + \cos\ln t) - (t\sin\ln t)(\cos\ln t - \sin\ln t) = t(\cos^{2}\ln t + \sin^{2}\ln t) = t.</me>
+                        So <m>W(x_{1},x_{2}) = t</m>, which is clearly nonzero on the interval <m>(0,\infty)</m>.
+                        Hence <m>x_{1}</m> and <m>x_{2}</m> are linearly independent, and therefore <m>\{x_{1},x_{2}\}</m> is a basis for the ODE.
                     </p>
-                    So <m>W(x_{1},x_{2}) = t</m>, which is clearly nonzero on the interval <m>(0,\infty)</m>.
-                    Hence <m>x_{1}</m> and <m>x_{2}</m> are linearly independent.
+                    <p>
+                        To actually find the solution (call it <m>x</m>), we'll set <m>x = c_{1}x_{1} + c_{2}x_{2}</m> and use the initial conditions to find <m>c_{1}</m> and <m>c_{2}</m>.
+                        Doing so gives <m>c_{1} = 1</m> and <m>c_{2} = -2</m>, and so the solution of the IVP is
+                        <me>x = \cos\ln t - 2\sin\ln t.</me>
+                    </p>
                 </solution>
             </example>
         </subsection>
+        <conclusion>
+            <p>
+                SUGGESTED PROBLEMS: 15, 17, 19
+            </p>
+        </conclusion>
     </section>
 <!-- I'm keeping these here for now in case I need to see how this is done later. -->
 <!--     <xi:include href="./sage/integers-sage.xml" />
