@@ -295,6 +295,122 @@
             </p>
         </conclusion>
     </section>
+    <section xml:id="section-homogeneous-odes-with-constant-coefficients">
+        <title>Homogeneous ODEs with Constant Coefficients</title>
+        <p>
+            Now we'll move on to solving homogeneous ODEs, at least with constant coefficients.
+        </p>
+        <example xml:id="example-solving-a-homogeneous-ode">
+            <title>Solving a homogeneous ODE</title>
+            <p>
+                Suppose we wanted to solve <m>y'' - y' - 6y = 0</m>, where <m>y=y(x)</m>.
+                If we stare at this for a bit, we may realize the following: the only way for a function <m>y</m> to be a solution of this ODE is for <m>y</m> and its derivatives <m>y',y''</m> to cancel each other our.
+                In other words, <m>y</m> and its derivatives <em>should be like terms</em>.
+                This is a huge hint that <m>y</m> should look like an exponential function.
+                So we'll guess that <m>y = e^{rx}</m> for some real number <m>r</m>, and see if we can't pick <m>r</m> in just the right way to get a solution to the ODE.
+                If we plug <m>e^{rx}</m> into the ODE, we get
+            </p>
+            <md>
+                <mrow>y''- y' - 6y &amp; = r^{2}e^{rx} - re^{rx} - 6e^{rx} </mrow>
+                <mrow> &amp; = e^{rx}(r^{2} - r - 6). </mrow>
+            </md>
+            <p>
+                So we need to set <m>e^{rx}(r^{2} - r - 6)</m> equal to <m>0</m> and solve for <m>r</m>, which gives
+                <me>r = -2, 3.</me>
+                Therefore two solutions of <m>y'' - y' - 6y = 0</m> are given by <me>y_{1} = e^{-2x}</me> and <m>y_{2} = e^{3x}</m>.
+                Since <m>W(y_{1},y_{2})\neq0</m>, this means that <m>c_{1}e^{-2x} + c_{2}e^{3x}</m> is actually the general solution of the ODE.
+            </p>
+        </example>
+        <p>
+            The process in <xref ref="example-solving-a-homogeneous-ode" text="type-global" /> will work for <em>every</em> second-order homogeneous ODE with constant coefficients.
+            So solving such an ODE is even easier than integrating: all we need to do is to find the roots of a particular polynomial.
+        </p>
+        <definition xml:id="definition-the-characteristic-polynomial">
+            <title>The Characteristic Polynomial</title>
+            <idx><h>second-order ODEs</h><h>characteristic equation</h></idx>
+            <statement>
+                <p>
+                    Let <m>a,b</m> and <m>c</m> be constants.
+                    Given the ODE <m>ay'' + by' + cy = 0</m>, the <term>characteristic equation</term> of this ODE is the polynomial
+                    <me>ar^{2} + br + c = 0.</me>
+                </p>
+            </statement>
+        </definition>
+        <p>
+            We can now state the following result for finding solutions of homogeneous ODEs with constant coefficients.
+        </p>
+        <theorem xml:id="theorem-characteristic-equations-with-distinct-roots">
+            <title>Characteristic Equations with Distinct Roots</title>
+            <statement>
+                <p>
+                    Let <m>a,b</m> and <m>c</m> be constants.
+                    Suppose that the characteristic equation of <m>ay'' + by' + cy = 0</m> has distinct roots <m>r_{1}</m> and <m>r_{2}</m>.
+                    Then the general solution of the ODE is given by
+                    <me>c_{1}e^{r_{1}x} + c_{2}e^{r_{2}x}.</me>
+                </p>
+            </statement>
+        </theorem>
+        <example xml:id="example-spring-mass-system-revisited">
+            <title>Spring-mass system revisited</title>
+            <statement>
+                <p>
+                    An object of mass <quantity><mag>4</mag><unit base="gram" prefix="kilo"/></quantity> is attached to a horizontal, frictionless spring.
+                    Suppose the spring constant is given by <m>k=16</m>.
+                    The mass is held <quantity><mag>3</mag><unit base="meter"/></quantity> to the right of the spring's equilibrium position, and is then released at time <m>t=0</m> where <m>t</m> is in seconds.
+                    Find the displacement <m>x(t)</m> of the mass.
+                </p>
+            </statement>
+            <solution>
+                <p>
+                    We know from <xref ref="example-a-second-order-model" text="type-global" /> that the second-order ODE given by
+                    <me>4x'' + kx = 0\quad\text{or}\quad x'' + 4x = 0</me>
+                    provides a model for <m>x(t)</m>, but now we are in a position to solve it.
+                    The characteristic equation of this ODE is <m>r^{2} + 4 = 0</m>, which has roots <m>r=\pm2i</m>.
+                    The imaginary roots <em>are not a problem</em>, and in fact provide significant information about the motion of the mass, as we'll soon see.
+                    The general solution of the ODE is
+                    <me>x = c_{1}e^{-2it} + c_{2}e^{2it}.</me>
+                </p>
+                <p>
+                    The initial conditions are <m>x(0) = 3</m> and <m>x'(0) = 0</m>, which give the equations
+                    <md>
+                        <mrow>3 &amp; = c_{1} + c_{2} </mrow>
+                        <mrow>0 &amp; = -2ic_{1} + 2ic_{2} </mrow>
+                    </md>
+                    The second equation implies that <m>c_{1} = c_{2}</m>, and applying this to the first equation now gives <m>c_{1} = c_{2} = \frac{3}{2}</m>.
+                    Hence the displacement of the mass is given by
+                    <me>x = \frac{3}{2}e^{-2it} + \frac{3}{2}e^{2it}.</me>
+                </p>
+            </solution>
+        </example>
+        <p>
+            The appearance of the "imaginary" solution in <xref ref="example-spring-mass-system-revisited" text="type-global" /> may seem strange, but they're actually quite natural.
+            In fact, we can use <term>Euler's formula</term> to write the solution in terms of a more familiar function.
+        </p>
+        <theorem xml:id="theorem-euler-s-formula">
+            <title>Euler's Formula</title>
+            <idx>Euler's Formula</idx>
+            <statement>
+                <p>
+                    For all <m>x</m>, the following equations hold:
+                    <md>
+                        <mrow>e^{ix} &amp; = \cos x + i\sin x </mrow>
+                        <mrow>\cos x &amp; = \frac{e^{ix}+e^{-ix}}{2} </mrow>
+                        <mrow>\sin x &amp; = \frac{e^{ix} - e^{-ix}}{2i} </mrow>
+                    </md>
+                </p>
+            </statement>
+        </theorem>
+        <p>
+            So using Euler's Formula on the solution from <xref ref="example-spring-mass-system-revisited" text="type-global" /> gives
+            <md>
+                <mrow>x &amp; = \frac{3}{2}e^{-2it} + \frac{3}{2} e^{2it} </mrow>
+                <mrow> &amp; = 3\frac{e^{-2it} + e^{2it}}{2} </mrow>
+                <mrow> &amp; = 3\cos2t. </mrow>
+            </md>
+            So the imaginary roots <m>\pm2i</m> from <xref ref="example-spring-mass-system-revisited" text="type-global" /> actually relate to the <em>frequency</em> of the spring-mass system in that problem.
+            This is a trend we will see often in this course: imaginary numbers corresponding to oscillating quantities.
+        </p>
+    </section>
 <!-- I'm keeping these here for now in case I need to see how this is done later. -->
 <!--     <xi:include href="./sage/integers-sage.xml" />
     <xi:include href="./sage/integers-sage-exercises.xml" /> -->
