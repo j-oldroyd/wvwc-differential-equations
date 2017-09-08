@@ -442,6 +442,29 @@
                 </p>
             </solution>
         </example>
+        <p>
+            The method used in <xref ref="example-repeated-roots-in-the-characteristic-equation" text="type-global" /> also works for other homogeneous ODEs with constant coefficients whose characteristic equations have repeated roots.
+            Hence the roots of the characteristic equation <em>completely</em> determine the general solutions of such ODEs.
+            We summarize this in the following table.
+        </p>
+        <figure xml:id="figure-roots-characteristic-equation-second-order">
+            <table xml:id="table-roots-characteristic-equation-second-order">
+                <tabular top="major" bottom="major">
+                    <row bottom="major">
+                        <cell>Roots</cell>
+                        <cell>General solution</cell>
+                    </row>
+                    <row>
+                        <cell><m>r_{1}\neq r_{2}</m></cell>
+                        <cell><m>c_{1}e^{r_{1}x} + c_{2}e^{r_{2}x}</m></cell>
+                    </row>
+                    <row>
+                        <cell><m>r_{1} = r_{2}</m></cell>
+                        <cell><m>c_{1}e^{r_{1}x} + c_{2}xe^{r_{1}x}</m></cell>
+                    </row>
+                </tabular>
+            </table>
+        </figure>
     </section>
 <!-- I'm keeping these here for now in case I need to see how this is done later. -->
 <!--     <xi:include href="./sage/integers-sage.xml" />
