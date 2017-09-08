@@ -465,6 +465,10 @@
                 </tabular>
             </table>
         </figure>
+        <p>
+            Remember that it's not a problem if the characteristic equation has imaginary roots, and in fact we must account for these in order to completely describe the corresponding physical system.
+            If we have imaginary roots, then we can simply use Euler's Formula to rewrite the solutions in terms of sine and cosine.
+        </p>
     </section>
 <!-- I'm keeping these here for now in case I need to see how this is done later. -->
 <!--     <xi:include href="./sage/integers-sage.xml" />
