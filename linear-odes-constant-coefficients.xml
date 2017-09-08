@@ -410,6 +410,38 @@
             So the imaginary roots <m>\pm2i</m> from <xref ref="example-spring-mass-system-revisited" text="type-global" /> actually relate to the <em>frequency</em> of the spring-mass system in that problem.
             This is a trend we will see often in this course: imaginary numbers corresponding to oscillating quantities.
         </p>
+        <p>
+            Now we'll take a look at how to solve second-order homogeneous ODEs whose characteristic equations have repeated roots.
+        </p>
+        <example xml:id="example-repeated-roots-in-the-characteristic-equation">
+            <title>Repeated roots in the characteristic equation</title>
+            <statement>
+                <p>
+                    Find the general solution of <m>y'' + 2y' + y = 0</m> where <m>y = y(x)</m>.
+                </p>
+            </statement>
+            <solution>
+                <p>
+                    We begin by solving the characteristic equation, which for this ODE is
+                    <me>r^{2} + 2r + 1 = 0.</me>
+                    The only solution of this equation is <m>r=-1</m>, which is a repeated root.
+                    We can still get one solution of the ODE using this root, namely <m>y_{1} = e^{-x}</m>, but we need two linearly independent solutions in order to find the general solution.
+                </p>
+                <p>
+                    To get the other solution, we'll make another guess: whatever it happens to be, it should look quite a bit like the first solution <m>e^{-x}</m>, since it still needs to cancel out with its derivatives the same way that <m>e^{-x}</m> does.
+                    The easiest way to get a function that looks like <m>e^{-x}</m> but is still linearly independent from <m>e^{-x}</m> is to just multiply by <m>x</m>.
+                    In other words, we'll guess (and check!) that <m>y_{2} = xe^{-x}</m> is another solution of <m>y''+2y'+y = 0</m>.
+                    If we plug <m>y_{2}</m> into the ODE, we get
+                    <md>
+                        <mrow>y''_{2} + 2y'_{2} + y_{2} &amp; = \underbrace{-2e^{-x} + xe^{-x}}_{y''_{2}} + \underbrace{2e^{-x} - 2xe^{-x}}_{y'_{2}} + \underbrace{xe^{-x}}_{y_{2}} </mrow>
+                        <mrow> &amp; = 0, </mrow>
+                    </md>
+                    which shows that <m>y_{2}</m> is indeed a solution of the ODE.
+                    Since it's also linearly independent (which we can check via the Wronskian), this means that the general solution of <m>y''+2y'+y=0</m> is
+                    <me>y = c_{1}y_{1} + c_{2}y_{2} = c_{1}e^{-x} + c_{2}xe^{-x}. </me>
+                </p>
+            </solution>
+        </example>
     </section>
 <!-- I'm keeping these here for now in case I need to see how this is done later. -->
 <!--     <xi:include href="./sage/integers-sage.xml" />
