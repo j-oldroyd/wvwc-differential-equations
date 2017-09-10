@@ -549,8 +549,43 @@
                     </aside>
                     Then we get
                     <me>x = \cos\varphi\cos\omega_{0}t + \sin\varphi\sin\omega_{0}t = \cos(\omega_{0}t - \varphi).</me>
-                    <m>C</m> is the <term>amplitude</term> of the wave <m>x</m>, <m>\omega_{0}</m> is the <term>circular frequency</term> and <m>\varphi</m> is the <term>phase</term>.
+                    <m>C</m> is the <term>amplitude</term> of the wave <m>x</m>, <m>\omega_{0}</m> is the <term>circular frequency</term>, <m>T = \frac{2\pi}{\omega_{0}}</m> is the <term>period</term> of motion and <m>\varphi</m> is the <term>phase</term>.
                 </p>
+                <example xml:id="example-another-spring-mass-system">
+                    <title>Another spring-mass system</title>
+                    <statement>
+                        <p>
+                            An object with a mass of <quantity><mag>5</mag><unit base="gram" prefix="kilo"/></quantity> is fixed to a spring and a force of <quantity><mag>10</mag><unit base="newton"/></quantity> holds the mass <quantity><mag>5</mag><unit base="meter"/></quantity> to the left of the spring's equilibrium position.
+                            If the object is released, how long will it take for the mass to return to its original position?
+                            And what is the position <m>x(t)</m> of the mass?
+                        </p>
+                    </statement>
+                    <solution>
+                        <p>
+                            Let <m>x(t)</m> denote the position of the mass <m>t</m> seconds after being released, so that <m>x(0) = -5</m> and <m>x'(0) = 0</m>.
+                            We could find the time it takes for the mass to return to its starting position by first finding <m>x(t)</m>, but a quicker way is to just find the period <m>T</m> of <m>x</m>.
+                            To do this, we must find the circular frequency <m>\omega_{0} = \sqrt{\frac{k}{m}}</m>.
+                            Thankfully, half of the work is done for us (we know <m>m=5</m>), so we only need the value of <m>k</m> which itself comes from Hooke's Law.
+                        </p>
+                        <p>
+                            Call the spring force <m>F_{S}</m> and recall that <m>F_{S} = -kx</m>.
+                            We know that it takes a force of <quantity><mag>10</mag><unit base="newton"/></quantity> to hold the mass still at <m>x=-5</m>.
+                            The spring force must <em>precisely</em> counterbalance this force in order for the mass to remain still as it's held, which means that <m>F_{S} = 10</m> since <m>F_{S}</m> pulls the mass to the right.
+                            Therefore <m>-k(-5) = 10</m> and so <m>k=2</m>, which gives <m>\omega_{0} = \xqrt{2}{5}}</m>.
+                            This means that the period of motion is 
+                            <me>T = \frac{2\pi}{\omega_{0}} = 2\pi\sqrt{\frac{5}{2}}.</me>
+                        </p>
+                        <p>
+                            To find <m>x(t)</m>, we'll use the fact that it can be written as <m>x = C\cos(\omega_{0}t-\varphi)</m>.
+                            Since <m>C = 5</m> (because the mass can never go more than five meters from the equilibrium position) and we already know that <m>\omega_{0} = \sqrt{\frac{2}{5}}</m>, we just need to find <m>\varphi</m>.
+                            We can just make use of the initial condition <m>x(0) = -5</m> to get this:
+                            <me>-5 = C\cos\varphi = 5\cos\varphi</me>
+                            and so we can choose <m>\varphi=\pi</m>.
+                            Hence
+                            <me>x(t) = 5\cos(\sqrt{\frac{2}{5}}t-\pi).</me>
+                        </p>
+                    </solution>
+                </example>
             </subsection>
     </section>
 <!-- I'm keeping these here for now in case I need to see how this is done later. -->
