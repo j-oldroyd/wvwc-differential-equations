@@ -470,6 +470,89 @@
             If we have imaginary roots, then we can simply use Euler's Formula to rewrite the solutions in terms of sine and cosine.
         </p>
     </section>
+    <section xml:id="section-spring-mass-models">
+        <title>Spring-mass Models</title>
+        <introduction>
+            <p>
+                In this section we examine a common application of second-order ODEs: modeling movement in a spring-mass system.
+                We will look at two different types of motion: undamped and damped.
+            </p>
+        </introduction>
+            <subsection xml:id="subsection-free-undamped-motion">
+                <title>Free Undamped Motion</title>
+                <p>
+                    Suppose we have a mass <m>m</m> attached to a spring as in the following diagram:
+                </p>
+                <figure xml:id="figure-spring-mass-system">
+                    <image width="50%">
+                        <latex-image-code><![CDATA[
+                            \begin{tikzpicture}
+                                % Stolen shamelessly from stackexchange.
+                                
+                                % This determines how the spring will look.
+                                \tikzstyle{spring}=[decorate,decoration={coil,pre length=0.3cm,post
+                                 length=0.3cm,segment length=3,amplitude=1.5mm}]
+
+                                \tikzstyle{ground}=[fill,pattern=north east lines,draw=none,minimum
+                                width=0.75cm,minimum height=0.3cm]
+
+                                % This draws the block.
+                                \node[draw,outer sep=0pt,thick] (M1) [minimum width=1cm, minimum height=1cm] {$m$};
+                                
+                                % This draws the spring.
+                                \draw[spring] ($(M1.west) - (4,0)$) -- ($(M1.west)$) node [midway,yshift=.5cm] {$F_{S}$};
+
+                                % This draws the walls and floor.
+                                \draw[thick] ($(M1.south west) - (4,0)$) -- ($(M1.north west) + (-4,.5)$);
+                                \draw[thick] ($(M1.south west) - (4,0)$) -- ($(M1.south west) + (4,0)$);
+                                
+                                \draw[thick] ($(M1.south east)$) -- ($(M1.south east) + (4,0)$);
+                                \draw[thick] ($(M1.south east) + (4,0)$) -- ($(M1.north east) + (4,.5)$);
+
+                                % This draws the equilibrium position.
+                                \draw[dashed] ($(M1.south west)-(2,.5)$) -- ($(M1.south west) - (2,-.5)$) node [below, yshift=-1cm,align=left] {\footnotesize Equilibrium\\ \footnotesize position}; 
+
+                                % This illustrates displacement.
+                                \draw [decorate,decoration={brace,amplitude=5pt,mirror},yshift=-2pt]
+                                ($(M1.south west)-(2,0)$) -- ($(M1.south west)$) node [black,midway,yshift=-10pt] {$x$};
+                            \end{tikzpicture}]]>
+                        </latex-image-code>
+                    </image>
+                    <caption>A spring-mass system.</caption>
+                </figure>
+                <p>
+                    If we let <m>x(t)</m> denote the displacement of the mass from the spring's equilibrium position and let <m>F_{S} = -kx</m> denote the force of the spring on the mass (see <xref ref="theorem-hooke-s-law" text="Hooke's Law" />, and assume that no other force is acting on the mass, then we know from <xref ref="example-a-second-order-model" text="type-global" /> that <m>x(t)</m> satisfies the second-order ODE given by
+                    <me>mx'' + kx = 0.</me>
+                    If we set <m>\omega_{0} = \sqrt{\frac{k}{m}}</m>, we can rewrite this to get
+                    <me>x'' + \omega_{0}^{2}x = 0.</me>
+                </p>
+                <p>
+                    One thing we can notice right away about solutions of <m>x''+\omega_{0}^{2}x = 0</m> is that they should all be periodic (see <xref ref="definition-periodic-functions" text="type-global" />), which, of course, makes sense!.
+                    To see why, note that the roots of the characteristic equation are <m>\pm i\omega_{0}</m>, which means that the solutions may be written in the form
+                    <me>x = c_{1}e^{-i\omega_{0}t} + c_{2}e^{i\omega_{0}t},</me>
+                    which we can rewrite as 
+                    <me>x = A\cos\omega_{0}t + B\sin\omega_{0}t</me>
+                    using Euler's Formula.
+                    Hence every solution of <m>x''+\omega_{0}^{2}x = 0</m> is a sinusoidal wave.
+                </p>
+                <p>
+                    We can go even further by making use of some clever algebra and the appropriate trigonometric formulas if we assume that <m>x\neq0</m> (i.e. <m>A</m> and <m>B</m> are not <em>both</em> <m>0</m>):
+                    <md>
+                        <mrow>x &amp; = A\cos\omega_{0}t + B\sin\omega_{0}t </mrow>
+                        <mrow> &amp; = \sqrt{A^{2}+B^{2}}\left(\frac{A}{\sqrt{A^{2}+B^{2}}}\cos\omega_{0}t + \frac{B}{\sqrt{A^{2} + B^{2}}}\sin\omega_{0}t\right) </mrow>
+                    </md>
+                    Now set <m>C = \sqrt{A^{2} + B^{2}}</m> and define <m>\varphi</m> implicitly by <m>\cos\varphi = \frac{A}{C}</m> and <m>\sin\varphi = \frac{B}{C}</m>.
+                    <aside>
+                        <p>
+                            There are infinitely many choices for <m>\varphi</m> here, but we can select a unique one if we make the extra restriction that <m>\varphi\in[0,2\pi)</m>.
+                        </p>
+                    </aside>
+                    Then we get
+                    <me>x = \cos\varphi\cos\omega_{0}t + \sin\varphi\sin\omega_{0}t = \cos(\omega_{0}t - \varphi).</me>
+                    <m>C</m> is the <term>amplitude</term> of the wave <m>x</m>, <m>\omega_{0}</m> is the <term>circular frequency</term> and <m>\varphi</m> is the <term>phase</term>.
+                </p>
+            </subsection>
+    </section>
 <!-- I'm keeping these here for now in case I need to see how this is done later. -->
 <!--     <xi:include href="./sage/integers-sage.xml" />
     <xi:include href="./sage/integers-sage-exercises.xml" /> -->
