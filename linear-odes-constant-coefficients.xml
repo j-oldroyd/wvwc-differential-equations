@@ -585,6 +585,13 @@
                             <me>x(t) = 5\cos(\sqrt{\frac{2}{5}}t-\pi).</me>
                         </p>
                     </solution>
+                    <aside>
+                        <p>
+                            You may be troubled by the fact that we only explicitly used the first initial condition in this example.
+                            However, the second condition <m>x'(0) = 0</m> was actually used implicitly: it allowed us to assume that the amplitude was <m>5</m> as opposed to another number.
+                            If <m>x'(0)\neq0</m>, finding <m>C</m> would have been a little trickier.
+                        </p>
+                    </aside>
                 </example>
             </subsection>
     </section>
