@@ -594,6 +594,75 @@
                     </aside>
                 </example>
             </subsection>
+            <subsection xml:id="subsection-free-damped-motion">
+                <title>Free Damped Motion</title>
+                <p>
+                    Now we look at how the motion of a mass attached to a spring is altered if the motion is <em>damped</em>, say, by a dashpot.
+                    See <xref ref="figure-damped-spring" text="type-global" />.
+                </p>
+                <figure xml:id="figure-damped-spring">
+                    <image xml:id="image-damped-spring">
+                        <latex-image-code><![CDATA[
+                            \begin{tikzpicture}
+                            % Stolen shamelessly from stackexchange.
+
+                            % This determines how the spring will look.
+                            \tikzstyle{spring}=[decorate,decoration={coil,pre length=0.3cm,post
+                             length=0.3cm,segment length=3,amplitude=1.5mm}]
+
+                             \tikzstyle{damper}=[decoration={markings,  
+                               mark connection node=dmp,
+                               mark=at position 0.5 with 
+                               {
+                                 \node (dmp) [thick,inner sep=0pt,transform shape,rotate=-90,minimum
+                             width=15pt,minimum height=3pt,draw=none] {};
+                                 \draw [thick] ($(dmp.north east)+(2pt,0)$) -- (dmp.south east) -- (dmp.south
+                             west) -- ($(dmp.north west)+(2pt,0)$);
+                                 \draw [thick] ($(dmp.north)+(0,-5pt)$) -- ($(dmp.north)+(0,5pt)$);
+                               }
+                             }, decorate]
+
+                             \tikzstyle{ground}=[fill,pattern=north east lines,draw=none,minimum
+                             width=0.75cm,minimum height=0.3cm]
+
+                            % This draws the block.
+                             \node[draw,outer sep=0pt,thick] (M1) [minimum width=1cm, minimum height=1cm] {$m$};
+
+                            % This draws the spring.
+                             \draw[spring] ($(M1.west) - (4,0)$) -- ($(M1.west)$) node [midway,yshift=.5cm] {$F_{S}$};
+
+                            % This draws the dashpot.
+                             \draw[damper] ($(M1.east)$) -- ($(M1.east) + (4,0)$) node [midway,yshift=.5cm] {$F_{R}$};
+
+                            % This draws the walls and floor.
+                             \draw[thick] ($(M1.south west) - (4,0)$) -- ($(M1.north west) + (-4,.5)$);
+                             \draw[thick] ($(M1.south west) - (4,0)$) -- ($(M1.south west) + (4,0)$);
+
+                             \draw[thick] ($(M1.south east)$) -- ($(M1.south east) + (4,0)$);
+                             \draw[thick] ($(M1.south east) + (4,0)$) -- ($(M1.north east) + (4,.5)$);
+
+                            % This draws the equilibrium position.
+                            \draw[dashed] ($(M1.south west)-(2,.5)$) -- ($(M1.south west) - (2,-.5)$) node [below, yshift=-1cm,align=left] {\footnotesize Equilibrium\\ \footnotesize position}; 
+
+                            % This illustrates displacement.
+                            \draw [decorate,decoration={brace,amplitude=5pt,mirror},yshift=-2pt]
+                            ($(M1.south west)-(2,0)$) -- ($(M1.south west)$) node [black,midway,yshift=-10pt] {$x$};
+
+                            \end{tikzpicture}]]>
+                        </latex-image-code>
+                    </image>
+                    <caption>A damped spring-mass system.</caption>
+                </figure>
+                <p>
+                    Now in addition to the spring force <m>F_{S}</m>, we must also worry about the force <m>F_{R}</m> of the dashpot on the mass.
+                    <m>F_{R}</m> is always going to act against the velocity of the mass, so for simplicity we assume that <m>F_{R} = -cx'</m> for some <m>c &gt; 0</m>.
+                    Using <m>F_{S} = -kx</m> as usual in conjunction with Newton's Second Law gives us the second-order ODE
+                    <me>-cx'-kx = mx''\quad\text{or}\quad mx'' + cx + kx = 0.</me>
+                </p>
+                <p>
+                    This ODE is homogeneous and has constant coefficients so we may solve it using the method of characteristic equations.
+                </p>
+            </subsection>
     </section>
 <!-- I'm keeping these here for now in case I need to see how this is done later. -->
 <!--     <xi:include href="./sage/integers-sage.xml" />

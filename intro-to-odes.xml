@@ -342,7 +342,7 @@
                     </p>
                     <figure xml:id="figure-dirfield-template">
                         <image width="50%">
-                            <latex-image-code><![CDATA[
+                            <latex-image><![CDATA[
                                 \begin{tikzpicture}
                                 \begin{axis}[%
                                 axis x line = center,
@@ -374,7 +374,7 @@
                                 };
                                 \end{axis}
                             \end{tikzpicture}]]>
-                        </latex-image-code>
+                        </latex-image>
                     </image>
                 </figure>
                 </statement>
@@ -411,7 +411,7 @@
                     </p>
                     <figure>
                         <image width="50%">
-                            <latex-image-code><![CDATA[
+                            <latex-image><![CDATA[
                                 \def\length{sqrt(1+(x-y)^2)}
                                 \begin{tikzpicture}
                                 \begin{axis}[
@@ -447,7 +447,7 @@
                                 };
                                 \end{axis}
                                 \end{tikzpicture}]]>
-                            </latex-image-code>
+                            </latex-image>
                         </image>
                     </figure>
                 </solution>
@@ -930,7 +930,7 @@
                 Let's draw a rectangle around this point:
                 <figure xml:id="figure-existence-and-uniqueness-1">
                     <image width="50%">
-                        <latex-image-code><![CDATA[
+                        <latex-image><![CDATA[
                             \begin{tikzpicture}
                                 \begin{axis}[%
                                 axis x line = center,
@@ -950,7 +950,7 @@
                                 } node[above right]{$(x_{0},y_{0})$};
                                 \end{axis}
                             \end{tikzpicture}]]>
-                        </latex-image-code>
+                        </latex-image>
                     </image>
                 </figure>
             </p>
@@ -1000,6 +1000,152 @@
                 for all <m>n\geq1</m>.
                 This method doesn't always work, but if <m>f(x,y)</m> satisfies the conditions given in <xref ref="theorem-existence-and-uniqueness-theorem" text="type-global" /> then this method will (after potentially infinitely many steps) provide a solution to the IVP.
             </p>
+        </subsection>
+    </section>
+    <section xml:id="section-population-models-and-autonomous-equations">
+        <title>Population Models and Autonomous Equations</title>
+        <subsection xml:id="subsection-population-equations">
+            <title>Population Equations</title>
+            <p>
+                Suppose we're monitoring the population of some species, and let's denote the population at time <m>t</m> by <m>P(t)</m>.
+                An obvious question to consider is how that population will change over time.
+                Mathematically, this means we want to obtain information on <m>\dv{P}{t}</m> and then use it to estimate <m>P(t)</m>.
+            </p>
+            <p>
+                A simple model for <m>\dv{P}{t}</m> is to assume it depends only on the birth rate <m>\beta</m> and death rate <m>\delta</m> of the species in question.
+                Then we can write
+                <men xml:id="equation-natural-growth">
+                    \dv{P}{t} = (\beta - \delta)P.
+                </men>
+                If we assume that <m>\beta,\delta</m> are constants, then this equation is separable and we can solve it to obtain
+                <me>
+                    P(t) = P_{0}e^{(\beta - \delta)t},
+                </me>
+                where <m>P_{0}</m> represents the "initial population", or population at time <m>t = 0</m>.
+                We call <xref ref="equation-natural-growth" text="type-global" /> the <term>natural growth equation</term>.
+            </p>
+            <p>
+                The natural growth equation is simple, but it's probably too simple to be useful expect in certain scenarios (such as measuring half-life).
+                To get a more flexible model, we can generalize <xref ref="equation-natural-growth" text="type-global" /> by assuming that the birth and death rates are actually functions of time.
+                This gives us the <term>general population equation</term>.
+            </p>
+            <definition xml:id="definition-general-population-equation">
+                <title>General Population Equation</title>
+                <statement>
+                    <p>
+                        The general population equation for a population <m>P(t)</m> is given by
+                        <me>\dv{P}{t} = (\beta(t) - \delta(t))P.</me>
+                    </p>
+                </statement>
+            </definition>
+            <example xml:id="example-population-explosion">
+                <title>Population Explosion</title>
+                <statement>
+                    <p>
+                        A population has <m>100</m> members at time <m>t = 0</m> years with a death rate of <m>.25P</m> and a birth rate of <m>.5P</m>, where <m>P(t)</m> denotes the population after <m>t</m> years.
+                        Find <m>P(t)</m> and determine if this is a reasonable population model.
+                    </p>
+                </statement>
+                <solution>
+                    <p>
+                        If we assume that the population obeys the general growth equation, then we get
+                        <me>P' = .25P^{2}, P(0) = 100.</me>
+                        This ODE is separable, and we can therefore solve it to get
+                        <me>P(t) = \frac{100}{1 - 25t}.</me>
+                    </p>
+                    <p>
+                        So we have a solution, and furthermore <xref ref="theorem-existence-and-uniqueness-theorem" text="type-global" /> guarantees that the solution is unique.
+                        But if you stare at this for a bit, you might see that it has a divide-by-zero problem.
+                        In particular, 
+                        <me>\lim_{t\to(\frac{1}{25})^{+}}P(t) = \infty.</me>
+                        In other words, the population becomes infinite in about two weeks!
+                    </p>
+                </solution>
+            </example>
+        </subsection>
+        <subsection xml:id="subsection-the-logistic-equation">
+            <title>The Logistic Equation</title>
+            <p>
+                <xref ref="example-population-explosion" text="type-global" /> shows that we need to be more careful with our assumptions on population growth.
+                One relatively simple assumption we can make is to assume that the birth rate <m>\beta(t)</m> decreases as population <m>P</m> increases.
+                This makes sense in the physical world as well: as population increases, existing and finite resources (such as food) must be shared between more and more members of the population.
+                Since there's less to go around, we should expect growth to slow down.
+                In particular, let's assume that
+                <md>
+                    <mrow>\beta(t) &amp; = \beta_{0} - \beta_{1}P </mrow>
+                    <mrow>\delta(t) &amp; = \delta_{0} </mrow>
+                </md>
+                where <m>\beta_{0},\beta_{1}</m> and <m>\delta_{0}</m> are all positive constants.
+                Then the population equation for this scenario becomes
+                <me>\dv{P}{t} = (\beta_{0} - \beta_{1}P - \delta_{0})P.</me>
+            </p>
+            <p>
+                With a little algebra, we get the <term>logistic equation</term>:
+                <me>\dv{P}{t} = kP(M-P)</me>
+                for constants <m>k</m> and <m>M</m>.
+                This equation is separable, and can be solved using partial fractions to obtain
+                <me>P(t) = \frac{MP_{0}}{P_{0} + (M - P_{0})e^{-kMt}},</me>
+                where <m>P_{0} = P(0)</m>.
+                In order to verify the reasonableness of our logistic model, let's see what happens to the population as time increases.
+            </p>
+            <example xml:id="example-long-term-behavior-of-logistic-growth">
+                <title>Long-Term Behavior of Logistic Growth</title>
+                <statement>
+                    <p>
+                        What is the long-term population of a species that grows according to the logistic equation <m>\dv{P}{t} = kP(M-P)</m>?
+                    </p>
+                </statement>
+                <solution>
+                    <p>
+                        Using the fact that 
+                        <me>P(t) = \frac{MP_{0}}{P_{0} + (M - P_{0})e^{-kMt}},</me>
+                        we have
+                        <me>\lim_{t\to\infty}P(t) = M.</me>
+                        So the population should eventually level out at <m>M</m>.
+                    </p>
+                </solution>
+            </example>
+            <p>
+                In the logistic equation <m>P' = kP(M-P)</m>, the value <m>M</m> is the <term>carrying capacity</term>, and denotes the maximum sustainable population according to the model.
+            </p>
+            <example xml:id="example-population-growth-in-the-usa">
+                <title>Population Growth in the USA</title>
+                <statement>
+                    <p>
+                        In millions, the population of the USA in 1990 was <m>250</m> and was growing at a rate of <m>3.1</m> per year.
+                        In 2012, the population was <m>314</m> and was growing at a rate of <m>2.3</m> per year.
+                        Assuming that the population of the USA grows logistically, estimate the population of the USA in 2017 and compare it to the current estimate of <m>325.7</m>.
+                    </p>
+                </statement>
+                <solution>
+                    <p>
+                        Let <m>P(t)</m> denote the population of the USA (in millions), where <m>t</m> is the number of years after 1990.
+                        Then
+                        <me>\dv{P}{t} = kP(M-P)</me>
+                        and
+                        <me>P(t) = \frac{MP_{0}}{P_{0} + (M - P_{0})e^{-kMt}}.</me>
+                        So we need to find <m>k</m> and <m>M</m>.
+                    </p>
+                    <p>
+                        When <m>t = 0</m>, we have <m>P' = 3.1</m> and <m>P = 250</m>.
+                        Similarly, when <m>t = 22</m> we have <m>P' = 2.3</m> and <m>P = 314</m>.
+                        Therefore
+                        <md>
+                            <mrow>3.1 &amp; = 250k(M - 250) </mrow>
+                            <mrow>2.3 &amp; = 314k(M - 314) </mrow>
+                        </md>
+                        Solving this system gives us <m>k\approx.00008</m> and <m>M \approx 406.4</m>.
+                        Hence
+                        <me>P(t) = \frac{101600}{250 + 156.4e^{-.03t}}.</me>
+                    </p>
+                    <p>
+                        This model estimates the population in 2017 to be
+                        <me>P(27) = 317.9,</me>
+                        which is about a <m>2\%</m> error.
+                        Note also that this model predicts the carrying capacity of the USA to be <m>406.4</m>.
+                    </p>
+                </solution>
+            </example>
         </subsection>
     </section>
 <!-- I'm keeping these here for now in case I need to see how this is done later. -->
