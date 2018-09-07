@@ -12,13 +12,19 @@
 
 <chapter xml:id="fourier-analysis" xmlns:xi="http://www.w3.org/2001/XInclude">
     <title>Fourier Analysis</title>
-
     <introduction>
         <p>Our goal now is to move to solving <em>partial</em> differential equations (PDEs), which are differential equations that involve multiple independent variables. Such equations are particularly useful for modeling quantities that depend on position <m>x</m> and time <m>t</m>. It turns out that these partial differential equations often involve periodic functions. So our first step to solving PDEs will be to find useful descriptions of periodic (and in some cases, non-periodic) functions.</p>
     </introduction>
     <section xml:id="section-fourier-series">
         <title>Fourier Series</title>
-        <p>The main idea behind Fourier series, and the field of harmonic analysis in general, is to represent more complicated objects in terms of simpler objects. A fundamental example of this idea comes from the field of linear algebra in the form of <em>orthonormal bases</em>. Knowing an orthonormal basis for a vector space <m>V</m> can greatly simplify linear algebra in that vector space. In this section, we'll do something similar with periodic functions.</p>
+        <introduction>
+            <p>
+                The main idea behind Fourier series, and the field of harmonic analysis in general, is to represent more complicated objects in terms of simpler objects. 
+                A fundamental example of this idea comes from the field of linear algebra in the form of <em>orthonormal bases</em>. 
+                Knowing an orthonormal basis for a vector space <m>V</m> can greatly simplify linear algebra in that vector space. 
+                In this section, we'll do something similar with periodic functions.
+            </p>
+        </introduction>
         <subsection xml:id="subsection-periodic-functions">
             <title>Periodic Functions</title>
             <p>Consider the function <m>f(x)</m> given by the following graph:</p>
@@ -246,8 +252,11 @@
 
     <section xml:id="section-functions-of-arbitrary-period-even-and-odd-extensions">
         <title>Functions of Arbitrary Period; Even and Odd Extensions</title>
-        <p>Now that we know how to find Fourier series of periodic functions with period <m>2\pi</m>, we'd like to extend this idea to more general periodic functions, and then eventually to find Fourier series to represent (in some way) functions that aren't periodic.</p>
-
+        <introduction>    
+            <p>
+                Now that we know how to find Fourier series of periodic functions with period <m>2\pi</m>, we'd like to extend this idea to more general periodic functions, and then eventually to find Fourier series to represent (in some way) functions that aren't periodic.
+            </p>
+        </introduction>
         <subsection xml:id="subsection-fourier-series-of-functions-of-arbitrary-period">
             <title>Fourier Series of Functions of Arbitrary Period</title>
             <p>We know how to find the Fourier series of a function of period <m>2\pi</m> by using Theorem <xref ref="theorem-fourier-series-coefficients" />. So we'd like to adapt this to functions that have period <m>p = 2L</m> instead of <m>2\pi</m>. This actually won't be too hard to do, since any function of period <m>2L</m> can be scaled into a function with period <m>2\pi</m>.</p>
@@ -403,8 +412,12 @@
 
     <section xml:id="section-complex-fourier-series-and-parsevals-identity">
         <title>Complex Fourier Series and Parseval's Identity</title>
-        <p>Although we have a decent formula for Fourier series (see Theorem <xref ref="theorem-fourier-series-of-functions-with-arbitrary-period" />), it's a little unwieldy due to the different expressions for <m>a_{k},b_{k}</m> and <m>a_{0}</m>. We can fix this, perhaps surprisingly, by using complex exponentials and Euler's formula.</p>
-
+        <introduction>
+            <p>
+                Although we have a decent formula for Fourier series (see Theorem <xref ref="theorem-fourier-series-of-functions-with-arbitrary-period" />), it's a little unwieldy due to the different expressions for <m>a_{k},b_{k}</m> and <m>a_{0}</m>. 
+                We can fix this, perhaps surprisingly, by using complex exponentials and Euler's formula.
+            </p>
+        </introduction>
         <subsection xml:id="subsection-complex-fourier-series">
             <title>Complex Fourier Series</title>
             <p>First, we recall <term>Euler's formula</term>.</p>

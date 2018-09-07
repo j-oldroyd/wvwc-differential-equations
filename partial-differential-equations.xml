@@ -12,15 +12,23 @@
 
 <chapter xml:id="partial-differential-equations" xmlns:xi="http://www.w3.org/2001/XInclude">
     <title>Partial Differential Equations</title>
-
     <introduction>
-        <p>Consider a rod that's recently been pulled out of the oven and is now cooling in a room. Let <m>T(t)</m> denote the temperature of the rod at time <m>t</m>, where <m>t</m> represents the amount of time since the rod was pulled out of the oven. Then we can model <m>T(t)</m> by using Newton's Law of Cooling, which states that
-        <me>\frac{dT}{dt} = -k(T-A),</me>
-        where <m>k</m> is a positive constant and <m>A</m> represents the ambient temperature of the room. This is an ordinary differential equation since it involves only one independent variable (<m>t</m>).</p>
-
-        <p>This works just fine as a simple model of the temperature of the rod, but in reality the situation is likely to be more complicated. For instance, the temperature of the rod will likely vary over the surface of the rod at any given time <m>t</m>. So it's reasonable to assume that the temperature of the rod should depend on <em>two</em> variables, say, <m>x</m> (position on the rod) and <m>t</m> (time). So the temperature of the rod would be more accurately described by a function <m>u(x,t)</m>. In fact, as we will see later, the temperature <m>u(x,t)</m> can be described by the <term>heat equation</term>:</p>
+        <p>
+        	Consider a rod that's recently been pulled out of the oven and is now cooling in a room. Let <m>T(t)</m> denote the temperature of the rod at time <m>t</m>, where <m>t</m> represents the amount of time since the rod was pulled out of the oven. 
+        	Then we can model <m>T(t)</m> by using Newton's Law of Cooling, which states that
+	        <me>\frac{dT}{dt} = -k(T-A),</me>
+	        where <m>k</m> is a positive constant and <m>A</m> represents the ambient temperature of the room. This is an ordinary differential equation since it involves only one independent variable (<m>t</m>).
+	    </p>
+        <p>
+        	This works just fine as a simple model of the temperature of the rod, but in reality the situation is likely to be more complicated. 
+        	For instance, the temperature of the rod will likely vary over the surface of the rod at any given time <m>t</m>. So it's reasonable to assume that the temperature of the rod should depend on <em>two</em> variables, say, <m>x</m> (position on the rod) and <m>t</m> (time). 
+        	So the temperature of the rod would be more accurately described by a function <m>u(x,t)</m>. 
+        	In fact, as we will see later, the temperature <m>u(x,t)</m> can be described by the <term>heat equation</term>:
+        </p>
         <me>\frac{\partial u}{\partial t} = \frac{\partial^{2}u}{\partial x^{2}}.</me>
-        <p>This is an example of a <term>partial differential equation</term>.</p>
+        <p>
+        	This is an example of a <term>partial differential equation</term>.
+        </p>
     </introduction>
    <section xml:id="section-basic-concepts">
        <title>Basic Concepts</title>
@@ -55,8 +63,10 @@
 	    </subsection>
 	    <subsection xml:id="subsection-linear-homogeneous-pdes-and-the-superposition-principle">
 	        <title>Linear homogeneous PDEs and the superposition principle</title>
-	        
-	        <p>We will mostly be concerned with <term>linear PDEs</term>, which are PDEs where the only thing we're allowed to do to the function <m>u</m> and its derivatives is multiply it by a constant. A linear PDE is <term>homogeneous</term> if every term contains the function <m>u</m> or one of its derivatives. A <term>solution</term> of a PDE is a function <m>u</m> that satisfies the PDE.</p>
+	        <p>
+	        	We will mostly be concerned with <term>linear PDEs</term>, which are PDEs where the only thing we're allowed to do to the function <m>u</m> and its derivatives is multiply it by a constant. 
+	        	A linear PDE is <term>homogeneous</term> if every term contains the function <m>u</m> or one of its derivatives. A <term>solution</term> of a PDE is a function <m>u</m> that satisfies the PDE.
+	        </p>
 
 	        <example xml:id="example-solution-of-the-heat-equation">
 	            <title>Solution of the heat equation</title>
@@ -84,7 +94,8 @@
 	        <p>The superposition principle is incredibly useful since it allows us to find general solutions of PDEs, which makes solving linear homogeneous PDEs somewhat tractable. If a PDE fails to be linear or homogeneous, the superposition principle is not guaranteed to hold.</p>
 	        <example xml:id="example-failure-of-the-superposition-principle">
 	            <title>Failure of the superposition principle</title>
-	            <p>Consider the PDE given by
+	            <p>
+	            	Consider the PDE given by
 	            	<me>u_{t}+uu_{x} = 0.</me>
 	            	This PDE fails to be linear because the second term involves multiplying <m>u</m> with its derivative <m>u_{x}</m>. However, it's not too hard to check that <m>u(x,t) = \frac{x}{t+1}</m> is a solution of the PDE, since if we plug this function into the PDE we get
 	            	<md>
@@ -93,7 +104,8 @@
 	            	</md>
 	            	However, the closely related function <m>v(x,t) = 3u(x,t) = \frac{3x}{t+1}</m> is <em>not</em> a solution of the same PDE, since
 	            	<me>v_{t}+vv_{x} = \frac{6x}{(t+1)^{2}}\neq0</me>
-	            	So the superposition principle does not hold for this PDE.</p>
+	            	So the superposition principle does not hold for this PDE.
+	            </p>
 	        </example>
 	    </subsection>
 
@@ -312,12 +324,17 @@
 
    	<section xml:id="section-the-heat-equation">
        	<title>The Heat Equation</title>
-       	<p>The last equation we will look at is the <term>heat equation</term>, which models the temperature distribution of a thin bar of uniform density and constant cross-section placed along the <m>x</m>-axis. We also assume that the bar is perfectly insulated on its surface, so that heat flows along the bar in the <m>x</m>-direction only. With these assumptions, the temperature <m>u(x,t)</m> of the bar at position <m>x</m> and time <m>t</m> satisfies the PDE</p>
-       	<md>
-       		<mrow>\pdv{u}{t} &amp; = c^{2}\pdv[2]{u}{x}. </mrow>
-       	</md>
-       	<p>This is called the <term>one-dimensional heat equation</term>.</p>
-
+       	<introduction>
+	       	<p>
+	       		The last equation we will look at is the <term>heat equation</term>, which models the temperature distribution of a thin bar of uniform density and constant cross-section placed along the <m>x</m>-axis. 
+	       		We also assume that the bar is perfectly insulated on its surface, so that heat flows along the bar in the <m>x</m>-direction only. 
+	       		With these assumptions, the temperature <m>u(x,t)</m> of the bar at position <m>x</m> and time <m>t</m> satisfies the PDE
+	       	</p>
+	       	<md>
+	       		<mrow>\pdv{u}{t} &amp; = c^{2}\pdv[2]{u}{x}. </mrow>
+	       	</md>
+	       	<p>This is called the <term>one-dimensional heat equation</term>.</p>
+       </introduction>
        	<subsection xml:id="subsection-bar-with-ends-fixed-at-">
        	    <title>Bar with ends fixed at <m>0</m></title>
        	    <p>We will start by solving the heat equation for the case where the bar has ends which are fixed at temperature <m>0</m>. If we're given an initial temperature distribution <m>f(x)</m>, then <m>u(x,t)</m> is the solution of the boundary value problem</p>

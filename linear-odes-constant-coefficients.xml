@@ -478,168 +478,36 @@
                 We will look at two different types of motion: undamped and damped.
             </p>
         </introduction>
-            <subsection xml:id="subsection-free-undamped-motion">
-                <title>Free Undamped Motion</title>
-                <p>
-                    Suppose we have a mass <m>m</m> attached to a spring as in the following diagram:
-                </p>
-                <figure xml:id="figure-spring-mass-system">
-                    <image width="50%">
-                        <latex-image-code><![CDATA[
-                            \begin{tikzpicture}
-                                % Stolen shamelessly from stackexchange.
-                                
-                                % This determines how the spring will look.
-                                \tikzstyle{spring}=[decorate,decoration={coil,pre length=0.3cm,post
-                                 length=0.3cm,segment length=3,amplitude=1.5mm}]
-
-                                \tikzstyle{ground}=[fill,pattern=north east lines,draw=none,minimum
-                                width=0.75cm,minimum height=0.3cm]
-
-                                % This draws the block.
-                                \node[draw,outer sep=0pt,thick] (M1) [minimum width=1cm, minimum height=1cm] {$m$};
-                                
-                                % This draws the spring.
-                                \draw[spring] ($(M1.west) - (4,0)$) -- ($(M1.west)$) node [midway,yshift=.5cm] {$F_{S}$};
-
-                                % This draws the walls and floor.
-                                \draw[thick] ($(M1.south west) - (4,0)$) -- ($(M1.north west) + (-4,.5)$);
-                                \draw[thick] ($(M1.south west) - (4,0)$) -- ($(M1.south west) + (4,0)$);
-                                
-                                \draw[thick] ($(M1.south east)$) -- ($(M1.south east) + (4,0)$);
-                                \draw[thick] ($(M1.south east) + (4,0)$) -- ($(M1.north east) + (4,.5)$);
-
-                                % This draws the equilibrium position.
-                                \draw[dashed] ($(M1.south west)-(2,.5)$) -- ($(M1.south west) - (2,-.5)$) node [below, yshift=-1cm,align=left] {\footnotesize Equilibrium\\ \footnotesize position}; 
-
-                                % This illustrates displacement.
-                                \draw [decorate,decoration={brace,amplitude=5pt,mirror},yshift=-2pt]
-                                ($(M1.south west)-(2,0)$) -- ($(M1.south west)$) node [black,midway,yshift=-10pt] {$x$};
-                            \end{tikzpicture}]]>
-                        </latex-image-code>
-                    </image>
-                    <caption>A spring-mass system.</caption>
-                </figure>
-                <p>
-                    If we let <m>x(t)</m> denote the displacement of the mass from the spring's equilibrium position and let <m>F_{S} = -kx</m> denote the force of the spring on the mass (see <xref ref="theorem-hooke-s-law" text="Hooke's Law" />, and assume that no other force is acting on the mass, then we know from <xref ref="example-a-second-order-model" text="type-global" /> that <m>x(t)</m> satisfies the second-order ODE given by
-                    <me>mx'' + kx = 0.</me>
-                    If we set <m>\omega_{0} = \sqrt{\frac{k}{m}}</m>, we can rewrite this to get
-                    <me>x'' + \omega_{0}^{2}x = 0.</me>
-                </p>
-                <p>
-                    One thing we can notice right away about solutions of <m>x''+\omega_{0}^{2}x = 0</m> is that they should all be periodic (see <xref ref="definition-periodic-functions" text="type-global" />), which, of course, makes sense!.
-                    To see why, note that the roots of the characteristic equation are <m>\pm i\omega_{0}</m>, which means that the solutions may be written in the form
-                    <me>x = c_{1}e^{-i\omega_{0}t} + c_{2}e^{i\omega_{0}t},</me>
-                    which we can rewrite as 
-                    <me>x = A\cos\omega_{0}t + B\sin\omega_{0}t</me>
-                    using Euler's Formula.
-                    Hence every solution of <m>x''+\omega_{0}^{2}x = 0</m> is a sinusoidal wave.
-                </p>
-                <p>
-                    We can go even further by making use of some clever algebra and the appropriate trigonometric formulas if we assume that <m>x\neq0</m> (i.e. <m>A</m> and <m>B</m> are not <em>both</em> <m>0</m>):
-                    <md>
-                        <mrow>x &amp; = A\cos\omega_{0}t + B\sin\omega_{0}t </mrow>
-                        <mrow> &amp; = \sqrt{A^{2}+B^{2}}\left(\frac{A}{\sqrt{A^{2}+B^{2}}}\cos\omega_{0}t + \frac{B}{\sqrt{A^{2} + B^{2}}}\sin\omega_{0}t\right) </mrow>
-                    </md>
-                    Now set <m>C = \sqrt{A^{2} + B^{2}}</m> and define <m>\varphi</m> implicitly by <m>\cos\varphi = \frac{A}{C}</m> and <m>\sin\varphi = \frac{B}{C}</m>.
-                    <aside>
-                        <p>
-                            There are infinitely many choices for <m>\varphi</m> here, but we can select a unique one if we make the extra restriction that <m>\varphi\in[0,2\pi)</m>.
-                        </p>
-                    </aside>
-                    Then we get
-                    <me>x = \cos\varphi\cos\omega_{0}t + \sin\varphi\sin\omega_{0}t = \cos(\omega_{0}t - \varphi).</me>
-                    <m>C</m> is the <term>amplitude</term> of the wave <m>x</m>, <m>\omega_{0}</m> is the <term>circular frequency</term>, <m>T = \frac{2\pi}{\omega_{0}}</m> is the <term>period</term> of motion and <m>\varphi</m> is the <term>phase</term>.
-                </p>
-                <example xml:id="example-another-spring-mass-system">
-                    <title>Another spring-mass system</title>
-                    <statement>
-                        <p>
-                            An object with a mass of <quantity><mag>5</mag><unit base="gram" prefix="kilo"/></quantity> is fixed to a spring and a force of <quantity><mag>10</mag><unit base="newton"/></quantity> holds the mass <quantity><mag>5</mag><unit base="meter"/></quantity> to the left of the spring's equilibrium position.
-                            If the object is released, how long will it take for the mass to return to its original position?
-                            And what is the position <m>x(t)</m> of the mass?
-                        </p>
-                    </statement>
-                    <solution>
-                        <p>
-                            Let <m>x(t)</m> denote the position of the mass <m>t</m> seconds after being released, so that <m>x(0) = -5</m> and <m>x'(0) = 0</m>.
-                            We could find the time it takes for the mass to return to its starting position by first finding <m>x(t)</m>, but a quicker way is to just find the period <m>T</m> of <m>x</m>.
-                            To do this, we must find the circular frequency <m>\omega_{0} = \sqrt{\frac{k}{m}}</m>.
-                            Thankfully, half of the work is done for us (we know <m>m=5</m>), so we only need the value of <m>k</m> which itself comes from Hooke's Law.
-                        </p>
-                        <p>
-                            Call the spring force <m>F_{S}</m> and recall that <m>F_{S} = -kx</m>.
-                            We know that it takes a force of <quantity><mag>10</mag><unit base="newton"/></quantity> to hold the mass still at <m>x=-5</m>.
-                            The spring force must <em>precisely</em> counterbalance this force in order for the mass to remain still as it's held, which means that <m>F_{S} = 10</m> since <m>F_{S}</m> pulls the mass to the right.
-                            Therefore <m>-k(-5) = 10</m> and so <m>k=2</m>, which gives <m>\omega_{0} = \sqrt{\frac{2}{5}}</m>.
-                            This means that the period of motion is 
-                            <me>T = \frac{2\pi}{\omega_{0}} = 2\pi\sqrt{\frac{5}{2}}.</me>
-                        </p>
-                        <p>
-                            To find <m>x(t)</m>, we'll use the fact that it can be written as <m>x = C\cos(\omega_{0}t-\varphi)</m>.
-                            Since <m>C = 5</m> (because the mass can never go more than five meters from the equilibrium position) and we already know that <m>\omega_{0} = \sqrt{\frac{2}{5}}</m>, we just need to find <m>\varphi</m>.
-                            We can just make use of the initial condition <m>x(0) = -5</m> to get this:
-                            <me>-5 = C\cos\varphi = 5\cos\varphi</me>
-                            and so we can choose <m>\varphi=\pi</m>.
-                            Hence
-                            <me>x(t) = 5\cos(\sqrt{\frac{2}{5}}t-\pi).</me>
-                        </p>
-                    </solution>
-                    <aside>
-                        <p>
-                            You may be troubled by the fact that we only explicitly used the first initial condition in this example.
-                            However, the second condition <m>x'(0) = 0</m> was actually used implicitly: it allowed us to assume that the amplitude was <m>5</m> as opposed to another number.
-                            If <m>x'(0)\neq0</m>, finding <m>C</m> would have been a little trickier.
-                        </p>
-                    </aside>
-                </example>
-            </subsection>
-            <subsection xml:id="subsection-free-damped-motion">
-                <title>Free Damped Motion</title>
-                <p>
-                    Now we look at how the motion of a mass attached to a spring is altered if the motion is <em>damped</em>, say, by a dashpot.
-                    See <xref ref="figure-damped-spring" text="type-global" />.
-                </p>
-                <figure xml:id="figure-damped-spring">
-                    <image xml:id="image-damped-spring">
-                        <latex-image-code><![CDATA[
-                            \begin{tikzpicture}
+        <subsection xml:id="subsection-free-undamped-motion">
+            <title>Free Undamped Motion</title>
+            <p>
+                Suppose we have a mass <m>m</m> attached to a spring as in the following diagram:
+            </p>
+            <figure xml:id="figure-spring-mass-system">
+                <image width="50%">
+                    <latex-image><![CDATA[
+                        \begin{tikzpicture}
                             % Stolen shamelessly from stackexchange.
-
+                            
                             % This determines how the spring will look.
                             \tikzstyle{spring}=[decorate,decoration={coil,pre length=0.3cm,post
                              length=0.3cm,segment length=3,amplitude=1.5mm}]
 
-                             \tikzstyle{damper}=[decoration={markings,  
-                               mark connection node=dmp,
-                               mark=at position 0.5 with 
-                               {
-                                 \node (dmp) [thick,inner sep=0pt,transform shape,rotate=-90,minimum
-                             width=15pt,minimum height=3pt,draw=none] {};
-                                 \draw [thick] ($(dmp.north east)+(2pt,0)$) -- (dmp.south east) -- (dmp.south
-                             west) -- ($(dmp.north west)+(2pt,0)$);
-                                 \draw [thick] ($(dmp.north)+(0,-5pt)$) -- ($(dmp.north)+(0,5pt)$);
-                               }
-                             }, decorate]
-
-                             \tikzstyle{ground}=[fill,pattern=north east lines,draw=none,minimum
-                             width=0.75cm,minimum height=0.3cm]
+                            \tikzstyle{ground}=[fill,pattern=north east lines,draw=none,minimum
+                            width=0.75cm,minimum height=0.3cm]
 
                             % This draws the block.
-                             \node[draw,outer sep=0pt,thick] (M1) [minimum width=1cm, minimum height=1cm] {$m$};
-
+                            \node[draw,outer sep=0pt,thick] (M1) [minimum width=1cm, minimum height=1cm] {$m$};
+                            
                             % This draws the spring.
-                             \draw[spring] ($(M1.west) - (4,0)$) -- ($(M1.west)$) node [midway,yshift=.5cm] {$F_{S}$};
-
-                            % This draws the dashpot.
-                             \draw[damper] ($(M1.east)$) -- ($(M1.east) + (4,0)$) node [midway,yshift=.5cm] {$F_{R}$};
+                            \draw[spring] ($(M1.west) - (4,0)$) -- ($(M1.west)$) node [midway,yshift=.5cm] {$F_{S}$};
 
                             % This draws the walls and floor.
-                             \draw[thick] ($(M1.south west) - (4,0)$) -- ($(M1.north west) + (-4,.5)$);
-                             \draw[thick] ($(M1.south west) - (4,0)$) -- ($(M1.south west) + (4,0)$);
-
-                             \draw[thick] ($(M1.south east)$) -- ($(M1.south east) + (4,0)$);
-                             \draw[thick] ($(M1.south east) + (4,0)$) -- ($(M1.north east) + (4,.5)$);
+                            \draw[thick] ($(M1.south west) - (4,0)$) -- ($(M1.north west) + (-4,.5)$);
+                            \draw[thick] ($(M1.south west) - (4,0)$) -- ($(M1.south west) + (4,0)$);
+                            
+                            \draw[thick] ($(M1.south east)$) -- ($(M1.south east) + (4,0)$);
+                            \draw[thick] ($(M1.south east) + (4,0)$) -- ($(M1.north east) + (4,.5)$);
 
                             % This draws the equilibrium position.
                             \draw[dashed] ($(M1.south west)-(2,.5)$) -- ($(M1.south west) - (2,-.5)$) node [below, yshift=-1cm,align=left] {\footnotesize Equilibrium\\ \footnotesize position}; 
@@ -647,22 +515,298 @@
                             % This illustrates displacement.
                             \draw [decorate,decoration={brace,amplitude=5pt,mirror},yshift=-2pt]
                             ($(M1.south west)-(2,0)$) -- ($(M1.south west)$) node [black,midway,yshift=-10pt] {$x$};
+                        \end{tikzpicture}]]>
+                    </latex-image>
+                </image>
+                <caption>A spring-mass system.</caption>
+            </figure>
+            <p>
+                If we let <m>x(t)</m> denote the displacement of the mass from the spring's equilibrium position and let <m>F_{S} = -kx</m> denote the force of the spring on the mass (see <xref ref="theorem-hooke-s-law" text="Hooke's Law" />, and assume that no other force is acting on the mass, then we know from <xref ref="example-a-second-order-model" text="type-global" /> that <m>x(t)</m> satisfies the second-order ODE given by
+                <me>mx'' + kx = 0.</me>
+                If we set <m>\omega_{0} = \sqrt{\frac{k}{m}}</m>, we can rewrite this to get
+                <me>x'' + \omega_{0}^{2}x = 0.</me>
+            </p>
+            <p>
+                One thing we can notice right away about solutions of <m>x''+\omega_{0}^{2}x = 0</m> is that they should all be periodic (see <xref ref="definition-periodic-functions" text="type-global" />), which, of course, makes sense!.
+                To see why, note that the roots of the characteristic equation are <m>\pm i\omega_{0}</m>, which means that the solutions may be written in the form
+                <me>x = c_{1}e^{-i\omega_{0}t} + c_{2}e^{i\omega_{0}t},</me>
+                which we can rewrite as 
+                <me>x = A\cos\omega_{0}t + B\sin\omega_{0}t</me>
+                using Euler's Formula.
+                Hence every solution of <m>x''+\omega_{0}^{2}x = 0</m> is a sinusoidal wave.
+            </p>
+            <p>
+                We can go even further by making use of some clever algebra and the appropriate trigonometric formulas if we assume that <m>x\neq0</m> (i.e. <m>A</m> and <m>B</m> are not <em>both</em> <m>0</m>):
+                <md>
+                    <mrow>x &amp; = A\cos\omega_{0}t + B\sin\omega_{0}t </mrow>
+                    <mrow> &amp; = \sqrt{A^{2}+B^{2}}\left(\frac{A}{\sqrt{A^{2}+B^{2}}}\cos\omega_{0}t + \frac{B}{\sqrt{A^{2} + B^{2}}}\sin\omega_{0}t\right) </mrow>
+                </md>
+                Now set <m>C = \sqrt{A^{2} + B^{2}}</m> and define <m>\varphi</m> implicitly by <m>\cos\varphi = \frac{A}{C}</m> and <m>\sin\varphi = \frac{B}{C}</m>.
+                <aside>
+                    <p>
+                        There are infinitely many choices for <m>\varphi</m> here, but we can select a unique one if we make the extra restriction that <m>\varphi\in[0,2\pi)</m>.
+                    </p>
+                </aside>
+                Then we get
+                <me>x = \cos\varphi\cos\omega_{0}t + \sin\varphi\sin\omega_{0}t = \cos(\omega_{0}t - \varphi).</me>
+                <m>C</m> is the <term>amplitude</term> of the wave <m>x</m>, <m>\omega_{0}</m> is the <term>circular frequency</term>, <m>T = \frac{2\pi}{\omega_{0}}</m> is the <term>period</term> of motion and <m>\varphi</m> is the <term>phase</term>.
+            </p>
+            <example xml:id="example-another-spring-mass-system">
+                <title>Another spring-mass system</title>
+                <statement>
+                    <p>
+                        An object with a mass of <quantity><mag>5</mag><unit base="gram" prefix="kilo"/></quantity> is fixed to a spring and a force of <quantity><mag>10</mag><unit base="newton"/></quantity> holds the mass <quantity><mag>5</mag><unit base="meter"/></quantity> to the left of the spring's equilibrium position.
+                        If the object is released, how long will it take for the mass to return to its original position?
+                        And what is the position <m>x(t)</m> of the mass?
+                    </p>
+                </statement>
+                <solution>
+                    <p>
+                        Let <m>x(t)</m> denote the position of the mass <m>t</m> seconds after being released, so that <m>x(0) = -5</m> and <m>x'(0) = 0</m>.
+                        We could find the time it takes for the mass to return to its starting position by first finding <m>x(t)</m>, but a quicker way is to just find the period <m>T</m> of <m>x</m>.
+                        To do this, we must find the circular frequency <m>\omega_{0} = \sqrt{\frac{k}{m}}</m>.
+                        Thankfully, half of the work is done for us (we know <m>m=5</m>), so we only need the value of <m>k</m> which itself comes from Hooke's Law.
+                    </p>
+                    <p>
+                        Call the spring force <m>F_{S}</m> and recall that <m>F_{S} = -kx</m>.
+                        We know that it takes a force of <quantity><mag>10</mag><unit base="newton"/></quantity> to hold the mass still at <m>x=-5</m>.
+                        The spring force must <em>precisely</em> counterbalance this force in order for the mass to remain still as it's held, which means that <m>F_{S} = 10</m> since <m>F_{S}</m> pulls the mass to the right.
+                        Therefore <m>-k(-5) = 10</m> and so <m>k=2</m>, which gives <m>\omega_{0} = \sqrt{\frac{2}{5}}</m>.
+                        This means that the period of motion is 
+                        <me>T = \frac{2\pi}{\omega_{0}} = 2\pi\sqrt{\frac{5}{2}}.</me>
+                    </p>
+                    <p>
+                        To find <m>x(t)</m>, we'll use the fact that it can be written as <m>x = C\cos(\omega_{0}t-\varphi)</m>.
+                        Since <m>C = 5</m> (because the mass can never go more than five meters from the equilibrium position) and we already know that <m>\omega_{0} = \sqrt{\frac{2}{5}}</m>, we just need to find <m>\varphi</m>.
+                        We can just make use of the initial condition <m>x(0) = -5</m> to get this:
+                        <me>-5 = C\cos\varphi = 5\cos\varphi</me>
+                        and so we can choose <m>\varphi=\pi</m>.
+                        Hence
+                        <me>x(t) = 5\cos(\sqrt{\frac{2}{5}}t-\pi).</me>
+                    </p>
+                </solution>
+                <aside>
+                    <p>
+                        You may be troubled by the fact that we only explicitly used the first initial condition in this example.
+                        However, the second condition <m>x'(0) = 0</m> was actually used implicitly: it allowed us to assume that the amplitude was <m>5</m> as opposed to another number.
+                        If <m>x'(0)\neq0</m>, finding <m>C</m> would have been a little trickier.
+                    </p>
+                </aside>
+            </example>
+        </subsection>
+        <subsection xml:id="subsection-free-damped-motion">
+            <title>Free Damped Motion</title>
+            <p>
+                Now we look at how the motion of a mass attached to a spring is altered if the motion is <em>damped</em>, say, by a dashpot.
+                See <xref ref="figure-damped-spring" text="type-global" />.
+            </p>
+            <figure xml:id="figure-damped-spring">
+                <image xml:id="image-damped-spring">
+                    <latex-image><![CDATA[
+                        \begin{tikzpicture}
+                        % Stolen shamelessly from stackexchange.
 
-                            \end{tikzpicture}]]>
-                        </latex-image-code>
-                    </image>
-                    <caption>A damped spring-mass system.</caption>
-                </figure>
-                <p>
-                    Now in addition to the spring force <m>F_{S}</m>, we must also worry about the force <m>F_{R}</m> of the dashpot on the mass.
-                    <m>F_{R}</m> is always going to act against the velocity of the mass, so for simplicity we assume that <m>F_{R} = -cx'</m> for some <m>c &gt; 0</m>.
-                    Using <m>F_{S} = -kx</m> as usual in conjunction with Newton's Second Law gives us the second-order ODE
-                    <me>-cx'-kx = mx''\quad\text{or}\quad mx'' + cx + kx = 0.</me>
-                </p>
-                <p>
-                    This ODE is homogeneous and has constant coefficients so we may solve it using the method of characteristic equations.
-                </p>
-            </subsection>
+                        % This determines how the spring will look.
+                        \tikzstyle{spring}=[decorate,decoration={coil,pre length=0.3cm,post
+                         length=0.3cm,segment length=3,amplitude=1.5mm}]
+
+                         \tikzstyle{damper}=[decoration={markings,  
+                           mark connection node=dmp,
+                           mark=at position 0.5 with 
+                           {
+                             \node (dmp) [thick,inner sep=0pt,transform shape,rotate=-90,minimum
+                         width=15pt,minimum height=3pt,draw=none] {};
+                             \draw [thick] ($(dmp.north east)+(2pt,0)$) -- (dmp.south east) -- (dmp.south
+                         west) -- ($(dmp.north west)+(2pt,0)$);
+                             \draw [thick] ($(dmp.north)+(0,-5pt)$) -- ($(dmp.north)+(0,5pt)$);
+                           }
+                         }, decorate]
+
+                         \tikzstyle{ground}=[fill,pattern=north east lines,draw=none,minimum
+                         width=0.75cm,minimum height=0.3cm]
+
+                        % This draws the block.
+                         \node[draw,outer sep=0pt,thick] (M1) [minimum width=1cm, minimum height=1cm] {$m$};
+
+                        % This draws the spring.
+                         \draw[spring] ($(M1.west) - (4,0)$) -- ($(M1.west)$) node [midway,yshift=.5cm] {$F_{S}$};
+
+                        % This draws the dashpot.
+                         \draw[damper] ($(M1.east)$) -- ($(M1.east) + (4,0)$) node [midway,yshift=.5cm] {$F_{R}$};
+
+                        % This draws the walls and floor.
+                         \draw[thick] ($(M1.south west) - (4,0)$) -- ($(M1.north west) + (-4,.5)$);
+                         \draw[thick] ($(M1.south west) - (4,0)$) -- ($(M1.south west) + (4,0)$);
+
+                         \draw[thick] ($(M1.south east)$) -- ($(M1.south east) + (4,0)$);
+                         \draw[thick] ($(M1.south east) + (4,0)$) -- ($(M1.north east) + (4,.5)$);
+
+                        % This draws the equilibrium position.
+                        \draw[dashed] ($(M1.south west)-(2,.5)$) -- ($(M1.south west) - (2,-.5)$) node [below, yshift=-1cm,align=left] {\footnotesize Equilibrium\\ \footnotesize position}; 
+
+                        % This illustrates displacement.
+                        \draw [decorate,decoration={brace,amplitude=5pt,mirror},yshift=-2pt]
+                        ($(M1.south west)-(2,0)$) -- ($(M1.south west)$) node [black,midway,yshift=-10pt] {$x$};
+
+                        \end{tikzpicture}]]>
+                    </latex-image>
+                </image>
+                <caption>A damped spring-mass system.</caption>
+            </figure>
+            <p>
+                Now in addition to the spring force <m>F_{S}</m>, we must also worry about the force <m>F_{R}</m> of the dashpot on the mass.
+                <aside>
+                    <p>Therefore <me>F_{R} = -cx'</me> for some constant <m>c \gt 0</m>.</p>
+                </aside>
+                <m>F_{R}</m> is always going to act against the velocity of the mass, so for simplicity we assume that <m>F_{R} = -cx'</m> for some <m>c &gt; 0</m>.
+                Using <m>F_{S} = -kx</m> as usual in conjunction with Newton's Second Law gives us the second-order ODE
+                <me>-cx'-kx = mx''\quad\text{or}\quad mx'' + cx + kx = 0.</me>
+            </p>
+            <p>
+                This ODE is homogeneous and has constant coefficients so we may solve it using the method of characteristic equations.
+                The characteristic equation of this ODE is
+                <men xml:id="equation-characteristic-free-damped">mr^{2} + cr + k = 0</men>
+                The roots of this equation are
+                <men xml:id="equation-characteristic-free-damped-roots">r_{1} = \frac{-c + \sqrt{c^{2} - 4km}}{2m}\quad\text{and}\quad r_{2} = \frac{-c - \sqrt{c^{2} - 4km}}{2m}.</men>
+                The behavior of this system therefore depends on the quantity <m>c^{2} - 4km</m>, and so we have three cases to consider.
+            </p>
+            <ol label="1:">
+                <li>
+                    <p>
+                        <m>c^{2} - 4km \gt 0</m>.
+                    </p>
+                    <p>
+                        In this case, the characteristic equation <xref ref="equation-characteristic-free-damped" text="type-global" /> has two real roots, and so the solution <m>x(t)</m> has the form
+                        <me>x(t) = c_{1}e^{r_{1}t} + c_{2}e^{r_{2}t}.</me>
+                        Now, <m>r_{1}</m> and <m>r_{2}</m> are both negative since <m>c^{2} - 4km \lt c^{2}</m> (remember that we're assuming that <m>k</m> and <m>m</m> are positive!).
+                        This means that <m>x(t)\to0</m> as <m>t\to\infty</m>.
+                        There is no oscillation present in the motion of the mass in this case since the mass never passes through <m>x = 0</m>, so we call this <term>overdamped motion</term>.
+                    </p>
+                </li>
+                <li>
+                    <p>
+                        <m>c^{2} - 4km = 0</m>.
+                    </p>
+                    <p>
+                        In this case, the characteristic equation <xref ref="equation-characteristic-free-damped" text="type-global" /> has a repeated (real) root, and so the solution <m>x(t)</m> takes the form
+                        <me>x(t) = e^{r_{1}t}(c_{1} + c_{2}t).</me>
+                        This mass can pass through <m>x = 0</m> only once, at <m>t = -\frac{c_{1}}{c_{2}}</m>.
+                        Once it does, the mass will "turn around" soon afterwards and beginning moving back to <m>0</m>, as in the first case.
+                        We call this type of motion <term>critically damped</term>, since it's right on the border between overdamped motion and oscillating motion.
+                    </p>
+                </li>
+                <li>
+                    <p>
+                        <m>c^{2} - 4km \lt 0</m>.
+                    </p>
+                    <p>
+                        In this case the characteristic equation <xref ref="equation-characteristic-free-damped" text="type-global" /> has two distinct complex roots of the form <m>r = a \pm bi</m>, where
+                        <me>a = -\frac{c}{2m}\quad\text{and}\quad b = \frac{\sqrt{4km - c^{2}}}{2m}.</me>
+                        In particular, the real part <m>a</m> of these roots is always negative.
+                        The solution <m>x(t)</m> in this case takes the form
+                        <me>x(t) = e^{at}(A\cos bt + B\sin bt)</me>
+                        after applying Euler's formula.
+                        As in the previous two cases, <m>x(t)\to0</m> as <m>t\to\infty</m>.
+                        However, oscillation is now present in the system for all time!
+                        We call this motion <term>underdamped</term>, since the damping term <m>e^{at}</m> is not strong enough to cancel out the oscillation present in the system.
+                        Note that the real part <m>a</m> contributes to the "amplitude" <m>e^{at}</m> of the motion, while the imaginary part <m>b</m> represents the angular frequency of the motion.
+                        The ordinary frequency of the motion is given by <m>\frac{b}{2\pi}</m>.
+                    </p>
+                </li>
+            </ol>
+            <example xml:id="example-a-spring-dashpot-system">
+                <title>A Spring-Dashpot System</title>
+                <statement>
+                    <p>
+                        Suppose that an object of mass <m>m = 25</m> is attached to both a spring and a dashpot.
+                        The mass is held <m>1</m> meter to the left of the spring's equilibrium position <m>x = 0</m>.
+                        The force of the spring on the mass is <m>F_{S} = -226x</m> and the force of the dashpot on the mass is <m>F_{R} = -10x'</m>, where <m>x</m> is the displacement of the mass.
+                        At time <m>t = 0</m>, the mass is released.
+                        Find <m>x(t)</m>.
+                    </p>
+                </statement>
+                <solution>
+                    <p>
+                        The ODE that models the motion of this mass is
+                        <me>25x'' + 10x' + 226x = 0,</me>
+                        and the roots of the corresponding characteristic equation are
+                        <me>r_{1} = -\frac{1}{5} \pm \frac{1}{5}\sqrt{-225} = -\frac{1}{5}\pm3i.</me>
+                        We can already see that the motion must be underdamped since we have complex roots, and the position <m>x(t)</m> itself is given by
+                        <me>x(t) = e^{-\frac{t}{5}}(A\cos3t + B\sin3t).</me>
+                    </p>
+                    <p>
+                        Now we can use the initial conditions <m>x(0) = -1</m> and <m>x'(0) = 0</m> to find <m>A</m> and <m>B</m>.
+                        Doing so, we quickly get <m>A = -1</m> and <m>B = -\frac{1}{15}</m>.
+                        Hence
+                        <me>x(t) = -e^{-\frac{t}{5}}\left(\cos3t + \frac{1}{15}\sin3t\right).</me>
+                    </p>
+                </solution>
+            </example>
+            <p>
+                As mentioned previously, the exponential term in <m>x(t)</m> from <xref ref="example-a-spring-dashpot-system" text="type-global" /> serves to dampen the motion of the spring.
+                This is illustrated in <xref ref="figure-damped-motion" text="type-global" />.
+            </p>
+            <figure xml:id="figure-damped-motion">
+                <image width="50%">
+                    <latex-image><![CDATA[
+                        \begin{tikzpicture}[scale=0.8]
+                            \begin{axis}[
+                                enlargelimits=false,
+                                legend cell align=left,
+                                axis x line = middle,
+                                xlabel = $t$,
+                                axis y line = center,
+                                ylabel = $x$,
+                                grid=both
+                                ]
+                                \addplot[domain=0:6*pi,samples=400,smooth,blue]{-exp(-.2*x)*cos(deg(3*x))-(1/15)*exp(-.2*x)*sin(deg(3*x))}; 
+                                \addlegendentry{$x(t)$}
+                    
+                                \addplot[domain=0:6*pi,samples=200,black,dashed]{-exp(-.2*x)};
+                                \addlegendentry{$e^{-\frac{t}{5}}$}
+                                \addplot[domain=0:6*pi,samples=200,black,dashed]{exp(-.2*x)}; 
+                            \end{axis}
+                        \end{tikzpicture}]]>
+                    </latex-image>
+                </image>
+                <caption><p>An exponential term damping motion.</p></caption>
+            </figure>
+        </subsection>
+    </section>
+    <section xml:id="section-solutions-of-nonhomogeneous-equations">
+        <title>Solutions of Non-homogeneous Equations</title>
+        <introduction>
+            <p>
+                In this section we'll deal with non-homogeneous equations and finding their solutions.
+                This will help us to model systems involving an external force.
+            </p>
+            <aside><p>This section corresponds to Section 2.7 of the text.</p></aside>
+        </introduction>
+        <subsection xml:id="subsection-the-method-of-undetermined-coefficients">
+            <title>The Method of Undetermined Coefficients</title>
+            <p>
+                Consider the non-homogeneous linear ODE with constant coefficients given by
+                <men xml:id="equation-non-homogeneous">ay'' + by' + cy = f(x).</men>
+                If <m>f(x)</m> were zero then we could solve this by finding the roots of the characteristic equations and using them to determine the appropriate form of the solution.
+                Although that's no longer enough if <m>f(x)\neq0</m>, our method for solving homogeneous equations still plays an important role.
+            </p>
+            <theorem xml:id="theorem-solution-of-non-homogeneous-equations">
+                <title>Solution of Non-homogeneous Equations</title>
+                <statement>
+                    <p>
+                        Consider the ODE given in <xref ref="equation-non-homogeneous" text="type-global" />.
+                        Let <m>y_{c}</m> (the <term>complementary solution</term>) denote the solution of the <term>associated homogeneous equation</term>
+                        <me>ay'' + by' + cy = 0</me>
+                        and let <m>y_{p}</m> (the <term>particular solution</term>) denote a single solution of <xref ref="equation-non-homogeneous" text="type-global" />.
+                        Then the general solution of <xref ref="equation-non-homogeneous" text="type-global" /> is given by <m>y = y_{c} + y_{p}</m>.
+                    </p>
+                </statement>
+            </theorem>
+            <p>
+                <xref ref="theorem-solution-of-non-homogeneous-equations" text="type-global" /> shows that to solve <xref ref="equation-non-homogeneous" text="type-global" />, we only need to solve the associated homogeneous equation (which we're quite used to by now!) and find a <em>single</em> solution of <xref ref="equation-non-homogeneous" text="type-global" />.
+                The method we will use is the <term>method of undetermined coefficients</term>, which we'll demonstrate by example.
+            </p>
+        </subsection>
     </section>
 <!-- I'm keeping these here for now in case I need to see how this is done later. -->
 <!--     <xi:include href="./sage/integers-sage.xml" />
