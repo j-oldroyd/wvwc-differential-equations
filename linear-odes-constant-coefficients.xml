@@ -471,11 +471,12 @@
         </p>
     </section>
     <section xml:id="section-spring-mass-models">
-        <title>Spring-mass Models</title>
+        <title>Spring-Mass Models</title>
         <introduction>
             <p>
                 In this section we examine a common application of second-order ODEs: modeling movement in a spring-mass system.
                 We will look at two different types of motion: undamped and damped.
+                Note that this section corresponds to Section 2.4 of the text.
             </p>
         </introduction>
         <subsection xml:id="subsection-free-undamped-motion">
@@ -484,7 +485,7 @@
                 Suppose we have a mass <m>m</m> attached to a spring as in the following diagram:
             </p>
             <figure xml:id="figure-spring-mass-system">
-                <image width="50%">
+                <image>
                     <latex-image><![CDATA[
                         \begin{tikzpicture}
                             % Stolen shamelessly from stackexchange.
@@ -530,7 +531,7 @@
                 One thing we can notice right away about solutions of <m>x''+\omega_{0}^{2}x = 0</m> is that they should all be periodic (see <xref ref="definition-periodic-functions" text="type-global" />), which, of course, makes sense!.
                 To see why, note that the roots of the characteristic equation are <m>\pm i\omega_{0}</m>, which means that the solutions may be written in the form
                 <me>x = c_{1}e^{-i\omega_{0}t} + c_{2}e^{i\omega_{0}t},</me>
-                which we can rewrite as 
+                which we can rewrite as
                 <me>x = A\cos\omega_{0}t + B\sin\omega_{0}t</me>
                 using Euler's Formula.
                 Hence every solution of <m>x''+\omega_{0}^{2}x = 0</m> is a sinusoidal wave.
@@ -572,7 +573,7 @@
                         We know that it takes a force of <quantity><mag>10</mag><unit base="newton"/></quantity> to hold the mass still at <m>x=-5</m>.
                         The spring force must <em>precisely</em> counterbalance this force in order for the mass to remain still as it's held, which means that <m>F_{S} = 10</m> since <m>F_{S}</m> pulls the mass to the right.
                         Therefore <m>-k(-5) = 10</m> and so <m>k=2</m>, which gives <m>\omega_{0} = \sqrt{\frac{2}{5}}</m>.
-                        This means that the period of motion is 
+                        This means that the period of motion is
                         <me>T = \frac{2\pi}{\omega_{0}} = 2\pi\sqrt{\frac{5}{2}}.</me>
                     </p>
                     <p>
@@ -655,9 +656,6 @@
             </figure>
             <p>
                 Now in addition to the spring force <m>F_{S}</m>, we must also worry about the force <m>F_{R}</m> of the dashpot on the mass.
-                <aside>
-                    <p>Therefore <me>F_{R} = -cx'</me> for some constant <m>c \gt 0</m>.</p>
-                </aside>
                 <m>F_{R}</m> is always going to act against the velocity of the mass, so for simplicity we assume that <m>F_{R} = -cx'</m> for some <m>c &gt; 0</m>.
                 Using <m>F_{S} = -kx</m> as usual in conjunction with Newton's Second Law gives us the second-order ODE
                 <me>-cx'-kx = mx''\quad\text{or}\quad mx'' + cx + kx = 0.</me>
@@ -806,6 +804,142 @@
                 <xref ref="theorem-solution-of-non-homogeneous-equations" text="type-global" /> shows that to solve <xref ref="equation-non-homogeneous" text="type-global" />, we only need to solve the associated homogeneous equation (which we're quite used to by now!) and find a <em>single</em> solution of <xref ref="equation-non-homogeneous" text="type-global" />.
                 The method we will use is the <term>method of undetermined coefficients</term>, which we'll demonstrate by example.
             </p>
+            <example xml:id="example-using-the-method-of-undetermined-coefficients">
+                <title>Using the Method of Undetermined Coefficients</title>
+                <statement>
+                    <p>
+                        Find the general solution of the ODE given by
+                        <me>y'' - y' - 2y = 3x + 4.</me>
+                    </p>
+                </statement>
+                <solution>
+                    <p>
+                        To find the general solution we need to do two things: find the complementary solution <m>y_{c}</m> of the associated homogeneous equation and find a single particular solution <m>y_{p}</m> of the given ODE.
+                        We already know how to find <m>y_{c},</m><aside><p>The characteristic equation of the ODE is <m>(r + 1)(r - 2)</m>.</p></aside> which is just
+                        <me>y_{c} = c_{1}e^{x} + c_{2}e^{-2x}.</me>
+                        Once we can find a single particular solution <m>y_{p}</m> we'll be finished.
+                    </p>
+                    <p>
+                        If we stare that the ODE, then we see that <m>y</m> and its derivatives must cancel each other and leave a polynomial.
+                        So it's reasonable to guess that a polynomial might be a solution of the ODE, or equivalently, <m>y_{p}</m> <em>should be a polynomial</em>.
+                        Since the degree<aside><p>Recall that the degree of a polynomial is just the highest power of the variable in the polynomial.</p></aside> of the right hand side is <m>1</m>, then <m>y_{p}</m> should probably be degree <m>1</m> as well.
+                        This means that <m>y_{p} = A_{1}x + A_{2}</m> for some constants <m>A_{1},A_{2}</m>.
+                    </p>
+                    <p>
+                        To find these constants (<term>undetermined coefficients</term>), we plug our guess into the ODE to get
+                        <me>0 - A_{1} - 2A_{1}x - 2A_{2} = 3x + 4.</me>
+                        The only way for this equation to be true is for
+                        <md>
+                            <mrow> -A_{1} - 2A_{2} &amp; = 4 </mrow>
+                            <mrow> -2A_{1} &amp; = 3</mrow>
+                        </md>
+                        So <m>A_{1} = -\frac{3}{2}, A_{2} = \frac{5}{4}</m> and <m>y_{p} = -\frac{3}{2}x + \frac{5}{4}</m>.
+                        Hence the general solution of the ODE is
+                        <me>y = y_{c} + y_{p} = c_{1}e^{x} + c_{2}e^{-2x} - \frac{3}{2}x + \frac{5}{4}.</me>
+                    </p>
+                </solution>
+            </example>
+            <p>
+                Note that in <xref ref="example-using-the-method-of-undetermined-coefficients" text="type-global" />, we didn't need any initial conditions to find <m>y_{p}</m>.
+                This means that if a non-homogeneous ODE like the one in <xref ref="example-using-the-method-of-undetermined-coefficients" text="type-global" /> represents some physical system, then the initial configuration of that system <em>has no effect on <m>y_{p}</m></em>.
+                We will see soon that particular solutions correspond to external forces on a system, like gravity, whereas complementary solutions correspond to internal forces in a system, such as the spring force.
+            </p>
+            <example>
+                <statement>
+                    <p>
+                        Find the general solution of
+                        <me>y'' - 2y' + y = x - \sin(2x).</me>
+                    </p>
+                </statement>
+                <solution>
+                    <p>
+                        The general solution will take the form <m>y = y_{c} + y_{p}</m>.
+                        Once again, we find <m>y_{c}</m> by solving the characteristic equation to get
+                        <me>y_{c} = c_{1}x + c_{2}xe^{x}.</me>
+                    </p>
+                    <p>
+                        Now we can make a guess as to what <m>y_{p}</m> should be, once again based on the right hand side of the ODE.
+                        If we want to differentiate <m>y_{p}</m> and obtain <m>x - \sin(2x)</m>, then <m>y_{p}</m> should include both an <m>x</m> term and a <m>\sin(2x)</m> term.
+                        If we make the guess that <m>y_{p} = A_{1}x + A_{2}\sin(2x)</m>, then we get
+                        <md>
+                            <mrow> A_{1}x - 2A_{1} &amp; = x </mrow>
+                            <mrow> -4A_{2}\cos(2x) - 3A_{2}\sin(2x) &amp; = -\sin(2x) </mrow>
+                        </md>
+                        This forces <m>A_{1} = 1</m> <em>and</em> <m>A_{1} = 0</m>, as well as <m>A_{2} = \frac{1}{3}</m> <em>and</em> <m>A_{2} = 0</m>.
+                        Obviously, this is a problem!
+                    </p>
+                    <p>
+                        What happened here is we didn't give our guess for <m>y_{p}</m> enough flexibility.
+                        We know we want <m>y_{p}</m> to involve <m>x</m> and <m>\sin(2x)</m>, but as soon as we plug this into the ODE and start differentiating constant terms and cosine terms will begin to appear, and <em>we need to account for these as well</em>.
+                        So we'll update our guess for <m>y_{p}</m>, and assume
+                        <me>y_{p} = A_{1}x + A_{2} + A_{3}\cos(2x) + A_{4}\sin(2x).</me>
+                        Plugging this into the ODE and collecting like terms gives
+                        <md>
+                            <mrow>A_{1} &amp; = 1</mrow>
+                            <mrow>-2A_{1} + A_{2} &amp; = 0</mrow>
+                            <mrow>-3A_{3} - 4A_{4} &amp; = 0</mrow>
+                            <mrow>4A_{3} - 3A_{4} &amp; = -1</mrow>
+                        </md>
+                        Hence
+                        <md>
+                            <mrow>A_{1} &amp; = 1 </mrow>
+                            <mrow>A_{2} &amp; = 2 </mrow>
+                            <mrow>C &amp; = -\frac{4}{25} </mrow>
+                            <mrow>D &amp; = \frac{3}{25} </mrow>
+                        </md>
+                        and the solution of our ODE is
+                        <me>c_{1}e^{x} + c_{2}xe^{x} + x + 2 - \frac{4}{25}\cos(2x) + \frac{3}{25}\sin(2x).</me>
+                    </p>
+                </solution>
+            </example>
+            <example xml:id="example-method-of-undetermined-coefficients-with-overlap">
+                <title>Method of Undetermined Coefficients with Overlap</title>
+                <statement>
+                    <p>
+                        Find the solution <m>y(x)</m>m> of the IVP
+                        <me>y''+9y = 3\cos(3x),\quad y(0) = 1,y'(0) = -1</me>
+                    </p>
+                </statement>
+                <solution>
+                    <p>
+                        We can start this example the same way we've done the previous ones.
+                        First, we find <m>y_{c}</m> by solving <m>y''+9y=0</m>.
+                        So
+                        <me> y_{c} = c_{1}\cos(3x)+c_{2}\sin(3x).</me>
+                        Now we find <m>y_{p}</m>.
+                        Since the RHS of the ODE is <m>3\cos(3x)</m>, we'll guess that <m>y_{p} = A\cos(3x)+B\sin(3x)</m>.
+                        However, this will cause us problems!
+                        Since <m>\cos(3x),\sin(3x)</m> are both solutions of the corresponding homogeneous ODE, then plugging <m>y_{p}</m> into <m>y''+9y</m> will just give <m>0</m> again, instead of <m>3\cos(3x)</m>.
+                    </p>
+                    <p>
+                        The problem here is that our guess for <m>y_{p}</m> overlaps with <m>y_{c}</m>.
+                        To fix this, we'll multiply our guess for <m>y_{p}</m> by the <em>smallest</em> power of <m>x</m> that removes the overlap.
+                        In this case, we'll just multiply by <m>x</m> to get
+                        <me>y_{p} = x[A\cos(3x)+B\sin(3x)]</me>
+                        Now, we'll plug our modified guess into the ODE and set it equal to <m>3\cos(3x)</m>:
+                        <md>
+                            <mrow>3\cos(3x)&amp; = y_{p}'' + 9y</mrow>
+                            <mrow>&amp; = -6A\sin(3x)+6B\cos(3x)</mrow>
+                        </md>
+                        So we need <m>-6A = 0</m> and <m>6B = 3</m>, or just <m>A = 0,B = \frac{1}{2}</m>.
+                        Hence
+                        <me>y_{p} = x\left[\frac{1}{2}\sin(3x)\right],</me>
+                        and the general solution is then
+                        <me>y = y_{c}+y_{p} = c_{1}\cos(3x)+c_{2}\sin(3x) + \frac{x}{2}\sin(3x).</me>
+                    </p>
+                    <p>
+                        To find the solution of the IVP, we just plug in the initial conditions.
+                        Since <m>y(0) = 1</m>, this gives
+                        <me>1 = c_{1}.</me>
+                        And since
+                        <me>y' = -3c_{1}\sin(3x)+3c_{2}\cos(3x) + \frac{1}{2}\sin(3x)+\frac{3}{2}x\cos(3x),</me>
+                        <m>y'(0)=-1</m> gives
+                        <me>-1 = 3c_{2}\Rightarrow c_{2} = -\frac{1}{3}.</me>
+                        So
+                        <me>y = \cos(3x)-\frac{1}{3}\sin(3x)+\frac{x}{2}\sin(3x).</me>
+                    </p>
+                </solution>
+            </example>
         </subsection>
     </section>
 <!-- I'm keeping these here for now in case I need to see how this is done later. -->

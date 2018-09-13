@@ -14,24 +14,10 @@
 
     <titlepage>
         <author>
-            <personname>Darren Gemoets</personname>
-            <department>Department of Mathematics and Computer Science</department>
-            <institution>West Virginia Wesleyan College</institution>
-            <email>gemoets.g@wvwc.edu</email>
-        </author>
-
-        <author>
             <personname>Jesse Oldroyd</personname>
             <department>Department of Mathematics and Computer Science</department>
             <institution>West Virginia Wesleyan College</institution>
             <email>oldroyd.j@wvwc.edu</email>
-        </author>
-
-        <author>
-            <personname>Scott Zinzer</personname>
-            <department>Department of Mathematics and Computer Science</department>
-            <institution>West Virginia Wesleyan College</institution>
-            <email>zinzer_s@wvwc.edu</email>
         </author>
 
         <!-- <credit>
@@ -57,12 +43,12 @@
             <address>http://abstract.pugetsound.edu</address>
         </website>
 
-        <copyright>
+        <!-- <copyright>
             <year>2016<ndash />2016</year>
             <holder>Darren Gemoets, Jesse Oldroyd, Scott Zinzer</holder>
             <minilicense>GFDL License</minilicense>
             <shortlicense>Permission is granted to copy, distribute and/or modify this document under the terms of the GNU Free Documentation License, Version 1.2 or any later version published by the Free Software Foundation; with no Invariant Sections, no Front-Cover Texts, and no Back-Cover Texts.  A copy of the license is included in the appendix entitled <q>GNU Free Documentation License.</q>  All trademarks<trademark /> are the registered<registered /> marks of their respective owners.</shortlicense>
-        </copyright>
+        </copyright> -->
 
     </colophon>
 
