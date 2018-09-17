@@ -1201,7 +1201,7 @@
                         We can determine their stability by making use of a <term>phase diagram</term>, which is essentially a sign chart for <m>f(x) = -x^{2} + 7x - 10</m>:
                     </p>
                         <figure>
-                            <caption><p>The phase diagram for <m>x' = f(x).</m></p></caption>
+                            <caption>The phase diagram for <m>x' = f(x).</m></caption>
                             <image width="50%">
                                 <latex-image><![CDATA[
                                 \begin{tikzpicture}
@@ -1294,7 +1294,7 @@
                     </figure>
                     <p>
                         So we see that <m>c_{1}</m> is unstable while <m>c_{2}</m> is stable.
-                        In particular, as long as <p>P\geq c_{1} = 15 - \sqrt{3600 - 8h}</p>, then the rate of harvesting is sustainable.
+                        In particular, as long as <m>P\geq c_{1} = 15 - \sqrt{3600 - 8h}</m>, then the rate of harvesting is sustainable.
                     </p>
                     </li>
                     <li>

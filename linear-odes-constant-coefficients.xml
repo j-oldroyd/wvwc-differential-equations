@@ -90,13 +90,13 @@
                         <me>4x'' = -kx\quad\text{or}\quad4x''+kx = 0.</me>
                         So the motion of the mass is modeled by a linear, second-order homogeneous ODE.
                     </p>
-                    <aside>
-                        <p>
-                            The reason we take <m>F_{S} = -kx</m> in Hooke's Law is because we want to emphasize that the spring force is a <em>restoring force</em>, since it acts against the displacement of the mass.
-                        </p>
-                    </aside>
                 </solution>
             </example>
+            <aside>
+                <p>
+                    The reason we take <m>F_{S} = -kx</m> in Hooke's Law is because we want to emphasize that the spring force is a <em>restoring force</em>, since it acts against the displacement of the mass.
+                </p>
+            </aside>
             <p>
                 The general trend that we will see for mathematical models using linear ODEs is that they will be homogeneous if we assume that there is no external force, and nonhomogeneous if we assume there is an external force.
             </p>
@@ -132,10 +132,10 @@
                         We need to show that <m>y = c_{1}y_{1} + c_{2}y_{2}</m> is another solution of the same ODE, where <m>c_{1},c_{2}</m> are arbitrary constants.
                         To do this, we'll just plug the linear combination into the ODE and simplify:
                         <md>
-                            <mrow>y''+P(x)y'+Q(x)y &amp; = (c_{1}y_{1}+c_{2}y_{2})''+P(x)(c_{1}y_{1}+c_{2}y_{2})+Q(x)(c_{1}y_{1}+c_{2}y_{2})y </mrow>
-                            <mrow> &amp; = c_{1}y''_{1}+c_{2}y''_{2} + c_{1}P(x)y'_{1}+c_{2}P(x)y'_{2} + c_{1}Q(x)y_{1} + c_{2}Q(x)y_{2}</mrow>
-                            <mrow> &amp; = c_{1}(y''_{1}+P(x)y'_{1}+Q(x)y_{1}) + c_{2}(y''_{2}+P(x)y'_{2}+Q(x)y_{2}) </mrow>
-                            <mrow> &amp; = 0. </mrow>
+                            <mrow>y''+P(x)y'+Q(x)y \amp = (c_{1}y_{1}+c_{2}y_{2})''+P(x)(c_{1}y_{1}+c_{2}y_{2})+Q(x)(c_{1}y_{1}+c_{2}y_{2})y </mrow>
+                            <mrow> \amp = c_{1}y''_{1}+c_{2}y''_{2} + c_{1}P(x)y'_{1}+c_{2}P(x)y'_{2} + c_{1}Q(x)y_{1} + c_{2}Q(x)y_{2}</mrow>
+                            <mrow> \amp = c_{1}(y''_{1}+P(x)y'_{1}+Q(x)y_{1}) + c_{2}(y''_{2}+P(x)y'_{2}+Q(x)y_{2}) </mrow>
+                            <mrow> \amp = 0. </mrow>
                         </md>
                     </p>
                 </proof>
@@ -223,7 +223,7 @@
                     <p>
                         Let <m>f</m> and <m>g</m> denote two differentiable functions.
                         The Wronskian of <m>f</m> and <m>g</m>, denoted <m>W(f,g)</m>, is given by
-                        <me>W(f,g) = \left|\begin{matrix} f &amp; g \\ f' &amp; g' \end{matrix}\right| = fg' - f'g.</me>
+                        <me>W(f,g) = \left|\begin{matrix} f \amp g \\ f' \amp g' \end{matrix}\right| = fg' - f'g.</me>
                     </p>
                 </statement>
             </definition>
@@ -311,8 +311,8 @@
                 If we plug <m>e^{rx}</m> into the ODE, we get
             </p>
             <md>
-                <mrow>y''- y' - 6y &amp; = r^{2}e^{rx} - re^{rx} - 6e^{rx} </mrow>
-                <mrow> &amp; = e^{rx}(r^{2} - r - 6). </mrow>
+                <mrow>y''- y' - 6y \amp = r^{2}e^{rx} - re^{rx} - 6e^{rx} </mrow>
+                <mrow> \amp = e^{rx}(r^{2} - r - 6). </mrow>
             </md>
             <p>
                 So we need to set <m>e^{rx}(r^{2} - r - 6)</m> equal to <m>0</m> and solve for <m>r</m>, which gives
@@ -373,8 +373,8 @@
                 <p>
                     The initial conditions are <m>x(0) = 3</m> and <m>x'(0) = 0</m>, which give the equations
                     <md>
-                        <mrow>3 &amp; = c_{1} + c_{2} </mrow>
-                        <mrow>0 &amp; = -2ic_{1} + 2ic_{2} </mrow>
+                        <mrow>3 \amp = c_{1} + c_{2} </mrow>
+                        <mrow>0 \amp = -2ic_{1} + 2ic_{2} </mrow>
                     </md>
                     The second equation implies that <m>c_{1} = c_{2}</m>, and applying this to the first equation now gives <m>c_{1} = c_{2} = \frac{3}{2}</m>.
                     Hence the displacement of the mass is given by
@@ -393,9 +393,9 @@
                 <p>
                     For all <m>x</m>, the following equations hold:
                     <md>
-                        <mrow>e^{ix} &amp; = \cos x + i\sin x </mrow>
-                        <mrow>\cos x &amp; = \frac{e^{ix}+e^{-ix}}{2} </mrow>
-                        <mrow>\sin x &amp; = \frac{e^{ix} - e^{-ix}}{2i} </mrow>
+                        <mrow>e^{ix} \amp = \cos x + i\sin x </mrow>
+                        <mrow>\cos x \amp = \frac{e^{ix}+e^{-ix}}{2} </mrow>
+                        <mrow>\sin x \amp = \frac{e^{ix} - e^{-ix}}{2i} </mrow>
                     </md>
                 </p>
             </statement>
@@ -403,9 +403,9 @@
         <p>
             So using Euler's Formula on the solution from <xref ref="example-spring-mass-system-revisited" text="type-global" /> gives
             <md>
-                <mrow>x &amp; = \frac{3}{2}e^{-2it} + \frac{3}{2} e^{2it} </mrow>
-                <mrow> &amp; = 3\frac{e^{-2it} + e^{2it}}{2} </mrow>
-                <mrow> &amp; = 3\cos2t. </mrow>
+                <mrow>x \amp = \frac{3}{2}e^{-2it} + \frac{3}{2} e^{2it} </mrow>
+                <mrow> \amp = 3\frac{e^{-2it} + e^{2it}}{2} </mrow>
+                <mrow> \amp = 3\cos2t. </mrow>
             </md>
             So the imaginary roots <m>\pm2i</m> from <xref ref="example-spring-mass-system-revisited" text="type-global" /> actually relate to the <em>frequency</em> of the spring-mass system in that problem.
             This is a trend we will see often in this course: imaginary numbers corresponding to oscillating quantities.
@@ -433,8 +433,8 @@
                     In other words, we'll guess (and check!) that <m>y_{2} = xe^{-x}</m> is another solution of <m>y''+2y'+y = 0</m>.
                     If we plug <m>y_{2}</m> into the ODE, we get
                     <md>
-                        <mrow>y''_{2} + 2y'_{2} + y_{2} &amp; = \underbrace{-2e^{-x} + xe^{-x}}_{y''_{2}} + \underbrace{2e^{-x} - 2xe^{-x}}_{y'_{2}} + \underbrace{xe^{-x}}_{y_{2}} </mrow>
-                        <mrow> &amp; = 0, </mrow>
+                        <mrow>y''_{2} + 2y'_{2} + y_{2} \amp = \underbrace{-2e^{-x} + xe^{-x}}_{y''_{2}} + \underbrace{2e^{-x} - 2xe^{-x}}_{y'_{2}} + \underbrace{xe^{-x}}_{y_{2}} </mrow>
+                        <mrow> \amp = 0, </mrow>
                     </md>
                     which shows that <m>y_{2}</m> is indeed a solution of the ODE.
                     Since it's also linearly independent (which we can check via the Wronskian), this means that the general solution of <m>y''+2y'+y=0</m> is
@@ -501,7 +501,7 @@
                             \node[draw,outer sep=0pt,thick] (M1) [minimum width=1cm, minimum height=1cm] {$m$};
                             
                             % This draws the spring.
-                            \draw[spring] ($(M1.west) - (4,0)$) -- ($(M1.west)$) node [midway,yshift=.5cm] {$F_{S}$};
+                            \draw[spring] ($(M1.west) - (4,0)$) -- ($(M1.west)$) node [midway,yshift=.5cm] {$F_{S} = -kx$};
 
                             % This draws the walls and floor.
                             \draw[thick] ($(M1.south west) - (4,0)$) -- ($(M1.north west) + (-4,.5)$);
@@ -539,8 +539,8 @@
             <p>
                 We can go even further by making use of some clever algebra and the appropriate trigonometric formulas if we assume that <m>x\neq0</m> (i.e. <m>A</m> and <m>B</m> are not <em>both</em> <m>0</m>):
                 <md>
-                    <mrow>x &amp; = A\cos\omega_{0}t + B\sin\omega_{0}t </mrow>
-                    <mrow> &amp; = \sqrt{A^{2}+B^{2}}\left(\frac{A}{\sqrt{A^{2}+B^{2}}}\cos\omega_{0}t + \frac{B}{\sqrt{A^{2} + B^{2}}}\sin\omega_{0}t\right) </mrow>
+                    <mrow>x \amp = A\cos\omega_{0}t + B\sin\omega_{0}t </mrow>
+                    <mrow> \amp = \sqrt{A^{2}+B^{2}}\left(\frac{A}{\sqrt{A^{2}+B^{2}}}\cos\omega_{0}t + \frac{B}{\sqrt{A^{2} + B^{2}}}\sin\omega_{0}t\right) </mrow>
                 </md>
                 Now set <m>C = \sqrt{A^{2} + B^{2}}</m> and define <m>\varphi</m> implicitly by <m>\cos\varphi = \frac{A}{C}</m> and <m>\sin\varphi = \frac{B}{C}</m>.
                 <aside>
@@ -586,14 +586,14 @@
                         <me>x(t) = 5\cos(\sqrt{\frac{2}{5}}t-\pi).</me>
                     </p>
                 </solution>
-                <aside>
-                    <p>
-                        You may be troubled by the fact that we only explicitly used the first initial condition in this example.
-                        However, the second condition <m>x'(0) = 0</m> was actually used implicitly: it allowed us to assume that the amplitude was <m>5</m> as opposed to another number.
-                        If <m>x'(0)\neq0</m>, finding <m>C</m> would have been a little trickier.
-                    </p>
-                </aside>
             </example>
+            <aside>
+                <p>
+                    You may be troubled by the fact that we only explicitly used the first initial condition in this example.
+                    However, the second condition <m>x'(0) = 0</m> was actually used implicitly: it allowed us to assume that the amplitude was <m>5</m> as opposed to another number.
+                    If <m>x'(0)\neq0</m>, finding <m>C</m> would have been a little trickier.
+                </p>
+            </aside>
         </subsection>
         <subsection xml:id="subsection-free-damped-motion">
             <title>Free Damped Motion</title>
@@ -767,7 +767,7 @@
                         \end{tikzpicture}]]>
                     </latex-image>
                 </image>
-                <caption><p>An exponential term damping motion.</p></caption>
+                <caption>An exponential term damping motion.</caption>
             </figure>
         </subsection>
     </section>
@@ -830,8 +830,8 @@
                         <me>0 - A_{1} - 2A_{1}x - 2A_{2} = 3x + 4.</me>
                         The only way for this equation to be true is for
                         <md>
-                            <mrow> -A_{1} - 2A_{2} &amp; = 4 </mrow>
-                            <mrow> -2A_{1} &amp; = 3</mrow>
+                            <mrow> -A_{1} - 2A_{2} \amp = 4 </mrow>
+                            <mrow> -2A_{1} \amp = 3</mrow>
                         </md>
                         So <m>A_{1} = -\frac{3}{2}, A_{2} = \frac{5}{4}</m> and <m>y_{p} = -\frac{3}{2}x + \frac{5}{4}</m>.
                         Hence the general solution of the ODE is
@@ -862,8 +862,8 @@
                         If we want to differentiate <m>y_{p}</m> and obtain <m>x - \sin(2x)</m>, then <m>y_{p}</m> should include both an <m>x</m> term and a <m>\sin(2x)</m> term.
                         If we make the guess that <m>y_{p} = A_{1}x + A_{2}\sin(2x)</m>, then we get
                         <md>
-                            <mrow> A_{1}x - 2A_{1} &amp; = x </mrow>
-                            <mrow> -4A_{2}\cos(2x) - 3A_{2}\sin(2x) &amp; = -\sin(2x) </mrow>
+                            <mrow> A_{1}x - 2A_{1} \amp = x </mrow>
+                            <mrow> -4A_{2}\cos(2x) - 3A_{2}\sin(2x) \amp = -\sin(2x) </mrow>
                         </md>
                         This forces <m>A_{1} = 1</m> <em>and</em> <m>A_{1} = 0</m>, as well as <m>A_{2} = \frac{1}{3}</m> <em>and</em> <m>A_{2} = 0</m>.
                         Obviously, this is a problem!
@@ -875,17 +875,17 @@
                         <me>y_{p} = A_{1}x + A_{2} + A_{3}\cos(2x) + A_{4}\sin(2x).</me>
                         Plugging this into the ODE and collecting like terms gives
                         <md>
-                            <mrow>A_{1} &amp; = 1</mrow>
-                            <mrow>-2A_{1} + A_{2} &amp; = 0</mrow>
-                            <mrow>-3A_{3} - 4A_{4} &amp; = 0</mrow>
-                            <mrow>4A_{3} - 3A_{4} &amp; = -1</mrow>
+                            <mrow>A_{1} \amp = 1</mrow>
+                            <mrow>-2A_{1} + A_{2} \amp = 0</mrow>
+                            <mrow>-3A_{3} - 4A_{4} \amp = 0</mrow>
+                            <mrow>4A_{3} - 3A_{4} \amp = -1</mrow>
                         </md>
                         Hence
                         <md>
-                            <mrow>A_{1} &amp; = 1 </mrow>
-                            <mrow>A_{2} &amp; = 2 </mrow>
-                            <mrow>C &amp; = -\frac{4}{25} </mrow>
-                            <mrow>D &amp; = \frac{3}{25} </mrow>
+                            <mrow>A_{1} \amp = 1 </mrow>
+                            <mrow>A_{2} \amp = 2 </mrow>
+                            <mrow>C \amp = -\frac{4}{25} </mrow>
+                            <mrow>D \amp = \frac{3}{25} </mrow>
                         </md>
                         and the solution of our ODE is
                         <me>c_{1}e^{x} + c_{2}xe^{x} + x + 2 - \frac{4}{25}\cos(2x) + \frac{3}{25}\sin(2x).</me>
@@ -918,8 +918,8 @@
                         <me>y_{p} = x[A\cos(3x)+B\sin(3x)]</me>
                         Now, we'll plug our modified guess into the ODE and set it equal to <m>3\cos(3x)</m>:
                         <md>
-                            <mrow>3\cos(3x)&amp; = y_{p}'' + 9y</mrow>
-                            <mrow>&amp; = -6A\sin(3x)+6B\cos(3x)</mrow>
+                            <mrow>3\cos(3x)\amp = y_{p}'' + 9y</mrow>
+                            <mrow>\amp = -6A\sin(3x)+6B\cos(3x)</mrow>
                         </md>
                         So we need <m>-6A = 0</m> and <m>6B = 3</m>, or just <m>A = 0,B = \frac{1}{2}</m>.
                         Hence
@@ -940,7 +940,260 @@
                     </p>
                 </solution>
             </example>
+            <p>
+                What we did in <xref ref="example-method-of-undetermined-coefficients-with-overlap" text="type-global" /> will work in general: if <m>y_{c}</m> and the initial guess for <m>y_{p}</m> overlap, i.e. contain linearly dependent terms, then we multiply <m>y_{p}</m> by the <em>smallest</em> power of <m>x</m> (or the appropriate independent variable) that removes the overlap.
+            </p>
+            <example xml:id="example-determining-the-appropriate-form-of-the-particular-solution">
+                <title>Determining the Appropriate Form of the Particular Solution</title>
+                <statement>
+                    <p>
+                        Consider the ODE
+                        <m>x'' + 4x' + 4 = 3t^{3} - t + t^{2}\sin(2t) + 3e^{-2t}.</m>
+                        Find the correct guess for <m>x_{p}</m>.
+                    </p>
+                </statement>
+                <solution>
+                    <p>
+                        Before we can do anything with <m>x_{p}</m>, we need to find the complementary solution <m>x_{c}</m>.
+                        This is given by
+                        <m>x_{c} = c_{1}e^{-2t} + c_{2}te^{-2t}.</m>
+                        Now we can try to guess an appropriate form for <m>x_{p}</m> using the right hand side of the ODE.
+                        Each "component" of the right hand side contributes to our guess for <m>x_{p}</m> as follows:
+                        <table>
+                            <tabular top="major" bottom="major">
+                                <row bottom="major">
+                                    <cell>component</cell>
+                                    <cell>contribution to <m>x_{p}</m></cell>
+                                </row>
+                                <row>
+                                    <cell>
+                                        <m>3t^{3} - t</m>
+                                    </cell>
+                                    <cell>
+                                        <m>At^{3} + Bt^{2} + Ct + D</m>
+                                    </cell>
+                                </row>
+                                <row>
+                                    <cell>
+                                        <m>t^{2}\sin(2t)</m>
+                                    </cell>
+                                    <cell>
+                                        <m>(Et^{2} + Ft + G)\cos(2t) + (Ht^{2} + It + J)\sin(2t)</m>
+                                    </cell>
+                                </row>
+                                <row>
+                                    <cell><m>3e^{-2t}</m></cell>
+                                    <cell><m>Ke^{-2t}</m></cell>
+                                </row>
+                            </tabular>
+                        </table>
+                        But now we have a problem, since <m>Ke^{-2t}</m> overlaps with <m>x_{c}</m>.
+                        So we multiply by <m>t^{2}</m> to remove the overlap, and hence
+                        <m>x_{p} = At^{3} + Bt^{2} + Ct + D + (Et^{2} + Ft + G)\cos(2t) + (Ht^{2} + It + J)\sin(2t) + 3e^{-2t} + Kt^{2}e^{-2t}.</m>
+                    </p>
+                </solution>
+            </example>
         </subsection>
+        <conclusion>
+            <p>
+                SUGGESTED PROBLEMS: 1, 3, 5, 11
+            </p>
+        </conclusion>
+    </section>
+    <section xml:id="section-forced-oscillations-and-resonance">
+        <title>Forced Oscillations and Resonance</title>
+        <introduction>
+            <p>
+                In this section we will develop models for certain systems under the influence of a periodic, external force.
+                The presence of an external force leads to non-homogeneous models, and we will use the techniques we developed in <xref ref="section-solutions-of-nonhomogeneous-equations" text="type-global" /> to deal with these systems.
+            </p>
+        </introduction>
+        <subsection xml:id="subsection-undamped-systems">
+            <title>Undamped Systems</title>
+            <p>
+                Consider the spring-mass system set up as in <xref ref="figure-spring-mass-system" text="type-global" />.
+                Then we know that the displacement <m>x(t)</m> satisfies <m>x'' + \omega_{0}^{2}x = 0</m>, where <m>\omega_{0} = \sqrt{\frac{k}{m}}</m>.
+            </p>
+            <p>
+                Now suppose that an external force <m>F_{E} = F_{0}\cos(\omega t)</m> also acts on the mass.
+                Then the ODE that models the displacement <m>x(t)</m> is
+                <me>x'' + \omega_{0}^{2}x = \frac{F_{0}}{m}\cos(\omega t).</me>
+                The solution of this ODE is then <m>x = x_{c} + x_{p}</m>, where
+                <md>
+                  <mrow>x_{c} \amp= A\cos(\omega-{0}t) + B\sin(\omega_{0}t)</mrow>
+                  <mrow>x_{p} \amp= \begin{cases} \frac{F_{0}}{m(\omega_{0}^{2} - \omega^{2})} \cos(\omega t) \amp\text{if }\omega\neq\omega_{0} \\ \frac{F_{0}}{2m\omega_{0}} t\sin(\omega_{0} t) \amp\text{if }\omega=\omega_{0} \end{cases}</mrow>
+                </md>
+                Systems where the <term>external frequency</term> <m>\omega</m> is equal to the <term>internal frequency</term> <m>\omega_{0}</m> are said to be in <term>resonance</term>.
+                Without a damping force, the mass in such systems will move wildly out of control <m>|x_{p}(t)|</m> gets arbitrarily large as <m>t\to\infty</m>.
+            </p>
+            <example xml:id="example-determining-resonance">
+                <title>Determining Resonance</title>
+                <statement>
+                  <p>
+                    An object with mass
+                    <quantity>
+                      <mag>2</mag>
+                      <unit prefix="kilo" base="gram" />
+                    </quantity>
+                    is attached to a spring and is held
+                    <quantity>
+                      <mag>1</mag>
+                      <unit base="meter" />
+                    </quantity>
+                    to the right of the spring's equilibrium position by a force of
+                    <quantity>
+                      <mag>8</mag>
+                      <unit base="newton" />
+                    </quantity>
+                    At time <m>t = 0</m> seconds the mass is set in motion with an initial velocity of
+                    <quanity>
+                      <mag>2</mag>
+                      <unit base="meter" />
+                      <per base="second" />
+                    </quanity>
+                    to the left.
+                    Suppose an external force <m>F_{E} = 3\cos(2t)</m> acts on the mass as well.
+                    Will the spring eventually break?
+                  </p>
+                </statement>
+                <solution>
+                  <p>
+                    We can answer this question by determining if resonance is present in this system.
+                    The external frequency is <m>\omega = 2</m>, and the internal frequency is <m>\omega_{0} = \sqrt{\frac{k}{m}}</m>.
+                    Since <m>k = 8</m> and <m>m = 2</m>, we have <m>\omega_{0} = \sqrt{\frac{8}{2}} = 2</m>, and so the frequencies match.
+                    Hence the system is in resonance, and we can expect the spring to eventually break.
+                  </p>
+                </solution>
+            </example>
+            <aside>
+              <p>
+                It's not too hard to solve for <m>x(t)</m> exactly here to get
+                <me>x(t) = \frac{1}{4}\cos(2t) - \sin(2t) + \frac{3}{8}t\sin(2t).</me>
+                Graphing this, we get
+              </p>
+              <figure>
+                <image>
+                  <latex-image><![CDATA[
+                    \begin{tikzpicture}
+                      \begin{axis}[mystyle,
+                      enlargelimits=false,
+                      legend cell align=left,
+                      axis x line = middle,
+                      xlabel = $t$,
+                      axis y line = center,
+                      ylabel = $x$,
+                      grid=both
+                      ]
+                      \addplot[domain=0:30,samples=200,thick,smooth,blue]{cos(2*deg(x))-sin(2*deg(x))+.375*x*sin(2*deg(x))};
+                      \addlegendentry{$x(t)$} 
+                      \end{axis}
+                    \end{tikzpicture}]]>
+                  </latex-image>
+                </image>
+                <caption>A plot of the motion of the mass in <xref ref="example-determining-resonance" text="type-global" />.</caption>
+              </figure>
+            </aside>
+        </subsection>
+        <subsection xml:id="subsection-damped-systems">
+            <title>Damped Systems</title>
+            <p>
+              Now we'll take a look at forced, damped systems.
+              Suppose a mass <m>m</m> is fixed to a spring with spring force <m>F_{S} = -kx</m>, and is acted upon by a dashpot with force <m>F_{R} = -cx'</m>, where <m>c,k \gt 0</m> and <m>x</m> represents the displacement of the mass at time <m>t</m>.
+              If the mass is still acted upon by an external force <m>F_{E} = F_{0}\cos(\omega t)</m>, then by Newton's Second Law the displacement <m>x</m> must satisfy
+              <me>mx'' + cx' + kx = F_{0}\cos(\omega t).</me>
+              The solution is given by <m>x = x_{c} + x_{p}</m>, where <m>x_{c}</m> is found as in <xref ref="subsection-free-damped-motion" text="type-global" /> and goes to <m>0</m> as <m>t\to\infty</m>.
+              With a little help from a computer algebra system such as Sage (see below), we see that
+              <me>x_{p} = \frac{m(\omega_{0}^{2} - \omega^{2})F_{0}}{m^{2}\omega_{0}^{2} - \omega^{2})^{2} + \omega^{2}c^{2}}\cos(\omega t) + \frac{\omega c F_{0}}{m^{2}\omega_{0}^{2} - \omega^{2})^{2} + \omega^{2}c^{2}}\sin(\omega t),</me>
+              where <m>\omega_{0} = \sqrt{\frac{k}{m}}</m> as usual.
+            </p>
+            <p>
+              Since <m>x_{c}</m> will always approach <m>0</m> in these situations, as time goes on the position is determined increasingly by <m>x_{p}</m>.
+              We call <m>x_{c}</m> the <term>transient solution</term> and <m>x_{p}</m> the <term>steady-state solution</term>.
+              Note that resonance is impossible in this system since <m>x_{c}</m> and <m>x_{p}</m> can never overlap (assuming the external force is still a sinusoid).
+              Therefore the smallest amount of damping prevents the mass from going out of control.
+            </p>
+            <sage>
+              <input>
+                # Set variables
+                t = var('t')
+                m, c, k, F0, omega, omega_0 = var('m c k F0 omega omega_0')
+
+                # Make assumption to help Sage/Maxima with computation; this corresponds to underdamped motion
+                assume(4*k*m - c^2 > 0)
+
+                # Define x as a function of t
+                x = function('x')(t)
+
+                # Set up and solve the ODE
+                P = desolve(m*diff(x, t, 2) + c*diff(x,t) + k*x == F0*cos(omega*t), x, ivar=t)
+
+                # Make "nice" output for solution
+                pretty_print(P.substitute(k == m*(omega_0)^2))
+              </input>
+              <output>
+                # Sage output without pretty printing.
+                (_K2*cos(1/2*sqrt(4*omega_0^2 - c^2/m^2)*t) + _K1*sin(1/2*sqrt(4*omega_0^2 - c^2/m^2)*t))*e^(-1/2*c*t/m) + (F0*c*omega*sin(omega*t) - (F0*m*omega^2 - F0*m*omega_0^2)*cos(omega*t))/(m^2*omega^4 + m^2*omega_0^4 - (2*m^2*omega_0^2 - c^2)*omega^2)
+              </output>
+            </sage>
+            <example xml:id="example-steady-state-approximation">
+                <title>Steady-State Approximation</title>
+                <statement>
+                  <p>
+                    An object of mass
+                    <quantity>
+                      <mag>3</mag>
+                      <unit prefix="kilo" base="gram" />
+                    </quantity>
+                    is fixed to both a spring and a dashpot with respective forces <m>F_{S} = -9x</m> and <m>F_{R} = -2x'</m>, where <m>x</m> is the displacement of the mass in meters and <m>x = 0</m> is the equilibrium position.
+                    An external force <m>F_{E} = 5\cos(\sqrt{3}t)</m> is also applied to the mass, where <m>t</m> is in seconds.
+                    The mass was set in motion with an unknown speed and unknown velocity approximately
+                    <quantity>
+                      <mag>7</mag>
+                      <unit base="second" />
+                    </quantity>
+                    ago.
+                    What will be the approximate position of the mass in
+                    <quantity>
+                      <mag>40</mag>
+                      <unit base="second" />
+                    </quantity>?
+                  </p>
+                </statement>
+                <solution>
+                  <p>
+                    We know that the position will look like <m>x = x_{c} + x_{p}</m> where <m>x_{c}\to0</m> as <m>t\to\infty</m>, but we can't find the exact form of the transient solution without knowing the initial conditions.
+                    So we'll assume that we can estimate the position of the mass using the steady-state solution <m>x_{p}</m>.
+                    Since
+                    <me>\omega = \omega_{0} = \sqrt{3}, \quad F_{0} = 5\quad\text{and}\quad c = 2,</me>
+                    we get
+                    <me>x_{p} = \frac{5}{6}\sqrt{3}\sin(\sqrt{3}t).</me>
+                    So after
+                    <quantity>
+                      <mag>40</mag>
+                      <unit base="second" />
+                    </quantity>
+                    more seconds the mass should be around <m>x_{p}(47)</m>, or about
+                    <quantity>
+                      <mag>-0.388</mag>
+                      <unit base="meter" />
+                    </quantity>.
+                  </p>
+                </solution>
+            </example>
+            <aside>
+              <p>
+                In fact, the actual initial conditions used were <m>x(0) = 1</m> and <m>x'(0) = -2</m>.
+                The corresponding exact solution is
+                <me>x = e^{-\frac{t}{e}}\left[\cos\frac{\sqrt{26}}{3}t - \frac{25}{52}\sin\frac{\sqrt{26}}{3}t\right] + \frac{5}{6}\sqrt{3}\sin(\sqrt{3}t).</me>
+                The exact value of <m>x(47)</m> is within several <em>millionths</em> of the approximation <m>x_{p}(47)</m>.
+              </p>
+            </aside>
+        </subsection>
+        <conclusion>
+            <p>
+                SUGGESTED PROBLEMS: 3, 9
+            </p>
+        </conclusion>
     </section>
 <!-- I'm keeping these here for now in case I need to see how this is done later. -->
 <!--     <xi:include href="./sage/integers-sage.xml" />

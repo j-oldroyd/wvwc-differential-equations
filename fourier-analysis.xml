@@ -380,8 +380,8 @@
         <example xml:id="example-even-extension-of-a-piecewise-function">
             <title>Even Extension of a Piecewise Function</title>
             <p>Define the piecewise function <m>f(x)</m> by
-            <me>f(x) = \begin{cases}x &amp; 0\leq x\leq \frac{\pi}{2} \\ \frac{\pi}{2} &amp; \frac{\pi}{2}\leq x\leq \pi\end{cases}.</me> 
-            Then the even extension of <m>f(x)</m> is the new function <m>f_{1}(x)</m> given by 
+            <me>f(x) = \begin{cases}x &amp; 0\leq x\leq \frac{\pi}{2} \\ \frac{\pi}{2} &amp; \frac{\pi}{2}\leq x\leq \pi\end{cases}.</me>
+            Then the even extension of <m>f(x)</m> is the new function <m>f_{1}(x)</m> given by
             <me>f_{1}(x) = \begin{cases}|x| &amp; -\frac{\pi}{2}\leq x\leq \frac{\pi}{2} \\ \frac{\pi}{2} &amp; \frac{\pi}{2}\leq |x|\leq \pi\end{cases}.</me> We can use Theorem <xref ref="theorem-fourier-coefficients-of-even-and-odd-functions" /> to help us find the Fourier series for <m>f_{1}(x)</m>. With a little bit of help, we get <m>a_{0} = \frac{3\pi}{8}</m> and <m>a_{k} = \frac{2\cos(\frac{\pi k}{2})-2}{\pi k^{2}}</m>, and so the Fourier series of <m>f_{1}(x)</m> is
             <me>\frac{3\pi}{8}+\sum_{k=1}^{\infty}\frac{(-1)^{k}-1}{2\pi k^{2}}\cos(2kx).</me></p>
         </example>
@@ -420,8 +420,8 @@
         </introduction>
         <subsection xml:id="subsection-complex-fourier-series">
             <title>Complex Fourier Series</title>
-            <p>First, we recall <term>Euler's formula</term>.</p>
-            <theorem xml:id="theorem-euler-s-formula">
+            <p>First, recall <xref ref="theorem-euler-s-formula" text="type-global">Euler's formula</xref>, which allows us to rewrite complex exponentials in terms of sine and cosine.</p>
+            <!-- <theorem xml:id="theorem-euler-s-formula">
                 <title>Euler's Formula</title>
                 <index><main>Euler's formula</main></index>
                 <statement>
@@ -429,10 +429,10 @@
                     <me>e^{ix} = \cos x+i\sin x.</me> Furthermore, we can write
                     <me>\cos x = \frac{e^{ix}+e^{-ix}}{2}\text{ and }\sin x = \frac{e^{ix}-e^{-ix}}{2i}.</me></p>
                 </statement>
-            </theorem>
-            <p>We can use Theorem <xref ref="theorem-euler-s-formula" /> to rewrite the Fourier series in Theorem <xref ref="theorem-fourier-series-of-functions-with-arbitrary-period" />. Our goal now is to find a <term>complex Fourier series</term>
+            </theorem> -->
+            <p>We can use <xref ref="theorem-euler-s-formula" text="type-global" /> to rewrite the Fourier series in <xref ref="theorem-fourier-series-of-functions-with-arbitrary-period" text="type-global" />. Our goal now is to find a <term>complex Fourier series</term>
             <me>\sum_{k=-\infty}^{\infty}c_{k}e^{i\frac{k\pi}{L}x}.</me>
-            for functions <m>f(x)</m> with period <m>p=2L</m>. We will also include the statement of Theorem <xref ref="theorem-pointwise-convergence-of-fourier-series" /> in this new context.</p>
+            for functions <m>f(x)</m> with period <m>p=2L</m>. We will also include the statement of <xref ref="theorem-pointwise-convergence-of-fourier-series" /> in this new context.</p>
             <theorem xml:id="theorem-complex-fourier-series">
                 <title>Complex Fourier Series</title>
                 <index><main>Fourier series</main><sub>complex form</sub></index>
