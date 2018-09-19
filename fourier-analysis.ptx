@@ -1,0 +1,673 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!--********************************************************************
+
+*********************************************************************-->
+<!-- This file was originally part of the book     -->
+<!-- (as copied on 2015/07/12)                     -->
+<!--                                               -->
+<!--   Abstract Algebra: Theory and Applications   -->
+<!--                                               -->
+<!-- Copyright (C) 1997-2014  Thomas W. Judson     -->
+
+<chapter xml:id="fourier-analysis" xmlns:xi="http://www.w3.org/2001/XInclude">
+    <title>Fourier Analysis</title>
+    <introduction>
+        <p>
+            Our goal now is to move to solving <em>partial</em> differential equations (PDEs), which are differential equations that involve multiple independent variables.
+            Such equations are particularly useful for modeling quantities that depend on position <m>x</m> and time <m>t</m>.
+            It turns out that these partial differential equations often involve periodic functions.
+            So our first step to solving PDEs will be to find useful descriptions of periodic (and in some cases, non-periodic) functions.
+        </p>
+    </introduction>
+    <section xml:id="section-fourier-series">
+        <title>Fourier Series</title>
+        <introduction>
+            <p>
+                The main idea behind Fourier series, and the field of harmonic analysis in general, is to represent more complicated objects in terms of simpler objects.
+                A fundamental example of this idea comes from the field of linear algebra in the form of <em>orthonormal bases</em>.
+                Knowing an orthonormal basis for a vector space <m>V</m> can greatly simplify linear algebra in that vector space.
+                In this section, we'll do something similar with periodic functions.
+            </p>
+        </introduction>
+        <subsection xml:id="subsection-periodic-functions">
+            <title>Periodic Functions</title>
+            <p>Consider the function <m>f(x)</m> given by the following graph:</p>
+            <figure xml:id="figure-sageplot-periodic-function">
+                <caption>A periodic function.</caption>
+                <image xml:id="image-sageplot-periodic-function">
+                    <description>A periodic function.</description>
+                    <sageplot>
+                        # Declare variables and function!
+                        var('x')
+                        f(x) = cos(5*x)-5*sin(3*x)
+
+                        # This actually plots the graph.
+                        p = plot(f(x),(x,-3*pi,3*pi))
+                        p
+                    </sageplot>
+                </image>
+            </figure>
+            <p>This function can be plotted using the following code:</p>
+            <sage>
+                <input>
+                    reset
+
+                    import matplotlib.pyplot as plt
+                    import numpy as np
+
+                    # The following is here to adjust text on the graph... not a huge deal.
+                    from matplotlib import rc
+                    rc('font',**{'family':'sans-serif','sans-serif':['Helvetica']})
+                    rc('text', usetex=True)
+
+                    # This is setting up our graph.
+                    x = np.linspace(-3*np.pi,3*np.pi,200)
+                    y1 = np.cos(5*x)
+                    y2 = np.sin(3*x)
+
+                    # This actually plots the graph.
+                    p = plt.plot(x,y1-5*y2,label=r'$f(x)$')
+                    plt.legend()
+                    plt.show()
+                </input>
+            </sage>
+            <p>If we look at the graph, we see that it repeats itself if we wait long enough. Functions that have this property are called <term>periodic functions</term>.</p>
+            <definition xml:id="definition-periodic-functions">
+                <title>Periodic Functions</title>
+                <idx><h>Functions</h><h>periodic</h></idx>
+                <statement>
+                    <p>Let <m>f(x)</m> be a real function defined for all <m>x</m>. We say that <m>f</m> is a periodic function if there exists a positive number <m>p</m> such that
+                    <me>
+                    f(x+p) = f(x)
+                </me>
+                for all <m>x</m>.</p>
+            </statement>
+        </definition>
+
+        <exmaple>
+            <title><m>\sin</m> and <m>\cos</m></title>
+            <p>Let <m>n</m> be any integer. Then the functions <m>\sin nx</m> and <m>\cos nx</m> are both periodic and have period <m>2\pi</m> since
+            <md>
+                <mrow>\sin[n(x+2\pi)] &amp; = \sin nx\cos2\pi + \cos nx\sin2\pi = \sin nx </mrow>
+                <mrow>\cos[n(x+2\pi)] &amp; = \cos nx\cos2\pi - \sin nx\sin2\pi = \cos nx </mrow>
+            </md>
+            The periodic nature of these functions can also be seen from their graphs:</p>
+            <sage>
+                <input>
+                    # This is setting up our graph.
+                    x = np.linspace(-3*np.pi,3*np.pi,200)
+                    y1 = np.cos(5*x)
+                    y2 = np.sin(2*x)
+
+                    # This actually plots the graphs.
+                    plt.subplot(2,1,1)
+                    plt.plot(x,y1,label=r'$\cos5x$')
+                    plt.legend()
+
+                    plt.subplot(2,1,2)
+                    plt.plot(x,y2,label=r'$\sin2x$')
+                    plt.legend()
+                    plt.show()
+                </input>
+            </sage>
+        </exmaple>
+
+        <p>If you go back to the first plot, you may notice from the code used to generate the function <m>f(x)</m> that <m>f(x)</m> is just the sum of two basic trigonometric functions:
+        <me>f(x) = \cos5x-5\sin3x.</me>
+        In other words, the (finite) sum of functions of the form <m>\sin nx,\cos mx</m> where <m>n,m</m> are integers is also periodic, and also has period <m>2\pi</m>. One of the greatest accomplishments in mathematics was the realization that many other periodic functions can be written in this way if we allow <em>infinite</em> sums of this form, which we call <term>trigonometric series</term>.</p>
+    </subsection>
+    <subsection xml:id="subsection-trig-and-fourier-series">
+        <title>Trigonometric Series and Fourier Series</title>
+        <definition xml:id="definition-trigonometric-series">
+            <title>Trigonometric Series</title>
+            <idx><h>Series</h><h>trigonometric</h></idx>
+            <statement>
+                <p>A trigonometric series is a series of the form
+                    <me>\sum_{k=0}^{\infty}(a_{k}\cos kx+b_{k}\sin kx) = a_{0} + \sum_{k=1}^{\infty}(a_{k}\cos kx+b_{k}\sin kx)</me>
+                    where <m>a_{k},b_{k}</m> are constants, called the <term>coefficients</term> of the series.</p>
+                </statement>
+            </definition>
+            <p>Our primary goal in this section is to take a function <m>f(x)</m> of period <m>2\pi</m> and express it as a trigonometric series. To see how, we'll suppose that we have the trigonometric series we want, i.e. that
+            <me>f(x) = a_{0} + \sum_{k=1}^{\infty}(a_{k}\cos kx+b_{k}\sin kx),</me>
+            and we'll look at what the coefficients of the series need to be to make this equation true. To do this, we'll need the so-called <term>orthogonality relations</term> for <m>\sin nx,\cos mx</m></p>.
+
+            <theorem xml:id="theorem-orthogonality-relations">
+                <title>Orthogonality Relations</title>
+                <idx><h>Orthogonality relations</h></idx>
+                <statement>
+                    <p>Let <m>m,n</m> be whole numbers with <m>m,n>0</m>. Then
+                    <me>\int_{-\pi}^{\pi}\sin mx\cos nx\,dx = 0</me>
+                    and
+                    <me>\int_{-\pi}^{\pi}\sin mx\sin nx\,dx = \begin{cases} \pi &amp; m=n \\ 0 &amp; m\neq n\end{cases}\text{ and }\int_{-\pi}^{\pi}\cos mx\cos nx\,dx = \begin{cases} \pi &amp; m=n \\ 0 &amp; m\neq n\end{cases}</me></p>
+                </statement>
+            </theorem>
+            <p>We can verify Theorem <xref ref="theorem-orthogonality-relations"/> using a computer algebra system. Proving it is a little bit more work, but can be done using trigonometric identities or Euler's formula.</p>
+            <sage>
+                <input>
+                    # Declare variables.
+                    var('x,m,n')
+                    assume(m,n,'integer')
+
+                    # Perform the integrations.
+                    I1 = integral(sin(m*x)*cos(n*x),x,-pi,pi)
+                    I2 = integral(sin(m*x)*sin(n*x),x,-pi,pi)
+                    I3 = integral(cos(m*x)*cos(n*x),x,-pi,pi)
+                    I4 = integral(sin(m*x)*sin(m*x),x,-pi,pi)
+                    I5 = integral(cos(n*x)*cos(n*x),x,-pi,pi)
+
+                    # List the results.
+                    I1,I2,I3,I4,I5
+                </input>
+            </sage>
+
+            <p>Theorem <xref ref="theorem-orthogonality-relations"/> will be our primary tool for expressing a function <m>f(x)</m> as a trigonometric series. To see how, suppose that we have
+            <me>f(x) = a_{0} + \sum_{k=1}^{\infty}(a_{k}\cos kx+b_{k}\sin kx).</me>
+            If this equation were true, then we should be able to integrate both sides of it and get another true equation. Since Theorem <xref ref="theorem-orthogonality-relations"/> suggests that integrals involving <m>\sin nx,\cos nx</m> simplify very nicely, we'll try to integrate both sides of the equation against <m>\sin nx,\cos nx</m> from <m>x=-\pi</m> to <m>x=\pi</m> for some <m>n>0</m>. If we do this, we get
+            <md>
+                <mrow>\int_{-\pi}^{\pi}f(x)\sin nx\,dx &amp; = a_{0}\int_{-\pi}^{\pi}\sin nx\,dx + \sum_{k=1}^{\infty}\left(a_{k}\int_{-\pi}^{\pi}\cos kx\sin nx\,dx + b_{k}\int_{-\pi}^{\pi}\sin kx\sin nx\,dx\right)</mrow>
+                <mrow> &amp; = b_{n}\int_{-\pi}^{\pi}\sin nx \sin nx \,dx</mrow>
+                <mrow> &amp; = \pi b_{n}</mrow>
+            </md>
+            This lets us solve for <m>b_{n}</m>! We have
+            <me>b_{n} = \frac{1}{\pi}\int_{-\pi}^{\pi}f(x)\sin nx\,dx\text{ for $n\geq 1$.}</me>
+            Similarly,
+            <md>
+                <mrow>a_{n} &amp; = \frac{1}{\pi}\int_{-\pi}^{\pi}f(x)\cos nx\,dx\text{ for $n\geq1$.}</mrow>
+                <mrow>a_{0} &amp; = \frac{1}{2\pi}\int_{-\pi}^{\pi}f(x)\,dx</mrow>
+            </md>
+            These formulas are useful enough that we'll place them together in a theorem.</p>
+
+            <theorem xml:id="theorem-fourier-series-coefficients">
+                <title>Fourier Series Coefficients</title>
+                <idx><h>Fourier series</h><h>Coefficients</h></idx>
+                <statement>
+                    <p>Let <m>f(x)</m> be a periodic function with period <m>2\pi</m>. Then the Fourier coefficients of <m>f(x)</m> are given by<md>
+                    <mrow>a_{0} &amp;= \frac{1}{2\pi}\int_{-\pi}^{\pi}f(x)\,dx</mrow>
+                    <mrow>a_{n} &amp; = \frac{1}{\pi}\int_{-\pi}^{\pi}f(x)\cos nx\,dx\text{ for $n\geq1$.}</mrow>
+                    <mrow>b_{n} &amp;= \frac{1}{\pi}\int_{-\pi}^{\pi}f(x)\sin nx\,dx\text{ for $n\geq 1$.}</mrow>
+                </md></p>
+            </statement>
+        </theorem>
+
+        <example xml:id="example-fourier-series-of-x-cubed">
+            <title>The Fourier series of <m>x^{3}</m></title>
+            <p>Define <m>f(x) = x^{3}</m> for <m>-\pi\leq x\leq \pi</m>. To find its Fourier series, we can just use the previous formulas to find the values of the coefficients <m>a_{0},a_{k},b_{k}</m> for <m>k\geq1</m>. We know that
+            <md>
+                <mrow>a_{0} &amp; = \frac{1}{2\pi}\int_{-\pi}^{\pi}x^{3}\,dx</mrow>
+                <mrow>a_{k} &amp; = \frac{1}{\pi}\int_{-\pi}^{\pi}x^{3}\cos kx\,dx </mrow>
+                <mrow>b_{k} &amp; = \frac{1}{\pi}\int_{-\pi}^{\pi}x^{3}\sin kx\,dx.</mrow>
+            </md>
+            As nasty as these are, the first two are actually very easy to compute. Here's why: <m>x^{3}</m> and <m>x^{3}\cos kx</m> are both <em>odd</em> functions, and the integral of any odd function in an interval that is symmetric about <m>0</m> is always <m>0</m> (since the areas cancel out). So <m>a_{0} = a_{k} = 0</m> for all <m>k\geq0</m>. The last term is a bit more complicated, but we can use integration by parts (and I definitely recommend using a computer here) to show that
+            <me>
+            \int x^{3}\sin kx\,dx = -\frac{{\left(k^{3} x^{3} - 6 \, k x\right)} \cos\left(k x\right) - 3 \, {\left(k^{2} x^{2} - 2\right)} \sin\left(k x\right)}{k^{4}} + C.
+        </me>
+        If we plug in the limits of integration and simplify (again, computers are handy for this!), we get
+        <me>
+        b_{k} = \frac{2 \, {\left(6 \, \pi - \pi^{3} k^{2}\right)} \left(-1\right)^{k}}{\pi k^{3}}.
+    </me>
+    So the Fourier series for <m>f(x) = x^{3}</m> is given by
+    <md>
+        <mrow>a_{0} + \sum_{k=1}^{\infty}(a_{k}\cos kx+b_{k}\sin kx) &amp;= \sum_{k=1}^{\infty}b_{k}\sin kx </mrow>
+        <mrow> &amp;= \sum_{k=1}^{\infty}\frac{2 \, {\left(6 \, \pi - \pi^{3} k^{2}\right)} \left(-1\right)^{k}}{\pi k^{3}}\sin kx. </mrow>
+    </md>
+</p>
+</example>
+<p>A very good question at this point is, what relationship does the Fourier series that we found in the previous example have with the original function <m>f(x)</m>? Are they actually equal? If we use the following code (adapted from <url href="https://doxdrum.wordpress.com/2011/01/31/sage-tip-fourier-series-approximation/">here</url>) to compare the partial sums
+<me>
+\sum_{k=1}^{n}\frac{2 \, {\left(6 \, \pi - \pi^{3} k^{2}\right)} \left(-1\right)^{k}}{\pi k^{3}}\sin kx
+</me>
+of the Fourier series with <m>f(x) = x^{3}</m>, then it looks like the partial sums get closer and closer if we choose larger values of <m>n</m>.</p>
+<sage>
+    <input>
+        var('x,k,i')
+
+        # Defines the function to determine Fourier series of. Feel free to play around with this.
+        f(x) = x**3
+
+        # Defines the Fourier coefficients.
+        def a(k):
+        coeff = integral(f(x)*cos(k*x), (x,-pi,pi))/pi
+        return coeff
+
+        def b(k):
+        coeff = integral(f(x)*sin(k*x), (x,-pi,pi))/pi
+        return coeff
+
+        # Defines the corresponding (partial) Fourier series.
+        def FS(k): 
+        return a(0)/2 + sum(a(i)*cos(i*x) + b(i)*sin(i*x), i, 1, k)
+
+        n = 3
+        p = plot(FS(n),(x,-pi,pi), color='red') + plot(f(x),(x,-pi,pi))
+        p
+    </input>
+</sage>
+<p>In general, the question of whether or not a given Fourier series makes sense is a difficult one to answer.<fn xml:id="footnote-convergence-of-fourier-series">In fact, the convergence of Fourier series for what one might consider to be the more "well-behaved" functions in mathematics was an open question until the 1960s. See <url href="https://en.wikipedia.org/wiki/Carleson%27s_theorem">Carleson's Theorem</url>.</fn> However, for many of the functions we care about in this course we have the following theorem.</p>
+
+<theorem xml:id="theorem-pointwise-convergence-of-fourier-series">
+    <title>Fourier Series of Piecewise Continuous Functions</title>
+    <idx><h>Fourier series</h><h>convergence</h></idx>
+    <statement>
+        <p>Let <m>f(x)</m> be a piecewise continuous function on the interval <m>-\pi\leq x\leq\pi</m>, and suppose that it's also periodic with period <m>2\pi</m>, and is differentiable everywhere that it's continuous. Then the Fourier series of <m>f(x)</m> converges to <m>f(x)</m> except at the points where <m>f(x)</m> is continuous.</p>
+    </statement>
+</theorem>
+</subsection>
+</section>
+
+<section xml:id="section-functions-of-arbitrary-period-even-and-odd-extensions">
+    <title>Functions of Arbitrary Period; Even and Odd Extensions</title>
+    <introduction>    
+        <p>
+            Now that we know how to find Fourier series of periodic functions with period <m>2\pi</m>, we'd like to extend this idea to more general periodic functions, and then eventually to find Fourier series to represent (in some way) functions that aren't periodic.
+        </p>
+    </introduction>
+    <subsection xml:id="subsection-fourier-series-of-functions-of-arbitrary-period">
+        <title>Fourier Series of Functions of Arbitrary Period</title>
+        <p>We know how to find the Fourier series of a function of period <m>2\pi</m> by using Theorem <xref ref="theorem-fourier-series-coefficients" />. So we'd like to adapt this to functions that have period <m>p = 2L</m> instead of <m>2\pi</m>. This actually won't be too hard to do, since any function of period <m>2L</m> can be scaled into a function with period <m>2\pi</m>.</p>
+
+        <p>To see how, let <m>f(x)</m> denote a function of period <m>2L</m>. Then we want to find a constant <m>c</m> so that <m>f(cx)</m> has period <m>2\pi</m>, that is, so that
+        <me>f(c(x+2\pi)) = f(cx).</me>
+        For this to be true, we need <m>2\pi c = 2L</m>, or in other words <m>c = \frac{L}{\pi}</m>. So if <m>f(x)</m> has period <m>2L,</m> then <m>f(\frac{L}{\pi}x)</m> has period <m>2\pi</m>, and furthermore <m>f(\frac{L}{\pi}x)</m> has Fourier coefficients given by 
+        <md>
+            <mrow>a_{0} &amp;= \frac{1}{2\pi}\int_{-\pi}^{\pi}f\left(\frac{L}{\pi}x\right)\,dx</mrow>
+            <mrow>a_{k} &amp;= \frac{1}{\pi}\int_{-\pi}^{\pi}f\left(\frac{L}{\pi}x\right)\cos kx\,dx\text{ for $k\geq1$.}</mrow>
+            <mrow>b_{k} &amp;= \frac{1}{\pi}\int_{-\pi}^{\pi}f\left(\frac{L}{\pi}x\right)\sin kx\,dx\text{ for $k\geq1$.}</mrow>
+        </md>
+        Now we need to get everything back in terms of <m>f(x)</m>, the function we started with. We can do this by making the substitution <m>u = \frac{L}{\pi}x</m>. This gives us the following theorem after a little algebra.
+    </p>
+
+    <theorem xml:id="theorem-fourier-series-of-functions-with-arbitrary-period">
+        <title>Fourier Series of Functions with Arbitrary Period</title>
+        <idx><h>Fourier series</h><h>Functions with period <m>2L</m></h></idx>
+        <statement>
+            <p>Let <m>f(x)</m> be a function with period <m>p = 2L</m>. Then the Fourier coefficients of <m>f(x)</m> are given by
+            <md>
+                <mrow>a_{0} &amp;= \frac{1}{2L}\int_{-L}^{L}f\left(x\right)\,dx</mrow>
+                <mrow>a_{k} &amp;= \frac{1}{L}\int_{-L}^{L}f\left(x\right)\cos\left(\frac{k\pi}{L}x\right)\,dx\text{ for $k\geq1$}</mrow>
+                <mrow>b_{k} &amp;= \frac{1}{L}\int_{-L}^{L}f\left(x\right)\sin\left(\frac{k\pi}{L}x\right)\,dx\text{ for $k\geq1$}</mrow>
+            </md>
+            and the corresponding Fourier series is
+            <me>a_{0}+\sum_{k=1}^{\infty}\left(a_{k}\cos\left(\frac{k\pi}{L}x\right)+b_{k}\sin\left(\frac{k\pi}{L}x\right)\right).</me></p>
+        </statement>
+    </theorem>
+
+    <example xml:id="example-fourier-series-of-x-squared">
+        <title>Fourier Series of <m>f(x) = x^{2}</m></title>
+        <p>Let <m>f(x) = x^{2}</m> for <m>-1\leq x\leq 1</m> and have period <m>p=2</m>. We can find its Fourier series using Theorem <xref ref="theorem-fourier-series-of-functions-with-arbitrary-period" />. If we do so, we get<md>
+        <mrow> a_{0} &amp;= \frac{1}{3}</mrow>
+        <mrow> a_{k} &amp;= \frac{4 \, \left(-1\right)^{k}}{\pi^{2} k^{2}}</mrow>
+        <mrow> b_{k} &amp;= 0</mrow></md>
+        So the Fourier series of <m>f(x)</m> is given by
+        <me>\frac{1}{3} + \sum_{k=1}^{\infty}\frac{4 \, \left(-1\right)^{k}}{\pi^{2} k^{2}}\cos\left(k\pi x\right)</me>
+    </p>
+</example>
+
+<sage>
+    <input>
+        var('x,k,i')
+        assume(k,i,'integer')
+
+        # Defines the function to determine Fourier series of. Feel free to play around with this.
+        f(x) = x**2
+        L = 1
+
+        # Defines the Fourier coefficients.
+        def a(k):
+        coeff = integral(f(x)*cos(k*pi*x/L), (x,-L,L))/L
+        return coeff
+
+        def b(k):
+        coeff = integral(f(x)*sin(k*pi*x/L), (x,-L,L))/L
+        return coeff
+
+        # Defines the corresponding (partial) Fourier series.
+        def FS(k): 
+        return a(0)/2 + sum(a(i)*cos(i*pi*x/L) + b(i)*sin(i*pi*x/L), i, 1, k)
+
+        n = 3
+        p = plot(FS(n),(x,-L,L), color='red') + plot(f(x),(x,-L,L))
+        p
+    </input>
+</sage>
+</subsection>
+
+<subsection xml:id="subsection-even-and-odd-extensions">
+    <title>Even and Odd Extensions</title>
+
+    <p>If you look at Examples <xref ref="example-fourier-series-of-x-cubed"/> and <xref ref="example-fourier-series-of-x-squared" />, then you'll notice that a lot of the Fourier coefficients were <m>0</m>. In particular, <m>a_{k} = 0</m> for <m>k\geq0</m> for the first example, and <m>b_{k}=0</m> for the second. The reason for this has to do with <term>even and odd functions</term>.</p>
+
+    <definition xml:id="definition-even-and-odd-functions">
+        <title>Even and Odd Functions</title>
+        <idx><h>Even and odd functions</h></idx>
+        <statement>
+            <p>Let <m>f(x)</m> be a function. We say that <m>f(x)</m> is<md>
+            <mrow>\text{even if } &amp; f(-x) = f(x)</mrow>
+            <mrow>\text{odd if } &amp; f(-x) = -f(x).</mrow></md></p>
+        </statement>
+    </definition>
+
+    <p>In other words, a function <m>f(x)</m> is even if and only if its graph is symmetric about the <m>y</m>-axis, and is odd if and only if its graph is symmetric about the origin.</p>
+
+    <theorem xml:id="theorem-fourier-series-of-even-and-odd-functions">
+        <title>Fourier Series of Even and Odd Functions</title>
+        <idx><h>Fourier series</h><h>Fourier series for even and odd functions</h></idx>
+        <statement>
+            <p>Let <m>f(x)</m> be a periodic function with period <m>p = 2L</m>, with corresponding Fourier series
+            <me>a_{0}+\sum_{k=1}^{\infty}\left(a_{k}\cos\left(\frac{k\pi}{L}x\right)+b_{k}\sin\left(\frac{k\pi}{L}x\right)\right).</me>
+            If <m>f(x)</m> is an odd function, then <m>a_{k} = 0</m> for <m>k\geq0</m>. If <m>f(x)</m> is an even function, then <m>b_{k}=0</m> for <m>k\geq1</m>.</p>
+        </statement>
+    </theorem>
+
+    <p>In Examples <xref ref="example-fourier-series-of-x-cubed" /> and <xref ref="example-fourier-series-of-x-squared" /> we began with functions that typically aren't thought of as periodic and found their Fourier series. Essentially what we did was we restricted our view of each function to a limited interval<fn xml:id="footnote-periodic-extensions"> <m>[-\pi,\pi]</m> in the case of <m>x^{3}</m> and <m>[-1,1]</m> in the case of <m>x^{2}</m></fn> and then viewed that segment as defining a periodic function. This is the h idea behind <term>even and odd extensions</term> of functions.</p>
+
+    <definition xml:id="definition-even-and-odd-extensions">
+        <title>Even and Odd Extensions</title>
+        <idx><h>Fourier series</h><h>Even and odd extensions</h></idx>
+        <statement>
+            <p>Let <m>f(x)</m> be a function defined on <m>[0,L]</m>. The even extension of <m>f(x)</m> is the even periodic function defined by extending the graph of <m>f(x)</m> on <m>[0,L]</m> to the rest of the real numbers in such a way that the resulting function is even and has period <m>2L</m>. The odd extension of <m>f(x)</m> is defined similarly.</p>
+        </statement>
+    </definition>
+
+    <p>Computing Fourier series for even and odd functions is simpler than the general case.</p>
+
+    <theorem xml:id="theorem-fourier-coefficients-of-even-and-odd-functions">
+        <title>Fourier Coefficients of Even and Odd Functions</title>
+        <idx><h>Fourier series</h><h>Fourier coefficients for even and odd functions</h></idx>
+        <statement>
+            <p>Let <m>f(x)</m> be periodic with period <m>2L</m>. If <m>f</m> is even, then the Fourier coefficients of <m>f(x)</m> satisfy
+            <me>a_{0} = \frac{1}{L}\int_{0}^{L}f(x)\,dx, a_{k} = \frac{2}{L}\int_{0}^{L}f(x)\cos\left(\frac{k\pi}{L}x\right)\,dx\text{ and } b_{k} = 0</me>
+            for <m>k\geq1</m>. If <m>f</m> is odd, then the Fourier coefficients of <m>f(x)</m> are
+            <me>b_{k} = \frac{2}{L}\int_{0}^{L}f(x)\sin\left(\frac{k\pi}{L}x\right)\,dx\text{ and } a_{k} = 0.</me></p>
+        </statement>
+    </theorem>
+
+    <example xml:id="example-even-extension-of-a-piecewise-function">
+        <title>Even Extension of a Piecewise Function</title>
+        <p>Define the piecewise function <m>f(x)</m> by
+        <me>f(x) = \begin{cases}x &amp; 0\leq x\leq \frac{\pi}{2} \\ \frac{\pi}{2} &amp; \frac{\pi}{2}\leq x\leq \pi\end{cases}.</me>
+        Then the even extension of <m>f(x)</m> is the new function <m>f_{1}(x)</m> given by
+        <me>f_{1}(x) = \begin{cases}|x| &amp; -\frac{\pi}{2}\leq x\leq \frac{\pi}{2} \\ \frac{\pi}{2} &amp; \frac{\pi}{2}\leq |x|\leq \pi\end{cases}.</me> We can use Theorem <xref ref="theorem-fourier-coefficients-of-even-and-odd-functions" /> to help us find the Fourier series for <m>f_{1}(x)</m>. With a little bit of help, we get <m>a_{0} = \frac{3\pi}{8}</m> and <m>a_{k} = \frac{2\cos(\frac{\pi k}{2})-2}{\pi k^{2}}</m>, and so the Fourier series of <m>f_{1}(x)</m> is
+        <me>\frac{3\pi}{8}+\sum_{k=1}^{\infty}\frac{(-1)^{k}-1}{2\pi k^{2}}\cos(2kx).</me></p>
+    </example>
+    <sage>
+        <input>
+            var('x,k,i')
+            assume(k,i,'integer')
+            L = pi
+
+            # Defines the Fourier coefficients.
+            def a(k):
+            coeff1 = (2/L)*integral(x*cos(k*pi*x/L), (x,0,pi/2))
+            coeff2 = (2/L)*integral((pi/2)*cos(k*pi*x/L), (x,pi/2,pi))
+            return coeff1+coeff2
+
+            # Defines the corresponding (partial) Fourier series.
+            def FS(k): 
+            return a(0)/2 + sum(a(i)*cos(i*pi*x/L), i, 1, k)
+
+            n = 25
+            p = plot(FS(n),(x,-L,L), color='red')
+            p
+        </input>
+    </sage>
+
+</subsection>
+</section>
+
+<section xml:id="section-complex-fourier-series-and-parsevals-identity">
+    <title>Complex Fourier Series and Parseval's Identity</title>
+    <introduction>
+        <p>
+            Although we have a decent formula for Fourier series (see Theorem <xref ref="theorem-fourier-series-of-functions-with-arbitrary-period" />), it's a little unwieldy due to the different expressions for <m>a_{k},b_{k}</m> and <m>a_{0}</m>. 
+            We can fix this, perhaps surprisingly, by using complex exponentials and Euler's formula.
+        </p>
+    </introduction>
+    <subsection xml:id="subsection-complex-fourier-series">
+        <title>Complex Fourier Series</title>
+        <p>First, recall <xref ref="theorem-euler-s-formula" text="type-global">Euler's formula</xref>, which allows us to rewrite complex exponentials in terms of sine and cosine.</p>
+            <!-- <theorem xml:id="theorem-euler-s-formula">
+                <title>Euler's Formula</title>
+                <idx><h>Euler's formula</h></idx>
+                <statement>
+                    <p>Let <m>x</m> be a real number. Then
+                    <me>e^{ix} = \cos x+i\sin x.</me> Furthermore, we can write
+                    <me>\cos x = \frac{e^{ix}+e^{-ix}}{2}\text{ and }\sin x = \frac{e^{ix}-e^{-ix}}{2i}.</me></p>
+                </statement>
+            </theorem> -->
+            <p>We can use <xref ref="theorem-euler-s-formula" text="type-global" /> to rewrite the Fourier series in <xref ref="theorem-fourier-series-of-functions-with-arbitrary-period" text="type-global" />. Our goal now is to find a <term>complex Fourier series</term>
+            <me>\sum_{k=-\infty}^{\infty}c_{k}e^{i\frac{k\pi}{L}x}.</me>
+            for functions <m>f(x)</m> with period <m>p=2L</m>. We will also include the statement of <xref ref="theorem-pointwise-convergence-of-fourier-series" /> in this new context.</p>
+            <theorem xml:id="theorem-complex-fourier-series">
+                <title>Complex Fourier Series</title>
+                <idx><h>Fourier series</h><h>complex form</h></idx>
+                <statement>
+                    <p>Let <m>f(x)</m> be a piecewise smooth function with period <m>p=2L</m>. Then the complex Fourier series of <m>f(x)</m> is given by
+                    <me>\sum_{k=-\infty}^{\infty}c_{k}e^{i\frac{k\pi}{L}x},</me>
+                    where
+                    <me>c_{k} = \frac{1}{2L}\int_{-L}^{L}f(x)e^{-i\frac{k\pi}{L}x}\,dx.</me>
+                    This Fourier series converges to <m>f(x)</m> wherever <m>f(x)</m> is continuous.</p>
+                </statement>
+            </theorem>
+            <proof>
+                <p>We need to use another orthogonality relation like we had in the real case, except now it will be written in terms of complex exponentials instead of sine and cosine. In particular, the relation we will use is the following:
+                    <me>\int_{-L}^{L}e^{i\frac{(m+n)\pi}{L}x}\,dx = \begin{cases} 2L &amp; m=-n \\ 0 &amp; \text{otherwise.}\end{cases}</me>
+                    So if we set <m>f(x)</m> equal to a complex Fourier series and integrate both sides against <m>e^{-i\frac{n\pi}{L}x}</m> for <m>x</m> from <m>-L</m> to <m>L</m>, we get
+                    <md>
+                        <mrow>\int_{-L}^{L}f(x)e^{-i\frac{n\pi}{L}x}\,dx &amp; = \int_{-L}^{L}\sum_{k=-\infty}^{\infty}c_{k}e^{i\frac{k\pi}{L}x}e^{-i\frac{n\pi}{L}x}\,dx </mrow>
+                        <mrow> &amp;= \sum_{k=-\infty}^{\infty}c_{k}\int_{-L}^{L}e^{i\frac{(k-n)\pi}{L}x}\,dx</mrow>
+                        <mrow> &amp;= 2Lc_{n}</mrow>
+                    </md>
+                    where the last equality follows from the orthogonality relation we just proved. Therefore
+                    <me>c_{n} = \frac{1}{2L}\int_{-L}^{L}f(x)e^{-i\frac{n\pi}{L}x}\,dx.</me>
+                </p>
+            </proof>
+
+            <example xml:id="example-complex-fourier-series-of-exponential-function">
+                <title>Complex Fourier Series of Exponential Function</title>
+                <p>Let <m>f(x) = e^{2x}</m> on <m>-\pi&lt;x&lt;\pi</m> and suppose that <m>f(x)</m> is periodic with period <m>2\pi</m>. We want to find the complex Fourier series for <m>f(x)</m>. We can do this by finding the correct coefficients <m>c_{k}</m>:
+                <md>
+                    <mrow>c_{k} &amp; = \frac{1}{2L}\int_{-L}^{L}f(x)e^{-i\frac{k\pi}{L}x}\,dx</mrow>
+                    <mrow> &amp; = \frac{1}{2\pi}\int_{-\pi}^{\pi}e^{2x}e^{-ikx}\,dx </mrow>
+                    <mrow> &amp; = \frac{1}{2\pi}\int_{-\pi}^{\pi}e^{(2-ik)x}\,dx </mrow>
+                    <mrow> &amp; = \frac{(-1)^{k}\sinh2\pi}{\pi(2-ik)} </mrow>
+                    <mrow> &amp; = \frac{(-1)^{k}\sinh2\pi(2+ik)}{\pi(4+k^{2})}</mrow>
+                </md>
+                So we have
+                <me>f(x) = \sum_{k=-\infty}^{\infty}\frac{(-1)^{k}(2+ik)\sinh2\pi}{\pi(4+k^{2})}e^{ikx}</me>
+                for <m>x\neq k\pi</m>, since this is where <m>f(x)</m> has discontinuities.
+            </p>
+        </example>
+
+        <p>Although the complex Fourier series can be easier to compute in some cases, there may be cases where we'd like to go back to the real Fourier series. The following formula lets us do so.</p>
+
+        <theorem xml:id="theorem-real-fourier-series-from-complex-fourier-series">
+            <title>Real Fourier Series from Complex Fourier Series</title>
+            <idx><h>Fourier series</h><h>convert complex to real</h></idx>
+            <statement>
+                <p>Suppose <m>f(x)</m> has the complex Fourier series
+                <me>\sum_{k=-\infty}^{\infty}c_{k}e^{i\frac{k\pi}{L}x}.</me>
+                Then the corresponding coefficients <m>a_{k}</m> and <m>b_{k}</m> for the real Fourier series
+                <me>a_{0} + \sum_{k=1}^{\infty}\left(a_{k}\cos\left(\frac{k\pi}{L}x\right)+b_{k}\sin\left(\frac{k\pi}{L}x\right)\right)</me>
+                are given by
+                <md>
+                    <mrow>a_{0} &amp; = c_{0} </mrow>
+                    <mrow>a_{k} &amp; = c_{k} + c_{-k} </mrow>
+                    <mrow>b_{k} &amp; = i(c_{k}-c_{-k}) </mrow>
+                </md></p>
+            </statement>
+        </theorem>
+
+        <p>The real Fourier series corresponding to the complex Fourier series for <m>f(x)</m> from Example <xref ref="example-complex-fourier-series-of-exponential-function" /> has coefficients
+        <md>
+            <mrow>a_{0} &amp; = c_{0} &amp; &amp;= \frac{\sinh2\pi}{2\pi} </mrow>
+            <mrow>a_{k} &amp; = c_{k} + c_{-k} &amp; &amp;= \frac{4(-1)^{k}\sinh2\pi}{\pi(4+k^{2})} </mrow>
+            <mrow>b_{k} &amp; = i(c_{k}-c_{-k}) &amp; &amp;= -\frac{2k(-1)^{k}\sinh2\pi}{\pi(4+k^{2})}. </mrow>
+        </md>
+        Either way, we get the following Fourier series.</p>
+        <sage>
+            <input>
+                # Defines our function.
+                f = lambda x:e**(2*x)
+                L = pi
+                f = piecewise([[(-L,L),f]])
+
+                # Partial sums of the Fourier series
+                def FS(k):
+                fourier = f.fourier_series_partial_sum(k,L)
+                return fourier
+
+                n = 15
+                p = plot(FS(n),(x,-L,L),color='red') + plot(f,(x,-L,L))
+                p
+            </input>
+        </sage>
+    </subsection>
+    <subsection xml:id="subsection-parseval-s-identity">
+        <title>Parseval's Identity</title>
+        <p>One of the most important identities in mathematics is <term>Parseval's identity</term>, which we state next.</p>
+
+        <theorem xml:id="theorem-parseval-s-identity">
+            <title>Parseval's Identity</title>
+            <idx><h>Fourier series</h><h>Parseval's identity</h></idx>
+            <statement>
+                <p>Let <m>f(x)</m> denote a piecewise-differentiable (real-valued) function on <m>[-L,L]</m> with real Fourier coefficients <m>a_{k},b_{k}</m> and complex Fourier coefficients <m>c_{k}</m>. If <m>\int_{-L}^{L}f(x)^{2}\,dx</m> exists and is finite, then
+                <me>\frac{1}{2L}\int_{-L}^{L}f(x)^{2}\,dx = a^{2}_{0} + \frac{1}{2}\sum_{k=1}^{\infty}(a^{2}_{k}+b^{2}_{k}) = \sum_{k=-\infty}^{\infty}|c_{k}|^{2}.</me></p>
+            </statement>
+        </theorem>
+
+        <p>One of the great strengths of this identity is that it allows potentially complicated sums to be computed using integrals instead.</p>
+
+        <example xml:id="example-the-basel-problem">
+            <title>The Basel Problem</title>
+            <idx><h>Basel problem</h></idx>
+            <p>In the early <m>18^{\text{th}}</m> century, one of the most renowned problems in mathematics was the Basel problem, which asked for the value of 
+            <me>\sum_{k=1}^{\infty}\frac{1}{k^{2}}.</me>
+            Euler was the first person to show that the sum is actually <m>\frac{\pi^{2}}{6},</m> and it was this solution that made him famous<fn>Or at least math famous.</fn> in the first place. We can solve this by using Parseval's identity. To do so, let <m>f(x) = x</m> for <m>-1&lt; x &lt; 1</m>. Then with a little bit of work we can find the (real) Fourier coefficients:
+            <md>
+                <mrow>a_{0} &amp; = 0 </mrow>
+                <mrow>a_{k} &amp; = 0 \text{ for } k\geq 1 </mrow>
+                <mrow>b_{k} &amp; = \frac{2(-1)^{k}}{\pi k} </mrow>
+            </md>
+            By Parseval's identity, it then follows that
+            <me>\frac{1}{2}\int_{-1}^{1}x^{2}\,dx = \frac{1}{2}\sum_{k=1}^{\infty}\frac{4}{\pi^{2}k^{2}},</me>
+            which simplifies down to 
+            <me>\frac{2}{3} = \frac{4}{\pi^{2}}\sum_{k=1}^{\infty}\frac{1}{k^{2}}.</me>
+            In other words, <m>\sum_{k=1}^{\infty}\frac{1}{k^{2}} = \frac{\pi^{2}}{6}.</m></p>
+        </example>
+    </subsection>
+
+</section>
+<section xml:id="subsection-the-fourier-transform">
+    <title>The Fourier Transform</title>
+    <p>If <m>f(x)</m> is a periodic function with period <m>p=2L</m>, then we know how to find its Fourier series, both real and complex. But what do we do if our function <m>f(x)</m> is not periodic? Can we still get a similar representation?</p>
+
+    <p>Let <m>f(x)</m> be some piecewise-differentiable function, not necessarily periodic. Then we can't find it's Fourier series. However, we can truncate the graph of <m>f(x)</m>, and replace it with a periodic function that is equal to <m>f(x)</m> on some interval <m>(-L,L)</m>. Then we can find the Fourier series of <em>this</em> function, which by Theorem <xref ref="theorem-complex-fourier-series" /> is given by <m>\sum_{k=-\infty}^{\infty}c_{k}e^{i\frac{k\pi}{L}x}</m> where
+    <me>c_{k} = \frac{1}{2L}\int_{-L}^{L}f(x)e^{-i\frac{k\pi}{L}x}\,dx.</me>
+    So we can write
+    <me>f(x) = \sum_{k=-\infty}^{\infty}\left(\frac{1}{2L}\int_{-L}^{L}f(x)e^{-i\frac{k\pi}{L}x}\,dx\right)e^{i\frac{k\pi}{L}x}</me>
+    wherever <m>f(x)</m> is continuous on <m>-L&lt;x&lt;x</m>. The idea now is that the larger that <m>T</m> gets, this expression can be used to represent <m>f(x)</m> for more and more values of <m>x</m>. So we want to see what happens to this as <m>T\to\infty</m>. First, we'll clean this up a little bit by writing <m>w_{k} = \frac{k\pi}{L}</m> and <m>\Delta w = w_{k+1} - w_{k}</m>, so that <m>\frac{1}{2L} = \frac{\Delta w}{2\pi}</m>. Then if <m>x</m> is in <m>(-L,L)</m> and <m>f</m> is continuous at <m>x</m>, then we can say
+    <md>
+      <mrow>f(x) &amp; = \sum_{k=-\infty}^{\infty}\left(\frac{1}{2L}\int_{-L}^{L}f(x)e^{-i\frac{k\pi}{L}x}\,dx\right)e^{i\frac{k\pi}{L}x} </mrow>
+      <mrow> &amp; = \sum_{k=-\infty}^{\infty}\left(\frac{1}{2\pi}\int_{-L}^{L}f(x)e^{-iw_{k}x}\,dx\right)e^{iw_{k}x}\Delta w. </mrow>
+  </md>
+  As <em>awful</em> as this looks, we can relate this to a Riemann sum! As <m>L\to\infty,</m> <m>\Delta w\to0</m>, we can replace <m>w_{k}</m> with the new variable <m>\omega</m> and this expression becomes
+  <me>f(x) = \int_{-\infty}^{\infty}\left(\frac{1}{2\pi}\int_{-\infty}^{\infty}f(x)e^{-i\omega x}\,dx\right)e^{i\omega x}\,d\omega.</me>
+  This leads to the definition of the <term>Fourier transform</term>. But first we need another definition.</p>
+
+  <definition xml:id="definition-absolutely-integrable-functions">
+      <title>Absolutely Integrable Functions</title>
+      <index><main>Absolutely Integrable Functions</main></index>
+      <statement>
+        <p>Let <m>f(x)</m> be a piecewise continuous function. Then <m>f(x)</m> is absolutely integrable if <m>\int_{-\infty}^{\infty}|f(x)|\,dx&lt;\infty.</m></p>
+    </statement>
+</definition>
+
+<definition xml:id="definition-the-fourier-transform">
+  <title>The Fourier Transform</title>
+  <index><main>Fourier Transform</main><sub>definition</sub></index>
+  <statement>
+    <p>Let <m>f(x)</m> be an absolutely integrable piecewise continuous function. The Fourier transform of <m>f(x)</m> is the function <m>\hat{f}(\omega)</m> defined by
+    <me>\hat{f}(\omega) = \frac{1}{\sqrt{2\pi}}\int_{-\infty}^{\infty}f(x)e^{-i\omega x}\,dx.</me>
+    We often write <m>\mathcal{F}(f)</m> to denote the Fourier transform as well.</p>
+</statement>
+</definition>
+
+<example xml:id="example-fourier-transform-of-a-piecewise-exponential">
+  <title>Fourier transform of a piecewise exponential</title>
+  <p>Let <m>f(x) = e^{-2x}</m> for <m>x&gt;-5</m> and <m>0</m> otherwise. Then the Fourier transform of <m>f(x)</m> is
+  <md>
+    <mrow>\hat{f}(\omega) &amp; = \frac{1}{\sqrt{2\pi}}\int_{-\infty}^{\infty}f(x)e^{-i\omega x}\,dx </mrow>
+    <mrow> &amp; = \frac{1}{\sqrt{2\pi}}\int_{-5}^{\infty}e^{-2x}e^{-i\omega x}\,dx </mrow>
+    <mrow> &amp; = \frac{1}{\sqrt{2\pi}}\int_{-5}^{\infty}e^{-(2+i\omega)x}\,dx </mrow>
+    <mrow> &amp; = -\frac{1}{(2+i\omega)\sqrt{2\pi}}e^{-(2+i\omega)x}\Big]_{-5}^{\infty}</mrow>
+    <mrow> &amp; = \frac{e^{(2+i\omega)5}}{(2+i\omega)\sqrt{2\pi}}. </mrow>
+</md></p>
+</example>
+
+<p>As with the Laplace transform, the Fourier transform of a function is said to be in the <term>frequency domain</term>. In fact, the magnitude of <m>\hat{f}(\omega)</m> represents the <term>frequency content</term> of the function <m>f(x)</m> (thought of as a signal) at the frequency <m>\omega</m>. It's also a quick jump to get the <term>inverse Fourier transform</term>.</p>
+
+<definition xml:id="definition-the-inverse-fourier-transform">
+  <title>The Inverse Fourier Transform</title>
+  <index><main>Fourier Transform</main><sub>inverse transform</sub></index>
+  <statement>
+    <p>The inverse Fourier transform of <m>\hat{f}(\omega)</m> is
+    <me>\mathcal{F}^{-1}(\hat{f}) = \frac{1}{\sqrt{2\pi}}\int_{-\infty}^{\infty}\hat{f}(\omega)e^{i\omega x}\,d\omega.</me></p>
+</statement>
+</definition>
+
+<theorem xml:id="theorem-fourier-integral-representation">
+  <title>Fourier Inversion Theorem</title>
+  <index><main>Fourier Transform</main><sub>inversion theorem</sub></index>
+  <statement>
+    <p>Let <m>f(x)</m> be an absolutely integrable, piecewise differentiable function. Then <m>f(x) = \mathcal{F}^{-1}(\hat{f})</m> wherever <m>f(x)</m> is continuous.</p>
+</statement>
+</theorem>
+
+<example xml:id="example-inverse-fourier-transform-of-a-step-function">
+  <title>Inverse Fourier transform of a step function</title>
+  <p>Define <m>\hat{f}(\omega)</m> by 
+  <me>\hat{f}(\omega) = \begin{cases} 1 &amp; -1 &lt; x &lt; 1 \\ 0 &amp; \text{otherwise.}\end{cases}</me>
+  Then we can find the inverse transform using <xref ref="definition-the-inverse-fourier-transform" autoname="yes" />:
+  <md>
+    <mrow>\mathcal{F}^{-1}\{\hat{f}\} &amp; = \frac{1}{2\pi}\int_{-\infty}^{\infty}\hat{f}(\omega)e^{i\omega x}\,d\omega </mrow>
+    <mrow> &amp; = \frac{1}{2\pi}\int_{-1}^{1}e^{i\omega x}\,d\omega </mrow>
+    <mrow> &amp; = \frac{1}{2\pi}\frac{e^{i\omega x}}{ix}\Big]_{-1}^{1} </mrow>
+    <mrow> &amp; = \frac{1}{2\pi}\frac{e^{ix}-e^{-ix}}{ix} </mrow>
+    <mrow> &amp; = \frac{1}{\pi}\frac{\sin x}{x}. </mrow>
+</md>
+</p>
+</example>
+
+<p>The Fourier and inverse Fourier transforms are also linear like the Laplace transform: if <m>a,b</m> are constants and <m>f,g</m> are functions, then
+<me>\mathcal{F}\{af+bg\} = a\hat{f}+b\hat{g}</me>
+and
+<me>\mathcal{F}^{-1}(a\hat{f}+b\hat{g}) = af + bg.</me>
+The Fourier transform also works well with derivatives.</p>
+
+<theorem xml:id="theorem-fourier-transforms-and-derivatives">
+    <title>Fourier Transforms and Derivatives</title>
+    <index><main>Fourier Transform</main><sub>transforms fo derivatives</sub></index>
+    <statement>
+      <p>Let <m>f(x)</m> be differentiable with derivative <m>f'(x)</m>. Suppose that both <m>f(x)</m> and <m>f'(x)</m> are absolutely integrable. Then
+      <me>\mathcal{F}(f') = i\omega\hat{f}(\omega).</me></p>
+  </statement>
+</theorem>
+
+<p>Fourier transforms also behave well with another type of convolution.</p>
+
+<theorem xml:id="theorem-convolution-theorem">
+    <title>Convolution Theorem</title>
+    <index><main>Fourier Transform</main><sub>convolution theorem</sub></index>
+    <statement>
+      <p>Suppose that <m>f(x),g(x)</m> are piecewise continuous, bounded and absolutely integrable. Define <m>f\ast g</m> by
+      <me>f\ast g = \int_{-\infty}^{\infty}f(\tau)g(x-\tau)\,d\tau.</me>
+      Then <m>\mathcal{F}(f\ast g) = \hat{f}\hat{g}.</m></p>
+  </statement>
+</theorem>
+</section>
+<!-- I'm keeping these here for now in case I need to see how this is done later. -->
+<!--     <xi:include href="./sage/integers-sage.xml" />
+<xi:include href="./sage/integers-sage-exercises.xml" /> -->
+
+</chapter>
