@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!--********************************************************************
+
+*********************************************************************-->
+<!-- This file was originally part of the book     -->
+<!-- (as copied on 2015/07/12)                     -->
+<!--                                               -->
+<!--   Abstract Algebra: Theory and Applications   -->
+<!--                                               -->
+<!-- Copyright (C) 1997-2014  Thomas W. Judson     -->
+
+<chapter xml:id="higher-order-linear-odes" xmlns:xi="http://www.w3.org/2001/XInclude">
+  <title>Higher Order Linear ODEs</title>
+  <introduction>
+    <p>
+      This chapter applies many of the ideas developed in <xref ref="linear-odes-constant-coefficients" text="type-global" /> to higher order linear ODEs.
+      We'll begin by transferring many of the concepts and terms introduced in <xref first="section-second-order-linear-odes" last="section-homogeneous-odes-with-constant-coefficients" text="type-global">Sections</xref>.
+    </p>
+  </introduction>
+</chapter>
