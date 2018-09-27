@@ -271,7 +271,7 @@
         </table>
         <p>
           So the general solution is
-          <me>c_{1}+c_{2}x+c_{3}e^{3x}+A\cos2x+B\sin2x+e^{-3x}\brackets*{(A_{1}+A_{2}x+A_{3}x^{2})\cos2x+(B_{1}+B_{2}x+B_{3}x^{2})\sin2x}.</me>
+          <me>c_{1}+c_{2}x+c_{3}e^{3x}+A\cos2x+B\sin2x+e^{-3x}\brackets{(A_{1}+A_{2}x+A_{3}x^{2})\cos2x+(B_{1}+B_{2}x+B_{3}x^{2})\sin2x}.</me>
         </p>
       </solution>
     </example>
@@ -315,7 +315,7 @@
           Since our guess for <m>y_{p}</m> doesn't overlap with <m>y_{c}</m>, we can proceed with plugging our guess into the original ODE <m>y^{(3)}-y'=\sinh 2x</m> and equating coefficients, just as we did before.
           <md>
             <mrow>\sinh 2x \amp= y^{(3)}_{p}-y'_{p}</mrow>
-            <mrow>\amp= \parens*{8C\sinh2x+8D\cosh2x}-\parens*{2C\sinh2x+2D\cosh2x}</mrow>
+            <mrow>\amp= \parens{8C\sinh2x+8D\cosh2x}-\parens{2C\sinh2x+2D\cosh2x}</mrow>
             <mrow>\amp= 6C\sinh2x+6D\cosh2x.</mrow>
           </md>
           So we get <m>C = \frac{1}{6}</m> and <m>D=0</m>, which means that <m>y_{p} = \frac{1}{6}\cosh2x</m>. When solving for <m>y_{p}</m>, always remember to plug the values you find back into the guess for <m>y_{p}</m> that you used!
@@ -347,7 +347,7 @@
           </me>
           we get
           <me>
-            x_{c} = c_{1}+c_{2}t+c_{3}t^{2}+A\cos2t+B\sin2t + t\brackets*{C\cos2t+D\sin2t}.
+            x_{c} = c_{1}+c_{2}t+c_{3}t^{2}+A\cos2t+B\sin2t + t\brackets{C\cos2t+D\sin2t}.
           </me>
         </p>
         <p>
@@ -368,9 +368,10 @@
             </row>
             <row bottom="major">
               <cell><m>-3t\sin2t</m></cell>
-              <cell><m>\parens{C_{6}t+C_{7}}\cos2t+\parens*{C_{8}t+C_{9}}\sin2t</m></cell>
+              <cell><m>\parens{C_{6}t+C_{7}}\cos2t+\parens{C_{8}t+C_{9}}\sin2t</m></cell>
             </row>
           </tabular>
+          <caption>Initial guess of <m>x_{p}</m> for <m>\dv[7]{x}{t}+8\dv[5]{x}{t}+16\dv[3]{x}{t} = 5t-3t^{2}+e^{-t}\cos2t-3t\sin2t.</m></caption>
         </table>
         <p>
           However, we now have a problem with overlaps between <m>x_{p}</m> and <m>x_{c}</m>.
@@ -402,31 +403,31 @@
         </row>
         <row>
           <cell><m>(c_{k}x^{k}+\dots+c_{1}x+c_{0})e^{ax}\sin bx</m></cell>
-          <cell><m>x^{m}e^{ax}\brackets*{(C_{k}x^{k}+\dots+C_{1}x+C_{0})\cos bx+(D_{k}x^{k}+\dots+D_{1}x+D_{0})\sin bx}</m></cell>
+          <cell><m>x^{m}e^{ax}\brackets{(C_{k}x^{k}+\dots+C_{1}x+C_{0})\cos bx+(D_{k}x^{k}+\dots+D_{1}x+D_{0})\sin bx}</m></cell>
         </row>
         <row>
           <cell><m>(c_{k}x^{k}+\dots+c_{1}x+c_{0})e^{ax}\cos bx</m></cell>
-          <cell><m>x^{m}e^{ax}\brackets*{(C_{k}x^{k}+\dots+C_{1}x+C_{0})\cos bx+(D_{k}x^{k}+\dots+D_{1}x+D_{0})\sin bx}</m></cell>
+          <cell><m>x^{m}e^{ax}\brackets{(C_{k}x^{k}+\dots+C_{1}x+C_{0})\cos bx+(D_{k}x^{k}+\dots+D_{1}x+D_{0})\sin bx}</m></cell>
         </row>
         <row>
           <cell><m>(c_{k}x^{k}+\dots+c_{1}x+c_{0})e^{ax}\sinh bx</m></cell>
-          <cell><m>x^{m}e^{ax}\brackets*{(C_{k}x^{k}+\dots+C_{1}x+C_{0})\cosh bx+(D_{k}x^{k}+\dots+D_{1}x+D_{0})\sinh bx}</m></cell>
+          <cell><m>x^{m}e^{ax}\brackets{(C_{k}x^{k}+\dots+C_{1}x+C_{0})\cosh bx+(D_{k}x^{k}+\dots+D_{1}x+D_{0})\sinh bx}</m></cell>
         </row>
         <row bottom="major">
           <cell><m>(c_{k}x^{k}+\dots+c_{1}x+c_{0})e^{ax}\cosh bx</m></cell>
-          <cell><m>x^{m}e^{ax}\brackets*{(C_{k}x^{k}+\dots+C_{1}x+C_{0})\cosh bx+(D_{k}x^{k}+\dots+D_{1}x+D_{0})\sinh bx}</m></cell>
+          <cell><m>x^{m}e^{ax}\brackets{(C_{k}x^{k}+\dots+C_{1}x+C_{0})\cosh bx+(D_{k}x^{k}+\dots+D_{1}x+D_{0})\sinh bx}</m></cell>
         </row>
-        where <m>x^m</m> is the \textbf{smallest} power of <m>x</m> required to remove any overlaps with <m>y_{c}</m>.
       </tabular>
+      <caption><m>x^m</m> is the <em>smallest</em> power of <m>x</m> required to remove any overlaps with <m>y_{c}</m>.</caption>
     </table>
 
     <example>
       <statement>
         <p>
           Find the general solution of
-          \[
-          y^{(3)}-2y''+3y'= x+e^{-3x}\sin x
-          \]
+          <me>
+            y^{(3)}-2y''+3y'= x+e^{-3x}\sin x
+          </me>
         </p>
       </statement>
       <solution>
@@ -451,7 +452,7 @@
             </row>
             <row bottom="major">
               <cell><m>e^{-3x}\sin x</m></cell>
-              <cell><m>e^{-3x}\brackets*{C_{3}\cos x+C_{4}\sin x}</m></cell>
+              <cell><m>e^{-3x}\brackets{C_{3}\cos x+C_{4}\sin x}</m></cell>
             </row>
           </tabular>
         </table>
@@ -460,7 +461,8 @@
           Plugging this into the ODE into a CAS such as Maple or Sage gives
           <md>
             <mrow>x+e^{-3x}\sin x \amp= y^{(3)}_{p}-2y''_{p}+3y'_{p}</mrow>
-            <mrow>\amp= 6C_{1}x+(3C_{2}-4C_{1})+\parens*{-43C_{3}+41C_{4}}e^{-3x}\cos x+\parens*{-41C_{3}-43C_{4}}e^{-3x}\sin x</mrow>
+            <mrow>\amp= 6C_{1}x+(3C_{2}-4C_{1}) </mrow>
+            <mrow> \amp\quad + \parens{-43C_{3}+41C_{4}}e^{-3x}\cos x+\parens{-41C_{3}-43C_{4}}e^{-3x}\sin x</mrow>
           </md>
           This gives us the system of equations
           <md>
@@ -470,17 +472,34 @@
             <mrow>-41C_{3}-43C_{4}  \amp= 1</mrow>
           </md>
           which we can solve using Sage to get
-          <md>
+          <me>
             C_{1} = \frac{1}{6},C_{2} = \frac{2}{9},C_{3} = -\frac{41}{3530},C_{4}=-\frac{43}{3530}.
-          </md>
+          </me>
         </p>
         <p>
           So the general solution of the ODE is
-          <md>
-            y = y_{c}+y_{p} = c_{1}+e^{x}(A\cos\sqrt{2}x+B\sin\sqrt{2}x) +\frac{1}{6}x^{2}+\frac{2}{9}x-\frac{e^{-3x}}{3530}\brackets*{41\cos x+43\sin x}.
-          </md>
+          <me>
+            y = y_{c}+y_{p} = c_{1}+e^{x}(A\cos\sqrt{2}x+B\sin\sqrt{2}x) +\frac{1}{6}x^{2}+\frac{2}{9}x-\frac{e^{-3x}}{3530}\brackets{41\cos x+43\sin x}.
+          </me>
         </p>
       </solution>
     </example>
+    <sage>
+      <input>
+        # Set variables
+        c1, c2, c3, c4 = var('c1 c2 c3 c4')
+
+        # Set up equations as variables for clarity
+        eqn1 = 6*c1
+        eqn2 = 3*c2 - 4*c1
+        eqn3 = -43*c3 + 41*c4
+        eqn4 = -41*c3 - 43*c4
+
+        solve([eqn1 == 1, eqn2 == 0, eqn3 == 0, eqn4 == 1], c1, c2, c3, c4)
+      </input>
+      <output>
+        [[c1 == (1/6), c2 == (2/9), c3 == (-41/3530), c4 == (-43/3530)]]
+      </output>
+    </sage>
   </section>
 </chapter>
