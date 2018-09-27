@@ -24,6 +24,7 @@
       \newcommand{\dotprod}[1]{\left\langle #1 \right\rangle}
       \newcommand{\set}[1]{\left\{ #1 \right\}}
       \newcommand{\brackets}[1]{\left[ #1 \right]}
+      \newcommand{\parens}[1]{\left( #1 \right)}
       % Inline vector... hopefully looks better than \irow.
       \newcommand{\ivec}[1]{%
         \renewcommand{\arraystretch}{.8}%
