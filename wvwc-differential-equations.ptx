@@ -10,7 +10,7 @@
       \newcommand{\ZZ}{\mathbb{Z}}
       \newcommand{\CC}{\mathbb{C}}
       \renewcommand{\th}{\text{th}}
-      <!-- \renewcommand{\vec}[1]{\mathbf{#1}} -->
+      \renewcommand{\vec}[1]{\mathbf{#1}}
       \newcommand{\vv}[1]{\mathbf{#1}}
       \newcommand{\grad}{\nabla}
       \newcommand{\vecm}[1]{\bm{#1}}
