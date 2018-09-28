@@ -125,183 +125,237 @@ This is a first-order system relating <m>x(t)</m> and <m>y(t)</m>.
 </figure>
 
 <p>
-To actually solve systems of ODEs, we'll use <em>matrices</em> to rewrite these systems as <em>matrix ODEs</em>.
+  To actually solve systems of ODEs, we'll use <em>matrices</em> to rewrite these systems as <em>matrix ODEs</em>.
 </p>
 <definition xml:id="definition-matrices-and-vectors">
   <idx><h>matrices</h><h>definition</h></idx>
   <idx><h>vectors</h><h>definition</h><seealso>matrices</seealso></idx>
   <statement>
     <p>
-An <m>m\times n</m> <term>matrix</term> is an array of <m>m</m> rows and <m>n</m> columns.
-<m>m\times1</m> matrices are called (<term>column</term>) <term>vectors</term>.
-Matrices are typically denoted with capital italic letters (such as <m>A</m>, <m>M</m>) and vectors are often denoted with lower case bold letters (such as <m>\vec{v},\vec{x})</m>.
-A <term>zero matrix</term> will be denoted using <m>\vec{0}</m>.
-</p>
-</statement>
+      An <m>m\times n</m> <term>matrix</term> is an array of <m>m</m> rows and <m>n</m> columns.
+      <m>m\times1</m> matrices are called (<term>column</term>) <term>vectors</term>.
+      Matrices are typically denoted with capital italic letters (such as <m>A</m>, <m>M</m>) and vectors are often denoted with lower case bold letters (such as <m>\vec{v},\vec{x})</m>.
+      A <term>zero matrix</term> will be denoted using <m>\vec{0}</m>.
+    </p>
+  </statement>
 </definition>
 <p>
-As a brief example, let
-<me>
-A = \begin{bmatrix} 1\amp2\amp-1\\3\amp0\amp0\end{bmatrix}\quad\text{and}\quad \vec{y} = \begin{bmatrix} 1\\-1\\1 \end{bmatrix}.
+  As a brief example, let
+  <me>
+  A = \begin{bmatrix} 1\amp2\amp-1\\3\amp0\amp0\end{bmatrix}\quad\text{and}\quad \vec{y} = \begin{bmatrix} 1\\-1\\1 \end{bmatrix}.
 </me>
 Then <m>A</m> is a <m>2\times3</m> matrix and <m>\vec{y}</m> is a <m>3\times 1</m> vector.
 </p>
 
-<definition>
-<statement>
-  <p>
-Let <m>A</m> be the <m>2\times 2</m> matrix
-<me>
-A = \bmatrix{a_{11}\amp a_{12}\\a_{21}\amp a_{22}}
-</me>
-and let <m>\vec{v} = \begin{bmatrix} v_{1}\\v_{2} \end{bmatrix}</m>.
-Then their <term>product</term> <m>A\vec{v}</m> is the vector defined to be
-<me>
-A\vec{v} = \begin{bmatrix} a_{11}v_{1}+a_{12}v_{2}\\a_{21}v_{1}+a_{22}v_{2} \end{bmatrix}.
-</me>
-The <m>2\times 2</m> <term>identity matrix</term> is the matrix <m>I = \begin{bmatrix}1\amp0\\0\amp1\end{bmatrix}</m>.
-A <term>scalar</term> is just a constant.
-To multiply a scalar <m>c</m> with a matrix <m>A</m>, just multiply every element of <m>A</m> with <m>c</m>.
+<definition xml:id="definition-matrix-vector-product">
+  <title>Matrix-Vector Product</title>
+  <statement>
+    <p>
+      Let <m>A</m> be the <m>2\times 2</m> matrix
+      <me>
+      A = \begin{bmatrix} a_{11}\amp a_{12}\\a_{21}\amp a_{22} \end{bmatrix}
+    </me>
+    and let <m>\vec{v} = \begin{bmatrix} v_{1}\\v_{2} \end{bmatrix}</m>.
+    Then their <term>product</term> <m>A\vec{v}</m> is the vector defined to be
+    <me>
+    A\vec{v} = \begin{bmatrix} a_{11}v_{1}+a_{12}v_{2}\\a_{21}v_{1}+a_{22}v_{2} \end{bmatrix}.
+  </me>
+  The <m>2\times 2</m> <term>identity matrix</term> is the matrix <m>I = \begin{bmatrix}1\amp0\\0\amp1\end{bmatrix}</m>.
+  A <term>scalar</term> is just a constant.
+  To multiply a scalar <m>c</m> with a matrix <m>A</m>, just multiply every element of <m>A</m> with <m>c</m>.
 </p>
 </statement>
 </definition>
 <p>
-If <m>A</m> is any <m>2\times2</m> matrix and <m>\vec{v}</m> and <m>2\times1</m> vector, then <m>AI=IA=A</m> and <m>I\vec{v} = \vec{v}</m>.
+  If <m>A</m> is any <m>2\times2</m> matrix and <m>\vec{v}</m> and <m>2\times1</m> vector, then <m>AI=IA=A</m> and <m>I\vec{v} = \vec{v}</m>.
 </p>
 <example>
   <statement>
     <p>
       Let <m>A = \begin{bmatrix} 1\amp0\\-3\amp2 \end{bmatrix},\vec{v}_{1} = \begin{bmatrix}1\\1\end{bmatrix}</m> and <m>\vec{v}_{2} = \begin{bmatrix}0\\5\end{bmatrix}</m>.
-    Compute <m>A\vec{v}_{1}</m> and <m>A\vec{v}_{2}</m>.
-  </p>
+      Compute <m>A\vec{v}_{1}</m> and <m>A\vec{v}_{2}</m>.
+    </p>
   </statement>
-<solution>
-  <p>
-  By definition,
-<me>
-A\vec{v}_{1} = \begin{bmatrix}1\cdot1+0\cdot1\\-3\cdot1+2\cdot1\end{bmatrix} = \begin{bmatrix}1\\-1\end{bmatrix}\quad\text{and}\quad A\vec{v}_{2} = \begin{bmatrix}1\cdot0+0\cdot5\\-3\cdot0+2\cdot5\end{bmatrix} = \begin{bmatrix}0\\10\end{bmatrix}.
-</me>
-</p>
+  <solution>
+    <p>
+      By definition,
+      <me>
+      A\vec{v}_{1} = \begin{bmatrix}1\cdot1+0\cdot1\\-3\cdot1+2\cdot1\end{bmatrix} = \begin{bmatrix}1\\-1\end{bmatrix}\quad\text{and}\quad A\vec{v}_{2} = \begin{bmatrix}1\cdot0+0\cdot5\\-3\cdot0+2\cdot5\end{bmatrix} = \begin{bmatrix}0\\10\end{bmatrix}.
+    </me>
+  </p>
 </solution>
-<!-- 
-In the last example, notice that <m>A\vec{v}_{2} = 2\vec{v}_{2}</m>.
-This means that <m>A</m> didn't really do all that much to <m>\vec{v}_{2}</m> except to stretch it by a factor of <m>2</m>.
-Vectors with this property will turn out to be the key to solving our systems of ODEs.
+</example>
+<p>
+  In the last example, notice that <m>A\vec{v}_{2} = 2\vec{v}_{2}</m>.
+  This means that <m>A</m> didn't really do all that much to <m>\vec{v}_{2}</m> except to stretch it by a factor of <m>2</m>.
+  Vectors with this property will turn out to be the key to solving our systems of ODEs.
+</p>
 
-\begin{definition}
-Let <m>A</m> be a matrix.
-A nonzero vector <m>\vec{v}</m> is an <term>eigenvector</term> of <m>A</m> if <m>A\vec{v} = \lambda\vec{v}</m> for some scalar <m>\lambda</m>.
-We call <m>\lambda</m> an <term>eigenvalue</term> of <m>A</m> corresponding to the eigenvector <m>\vec{v}</m>.
-\end{definition}
+<definition xml:id="definition-eigenvectors-and-eigenvalues">
+  <title>Eigenvectors and eigenvalues</title>
+  <statement>
+    <p>
+      Let <m>A</m> be a matrix.
+      A nonzero vector <m>\vec{v}</m> is an <term>eigenvector</term> of <m>A</m> if <m>A\vec{v} = \lambda\vec{v}</m> for some scalar <m>\lambda</m>.
+      We call <m>\lambda</m> an <term>eigenvalue</term> of <m>A</m> corresponding to the eigenvector <m>\vec{v}</m>.
+    </p>
+  </statement>
+</definition>
 
-\begin{example}\label{example:eigenvalue-eigenvector}
-Determine if <m>\vec{v} = \mqty[-2\\1]</m> is an eigenvector of <m>A = \mqty[1\amp4\\1\amp1]</m>.
-\end{example}
-\begin{proof}[Answer]
-To do this, we just need to compute <m>A\vec{v}:</m>
-<me>
-A\vec{v} = \mqty[1\amp4\\1\amp1]\mqty[-2\\1] = \mqty[2\\-1] = -\vec{v}.
-</me>
-So <m>\vec{v}</m> is an eigenvector of <m>A</m> with corresponding eigenvalue <m>\lambda=-1</m>.
-\end{proof}
+<example xml:id="example-eigenvalue-eigenvector">
+  <statement>
+    <p>
+      Determine if <m>\vec{v} = \begin{bmatrix}-2\\1\end{bmatrix}</m> is an eigenvector of <m>A = \begin{bmatrix}1\amp4\\1\amp1\end{bmatrix}</m>.
+    </p>
+  </statement>
+  <solution>
+    <p>
+      To do this, we just need to compute <m>A\vec{v}:</m>
+      <me>
+      A\vec{v} = \begin{bmatrix}1\amp4\\1\amp1\end{bmatrix}\begin{bmatrix}-2\\1\end{bmatrix} = \begin{bmatrix}2\\-1\end{bmatrix} = -\vec{v}.
+    </me>
+    So <m>\vec{v}</m> is an eigenvector of <m>A</m> with corresponding eigenvalue <m>\lambda=-1</m>.
+  </p>
+</solution>
+</example>
 
-Since we will be looking at systems of ODEs which involve functions, we will need to define vector-valued functions.
-\begin{definition}
-A <term>vector-valued function</term> is a vector whose elements are functions.
-If each of the functions in a vector <m>\vec{x}</m> depends on the variable <m>t</m>, we often write <m>\vec{x}(t)</m> to denote this.
-The derivative of a vector-valued function <m>\vec{x}(t) = \mqty[x_{1}(t)\\x_{2}(t)]</m> is the new vector-valued function <m>\vec{x}'(t)=\mqty[x'_{1}(t)\\x'_{2}(t)]</m>.
-\end{definition}
+<p>
+  Since we will be looking at systems of ODEs which involve functions, we will need to define vector-valued functions.
+</p>
 
-We now have all of the tools we need to rewrite a first-order system as a matrix ODE.
-Let
-\begin{align*}
-x' \amp= a_{11}x+a_{12}y \\
-y' \amp= a_{21}x+a_{22}y.
-\end{align*}
-If <m>A = \mqty[a_{11}\amp a_{12} \\ a_{21}\ampa_{22}]</m> and <m>\vec{x} = \mqty[x\\y]</m>, then 
-<me>
-A\vec{x} = \mqty[x'\\y'] = \vec{x}'.
+<definition xml:id="definition-vector-valued-function">
+  <title>Vector-Valued Functions</title>
+  <statement>
+    <p>
+      A <term>vector-valued function</term> is a vector whose elements are functions.
+      If each of the functions in a vector <m>\vec{x}</m> depends on the variable <m>t</m>, we often write <m>\vec{x}(t)</m> to denote this.
+      The derivative of a vector-valued function <m>\vec{x}(t) = \begin{bmatrix}x_{1}(t)\\x_{2}(t)\end{bmatrix}</m> is the new vector-valued function <m>\vec{x}'(t)=\begin{bmatrix}x'_{1}(t)\\x'_{2}(t)\end{bmatrix}</m>.
+    </p>
+  </statement>
+</definition>
+
+<p>
+  We now have all of the tools we need to rewrite a first-order system as a matrix ODE.
+  Let
+  <md>
+    <mrow>x' \amp= a_{11}x+a_{12}y</mrow>
+    <mrow>y' \amp= a_{21}x+a_{22}y</mrow>
+  </md>
+  If <m>A = \begin{bmatrix}a_{11}\amp a_{12} \\ a_{21}\amp a_{22}\end{bmatrix}</m> and <m>\vec{x} = \begin{bmatrix}x\\y\end{bmatrix}</m>, then
+  <me>
+  A\vec{x} = \begin{bmatrix}x'\\y'\end{bmatrix} = \vec{x}'.
 </me>
 In other words, we may rewrite the system as the matrix ODE
 <me>
 \vec{x}' =A\vec{x}.
 </me>
+</p>
 
-\begin{example}
-Write the system
-\begin{align*}
-x'_{1}  \amp = -\frac{1}{2}x_{1} \\
-x'_{2}  \amp = \frac{1}{2}x_{1}-\frac{5}{7}x_{2}
-\end{align*}
-as a matrix ODE.
-\end{example}
-\begin{proof}[Answer]
-We need to find a matrix <m>A</m> and vector <m>\vec{x}</m> to let us rewrite this system.
-The matrix <m>A</m> is formed from the coefficients of <m>x_{1},x_{2}</m> on the right hand side of the system:
-<me>
-A = \mqty[-\frac{1}{2}\amp 0\\\frac{1}{2}\amp -\frac{5}{7}].
+<example>
+  <statement>
+    <p>Write the system
+      <md>
+        <mrow>      x'_{1}  \amp = -\frac{1}{2}x_{1}</mrow>
+        <mrow>      x'_{2}  \amp = \frac{1}{2}x_{1}-\frac{5}{7}x_{2}</mrow>
+      </md>
+      as a matrix ODE.
+    </p>
+  </statement>
+<solution>
+  <p>
+  We need to find a matrix <m>A</m> and vector <m>\vec{x}</m> to let us rewrite this system.
+  The matrix <m>A</m> is formed from the coefficients of <m>x_{1},x_{2}</m> on the right hand side of the system:
+  <me>
+  A = \begin{bmatrix}-\frac{1}{2}\amp 0\\\frac{1}{2}\amp -\frac{5}{7}\end{bmatrix}.
 </me>
 The vector <m>\vec{x}</m> is just made up of the dependent variables <m>x_{1},x_{2}</m>:
 <me>
-\vec{x} = \mqty[x_{1}\\x_{2}].
+\vec{x} = \begin{bmatrix}x_{1}\\x_{2}\end{bmatrix}.
 </me>
 With these terms, the original system of ODEs is equivalent to the single matrix ODE
 <me>
 \vec{x}' = A\vec{x}.
 </me>
-\end{proof}
+</p>
+</solution>
+</example>
 
-\subsection{Solutions of first-order systems}
-\begin{example}
-Show that <m>e^{-t}\vec{x}_{0}</m> where <m>\vec{x}_{0} = \mqty[-2\\1]</m> is a solution of the system
+<example>
+  <statement>
+    <p>Show that <m>e^{-t}\vec{x}_{0}</m> where <m>\vec{x}_{0} = \begin{bmatrix}-2\\1\end{bmatrix}</m> is a solution of the system
 <me>
-\vec{x}' = \mqty[1\amp 4\\1\amp 1]\vec{x}.
+\vec{x}' = \begin{bmatrix}1\amp 4\\1\amp 1\end{bmatrix}\vec{x}.
 </me>
-\end{example}
-\begin{proof}[Answer]
-We'll check that <m>\vec{x}_{0}</m> is a solution of the matrix ODE just as we check solutions for normal ODEs: plug the potential solution into the ODE and check both sides.
-If we do so, we get 
+</p>
+</statement>
+<solution>
+  <p>
+  We'll check that <m>\vec{x}_{0}</m> is a solution of the matrix ODE just as we check solutions for normal ODEs: plug the potential solution into the ODE and check both sides.
+If we do so, we get
 <me>
-\dv{}{t}\brackets*{e^{-t}\vec{x}_{0}} = -e^{-t}\mqty[-2\\1] = e^{-t}\mqty[2\\-1]
+\dv{}{t}\brackets*{e^{-t}\vec{x}_{0}} = -e^{-t}\begin{bmatrix}-2\\1\end{bmatrix} = e^{-t}\begin{bmatrix}2\\-1\end{bmatrix}
 </me>
 and
 <me>
-\mqty[1\amp 4\\1\amp 1]e^{-t}\vec{x}_{0} = e^{-t}\mqty[1\amp 4\\1\amp 1]\mqty[-2\\1] = e^{-t}\mqty[2\\-1].
+\begin{bmatrix}1\amp 4\\1\amp 1\end{bmatrix}e^{-t}\vec{x}_{0} = e^{-t}\begin{bmatrix}1\amp 4\\1\amp 1\end{bmatrix}\begin{bmatrix}-2\\1\end{bmatrix} = e^{-t}\begin{bmatrix}2\\-1\end{bmatrix}.
 </me>
 Since these expressions match, this means that <m>e^{-t}\vec{x}_{0}</m> is a solution of the ODE.
-\end{proof}
+</p>
+</solution>
+</example>
 
-One thing to note about the previous example is that <m>\mqty[-2\\1]</m> was an eigenvector of <m>\mqty[1\amp 4\\1\amp 1]</m> with corresponding eigenvalue <m>\lambda=-1</m>.\sidenote{See \cref{example:eigenvalue-eigenvector}.}
+<p>
+One thing to note about the previous example is that <m>\begin{bmatrix}-2\\1\end{bmatrix}</m> was an eigenvector of <m>\begin{bmatrix}1\amp 4\\1\amp 1\end{bmatrix}</m> with corresponding eigenvalue <m>\lambda=-1</m>.\sidenote{See \cref{example:eigenvalue-eigenvector}.}
 This suggests that solutions of the matrix ODE <m>\vec{x}' = A\vec{x}</m> take the form <m>\vec{x} = e^{\lambda t}\vec{x}_{0}</m>, where <m>\lambda</m> is an eigenvalue of <m>A</m> with corresponding eigenvector <m>\vec{x}_{0}</m>.
 One last concept we need is that of linear independence of vectors.
+</p>
 
-\begin{definition}\label{definition:linear-independence}
-Let <m>\vec{x}_{1},\dots,\vec{x}_{n}</m> denote a collection of vectors.
+<definition xml:id="definition-linear-independence-of-vectors">
+  <idx><h>linear independence</h><h>vectors</h></idx>
+  <title>Linear Independence of Vectors</title>
+<statement>
+  <p>
+  Let <m>\vec{x}_{1},\dots,\vec{x}_{n}</m> denote a collection of vectors.
 We say that the vectors are <term>linearly independent</term> if the equality
 <me>
 \sum_{i=1}^{n}c_{i}\vec{x}_{i} = \vec{0}
 </me>
 is possible if and only if <m>c_{1}=\dots=c_{n}=0</m>.
 Otherwise, we say that the vectors are <term>linearly dependent</term>.
-\end{definition}
+</p>
+</statement>
+</definition>
 
+<p>
 Just as before, our primary tool for showing if a collection is linearly independent is the Wronskian.
+</p>
 
-\begin{definition}\label{definition:wronskian}
-The <term>Wronskian</term> of <m>\vec{x}_{1},\dots,\vec{x}_{n}</m> is the number <m>W(\vec{x}_{1},\dots,\vec{x}_{n})</m> defined by
+<definition xml:id="definition-wronskian-of-vectors">
+  <idx><h>Wronskian</h><h>vectors</h></idx>
+<statement>
+  <p>
+    The <term>Wronskian</term> of <m>\vec{x}_{1},\dots,\vec{x}_{n}</m> is the number <m>W(\vec{x}_{1},\dots,\vec{x}_{n})</m> defined by
 <me>
-W(\vec{x}_{1},\dots,\vec{x}_{n}) = \mqty|\vec{x}_{1}  \amp  \dots   \amp  \vec{x}_{n}|.
+W(\vec{x}_{1},\dots,\vec{x}_{n}) = \begin{vmatrix}\vec{x}_{1}  \amp  \dots   \amp  \vec{x}_{n}\end{vmatrix}.
 </me>
 The vectors <m>\vec{x}_{1},\dots,\vec{x}_{n}</m> are linearly independent if and only if their Wronskian is nonzero.
-\end{definition}
+</p>
+</statement>
+</definition>
+</section>
 
-We are now ready to find general solutions of systems of ODEs.
-
-\setcounter{section}{2}
-
-\section{Constant-coefficient systems and the phase plane}
-
-\subsection{Solutions of <m>\vec{x}' = A\vec{x}</m>}
+<section xml:id="section-constant-coefficient-systems-and-the-phase-plane">
+    <title>Constant Coefficient Systems and the Phase Plane</title>
+<introduction>
+  <aside>
+  <p>
+    This section corresponds to Section 4.3 of the text.
+  </p>
+</aside>
+</introduction>
+<subsection xml:id="subsection-solutions-of--vec-x-a-vec-x-m-">
+    <title>Solutions of <m>\vec{x}' = A\vec{x}</m></title>
+</subsection></section>
 
 \begin{theorem}\label{theorem:solutions-of-systems}
 Let <m>A</m> be an <m>n\times n</m> constant matrix,\sidenote{So every entry of <m>A</m> is constant.} and suppose that <m>A</m> has <m>n</m> linearly independent eigenvectors <m>\vec{x}_{1},\dots,\vec{x}_{n}</m> with corresponding eigenvalues <m>\lambda_{1},\dots,\lambda_{1}</m>.
@@ -320,11 +374,11 @@ x'_{3}  \amp =  -\frac{1}{2}x_{1}-\frac{1}{2}x_{2}+x_{3}
 \end{align*}
 given that 
 <me>
-\vec{x}_{1} = \mqty[1\\1\\1],\vec{x}_{2} = \mqty[-1\\1\\0]\quad\text{and}\quad\vec{x}_{3} = \mqty[-\frac{1}{2}\\-\frac{1}{2}\\1]
+\vec{x}_{1} = \begin{bmatrix}1\\1\\1\end{bmatrix},\vec{x}_{2} = \begin{bmatrix}-1\\1\\0\end{bmatrix}\quad\text{and}\quad\vec{x}_{3} = \begin{bmatrix}-\frac{1}{2}\\-\frac{1}{2}\\1\end{bmatrix}
 </me>
 are eigenvectors of the matrix 
 <me>
-G = \mqty[1 \amp  -\frac{1}{2}  \amp  -\frac{1}{2}\\-\frac{1}{2}  \amp  1 \amp  -\frac{1}{2} \\ -\frac{1}{2}  \amp  -\frac{1}{2}  \amp    1]
+G = \begin{bmatrix}1 \amp  -\frac{1}{2}  \amp  -\frac{1}{2}\\-\frac{1}{2}  \amp  1 \amp  -\frac{1}{2} \\ -\frac{1}{2}  \amp  -\frac{1}{2}  \amp    1\end{bmatrix}
 </me>
 with corresponding eigenvalues <m>\lambda_{1} = 0,\lambda_{2} = \lambda_{3} = \frac{3}{2}</m>.
 \end{example}
@@ -343,7 +397,7 @@ Therefore the general solution of the system is given by
 \begin{align*}
 \vec{x}
 \amp = c_{1}e^{0t}\vec{x}_{1}+c_{2}e^{3t/2}\vec{x}_{2}+c_{3}e^{3t/2}\vec{x}_{3} \\
-\amp = \mqty[c_{1}-c_{2}e^{3t/2}-\frac{1}{2}c_{3}e^{3t/2} \\ c_{1}+c_{2}e^{3t/2}-\frac{1}{2}c_{3}e^{3t/2} \\ c_{1}+c_{3}e^{3t/2}]
+\amp = \begin{bmatrix}c_{1}-c_{2}e^{3t/2}-\frac{1}{2}c_{3}e^{3t/2} \\ c_{1}+c_{2}e^{3t/2}-\frac{1}{2}c_{3}e^{3t/2} \\ c_{1}+c_{3}e^{3t/2}\end{bmatrix}
 \end{align*}
 or just
 \begin{align*}
@@ -378,13 +432,13 @@ The eigenvalues of a square matrix <m>A</m> are the solutions of the equation <m
 \end{definition}
 
 \begin{example}
-Find the eigenvalues of the matrix <m>A = \mqty[1\amp 4\\1\amp 1]</m>.
+Find the eigenvalues of the matrix <m>A = \begin{bmatrix}1\amp 4\\1\amp 1\end{bmatrix}</m>.
 \end{example}
 \begin{proof}[Answer]
 First, we need to set up the characteristic equation of <m>A</m>.
 Since
 <me>
-A-\lambda I = \mqty[1-\lambda \amp  4 \\ 1 \amp  1-\lambda],
+A-\lambda I = \begin{bmatrix}1-\lambda \amp  4 \\ 1 \amp  1-\lambda\end{bmatrix},
 </me>
 we get
 <me>
@@ -403,7 +457,7 @@ A useful fact to remember is that the eigenvalues of a ``triangular'' matrix are
 \begin{example}
 Let
 <me>
-A = \mqty[1 \amp  3 \amp  -4 \amp  5 \\ 0 \amp  3 \amp  -2 \amp  -2 \\ 0 \amp  0 \amp  1 \amp  10^{50\pi-300} \\ 0 \amp  0 \amp  0 \amp  0].
+A = \begin{bmatrix}1 \amp  3 \amp  -4 \amp  5 \\ 0 \amp  3 \amp  -2 \amp  -2 \\ 0 \amp  0 \amp  1 \amp  10^{50\pi-300} \\ 0 \amp  0 \amp  0 \amp  0\end{bmatrix}.
 </me>
 Find the eigenvalues of <m>A</m>.
 \end{example}
@@ -419,7 +473,7 @@ Find eigenvectors of <m>A = \smqty[1 \amp  4 \\ 1 \amp  1]</m> corresponding to 
 Suppose that <m>\vec{v} = \smqty[\xmat*{v}{2}{1}]</m> is an eigenvector corresponding to <m>\lambda</m>. 
 Then we know that 
 <me>
-\mqty[1 \amp  4 \\ 1 \amp  1]\vec{v} = \lambda\vec{v} \Rightarrow \mqty[v_{1}+4v_{2} \\ v_{1} + v_{2}] = \mqty[\xmat*{\lambda v}{2}{1}].
+\begin{bmatrix}1 \amp  4 \\ 1 \amp  1\end{bmatrix}\vec{v} = \lambda\vec{v} \Rightarrow \begin{bmatrix}v_{1}+4v_{2} \\ v_{1} + v_{2}\end{bmatrix} = \begin{bmatrix}\xmat*{\lambda v}{2}{1}\end{bmatrix}.
 </me>
 This tells us that if <m>\vec{v} = \smqty[\xmat*{v}{2}{1}]</m> is an eigenvector for <m>\lambda</m>, then its entries need to satisfy 
 \begin{align}\label{eqn:eigenvector-relation}
@@ -441,7 +495,7 @@ We don't really care about that the entries of <m>\vec{v}</m> look like so long 
 So pick <m>v_{2} = 1</m>, which forces <m>v_{1} = -2</m>. 
 Then 
 <me>
-\vec{v} = \mqty[-2\\1]
+\vec{v} = \begin{bmatrix}-2\\1\end{bmatrix}
 </me>
 is an eigenvector of <m>A</m> corresponding to the eigenvalue <m>\lambda_{1} = -1</m>.
 
@@ -452,7 +506,7 @@ v_{1} - 2v_{2} \amp = 0
 \end{align*}
 The second equation simplifies to <m>v_{1} = 2v_{2}</m>, so one eigenvector for <m>\lambda_{2}</m> is
 <me>
-\vec{v} = \mqty[2 \\ 1].
+\vec{v} = \begin{bmatrix}2 \\ 1\end{bmatrix}.
 </me>
 \end{proof}
 
@@ -473,23 +527,23 @@ That is, if <m>\vec{v}_{i}</m> is an eigenvector corresponding to <m>\lambda_{i}
 \begin{example}
 Solve the matrix ODE given by <m>\vec{x}' = A\vec{x}</m> where 
 <me>
-A = \mqty[1\amp 4\\1\amp 1].
+A = \begin{bmatrix}1\amp 4\\1\amp 1\end{bmatrix}.
 </me>
 \end{example}
 \begin{proof}[Answer]
 We already have everything we need. 
 We know that the eigenvalues of <m>A</m> are <m>\lambda_{1}=-1</m> and <m>\lambda_{2}=3</m> and some corresponding eigenvectors are 
 <me>
-\vec{v}_{1} = \mqty[-2\\1]\qq{and} \vec{v}_{2} = \mqty[2\\1].
+\vec{v}_{1} = \begin{bmatrix}-2\\1\end{bmatrix}\qq{and} \vec{v}_{2} = \begin{bmatrix}2\\1\end{bmatrix}.
 </me>
 Since the eigenvalues are distinct it follows that these eigenvectors are linearly independent (we could also check this using the Wronskian). 
 We can therefore build two linearly independent solutions to the matrix ODE:
 <me>
-\vec{x}_{1} = e^{\lambda_{1}t}\vec{v}_{1} = e^{-t}\mqty[-2\\1]\qq{and} \vec{x}_{2} = e^{\lambda_{2}t}\vec{v}_{2} = e^{3t}\mqty[2\\1]
+\vec{x}_{1} = e^{\lambda_{1}t}\vec{v}_{1} = e^{-t}\begin{bmatrix}-2\\1\end{bmatrix}\qq{and} \vec{x}_{2} = e^{\lambda_{2}t}\vec{v}_{2} = e^{3t}\begin{bmatrix}2\\1\end{bmatrix}
 </me>
 So the general solution of the matrix ODE is 
 <me>
-\vec{x} = c_{1}\vec{x}_{1} + c_{2}\vec{x}_{2} = c_{1}e^{-t}\mqty[-2\\1] + c_{2}e^{3t}\mqty[2\\1].
+\vec{x} = c_{1}\vec{x}_{1} + c_{2}\vec{x}_{2} = c_{1}e^{-t}\begin{bmatrix}-2\\1\end{bmatrix} + c_{2}e^{3t}\begin{bmatrix}2\\1\end{bmatrix}.
 </me>
 Note that the choice of eigenvector <em>doesn't matter</em>. 
 Just so long as we find some particular eigenvector for each distinct eigenvalue.
@@ -506,7 +560,7 @@ where <m>x_{1}</m> and <m>x_{2}</m> are functions of <m>t</m>.
 \begin{proof}[Answer]
 First, note that this system is equivalent to the matrix ODE <m>\vec{x}' = A\vec{x}</m> where
 <me>
-\vec{x} = \mqty[x_{1} \\ x_{2}]\qq{and} A = \mqty[1 \amp  -5 \\ 1 \amp  -1].
+\vec{x} = \begin{bmatrix}x_{1} \\ x_{2}\end{bmatrix}\qq{and} A = \begin{bmatrix}1 \amp  -5 \\ 1 \amp  -1\end{bmatrix}.
 </me>
 To solve this system we need to find the eigenvalues and eigenvectors of <m>A</m>, and then use these to build our general solution.
 \begin{enumerate}[\itshape Step 1]
@@ -517,7 +571,7 @@ Since <m>\det(A - \lambda I) = \lambda^{2}+4</m>, we see that the eigenvalues of
 
 \item Find corresponding eigenvectors.
 
-Set <m>\vec{v} = \mqty[\xmat*{v}{2}{1}]</m>. 
+Set <m>\vec{v} = \begin{bmatrix}\xmat*{v}{2}{1}\end{bmatrix}</m>. 
 Then <m>A\vec{v} = \lambda\vec{v}</m> implies that 
 \begin{align*}
 v_{1} - 5v_{2}  \amp =  \lambda v_{1} \\
@@ -530,11 +584,11 @@ v_{1} - (1+\lambda)v_{2} \amp = 0.
 \end{align*}
 Setting <m>\lambda=-2i</m> in the second equation gives <m>v_{1} = (1-2i)v_{2}</m>, so an eigenvector of <m>A</m> corresponding to <m>\lambda_{1} = -2i</m> is 
 <me>
-\vec{v} = \mqty[1-2i \\ 1].
+\vec{v} = \begin{bmatrix}1-2i \\ 1\end{bmatrix}.
 </me>
 Similarly, an eigenvector corresponding to <m>\lambda_{2}=2i</m> is 
 <me>
-\vec{v}_{2} = \mqty[1+2i\\1].
+\vec{v}_{2} = \begin{bmatrix}1+2i\\1\end{bmatrix}.
 </me>
 
 \item Find the general solution.
@@ -542,7 +596,7 @@ Similarly, an eigenvector corresponding to <m>\lambda_{2}=2i</m> is
 At this step it is easy to construct the solution of the matrix ODE. 
 It's just 
 <me>
-\vec{x} = c_{1}e^{\lambda_{1}t}\vec{v}_{1} + c_{2}e^{\lambda_{2}t}\vec{v}_{2} = \mqty[c_{1}e^{-2it}(1-2i)+c_{2}e^{2it}(1+2i) \\ c_{1}e^{-2it}+c_{2}e^{2it}].
+\vec{x} = c_{1}e^{\lambda_{1}t}\vec{v}_{1} + c_{2}e^{\lambda_{2}t}\vec{v}_{2} = \begin{bmatrix}c_{1}e^{-2it}(1-2i)+c_{2}e^{2it}(1+2i) \\ c_{1}e^{-2it}+c_{2}e^{2it}\end{bmatrix}.
 </me>
 \end{enumerate}
 \end{proof}
@@ -559,7 +613,7 @@ Solve the first-order system
 As long as this system has distinct eigenvalues the above method will work. 
 Once again we rewrite the system as a matrix ODE; in this case, the matrix ODE we must solve is 
 <me>
-\vec{x}' = \mqty[3 \amp  0 \amp  1 \\ 9 \amp  -1 \amp  2 \\ -9 \amp  4 \amp  -1]\vec{x} = A\vec{x}.
+\vec{x}' = \begin{bmatrix}3 \amp  0 \amp  1 \\ 9 \amp  -1 \amp  2 \\ -9 \amp  4 \amp  -1\end{bmatrix}\vec{x} = A\vec{x}.
 </me>
 
 To find the eigenvalues we must solve the characteristic equation <m>\det(A-\lambda I)=0</m>. 
@@ -571,15 +625,15 @@ Eigenvectors(A)
 \end{verbatim}
 This produces a vector containing the eigenvalues of <m>A</m> as well as a matrix whose columns are the corresponding eigenvectors:
 <me>
-\mqty[-1+i\\-1-i\\3],\mqty[-\frac{4}{17}-\frac{1}{17}i \amp  -\frac{4}{17}+\frac{1}{17}i \amp  \frac{4}{9} \\ -\frac{9}{17}+\frac{2}{17}i \amp  -\frac{9}{17}-\frac{2}{17}i \amp  1 \\ 1 \amp  1 \amp  0]
+\begin{bmatrix}-1+i\\-1-i\\3\end{bmatrix},\begin{bmatrix}-\frac{4}{17}-\frac{1}{17}i \amp  -\frac{4}{17}+\frac{1}{17}i \amp  \frac{4}{9} \\ -\frac{9}{17}+\frac{2}{17}i \amp  -\frac{9}{17}-\frac{2}{17}i \amp  1 \\ 1 \amp  1 \amp  0\end{bmatrix}
 </me>
 
 We now have everything we need for the general solution of the matrix ODE. 
 It's just 
 \[
-\vec{x} = c_{1}e^{(-1+i)t}\mqty[-\frac{4}{17}-\frac{1}{17}i\\-\frac{9}{17}+\frac{2}{17}i\\1]
-+c_{2}e^{(-1-i)t}\mqty[-\frac{4}{17}+\frac{1}{17}i \\ -\frac{9}{17}-\frac{2}{17}i \\ 1]
-+c_{3}e^{3t}\mqty[\frac{4}{9} \\ 1 \\ 0].
+\vec{x} = c_{1}e^{(-1+i)t}\begin{bmatrix}-\frac{4}{17}-\frac{1}{17}i\\-\frac{9}{17}+\frac{2}{17}i\\1\end{bmatrix}
++c_{2}e^{(-1-i)t}\begin{bmatrix}-\frac{4}{17}+\frac{1}{17}i \\ -\frac{9}{17}-\frac{2}{17}i \\ 1\end{bmatrix}
++c_{3}e^{3t}\begin{bmatrix}\frac{4}{9} \\ 1 \\ 0\end{bmatrix}.
 \]
 \end{proof}
 
@@ -638,7 +692,7 @@ x'_{2} \amp = \frac{1}{2}x_{1}-\frac{5}{7}x_{2}.
 \end{align*}
 If we set 
 <me>
-\vec{x} = \mqty[\xmat*{x}{2}{1}] \qq{and} A = \mqty[-\frac{1}{2} \amp  0 \\ \frac{1}{2} \amp  -\frac{5}{7}]
+\vec{x} = \begin{bmatrix}\xmat*{x}{2}{1}\end{bmatrix} \qq{and} A = \begin{bmatrix}-\frac{1}{2} \amp  0 \\ \frac{1}{2} \amp  -\frac{5}{7}\end{bmatrix}
 </me>
 then this system is equivalent to the matrix ODE <m>\vec{x}' = A\vec{x}</m>. 
 To solve this, we find the eigenvalues and corresponding eigenvectors. 
@@ -648,7 +702,7 @@ So the eigenvalues are just <m>\lambda_{1} = -\frac{1}{2},\lambda_{2} = -\frac{5
 Now we find eigenvectors. 
 So let 
 <me>
-\vec{v} = \mqty[\xmat*{v}{2}{1}].
+\vec{v} = \begin{bmatrix}\xmat*{v}{2}{1}\end{bmatrix}.
 </me>
 If <m>\vec{v}</m> is an eigenvector for <m>\lambda</m>, then we know <m>A\vec{v} = \lambda\vec{v}</m>, which gives the system 
 \begin{align*}
@@ -658,31 +712,31 @@ If <m>\vec{v}</m> is an eigenvector for <m>\lambda</m>, then we know <m>A\vec{v}
 If we set <m>\lambda=-\frac{1}{2}</m>, then we just get <m>v_{1} = \frac{3}{14}v_{2}</m>.
 So an eigenvector corresponding to <m>\lambda_{1} = -\frac{1}{2}</m> is
 <me>
-\vec{v}_{1} = \mqty[3\\14].
+\vec{v}_{1} = \begin{bmatrix}3\\14\end{bmatrix}.
 </me>
 Similarly, if we set <m>\lambda=-\frac{5}{7}</m> we get <m>v_{1} = 0</m>, but no restrictions on <m>v_{2}</m>.
 So an eigenvector corresponding to <m>\lambda_{2} = -\frac{5}{7}</m> is 
 <me>
-\vec{v}_{2} = \mqty[0\\1].
+\vec{v}_{2} = \begin{bmatrix}0\\1\end{bmatrix}.
 </me>
 
 The general solution of our matrix ODE is then 
 <me>
-\vec{x} = c_{1}e^{-\frac{5t}{7}}\mqty[0\\1] + c_{2}e^{-\frac{t}{2}}\mqty[3\\14] = \mqty[3c_{2}e^{-\frac{t}{2}} \\ c_{1}e^{-\frac{5t}{7}}+14c_{2}e^{-\frac{t}{2}}]
+\vec{x} = c_{1}e^{-\frac{5t}{7}}\begin{bmatrix}0\\1\end{bmatrix} + c_{2}e^{-\frac{t}{2}}\begin{bmatrix}3\\14\end{bmatrix} = \begin{bmatrix}3c_{2}e^{-\frac{t}{2}} \\ c_{1}e^{-\frac{5t}{7}}+14c_{2}e^{-\frac{t}{2}}\end{bmatrix}
 </me>
 But we're not done yet, since we have the initial conditions <m>x_{1}(0) = 5</m> and <m>x_{2}(0) = 2</m>, or in terms of our matrix ODE 
 <me>
-\vec{x}(0) = \mqty[5\\2].
+\vec{x}(0) = \begin{bmatrix}5\\2\end{bmatrix}.
 </me>
 We can use this to find <m>c_{1}</m> and <m>c_{2}</m>. 
 If we set <m>t=0</m>, then we get 
 <me>
-\mqty[3c_{2} \\ c_{1} + 14c_{2}] = \mqty[5\\2]
+\begin{bmatrix}3c_{2} \\ c_{1} + 14c_{2}\end{bmatrix} = \begin{bmatrix}5\\2\end{bmatrix}
 </me>
 so <m>c_{2} = \frac{5}{3}</m> and <m>c_{1} = 2 - 14\frac{5}{3} = -\frac{64}{3}</m>. 
 So the solution of the matrix ODE (and hence the original system) is 
 <me>
-\vec{x} = \mqty[5e^{-\frac{t}{2}} \\ -\frac{64}{3}e^{-\frac{5t}{7}}+\frac{70}{3}e^{-\frac{t}{2}}]
+\vec{x} = \begin{bmatrix}5e^{-\frac{t}{2}} \\ -\frac{64}{3}e^{-\frac{5t}{7}}+\frac{70}{3}e^{-\frac{t}{2}}\end{bmatrix}
 </me>\marginnote[-30pt]{The amount of salt in the first tank, <m>x_{1}</m>, is given by the top entry and the amount of salt in the second tank, <m>x_{2}</m>, is given by the bottom entry.}
 \end{proof}
 
@@ -695,9 +749,9 @@ y'_{2}  \amp =  a_{21}y_{1}+  a_{22}y_{2}
 \end{align}
 or
 <me>
-\vec{y}' = A\vec{y}\quad\text{where}\quad A = \mqty[a_{11}  \amp  a_{12}  \\  a_{21}  \amp  a_{22}].
+\vec{y}' = A\vec{y}\quad\text{where}\quad A = \begin{bmatrix}a_{11}  \amp  a_{12}  \\  a_{21}  \amp  a_{22}\end{bmatrix}.
 </me>
-The solution of this looks like <m>\vec{y}(t) = \mqty[y_{1}(t) \\ y_{2}(t)]</m>.
+The solution of this looks like <m>\vec{y}(t) = \begin{bmatrix}y_{1}(t) \\ y_{2}(t)\end{bmatrix}</m>.
 As <m>t</m> varies, <m>\vec{y}(t)</m> will trace out a curve in the <m>y_{1}y_{2}</m>-plane, which we call the <term>trajectory</term>.
 The <m>y_{1}y_{2}</m>-plane is called the <term>phase plane</term>, and the collection of all trajectories of the system \ref{eqn:2-by-2-system} is called the <term>phase portrait</term>.
 The phase portrait of a system provides us with a way to study the behavior of solutions of \ref{eqn:2-by-2-system} without actually solving the system.
@@ -712,18 +766,18 @@ Sketch a phase portrait for the system
 \begin{proof}[Answer]
 First, note that we can rewrite the system as <m>\vec{y}' = A\vec{y}</m> using 
 <me>
-\vec{y} = \mqty[y_{1}\\y_{2}]\quad\text{and}\quad A = \mqty[2 \amp  -3 \\-2 \amp  1].
+\vec{y} = \begin{bmatrix}y_{1}\\y_{2}\end{bmatrix}\quad\text{and}\quad A = \begin{bmatrix}2 \amp  -3 \\-2 \amp  1\end{bmatrix}.
 </me>
 Now, we can view <m>\vec{y}</m> as corresponding to a point in the phase plane.
 Hence <m>\vec{y}'</m> corresponds to a \emph{tangent} at the point <m>\vec{y}</m>.
-For example, let's find the tangent at the point <m>\vec{y} = \mqty[2\\2]</m>:
+For example, let's find the tangent at the point <m>\vec{y} = \begin{bmatrix}2\\2\end{bmatrix}</m>:
 <me>
-\vec{y}' = A\vec{y} = \mqty[2 \amp  -3 \\ -2 \amp  1]\mqty[2\\2] = \mqty[-2 \\ -2].
+\vec{y}' = A\vec{y} = \begin{bmatrix}2 \amp  -3 \\ -2 \amp  1\end{bmatrix}\begin{bmatrix}2\\2\end{bmatrix} = \begin{bmatrix}-2 \\ -2\end{bmatrix}.
 </me>
 So at the point <m>(2,2)</m> in the phase plane, the trajectory should be heading in the direction of the point <m>(-2,-2)</m> from the origin.
-Similarly, if we let <m>\vec{y} = \mqty[0\\1]</m> then we get
+Similarly, if we let <m>\vec{y} = \begin{bmatrix}0\\1\end{bmatrix}</m> then we get
 <me>
-\vec{y}' = A\vec{y} = \mqty[2 \amp  -3 \\ -2 \amp  1]\mqty[0\\1] = \mqty[-3 \\ 1].
+\vec{y}' = A\vec{y} = \begin{bmatrix}2 \amp  -3 \\ -2 \amp  1\end{bmatrix}\begin{bmatrix}0\\1\end{bmatrix} = \begin{bmatrix}-3 \\ 1\end{bmatrix}.
 </me>
 So the trajectory going through <m>(0,1)</m> in the phase plane should be heading in the direction of <m>(-3,1)</m> viewed from the origin.
 We can generate a more complete view of this using Maple:
@@ -739,10 +793,10 @@ gives the phase portrait
 One thing we can see from this is that trajectories that lie on the line\sidenote{Equivalently, those with initial conditions <m>y_{1}(0) = y_{2}(0)</m>.} <m>y_{2} = y_{1}</m> appear to approach the origin, while all others move away from the origin.
 We can see why this is by looking at the general solution of the original system, which by Maple we see is
 <me>
-\vec{y} = c_{1}e^{4t}\mqty[-3\\2]+c_{2}e^{-t}\mqty[1\\1].
+\vec{y} = c_{1}e^{4t}\begin{bmatrix}-3\\2\end{bmatrix}+c_{2}e^{-t}\begin{bmatrix}1\\1\end{bmatrix}.
 </me>
-If <m>\vec{y}</m> lies on the line <m>y_{2} = y_{1}</m>, then <m>c_{1}</m> has to equal <m>0</m>, which follows from the fact that <m>\mqty[-3\\2]</m> and <m>\mqty[1\\1]</m> are linearly independent.
-So trajectories that lie on the line <m>y_{2} = y_{1}</m> must take the form <m>\vec{y} = c_{2}e^{-t}\mqty[1\\1]</m>, and every solution of this form goes to <m>\vec{0}</m> as <m>t\to\infty</m>.
+If <m>\vec{y}</m> lies on the line <m>y_{2} = y_{1}</m>, then <m>c_{1}</m> has to equal <m>0</m>, which follows from the fact that <m>\begin{bmatrix}-3\\2\end{bmatrix}</m> and <m>\begin{bmatrix}1\\1\end{bmatrix}</m> are linearly independent.
+So trajectories that lie on the line <m>y_{2} = y_{1}</m> must take the form <m>\vec{y} = c_{2}e^{-t}\begin{bmatrix}1\\1\end{bmatrix}</m>, and every solution of this form goes to <m>\vec{0}</m> as <m>t\to\infty</m>.
 \emph{Every other trajectory} will move away from the origin as <m>t\to\infty</m>, although the trajectories that lie on the line <m>y_{2} = -\frac{2}{3}y_{1}</m> will travel to the origin as <m>t\to-\infty</m> (i.e. ``backwards in time''):
 \begin{center}
 \includegraphics[trim = 25 300 100 25, scale=.5]{phase-portrait-2.pdf}
@@ -773,7 +827,7 @@ Spiral point \amp  Trajectories spiral inwards or outwards from <m>\vec{0}</m> \
 \begin{example}
 Using a phase portrait, determine the type of critical point that <m>\vec{y} = \vec{0}</m> is for the matrix ODE <m>\vec{y}'=A\vec{y}</m> where
 <me>
-\vec{y} = \mqty[y_{1}(t) \\ y_{2}(t)]\quad\text{and}\quad A = \mqty[3 \amp  4 \\ -4 \amp  3].
+\vec{y} = \begin{bmatrix}y_{1}(t) \\ y_{2}(t)\end{bmatrix}\quad\text{and}\quad A = \begin{bmatrix}3 \amp  4 \\ -4 \amp  3\end{bmatrix}.
 </me>
 \end{example}
 \begin{proof}[Answer]
@@ -883,7 +937,7 @@ y'_{2}  \amp =  16\frac{y_{1}}{200} - 16\frac{y_{2}}{200}.
 \end{align*}
 This is equivalent to the matrix ODE <m>\vec{y}' = A\vec{y}</m> where 
 <me>
-\vec{y} = \mqty[y_{1}\\y_{2}]\quad\text{and}\quad A = \mqty[-\frac{2}{25} \amp  \frac{1}{50} \\ \frac{2}{25} \amp  -\frac{2}{25}].
+\vec{y} = \begin{bmatrix}y_{1}\\y_{2}\end{bmatrix}\quad\text{and}\quad A = \begin{bmatrix}-\frac{2}{25} \amp  \frac{1}{50} \\ \frac{2}{25} \amp  -\frac{2}{25}\end{bmatrix}.
 </me>
 The eigenvalues of <m>A</m> are 
 <me>
@@ -929,7 +983,7 @@ Then the ODE <m>\theta''+\frac{g}{l}\sin\theta = 0</m> turns into the system\sid
 \end{align*}
 which we can also write as <m>\vecm{\theta}' = \vec{f}(\vecm{\theta})</m> using
 <me>
-\vecm{\theta} = \mqty[\theta_{1} \\ \theta_{2}]\quad\text{and}\quad \vec{f}(\vecm{\theta}) = \mqty[\theta_{2} \\ -\frac{g}{l}\sin\theta_{2}].
+\vecm{\theta} = \begin{bmatrix}\theta_{1} \\ \theta_{2}\end{bmatrix}\quad\text{and}\quad \vec{f}(\vecm{\theta}) = \begin{bmatrix}\theta_{2} \\ -\frac{g}{l}\sin\theta_{2}\end{bmatrix}.
 </me>
 Now we need to find the critical points <m>\vecm{\theta}</m> in the <m>\theta_{1}\theta_{2}</m>-plane that make <m>\vec{f}(\vecm{\theta}) = \vec{0}</m>.
 So we need <m>\theta_{2} = 0</m> and <m>\theta_{1} = \pm k\pi</m> for <m>k=0,\pm1,\pm2,\dots</m>.
@@ -943,11 +997,11 @@ Thankfully, in many cases we can approximate a nonlinear system <m>\vec{y}' = \v
 \begin{definition}\label{definition:jacobian}
 Let 
 <me>
-\vec{y} = \mqty[y_{1} \\ y_{2}]\quad\text{and}\quad\vec{f}(\vec{y}) = \mqty[f_{1}(y_{1},y_{2}) \\ f_{2}(y_{1},y_{2})].
+\vec{y} = \begin{bmatrix}y_{1} \\ y_{2}\end{bmatrix}\quad\text{and}\quad\vec{f}(\vec{y}) = \begin{bmatrix}f_{1}(y_{1},y_{2}) \\ f_{2}(y_{1},y_{2})\end{bmatrix}.
 </me>
 The <term>Jacobian</term> of <m>\vec{f}</m> is the matrix <m>J(y_{1},y_{2})</m> given by
 <me>
-J(y_{1},y_{2}) = \mqty[\pdv{f_{1}}{y_{1}} \amp  \pdv{f_{1}}{y_{2}} \\ \pdv{f_{2}}{y_{1}} \amp  \pdv{f_{2}}{y_{2}}].
+J(y_{1},y_{2}) = \begin{bmatrix}\pdv{f_{1}}{y_{1}} \amp  \pdv{f_{1}}{y_{2}} \\ \pdv{f_{2}}{y_{1}} \amp  \pdv{f_{2}}{y_{2}}\end{bmatrix}.
 </me> 
 \end{definition}
 The linearization of <m>\vec{y}' = \vec{f}(\vec{y})</m> at the point <m>P = (p_{1},p_{2})</m> is the linear system <m>\vec{y}' = A\vec{y}</m>, where
@@ -961,11 +1015,11 @@ Find the linearization of the pendulum system <m>\vecm{\theta}' = \vec{f}(\vecm{
 For this system, we have <m>f_{1}(\theta_{1},\theta_{2}) = \theta_{2}</m> and <m>f_{2}(\theta_{1},\theta_{2}) = -\frac{g}{l}\sin\theta_{1}</m>.
 The Jacobian is then given by
 <me>
-J(\theta_{1},\theta_{2}) = \mqty[0 \amp  1 \\ -\frac{g}{l}\cos\theta_{1} \amp  0].
+J(\theta_{1},\theta_{2}) = \begin{bmatrix}0 \amp  1 \\ -\frac{g}{l}\cos\theta_{1} \amp  0\end{bmatrix}.
 </me>
 So to get the linearization we need to set
 <me>
-A = J(0,0) = \mqty[0 \amp  1 \\ -\frac{g}{l} \amp  0].
+A = J(0,0) = \begin{bmatrix}0 \amp  1 \\ -\frac{g}{l} \amp  0\end{bmatrix}.
 </me>
 \end{proof}
 The linearization of a nonlinear system isn't just useful for approximating the nonlinear system.
@@ -995,15 +1049,15 @@ So the critical points are <m>(0,0)</m> and <m>(\frac{l}{k},\frac{a}{b})</m>.
 \par
 To classify these critical points we need to linearize the system, so we'll compute the Jacobian of
 <me>
-\vec{f}(\vec{y}) = \mqty[ay_{1}-by_{1}y_{2} \\ ky_{1}y_{2} - ly_{2}]
+\vec{f}(\vec{y}) = \begin{bmatrix}ay_{1}-by_{1}y_{2} \\ ky_{1}y_{2} - ly_{2}\end{bmatrix}
 </me>
 to get
 <me>
-J(y_{1},y_{2}) = \mqty[a-by_{2} \amp  -by_{1} \\ ky_{2} \amp  ky_{1} - l].
+J(y_{1},y_{2}) = \begin{bmatrix}a-by_{2} \amp  -by_{1} \\ ky_{2} \amp  ky_{1} - l\end{bmatrix}.
 </me>
 At <m>(0,0)</m>, we get 
 <me>
-A = \mqty[a \amp  0 \\ 0 \amp  -l],
+A = \begin{bmatrix}a \amp  0 \\ 0 \amp  -l\end{bmatrix},
 </me>
 which has eigenvalues <m>\lambda=a,-l</m>.\sidenote{<m>A</m> is triangular, which makes it very easy to find its eigenvalues!}
 So the origin is an saddle point of the original system.
@@ -1012,7 +1066,7 @@ In particular, there exist trajectories heading into the origin, so it's possibl
 Now we'll classify the second critical point <m>(\frac{l}{k},\frac{a}{b})</m>.
 The Jacobian at this point gives us the matrix 
 <me>
-A = J(\frac{l}{k},\frac{a}{b}) = \mqty[0 \amp  -\frac{bl}{k} \\ \frac{ak}{b} \amp  0].
+A = J(\frac{l}{k},\frac{a}{b}) = \begin{bmatrix}0 \amp  -\frac{bl}{k} \\ \frac{ak}{b} \amp  0\end{bmatrix}.
 </me>
 This matrix has characteristic equation <m>\lambda^{2} + al = 0</m>, and so has eigenvalues <m>\lambda=\pm i\sqrt{al}</m>.
 Since the eigenvalues are pure imaginary, this suggests that <m>(\frac{l}{k},\frac{a}{b})</m> is a center, which is indeed the case.
@@ -1021,7 +1075,7 @@ In particular, trajectories near this critical point \emph{must be periodic}.
 \begin{proof}[Answer]
 The general solution of this system is given by
 <me>
-\vec{y} = c_{1}e^{2t}\mqty[1\\0]+c_{2}e^{-2t}\mqty[0\\1].
+\vec{y} = c_{1}e^{2t}\begin{bmatrix}1\\0\end{bmatrix}+c_{2}e^{-2t}\begin{bmatrix}0\\1\end{bmatrix}.
 </me>
 To plot the trajectories of this system, note that
 <me>
@@ -1155,7 +1209,7 @@ We can write this even more compactly by setting
 <me>
 \vec{x} = \mqty(\xmat*{x}{2}{1})\qq{and}A = \mqty(0 \amp  1 \\ -7 \amp  -3).
 </me>
-If we do this, the matrix ODE takes the very simple form <m>\vec{x}' = A\vec{x}</m>.\marginnote{The derivative of a matrix is just the matrix given by differentiating each entry in the original matrix.} -->
+If we do this, the matrix ODE takes the very simple form <m>\vec{x}' = A\vec{x}</m>.\marginnote{The derivative of a matrix is just the matrix given by differentiating each entry in the original matrix.}
 
 </section>
 </chapter>
