@@ -25,6 +25,7 @@
       \newcommand{\set}[1]{\left\{ #1 \right\}}
       \newcommand{\brackets}[1]{\left[ #1 \right]}
       \newcommand{\parens}[1]{\left( #1 \right)}
+      \newcommand{\qq}[1]{\quad\text{#1}\quad}
       % Inline vector... hopefully looks better than \irow.
       \newcommand{\ivec}[1]{%
         \renewcommand{\arraystretch}{.8}%
