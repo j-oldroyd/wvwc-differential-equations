@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!--********************************************************************
+
+*********************************************************************-->
+<!-- This file was originally part of the book     -->
+<!-- (as copied on 2015/07/12)                     -->
+<!--                                               -->
+<!--   Abstract Algebra: Theory and Applications   -->
+<!--                                               -->
+<!-- Copyright (C) 1997-2014  Thomas W. Judson     -->
+
+<chapter xml:id="systems-of-odes" xmlns:xi="http://www.w3.org/2001/XInclude">
+    <title>Systems of Ordinary Differential Equations</title>
+    <section xml:id="section-systems-of-odes-as-models">
+        <title>Systems of ODEs as Models</title>
+        <definition xml:id="definition-first-order-system">
+          <idx><h>first-order systems</h><h>definition</h></idx>
+          <statement>
+            <p>
+              A <term>first-order system</term> of ODEs is a system of first-order ordinary differential equations.
+              A <term>solution</term> of such a system is any function (or collection of functions) that satisfies every equation simultaneously.
+            </p>
+          </statement>
+        </definition>
+    </section>
+</chapter>
