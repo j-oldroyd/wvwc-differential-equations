@@ -415,8 +415,8 @@ Since these expressions match, this means that <m>e^{-t}\vec{x}_{0}</m> is a sol
     </md>
     or just
     <md>
-      <mrow>x_{1} \amp = c_{1}-\parens*{c_{2}-\frac{1}{2}c_{3}}e^{3t/2}</mrow>
-      <mrow>x_{2} \amp = c_{1}+\parens*{c_{2}-\frac{1}{2}c_{3}}e^{3t/2}</mrow>
+      <mrow>x_{1} \amp = c_{1}-\parens{c_{2}-\frac{1}{2}c_{3}}e^{3t/2}</mrow>
+      <mrow>x_{2} \amp = c_{1}+\parens{c_{2}-\frac{1}{2}c_{3}}e^{3t/2}</mrow>
       <mrow>x_{3} \amp = c_{1}+c_{3}e^{3t/2}</mrow>
     </md>
   </p>
