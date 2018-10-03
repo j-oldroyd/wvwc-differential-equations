@@ -683,7 +683,6 @@ It's just
 </p>
 </solution>
 </example>
-
 <example>
   <statement>
     <p>
@@ -739,14 +738,12 @@ It's just
 </subsection>
 <subsection xml:id="subsection-applications-of-matrix-odes">
     <title>Applications of Matrix ODEs</title>
-
 <p>
 Now we use matrix ODEs to model physical systems.
 The methods we've developed for solving matrix ODEs will then let us come up with descriptions for such systems.
 Recall that we introduced systems of ODEs (and then matrix ODEs) to model quantities that depended on time (an independent variable) and each other (dependent variables).
 The physical systems we will consider will be ones where the quantities of interest depend on each other in some way.
 </p>
-
 <example>
   <statement>
     <p>
@@ -827,42 +824,39 @@ The amount of salt in the first tank, <m>x_{1}</m>, is given by the top entry an
 </example>
 </subsection>
 
-\subsection{The phase plane}
+<subsection xml:id="subsection-the-phase-plane">
+    <title>The Phase Plane</title>
+    <p>
 Just as we were able to plot direction fields for first-order ODEs, we can do something similar for first-order systems with two equations.
 Consider the first-order system
-<md> 
- \label{eqn:2-by-2-system}
- y'_{1}  \amp =  a_{11}y_{1} + a_{12}y_{2} \\\notag
- y'_{2}  \amp =  a_{21}y_{1}+  a_{22}y_{2} 
- 
-</md>
+<mdn xml:id="equation-2-by-2-system">
+ <mrow>y'_{1}  \amp =  a_{11}y_{1} + a_{12}y_{2}</mrow>
+ <mrow>y'_{2}  \amp =  a_{21}y_{1}+  a_{22}y_{2}</mrow>
+</mdn>
 or
 <me>
 \vec{y}' = A\vec{y}\quad\text{where}\quad A = \begin{bmatrix}a_{11}  \amp  a_{12}  \\  a_{21}  \amp  a_{22}\end{bmatrix}.
 </me>
+</p>
+<p>
 The solution of this looks like <m>\vec{y}(t) = \begin{bmatrix}y_{1}(t) \\ y_{2}(t)\end{bmatrix}</m>.
 As <m>t</m> varies, <m>\vec{y}(t)</m> will trace out a curve in the <m>y_{1}y_{2}</m>-plane, which we call the <term>trajectory</term>.
-The <m>y_{1}y_{2}</m>-plane is called the <term>phase plane</term>, and the collection of all trajectories of the system \ref{eqn:2-by-2-system} is called the <term>phase portrait</term>.
-The phase portrait of a system provides us with a way to study the behavior of solutions of \ref{eqn:2-by-2-system} without actually solving the system.
-
-<example>
+The <m>y_{1}y_{2}</m>-plane is called the <term>phase plane</term>, and the collection of all trajectories of the system <xref ref="equation-2-by-2-system" text="type-global" /> is called the <term>phase portrait</term>.
+The phase portrait of a system provides us with a way to study the behavior of solutions of <xref ref="equation-2-by-2-system" text="type-global" /> without actually solving the system.
+</p>
+<example xml:id="example-sketch-phase-portrait">
   <statement>
     <p>
-
       Sketch a phase portrait for the system
-      <md> 
-
-        \dv{y'_{1}}{t}  \amp =  2y_{1} - 3y_{2}\\
-        \dv{y'_{2}}{t}  \amp =  -2y_{1} + y_{2}.
-
+      <md>
+        <mrow>\dv{y_{1}}{t}  \amp =  2y_{1} - 3y_{2}</mrow>
+        <mrow>\dv{y_{2}}{t}  \amp =  -2y_{1} + y_{2}.</mrow>
       </md>
-
-    </p> 
-  </statement> 
-  <solution> 
-   <p> 
-     [Answer]
-     First, note that we can rewrite the system as <m>\vec{y}' = A\vec{y}</m> using 
+    </p>
+  </statement>
+  <solution>
+   <p>
+     First, note that we can rewrite the system as <m>\vec{y}' = A\vec{y}</m> using
      <me>
      \vec{y} = \begin{bmatrix}y_{1}\\y_{2}\end{bmatrix}\quad\text{and}\quad A = \begin{bmatrix}2 \amp  -3 \\-2 \amp  1\end{bmatrix}.
    </me>
@@ -872,43 +866,65 @@ The phase portrait of a system provides us with a way to study the behavior of s
    <me>
    \vec{y}' = A\vec{y} = \begin{bmatrix}2 \amp  -3 \\ -2 \amp  1\end{bmatrix}\begin{bmatrix}2\\2\end{bmatrix} = \begin{bmatrix}-2 \\ -2\end{bmatrix}.
  </me>
+</p>
+<p>
  So at the point <m>(2,2)</m> in the phase plane, the trajectory should be heading in the direction of the point <m>(-2,-2)</m> from the origin.
  Similarly, if we let <m>\vec{y} = \begin{bmatrix}0\\1\end{bmatrix}</m> then we get
  <me>
  \vec{y}' = A\vec{y} = \begin{bmatrix}2 \amp  -3 \\ -2 \amp  1\end{bmatrix}\begin{bmatrix}0\\1\end{bmatrix} = \begin{bmatrix}-3 \\ 1\end{bmatrix}.
 </me>
 So the trajectory going through <m>(0,1)</m> in the phase plane should be heading in the direction of <m>(-3,1)</m> viewed from the origin.
-We can generate a more complete view of this using Maple:
-\begin{verbatim}
-with(DEtools):
-sys := diff(y[1](t), t) = 2*y[1](t)-3*y[2](t), diff(y[2](t), t) = -2*y[1](t)+y[2](t)
-DEplot([sys], [y[1](t), y[2](t)], t = -10 .. 10, y[1] = -5 .. 5, y[2] = -5 .. 5)
-\end{verbatim}
-gives the phase portrait
-\begin{center}
-\includegraphics[trim = 25 300 100 25, scale=.5]{phase-portrait-1.pdf}
-\end{center}
-One thing we can see from this is that trajectories that lie on the line\sidenote{Equivalently, those with initial conditions <m>y_{1}(0) = y_{2}(0)</m>.} <m>y_{2} = y_{1}</m> appear to approach the origin, while all others move away from the origin.
-We can see why this is by looking at the general solution of the original system, which by Maple we see is
+</p>
+<p>
+Plotting other points in the phase plane like this, we get <xref ref="figure-sketch-phase-portrait" text="type-global" />.
+One thing we can see from this is that trajectories that lie on the line, equivalently, those with initial conditions <m>y_{1}(0) = y_{2}(0)</m>, appear to approach the origin while all others move away from the origin.
+We can see why this is by looking at the general solution of the original system, which is
 <me>
 \vec{y} = c_{1}e^{4t}\begin{bmatrix}-3\\2\end{bmatrix}+c_{2}e^{-t}\begin{bmatrix}1\\1\end{bmatrix}.
 </me>
+</p>
+<p>
 If <m>\vec{y}</m> lies on the line <m>y_{2} = y_{1}</m>, then <m>c_{1}</m> has to equal <m>0</m>, which follows from the fact that <m>\begin{bmatrix}-3\\2\end{bmatrix}</m> and <m>\begin{bmatrix}1\\1\end{bmatrix}</m> are linearly independent.
 So trajectories that lie on the line <m>y_{2} = y_{1}</m> must take the form <m>\vec{y} = c_{2}e^{-t}\begin{bmatrix}1\\1\end{bmatrix}</m>, and every solution of this form goes to <m>\vec{0}</m> as <m>t\to\infty</m>.
-\emph{Every other trajectory} will move away from the origin as <m>t\to\infty</m>, although the trajectories that lie on the line <m>y_{2} = -\frac{2}{3}y_{1}</m> will travel to the origin as <m>t\to-\infty</m> (i.e. ``backwards in time''):
-\begin{center}
-\includegraphics[trim = 25 300 100 25, scale=.5]{phase-portrait-2.pdf}
-\end{center}
-
-</p> 
-</solution> 
+<em>Every other trajectory</em> will move away from the origin as <m>t\to\infty</m>, although the trajectories that lie on the line <m>y_{2} = -\frac{2}{3}y_{1}</m> will travel to the origin as <m>t\to-\infty</m> (i.e. ``backwards in time''):
+</p>
+</solution>
 </example>
+<figure xml:id="figure-sketch-phase-portrait">
+  <image>
+    <asymptote>
+      import graph;
+      import slopefield;
+      import fontsize;
+      defaultpen(fontsize(9pt));
+      size(200);
+      real dy(real x,real y) {return x^2+y^2-1;}
+      real xmin=-1, xmax=1;
+      real ymin=-0.2, ymax=1;
 
+      add(slopefield(dy,(xmin,ymin),(xmax,ymax),20,deepgreen+0.4bp,Arrow));
+
+      pair C=(0.5,0.4);
+      draw(curve(C,dy,(xmin,ymin),(xmax,ymax)),deepblue+1bp);
+
+      label("$C$",C,NE,UnFill);
+      dot(C,UnFill);
+
+      xaxis(YEquals(ymin),xmin,xmax,LeftTicks());
+      xaxis(YEquals(ymax),xmin,xmax);
+      yaxis(XEquals(xmin),ymin,ymax,RightTicks());
+      yaxis(XEquals(xmax),ymin,ymax);
+    </asymptote>
+  </image>
+  <caption>The phase portrait from <xref ref="example-sketch-phase-portrait" text="type-global" />.</caption>
+</figure>
+<p>
 Note that <m>\vec{y}=\vec{0}</m> is \emph{always} a solution of <m>\vec{y}'=A\vec{y}</m>.\sidenote{This is because <m>\vec{0}'=A\vec{0} = \vec{0}</m>.}
 We call <m>\vec{y} = \vec{0}</m> the <term>equilibrium solution</term> or <term>critical point</term> of the system <m>\vec{y}'=A\vec{y}</m>.
 In the next section, we will be concerned with the behavior of trajectories of the system <m>\vec{y}'=A\vec{y}</m> near the equilibrium solution.
 One thing we will see is that the behavior is determined in large part by the eigenvalues of the matrix <m>A</m>.
-
+</p>
+</subsection>
 We will classify the behavior of trajectories at the critical point <m>\vec{x} = \vec{0}</m> into five different cases:
 \begin{center}
 \begin{tabular}{ll}
