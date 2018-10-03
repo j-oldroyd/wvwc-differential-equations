@@ -42,7 +42,7 @@
       \usepackage{pgfplots}
       \usepackage{tikz-qtree}
       \pgfplotsset{compat=newest}
-      \usetikzlibrary{decorations.markings,decorations.pathreplacing,arrows,calc}
+      \usetikzlibrary{decorations.markings,decorations.pathreplacing,arrows,calc,backgrounds}
       % These are the TikZ-PGFPlots settings I need.
       \pgfplotsset{mystyle/.style={%
       view={120}{30},

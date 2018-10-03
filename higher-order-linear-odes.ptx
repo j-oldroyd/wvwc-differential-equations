@@ -58,7 +58,7 @@
       <title>Linear Independence and the Wronskian (Several Functions)</title>
       <statement>
         <p>
-          Let <m>I</m> be some open interval\sidenote{We often take <m>I</m> to be <m>(-\infty,\infty)</m>, but it doesn't have to be so.} and let <m>\set{y_{1},\dots,y_{n}}</m> be solutions of \cref{eqn:ode-constant-coeffs}.
+          Let <m>I</m> be some open interval (we often take <m>I</m> to be <m>(-\infty,\infty)</m>, but it doesn't have to be so) and let <m>\set{y_{1},\dots,y_{n}}</m> be solutions of <xref ref="equation-constant-coeffs" text="type-global" />.
           If <m>W(y_{1},\dots,y_{n})\neq0</m> for some point <m>x_{0}\in I</m>, then <m>\set{y_{1},\dots,y_{n}}</m> is linearly independent.
         </p>
       </statement>
@@ -93,7 +93,7 @@
           To get the characteristic equation, we replace derivatives of <m>y</m> with powers of <m>r</m> to get
           <me>r^{3}-6r^{2}+11r-6=0.</me>
           Now we need to solve this equation.
-          It can factor\sidenote{One can do so using Maple, or by noticing that <m>r=1</m> is a solution and then dividing <m>r^{3}-6r^{2}+11r-6</m> by <m>r-1</m>.} as
+          It can factor (notice that <m>r=1</m> is a solution and then divide <m>r^{3}-6r^{2}+11r-6</m> by <m>r-1</m>) as
           <me>(r-1)(r-2)(r-3)=0</me>
           and so <m>r=1,2,3.</m>
           This means that the functions
@@ -286,7 +286,7 @@
     <p>
       For second order ODEs that were nonhomogeneous, linear and had constant coefficients, we found their general solution by first finding the complementary solution <m>y_{c}</m> and then a corresponding particular solution <m>y_{p}</m>.
       The general solution was then <m>y=y_{c}+y_{p}</m>.
-      <m>y_{c}</m> was found by solving the corresponding homogeneous equation\sidenote{<m>ay''+by'+cy=0</m>} and we used the method of undetermined coefficients to find <m>y_{p}</m>.
+      <m>y_{c}</m> was found by solving the corresponding homogeneous equation and we used the method of undetermined coefficients to find <m>y_{p}</m>.
       Although we are now looking at higher order ODEs, the method of undetermined coefficients remains unchanged.
     </p>
 
@@ -308,7 +308,7 @@
           </me>
           Now we'll find <m>y_{p}</m>.
           Since the right hand side of the ODE is <m>\sinh 2x</m>, a good initial guess would be <m>y_{p} = C\sinh 2x</m>.
-          However, when we take this guess and plug it into the ODE, we'll start seeing terms involving <m>\cosh 2x</m> as well\sidenote{Since <m>\frac{d}{dx}\sinh 2x = 2\cosh 2x</m>.} so this means we'll want to include <m>\cosh 2x</m> into our guess for <m>y_{p}</m> also.
+          However, when we take this guess and plug it into the ODE, we'll start seeing terms involving <m>\cosh 2x</m> as well (since <m>\frac{d}{dx}\sinh 2x = 2\cosh 2x</m>) so this means we'll want to include <m>\cosh 2x</m> into our guess for <m>y_{p}</m> also.
           So we'll modify our guess to be <m>y_{p} = C\cosh 2x+D\sinh 2x</m>.
         </p>
         <p>
