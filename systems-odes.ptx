@@ -899,26 +899,28 @@ So trajectories that lie on the line <m>y_{2} = y_{1}</m> must take the form <m>
   <image>
     <asymptote>
       import graph;
-      import slopefield;
       import fontsize;
-      defaultpen(fontsize(9pt));
       size(200);
-      real dy(real x,real y) {return x^2+y^2-1;}
-      real xmin=-1, xmax=1;
-      real ymin=-0.2, ymax=1;
+      defaultpen(fontsize(9pt));
 
-      add(slopefield(dy,(xmin,ymin),(xmax,ymax),20,deepgreen+0.4bp,Arrow));
+      pair a=(-2,-2);
+      pair b=(2,2);
 
-      pair C=(0.5,0.4);
-      draw(curve(C,dy,(xmin,ymin),(xmax,ymax)),deepblue+1bp);
+      real xmin=-2, xmax=2;
+      real ymin=-2, ymax=2;
+      real eps=.2;
 
-      label("$C$",C,NE,UnFill);
-      dot(C,UnFill);
+      //plot annotations
+      arrowbar axisarrow = Arrow(TeXHead);
+      Label xlabel = Label("$x$", position = EndPoint, align = E);
+      Label ylabel = Label("$y$", position = EndPoint, align = N);
 
-      xaxis(YEquals(ymin),xmin,xmax,LeftTicks());
-      xaxis(YEquals(ymax),xmin,xmax);
-      yaxis(XEquals(xmin),ymin,ymax,RightTicks());
-      yaxis(XEquals(xmax),ymin,ymax);
+      xaxis(YEquals(0),xmin - eps,xmax + eps, LeftTicks(), L=xlabel, arrow=axisarrow);
+      yaxis(XEquals(0),ymin - eps,ymax + eps, RightTicks(), L = ylabel, arrow = axisarrow);
+
+      path vector(pair z) {return (0,0) -- unit((2z.x - 3z.y,-2z.x + z.y));}
+
+      add(vectorfield(vector,a,b,20,deepgreen+0.4bp));
     </asymptote>
   </image>
   <caption>The phase portrait from <xref ref="example-sketch-phase-portrait" text="type-global" />.</caption>
