@@ -1237,7 +1237,7 @@ So no matter how much salt is initially in the tanks, the amount of salt will al
     </p>
     <p>
       We can also write such a system as a vector equation:
-      <men xid="equation-nonlinear-system">vec{y}' = vec{f}(vec{y})</men>.
+      <men xml:id="equation-nonlinear-system">\vec{y}' = \vec{f}(\vec{y})</men>.
       although not as a matrix ODE (if <m>f_{i}</m> are nonlinear).
     </p>
     <p>
@@ -1378,6 +1378,4 @@ So no matter how much salt is initially in the tanks, the amount of salt will al
 </example>
 </subsection>
 </section>
-
-
 </chapter>
