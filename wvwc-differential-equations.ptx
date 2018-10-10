@@ -21,13 +21,14 @@
       \newcommand{\iLaplace}[1]{\mathcal{L}^{-1}\set*{#1}}
       \newcommand{\dv}[3][]{\dfrac{d^{#1} #2}{d #3^{#1}}}
       \newcommand{\pdv}[3][]{\dfrac{\partial^{#1} #2}{\partial #3^{#1}}}
-      \newcommand{\dd}[2][]{\, d^{#1} #2 \,}
+      \newcommand{\dd}[2][]{\, d^{#1} #2\ }
       \newcommand{\dotprod}[1]{\left\langle #1 \right\rangle}
       \newcommand{\set}[1]{\left\{ #1 \right\}}
       \newcommand{\brackets}[1]{\left[ #1 \right]}
       \newcommand{\parens}[1]{\left( #1 \right)}
       \newcommand{\qq}[1]{\quad\text{#1}\quad}
       % Inline vector... hopefully looks better than \irow.
+      \newcommand{\vecm}[1]{\boldsymbol{#1}}
       \newcommand{\ivec}[1]{%
         \renewcommand{\arraystretch}{.8}%
         \begin{bmatrix}#1\end{bmatrix}%

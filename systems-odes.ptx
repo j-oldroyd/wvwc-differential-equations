@@ -426,22 +426,22 @@ Since these expressions match, this means that <m>e^{-t}\vec{x}_{0}</m> is a sol
 </subsection>
 
 <subsection xml:id="subsection-finding-eigenvalues-and-eigenvectors">
-    <title>Finding Eigenvalues and Eigenvectors</title>
+  <title>Finding Eigenvalues and Eigenvectors</title>
 
-<p>
-<xref ref="theorem-solutions-of-systems" text="type-global" /> shows that solving systems of first-order ODEs comes down to finding eigenvalues and eigenvectors of the corresponding matrix ODE.
-So it's important for us to know how to find these.
-</p>
+  <p>
+    <xref ref="theorem-solutions-of-systems" text="type-global" /> shows that solving systems of first-order ODEs comes down to finding eigenvalues and eigenvectors of the corresponding matrix ODE.
+    So it's important for us to know how to find these.
+  </p>
 
-<p>
-Let <m>A</m> be an <m>n\times n</m> matrix and suppose that <m>\vec{v}</m> is an eigenvector with corresponding eigenvalue <m>\lambda</m>.
-Then
-<me>
-A\vec{v} = \lambda\vec{v}.
-</me>
-We can rearrange this to get
-<me>
-A\vec{v}-\lambda\vec{v} = (A-\lambda I)\vec{v} = \vec{0}
+  <p>
+    Let <m>A</m> be an <m>n\times n</m> matrix and suppose that <m>\vec{v}</m> is an eigenvector with corresponding eigenvalue <m>\lambda</m>.
+    Then
+    <me>
+    A\vec{v} = \lambda\vec{v}.
+  </me>
+  We can rearrange this to get
+  <me>
+  A\vec{v}-\lambda\vec{v} = (A-\lambda I)\vec{v} = \vec{0}
 </me>
 where <m>I</m> is the identity matrix.
 Since <m>\vec{v}\neq\vec{0}</m> (since it's an eigenvector!), linear algebra tells us that <m>\det(A-\lambda I) = 0</m>.
@@ -449,41 +449,41 @@ This gives us the following theorem.
 </p>
 
 <theorem xml:id="theorem-theorem-eigenvalues-from-characteristic-equation">
-<statement>
-  <p>
-The eigenvalues of a square matrix <m>A</m> are the solutions of the equation <m>\det(A-\lambda I) = 0</m>.
-</p>
-</statement>
+  <statement>
+    <p>
+      The eigenvalues of a square matrix <m>A</m> are the solutions of the equation <m>\det(A-\lambda I) = 0</m>.
+    </p>
+  </statement>
 </theorem>
 
 <definition xml:id="definition-characteristic-equation">
   <statement>
     <p>
-<m>\det(A-\lambda I)=0</m> is called the <term>characteristic equation</term> of the matrix <m>A</m>.
-</p>
-</statement>
+      <m>\det(A-\lambda I)=0</m> is called the <term>characteristic equation</term> of the matrix <m>A</m>.
+    </p>
+  </statement>
 </definition>
 
 <example>
   <statement>
     <p>
       Find the eigenvalues of the matrix <m>A = \begin{bmatrix}1\amp 4\\1\amp 1\end{bmatrix}</m>.
-</p>
-</statement>
-<solution>
-  <p>
-    First, we need to set up the characteristic equation of <m>A</m>.
-    Since
+    </p>
+  </statement>
+  <solution>
+    <p>
+      First, we need to set up the characteristic equation of <m>A</m>.
+      Since
+      <me>
+      A-\lambda I = \begin{bmatrix}1-\lambda \amp  4 \\ 1 \amp  1-\lambda\end{bmatrix},
+    </me>
+    we get
     <me>
-    A-\lambda I = \begin{bmatrix}1-\lambda \amp  4 \\ 1 \amp  1-\lambda\end{bmatrix},
+    \det(A-\lambda I) = (1-\lambda)^{2} - 4 = \lambda^{2}-2\lambda+3
   </me>
-  we get
+  so the characteristic equation of <m>A</m> is
   <me>
-  \det(A-\lambda I) = (1-\lambda)^{2} - 4 = \lambda^{2}-2\lambda+3
-</me>
-so the characteristic equation of <m>A</m> is
-<me>
-\lambda^{2}-2\lambda+3 = 0
+  \lambda^{2}-2\lambda+3 = 0
 </me>
 which has solutions <m>\lambda_{1} = -1,\lambda_{2} = 3</m>.
 So the eigenvalues of <m>A</m> are <m>-1,3</m>.
@@ -492,7 +492,7 @@ So the eigenvalues of <m>A</m> are <m>-1,3</m>.
 </example>
 
 <p>
-A useful fact to remember is that the eigenvalues of a ``triangular'' matrix are just the diagonal entries.
+  A useful fact to remember is that the eigenvalues of a ``triangular'' matrix are just the diagonal entries.
 </p>
 
 <example>
@@ -554,14 +554,14 @@ is an eigenvector of <m>A</m> corresponding to the eigenvalue <m>\lambda_{1} = -
 </p>
 
 <p>
-To find an eigenvector for <m>\lambda_{2} = 3</m> we just set <m>\lambda  = 3</m> in \ref{eqn:eigenvector-relation} and run through the same process:
-<md>
-  <mrow>-2v_{1}+4v_{2} \amp = 0</mrow>
-  <mrow>v_{1} - 2v_{2} \amp = 0</mrow>
-</md>
-The second equation simplifies to <m>v_{1} = 2v_{2}</m>, so one eigenvector for <m>\lambda_{2}</m> is
-<me>
-\vec{v} = \begin{bmatrix}2 \\ 1\end{bmatrix}.
+  To find an eigenvector for <m>\lambda_{2} = 3</m> we just set <m>\lambda  = 3</m> in \ref{eqn:eigenvector-relation} and run through the same process:
+  <md>
+    <mrow>-2v_{1}+4v_{2} \amp = 0</mrow>
+    <mrow>v_{1} - 2v_{2} \amp = 0</mrow>
+  </md>
+  The second equation simplifies to <m>v_{1} = 2v_{2}</m>, so one eigenvector for <m>\lambda_{2}</m> is
+  <me>
+  \vec{v} = \begin{bmatrix}2 \\ 1\end{bmatrix}.
 </me>
 </p>
 </solution>
@@ -570,27 +570,27 @@ The second equation simplifies to <m>v_{1} = 2v_{2}</m>, so one eigenvector for 
 </subsection>
 
 <subsection xml:id="subsection-solving-matrix-odes">
-    <title>Solving Matrix ODEs</title>
+  <title>Solving Matrix ODEs</title>
 
-<p>
-We now have the tools we need to begin solving matrix ODEs.
-Recall that if <m>A</m> is an <m>n\times n</m> matrix with constant entries, and if <m>\vec{x}_{1},\vec{x}_{2},\ldots,\vec{x}_{n}</m> are <m>n</m> linearly independent solutions of the matrix ODE <m>\vec{x}'=A\vec{x}</m>, then the general solution of the matrix ODE is
-<me>
-\vec{x} = \sum_{k=1}^{n}c_{k}\vec{x}_{k}.
-</me>
-Furthermore, if <m>\lambda</m> is an eigenvalue of <m>A</m> with eigenvector <m>\vec{v}</m>, then <m>e^{\lambda t}\vec{v}</m> is a solution of <m>\vec{x}'=A\vec{x}</m>.
-So to solve the matrix ODE <m>\vec{x}'=A\vec{x}</m> requires finding enough eigenvectors and eigenvalues.
-A useful theorem is the following:
+  <p>
+    We now have the tools we need to begin solving matrix ODEs.
+    Recall that if <m>A</m> is an <m>n\times n</m> matrix with constant entries, and if <m>\vec{x}_{1},\vec{x}_{2},\ldots,\vec{x}_{n}</m> are <m>n</m> linearly independent solutions of the matrix ODE <m>\vec{x}'=A\vec{x}</m>, then the general solution of the matrix ODE is
+    <me>
+    \vec{x} = \sum_{k=1}^{n}c_{k}\vec{x}_{k}.
+  </me>
+  Furthermore, if <m>\lambda</m> is an eigenvalue of <m>A</m> with eigenvector <m>\vec{v}</m>, then <m>e^{\lambda t}\vec{v}</m> is a solution of <m>\vec{x}'=A\vec{x}</m>.
+  So to solve the matrix ODE <m>\vec{x}'=A\vec{x}</m> requires finding enough eigenvectors and eigenvalues.
+  A useful theorem is the following:
 </p>
 
 <theorem xml:id="theorem-linear-independence-distinct-eigenvalues">
-<statement>
-  <p>
-    Let <m>A</m> be an <m>n\times n</m> matrix with constant entries.
-  If the eigenvalues <m>\lambda_{1},\ldots,\lambda_{n}</m> of <m>A</m> are distinct (that is, none are repeated) then eigenvectors associated with different eigenvalues are linearly independent.
-  That is, if <m>\vec{v}_{i}</m> is an eigenvector corresponding to <m>\lambda_{i}</m> then the eigenvectors <m>\vec{v}_{1},\ldots,\vec{v}_{n}</m> are linearly independent.
-</p>
-</statement>
+  <statement>
+    <p>
+      Let <m>A</m> be an <m>n\times n</m> matrix with constant entries.
+      If the eigenvalues <m>\lambda_{1},\ldots,\lambda_{n}</m> of <m>A</m> are distinct (that is, none are repeated) then eigenvectors associated with different eigenvalues are linearly independent.
+      That is, if <m>\vec{v}_{i}</m> is an eigenvector corresponding to <m>\lambda_{i}</m> then the eigenvectors <m>\vec{v}_{1},\ldots,\vec{v}_{n}</m> are linearly independent.
+    </p>
+  </statement>
 </theorem>
 
 <example>
@@ -643,44 +643,44 @@ Just so long as we find some particular eigenvector for each distinct eigenvalue
    </me>
    To solve this system we need to find the eigenvalues and eigenvectors of <m>A</m>, and then use these to build our general solution.
    <ol>
-   <li>
-    <p>Find the eigenvalues.</p>
-   <p>
-   We find the eigenvalues of <m>A</m> by solving the characteristic equation <m>\det(A - \lambda I) = 0</m> for <m>\lambda</m>.
-   Since <m>\det(A - \lambda I) = \lambda^{2}+4</m>, we see that the eigenvalues of <m>A</m> are <m>\lambda_{1} = -2i</m> and <m>\lambda_{2} = 2i</m>.
-   The fact that these eigenvalues are complex is <em>not</em> a problem. They're still distinct, so our method will work.
- </p>
-</li>
+     <li>
+      <p>Find the eigenvalues.</p>
+      <p>
+       We find the eigenvalues of <m>A</m> by solving the characteristic equation <m>\det(A - \lambda I) = 0</m> for <m>\lambda</m>.
+       Since <m>\det(A - \lambda I) = \lambda^{2}+4</m>, we see that the eigenvalues of <m>A</m> are <m>\lambda_{1} = -2i</m> and <m>\lambda_{2} = 2i</m>.
+       The fact that these eigenvalues are complex is <em>not</em> a problem. They're still distinct, so our method will work.
+     </p>
+   </li>
    <li>
     <p>Find corresponding eigenvectors.</p>
-<p>
-   Set <m>\vec{v} = \begin{bmatrix}v_{1} \\ v_{2}\end{bmatrix}</m>.
-   Then <m>A\vec{v} = \lambda\vec{v}</m> implies that
-   <md>
-    <mrow>v_{1} - 5v_{2}  \amp =  \lambda v_{1}</mrow>
-    <mrow>v_{1} -v_{2}  \amp =  \lambda v_{2}</mrow>
-  </md>
-  or just
-  <md>
-    <mrow>(1-\lambda)v_{1} - 5v_{2} \amp =0</mrow>
-    <mrow>v_{1} - (1+\lambda)v_{2} \amp = 0.</mrow>
-  </md>
-  Setting <m>\lambda=-2i</m> in the second equation gives <m>v_{1} = (1-2i)v_{2}</m>, so an eigenvector of <m>A</m> corresponding to <m>\lambda_{1} = -2i</m> is
+    <p>
+     Set <m>\vec{v} = \begin{bmatrix}v_{1} \\ v_{2}\end{bmatrix}</m>.
+     Then <m>A\vec{v} = \lambda\vec{v}</m> implies that
+     <md>
+      <mrow>v_{1} - 5v_{2}  \amp =  \lambda v_{1}</mrow>
+      <mrow>v_{1} -v_{2}  \amp =  \lambda v_{2}</mrow>
+    </md>
+    or just
+    <md>
+      <mrow>(1-\lambda)v_{1} - 5v_{2} \amp =0</mrow>
+      <mrow>v_{1} - (1+\lambda)v_{2} \amp = 0.</mrow>
+    </md>
+    Setting <m>\lambda=-2i</m> in the second equation gives <m>v_{1} = (1-2i)v_{2}</m>, so an eigenvector of <m>A</m> corresponding to <m>\lambda_{1} = -2i</m> is
+    <me>
+    \vec{v} = \begin{bmatrix}1-2i \\ 1\end{bmatrix}.
+  </me>
+  Similarly, an eigenvector corresponding to <m>\lambda_{2}=2i</m> is
   <me>
-  \vec{v} = \begin{bmatrix}1-2i \\ 1\end{bmatrix}.
-</me>
-Similarly, an eigenvector corresponding to <m>\lambda_{2}=2i</m> is
-<me>
-\vec{v}_{2} = \begin{bmatrix}1+2i\\1\end{bmatrix}.
+  \vec{v}_{2} = \begin{bmatrix}1+2i\\1\end{bmatrix}.
 </me>
 </p>
 </li>
 <li><p> Find the general solution.</p>
 <p>
-At this step it is easy to construct the solution of the matrix ODE.
-It's just
-<me>
-\vec{x} = c_{1}e^{\lambda_{1}t}\vec{v}_{1} + c_{2}e^{\lambda_{2}t}\vec{v}_{2} = \begin{bmatrix}c_{1}e^{-2it}(1-2i)+c_{2}e^{2it}(1+2i) \\ c_{1}e^{-2it}+c_{2}e^{2it}\end{bmatrix}.
+  At this step it is easy to construct the solution of the matrix ODE.
+  It's just
+  <me>
+  \vec{x} = c_{1}e^{\lambda_{1}t}\vec{v}_{1} + c_{2}e^{\lambda_{2}t}\vec{v}_{2} = \begin{bmatrix}c_{1}e^{-2it}(1-2i)+c_{2}e^{2it}(1+2i) \\ c_{1}e^{-2it}+c_{2}e^{2it}\end{bmatrix}.
 </me>
 </p>
 </li>
@@ -706,8 +706,8 @@ It's just
      <me>
      \vec{x}' = \begin{bmatrix}3 \amp  0 \amp  1 \\ 9 \amp  -1 \amp  2 \\ -9 \amp  4 \amp  -1\end{bmatrix}\vec{x} = A\vec{x}.
    </me>
-</p>
-<p>
+ </p>
+ <p>
    To find the eigenvalues we must solve the characteristic equation <m>\det(A-\lambda I)=0</m>.
    However, we can also use Sage (see code cell after this example).
    This produces a list containing the eigenvalues of <m>A</m> as well as the corresponding eigenvectors.
@@ -725,7 +725,7 @@ It's just
  It's just
  <me>
  \vec{x} = c_{1}e^{3t}\begin{bmatrix}1 \\ \frac{9}{4} \\ 0\end{bmatrix} + c_{2}e^{(-1 - i)t}\begin{bmatrix} 1 \\ 2 + i \\ -4 - i \end{bmatrix} + c_{3}e^{(-1 + i)t}\begin{bmatrix} 1 \\ 2 - i \\ -4 + i \end{bmatrix}.
- </me>
+</me>
 </p>
 </solution>
 </example>
@@ -733,8 +733,8 @@ It's just
   <input>
     # Define our matrix
     M = matrix([ [3, 0, 1],
-                 [9, -1, 2],
-                 [-9, 4, -1]] )
+    [9, -1, 2],
+    [-9, 4, -1]] )
 
     # Finds eigenvectors, corresponding eigenvalues and "algebraic multiplicty".
     pretty_print(M.eigenvectors_right())
@@ -742,74 +742,74 @@ It's just
 </sage>
 </subsection>
 <subsection xml:id="subsection-applications-of-matrix-odes">
-    <title>Applications of Matrix ODEs</title>
-<p>
-Now we use matrix ODEs to model physical systems.
-The methods we've developed for solving matrix ODEs will then let us come up with descriptions for such systems.
-Recall that we introduced systems of ODEs (and then matrix ODEs) to model quantities that depended on time (an independent variable) and each other (dependent variables).
-The physical systems we will consider will be ones where the quantities of interest depend on each other in some way.
-</p>
-<example>
-  <statement>
-    <p>
-      Two brine tanks are set up as in <xref ref="figure-interconnected-tanks" text="type-global" />.
-      Fresh water flows into the tank at a rate of <m>r_{1}</m>, well-mixed solution flows from Tank 1 to Tank 2 at a rate of <m>r_{2}</m> and well-mixed solution flows out of Tank 2 at a rate of <m>r_{3}</m>.
-      Suppose that <m>r_{1}, r_{2}</m> and  <m>r_{3}</m> are <quantity><mag>5</mag><unit base="gallon"/><per base="minute"/></quantity>, the volume of solution in Tank 1 is <quantity><mag>10</mag><unit base="gallon"/></quantity> and the volume of solution in Tank 2 is <quantity><mag>7</mag><unit base="gallon" /></quantity>.
-      Suppose Tank 1 has <quantity><mag>5</mag><unit base="pound"/></quantity> of salt at time <m>t=0</m> and Tank 2 has <quantity><mag>2</mag><unit base="pound"/></quantity> of salt at time <m>t=0</m>.
-      How much salt is in each tank at time <m>t</m>?
-    </p>
-  </statement>
-  <solution>
-   <p>
-     To start, let <m>x_{1}(t)</m> denote the amount of salt in Tank 1 at time <m>t</m> and <m>x_{2}(t)</m> denote the amount of salt in Tank 2 at time <m>t</m>, where <m>t</m> is in minutes.
-     Then from Section 4.1, we know that
-     <md>
-      <mrow>x'_{1} \amp = -\frac{1}{2}x_{1}</mrow>
-      <mrow>x'_{2} \amp = \frac{1}{2}x_{1}-\frac{5}{7}x_{2}</mrow>.
-    </md>
-    If we set
+  <title>Applications of Matrix ODEs</title>
+  <p>
+    Now we use matrix ODEs to model physical systems.
+    The methods we've developed for solving matrix ODEs will then let us come up with descriptions for such systems.
+    Recall that we introduced systems of ODEs (and then matrix ODEs) to model quantities that depended on time (an independent variable) and each other (dependent variables).
+    The physical systems we will consider will be ones where the quantities of interest depend on each other in some way.
+  </p>
+  <example>
+    <statement>
+      <p>
+        Two brine tanks are set up as in <xref ref="figure-interconnected-tanks" text="type-global" />.
+        Fresh water flows into the tank at a rate of <m>r_{1}</m>, well-mixed solution flows from Tank 1 to Tank 2 at a rate of <m>r_{2}</m> and well-mixed solution flows out of Tank 2 at a rate of <m>r_{3}</m>.
+        Suppose that <m>r_{1}, r_{2}</m> and  <m>r_{3}</m> are <quantity><mag>5</mag><unit base="gallon"/><per base="minute"/></quantity>, the volume of solution in Tank 1 is <quantity><mag>10</mag><unit base="gallon"/></quantity> and the volume of solution in Tank 2 is <quantity><mag>7</mag><unit base="gallon" /></quantity>.
+        Suppose Tank 1 has <quantity><mag>5</mag><unit base="pound"/></quantity> of salt at time <m>t=0</m> and Tank 2 has <quantity><mag>2</mag><unit base="pound"/></quantity> of salt at time <m>t=0</m>.
+        How much salt is in each tank at time <m>t</m>?
+      </p>
+    </statement>
+    <solution>
+     <p>
+       To start, let <m>x_{1}(t)</m> denote the amount of salt in Tank 1 at time <m>t</m> and <m>x_{2}(t)</m> denote the amount of salt in Tank 2 at time <m>t</m>, where <m>t</m> is in minutes.
+       Then from Section 4.1, we know that
+       <md>
+        <mrow>x'_{1} \amp = -\frac{1}{2}x_{1}</mrow>
+        <mrow>x'_{2} \amp = \frac{1}{2}x_{1}-\frac{5}{7}x_{2}</mrow>.
+      </md>
+      If we set
+      <me>
+      \vec{x} = \begin{bmatrix} x_{1} \\ x_{2} \end{bmatrix} \qq{and} A = \begin{bmatrix}-\frac{1}{2} \amp  0 \\ \frac{1}{2} \amp  -\frac{5}{7}\end{bmatrix}
+    </me>
+    then this system is equivalent to the matrix ODE <m>\vec{x}' = A\vec{x}</m>.
+    To solve this, we find the eigenvalues and corresponding eigenvectors.
+    To find the eigenvalues, we could solve the characteristic equation <m>\det(A-\lambda I) = 0</m> or use Maple, but it's easier to note that <m>A</m> is a triangular matrix.
+    So the eigenvalues are just <m>\lambda_{1} = -\frac{1}{2},\lambda_{2} = -\frac{5}{7}</m>.
+  </p>
+  <p>
+    Now we find eigenvectors.
+    So let
     <me>
-    \vec{x} = \begin{bmatrix} x_{1} \\ x_{2} \end{bmatrix} \qq{and} A = \begin{bmatrix}-\frac{1}{2} \amp  0 \\ \frac{1}{2} \amp  -\frac{5}{7}\end{bmatrix}
+    \vec{v} = \begin{bmatrix}v_{1} \\ v_{2}\end{bmatrix}.
   </me>
-  then this system is equivalent to the matrix ODE <m>\vec{x}' = A\vec{x}</m>.
-  To solve this, we find the eigenvalues and corresponding eigenvectors.
-  To find the eigenvalues, we could solve the characteristic equation <m>\det(A-\lambda I) = 0</m> or use Maple, but it's easier to note that <m>A</m> is a triangular matrix.
-  So the eigenvalues are just <m>\lambda_{1} = -\frac{1}{2},\lambda_{2} = -\frac{5}{7}</m>.
-</p>
-<p>
-  Now we find eigenvectors.
-  So let
+  If <m>\vec{v}</m> is an eigenvector for <m>\lambda</m>, then we know <m>A\vec{v} = \lambda\vec{v}</m>, which gives the system
+  <md>
+    <mrow>(-\frac{1}{2}-\lambda)v_{1} \amp = 0</mrow>
+    <mrow>\frac{1}{2}v_{1} + (-\frac{5}{7}-\lambda)v_{2} \amp = 0</mrow>.
+  </md>
+  If we set <m>\lambda=-\frac{1}{2}</m>, then we just get <m>v_{1} = \frac{3}{14}v_{2}</m>.
+  So an eigenvector corresponding to <m>\lambda_{1} = -\frac{1}{2}</m> is
   <me>
-  \vec{v} = \begin{bmatrix}v_{1} \\ v_{2}\end{bmatrix}.
-</me>
-If <m>\vec{v}</m> is an eigenvector for <m>\lambda</m>, then we know <m>A\vec{v} = \lambda\vec{v}</m>, which gives the system
-<md>
-  <mrow>(-\frac{1}{2}-\lambda)v_{1} \amp = 0</mrow>
-  <mrow>\frac{1}{2}v_{1} + (-\frac{5}{7}-\lambda)v_{2} \amp = 0</mrow>.
-</md>
-If we set <m>\lambda=-\frac{1}{2}</m>, then we just get <m>v_{1} = \frac{3}{14}v_{2}</m>.
-So an eigenvector corresponding to <m>\lambda_{1} = -\frac{1}{2}</m> is
-<me>
-\vec{v}_{1} = \begin{bmatrix}3\\14\end{bmatrix}.
+  \vec{v}_{1} = \begin{bmatrix}3\\14\end{bmatrix}.
 </me>
 </p>
 <p>
-Similarly, if we set <m>\lambda=-\frac{5}{7}</m> we get <m>v_{1} = 0</m>, but no restrictions on <m>v_{2}</m>.
-So an eigenvector corresponding to <m>\lambda_{2} = -\frac{5}{7}</m> is
-<me>
-\vec{v}_{2} = \begin{bmatrix}0\\1\end{bmatrix}.
+  Similarly, if we set <m>\lambda=-\frac{5}{7}</m> we get <m>v_{1} = 0</m>, but no restrictions on <m>v_{2}</m>.
+  So an eigenvector corresponding to <m>\lambda_{2} = -\frac{5}{7}</m> is
+  <me>
+  \vec{v}_{2} = \begin{bmatrix}0\\1\end{bmatrix}.
 </me>
 </p>
 <p>
-The general solution of our matrix ODE is then
-<me>
-\vec{x} = c_{1}e^{-\frac{5t}{7}}\begin{bmatrix}0\\1\end{bmatrix} + c_{2}e^{-\frac{t}{2}}\begin{bmatrix}3\\14\end{bmatrix} = \begin{bmatrix}3c_{2}e^{-\frac{t}{2}} \\ c_{1}e^{-\frac{5t}{7}}+14c_{2}e^{-\frac{t}{2}}\end{bmatrix}
+  The general solution of our matrix ODE is then
+  <me>
+  \vec{x} = c_{1}e^{-\frac{5t}{7}}\begin{bmatrix}0\\1\end{bmatrix} + c_{2}e^{-\frac{t}{2}}\begin{bmatrix}3\\14\end{bmatrix} = \begin{bmatrix}3c_{2}e^{-\frac{t}{2}} \\ c_{1}e^{-\frac{5t}{7}}+14c_{2}e^{-\frac{t}{2}}\end{bmatrix}
 </me>
 </p>
 <p>
-But we're not done yet, since we have the initial conditions <m>x_{1}(0) = 5</m> and <m>x_{2}(0) = 2</m>, or in terms of our matrix ODE
-<me>
-\vec{x}(0) = \begin{bmatrix}5\\2\end{bmatrix}.
+  But we're not done yet, since we have the initial conditions <m>x_{1}(0) = 5</m> and <m>x_{2}(0) = 2</m>, or in terms of our matrix ODE
+  <me>
+  \vec{x}(0) = \begin{bmatrix}5\\2\end{bmatrix}.
 </me>
 We can use this to find <m>c_{1}</m> and <m>c_{2}</m>.
 If we set <m>t=0</m>, then we get
@@ -819,9 +819,9 @@ If we set <m>t=0</m>, then we get
 so <m>c_{2} = \frac{5}{3}</m> and <m>c_{1} = 2 - 14\frac{5}{3} = -\frac{64}{3}</m>.
 </p>
 <p>
-So the solution of the matrix ODE (and hence the original system) is
-<me>
-\vec{x} = \begin{bmatrix}5e^{-\frac{t}{2}} \\ -\frac{64}{3}e^{-\frac{5t}{7}}+\frac{70}{3}e^{-\frac{t}{2}}\end{bmatrix}
+  So the solution of the matrix ODE (and hence the original system) is
+  <me>
+  \vec{x} = \begin{bmatrix}5e^{-\frac{t}{2}} \\ -\frac{64}{3}e^{-\frac{5t}{7}}+\frac{70}{3}e^{-\frac{t}{2}}\end{bmatrix}
 </me>
 The amount of salt in the first tank, <m>x_{1}</m>, is given by the top entry and the amount of salt in the second tank, <m>x_{2}</m>, is given by the bottom entry.
 </p>
@@ -830,24 +830,24 @@ The amount of salt in the first tank, <m>x_{1}</m>, is given by the top entry an
 </subsection>
 
 <subsection xml:id="subsection-the-phase-plane">
-    <title>The Phase Plane</title>
-    <p>
-Just as we were able to plot direction fields for first-order ODEs, we can do something similar for first-order systems with two equations.
-Consider the first-order system
-<mdn xml:id="equation-2-by-2-system">
- <mrow number="no">y'_{1}  \amp =  a_{11}y_{1} + a_{12}y_{2}</mrow>
- <mrow number="no">y'_{2}  \amp =  a_{21}y_{1}+  a_{22}y_{2}</mrow>
-</mdn>
-or
-<me>
-\vec{y}' = A\vec{y}\quad\text{where}\quad A = \begin{bmatrix}a_{11}  \amp  a_{12}  \\  a_{21}  \amp  a_{22}\end{bmatrix}.
-</me>
+  <title>The Phase Plane</title>
+  <p>
+    Just as we were able to plot direction fields for first-order ODEs, we can do something similar for first-order systems with two equations.
+    Consider the first-order system
+    <mdn xml:id="equation-2-by-2-system">
+     <mrow number="no">y'_{1}  \amp =  a_{11}y_{1} + a_{12}y_{2}</mrow>
+     <mrow number="no">y'_{2}  \amp =  a_{21}y_{1}+  a_{22}y_{2}</mrow>
+   </mdn>
+   or
+   <me>
+   \vec{y}' = A\vec{y}\quad\text{where}\quad A = \begin{bmatrix}a_{11}  \amp  a_{12}  \\  a_{21}  \amp  a_{22}\end{bmatrix}.
+ </me>
 </p>
 <p>
-The solution of this looks like <m>\vec{y}(t) = \begin{bmatrix}y_{1}(t) \\ y_{2}(t)\end{bmatrix}</m>.
-As <m>t</m> varies, <m>\vec{y}(t)</m> will trace out a curve in the <m>y_{1}y_{2}</m>-plane, which we call the <term>trajectory</term>.
-The <m>y_{1}y_{2}</m>-plane is called the <term>phase plane</term>, and the collection of all trajectories of the system <xref ref="equation-2-by-2-system" text="type-global" /> is called the <term>phase portrait</term>.
-The phase portrait of a system provides us with a way to study the behavior of solutions of <xref ref="equation-2-by-2-system" text="type-global" /> without actually solving the system.
+  The solution of this looks like <m>\vec{y}(t) = \begin{bmatrix}y_{1}(t) \\ y_{2}(t)\end{bmatrix}</m>.
+  As <m>t</m> varies, <m>\vec{y}(t)</m> will trace out a curve in the <m>y_{1}y_{2}</m>-plane, which we call the <term>trajectory</term>.
+  The <m>y_{1}y_{2}</m>-plane is called the <term>phase plane</term>, and the collection of all trajectories of the system <xref ref="equation-2-by-2-system" text="type-global" /> is called the <term>phase portrait</term>.
+  The phase portrait of a system provides us with a way to study the behavior of solutions of <xref ref="equation-2-by-2-system" text="type-global" /> without actually solving the system.
 </p>
 <example xml:id="example-sketch-phase-portrait">
   <statement>
@@ -881,17 +881,17 @@ The phase portrait of a system provides us with a way to study the behavior of s
 So the trajectory going through <m>(0,1)</m> in the phase plane should be heading in the direction of <m>(-3,1)</m> viewed from the origin.
 </p>
 <p>
-Plotting other points in the phase plane like this, we get <xref ref="figure-sketch-phase-portrait" text="type-global" />.
-One thing we can see from this is that trajectories that lie on the line, equivalently, those with initial conditions <m>y_{1}(0) = y_{2}(0)</m>, appear to approach the origin while all others move away from the origin.
-We can see why this is by looking at the general solution of the original system, which is
-<me>
-\vec{y} = c_{1}e^{4t}\begin{bmatrix}-3\\2\end{bmatrix}+c_{2}e^{-t}\begin{bmatrix}1\\1\end{bmatrix}.
+  Plotting other points in the phase plane like this, we get <xref ref="figure-sketch-phase-portrait" text="type-global" />.
+  One thing we can see from this is that trajectories that lie on the line, equivalently, those with initial conditions <m>y_{1}(0) = y_{2}(0)</m>, appear to approach the origin while all others move away from the origin.
+  We can see why this is by looking at the general solution of the original system, which is
+  <me>
+  \vec{y} = c_{1}e^{4t}\begin{bmatrix}-3\\2\end{bmatrix}+c_{2}e^{-t}\begin{bmatrix}1\\1\end{bmatrix}.
 </me>
 </p>
 <p>
-If <m>\vec{y}</m> lies on the line <m>y_{2} = y_{1}</m>, then <m>c_{1}</m> has to equal <m>0</m>, which follows from the fact that <m>\begin{bmatrix}-3\\2\end{bmatrix}</m> and <m>\begin{bmatrix}1\\1\end{bmatrix}</m> are linearly independent.
-So trajectories that lie on the line <m>y_{2} = y_{1}</m> must take the form <m>\vec{y} = c_{2}e^{-t}\begin{bmatrix}1\\1\end{bmatrix}</m>, and every solution of this form goes to <m>\vec{0}</m> as <m>t\to\infty</m>.
-<em>Every other trajectory</em> will move away from the origin as <m>t\to\infty</m>, although the trajectories that lie on the line <m>y_{2} = -\frac{2}{3}y_{1}</m> will travel to the origin as <m>t\to-\infty</m> (i.e. ``backwards in time''):
+  If <m>\vec{y}</m> lies on the line <m>y_{2} = y_{1}</m>, then <m>c_{1}</m> has to equal <m>0</m>, which follows from the fact that <m>\begin{bmatrix}-3\\2\end{bmatrix}</m> and <m>\begin{bmatrix}1\\1\end{bmatrix}</m> are linearly independent.
+  So trajectories that lie on the line <m>y_{2} = y_{1}</m> must take the form <m>\vec{y} = c_{2}e^{-t}\begin{bmatrix}1\\1\end{bmatrix}</m>, and every solution of this form goes to <m>\vec{0}</m> as <m>t\to\infty</m>.
+  <em>Every other trajectory</em> will move away from the origin as <m>t\to\infty</m>, although the trajectories that lie on the line <m>y_{2} = -\frac{2}{3}y_{1}</m> will travel to the origin as <m>t\to-\infty</m> (i.e. ``backwards in time''):
 </p>
 </solution>
 </example>
@@ -926,71 +926,71 @@ So trajectories that lie on the line <m>y_{2} = y_{1}</m> must take the form <m>
   <caption>The phase portrait from <xref ref="example-sketch-phase-portrait" text="type-global" />.</caption>
 </figure>
 <p>
-Note that <m>\vec{y}=\vec{0}</m> is \emph{always} a solution of <m>\vec{y}'=A\vec{y}</m>.
-This is because <m>\vec{0}'=A\vec{0} = \vec{0}</m>.
-We call <m>\vec{y} = \vec{0}</m> the <term>equilibrium solution</term> or <term>critical point</term> of the system <m>\vec{y}'=A\vec{y}</m>.
-In the next section, we will be concerned with the behavior of trajectories of the system <m>\vec{y}'=A\vec{y}</m> near the equilibrium solution.
-One thing we will see is that the behavior is determined in large part by the eigenvalues of the matrix <m>A</m>.
+  Note that <m>\vec{y}=\vec{0}</m> is \emph{always} a solution of <m>\vec{y}'=A\vec{y}</m>.
+  This is because <m>\vec{0}'=A\vec{0} = \vec{0}</m>.
+  We call <m>\vec{y} = \vec{0}</m> the <term>equilibrium solution</term> or <term>critical point</term> of the system <m>\vec{y}'=A\vec{y}</m>.
+  In the next section, we will be concerned with the behavior of trajectories of the system <m>\vec{y}'=A\vec{y}</m> near the equilibrium solution.
+  One thing we will see is that the behavior is determined in large part by the eigenvalues of the matrix <m>A</m>.
 </p>
 <p>
-We will classify the behavior of trajectories at the critical point <m>\vec{x} = \vec{0}</m> into five different cases:</p>
-<table>
-<tabular top="major">
-<row bottom="major">
-  <cell>Classification</cell>
-  <cell>Behavior at <m>\vec{0}</m></cell>
-</row>
-<row>
-  <cell>Improper node</cell>
-  <cell>Every trajectory except two has the same limiting tangent at <m>\vec{0}</m></cell>
-</row>
-<row>
-  <cell>Proper node</cell>
-  <cell>For every direction <m>\vec{d}</m> there exists trajectory with limiting tangent <m>\vec{d}</m></cell>
-</row>
-<row>
-  <cell>Saddle point</cell>
-  <cell>Two incoming trajectories, two outgoing trajectories; all others bypass <m>\vec{0}</m></cell>
-</row>
-<row>
-  <cell>Center</cell>
-  <cell><m>\vec{0}</m> is enclosed by infinitely many closed (repeating) trajectories</cell>
-</row>
-<row bottom="major">
-  <cell>Spiral point</cell>
-  <cell>Trajectories spiral inwards or outwards from <m>\vec{0}</m></cell>
-</row>
-</tabular>
-</table>
-<p>
-<m>\vec{0}</m> was a saddle point in <xref ref="example-sketch-phase-portrait" text="type-global" /> since there were incoming trajectories on the line <m>y_{2} = y_{1}</m> and outgoing trajectories on the line <m>y_{2} = -\frac{2}{3}y_{1}</m>.
-</p>
-<example xml:id="example-stability-equilibrium-solution">
-  <statement>
-    <p>
-      Using a phase portrait, determine the type of critical point that <m>\vec{y} = \vec{0}</m> is for the matrix ODE <m>\vec{y}'=A\vec{y}</m> where
-      <me>
-      \vec{y} = \begin{bmatrix}y_{1}(t) \\ y_{2}(t)\end{bmatrix}\quad\text{and}\quad A = \begin{bmatrix}3 \amp  4 \\ -4 \amp  3\end{bmatrix}.
-    </me>
+  We will classify the behavior of trajectories at the critical point <m>\vec{x} = \vec{0}</m> into five different cases:</p>
+  <table>
+    <tabular top="major">
+      <row bottom="major">
+        <cell>Classification</cell>
+        <cell>Behavior at <m>\vec{0}</m></cell>
+      </row>
+      <row>
+        <cell>Improper node</cell>
+        <cell>Every trajectory except two has the same limiting tangent at <m>\vec{0}</m></cell>
+      </row>
+      <row>
+        <cell>Proper node</cell>
+        <cell>For every direction <m>\vec{d}</m> there exists trajectory with limiting tangent <m>\vec{d}</m></cell>
+      </row>
+      <row>
+        <cell>Saddle point</cell>
+        <cell>Two incoming trajectories, two outgoing trajectories; all others bypass <m>\vec{0}</m></cell>
+      </row>
+      <row>
+        <cell>Center</cell>
+        <cell><m>\vec{0}</m> is enclosed by infinitely many closed (repeating) trajectories</cell>
+      </row>
+      <row bottom="major">
+        <cell>Spiral point</cell>
+        <cell>Trajectories spiral inwards or outwards from <m>\vec{0}</m></cell>
+      </row>
+    </tabular>
+  </table>
+  <p>
+    <m>\vec{0}</m> was a saddle point in <xref ref="example-sketch-phase-portrait" text="type-global" /> since there were incoming trajectories on the line <m>y_{2} = y_{1}</m> and outgoing trajectories on the line <m>y_{2} = -\frac{2}{3}y_{1}</m>.
   </p>
-</statement>
-<solution>
- <p>
-   As seen in <xref ref="figure-classify-stability-using-phase-portrait" text="type-global" />, every (nonzero) trajectory will spiral outward from <m>\vec{y} = \vec{0}</m> as <m>t\to\infty</m>, so <m>\vec{0}</m> is a spiral point of this system.
-   To see why, we only need to look at the eigenvalues of <m>A</m>, which we find to be
-   <me>
-   \lambda_{1} = 3+4i,\lambda_{2} = 3-4i.
- </me>
- This means that the general solution of <m>\vec{y}' = A\vec{y}</m> must look like
- <md>
-  <mrow>\vec{y} \amp = c_{1}e^{(3+4i)t}\vec{y}_{1} + c_{2}e^{(3-4i)t}\vec{y}_{2}</mrow>
-  <mrow>\amp = e^{3t}\brackets*{c_{1}e^{4it}\vec{y}_{1}+c_{2}e^{-4it}\vec{y}_{2}}</mrow>
-  <mrow>\amp = e^{3t}\brackets*{(\cos4t)\vec{x}_{1}+(\sin4t)\vec{x}_{2}}</mrow>
-</md>.
+  <example xml:id="example-stability-equilibrium-solution">
+    <statement>
+      <p>
+        Using a phase portrait, determine the type of critical point that <m>\vec{y} = \vec{0}</m> is for the matrix ODE <m>\vec{y}'=A\vec{y}</m> where
+        <me>
+        \vec{y} = \begin{bmatrix}y_{1}(t) \\ y_{2}(t)\end{bmatrix}\quad\text{and}\quad A = \begin{bmatrix}3 \amp  4 \\ -4 \amp  3\end{bmatrix}.
+      </me>
+    </p>
+  </statement>
+  <solution>
+   <p>
+     As seen in <xref ref="figure-classify-stability-using-phase-portrait" text="type-global" />, every (nonzero) trajectory will spiral outward from <m>\vec{y} = \vec{0}</m> as <m>t\to\infty</m>, so <m>\vec{0}</m> is a spiral point of this system.
+     To see why, we only need to look at the eigenvalues of <m>A</m>, which we find to be
+     <me>
+     \lambda_{1} = 3+4i,\lambda_{2} = 3-4i.
+   </me>
+   This means that the general solution of <m>\vec{y}' = A\vec{y}</m> must look like
+   <md>
+    <mrow>\vec{y} \amp = c_{1}e^{(3+4i)t}\vec{y}_{1} + c_{2}e^{(3-4i)t}\vec{y}_{2}</mrow>
+    <mrow>\amp = e^{3t}\brackets*{c_{1}e^{4it}\vec{y}_{1}+c_{2}e^{-4it}\vec{y}_{2}}</mrow>
+    <mrow>\amp = e^{3t}\brackets*{(\cos4t)\vec{x}_{1}+(\sin4t)\vec{x}_{2}}</mrow>
+  </md>.
 </p>
 <p>
-The real part of the eigenvalues leads to the ``growth term'' of <m>e^{3t}</m> appearing in the solution, which causes the trajectories to diverge as <m>t\to\infty</m>.
-The imaginary part of the eigenvalues leads to the ``oscillating terms'' of <m>\cos4t,\sin4t</m> appearing in the solution, which gives the trajectories their spiral motion.
+  The real part of the eigenvalues leads to the ``growth term'' of <m>e^{3t}</m> appearing in the solution, which causes the trajectories to diverge as <m>t\to\infty</m>.
+  The imaginary part of the eigenvalues leads to the ``oscillating terms'' of <m>\cos4t,\sin4t</m> appearing in the solution, which gives the trajectories their spiral motion.
 </p>
 </solution>
 </example>
@@ -1025,7 +1025,7 @@ The imaginary part of the eigenvalues leads to the ``oscillating terms'' of <m>\
   <caption>The phase portrait for <xref ref="example-stability-equilibrium-solution" text="type-global" />.</caption>
 </figure>
 <p>
-In general, the eigenvalues of the matrix <m>A</m> in the system <m>\vec{y}' = A\vec{y}</m> will determine the type of critical point that <m>\vec{0}</m> is for the system <m>\vec{y}'=A\vec{y}</m>.
+  In general, the eigenvalues of the matrix <m>A</m> in the system <m>\vec{y}' = A\vec{y}</m> will determine the type of critical point that <m>\vec{0}</m> is for the system <m>\vec{y}'=A\vec{y}</m>.
 </p>
 <example>
   <statement>
@@ -1059,4 +1059,325 @@ In general, the eigenvalues of the matrix <m>A</m> in the system <m>\vec{y}' = A
 
 </subsection>
 </section>
+<section xml:id="section-criteria-for-critical-points-stability">
+  <title>Criteria for Critical Points; Stability</title>
+  <p>
+    Consider the matrix ODE <m>\vec{y}' = A\vec{y}</m>.
+    Let <m>\lambda_{1},\lambda_{2}</m> denote the eigenvalues of the <m>2\times 2</m> matrix <m>A</m>.
+    Then <m>\vec{0}</m> is a:
+  </p>
+  <table xml:id="table-eigenvalue-conditions-stability">
+    <tabular top="major">
+      <row bottom="major">
+        <cell>Name</cell>
+        <cell>Conditions on <m>\lambda_{1},\lambda_{2}</m></cell>
+      </row>
+      <row>
+        <cell>Node</cell>
+        <cell>Real, same sign</cell>
+      </row>
+      <row>
+        <cell>Saddle point</cell>
+        <cell>Real, opposite sign</cell>
+      </row>
+      <row>
+        <cell>Center</cell>
+        <cell>Pure imaginary</cell>
+      </row>
+      <row bottom="major">
+        <cell>Spiral point</cell>
+        <cell>Complex, not pure imaginary</cell>
+      </row>
+    </tabular>
+    <caption>Eigenvalue conditions for stability.</caption>
+  </table>
+  <p>
+    The rule of thumb is this: the real parts of the eigenvalues determine whether a trajectory moves towards or away from the origin, and the imaginary part determines if the trajectory has a periodic/oscillating nature to it.
+  </p>
+  <p>
+    We say that the origin is a <term>stable</term> critical point of <m>\vec{y}'=A\vec{y}</m> if all trajectories that start ``close'' to <m>\vec{0}</m> remain close at all future times.
+    Equivalently, it's stable if each trajectory will eventually be contained within some circle centered at the origin as <m>t\to\infty</m>.
+    Otherwise, we say that <m>\vec{0}</m> is <term>unstable</term>.
+    If it so happens that every trajectory that starts close to <m>\vec{0}</m> tends to <m>\vec{0}</m> as <m>t\to\infty</m>, we then say that <m>\vec{0}</m> is a <term>stable and attractive</term> (or <term>asymptotically stable</term>) critical point.
+    Equivalently, <m>\vec{0}</m> is asymptotically stable if <em>every</em> trajectory goes to <m>\vec{0}</m> as <m>t\to\infty</m>.
+  </p>
+  <example>
+    <statement>
+      <p>
+        Let <m>\vec{y}' = A\vec{y}</m> denote a matrix ODE where <m>A</m> is a constant <m>2\times2</m> matrix.
+        What conditions on the eigenvalues of <m>A</m> will give an asymptotically stable critical point at <m>\vec{y}=\vec{0}</m>?
+      </p>
+    </statement>
+    <solution>
+     <p>
+      Let <m>\vec{y} = \vec{y}(t)</m> denote a nonzero solution of the matrix ODE (and therefore a trajectory).
+      Then in order for <m>\vec{0}</m> to be asymptotically stable, we need <m>\vec{y}\to\vec{0}</m> as <m>t\to\infty</m>.
+      Let <m>\lambda_{1},\lambda_{2}</m> denote the eigenvalues of <m>A</m>.
+      Then <m>\vec{y}</m> will have the form
+      <me>
+      \vec{y} = c_{1}e^{\lambda_{1}t}\vec{y}_{1}+c_{2}e^{\lambda_{2}t}\vec{y}_{2}.
+    </me>
+  </p>
+  <p>
+    This will go to <m>\vec{0}</m> as <m>t\to\infty</m> if either <m>c_{1}=c_{2}=0</m> or if each exponential goes to <m>0</m> as <m>t\to\infty</m>.
+    Since we assume <m>\vec{y}\neq\vec{0}</m>, this means we need <m>e^{\lambda_{i}t}\to0</m> for <m>i=1,2</m> as <m>t\to\infty</m>.
+    This means that the <em>real part</em> of each eigenvalue must be negative.
+    This is because the real part of each eigenvalue determines the growth of <m>e^{\lambda_{i}t}</m>: if <m>\lambda_{i} = a+bi</m>, then
+    <me>e^{\lambda_{i}t} = e^{at}[A\cos bt+B\sin bt]</me>.
+    So <m>\vec{0}</m> is asymptotically stable if the real parts of <em>both</em> eigenvalues are negative.
+  </p>
+</solution>
+</example>
+<p>
+  Similarly, we can say that <m>\vec{0}</m> is stable as long as the real part of each eigenvalue is no greater than <m>0</m>.
+  <m>\vec{0}</m> is unstable if the real part of \emph{any} eigenvalue is positive.
+</p>
+<example>
+  <statement>
+    <p>
+      Two tanks <m>T_{1}</m> and <m>T_{2}</m> containing
+      <quantity>
+        <mag>200</mag>
+        <unit base="gallon" />
+      </quantity>
+      each of a water-salt mixture are set up as follows:
+    </p>
+    <ul>
+      <li>
+        <p>
+          Tank 1: Pure water flows in at 
+          <quantity>
+            <mag>12</mag>
+            <unit base="gallon" />
+            <per base="minute" />
+          </quantity> 
+          and solution from Tank 2 flows in at
+          <quantity>
+            <mag>4</mag>
+            <unit base="gallon" />
+            <per base="minute" />
+          </quantity>; 
+          solution also flows out of Tank 1 and into Tank 2 at
+          <quantity>
+            <mag>16</mag>
+            <unit base="gallon" />
+            <per base="minute" />
+          </quantity>.
+        </p>
+      </li>
+      <li>
+        <p> Solution from Tank 1 flows in at
+          <quantity>
+            <mag>16</mag>
+            <unit base="gallon"/>
+            <per base="minute"/>
+          </quantity>;
+          solution flows out of Tank 2 and into Tank 1 at
+          <quantity>
+            <mag>4</mag>
+            <unit base="gallon"/>
+            <per base="minute"/>
+          </quantity>,
+          and solution is emptied from Tank 2 at an addition rate of
+          <quantity>
+            <mag>12</mag>
+            <unit base="gallon"/>
+            <per base="minute"/>
+          </quantity>
+        </p>
+      </li>
+    </ul>
+    <p>
+      Will the salt eventually empty from both tanks?
+    </p>
+  </statement>
+  <solution>
+   <p>
+     Let <m>y_{1}(t)</m> denote the amount of salt (in pounds) in Tank 1 at time <m>t</m> (in minutes), and let <m>y_{2}(t)</m> do the same for Tank 2.
+     Then
+     <md>
+      <mrow>y'_{1}  \amp =  4\frac{y_{2}}{200} - 16\frac{y_{1}}{200}</mrow>
+      <mrow>y'_{2}  \amp =  16\frac{y_{1}}{200} - 16\frac{y_{2}}{200}</mrow>
+    </md>.
+  </p>
+  <p>
+    This is equivalent to the matrix ODE <m>\vec{y}' = A\vec{y}</m> where
+    <me>
+    \vec{y} = \begin{bmatrix}y_{1}\\y_{2}\end{bmatrix}\quad\text{and}\quad A = \begin{bmatrix}-\frac{2}{25} \amp  \frac{1}{50} \\ \frac{2}{25} \amp  -\frac{2}{25}\end{bmatrix}.
+  </me>
+</p>
+<p>
+  The eigenvalues of <m>A</m> are
+  <me>
+  \lambda_{1} = -\frac{1}{25}\quad\text{and}\quad\lambda_{2} = -\frac{3}{25}.
+</me>
+Since both eigenvalues have negative real part, it follows that <m>\vec{0}</m> is an asymptotically stable critical point of <m>\vec{y}'=A\vec{y}</m>.
+Therefore <em>every</em> trajectory <m>\vec{y}\to\vec{0}</m> as <m>t\to\infty</m>.
+So no matter how much salt is initially in the tanks, the amount of salt will always go to <m>0</m>.
+</p>
+</solution>
+</example>
+</section>
+<section xml:id="section-nonlinear-systems">
+  <title>Nonlinear Systems</title>
+  <introduction>
+    <p>
+      Now we apply phase plane methods to study <term>nonlinear autonomous systems</term>,
+      <aside>
+        <p>
+          <em>Autonomous</em> just means we can write the system without explicitly referring to the independent variable <m>t</m>.
+        </p>
+      </aside>
+      which for systems involving two ODEs take the form
+      <md>
+        <mrow>y'_{1} \amp = f_{1}(y_{1},y_{2})</mrow>
+        <mrow>y'_{2} \amp = f_{2}(y_{1},y_{2})</mrow>
+      </md>.
+      where <m>y_{i} = y_{i}(t)</m>.
+    </p>
+    <p>
+      We can also write such a system as a vector equation:
+      <men xid="equation-nonlinear-system">vec{y}' = vec{f}(vec{y})</men>.
+      although not as a matrix ODE (if <m>f_{i}</m> are nonlinear).
+    </p>
+    <p>
+      Just as in the previous sections, the <term>phase plane</term> is still the <m>y_{1}y_{2}-plane</m>, <term>trajectories</term> are still the solutions <m>\vec{y}</m> of <xref ref="equation-nonlinear-system" text="type-global" /> (represented as curves in the phase plane), and the <term>phase portrait</term> of <xref ref="equation-nonlinear-system" text="type-global" /> is the set of all trajectories in the phase plane.
+      We call a point <m>P</m> in the phase plane a <term>critical point</term> of <xref ref="equation-nonlinear-system" text="type-global" /> if it is a solution of the same system.
+      Equivalently, the critical points of <xref ref="equation-nonlinear-system" text="type-global" /> are precisely those points <m>(y_{1},y_{2})</m> for which
+      <me>
+      f_{1}(y_{1},y_{2}) = 0\quad\text{and}\quad f_{2}(y_{1},y_{2}) = 0.  
+    </me>
+  </p>
+  <example>
+    <statement>
+      <p>
+        Express the <em>pendulum equation</em> <m>\theta''+\frac{g}{l}\sin\theta=0</m>, where <m>\theta=\theta(t)</m> represents the angular displacement of a pendulum from the vertical, as a nonlinear system <m>\vecm{\theta}' = \vec{f}(\vecm{\theta})</m> and then find its critical points.
+      </p>
+    </statement>
+    <solution>
+     <p>
+       First, we have to rewrite the pendulum ODE as a first order system.
+       We can do this without too much trouble as follows: set
+       <me>\theta_{1} = \theta\quad\text{and}\quad\theta_{2} = \theta_{1}' = \theta'</me>.
+       Then the ODE <m>\theta''+\frac{g}{l}\sin\theta = 0</m> turns into the system
+       <md>
+        <mrow>\theta'_{1} \amp = \theta_{2}</mrow>
+        <mrow>\theta'_{2} \amp = -\frac{g}{l}\sin\theta_{1}</mrow>
+      </md>,
+      which we can also write as <m>\boldsymbol{\theta}' = \vec{f}(\boldsymbol{\theta})</m> using
+      <me>
+      \vecm{\theta} = \begin{bmatrix}\theta_{1} \\ \theta_{2}\end{bmatrix}\quad\text{and}\quad \vec{f}(\vecm{\theta}) = \begin{bmatrix}\theta_{2} \\ -\frac{g}{l}\sin\theta_{2}\end{bmatrix}.
+    </me>
+  </p>
+  <p>
+    Now we need to find the critical points <m>\vecm{\theta}</m> in the <m>\theta_{1}\theta_{2}</m>-plane that make <m>\vec{f}(\vecm{\theta}) = \vec{0}</m>.
+    So we need <m>\theta_{2} = 0</m> and <m>\theta_{1} = \pm k\pi</m> for <m>k=0,\pm1,\pm2,\dots</m>.
+    So the critical points of this system are all points of the form <m>(\pm k\pi,0)</m>.
+  </p>
+</solution>
+</example>
+</introduction>
+<subsection xml:id="subsection-classification-of-critical-points-and-linearization">
+  <title>Classification of Critical Points and Linearization</title>
+  <p>
+    Critical points of systems are important because they can represent long-term behavior of a system.
+    For example, if we have a first-order system representing the population of two species, and it turns out the the origin is asymptotically stable, then this suggests that both species could be driven to extinction.
+    So we want to classify critical points for nonlinear systems in addition to what we have already for linear systems; unfortunately, nonlinear systems are often difficult, if not outright impossible, to solve exactly.
+  </p>
+  <p>
+    Thankfully, in many cases we can approximate a nonlinear system <m>\vec{y}' = \vec{f}(\vec{y})</m> with critical points <m>P_{i}</m> by a suitably chosen linear system <m>\vec{y}' = A\vec{y}</m> at each critical point <m>P_{i}</m>; we call such a system the <term>linearization</term> at <m>P_{i}</m>.
+  </p>
+  <definition xml:id="definition-the-jacobian-of-a-nonlinear-system">
+    <title>The Jacobian of a Nonlinear System</title>
+    <statement>
+      <p>
+        Let
+        <me>
+        \vec{y} = \begin{bmatrix}y_{1} \\ y_{2}\end{bmatrix}\quad\text{and}\quad\vec{f}(\vec{y}) = \begin{bmatrix}f_{1}(y_{1},y_{2}) \\ f_{2}(y_{1},y_{2})\end{bmatrix}.
+      </me>
+      The <term>Jacobian</term> of <m>\vec{f}</m> is the matrix <m>J(y_{1},y_{2})</m> given by
+      <me>
+      J(y_{1},y_{2}) = \begin{bmatrix}\pdv{f_{1}}{y_{1}} \amp  \pdv{f_{1}}{y_{2}} \\ \pdv{f_{2}}{y_{1}} \amp  \pdv{f_{2}}{y_{2}}\end{bmatrix}.
+    </me>
+  </p>
+</statement>
+</definition>
+<p>
+  The linearization of <m>\vec{y}' = \vec{f}(\vec{y})</m> at the point <m>P = (p_{1},p_{2})</m> is the linear system <m>\vec{y}' = A\vec{y}</m>, where
+  <me>A = J(p_{1},p_{2}).</me>
+</p>
+<example>
+  <statement>
+    <p>
+      Find the linearization of the pendulum system <m>\vecm{\theta}' = \vec{f}(\vecm{\theta})</m> at the critical point <m>(0,0)</m>.
+    </p>
+  </statement>
+  <solution>
+   <p>
+     For this system, we have <m>f_{1}(\theta_{1},\theta_{2}) = \theta_{2}</m> and <m>f_{2}(\theta_{1},\theta_{2}) = -\frac{g}{l}\sin\theta_{1}</m>.
+     The Jacobian is then given by
+     <me>
+     J(\theta_{1},\theta_{2}) = \begin{bmatrix}0 \amp  1 \\ -\frac{g}{l}\cos\theta_{1} \amp  0\end{bmatrix}.
+   </me>
+   So to get the linearization we need to set
+   <me>
+   A = J(0,0) = \begin{bmatrix}0 \amp  1 \\ -\frac{g}{l} \amp  0\end{bmatrix}.
+ </me>
+</p>
+</solution>
+</example>
+<p>
+  The linearization of a nonlinear system isn't just useful for approximating the nonlinear system.
+  It's also incredibly useful for classifying the critical points of a nonlinear system; for the most part, the eigenvalues of the matrix <m>A</m> from the linearization also classify the critical points of the system <m>\vec{y}' = \vec{f}(\vec{y})</m>.
+</p>
+<example>
+  <statement>
+    <p>
+      Predator-prey populations can be modeled using the Lotka-Volterra model.
+      Let <m>y_{1}(t)</m> denote the population of a prey species at time <m>t</m> and let <m>y_{2}(t)</m> denote the population of a predator species at time <m>t</m>.
+      Then the Lotka-Volterra model says that
+      <md>
+        <mrow>y'_{1} \amp = ay_{1}-by_{1}y_{2}</mrow>
+        <mrow>y'_{2} \amp = ky_{1}y_{2} - ly_{2}</mrow>
+      </md>,
+      where <m>a,b,k,l>0</m>.
+      Find and classify the critical points of this system.
+    </p>
+  </statement>
+  <solution>
+   <p>
+    The critical points are the points <m>(y_{1},y_{2})</m> that satisfy the equations
+    <me>ay_{1}-by_{1}y_{2} = 0\quad\text{and}\quad ky_{1}y_{2} - ly_{2} = 0.</me>
+    Equivalently, we need
+    <me>y_{1}(a-by_{2}) = 0\quad\text{and}\quad y_{2}(ky_{1}-l) = 0.</me>
+    This has solutions <m>y_{1} = y_{2} = 0</m> and <m>y_{1} = \frac{l}{k},y_{2} = \frac{a}{b}</m>.
+    So the critical points are <m>(0,0)</m> and <m>(\frac{l}{k},\frac{a}{b})</m>.
+  </p>
+  <p>
+    To classify these critical points we need to linearize the system, so we'll compute the Jacobian of
+    <me>\vec{f}(\vec{y}) = \begin{bmatrix}ay_{1}-by_{1}y_{2} \\ ky_{1}y_{2} - ly_{2}\end{bmatrix}</me>
+    to get
+    <me>J(y_{1},y_{2}) = \begin{bmatrix}a-by_{2} \amp  -by_{1} \\ ky_{2} \amp  ky_{1} - l\end{bmatrix}.</me>
+  </p>
+  <p>
+    At <m>(0,0)</m>, we get
+    <me>A = \begin{bmatrix}a \amp  0 \\ 0 \amp  -l\end{bmatrix}</me>,
+    which has eigenvalues <m>\lambda=a,-l</m>.
+    So the origin is an saddle point of the original system.
+    In particular, there exist trajectories heading into the origin, so it's possible for both species to go extinct in this case.
+  </p>
+  <p>
+    Now we'll classify the second critical point <m>(\frac{l}{k},\frac{a}{b})</m>.
+    The Jacobian at this point gives us the matrix
+    <me>A = J(\frac{l}{k},\frac{a}{b}) = \begin{bmatrix}0 \amp  -\frac{bl}{k} \\ \frac{ak}{b} \amp  0\end{bmatrix}</me>.
+    This matrix has characteristic equation <m>\lambda^{2} + al = 0</m>, and so has eigenvalues <m>\lambda=\pm i\sqrt{al}</m>.
+    Since the eigenvalues are pure imaginary, this suggests that <m>(\frac{l}{k},\frac{a}{b})</m> is a center, which is indeed the case.
+    In particular, trajectories near this critical point <em>must be periodic</em>.
+  </p>
+</solution>
+</example>
+</subsection>
+</section>
+
+
 </chapter>
