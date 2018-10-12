@@ -10,7 +10,7 @@
       \newcommand{\ZZ}{\mathbb{Z}}
       \newcommand{\CC}{\mathbb{C}}
       \renewcommand{\th}{\text{th}}
-      <!-- \renewcommand{\vec}[1]{\mathbf{#1}} -->
+      \renewcommand{\vec}[1]{\mathbf{#1}}
       \newcommand{\vv}[1]{\mathbf{#1}}
       \newcommand{\grad}{\nabla}
       \newcommand{\vecm}[1]{\bm{#1}}
@@ -21,8 +21,14 @@
       \newcommand{\iLaplace}[1]{\mathcal{L}^{-1}\set*{#1}}
       \newcommand{\dv}[3][]{\dfrac{d^{#1} #2}{d #3^{#1}}}
       \newcommand{\pdv}[3][]{\dfrac{\partial^{#1} #2}{\partial #3^{#1}}}
+      \newcommand{\dd}[2][]{\, d^{#1} #2\ }
       \newcommand{\dotprod}[1]{\left\langle #1 \right\rangle}
+      \newcommand{\set}[1]{\left\{ #1 \right\}}
+      \newcommand{\brackets}[1]{\left[ #1 \right]}
+      \newcommand{\parens}[1]{\left( #1 \right)}
+      \newcommand{\qq}[1]{\quad\text{#1}\quad}
       % Inline vector... hopefully looks better than \irow.
+      \newcommand{\vecm}[1]{\boldsymbol{#1}}
       \newcommand{\ivec}[1]{%
         \renewcommand{\arraystretch}{.8}%
         \begin{bmatrix}#1\end{bmatrix}%
@@ -38,7 +44,7 @@
       \usepackage{pgfplots}
       \usepackage{tikz-qtree}
       \pgfplotsset{compat=newest}
-      \usetikzlibrary{decorations.markings,decorations.pathreplacing,arrows,calc}
+      \usetikzlibrary{decorations.markings,decorations.pathreplacing,arrows,calc,backgrounds}
       % These are the TikZ-PGFPlots settings I need.
       \pgfplotsset{mystyle/.style={%
       view={120}{30},
@@ -80,6 +86,7 @@
       <xi:include href="./intro-to-odes.ptx" />   <!-- Definition and basic examples of ODEs -->
       <xi:include href="./linear-odes-constant-coefficients.ptx" /> <!-- Solutions of linear ODEs with constant coefficients. -->
       <xi:include href="./higher-order-linear-odes.ptx" /> <!-- Solutions of higher order linear ODEs with constant coefficients -->
+      <xi:include href="./systems-odes.ptx" /> <!-- Solutions of systems of first order ODEs -->
       <xi:include href="./fourier-analysis.ptx" />    <!-- Definition and basic examples of Fourier series -->
       <xi:include href="./partial-differential-equations.ptx" />  <!-- Definition and basic examples of PDEs -->
       <xi:include href="./backmatter.ptx" /> <!-- Index and whatnot. -->

@@ -70,7 +70,7 @@
 
           <example xml:id="example-solution-of-the-heat-equation">
               <title>Solution of the heat equation</title>
-              <p>Let <m>u(x,t) = e^{-9t}\sin3x</m>. We'll show that this is a solution of the boundary value problem 
+              <p>Let <m>u(x,t) = e^{-9t}\sin3x</m>. We'll show that this is a solution of the boundary value problem
               <me>u_{t} = u_{xx},\quad u(0,t) = u(\pi,t) = 0\quad\text{and}\quad u(x,0) = \sin3x.</me> </p>
               <p>To do so, we need to compute the partial derivatives of <m>u(x,t):</m></p>
               <md>

@@ -599,7 +599,7 @@
                         At this step we can either leave the solution as is (in <term>implicit form</term>) or solve for <m>y</m> to get an <term>explicit form</term>.
                         We'll leave this in implicit form and then plug in the initial condition to get
                         <me>\tan^{-1}(2) = C_{1}.</me>
-                        So the implicit solution of this IVP is given by 
+                        So the implicit solution of this IVP is given by
                         <me>\tan^{-1}(2y) = x^{2}+\tan^{-1}(2).</me>
                     </p>
                 </solution>
@@ -622,7 +622,7 @@
                     <me>\dv{T}{t} = k(T-15).</me>
                     <p>
                         To answer this question we need to find <m>T</m>, and although we don't know <m>k</m> at the moment we can still make some progress just by remembering that it's a constant.
-                        This ODE is separable, so we'll separate variables and integrate both sides to get 
+                        This ODE is separable, so we'll separate variables and integrate both sides to get
                         <me>\ln(T-15) = kt+C</me>
                         which simplifies to <m>T-15 = C_{1}e^{kt}</m> or just <m>T = 15+C_{1}e^{kt}</m>.
                     </p>
@@ -631,7 +631,7 @@
                         To find <m>C_{1}</m>, we just use the initial condition to get <m>C_{1} = 85</m>.
                         The only piece of information that we have left to find <m>k</m> is the fact that the temperature of the plate drops to <m>90</m> after <m>20</m> minutes.
                         In other words, <m>T(20) = 90</m>.
-                        Therefore 
+                        Therefore
                         <me>90 = 15+85e^{20k}</me>
                         which becomes
                         <me>\ln\frac{75}{85} = 20k</me>.
@@ -812,7 +812,7 @@
                         Now we integrate one last time to get <m>x</m>:
                         <me>x = e^{-\tan^{-1}t}+D.</me>
                         If we use the last initial condition <m>x(0)=-1</m>, we see that <m>D = -2</m>.
-                        Hence the solution of this IVP is 
+                        Hence the solution of this IVP is
                         <me>x = e^{-\tan^{-1}t}-2.</me>
                     </p>
                 </solution>
@@ -855,7 +855,7 @@
                 <solution>
                     <p>
                         Let <m>x(t)</m> denote the amount of salt in the tank after <m>t</m> minutes, so <m>x(0) = 50</m>.
-                        Then 
+                        Then
                         <me>\dv{x}{t} = r_{i}c_{i}-r_{o}c_{o} = 2\cdot1-3\frac{x}{100-t}.</me>
                         We can rearrange this to get
                         <me>\dv{x}{t} + \frac{3}{100-t}x = 2.</me>
@@ -957,7 +957,7 @@
                 </figure>
             </p>
             <p>
-                Now <m>f</m> is continuous and <m>-\frac{1}{2}\leq y\leq\frac{3}{2}</m> within this rectangle, so 
+                Now <m>f</m> is continuous and <m>-\frac{1}{2}\leq y\leq\frac{3}{2}</m> within this rectangle, so
                 <me>-\sqrt[3]{\frac{1}{2}}\leq f(x,y)\leq\sqrt[3]{\frac{3}{2}}</me>
                 everywhere inside of this triangle.
                 So <xref ref="theorem-existence-and-uniqueness-theorem" text="type-global" /> guarantees <em>at least one</em> solution of the IVP, and indeed there is at least one solution.
