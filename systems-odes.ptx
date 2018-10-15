@@ -1344,6 +1344,51 @@ This is a first-order system relating <m>x(t)</m> and <m>y(t)</m>.
     <example>
       <statement>
         <p>
+          Find and classify the critical points of the nonlinear system
+          <md>
+            <mrow>\dv{x}{t} \amp = x - y - x^{2} + xy </mrow>
+            <mrow>\dv{y}{t} \amp = -x^{2} - y </mrow>
+          </md>.
+        </p>
+        <aside>
+          <p>
+            This example taken from <url href="https://www.math.uci.edu/~ndonalds/math3d/nonlinear.pdf">here.</url>
+          </p>
+        </aside>
+      </statement>
+      <solution>
+        <p>
+          The critical points occur at <m>x' = y' = 0</m>.
+          If we set <m>x' = y'</m> and solve the resulting equation, we get <m>x = 0</m> or <m>y = -1</m>.
+          If <m>x = 0</m>, then <m>x' = -y</m>, and for this to be <m>0</m> we must have <m>y = 0</m>.
+          We can verify that <m>x = y = 0</m> makes <m>y' = 0</m> as well, so the origin is a critical point.
+          Similarly, <m>y = -1</m> forces <m>x = \pm1</m>, and we can verify that <m>x' = y' = 0</m> at <m>(-1,-1)</m> and <m>(1,-1)</m>.
+          So we have three critical points to check.
+        </p>
+        <p>
+          To determine the behavior of solutions at these critical points, we'll find the Jacobian at each point.
+          First, we have
+          <me>J(x,y) = \begin{bmatrix} 1 - 2x + y \amp x - 1 \\ -2x \amp -1\end{bmatrix}</me>.
+          At <m>(0,0)</m>, we get
+          <me>J(0,0) = \begin{bmatrix} 1 \amp -1 \\ 0 \amp -1\end{bmatrix}</me>.
+          The eigenvalues are <m>1</m> and <m>-1</m>, meaning that this critical point is a saddle point.
+          At <m>(-1,-1)</m> we get
+          <me>J(-1,-1) = \begin{bmatrix}2 \amp -2 \\ 2 \amp -1\end{bmatrix}</me>
+          which has eigenvalues <m>\lambda = \frac{1}{2}\pm\frac{1}{2}\sqrt{7}i</m>.
+          Hence <m>(-1,-1)</m> should be a spiral point.
+          Finally, at <m>(1,-1)</m> we get
+          <me>J(1,-1) = \begin{bmatrix} -2 \amp 0 \\ -2 \amp -1\end{bmatrix}</me>,
+          which has eigenvalues <m>-2,-1</m>.
+          Hence <m>(1,-1)</m> is an asymptotically stable node.
+        </p>
+      </solution>
+    </example>
+    <p>
+      We can also use nonlinear systems to get more accurate population models.
+    </p>
+    <example>
+      <statement>
+        <p>
           Predator-prey populations can be modeled using the Lotka-Volterra model.
           Let <m>y_{1}(t)</m> denote the population of a prey species at time <m>t</m> and let <m>y_{2}(t)</m> denote the population of a predator species at time <m>t</m>.
           Then the Lotka-Volterra model says that
@@ -1389,5 +1434,4 @@ This is a first-order system relating <m>x(t)</m> and <m>y(t)</m>.
     </example>
   </subsection>
 </section>
-
 </chapter>
