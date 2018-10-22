@@ -367,7 +367,8 @@ Now we plug this into our power series for <m>y</m> to get
   </aside>
   <subsection xml:id="subsection-regular-points-and-singular-points">
     <title>Regular Points and Singular Points</title>
-    Recall that a homogeneous, linear second order ODE has the form 
+    <p>
+    Recall that a homogeneous, linear second order ODE has the form
     <me>
     A(x)y''+B(x)y'+C(x)y = 0. 
   </me>
@@ -375,15 +376,22 @@ Now we plug this into our power series for <m>y</m> to get
   <me>
   y''+P(x)y'+Q(x)y = 0.
 </me>
-\begin{definition}
-A point <m>x=a</m> is called a <term>regular point</term> if <m>P(x)</m> and <m>Q(x)</m> both have power series expansions at <m>x=a</m>.
+</p>
+<definition xml:id="definition-regular-points-and-singular-points">
+    <title>Regular Points and Singular Points</title>
+    <statement>
+      <p>
+        A point <m>x=a</m> is called a <term>regular point</term> if <m>P(x)</m> and <m>Q(x)</m> both have power series expansions at <m>x=a</m>.
 If <m>x=a</m> is not a regular point we call it a <term>singular point</term>.
-\end{definition}
+</p>
+</statement>
+</definition>
+<p>
 Regular points of an ODE are nice because of the following theorem:
+</p>
 <theorem>
   <statement>
     <p>
-
       Suppose that <m>a</m> is a regular point of the differential equation <m>y''+P(x)y'+Q(x)y=0</m>.
       Then the ODE has two linearly independent solutions of the form
       <me>
@@ -393,18 +401,17 @@ Regular points of an ODE are nice because of the following theorem:
   </p>
 </statement>
 </theorem>
+<p>
 In other words, <em>the power series method works at regular points.</em>
+</p>
 <example>
   <statement>
     <p>
-
       Find the general solution, as a power series in powers of <m>x</m>, for the ODE <m>(x^{2}+2)y''+4xy'+2y=0</m>.
-
-    </p> 
-  </statement> 
-  <solution> 
-   <p> 
-     [Answer]
+    </p>
+  </statement>
+  <solution>
+   <p>
      The first thing we will do is make sure that the ODE actually has a power series solution at <m>x=0</m>.
      To do this, we need to show that <m>x=0</m> is a regular point of the ODE. So we need to find <m>P(x)</m> and <m>Q(x)</m> and check that they (or their power series) make sense at <m>x=0</m>.
      If we divide through the ODE by <m>x^{2}+2</m> we obtain
@@ -413,12 +420,13 @@ In other words, <em>the power series method works at regular points.</em>
    </me>
    so
    <md>
-    P(x) \amp= \frac{4x}{x^{2}+2} \\
-    Q(x) \amp= \frac{2}{x^{2}+2}
-  </md>
+    <mrow>P(x) \amp= \frac{4x}{x^{2}+2}</mrow>
+    <mrow>Q(x) \amp= \frac{2}{x^{2}+2}</mrow>
+  </md>.
   Since both of these exist at <m>x=0</m>, it follows that <m>x=0</m> is an regular point of the ODE.
   Therefore the ODE has a power series solution at <m>x=0</m> (that is, in powers of <m>x</m>).
-
+</p>
+<p>
   We return to the original form of the ODE to solve it; if we didn't do so, we would need to expand <m>P(x)</m> and <m>Q(x)</m> using their own power series, and this would <em>greatly</em> complicate the algebra.
   Just as we did in Section 5.1, we assume the ODE has a series solution of the form <m>y = \sum_{n=0}^{\infty}c_{n}x^{n}</m>, or just <m>y=\sum_{n\geq0}c_{n}x^{n}</m> for short.
   Now we plug this into the ODE to get
@@ -433,6 +441,8 @@ or just
 <me>
 \sum_{n\geq0}^{}n(n-1)c_{n}x^{n}+\sum_{n\geq0}^{}2(n+2)(n+1)c_{n+2}x^{n}+\sum_{n\geq0}^{}4nc_{n}x^{n}+\sum_{n\geq0}^{}2c_{n}x^{n} = 0
 </me>
+</p>
+<p>
 Now we can collect like terms, and combine everything on the left hand side into one sum:
 <me>
 \sum_{n\geq0}^{}\qty[n(n-1)c_{n}+2(n+2)(n+1)c_{n+2}+4nc_{n}+2c_{n}]x^{n} = 0.
@@ -449,30 +459,31 @@ so
 <me>
 c_{n+2} = -\frac{1}{2}c_{n}\qq{for <m>n\geq0</m>}.
 </me>
-We need to find a pattern for the coefficients. Since this is a two-step relation, we'll set up two columns: one column for even <m>n</m> and one column for odd <m>n</m>.
-<md> 
-  c_{2} \amp= -\frac{1}{2}c_{0} \amp c_{3} \amp= -\frac{1}{2}c_{1} \\
-  c_{4} \amp= -\frac{1}{2}c_{2} = \frac{1}{2^{2}}c_{0} \amp c_{5} \amp= -\frac{1}{2}c_{3} = \frac{1}{2^{2}}c_{1}
-</md>
-so it appears that
+</p>
+<p>
+We need to find a pattern for the coefficients.
+Since this is a two-step relation, we'll set up two columns: one column for even <m>n</m> and one column for odd <m>n</m>:
+<md>
+  <mrow>c_{2} \amp= -\frac{1}{2}c_{0} \amp c_{3} \amp= -\frac{1}{2}c_{1}</mrow>
+  <mrow>c_{4} \amp= -\frac{1}{2}c_{2} = \frac{1}{2^{2}}c_{0} \amp c_{5} \amp= -\frac{1}{2}c_{3} = \frac{1}{2^{2}}c_{1}</mrow>
+</md>.
+So it appears that
 <me>
-c_{2n} = (-1)^{n}\frac{1}{2^{n}}c_{0}\qq{and}c_{2n+1} = (-1)^{n}\frac{1}{2^{n}}c_{1}.
-</me>
+c_{2n} = (-1)^{n}\frac{1}{2^{n}}c_{0}\qq{and}c_{2n+1} = (-1)^{n}\frac{1}{2^{n}}c_{1}
+</me>.
+</p>
+<p>
 Therefore the general solution of the ODE is
-<md> 
-  y 
-  \amp= \sum_{n\geq0}^{}c_{n}x^{n} \\
-  \amp= \sum_{n\geq0}c_{2n}x^{2n} + \sum_{n\geq0}c_{2n+1}x^{2n+1} \\
-  % \amp= c_{0}+c_{1}x+c_{2}x^{2}+c_{3}x^{3}+c_{4}x^{4}+c_{5}x^{5} + \cdots \\
-  % \amp= \qty(c_{0}+c_{2}x^{2}+c_{4}x^{4}+\cdots)+\qty(c_{1}x+c_{3}x^{3}+c_{5}x^{5}+\cdots) \\
-  % \amp= c_{0}\qty(1 - \frac{1}{2}x^{2}+\frac{1}{2^{2}}x^{4}-\cdots)+c_{1}\qty(x-\frac{1}{2}x^{3}+\frac{1}{2^{2}}x^{5}-\cdots) \\
-  \amp= c_{0}\sum_{n\geq0}^{}(-1)^{n}\frac{x^{2n}}{2^{n}}+c_{1}\sum_{n\geq0}^{}(-1)^{n}\frac{x^{2n+1}}{2^{n}} \\
-  \amp= c_{0}\sum_{n\geq0}^{}\qty(-\frac{x^{2}}{2})^{n}+c_{1}x\sum_{n\geq0}^{}\qty(-\frac{x^{2}}{2})^{n} \\
-  \amp= \frac{c_{0}}{1+\nicefrac{x^{2}}{2}} + \frac{c_{1}x}{1+\nicefrac{x^{2}}{2}}
+<md>
+  <mrow>y \amp= \sum_{n\geq0}^{}c_{n}x^{n}</mrow>
+  <mrow>\amp= \sum_{n\geq0}c_{2n}x^{2n} + \sum_{n\geq0}c_{2n+1}x^{2n+1}</mrow>
+  % \amp= c_{0}+c_{1}x+c_{2}x^{2}+c_{3}x^{3}+c_{4}x^{4}+c_{5}x^{5} + \cdots
+  <mrow>\amp= c_{0}\sum_{n\geq0}^{}(-1)^{n}\frac{x^{2n}}{2^{n}}+c_{1}\sum_{n\geq0}^{}(-1)^{n}\frac{x^{2n+1}}{2^{n}}</mrow>
+  <mrow>\amp= c_{0}\sum_{n\geq0}^{}\qty(-\frac{x^{2}}{2})^{n}+c_{1}x\sum_{n\geq0}^{}\qty(-\frac{x^{2}}{2})^{n}</mrow>
+  <mrow>\amp= \frac{c_{0}}{1+\nicefrac{x^{2}}{2}} + \frac{c_{1}x}{1+\nicefrac{x^{2}}{2}}</mrow>
 </md>
-
-</p> 
-</solution> 
+</p>
+</solution>
 </example>
 </subsection>
 <subsection xml:id="subsection-solutions-at-singular-points-and-indicial-equations">
