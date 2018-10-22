@@ -87,6 +87,7 @@
       <xi:include href="./linear-odes-constant-coefficients.ptx" /> <!-- Solutions of linear ODEs with constant coefficients. -->
       <xi:include href="./higher-order-linear-odes.ptx" /> <!-- Solutions of higher order linear ODEs with constant coefficients -->
       <xi:include href="./systems-odes.ptx" /> <!-- Solutions of systems of first order ODEs -->
+      <xi:include href="./series-solutions.ptx" /> <!-- Methods of series solutions for ODEs -->
       <xi:include href="./fourier-analysis.ptx" />    <!-- Definition and basic examples of Fourier series -->
       <xi:include href="./partial-differential-equations.ptx" />  <!-- Definition and basic examples of PDEs -->
       <xi:include href="./backmatter.ptx" /> <!-- Index and whatnot. -->
