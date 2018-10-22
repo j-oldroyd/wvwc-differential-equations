@@ -131,9 +131,9 @@ Find <m>\displaystyle\int_{0}^{1}e^{x^{2}}\dd{x}</m>.
 \begin{proof}[Answer]
 We can't integrate <m>e^{x^{2}}</m> using elementary functions\sidenote{We can use a function known as the \textbf{error function}.} but this is straightforward to integrate using power series:
 \begin{align*}
-\Int{0}{1}e^{x^{2}}\dd{x}
-\amp= \Int{0}{1}\sum_{n=0}^{\infty}\frac{x^{2n}}{n!}\dd{x} \\
-\amp= \sum_{n=0}^{\infty}\Int{0}{1}\frac{x^{2n}}{n!}\dd{x} \\
+\int_{0}^{1}e^{x^{2}}\dd{x}
+\amp= \int_{0}^{1}\sum_{n=0}^{\infty}\frac{x^{2n}}{n!}\dd{x} \\
+\amp= \sum_{n=0}^{\infty}\int_{0}^{1}\frac{x^{2n}}{n!}\dd{x} \\
 \amp= \sum_{n=0}^{\infty}\frac{1}{(2n+1)n!}.
 \end{align*}
 \end{proof}
