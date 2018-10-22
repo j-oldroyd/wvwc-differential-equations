@@ -38,21 +38,21 @@ f(0) = c_{0} + c_{1}\cdot0+\dots = c_{0}.
 \]
 To solve for <m>c_{1}</m> by plugging in <m>x=0</m>, we need to get rid of the power of <m>x</m> attached to it. 
 We can do this by taking the derivative of <m>f(x)</m>:
-\begin{align*}
+<md> 
 f'(x) \amp= c_{1} + 2c_{2}x + 3c_{3}x^{2} + \dots \\
 f'(0) \amp= c_{1}.
-\end{align*}
+ </md>
 The same trick works for <m>c_{2}</m>:
-\begin{align*}
+<md> 
 f''(x) \amp= 2\cdot1c_{2} + 3\cdot2c_{3}x+\dots \\
 f''(0) \amp= 2\cdot1c_{2}
-\end{align*}
+ </md>
 so <m>c_{2} = \frac{f''(0)}{2\cdot1}</m>.
 Let's try this one more time to get <m>c_{3}</m>:
-\begin{align*}
+<md> 
 f^{(3)}(x) \amp= 3\cdot2\cdot1c_{3} + \dots \\
 f^{(3)}(0) \amp= 3\cdot2\cdot1c_{3}
-\end{align*}
+ </md>
 and so <m>c_{3} = \frac{f^{(3)}(0)}{3\cdot2\cdot1}</m>.
 In general, to get the coefficient <m>c_{k}</m> of <m>x^{k}</m> in the power series of <m>f(x)</m>, we have the following equation:
 \begin{equation}\label{eqn:power-series-coefficients}
@@ -104,12 +104,12 @@ where
 c_{k} = \frac{g^{(k)}(\frac{\pi}{2})}{k!}.
 \]
 To find these values, we need to compute the derivatives of <m>g(t)</m> and evaluate them at <m>\frac{\pi}{2}</m>:
-\begin{align*}
+<md> 
 g^{(0)}(t) \amp= \sin t \amp\Rightarrow g^{(0)}(\frac{\pi}{2}) = 1 \\
 g'(t) \amp= \cos t \amp\Rightarrow g'(\frac{\pi}{2}) = 0 \\
 g''(t) \amp= -\sin t \amp\Rightarrow g''(\frac{\pi}{2}) = -1 \\
 g^{(3)}(t) \amp= -\cos t \amp\Rightarrow g^{(3)}(\frac{\pi}{2}) = 0. 
-\end{align*}
+ </md>
 So the power series centered at <m>\frac{\pi}{2}</m> is
 \[
 1 - \frac{1}{2!}(t-\frac{\pi}{2})^{2} + \frac{1}{4!}(t-\frac{\pi}{2})^{4}+\dots = \sum_{k=0}^{\infty}(-1)^{k}\frac{(t-\frac{\pi}{2})^{2k}}{(2k)!}.
@@ -118,24 +118,24 @@ Just as with <m>e^{x}</m>, <m>\sin t</m> is equal to its power series everywhere
 \end{proof}
 
 More functions in terms of power series:
-\begin{align*}
+<md> 
 \frac{1}{1-x} \amp= \sum_{n=0}^{\infty}x^{n} \amp \amp= 1 + x + x^{2} + x^{3} + \cdots \\
 e^{x} \amp= \sum_{n=0}^{\infty}\frac{x^{n}}{n!} \amp \amp= 1 + x + \frac{x^{2}}{2!} + \frac{x^{3}}{3!} + \cdots \\
 \sin x \amp= \sum_{n=0}^{\infty}(-1)^{n}\frac{x^{2n+1}}{(2n+1)!} \amp \amp= x - \frac{x^{3}}{3!} + \frac{x^{5}}{5!} - \cdots \\
 \cos x \amp= \sum_{n=0}^{\infty}(-1)^{n}\frac{x^{2n}}{(2n)!} \amp \amp= 1 - \frac{x^{2}}{2!} + \frac{x^{4}}{4!} - \cdots
-\end{align*}
+ </md>
 Viewing a function as a power series can be extremely beneficial; if you have a power series expression for some function, it is extremely easy to do calculus with it.
 \begin{example}
 Find <m>\displaystyle\int_{0}^{1}e^{x^{2}}\dd{x}</m>.
 \end{example}
 \begin{proof}[Answer]
 We can't integrate <m>e^{x^{2}}</m> using elementary functions\sidenote{We can use a function known as the \textbf{error function}.} but this is straightforward to integrate using power series:
-\begin{align*}
+<md> 
 \int_{0}^{1}e^{x^{2}}\dd{x}
 \amp= \int_{0}^{1}\sum_{n=0}^{\infty}\frac{x^{2n}}{n!}\dd{x} \\
 \amp= \sum_{n=0}^{\infty}\int_{0}^{1}\frac{x^{2n}}{n!}\dd{x} \\
 \amp= \sum_{n=0}^{\infty}\frac{1}{(2n+1)n!}.
-\end{align*}
+ </md>
 \end{proof}
 The following theorem can be used to determine when a power series converges (that is, when it makes sense).
 \begin{theorem}
@@ -159,11 +159,11 @@ We could easily solve this using Chapter 1 methods, but we'll use power series t
 y = \sum_{n=0}^{\infty}c_{n}x^{n}.
 \]
 The next step is to plug this into the ODE. Since 
-\begin{align*}
+<md> 
 y' 
 \amp= \parens*{\sum_{n=0}^{\infty}c_{n}x^{n}}' \\
 \amp= \sum_{n=1}^{\infty}nc_{n}x^{n-1}
-\end{align*}
+ </md>
 we get the equation
 \[
 \sum_{n=1}^{\infty}nc_{n}x^{n-1} = 4\sum_{n=0}^{\infty}c_{n}x^{n}.
@@ -176,25 +176,30 @@ Now we can equate coefficients: for <m>n\geq0</m>, we have
 \[
 (n+1)c_{n+1} = 4c_{n}\qq{or} c_{n+1} = \frac{4}{n+1}c_{n}.
 \]
-This is known as a \textbf{recurrence relation}. 
+This is known as a \textbf{recurrence relation}.
 It describes the coefficients in terms of the previous ones, and can be used to determine explicitly what each <m>c_{n}</m> looks like. To see how, we plug several values for <m>n</m> into this recurrence relation to try to determine a pattern:
-\begin{align*}
-c_{1} \amp= \frac{4}{2}c_{0} \\
-c_{2} \amp= \frac{4}{3}c_{1} = \frac{4^{2}}{3\cdot2}c_{0} \\
-c_{3} \amp= \frac{4}{4}c_{2} = \frac{4^{3}}{4\cdot3\cdot2}c_{0}
-\end{align*}
-and in general it appears that 
+<md>
+<mrow>c_{1} \amp= \frac{4}{2}c_{0}</mrow>
+<mrow>c_{2} \amp= \frac{4}{3}c_{1} = \frac{4^{2}}{3\cdot2}c_{0}</mrow>
+<mrow>c_{3} \amp= \frac{4}{4}c_{2} = \frac{4^{3}}{4\cdot3\cdot2}c_{0}</mrow>
+ </md>
+and in general it appears that
 \[
 c_{n} = \frac{4^{n}}{n!}c_{0}
-\]\marginnote[-30pt]{We can't solve for <m>c_{0}</m> without an initial condition of some kind.}
-for each <m>n</m>. So the solution <m>y</m> is 
-\begin{align*}
-y
-\amp= \sum_{n=0}^{\infty}c_{n}x^{n} \\
-\amp= \sum_{n=0}^{\infty}\frac{4^{n}}{n!}c_{0}x^{n} \\
-\amp= c_{0}\sum_{n=0}^{\infty}\frac{(4x)^{n}}{n!} \\
-\amp= c_{0}e^{4x}.
-\end{align*}
+\]
+for each <m>n</m>.
+<aside>
+  <p>
+    We can't solve for <m>c_{0}</m> without specifying an initial condition of some kind.
+  </p>
+</aside>
+So the solution <m>y</m> is
+<md>
+<mrow>y \amp= \sum_{n=0}^{\infty}c_{n}x^{n}</mrow>
+<mrow>\amp= \sum_{n=0}^{\infty}\frac{4^{n}}{n!}c_{0}x^{n}</mrow>
+<mrow>\amp= c_{0}\sum_{n=0}^{\infty}\frac{(4x)^{n}}{n!}</mrow>
+<mrow>\amp= c_{0}e^{4x}</mrow>
+ </md>.
 \end{proof}
 To solve the above ODE we used the following steps:
 \begin{enumerate}[Step 1:]
@@ -248,11 +253,11 @@ This tells us that <m>c_{1} = 0</m>.
 Again, we can't get this information from the recurrence relation!
 
 \item Now we try to find an explicit formula for <m>c_{n}</m>. Because this is a two-step recurrence, we will write out the coefficients in two columns, one for odd <m>n</m> and one for even <m>n</m>:
-\begin{align*}
+<md> 
 c_{2} \amp= -\frac{2}{2}c_{0} \amp c_{3} \amp= -\frac{2}{3}c_{1} = 0 \\
 c_{4} \amp= -\frac{2}{4}c_{2} = \frac{1}{2}\frac{1}{1}c_{0} \amp c_{5} \amp= -\frac{2}{5}c_{3} = 0 \\
 c_{6} \amp= -\frac{2}{6}c_{4} = -\frac{1}{3}\frac{1}{2}\frac{1}{1}c_{0} \amp c_{7} \amp= -\frac{2}{7}c_{5} = 0.
-\end{align*}
+ </md>
 So it appears that 
 \[
 c_{2k} = \frac{(-1)^{k}}{k!}c_{0}\qq{and}c_{2k+1} = 0
@@ -260,14 +265,14 @@ c_{2k} = \frac{(-1)^{k}}{k!}c_{0}\qq{and}c_{2k+1} = 0
 for every <m>k</m>.
 
 \item Now we plug this into our power series for <m>y</m> to get 
-\begin{align*}
+<md> 
 y
 \amp= \sum_{k=0}^{\infty}c_{k}x^{k} \\
 \amp= \sum_{k=0}^{\infty}c_{2k}x^{2k} \\
 \amp= \sum_{k=0}^{\infty}c_{0}\frac{(-1)^{k}}{k!}x^{2k} \\
 \amp= c_{0}\sum_{k=0}^{\infty}\frac{(-x^{2})^{k}}{k!} \\
 \amp= c_{0}e^{-x^{2}}.
-\end{align*}
+ </md>
 \end{enumerate}
 \end{proof}
 </section>
@@ -313,10 +318,10 @@ If we divide through the ODE by <m>x^{2}+2</m> we obtain
 y''+\frac{4x}{x^{2}+2}y'+\frac{2}{x^{2}+2}y = 0
 \]
 so
-\begin{align*}
+<md> 
 P(x) \amp= \frac{4x}{x^{2}+2} \\
 Q(x) \amp= \frac{2}{x^{2}+2}
-\end{align*}
+ </md>
 Since both of these exist at <m>x=0</m>, it follows that <m>x=0</m> is an regular point of the ODE. 
 Therefore the ODE has a power series solution at <m>x=0</m> (that is, in powers of <m>x</m>).
 
@@ -351,16 +356,16 @@ so
 c_{n+2} = -\frac{1}{2}c_{n}\qq{for <m>n\geq0</m>}.
 \]
 We need to find a pattern for the coefficients. Since this is a two-step relation, we'll set up two columns: one column for even <m>n</m> and one column for odd <m>n</m>.
-\begin{align*}
+<md> 
 c_{2} \amp= -\frac{1}{2}c_{0} \amp c_{3} \amp= -\frac{1}{2}c_{1} \\
 c_{4} \amp= -\frac{1}{2}c_{2} = \frac{1}{2^{2}}c_{0} \amp c_{5} \amp= -\frac{1}{2}c_{3} = \frac{1}{2^{2}}c_{1}
-\end{align*}
+ </md>
 so it appears that
 \[
 c_{2n} = (-1)^{n}\frac{1}{2^{n}}c_{0}\qq{and}c_{2n+1} = (-1)^{n}\frac{1}{2^{n}}c_{1}.
 \]
 Therefore the general solution of the ODE is
-\begin{align*}
+<md> 
 y 
 \amp= \sum_{n\geq0}^{}c_{n}x^{n} \\
 \amp= \sum_{n\geq0}c_{2n}x^{2n} + \sum_{n\geq0}c_{2n+1}x^{2n+1} \\
@@ -370,7 +375,7 @@ y
 \amp= c_{0}\sum_{n\geq0}^{}(-1)^{n}\frac{x^{2n}}{2^{n}}+c_{1}\sum_{n\geq0}^{}(-1)^{n}\frac{x^{2n+1}}{2^{n}} \\
 \amp= c_{0}\sum_{n\geq0}^{}\qty(-\frac{x^{2}}{2})^{n}+c_{1}x\sum_{n\geq0}^{}\qty(-\frac{x^{2}}{2})^{n} \\
 \amp= \frac{c_{0}}{1+\nicefrac{x^{2}}{2}} + \frac{c_{1}x}{1+\nicefrac{x^{2}}{2}}
-\end{align*}
+ </md>
 \end{proof}
 </subsection>
 <subsection xml:id="subsection-solutions-at-singular-points-and-indicial-equations">
@@ -397,10 +402,10 @@ We start, just as we did before, by assuming the solution is a power series: <m>
 c_{0}+\sum_{n\geq2}^{}\qty[n(n-1)c_{n}+(n-1)c_{n-1}+c_{n}]x^{n} = 0.
 \]
 So it follows that 
-\begin{align*}
+<md> 
 c_{0} \amp= 0\\
 c_{n} \amp= -\frac{n-1}{n(n-1)+1}c_{n-1}
-\end{align*}
+ </md>
 so the recurrence relation shows that <m>c_{1} = 0, c_{2} = 0,\ldots</m> so the solution would have to be <m>y=0</m>. 
 This is certainly a solution, but it can't be the general solution. 
 What this tells us is that the general solution of this ODE \textbf{cannot} be written as a power series.
@@ -426,10 +431,10 @@ To do so, we will plug <m>y=\sum_{n\geq0}^{}c_{n}x^{n+r}</m> into the ODE
 x^{2}y''+xp(x)y'+q(x)y = 0
 \]
 and attempt to get some conditions on <m>r</m>. First, note that
-\begin{align*}
+<md> 
 y' \amp= \sum_{n\geq0}^{}(n+r)c_{n}x^{n+r-1} \\
 y'' \amp= \sum_{n\geq0}^{}(n+r)(n+r-1)c_{n}x^{n+r-2} 
-\end{align*}
+ </md>
 so when we plug these into the ODE we get
 \[
 \sum_{n\geq0}^{}(n+r)(n+r-1)c_{n}x^{n+r}+\sum_{n\geq0}^{}p(x)(n+r)c_{n}x^{n+r}+\sum_{n\geq0}^{}q(x)c_{n}x^{n+r} = 0.
@@ -486,10 +491,10 @@ x^{2}y''+xy'+(x^{2}-\nicefrac{1}{4})y=0.
 \begin{proof}[Answer]
 If we divide through the ODE by <m>x^{2}</m> we get a divide-by-zero problem at <m>x=0</m>, so <m>x=0</m> is a singular point. 
 However, for this ODE we have 
-\begin{align*}
+<md> 
 p(x) \amp= 1 \\
 q(x) \amp= x^{2}-\frac{1}{4} 
-\end{align*}
+ </md>
 so <m>p(0)</m> and <m>q(0)</m> both make sense. This means we can use the method of Frobenius to find a solution. 
 The first step is to set up and solve the indicial equation, which in this case is given by 
 \[
@@ -527,11 +532,11 @@ The recurrence relation will tell us \emph{nothing} about <m>c_{0},c_{1}</m>, so
 This equation places no restrictions at all on <m>c_{0}</m>, but it does force <m>c_{1} = 0</m> since we need the <m>x^{\nicefrac{3}{2}}</m> term to disappear to make this equation true.
 This tells us that we can ignore the coefficients <m>c_{n}</m> with odd index, since they will all disappear.
 Now we'll try to find a pattern in the remaining coefficients:
-\begin{align*}
+<md> 
 c_{2} \amp= -\frac{1}{2\cdot3}c_{0} \\
 c_{4} \amp= -\frac{1}{4\cdot5}c_{2} = \frac{(-1)^{2}}{5!}c_{0} \\
 c_{6} \amp= -\frac{1}{6\cdot7}c_{4} = \frac{(-1)^{3}}{7!}c_{0}
-\end{align*}
+ </md>
 and in general
 \[
 c_{2n} = \frac{(-1)^{n}}{(2n+1)!}c_{0}.
