@@ -1,0 +1,683 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!--********************************************************************
+
+*********************************************************************-->
+<!-- This file was originally part of the book     -->
+<!-- (as copied on 2015/07/12)                     -->
+<!--                                               -->
+<!--   Abstract Algebra: Theory and Applications   -->
+<!--                                               -->
+<!-- Copyright (C) 1997-2014  Thomas W. Judson     -->
+
+<chapter xml:id="series-solutions" xmlns:xi="http://www.w3.org/2001/XInclude">
+  <title>Series Solutions of ODEs</title>
+  <section xml:id="section-power-series-method">
+    <title>Power Series Method</title>
+    <p>
+      In calculus, it's important to know how to differentiate and integrate functions.
+      For some functions (say, <m>x-1,x^{2},3-x^{5}</m>) it can be very straightforward, but for others (such as <m>e^{-x^{2}}</m>) it can be impossible.
+      <aside>
+        <p>
+          At least, it can be impossible to integrate certain functions in terms of more ``everyday'' functions that we're used to.
+        </p>
+      </aside>
+    </p>
+    <p>
+      So we'd like to see if there's a way to write complicated functions <m>f(x)</m> in terms of simpler functions <m>1,x,x^{2},\dots</m>.
+      To see how, let <m>f(x)</m> be a function.
+      Our goal is to write it in the form
+      <men xml:id="equation-power-series-at-zero">
+        f(x) = c_{0}+c_{1}x+c_{2}x^{2}+c_{3}x^{3}+\dots = \sum_{k=0}^{\infty}c_{k}x^{k}
+      </men>
+      where the <m>c_{k}</m> are constants.
+    </p>
+    <definition xml:id="definition-power-series">
+      <title>Power Series</title>
+      <statement>
+        <p>
+          A <term>power series</term> is a series (that is, an infinite sum) of the form <m>\sum_{k=0}^{\infty}c_{k}x^{k}</m>.
+          Since a power series is in general an infinite sum, it may not make sense for all values of <m>x</m>.
+          The power series is said to <term>converge</term> on some interval <m>I</m> if the sum exists for each <m>x</m> in <m>I</m>.
+        </p>
+      </statement>
+    </definition>
+    <p>
+      A power series doesn't have to start at <m>k=0</m>, but <em>it may not contain any negative powers of <m>x</m></em>.
+    </p>
+    <p>
+      The question now is, how do we find the right values of the coefficients <m>c_{k}</m> to make <xref ref="equation-power-series-at-zero" text="type-global" /> true?
+      If we look at the equation, we can solve for <m>c_{0}</m> very easily: just set <m>x=0</m> to make all other terms disappear:
+      <me>
+        f(0) = c_{0} + c_{1}\cdot0+\dots = c_{0}.
+      </me>
+      To solve for <m>c_{1}</m> by plugging in <m>x=0</m>, we need to get rid of the power of <m>x</m> attached to it.
+      We can do this by taking the derivative of <m>f(x)</m>:
+      <md>
+        <mrow>f'(x) \amp= c_{1} + 2c_{2}x + 3c_{3}x^{2} + \dots</mrow>
+        <mrow>f'(0) \amp= c_{1}</mrow>
+      </md>.
+      The same trick works for <m>c_{2}</m>:
+      <md>
+        <mrow>f''(x) \amp= 2\cdot1c_{2} + 3\cdot2c_{3}x+\dots</mrow>
+        <mrow>f''(0) \amp= 2\cdot1c_{2}</mrow>
+      </md>
+      so <m>c_{2} = \frac{f''(0)}{2\cdot1}</m>.
+      Let's try this one more time to get <m>c_{3}</m>:
+      <md>
+        <mrow>f^{(3)}(x) \amp= 3\cdot2\cdot1c_{3} + \dots</mrow>
+        <mrow>f^{(3)}(0) \amp= 3\cdot2\cdot1c_{3}</mrow>
+      </md>
+      and so <m>c_{3} = \frac{f^{(3)}(0)}{3\cdot2\cdot1}</m>.
+    </p>
+    <p>
+      In general, to get the coefficient <m>c_{k}</m> of <m>x^{k}</m> in the power series of <m>f(x)</m>, we have the following equation:
+    </p>
+    <men xml:id="equation-power-series-coefficients-at-zero">
+      c_{k} = \frac{f^{(k)}(0)}{k\cdot(k-1)\cdot\dots\cdot2\cdot1} = \frac{f^{(k)}(0)}{k!}.
+    </men>
+    <example>
+      <statement>
+        <p>
+          Find a power series for <m>e^{x}</m>.
+        </p>
+      </statement>
+      <solution>
+        <p>
+          Any power series for <m>f(x) = e^{x}</m> looks like <m>\sum_{k=0}^{\infty}c_{k}x^{k}</m>, where
+          <me>
+            c_{k} = \frac{f^{(k)}(0)}{k!}.
+          </me>
+          Since <m>e^{x}</m> is its own derivative, <m>f^{(k)}(x) = e^{x}</m> for all choices of <m>k</m>.
+          So
+          <me>
+            c_{k} = \frac{e^{0}}{k!} = \frac{1}{k!}
+          </me>
+          and the power series for <m>e^{x}</m> is
+          <me>
+            1+x+\frac{x^{2}}{2}+\frac{x^{3}}{6} + \dots = \sum_{k=0}^{\infty}\frac{x^{k}}{k!}.
+          </me>
+          It turns out the <m>f(x) = e^{x}</m> equals its power series for <em>all</em> values of <m>x</m>.
+        </p>
+      </solution>
+    </example>
+    <p>
+      The above power series was written in terms of powers of <m>x</m>, but this doesn't have to be the case.
+      We can also write power series in terms of powers of <m>x-a</m>, where <m>a</m> is some constant.
+      A power series of the form
+      <me>
+        \sum_{k=0}^{\infty}c_{k}(x-a)^{k}
+      </me>
+      is said to be <term>centered at <m>a</m></term>.
+      For such a series, the formula for the <m>c_{k}</m> is given by
+      <me>
+        c_{k} = \frac{f^{(k)}(a)}{k!}.
+      </me>
+    </p>
+    <example>
+      <statement>
+        <p>
+          Find the power series for <m>g(t) = \sin t</m> centered at <m>a = \frac{\pi}{2}</m>.
+        </p>
+      </statement>
+      <solution>
+        <p>
+          A power series centered at <m>a = \frac{\pi}{2}</m> will look like
+          <me>
+            \sum_{k=0}^{\infty}c_{k}\parens*{t-\frac{\pi}{2}}^{k}
+          </me>
+          where
+          <me>
+            c_{k} = \frac{g^{(k)}(\frac{\pi}{2})}{k!}.
+          </me>
+          To find these values, we need to compute the derivatives of <m>g(t)</m> and evaluate them at <m>\frac{\pi}{2}</m>:
+          <md>
+            <mrow>g^{(0)}(t) \amp= \sin t \amp\Rightarrow g^{(0)}(\frac{\pi}{2}) = 1</mrow>
+            <mrow>g'(t) \amp= \cos t \amp\Rightarrow g'(\frac{\pi}{2}) = 0</mrow>
+            <mrow>g''(t) \amp= -\sin t \amp\Rightarrow g''(\frac{\pi}{2}) = -1</mrow>
+            <mrow>g^{(3)}(t) \amp= -\cos t \amp\Rightarrow g^{(3)}(\frac{\pi}{2}) = 0</mrow>
+          </md>.
+          So the power series centered at <m>\frac{\pi}{2}</m> is
+          <me>
+            1 - \frac{1}{2!}(t-\frac{\pi}{2})^{2} + \frac{1}{4!}(t-\frac{\pi}{2})^{4}+\dots = \sum_{k=0}^{\infty}(-1)^{k}\frac{(t-\frac{\pi}{2})^{2k}}{(2k)!}.
+          </me>
+          Just as with <m>e^{x}</m>, <m>\sin t</m> is equal to its power series everywhere.
+        </p>
+      </solution>
+    </example>
+    <p>
+      More functions in terms of power series:
+      <md>
+        <mrow>\frac{1}{1-x} \amp= \sum_{n=0}^{\infty}x^{n} \amp \amp= 1 + x + x^{2} + x^{3} + \cdots</mrow>
+        <mrow>e^{x} \amp= \sum_{n=0}^{\infty}\frac{x^{n}}{n!} \amp \amp= 1 + x + \frac{x^{2}}{2!} + \frac{x^{3}}{3!} + \cdots</mrow>
+        <mrow>\sin x \amp= \sum_{n=0}^{\infty}(-1)^{n}\frac{x^{2n+1}}{(2n+1)!} \amp \amp= x - \frac{x^{3}}{3!} + \frac{x^{5}}{5!} - \cdots</mrow>
+        <mrow>\cos x \amp= \sum_{n=0}^{\infty}(-1)^{n}\frac{x^{2n}}{(2n)!} \amp \amp= 1 - \frac{x^{2}}{2!} + \frac{x^{4}}{4!} - \cdots</mrow>
+      </md>
+      Viewing a function as a power series can be extremely beneficial; if you have a power series expression for some function, it is extremely easy to do calculus with it.
+    </p>
+    <example>
+      <statement>
+        <p>
+          Find <m>\displaystyle\int_{0}^{1}e^{x^{2}}\dd{x}</m>.
+        </p>
+      </statement>
+      <solution>
+        <p>
+          We can't integrate <m>e^{x^{2}}</m> using elementary functions
+          <aside>
+            <p>
+              We can use a function known as the <term>error function</term>.
+            </p>
+          </aside>
+          but this is straightforward to integrate using power series:
+          <md>
+            <mrow>\int_{0}^{1}e^{x^{2}}\dd{x} \amp= \int_{0}^{1}\sum_{n=0}^{\infty}\frac{x^{2n}}{n!}\dd{x}</mrow>
+            <mrow>\amp= \sum_{n=0}^{\infty}\int_{0}^{1}\frac{x^{2n}}{n!}\dd{x}</mrow>
+            <mrow>\amp= \sum_{n=0}^{\infty}\frac{1}{(2n+1)n!}</mrow>
+          </md>.
+        </p>
+      </solution>
+    </example>
+    <p>
+      The following theorem can be used to determine when a power series converges (that is, when the series makes sense).
+    </p>
+    <theorem>
+      <statement>
+        <p>
+          Given the power series <m>\sum_{n=0}^{\infty}c_{n}x^{n}</m>, define the number <m>\rho</m> by the limit
+          <me>
+            \rho = \limit{n}{\infty}\qty|\frac{c_{n}}{c_{n+1}}|.
+          </me>
+          Suppose the limit exists or is infinite. Then <m>\rho</m> is the radius of converengence of the series: if <m>\rho\neq0</m> then the series converges for <m>|x|\lt\rho</m> and diverges for <m>|x|\gt\rho</m>. If <m>\rho=0</m> then the series converges only at <m>x=0</m>.
+        </p>
+      </statement>
+    </theorem>
+    <p>
+      Our main use of power series will be in solving differential equations.
+    </p>
+    <example>
+      <statement>
+        <p>
+          Solve the ODE given by
+          <me>
+            y' = 4y.
+          </me>
+        </p>
+      </statement>
+      <solution>
+        <p>
+          We could easily solve this using Chapter 1 methods, but we'll use power series to practice.
+          To start, we assume that the solution <m>y</m> can be written as a power series:
+          <me>
+            y = \sum_{n=0}^{\infty}c_{n}x^{n}.
+          </me>
+          The next step is to plug this into the ODE.
+          Since
+          <md>
+            <mrow>y' \amp= \parens*{\sum_{n=0}^{\infty}c_{n}x^{n}}'</mrow>
+            <mrow>\amp= \sum_{n=1}^{\infty}nc_{n}x^{n-1}</mrow>
+          </md>
+          we get the equation
+          <me>
+            \sum_{n=1}^{\infty}nc_{n}x^{n-1} = 4\sum_{n=0}^{\infty}c_{n}x^{n}
+          </me>.
+        </p>
+        <p>
+          We need to find the values of the coefficients <m>c_{n}</m>; we do this by equating coefficients on both sides of the equation. 
+          We want to write both series in terms of <m>x^{n}</m> so that we can do this, so we need to shift the summation on the left: we replace <m>n</m> with <m>n+1</m> inside the sum and decrease the limit of summation <m>n=1</m> to <m>n=0</m> to get
+          <me>
+            \sum_{n=0}^{\infty}(n+1)c_{n+1}x^{n} = \sum_{n=0}^{\infty}4c_{n}x^{n}
+          </me>.
+          Now we can equate coefficients: for <m>n\geq0</m>, we have
+          <me>
+            (n+1)c_{n+1} = 4c_{n}\qq{or} c_{n+1} = \frac{4}{n+1}c_{n}.
+          </me>
+        </p>
+        <p>
+          This is known as a <term>recurrence relation</term>.
+          It describes the coefficients in terms of the previous ones, and can be used to determine explicitly what each <m>c_{n}</m> looks like.
+          To see how, we plug several values for <m>n</m> into this recurrence relation to try to determine a pattern:
+          <md>
+            <mrow>c_{1} \amp= \frac{4}{2}c_{0}</mrow>
+            <mrow>c_{2} \amp= \frac{4}{3}c_{1} = \frac{4^{2}}{3\cdot2}c_{0}</mrow>
+            <mrow>c_{3} \amp= \frac{4}{4}c_{2} = \frac{4^{3}}{4\cdot3\cdot2}c_{0}</mrow>
+          </md>
+          and in general it appears that
+          <me>
+            c_{n} = \frac{4^{n}}{n!}c_{0}
+          </me>
+          for each <m>n</m>.
+          <aside>
+            <p>
+              We can't solve for <m>c_{0}</m> without specifying an initial condition of some kind.
+            </p>
+          </aside>
+          So the solution <m>y</m> is
+          <md>
+            <mrow>y \amp= \sum_{n=0}^{\infty}c_{n}x^{n}</mrow>
+            <mrow>\amp= \sum_{n=0}^{\infty}\frac{4^{n}}{n!}c_{0}x^{n}</mrow>
+            <mrow>\amp= c_{0}\sum_{n=0}^{\infty}\frac{(4x)^{n}}{n!}</mrow>
+            <mrow>\amp= c_{0}e^{4x}</mrow>
+          </md>.
+        </p>
+      </solution>
+    </example>
+    <p>
+      To solve the above ODE we used the following steps:
+      <ol>
+        <li>
+          <p>Write <m>y = \sum_{n=0}^{\infty}c_{n}x^{n}</m>.</p>
+        </li>
+        <li>
+          <p>Use the ODE to build a recurrence relation for the coefficients <m>c_{n}</m>.</p>
+        </li>
+        <li>
+          <p>Find an explicit description of the coefficients.</p>
+        </li>
+        <li>
+          <p>Identify <m>y</m> as the power series of some function.</p>
+        </li>
+      </ol>
+    </p>
+    <example>
+      <statement>
+        <p>
+          Use power series to solve the ODE <m>y'+2xy=0</m>.
+        </p>
+      </statement>
+      <solution>
+        <p>
+          We will solve this using the steps listed above.
+          First, assume <m>y = \sum_{k=0}^{\infty}c_{k}x^{k}</m>.
+          Now plug this guess for <m>y</m> into the ODE to get
+          <me>
+            \sum_{k=1}^{\infty}kc_{k}x^{k-1} = -\sum_{k=0}^{\infty}2c_{k}x^{k+1}.
+          </me>
+          We want to equate coefficients to build a recurrence relation, so we need to rewrite these sums in terms of a single <m>x^{n}</m>, as opposed to <m>x^{k-1}</m> and <m>x^{k+1}</m>.
+          We do this by shifting the sums, but we need to remember to shift the limits of each sum as well:
+        </p>
+        <tabular top="major">
+          <row bottom="major">
+            <cell>Sum</cell>
+            <cell>Index</cell>
+            <cell>Limit</cell>
+          </row>
+          <row>
+            <cell><m>\sum_{k=1}^{\infty}kc_{k}x^{k-1}</m></cell>
+            <cell><m>k-1\to n</m> \amp <m>k=1\to n=0</m></cell>
+          </row>
+          <row bottom="major">
+            <cell><m>-\sum_{k=0}^{\infty}2c_{k}x^{k+1}</m></cell>
+            <cell><m>k+1\to n</m> \amp <m>k=0\to n=1</m></cell>
+          </row>
+        </tabular>
+        <p>
+          So we get
+          <me>
+            \sum_{n=0}^{\infty}(n+1)c_{n+1}x^{n} = \sum_{n=1}^{\infty}(-2)c_{n-1}x^{n} = 0.
+          </me>
+          So a recurrence relation for <m>c_{n}</m> is
+          <me>
+            c_{n+1} = -\frac{2}{n+1}c_{n-1}\qq{for <m>n\geq1</m>}.
+          </me>
+        </p>
+        <p>
+          Since this <term>two-step recurrence relation</term> is only valid for <m>n\geq1</m>, it places no restrictions on any constant terms of the series.
+          We'll need to determine these separately.
+          To do so, write out the first couple terms of the sums in the previous equation:
+          <me>
+            c_{1}+2c_{2}x+\dots = -2c_{0}x -2c_{1}x^{2}+\cdots
+          </me>
+          This tells us that <m>c_{1} = 0</m>.
+          Again, we can't get this information from the recurrence relation!
+        </p>
+        <p>
+          Now we try to find an explicit formula for <m>c_{n}</m>.
+          Because this is a two-step recurrence, we will write out the coefficients in two columns, one for odd <m>n</m> and one for even <m>n</m>:
+          <md>
+            <mrow>c_{2} \amp= -\frac{2}{2}c_{0} \amp c_{3} \amp= -\frac{2}{3}c_{1} = 0</mrow>
+            <mrow>c_{4} \amp= -\frac{2}{4}c_{2} = \frac{1}{2}\frac{1}{1}c_{0} \amp c_{5} \amp= -\frac{2}{5}c_{3} = 0</mrow>
+            <mrow>c_{6} \amp= -\frac{2}{6}c_{4} = -\frac{1}{3}\frac{1}{2}\frac{1}{1}c_{0} \amp c_{7} \amp= -\frac{2}{7}c_{5} = 0</mrow>
+          </md>.
+          So it appears that
+          <me>
+            c_{2k} = \frac{(-1)^{k}}{k!}c_{0}\qq{and}c_{2k+1} = 0
+          </me>
+          for every <m>k</m>.
+        </p>
+        <p>
+          Now we plug this into our power series for <m>y</m> to get
+          <md>
+            <mrow>y \amp= \sum_{k=0}^{\infty}c_{k}x^{k}</mrow>
+            <mrow>\amp= \sum_{k=0}^{\infty}c_{2k}x^{2k}</mrow>
+            <mrow>\amp= \sum_{k=0}^{\infty}c_{0}\frac{(-1)^{k}}{k!}x^{2k}</mrow>
+            <mrow>\amp= c_{0}\sum_{k=0}^{\infty}\frac{(-x^{2})^{k}}{k!}</mrow>
+            <mrow>\amp= c_{0}e^{-x^{2}}</mrow>
+          </md>.
+        </p>
+      </solution>
+    </example>
+  </section>
+  <section xml:id="section-frobenius-method">
+    <title>Frobenius Method</title>
+    <aside>
+      <p>
+        This section corresponds to Section 5.3 of the text.
+      </p>
+    </aside>
+    <subsection xml:id="subsection-regular-points-and-singular-points">
+      <title>Regular Points and Singular Points</title>
+      <p>
+        Recall that a homogeneous, linear second order ODE has the form
+        <me>
+          A(x)y''+B(x)y'+C(x)y = 0. 
+        </me>
+        We can rewrite this in the form
+        <me>
+          y''+P(x)y'+Q(x)y = 0.
+        </me>
+      </p>
+      <definition xml:id="definition-regular-points-and-singular-points">
+        <title>Regular Points and Singular Points</title>
+        <statement>
+          <p>
+            A point <m>x=a</m> is called a <term>regular point</term> if <m>P(x)</m> and <m>Q(x)</m> both have power series expansions at <m>x=a</m>.
+            If <m>x=a</m> is not a regular point we call it a <term>singular point</term>.
+          </p>
+        </statement>
+      </definition>
+      <p>
+        Regular points of an ODE are nice because of the following theorem:
+      </p>
+      <theorem>
+        <statement>
+          <p>
+            Suppose that <m>a</m> is a regular point of the differential equation <m>y''+P(x)y'+Q(x)y=0</m>.
+            Then the ODE has two linearly independent solutions of the form
+            <me>
+              y(x) = \sum_{n=0}^{\infty}c_{n}(x-a)^{n}.
+            </me>
+            The radius of convergence is at least as large as the distance from <m>a</m> to the nearest singular point of the ODE.
+          </p>
+        </statement>
+      </theorem>
+      <p>
+        In other words, <em>the power series method works at regular points.</em>
+      </p>
+      <example>
+        <statement>
+          <p>
+            Find the general solution, as a power series in powers of <m>x</m>, for the ODE <m>(x^{2}+2)y''+4xy'+2y=0</m>.
+          </p>
+        </statement>
+        <solution>
+          <p>
+            The first thing we will do is make sure that the ODE actually has a power series solution at <m>x=0</m>.
+            To do this, we need to show that <m>x=0</m> is a regular point of the ODE. So we need to find <m>P(x)</m> and <m>Q(x)</m> and check that they (or their power series) make sense at <m>x=0</m>.
+            If we divide through the ODE by <m>x^{2}+2</m> we obtain
+            <me>
+              y''+\frac{4x}{x^{2}+2}y'+\frac{2}{x^{2}+2}y = 0
+            </me>
+            so
+            <md>
+              <mrow>P(x) \amp= \frac{4x}{x^{2}+2}</mrow>
+              <mrow>Q(x) \amp= \frac{2}{x^{2}+2}</mrow>
+            </md>.
+            Since both of these exist at <m>x=0</m>, it follows that <m>x=0</m> is an regular point of the ODE.
+            Therefore the ODE has a power series solution at <m>x=0</m> (that is, in powers of <m>x</m>).
+          </p>
+          <p>
+            We return to the original form of the ODE to solve it; if we didn't do so, we would need to expand <m>P(x)</m> and <m>Q(x)</m> using their own power series, and this would <em>greatly</em> complicate the algebra.
+            Just as we did in Section 5.1, we assume the ODE has a series solution of the form <m>y = \sum_{n=0}^{\infty}c_{n}x^{n}</m>, or just <m>y=\sum_{n\geq0}c_{n}x^{n}</m> for short.
+            Now we plug this into the ODE to get
+            <me>
+              (x^{2}+2)\sum_{n\geq0}^{}n(n-1)c_{n}x^{n-2}+4x\sum_{n\geq0}^{}nc_{n}x^{n-1}+2\sum_{n\geq0}^{}c_{n}x^{n} = 0
+            </me>
+            which simplifies to
+            <me>
+              \sum_{n\geq0}^{}n(n-1)c_{n}x^{n}+\sum_{n\geq2}^{}2n(n-1)c_{n}x^{n-2}+\sum_{n\geq0}^{}4nc_{n}x^{n}+\sum_{n\geq0}^{}2c_{n}x^{n} = 0
+            </me>
+            or just
+            <me>
+              \sum_{n\geq0}^{}n(n-1)c_{n}x^{n}+\sum_{n\geq0}^{}2(n+2)(n+1)c_{n+2}x^{n}+\sum_{n\geq0}^{}4nc_{n}x^{n}+\sum_{n\geq0}^{}2c_{n}x^{n} = 0
+            </me>
+          </p>
+          <p>
+            Now we can collect like terms, and combine everything on the left hand side into one sum:
+            <me>
+              \sum_{n\geq0}^{}\qty[n(n-1)c_{n}+2(n+2)(n+1)c_{n+2}+4nc_{n}+2c_{n}]x^{n} = 0.
+            </me>
+            For this sum to be <m>0</m> each of the coefficients must be <m>0</m>, so we must have
+            <me>
+              n(n-1)c_{n}+2(n+2)(n+1)c_{n+2}+4nc_{n}+2c_{n} = 0.
+            </me>
+            We can solve this for <m>c_{n+2}</m> to get a recurrence relation for these coefficients:
+            <me>
+              2(n+2)(n+1)c_{n+2} = -c_{n}[n(n-1)+4n+2] \qq{for <m>n\geq0</m>}
+            </me>
+            so
+            <me>
+              c_{n+2} = -\frac{1}{2}c_{n}\qq{for <m>n\geq0</m>}.
+            </me>
+          </p>
+          <p>
+            We need to find a pattern for the coefficients.
+            Since this is a two-step relation, we'll set up two columns: one column for even <m>n</m> and one column for odd <m>n</m>:
+            <md>
+              <mrow>c_{2} \amp= -\frac{1}{2}c_{0} \amp c_{3} \amp= -\frac{1}{2}c_{1}</mrow>
+              <mrow>c_{4} \amp= -\frac{1}{2}c_{2} = \frac{1}{2^{2}}c_{0} \amp c_{5} \amp= -\frac{1}{2}c_{3} = \frac{1}{2^{2}}c_{1}</mrow>
+            </md>.
+            So it appears that
+            <me>
+              c_{2n} = (-1)^{n}\frac{1}{2^{n}}c_{0}\qq{and}c_{2n+1} = (-1)^{n}\frac{1}{2^{n}}c_{1}
+            </me>.
+          </p>
+          <p>
+            Therefore the general solution of the ODE is
+            <md>
+              <mrow>y \amp= \sum_{n\geq0}^{}c_{n}x^{n}</mrow>
+              <mrow>\amp= \sum_{n\geq0}c_{2n}x^{2n} + \sum_{n\geq0}c_{2n+1}x^{2n+1}</mrow>
+              % \amp= c_{0}+c_{1}x+c_{2}x^{2}+c_{3}x^{3}+c_{4}x^{4}+c_{5}x^{5} + \cdots
+              <mrow>\amp= c_{0}\sum_{n\geq0}^{}(-1)^{n}\frac{x^{2n}}{2^{n}}+c_{1}\sum_{n\geq0}^{}(-1)^{n}\frac{x^{2n+1}}{2^{n}}</mrow>
+              <mrow>\amp= c_{0}\sum_{n\geq0}^{}\qty(-\frac{x^{2}}{2})^{n}+c_{1}x\sum_{n\geq0}^{}\qty(-\frac{x^{2}}{2})^{n}</mrow>
+              <mrow>\amp= \frac{c_{0}}{1+\nicefrac{x^{2}}{2}} + \frac{c_{1}x}{1+\nicefrac{x^{2}}{2}}</mrow>
+            </md>
+          </p>
+        </solution>
+      </example>
+    </subsection>
+    <subsection xml:id="subsection-solutions-at-singular-points-and-indicial-equations">
+      <title>Solutions at Singular Points and Indicial Equations</title>
+
+      <example>
+        <statement>
+          <p>
+
+            Attempt to solve the ODE <m>x^{2}y''+x^{2}y'+y=0</m>.
+
+          </p> 
+        </statement> 
+        <solution> 
+          <p> 
+            [Attempt]
+            We start, just as we did before, by assuming the solution is a power series: <m>y=\sum_{n\geq0}^{}c_{n}x^{n}</m>. If we plug this into the ODE and simplify somewhat, we get the equation
+            <me>
+              c_{0}+\sum_{n\geq2}^{}\qty[n(n-1)c_{n}+(n-1)c_{n-1}+c_{n}]x^{n} = 0.
+            </me>
+            So it follows that 
+            <md> 
+              c_{0} \amp= 0\\
+              c_{n} \amp= -\frac{n-1}{n(n-1)+1}c_{n-1}
+            </md>
+            so the recurrence relation shows that <m>c_{1} = 0, c_{2} = 0,\ldots</m> so the solution would have to be <m>y=0</m>. 
+            This is certainly a solution, but it can't be the general solution. 
+            What this tells us is that the general solution of this ODE <em>cannot</em> be written as a power series.
+
+          </p> 
+        </solution> 
+      </example>
+      The reason we couldn't find a solution of the form <m>y=\sum_{n\geq0}^{}c_{n}x^{n}</m> was because <m>x=0</m> is a singular point of the ODE. If we divide through by <m>x^{2}</m> we get
+      <me>
+        y''+\frac{1}{x}y'+\frac{1}{x^{2}}y = 0
+      </me>
+      and it's obvious that the coefficients have a divide by <m>0</m> problem at <m>x=0</m>.
+
+      Our goal is to find a way of dealing with situations where <m>x=0</m> is a singular point of the ODE
+      <me>
+        x^{2}y''+xp(x)y'+q(x)y=0.
+      </me>
+      We know, in general, that we won't be able to find a power series solution <m>\sum_{n\geq0}^{}c_{n}x^{n}</m>; intuitively, a power series solution is too ``nice'' to be a solution of this ODE if <m>x=0</m> is a singular point. To fix this, we change our guess for <m>y</m> to <m>y=x^{r}\sum_{n\geq0}^{}c_{n}x^{n}</m> or, equivalently,
+      <me>
+        y = \sum_{n\geq0}^{}c_{n}x^{n+r}.
+      </me>
+      Here, <m>r</m> can be any number (real or complex!), so in general <m>y</m> <em>will not be a power series</em>.
+      <aside>
+        <p>
+          Recall that a power series, by definition, has only nonnegative whole number powers of <m>x</m>.
+        </p>
+      </aside>
+      We lose a little bit by no longer assuming that <m>y</m> is a power series, but this expression may be flexible enough to lead to a solution of the ODE if <m>x=0</m> is a singular point. Our goal now is to find the value of <m>r</m> based on the ODE. 
+
+      To do so, we will plug <m>y=\sum_{n\geq0}^{}c_{n}x^{n+r}</m> into the ODE
+      <me>
+        x^{2}y''+xp(x)y'+q(x)y = 0
+      </me>
+      and attempt to get some conditions on <m>r</m>. First, note that
+      <md> 
+        y' \amp= \sum_{n\geq0}^{}(n+r)c_{n}x^{n+r-1} \\
+        y'' \amp= \sum_{n\geq0}^{}(n+r)(n+r-1)c_{n}x^{n+r-2} 
+      </md>
+      so when we plug these into the ODE we get
+      <me>
+        \sum_{n\geq0}^{}(n+r)(n+r-1)c_{n}x^{n+r}+\sum_{n\geq0}^{}p(x)(n+r)c_{n}x^{n+r}+\sum_{n\geq0}^{}q(x)c_{n}x^{n+r} = 0.
+      </me>
+      Now combine everything into one sum to get
+      <me>
+        \sum_{n\geq0}^{}\qty[(n+r)(n+r-1)+p(x)(n+r)+q(x)]c_{n}x^{n+r} = 0.
+      </me>
+      So for this equation to be true, we need to have
+      <me>
+        \qty[(n+r)(n+r-1)+p(x)(n+r)+q(x)]c_{n} = 0
+      </me>
+      for every <m>n</m> and every <m>x</m>. Since we are trying to find <m>r</m>, we'll pick values for <m>n</m> and <m>x</m>. 
+      In particular, if we assume that <m>p(x)</m> and <m>q(x)</m> exist at <m>x=0</m> we can pick <m>n=x=0</m> to get
+      <me>
+        r(r-1)+p(0)r+q(0) = 0
+      </me>
+      (we can assume that <m>c_{0}\neq0</m>). This equation tells us how to find <m>r</m>.
+      \begin{definition}
+      Suppose that <m>x=0</m> is a singular point of the ODE
+      <me>
+        x^{2}y''+xp(x)y'+q(x)y=0
+      </me>
+      but that <m>p(x)</m> and <m>q(x)</m> have well-defined power series at <m>x=0</m> (i.e. <m>p(0)</m> and <m>q(0)</m> make sense). 
+      The <term>indicial equation</term> is given by 
+      <me>
+        r(r-1)+p(0)r+q(0) = 0.
+      </me>
+      \end{definition}
+      What we've shown is that if <m>y=x^{r}\sum_{n\geq0}^{}c_{n}x^{n}</m> is a solution of the ODE
+      <me>
+        x^{2}y''+xp(x)y'+q(x)y=0
+      </me>
+      then <m>r</m> must be a root of the indicial equation.
+      In fact, we can say more:
+      <theorem>
+        <statement>
+          <p>
+            [Method of Frobenius]
+            Consider the ODE
+            <me>
+              x^{2}y''+xp(x)y'+q(x)y=0.
+            </me>
+            Let <m>r_{1}\geq r_{2}</m> be (real) roots of the indicial equation <m>r(r-1)+p(0)r+q(0)=0</m>.
+            \begin{enumerate}
+            \item There is a solution of the ODE of the form <m>x^{r_{1}}\sum_{n\geq0}^{}c_{n}x^{n}</m>.
+
+            \item If <m>r_{1}-r_{2}</m> is <em>not</em> equal to an integer, then there exists a second linearly independent solution of the form <m>x^{r_{2}}\sum_{n\geq0}^{}d_{n}x^{n}</m>.
+            \end{enumerate}
+
+          </p>
+        </statement>
+      </theorem>
+      <example>
+        <statement>
+          <p>
+
+            Find a series solution centered at <m>0</m> of the ODE
+            <me>
+              x^{2}y''+xy'+(x^{2}-\nicefrac{1}{4})y=0.
+            </me>
+
+          </p> 
+        </statement> 
+        <solution> 
+          <p> 
+            [Answer]
+            If we divide through the ODE by <m>x^{2}</m> we get a divide-by-zero problem at <m>x=0</m>, so <m>x=0</m> is a singular point. 
+            However, for this ODE we have 
+            <md> 
+              p(x) \amp= 1 \\
+              q(x) \amp= x^{2}-\frac{1}{4} 
+            </md>
+            so <m>p(0)</m> and <m>q(0)</m> both make sense. This means we can use the method of Frobenius to find a solution. 
+            The first step is to set up and solve the indicial equation, which in this case is given by 
+            <me>
+              r(r-1)+r-\frac{1}{4} = 0.
+            </me>
+            We solve this algebraically for <m>r</m> to get the roots <m>r_{1}=\nicefrac{1}{2}</m> and <m>r_{2}=-\nicefrac{1}{2}</m>. 
+            Since <m>r_{1}-r_{2} = 1</m> is an integer, the method of Frobenius does <em>not</em> guarantee two linearly independent solutions. 
+            However, we are guaranteed one solution using <m>r_{1}</m>. 
+            So we make the guess
+            <me>
+              y = x^{\nicefrac{1}{2}}\sum_{n\geq0}^{}c_{n}x^{n} = \sum_{n\geq0}^{}c_{n}x^{n+\nicefrac{1}{2}}.
+            </me>
+            Now we plug this into the ODE\sidenote{Which was <m>x^{2}y''+xy'+(x^{2}-\nicefrac{1}{4})y = 0.</m>} to get
+            <me>
+              \sum_{n\geq0}c_{n}(n+\nicefrac{1}{2})(n-\nicefrac{1}{2})x^{n+\nicefrac{1}{2}} + \sum_{n\geq0}c_{n}(n+\nicefrac{1}{2})x^{n+\nicefrac{1}{2}} 
+              + \sum_{n\geq0}c_{n}x^{n+\nicefrac{5}{2}} - \sum_{n\geq0}\frac{1}{4}c_{n}x^{n+\nicefrac{1}{2}}
+            </me>
+            or just
+            <me>
+              \sum_{n\geq0}^{}\qty[(n+\nicefrac{1}{2})(n-\nicefrac{1}{2})+(n+\nicefrac{1}{2})-\nicefrac{1}{4}]c_{n}x^{n+\nicefrac{1}{2}} 
+              +\sum_{n\geq2}^{}c_{n-2}x^{n+\nicefrac{1}{2}}=0.
+            </me>
+            which simplifies to
+            <me>
+              \sum_{n\geq0}\brackets*{n(n+1)}c_{n}x^{n+\frac{1}{2}}+\sum_{n\geq2}c_{n-2}x^{n+\frac{1}{2}} = 0.
+            </me>
+            So the recurrence relation the coefficients <m>c_{n}</m> need to satisfy is
+            <me>
+              c_{n} = -\frac{1}{n(n+1)}c_{n-2}\quad\text{for <m>n\geq2</m>}.
+            </me>
+            The recurrence relation will tell us <em>nothing</em> about <m>c_{0},c_{1}</m>, so to see if there are any restrictions on <m>c_{0},c_{1}</m> we separate the <m>n=0</m> and <m>n=1</m> terms from the summation to get
+            <me>
+              0c_{0}x^{\nicefrac{1}{2}}+2c_{1}x^{\nicefrac{3}{2}}+\sum_{n\geq2}^{}\qty[n(n+1)c_{n}+c_{n-2}]x^{n+\nicefrac{1}{2}}=0
+            </me>
+            This equation places no restrictions at all on <m>c_{0}</m>, but it does force <m>c_{1} = 0</m> since we need the <m>x^{\nicefrac{3}{2}}</m> term to disappear to make this equation true.
+            This tells us that we can ignore the coefficients <m>c_{n}</m> with odd index, since they will all disappear.
+            Now we'll try to find a pattern in the remaining coefficients:
+            <md> 
+              c_{2} \amp= -\frac{1}{2\cdot3}c_{0} \\
+              c_{4} \amp= -\frac{1}{4\cdot5}c_{2} = \frac{(-1)^{2}}{5!}c_{0} \\
+              c_{6} \amp= -\frac{1}{6\cdot7}c_{4} = \frac{(-1)^{3}}{7!}c_{0}
+            </md>
+            and in general
+            <me>
+              c_{2n} = \frac{(-1)^{n}}{(2n+1)!}c_{0}.
+            </me>
+            So the solution of this ODE is given by
+            <me>
+              y = \sum_{n\geq0}c_{2n}x^{2n+\nicefrac{1}{2}} = \sum_{n\geq0}\frac{(-1)^{n}}{(2n+1)!}c_{0}x^{2n+\nicefrac{1}{2}},
+            </me>
+            which is actually just
+            <me>
+              y = c_{0}\frac{\sin x}{\sqrt{x}}
+            </me>
+
+          </p> 
+        </solution> 
+      </example>
+    </subsection>
+  </section>
+</chapter>
