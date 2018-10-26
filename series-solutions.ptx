@@ -413,7 +413,8 @@
         <solution>
           <p>
             The first thing we will do is make sure that the ODE actually has a power series solution at <m>x=0</m>.
-            To do this, we need to show that <m>x=0</m> is a regular point of the ODE. So we need to find <m>P(x)</m> and <m>Q(x)</m> and check that they (or their power series) make sense at <m>x=0</m>.
+            To do this, we need to show that <m>x=0</m> is a regular point of the ODE.
+            So we need to find <m>P(x)</m> and <m>Q(x)</m> and check that they (or their power series) make sense at <m>x=0</m>.
             If we divide through the ODE by <m>x^{2}+2</m> we obtain
             <me>
               y''+\frac{4x}{x^{2}+2}y'+\frac{2}{x^{2}+2}y = 0
@@ -423,7 +424,7 @@
               <mrow>P(x) \amp= \frac{4x}{x^{2}+2}</mrow>
               <mrow>Q(x) \amp= \frac{2}{x^{2}+2}</mrow>
             </md>.
-            Since both of these exist at <m>x=0</m>, it follows that <m>x=0</m> is an regular point of the ODE.
+            Since both of these exist at <m>x=0</m>, it follows that <m>x=0</m> is a regular point of the ODE.
             Therefore the ODE has a power series solution at <m>x=0</m> (that is, in powers of <m>x</m>).
           </p>
           <p>
