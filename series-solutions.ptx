@@ -663,11 +663,11 @@
             </me>
             which simplifies to
             <me>
-              \sum_{n\geq0}\brackets*{n(n+1)}c_{n}x^{n+\frac{1}{2}}+\sum_{n\geq2}c_{n-2}x^{n+\frac{1}{2}} = 0.
+              \sum_{n\geq0}\brackets{n(n+1)}c_{n}x^{n+\frac{1}{2}}+\sum_{n\geq2}c_{n-2}x^{n+\frac{1}{2}} = 0.
             </me>
             So the recurrence relation the coefficients <m>c_{n}</m> need to satisfy is
             <me>
-              c_{n} = -\frac{1}{n(n+1)}c_{n-2}\quad\text{for <m>n\geq2</m>}.
+              c_{n} = -\frac{1}{n(n+1)}c_{n-2}\quad\text{for}\quad n\geq2.
             </me>
           </p>
           <p>
