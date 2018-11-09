@@ -142,8 +142,8 @@ Another benefit is that the Laplace transform works well with some discontinuous
 Let <m>u(t)</m> be the <term>unit step function</term>, which is defined by
 <me> u(t) = 
 \begin{cases}
-0 \amp\text{if <m>t\lt 0</m>}  \\
-1 \amp\text{if <m>t\geq0</m>}
+0 \amp\text{if }t\lt 0  \\
+1 \amp\text{if }t\geq0
 \end{cases}
 </me>
 Compute <m>\Laplace{u(t-3)}</m>.
@@ -323,7 +323,7 @@ If we do so, we get
 <me>X(s) = \frac{\frac{7}{2}}{s+3} - \frac{\frac{3}{2}}{s+5}.</me>
 So
 <md>
-<mrow>x(t) \amp= \frac{7}{2}\mathcal{L}^{-1}\left\{\frac{1}{s+3}\} - \frac{3}{2}\mathcal{L}^{-1}\left\{\frac{1}{s+5}\}</mrow>
+<mrow>x(t) \amp= \frac{7}{2}\mathcal{L}^{-1}\left\{\frac{1}{s+3}\right\} - \frac{3}{2}\mathcal{L}^{-1}\left\{\frac{1}{s+5}\right\}</mrow>
 <mrow>\amp= \frac{7}{2}e^{-3t} - \frac{3}{2}e^{-5t}</mrow>
 </md>.
       </p>
@@ -357,92 +357,115 @@ so the solution of the ODE is
 </example>
 <term>SUGGESTED PROBLEMS:</term> 3-9 odd
 </section>
-\section{Unit step functions and time shifting}
+<section xml:id="section-unit-step-functions-and-time-shifting">
+    <title>Unit Step Functions and Time Shifting</title>
+<p>
 The <term>unit step function</term> or <term>Heaviside function</term> is the function <m>u(t)</m> defined by
-\[
+<me>
 u(t) = \begin{cases}
 0, \amp\text{ if }t\lt 0\\
 1 \amp\text{ if } t\geq0
 \end{cases}.
-\]
-Note also that 
-\[
+</me>
+Note also that
+<me>
 u(t-a) = \begin{cases}
-0, \amp\text{ if }t\lt a\\
+0 \amp\text{ if }t\lt a\\
 1 \amp\text{ if } t\geq a
 \end{cases}
-\]
+</me>
 for any <m>a</m>.
-
-Recall that we have a result for <m>s</m>-shifting, or translation in the frequency domain:
+</p>
+<p>
+Recall that <xref ref="theorem--s--shifting" text="type-global" /> tells us how to deal with translation in the frequency domain:
 <me>\Laplace{e^{at}f(t)} = F(s-a) \quad\text{or}\quad\iLaplace{F(s-a)} = e^{at}f(t).</me>
 A similar result is true for <m>t</m>-shifting.
-\begin{theorem}\label{theorem:time-shifting}
+</p>
+<theorem xml:id="theorem-time-shifting-of-laplace-transforms">
+    <title>Time Shifting of Laplace Transforms</title>
+    <statement>
+      <p>
 Let <m>f(t)</m> denote a piecewise continuous function with Laplace transform <m>F(s)</m>.
 Let <m>a\geq0</m>.
 Then <m>\Laplace{u(t-a)f(t-a)} = e^{-as}F(s)</m>, or equivalently <m>\iLaplace{e^{-as}F(s)} = u(t-a)f(t-a)</m>.
-\end{theorem}
-\begin{proof}
+      </p>
+    </statement>
+    <proof>
+      <p>
 To compute this we need to rely on the definition of the Laplace transform:
 <md>
-\Laplace{u(t-a)f(t-a)}
-\amp= \int_{0}^{\infty}u(t-a)f(t-a)e^{-st}\,dt \\
-\amp= \int_{a}^{\infty}f(t-a)e^{-st}\,dt \\
-\amp= \int_{0}^{\infty}f(\tau)e^{-s(\tau+a)}\,d\tau \\
-\amp= e^{-sa}\int_{0}^{\infty}f(\tau)e^{-s\tau}\,d\tau \\
-\amp= e^{-as}F(s).
-</md>
-\end{proof}
+<mrow>\Laplace{u(t-a)f(t-a)} \amp= \int_{0}^{\infty}u(t-a)f(t-a)e^{-st}\,dt</mrow>
+<mrow>\amp= \int_{a}^{\infty}f(t-a)e^{-st}\,dt</mrow>
+<mrow>\amp= \int_{0}^{\infty}f(\tau)e^{-s(\tau+a)}\,d\tau</mrow>
+<mrow>\amp= e^{-sa}\int_{0}^{\infty}f(\tau)e^{-s\tau}\,d\tau</mrow>
+<mrow>\amp= e^{-as}F(s)</mrow>
+</md>.
+      </p>
+    </proof>
+</theorem>
+<p>
 The Heaviside function is useful for describing forces that turn on or off at specified times.
-\begin{example}
-A mass of \SI{1}{\kilogram} is attached to a spring that is held \SI{1}{\meter} to the right of its equilibrium position by a force of \US{4}{\newton}. Beginning at time <m>t=0</m>, a machine is turned on and applies an external force of <m>\cos3t</m> to the mass. 
-At time <m>t=2\pi</m> the machine is turned off and the external force disappears. 
-Let <m>x(t)</m> be the displacement of the mass at time <m>t</m>. 
-What is an ODE that models the motion of the mass?
-\end{example}
-\begin{proof}
+In particular, we can now solve the IVP given at the start of this chapter in <xref ref="example-motivating-laplace" text="type-global" />.
+</p>
+<example xml:id="example-ivp-with-discontinuous-forcing-function">
+    <title>IVP with Discontinuous Forcing Function</title>
+<statement>
+  <p>
+    A mass of <quantity><mag>1</mag><unit base="kilogram"/></quantity> is attached to a spring that is held <quantity><mag>1</mag><unit base="meter"/></quantity> to the right of its equilibrium position by a force of <quantity><mag>4</mag><unit base="newton"/></quantity>.
+    Beginning at time <m>t=0</m>, a machine is turned on and applies an external force of <m>\cos2t</m> to the mass.
+    At time <m>t=2\pi</m> the machine is turned off and the external force disappears.
+    Let <m>x(t)</m> be the displacement of the mass at time <m>t</m>.
+    What is an ODE that models the motion of the mass?
+  </p>
+</statement>
+<solution>
+  <p>
 By Hooke's Law and Newton's Second Law, we have
 <me>mx''+kx = F_{E}(t)</me>
-where <m>F_{E}</m> is the external force at time <m>t</m>. 
-Since <m>m = 1</m>, <m>k = 4</m> and 
-\[
+where <m>F_{E}</m> is the external force at time <m>t</m>.
+Since <m>m = 1</m>, <m>k = 4</m> and
+<me>
 F_{E}(t) = 
 \begin{cases}
-\cos3t \amp\text{if <m>0\leq t\lt 2\pi</m>}\\
-0 \amp\text{if <m>t\geq2\pi</m>}  
+\cos3t \amp\text{if }0\leq t\lt 2\pi\\
+0 \amp\text{if }t\geq2\pi  
 \end{cases}
-\]\
-the motion of the mass satisfies the IVP 
+</me>
+the motion of the mass satisfies the IVP
 <me>x''+4x = F_{E}(t), x(0) = 1, x'(0) = 0.</me>
 We can rewrite <m>F_{E}(t)</m> as follows:
 <me>F_{E}(t) = [u(t-0)-u(t-2\pi)]\cos3t = u(t)\cos3t - u(t-2\pi)\cos3t.</me>
-
 So the IVP we need to solve is
 <me>x''+4x = u(t)\cos3t - u(t-2\pi)\cos3t, x(0) = 1, x'(0) = 0.</me>
+</p>
+<p>
 If we take Laplace transforms, this becomes
 <me>s^{2}X(s) - s + 4X(s) = \Laplace{F_{E}(t)},</me>
 where
 <md>
-\Laplace{F_{E}(t)}
-\amp= \Laplace{u(t)\cos3t} - \Laplace{u(t-2\pi)\cos3t} \\
-\amp= \frac{s}{s^{2}+9} - \Laplace{u(t-2\pi)\cos(3(t-2\pi)+6\pi)} \\
-\amp= \frac{s}{s^{2}+9} - \Laplace{u(t-2\pi)\cos(3(t-2\pi))} \\
-\amp= \frac{s}{s^{2}+9} - e^{-2\pi s}\frac{s}{s^{2}+9}.
-</md>
+<mrow>\Laplace{F_{E}(t)} \amp= \Laplace{u(t)\cos3t} - \Laplace{u(t-2\pi)\cos3t}</mrow>
+<mrow>\amp= \frac{s}{s^{2}+9} - \Laplace{u(t-2\pi)\cos(3(t-2\pi)+6\pi)}</mrow>
+<mrow>\amp= \frac{s}{s^{2}+9} - \Laplace{u(t-2\pi)\cos(3(t-2\pi))}</mrow>
+<mrow>\amp= \frac{s}{s^{2}+9} - e^{-2\pi s}\frac{s}{s^{2}+9}</mrow>
+</md>.
 So
 <me>s^{2}X(s) - s + 4X(s) = \frac{s}{s^{2}+9} - e^{-2\pi s}\frac{s}{s^{2}+9}.</me>
 If we solve this for <m>X(s)</m>, we get
 <me>X(s) = \frac{s}{s^{2}+4} + \frac{s}{(s^{2}+9)(s^{2}+4)} - e^{-2\pi s}\frac{s}{(s^{2}+9)(s^{2}+4)},</me>
 and if we simplify this using partial fractions this becomes
-<me>X(s) = \frac{s}{s^{2}+4} + \frac{1}{5}\brackets*{\frac{s}{s^{2}+4} - \frac{s}{s^{2}+9}}\parens*{1-e^{-2\pi s}}.</me>
+<me>X(s) = \frac{s}{s^{2}+4} + \frac{1}{5}\brackets{\frac{s}{s^{2}+4} - \frac{s}{s^{2}+9}}\parens{1-e^{-2\pi s}}.</me>
+</p>
+<p>
 So the solution of the IVP is
 <md>
-x(t) 
-\amp= \iLaplace{\frac{s}{s^{2}+4} + \frac{1}{5}\brackets*{\frac{s}{s^{2}+4} - \frac{s}{s^{2}+9}}\parens*{1-e^{-2\pi s}}} \\
-\amp= \cos2t + \frac{1}{5}\parens*{\cos2t-\cos3t} - \frac{1}{5}\parens*{u(t-2\pi)\cos[2(t-2\pi)] - u(t-2\pi)\cos[3(t-2\pi)]}.
-</md>
-\end{proof}
+<mrow>x(t) \amp= \iLaplace{\frac{s}{s^{2}+4} + \frac{1}{5}\brackets{\frac{s}{s^{2}+4} - \frac{s}{s^{2}+9}}\parens{1-e^{-2\pi s}}}</mrow>
+<mrow>\amp= \cos2t + \frac{1}{5}\parens{\cos2t-\cos3t} - \frac{1}{5}\parens{u(t-2\pi)\cos[2(t-2\pi)] - u(t-2\pi)\cos[3(t-2\pi)]}</mrow>
+</md>.
+  </p>
+</solution>
+</example>
 <term>SUGGESTED PROBLEMS:</term> 5, 9, 13, 17, 19, 21 odd
+</section>
 \section{Dirac delta functions}
 \subsection{Impulses}
 Forces that act over very short time intervals\sidenote{For example, consider the force applied by a kick to a soccer ball, or a bat to a baseball.} may be complicated to describe exactly, but it seems we can approximate such a force if we treat it as instantaneous. 
