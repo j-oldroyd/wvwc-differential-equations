@@ -10,696 +10,744 @@
 <!--                                               -->
 <!-- Copyright (C) 1997-2014  Thomas W. Judson     -->
 
-<chapter xml:id="series-solutions" xmlns:xi="http://www.w3.org/2001/XInclude">
-  <title>Series Solutions of ODEs</title>
-  <section xml:id="section-power-series-method">
-    <title>Power Series Method</title>
-    <p>
-      In calculus, it's important to know how to differentiate and integrate functions.
-      For some functions (say, <m>x-1,x^{2},3-x^{5}</m>) it can be very straightforward, but for others (such as <m>e^{-x^{2}}</m>) it can be impossible.
-      <aside>
-        <p>
-          At least, it can be impossible to integrate certain functions in terms of more ``everyday'' functions that we're used to.
-        </p>
-      </aside>
-    </p>
-    <p>
-      So we'd like to see if there's a way to write complicated functions <m>f(x)</m> in terms of simpler functions <m>1,x,x^{2},\dots</m>.
-      To see how, let <m>f(x)</m> be a function.
-      Our goal is to write it in the form
-      <men xml:id="equation-power-series-at-zero">
-        f(x) = c_{0}+c_{1}x+c_{2}x^{2}+c_{3}x^{3}+\dots = \sum_{k=0}^{\infty}c_{k}x^{k}
-      </men>
-      where the <m>c_{k}</m> are constants.
-    </p>
-    <definition xml:id="definition-power-series">
-      <title>Power Series</title>
-      <statement>
-        <p>
-          A <term>power series</term> is a series (that is, an infinite sum) of the form <m>\sum_{k=0}^{\infty}c_{k}x^{k}</m>.
-          Since a power series is in general an infinite sum, it may not make sense for all values of <m>x</m>.
-          The power series is said to <term>converge</term> on some interval <m>I</m> if the sum exists for each <m>x</m> in <m>I</m>.
-        </p>
-      </statement>
-    </definition>
-    <p>
-      A power series doesn't have to start at <m>k=0</m>, but <em>it may not contain any negative powers of <m>x</m></em>.
-    </p>
-    <p>
-      The question now is, how do we find the right values of the coefficients <m>c_{k}</m> to make <xref ref="equation-power-series-at-zero" text="type-global" /> true?
-      If we look at the equation, we can solve for <m>c_{0}</m> very easily: just set <m>x=0</m> to make all other terms disappear:
-      <me>
-        f(0) = c_{0} + c_{1}\cdot0+\dots = c_{0}.
-      </me>
-      To solve for <m>c_{1}</m> by plugging in <m>x=0</m>, we need to get rid of the power of <m>x</m> attached to it.
-      We can do this by taking the derivative of <m>f(x)</m>:
-      <md>
-        <mrow>f'(x) \amp= c_{1} + 2c_{2}x + 3c_{3}x^{2} + \dots</mrow>
-        <mrow>f'(0) \amp= c_{1}</mrow>
-      </md>.
-      The same trick works for <m>c_{2}</m>:
-      <md>
-        <mrow>f''(x) \amp= 2\cdot1c_{2} + 3\cdot2c_{3}x+\dots</mrow>
-        <mrow>f''(0) \amp= 2\cdot1c_{2}</mrow>
-      </md>
-      so <m>c_{2} = \frac{f''(0)}{2\cdot1}</m>.
-      Let's try this one more time to get <m>c_{3}</m>:
-      <md>
-        <mrow>f^{(3)}(x) \amp= 3\cdot2\cdot1c_{3} + \dots</mrow>
-        <mrow>f^{(3)}(0) \amp= 3\cdot2\cdot1c_{3}</mrow>
-      </md>
-      and so <m>c_{3} = \frac{f^{(3)}(0)}{3\cdot2\cdot1}</m>.
-    </p>
-    <p>
-      In general, to get the coefficient <m>c_{k}</m> of <m>x^{k}</m> in the power series of <m>f(x)</m>, we have the following equation:
-    </p>
-    <men xml:id="equation-power-series-coefficients-at-zero">
-      c_{k} = \frac{f^{(k)}(0)}{k\cdot(k-1)\cdot\dots\cdot2\cdot1} = \frac{f^{(k)}(0)}{k!}.
-    </men>
-    <example>
-      <statement>
-        <p>
-          Find a power series for <m>e^{x}</m>.
-        </p>
-      </statement>
-      <solution>
-        <p>
-          Any power series for <m>f(x) = e^{x}</m> looks like <m>\sum_{k=0}^{\infty}c_{k}x^{k}</m>, where
-          <me>
-            c_{k} = \frac{f^{(k)}(0)}{k!}.
-          </me>
-          Since <m>e^{x}</m> is its own derivative, <m>f^{(k)}(x) = e^{x}</m> for all choices of <m>k</m>.
-          So
-          <me>
-            c_{k} = \frac{e^{0}}{k!} = \frac{1}{k!}
-          </me>
-          and the power series for <m>e^{x}</m> is
-          <me>
-            1+x+\frac{x^{2}}{2}+\frac{x^{3}}{6} + \dots = \sum_{k=0}^{\infty}\frac{x^{k}}{k!}.
-          </me>
-          It turns out the <m>f(x) = e^{x}</m> equals its power series for <em>all</em> values of <m>x</m>.
-        </p>
-      </solution>
-    </example>
-    <p>
-      The above power series was written in terms of powers of <m>x</m>, but this doesn't have to be the case.
-      We can also write power series in terms of powers of <m>x-a</m>, where <m>a</m> is some constant.
-      A power series of the form
-      <me>
-        \sum_{k=0}^{\infty}c_{k}(x-a)^{k}
-      </me>
-      is said to be <term>centered at <m>a</m></term>.
-      For such a series, the formula for the <m>c_{k}</m> is given by
-      <me>
-        c_{k} = \frac{f^{(k)}(a)}{k!}.
-      </me>
-    </p>
-    <example>
-      <statement>
-        <p>
-          Find the power series for <m>g(t) = \sin t</m> centered at <m>a = \frac{\pi}{2}</m>.
-        </p>
-      </statement>
-      <solution>
-        <p>
-          A power series centered at <m>a = \frac{\pi}{2}</m> will look like
-          <me>
-            \sum_{k=0}^{\infty}c_{k}\parens*{t-\frac{\pi}{2}}^{k}
-          </me>
-          where
-          <me>
-            c_{k} = \frac{g^{(k)}(\frac{\pi}{2})}{k!}.
-          </me>
-          To find these values, we need to compute the derivatives of <m>g(t)</m> and evaluate them at <m>\frac{\pi}{2}</m>:
-          <md>
-            <mrow>g^{(0)}(t) \amp= \sin t \amp\Rightarrow g^{(0)}(\frac{\pi}{2}) = 1</mrow>
-            <mrow>g'(t) \amp= \cos t \amp\Rightarrow g'(\frac{\pi}{2}) = 0</mrow>
-            <mrow>g''(t) \amp= -\sin t \amp\Rightarrow g''(\frac{\pi}{2}) = -1</mrow>
-            <mrow>g^{(3)}(t) \amp= -\cos t \amp\Rightarrow g^{(3)}(\frac{\pi}{2}) = 0</mrow>
-          </md>.
-          So the power series centered at <m>\frac{\pi}{2}</m> is
-          <me>
-            1 - \frac{1}{2!}(t-\frac{\pi}{2})^{2} + \frac{1}{4!}(t-\frac{\pi}{2})^{4}+\dots = \sum_{k=0}^{\infty}(-1)^{k}\frac{(t-\frac{\pi}{2})^{2k}}{(2k)!}.
-          </me>
-          Just as with <m>e^{x}</m>, <m>\sin t</m> is equal to its power series everywhere.
-        </p>
-      </solution>
-    </example>
-    <p>
-      More functions in terms of power series:
-      <md>
-        <mrow>\frac{1}{1-x} \amp= \sum_{n=0}^{\infty}x^{n} \amp \amp= 1 + x + x^{2} + x^{3} + \cdots</mrow>
-        <mrow>e^{x} \amp= \sum_{n=0}^{\infty}\frac{x^{n}}{n!} \amp \amp= 1 + x + \frac{x^{2}}{2!} + \frac{x^{3}}{3!} + \cdots</mrow>
-        <mrow>\sin x \amp= \sum_{n=0}^{\infty}(-1)^{n}\frac{x^{2n+1}}{(2n+1)!} \amp \amp= x - \frac{x^{3}}{3!} + \frac{x^{5}}{5!} - \cdots</mrow>
-        <mrow>\cos x \amp= \sum_{n=0}^{\infty}(-1)^{n}\frac{x^{2n}}{(2n)!} \amp \amp= 1 - \frac{x^{2}}{2!} + \frac{x^{4}}{4!} - \cdots</mrow>
-      </md>
-      Viewing a function as a power series can be extremely beneficial; if you have a power series expression for some function, it is extremely easy to do calculus with it.
-    </p>
-    <example>
-      <statement>
-        <p>
-          Find <m>\displaystyle\int_{0}^{1}e^{x^{2}}\dd{x}</m>.
-        </p>
-      </statement>
-      <solution>
-        <p>
-          We can't integrate <m>e^{x^{2}}</m> using elementary functions
-          <aside>
+<chapter xml:id="laplace-transforms" xmlns:xi="http://www.w3.org/2001/XInclude">
+  <title>Laplace Transforms</title>
+    <section xml:id="section-the-laplace-transform">
+        <title>The Laplace Transform</title>
+<subsection xml:id="subsection-definition-and-basic-properties">
+    <title>Definition and Basic Properties</title>
+      <example xml:id="example-motivating-laplace">
+        <title>
+          Motivating the Laplace Transform
+        </title>
+          <statement>
             <p>
-              We can use a function known as the <term>error function</term>.
+              A mass of <quantity><mag>1</mag><unit base="kilogram"/></quantity> is attached to a spring that is held <quantity><mag>1</mag><unit base="meter"/></quantity> to the right of its equilibrium position by a force of <quantity><mag>4</mag><unit base="newton"/></quantity>.
+              Beginning at time <m>t=0</m>, a machine is turned on and applies an external force of <m>\cos2t</m> to the mass.
+              At time <m>t=2\pi</m> the machine is turned off and the external force disappears.
+              Let <m>x(t)</m> be the displacement of the mass at time <m>t</m>.
+              What is an ODE that models the motion of the mass?
             </p>
-          </aside>
-          but this is straightforward to integrate using power series:
-          <md>
-            <mrow>\int_{0}^{1}e^{x^{2}}\dd{x} \amp= \int_{0}^{1}\sum_{n=0}^{\infty}\frac{x^{2n}}{n!}\dd{x}</mrow>
-            <mrow>\amp= \sum_{n=0}^{\infty}\int_{0}^{1}\frac{x^{2n}}{n!}\dd{x}</mrow>
-            <mrow>\amp= \sum_{n=0}^{\infty}\frac{1}{(2n+1)n!}</mrow>
-          </md>.
+          </statement>
+<solution>
+  <p>
+We can set this up as we did in Chapter 3. By Hooke's Law and Newton's Second Law, we have
+<me>mx''+kx = F_{E}(t)</me>
+where <m>F_{E}</m> is the external force at time <m>t</m>. Since <m>m = 1</m>, <m>k = 4</m> and
+<me>
+F_{E}(t) = 
+\begin{cases}
+\cos2t \amp \text{if }0\leq t\lt 2\pi\\
+0 \amp\text{if } t\geq2\pi  
+\end{cases}
+</me>
+the motion of the mass satisfies the ODE
+<me>x''+4x = F_{E}(t).</me>
+</p>
+</solution>
+</example>
+<p>
+For the above example we could try to solve it as we did in Chapter 3: first by finding the complementary solution <m>x_{c}</m> (which isn't a problem) and then by finding the particular solution <m>x_{p}</m> corresponding to <m>F_{E}</m>.
+However, finding <m>x_{p}</m> will not be possible using our previous methods since the function <m>F_{E}</m> is not differentiable everywhere (nor continuous everywhere).
+We would like to develop a method that lets us solve ODEs that involve discontinuous quantities.
+</p>
+<definition xml:id="definition-the-laplace-transform">
+    <title>The Laplace Transform</title>
+    <statement>
+      <p>
+Let <m>f(t)</m> be defined for <m>t\geq0</m>. The <term>Laplace transform</term> of <m>f</m> is a function <m>F(s)</m>, or <m>\mathcal{L}\left\{ f(t) \right\}</m>, defined by
+<me>F(s) = \mathcal{L}\left\{ f(t) \right\} = \Int{0}{\infty}f(t)e^{-st}\,dt</me>
+for all values of <m>s</m> such that <m>F(s)</m> exists.
+We often say that <m>f(t)</m> is in the <term>time domain</term> while <m>F(s)</m> is in the <term>frequency domain</term>.
         </p>
-      </solution>
-    </example>
+    </statement>
+</definition>
+<p>
+One reason we care about the Laplace transform is that it lets us deal with solving linear ODEs involving discontinuous functions.
+This is something we will begin to look at in the next section.
+</p>
+<example xml:id="example-computing-a-laplace-transform">
+    <title>Computing a Laplace Transform</title>
+    <statement>
+      <p>
+Compute <m>\mathcal{L}\left\{ 1 \right\}</m>.
+      </p>
+    </statement>
+</example>
+<example xml:id="example-computing-the-laplace-of-t-">
+    <title>Computing the Laplace of <m>t</m></title>
+    <statement>
+      <p>
+Compute the Laplace transform of <m>f(t) = t</m>.
+      </p>
+    </statement>
+<solution>
+  <p>
+We compute the Laplace transform <m>F(s)</m> using the definition:
+<md>
+<mrow>F(s) \amp= \Int{0}{\infty}te^{-st}\,dt</mrow>
+<mrow>\amp= \qty[-\frac{t}{s}e^{-st}]_{0}^{\infty} + \frac{1}{s}\Int{0}{\infty}e^{-st}\,dt \amp\text{using integration by parts}</mrow>
+<mrow>\amp= -\frac{1}{s^{2}}\qty[e^{-st}]_{0}^{\infty}</mrow>
+<mrow>\amp= \frac{1}{s^{2}}</mrow>
+</md>.
+  </p>
+</solution>
+</example>
+<p>
+In general,
+<me>\mathcal{L}\left\{t^{n}\right\} = \frac{n!}{s^{n+1}}</me>
+if <m>n\geq0</m> is a whole number.
+</p>
+<p>
+The Laplace transform is also an example of a <term>linear transformation</term>.
+In particular, we have the following theorem.
+</p>
+<theorem xml:id="theorem-linearity-of-the-laplace-transform">
+    <title>Linearity of the Laplace Transform</title>
+    <statement>
+      <p>
+Let <m>a</m> and <m>b</m> be constants and suppose <m>f(t)</m> and <m>g(t)</m> are functions with respective Laplace transforms <m>F(s)</m> and <m>G(s)</m>. Then
+<me>\Laplace{af+bg} = aF(s)+bG(s).</me>
+</p>
+    </statement>
+</theorem>
+<example xml:id="example-computing-the-transform-of-a-polynomial">
+    <title>Computing the Transform of a Polynomial</title>
+    <statement>
+      <p>
+Compute <m>\Laplace{(t-1)^{3}}</m>.
+      </p>
+    </statement>
+<solution>
+<p>
+We could use the definition once again, but here's an easier way using the linearity of the Laplace transform. First, note that
+<me>(t-1)^{3} = t^{3} - 3t^{2} +3t - 1</me>
+so
+<md>
+<mrow>\Laplace{(t-1)^{3}} \amp= \Laplace{t^{3}-3t^{2}+3t-1}</mrow>
+<mrow>\amp= \Laplace{t^{3}} - 3\Laplace{t^{2}} +3\Laplace{t} - \Laplace{1}</mrow>
+<mrow>\amp= \frac{3!}{s^{4}} - 3\frac{2!}{s^{3}} + 3\frac{1!}{s^{2}} - \frac{0!}{s}</mrow>
+<mrow>\amp= \frac{6}{s^{4}} - \frac{6}{s^{3}} + \frac{3}{s^{2}} - \frac{1}{s}</mrow>
+</md>.
+</p>
+</solution>
+</example>
+<p>
+Another benefit is that the Laplace transform works well with some discontinuous functions.
+</p>
+<example xml:id="example-the-unit-step-function">
+    <title>The Unit Step Function</title>
+    <statement>
+      <p>
+Let <m>u(t)</m> be the <term>unit step function</term>, which is defined by
+<me> u(t) = 
+\begin{cases}
+0 \amp\text{if <m>t\lt 0</m>}  \\
+1 \amp\text{if <m>t\geq0</m>}
+\end{cases}
+</me>
+Compute <m>\Laplace{u(t-3)}</m>.
+      </p>
+    </statement>
+    <solution>
+      <p>
+Note that we are computing a <em>translation</em> of the usual unit step function.
+We still compute <m>\Laplace{u(t-3)}</m> using the definition of the Laplace transform:
+<md>
+<mrow>\Laplace{u(t)} \amp= \Int{0}{\infty}u(t)e^{-st}\,dt</mrow>
+<mrow>\amp= \Int{3}{\infty}e^{-st}\,dt \amp\text{since <m>u(t-3)</m> is <m>0</m> for values of <m>t\lt3</m>}</mrow>
+<mrow>\amp= -\frac{1}{s}\qty[e^{-st}]_{3}^{\infty}</mrow>
+<mrow>\amp= \frac{e^{-3s}}{s}</mrow>
+</md>.
+      </p>
+    </solution>
+</example>
+<p>
+Some other important Laplace transforms are given below:
+<md>
+<mrow>\Laplace{e^{at}} \amp= \frac{1}{s-a}</mrow>
+<mrow>\Laplace{\sin(\omega t)} \amp= \frac{k}{s^{2}+\omega^{2}}</mrow>
+<mrow>\Laplace{\cos(\omega t)} \amp= \frac{s}{s^{2}+\omega^{2}}</mrow>
+</md>.
+</p>
+</subsection>
+<subsection xml:id="subsection-the-inverse-laplace-transform-m-s--shifting">
+    <title>The Inverse Laplace Transform; <m>s</m>-shifting</title>
+<p>
+An important theorem regarding Laplace transforms is the following:
+</p>
+<theorem xml:id="theorem-uniqueness-of-inverse-laplace">
+  <title>Uniqueness of Laplace Transforms</title>
+  <statement>
     <p>
-      The following theorem can be used to determine when a power series converges (that is, when the series makes sense).
+Suppose <m>f(t)</m> and <m>g(t)</m> have respective Laplace transforms <m>F(s)</m> and <m>G(s)</m>.
+If <m>F(s) = G(s)</m> for all <m>s\gt c</m> (for some constant <m>c</m>) and <m>f(t)</m> and <m>g(t)</m> are piecewise continuous, then <m>f(t) = g(t)</m> on the interval <m>[0,\infty)</m>.
     </p>
-    <theorem>
-      <statement>
-        <p>
-          Given the power series <m>\sum_{n=0}^{\infty}c_{n}x^{n}</m>, define the number <m>\rho</m> by the limit
-          <me>
-            \rho = \limit{n}{\infty}\qty|\frac{c_{n}}{c_{n+1}}|.
-          </me>
-          Suppose the limit exists or is infinite. Then <m>\rho</m> is the radius of converengence of the series: if <m>\rho\neq0</m> then the series converges for <m>|x|\lt\rho</m> and diverges for <m>|x|\gt\rho</m>. If <m>\rho=0</m> then the series converges only at <m>x=0</m>.
-        </p>
-      </statement>
-    </theorem>
+  </statement>
+</theorem>
+<p>
+The previous theorem says that the Laplace transform is unique for continuous functions: two different continuous functions will have two different Laplace transforms. This allows us to talk about taking inverse Laplace transforms.
+</p>
+<definition xml:id="definition-inverse-laplace">
+  <title>Inverse Laplace Transform</title>
+  <statement>
     <p>
-      Our main use of power series will be in solving differential equations.
+The <term>inverse Laplace transform</term> of a function <m>F(s)</m>, denoted <m>\mathcal{L}^{-1}\qty{F(s)}</m>, is a function <m>f(t)</m> such that <m>\Laplace{f(t)} = F(s)</m>.
     </p>
-    <example>
-      <statement>
-        <p>
-          Solve the ODE given by
-          <me>
-            y' = 4y.
-          </me>
-        </p>
-      </statement>
+  </statement>
+</definition>
+<p>
+Just like the Laplace transform, the inverse Laplace transform is <term>linear</term>.
+</p>
+<example xml:id="example-finding-inverse-laplace">
+  <title>Finding an Inverse Transform</title>
+  <statement>
+    <p>
+A continuous function <m>f(t)</m> has Laplace transform
+<me>F(s) = \frac{3s}{s^{2}+5} + \frac{7}{s^{3}}.</me>
+Find <m>f(t)</m>.
+    </p>
+    <solution>
+      <p>
+We can find <m>f(t)</m> by taking the inverse Laplace transform of each term in <m>F(s)</m>:
+<md>
+<mrow>\iLaplace{\frac{3s}{s^{2}+5}} \amp= 3\iLaplace{\frac{s}{s^{2}+5}} = 3\cos(\sqrt{5}t)</mrow>
+<mrow>\iLaplace{\frac{7}{s^{3}}} \amp= \frac{7}{2!}\iLaplace{\frac{2!}{s^{3}}} = \frac{7}{2}t^{2}</mrow>
+</md>.
+So
+<me>f(t) = 3\cos(\sqrt{5}t)+\frac{7}{2}t^{2}.</me>
+      </p>
+    </solution>
+  </statement>
+</example>
+<theorem xml:id="theorem--s--shifting">
+    <title><m>s</m>-shifting</title>
+    <statement>
+      <p>
+Suppose that <m>f(t)</m> has Laplace transform <m>F(s)</m>, defined for <m>s\gt k</m> for some <m>k</m>.
+Then
+<me>\Laplace{e^{at}f(t)} = F(s-a)\qq{or equivalently} \iLaplace{F(s-a)} = e^{at}f(t).</me>
+In other words, multiplication by an exponential <m>e^{at}</m> in the \emph{time domain} corresponds to translation by <m>a</m> in the <em>frequency domain</em>.
+      </p>
+    </statement>
+</theorem>
+<example xml:id="example-inverse-laplace-with-frequency-shifting">
+    <title>Inverse Laplace with Frequency Shifting</title>
+    <statement>
+      <p>
+A function <m>f(t)</m> has Laplace transform
+<me>F(s) = \frac{4}{s^{2}+2s+3}.</me>
+Find <m>f(t)</m>.
+      </p>
+    </statement>
+    <solution>
+      <p>
+We'll start by completing the square on the denominator of <m>F(s)</m> to see if we can make it look like <m>(s-a)^{2}+\omega^{2}</m> for some <m>a,\omega</m>:
+<me>F(s) = \frac{4}{(s^{2}+2s+1)+3-1} = \frac{4}{(s+1)^{2}+2}.</me>
+This looks an \emph{awful} lot like the transform of <m>\sin(\sqrt{2}t)</m>.
+Since we have <m>(s+1)^{2}</m> instead of <m>s^{2}</m>, this tells us that
+<me>f(t) = \frac{4}{\sqrt{2}}e^{-t}\sin(\sqrt{2}t).</me>
+      </p>
+    </solution>
+</example>
+<term>SUGGESTED PROBLEMS:</term> 1, 3, 5, 9, 31, 37. 43
+</subsection>
+</section>
+<section xml:id="section-transformation-of-initial-value-problems">
+    <title>Transformation of Initial Value Problems</title>
+<theorem xml:id="theorem-laplace-transforms-of-derivatives">
+    <title>Laplace Transforms of Derivatives</title>
+    <statement>
+      <p>
+Suppose that the function <m>f(t)</m> is piecewise smooth and that <m>F(s) = \Laplace{f(t)}</m> exists.
+Then <m>\Laplace{f'(t)}</m> exists and
+<me>\Laplace{f'(t)} = s\Laplace{f(t)}-f(0) = sF(s)-f(0).</me>
+      </p>
+    </statement>
+</theorem>
+<p>
+The above theorem says that differentiation in the ``time domain'' corresponds to multiplication by <m>s</m> in the ``frequency domain.''
+This will be the most useful property of the Laplace transform for us: it will turn differential equations in the time domain into algebraic equations in the frequency domain.
+</p>
+<example xml:id="example-laplace-transform-of-a-second-derivative">
+    <title>Laplace Transform of a Second Derivative</title>
+    <statement>
+      <p>
+Let <m>f(t)</m> be piecewise smooth with Laplace transform <m>F(s)</m>.
+Compute <m>\Laplace{f''(t)}</m> using <xref ref="theorem-laplace-transforms-of-derivatives" text="type-global" />.
+      </p>
+    </statement>
       <solution>
         <p>
-          We could easily solve this using Chapter 1 methods, but we'll use power series to practice.
-          To start, we assume that the solution <m>y</m> can be written as a power series:
-          <me>
-            y = \sum_{n=0}^{\infty}c_{n}x^{n}.
-          </me>
-          The next step is to plug this into the ODE.
-          Since
-          <md>
-            <mrow>y' \amp= \parens*{\sum_{n=0}^{\infty}c_{n}x^{n}}'</mrow>
-            <mrow>\amp= \sum_{n=1}^{\infty}nc_{n}x^{n-1}</mrow>
-          </md>
-          we get the equation
-          <me>
-            \sum_{n=1}^{\infty}nc_{n}x^{n-1} = 4\sum_{n=0}^{\infty}c_{n}x^{n}
-          </me>.
-        </p>
-        <p>
-          We need to find the values of the coefficients <m>c_{n}</m>; we do this by equating coefficients on both sides of the equation. 
-          We want to write both series in terms of <m>x^{n}</m> so that we can do this, so we need to shift the summation on the left: we replace <m>n</m> with <m>n+1</m> inside the sum and decrease the limit of summation <m>n=1</m> to <m>n=0</m> to get
-          <me>
-            \sum_{n=0}^{\infty}(n+1)c_{n+1}x^{n} = \sum_{n=0}^{\infty}4c_{n}x^{n}
-          </me>.
-          Now we can equate coefficients: for <m>n\geq0</m>, we have
-          <me>
-            (n+1)c_{n+1} = 4c_{n}\qq{or} c_{n+1} = \frac{4}{n+1}c_{n}.
-          </me>
-        </p>
-        <p>
-          This is known as a <term>recurrence relation</term>.
-          It describes the coefficients in terms of the previous ones, and can be used to determine explicitly what each <m>c_{n}</m> looks like.
-          To see how, we plug several values for <m>n</m> into this recurrence relation to try to determine a pattern:
-          <md>
-            <mrow>c_{1} \amp= \frac{4}{2}c_{0}</mrow>
-            <mrow>c_{2} \amp= \frac{4}{3}c_{1} = \frac{4^{2}}{3\cdot2}c_{0}</mrow>
-            <mrow>c_{3} \amp= \frac{4}{4}c_{2} = \frac{4^{3}}{4\cdot3\cdot2}c_{0}</mrow>
-          </md>
-          and in general it appears that
-          <me>
-            c_{n} = \frac{4^{n}}{n!}c_{0}
-          </me>
-          for each <m>n</m>.
-          <aside>
-            <p>
-              We can't solve for <m>c_{0}</m> without specifying an initial condition of some kind.
-            </p>
-          </aside>
-          So the solution <m>y</m> is
-          <md>
-            <mrow>y \amp= \sum_{n=0}^{\infty}c_{n}x^{n}</mrow>
-            <mrow>\amp= \sum_{n=0}^{\infty}\frac{4^{n}}{n!}c_{0}x^{n}</mrow>
-            <mrow>\amp= c_{0}\sum_{n=0}^{\infty}\frac{(4x)^{n}}{n!}</mrow>
-            <mrow>\amp= c_{0}e^{4x}</mrow>
-          </md>.
-        </p>
-      </solution>
-    </example>
-    <p>
-      To solve the above ODE we used the following steps:
-      <ol>
-        <li>
-          <p>Write <m>y = \sum_{n=0}^{\infty}c_{n}x^{n}</m>.</p>
-        </li>
-        <li>
-          <p>Use the ODE to build a recurrence relation for the coefficients <m>c_{n}</m>.</p>
-        </li>
-        <li>
-          <p>Find an explicit description of the coefficients.</p>
-        </li>
-        <li>
-          <p>Identify <m>y</m> as the power series of some function.</p>
-        </li>
-      </ol>
-    </p>
-    <example>
-      <statement>
-        <p>
-          Use power series to solve the ODE <m>y'+2xy=0</m>.
-        </p>
-      </statement>
-      <solution>
-        <p>
-          We will solve this using the steps listed above.
-          First, assume <m>y = \sum_{k=0}^{\infty}c_{k}x^{k}</m>.
-          Now plug this guess for <m>y</m> into the ODE to get
-          <me>
-            \sum_{k=1}^{\infty}kc_{k}x^{k-1} = -\sum_{k=0}^{\infty}2c_{k}x^{k+1}.
-          </me>
-          We want to equate coefficients to build a recurrence relation, so we need to rewrite these sums in terms of a single <m>x^{n}</m>, as opposed to <m>x^{k-1}</m> and <m>x^{k+1}</m>.
-          We do this by shifting the sums, but we need to remember to shift the limits of each sum as well:
-        </p>
-        <tabular top="major">
-          <row bottom="major">
-            <cell>Sum</cell>
-            <cell>Index</cell>
-            <cell>Limit</cell>
-          </row>
-          <row>
-            <cell><m>\sum_{k=1}^{\infty}kc_{k}x^{k-1}</m></cell>
-            <cell><m>k-1\to n</m> \amp <m>k=1\to n=0</m></cell>
-          </row>
-          <row bottom="major">
-            <cell><m>-\sum_{k=0}^{\infty}2c_{k}x^{k+1}</m></cell>
-            <cell><m>k+1\to n</m> \amp <m>k=0\to n=1</m></cell>
-          </row>
-        </tabular>
-        <p>
-          So we get
-          <me>
-            \sum_{n=0}^{\infty}(n+1)c_{n+1}x^{n} = \sum_{n=1}^{\infty}(-2)c_{n-1}x^{n} = 0.
-          </me>
-          So a recurrence relation for <m>c_{n}</m> is
-          <me>
-            c_{n+1} = -\frac{2}{n+1}c_{n-1}\qq{for <m>n\geq1</m>}.
-          </me>
-        </p>
-        <p>
-          Since this <term>two-step recurrence relation</term> is only valid for <m>n\geq1</m>, it places no restrictions on any constant terms of the series.
-          We'll need to determine these separately.
-          To do so, write out the first couple terms of the sums in the previous equation:
-          <me>
-            c_{1}+2c_{2}x+\dots = -2c_{0}x -2c_{1}x^{2}+\cdots
-          </me>
-          This tells us that <m>c_{1} = 0</m>.
-          Again, we can't get this information from the recurrence relation!
-        </p>
-        <p>
-          Now we try to find an explicit formula for <m>c_{n}</m>.
-          Because this is a two-step recurrence, we will write out the coefficients in two columns, one for odd <m>n</m> and one for even <m>n</m>:
-          <md>
-            <mrow>c_{2} \amp= -\frac{2}{2}c_{0} \amp c_{3} \amp= -\frac{2}{3}c_{1} = 0</mrow>
-            <mrow>c_{4} \amp= -\frac{2}{4}c_{2} = \frac{1}{2}\frac{1}{1}c_{0} \amp c_{5} \amp= -\frac{2}{5}c_{3} = 0</mrow>
-            <mrow>c_{6} \amp= -\frac{2}{6}c_{4} = -\frac{1}{3}\frac{1}{2}\frac{1}{1}c_{0} \amp c_{7} \amp= -\frac{2}{7}c_{5} = 0</mrow>
-          </md>.
-          So it appears that
-          <me>
-            c_{2k} = \frac{(-1)^{k}}{k!}c_{0}\qq{and}c_{2k+1} = 0
-          </me>
-          for every <m>k</m>.
-        </p>
-        <p>
-          Now we plug this into our power series for <m>y</m> to get
-          <md>
-            <mrow>y \amp= \sum_{k=0}^{\infty}c_{k}x^{k}</mrow>
-            <mrow>\amp= \sum_{k=0}^{\infty}c_{2k}x^{2k}</mrow>
-            <mrow>\amp= \sum_{k=0}^{\infty}c_{0}\frac{(-1)^{k}}{k!}x^{2k}</mrow>
-            <mrow>\amp= c_{0}\sum_{k=0}^{\infty}\frac{(-x^{2})^{k}}{k!}</mrow>
-            <mrow>\amp= c_{0}e^{-x^{2}}</mrow>
-          </md>.
-        </p>
-      </solution>
-    </example>
-  </section>
-  <section xml:id="section-frobenius-method">
-    <title>Frobenius Method</title>
-    <aside>
+By <xref ref="theorem-laplace-transforms-of-derivatives" text="type-global" /> we know that
+<me>\Laplace{f'(t)} = sF(s)-f(0).</me>
+We can apply <xref ref="theorem-laplace-transforms-of-derivatives" text="type-global" /> to <m>f'(t)</m> as well, since it must also be piecewise smooth:
+<md>
+<mrow>\Laplace{f''(t)} \amp= s\Laplace{f'(t)} - f'(0)</mrow>
+<mrow>\amp= s(sF(s)-f(0)) - f'(0)</mrow>
+<mrow>\amp= s^{2}F(s) - sf(0) - f'(0)</mrow>
+</md>.
+This process can be continued indefinitely.
+In general,
+<me>\Laplace{f^{(n)}(t)} = s^{n}F(s) - s^{n-1}f(0) - s^{n-2}f'(0) - \cdots -sf^{(n-2)}(0) - f^{(n-1)}(0).</me>
+This gives us everything we need to start solving ODEs using Laplace transforms.
+</p>
+</solution>
+</example>
+<example xml:id="example-solving-ivps-with-laplace-transforms">
+    <title>Solving IVPs with Laplace Transforms</title>
+    <statement>
       <p>
-        This section corresponds to Section 5.3 of the text.
+Solve the IVP
+<me>x''+8x'+15x = 0 \qq{} x(0) = 2, x'(0) = -3</me>
+where <m>x</m> is a function of <m>t</m>.
       </p>
-    </aside>
-    <subsection xml:id="subsection-regular-points-and-singular-points">
-      <title>Regular Points and Singular Points</title>
+    </statement>
+    <solution>
       <p>
-        Recall that a homogeneous, linear second order ODE has the form
-        <me>
-          A(x)y''+B(x)y'+C(x)y = 0. 
-        </me>
-        We can rewrite this in the form
-        <me>
-          y''+P(x)y'+Q(x)y = 0.
-        </me>
+We will solve this by using Laplace transforms.
+If we set <m>X(s) = \Laplace{x(t)}</m>, then
+<md>
+<mrow>\Laplace{x'(t)} \amp= sX(s) - 2</mrow>
+<mrow>\Laplace{x''(t)} \amp= s^{2}X(s) - 2s +3</mrow>
+</md>.
+So if we take the Laplace transform of the entire ODE, we get
+<me>\underbrace{s^{2}X(s) - 2s + 3}_{\Laplace{x''}} + \underbrace{8sX(s) - 16}_{\Laplace{8x'}} + 15X(s) = 0</me>
+which simplifies to
+<me>s^{2}X(s)+8sX(s)+15X(s) = 2s+13.</me>
+To solve the ODE we need to find <m>x(t) = \mathcal{L}^{-1}\{X(s)\}</m>, so we now solve the above for <m>X(s)</m> in order to find the inverse Laplace transform.
+If we do so, we get
+<me>X(s) = \frac{2s+13}{s^{2}+8s+15} = \frac{2s+13}{(s+3)(s+5)}.</me>
+This doesn't look like the Laplace transform of anything we know at the moment, but we can simplify the right hand side using partial fractions.
+If we do so, we get
+<me>X(s) = \frac{\frac{7}{2}}{s+3} - \frac{\frac{3}{2}}{s+5}.</me>
+So
+<md>
+<mrow>x(t) \amp= \frac{7}{2}\mathcal{L}^{-1}\left\{\frac{1}{s+3}\} - \frac{3}{2}\mathcal{L}^{-1}\left\{\frac{1}{s+5}\}</mrow>
+<mrow>\amp= \frac{7}{2}e^{-3t} - \frac{3}{2}e^{-5t}</mrow>
+</md>.
       </p>
-      <definition xml:id="definition-regular-points-and-singular-points">
-        <title>Regular Points and Singular Points</title>
-        <statement>
-          <p>
-            A point <m>x=a</m> is called a <term>regular point</term> if <m>P(x)</m> and <m>Q(x)</m> both have power series expansions at <m>x=a</m>.
-            If <m>x=a</m> is not a regular point we call it a <term>singular point</term>.
-          </p>
-        </statement>
-      </definition>
+    </solution>
+</example>
+<example xml:id="example-nonhomogeneous-ivps-with-laplace-transforms">
+    <title>Nonhomogeneous IVPs with Laplace Transforms</title>
+    <statement>
       <p>
-        Regular points of an ODE are nice because of the following theorem:
+Solve the IVP given by
+<me>y''+9y = 10e^{-t},\quad y(0) = y'(0) = 0.</me>
       </p>
-      <theorem>
-        <statement>
-          <p>
-            Suppose that <m>a</m> is a regular point of the differential equation <m>y''+P(x)y'+Q(x)y=0</m>.
-            Then the ODE has two linearly independent solutions of the form
-            <me>
-              y(x) = \sum_{n=0}^{\infty}c_{n}(x-a)^{n}.
-            </me>
-            The radius of convergence is at least as large as the distance from <m>a</m> to the nearest singular point of the ODE.
-          </p>
-        </statement>
-      </theorem>
+    </statement>
+    <solution>
       <p>
-        In other words, <em>the power series method works at regular points.</em>
+We begin by taking the Laplace transform of both sides to get
+<me>s^{2}Y(s) - sy(0) - y'(0) + 9Y(s) = \frac{10}{s+1}</me>
+or just
+<me>s^{2}Y(s) + 9Y(s) = \frac{10}{s+1}.</me>
+So
+<me>Y(s) = \frac{10}{(s+1)(s^{2}+9)}.</me>
+By partial fractions, this becomes
+<me>Y(s) = \frac{1-s}{s^{2}+9} + \frac{1}{s+1} = \frac{1}{s^{2}+9} - \frac{s}{s^{2}+9} + \frac{1}{s+1},</me>
+so the solution of the ODE is
+<md>
+<mrow>y(t) \amp = \iLaplace{Y(s)}</mrow>
+<mrow>\amp= \frac{1}{3}\sin3t -\cos3t + e^{-t}</mrow>
+</md>.
       </p>
-      <example>
-        <statement>
-          <p>
-            Find the general solution, as a power series in powers of <m>x</m>, for the ODE <m>(x^{2}+2)y''+4xy'+2y=0</m>.
-          </p>
-        </statement>
-        <solution>
-          <p>
-            The first thing we will do is make sure that the ODE actually has a power series solution at <m>x=0</m>.
-            To do this, we need to show that <m>x=0</m> is a regular point of the ODE.
-            So we need to find <m>P(x)</m> and <m>Q(x)</m> and check that they (or their power series) make sense at <m>x=0</m>.
-            If we divide through the ODE by <m>x^{2}+2</m> we obtain
-            <me>
-              y''+\frac{4x}{x^{2}+2}y'+\frac{2}{x^{2}+2}y = 0
-            </me>
-            so
-            <md>
-              <mrow>P(x) \amp= \frac{4x}{x^{2}+2}</mrow>
-              <mrow>Q(x) \amp= \frac{2}{x^{2}+2}</mrow>
-            </md>.
-            Since both of these exist at <m>x=0</m>, it follows that <m>x=0</m> is a regular point of the ODE.
-            Therefore the ODE has a power series solution at <m>x=0</m> (that is, in powers of <m>x</m>).
-          </p>
-          <p>
-            We return to the original form of the ODE to solve it; if we didn't do so, we would need to expand <m>P(x)</m> and <m>Q(x)</m> using their own power series, and this would <em>greatly</em> complicate the algebra.
-            Just as we did in Section 5.1, we assume the ODE has a series solution of the form <m>y = \sum_{n=0}^{\infty}c_{n}x^{n}</m>, or just <m>y=\sum_{n\geq0}c_{n}x^{n}</m> for short.
-            Now we plug this into the ODE to get
-            <me>
-              (x^{2}+2)\sum_{n\geq0}^{}n(n-1)c_{n}x^{n-2}+4x\sum_{n\geq0}^{}nc_{n}x^{n-1}+2\sum_{n\geq0}^{}c_{n}x^{n} = 0
-            </me>
-            which simplifies to
-            <me>
-              \sum_{n\geq0}^{}n(n-1)c_{n}x^{n}+\sum_{n\geq2}^{}2n(n-1)c_{n}x^{n-2}+\sum_{n\geq0}^{}4nc_{n}x^{n}+\sum_{n\geq0}^{}2c_{n}x^{n} = 0
-            </me>
-            or just
-            <me>
-              \sum_{n\geq0}^{}n(n-1)c_{n}x^{n}+\sum_{n\geq0}^{}2(n+2)(n+1)c_{n+2}x^{n}+\sum_{n\geq0}^{}4nc_{n}x^{n}+\sum_{n\geq0}^{}2c_{n}x^{n} = 0
-            </me>
-          </p>
-          <p>
-            Now we can collect like terms, and combine everything on the left hand side into one sum:
-            <me>
-              \sum_{n\geq0}^{}\qty[n(n-1)c_{n}+2(n+2)(n+1)c_{n+2}+4nc_{n}+2c_{n}]x^{n} = 0.
-            </me>
-            For this sum to be <m>0</m> each of the coefficients must be <m>0</m>, so we must have
-            <me>
-              n(n-1)c_{n}+2(n+2)(n+1)c_{n+2}+4nc_{n}+2c_{n} = 0.
-            </me>
-            We can solve this for <m>c_{n+2}</m> to get a recurrence relation for these coefficients:
-            <me>
-              2(n+2)(n+1)c_{n+2} = -c_{n}[n(n-1)+4n+2] \qq{for <m>n\geq0</m>}
-            </me>
-            so
-            <me>
-              c_{n+2} = -\frac{1}{2}c_{n}\qq{for <m>n\geq0</m>}.
-            </me>
-          </p>
-          <p>
-            We need to find a pattern for the coefficients.
-            Since this is a two-step relation, we'll set up two columns: one column for even <m>n</m> and one column for odd <m>n</m>:
-            <md>
-              <mrow>c_{2} \amp= -\frac{1}{2}c_{0} \amp c_{3} \amp= -\frac{1}{2}c_{1}</mrow>
-              <mrow>c_{4} \amp= -\frac{1}{2}c_{2} = \frac{1}{2^{2}}c_{0} \amp c_{5} \amp= -\frac{1}{2}c_{3} = \frac{1}{2^{2}}c_{1}</mrow>
-            </md>.
-            So it appears that
-            <me>
-              c_{2n} = (-1)^{n}\frac{1}{2^{n}}c_{0}\qq{and}c_{2n+1} = (-1)^{n}\frac{1}{2^{n}}c_{1}
-            </me>.
-          </p>
-          <p>
-            Therefore the general solution of the ODE is
-            <md>
-              <mrow>y \amp= \sum_{n\geq0}^{}c_{n}x^{n}</mrow>
-              <mrow>\amp= \sum_{n\geq0}c_{2n}x^{2n} + \sum_{n\geq0}c_{2n+1}x^{2n+1}</mrow>
-              % \amp= c_{0}+c_{1}x+c_{2}x^{2}+c_{3}x^{3}+c_{4}x^{4}+c_{5}x^{5} + \cdots
-              <mrow>\amp= c_{0}\sum_{n\geq0}^{}(-1)^{n}\frac{x^{2n}}{2^{n}}+c_{1}\sum_{n\geq0}^{}(-1)^{n}\frac{x^{2n+1}}{2^{n}}</mrow>
-              <mrow>\amp= c_{0}\sum_{n\geq0}^{}\qty(-\frac{x^{2}}{2})^{n}+c_{1}x\sum_{n\geq0}^{}\qty(-\frac{x^{2}}{2})^{n}</mrow>
-              <mrow>\amp= \frac{c_{0}}{1+\frac{x^{2}}{2}} + \frac{c_{1}x}{1+\frac{x^{2}}{2}}</mrow>
-            </md>
-          </p>
-        </solution>
-      </example>
-    </subsection>
-    <subsection xml:id="subsection-solutions-at-singular-points-and-indicial-equations">
-      <title>Solutions at Singular Points and Indicial Equations</title>
-      <example>
-        <statement>
-          <p>
-            Attempt to solve the ODE <m>x^{2}y''+x^{2}y'+y=0</m>.
-          </p>
-        </statement>
-        <solution>
-          <p>
-            We start, just as we did before, by assuming the solution is a power series: <m>y=\sum_{n\geq0}^{}c_{n}x^{n}</m>. If we plug this into the ODE and simplify somewhat, we get the equation
-            <me>
-              c_{0}+\sum_{n\geq2}^{}\qty[n(n-1)c_{n}+(n-1)c_{n-1}+c_{n}]x^{n} = 0.
-            </me>
-            So it follows that
-            <md>
-              <mrow>c_{0} \amp= 0</mrow>
-              <mrow>c_{n} \amp= -\frac{n-1}{n(n-1)+1}c_{n-1}</mrow>
-            </md>
-            so the recurrence relation shows that <m>c_{1} = 0, c_{2} = 0,\ldots</m> so the solution would have to be <m>y=0</m>.
-            This is certainly a solution, but it can't be the general solution.
-            What this tells us is that the general solution of this ODE <em>cannot</em> be written as a power series.
-          </p>
-        </solution>
-      </example>
-      <p>
-        The reason we couldn't find a solution of the form <m>y=\sum_{n\geq0}^{}c_{n}x^{n}</m> was because <m>x=0</m> is a singular point of the ODE.
-        If we divide through by <m>x^{2}</m> we get
-        <me>
-          y''+\frac{1}{x}y'+\frac{1}{x^{2}}y = 0
-        </me>
-        and it's obvious that the coefficients have a divide by <m>0</m> problem at <m>x=0</m>.
-      </p>
+    </solution>
+</example>
+<term>SUGGESTED PROBLEMS:</term> 3-9 odd
+</section>
+\section{Unit step functions and time shifting}
+The <term>unit step function</term> or <term>Heaviside function</term> is the function <m>u(t)</m> defined by
+\[
+u(t) = \begin{cases}
+0, \amp\text{ if }t\lt 0\\
+1 \amp\text{ if } t\geq0
+\end{cases}.
+\]
+Note also that 
+\[
+u(t-a) = \begin{cases}
+0, \amp\text{ if }t\lt a\\
+1 \amp\text{ if } t\geq a
+\end{cases}
+\]
+for any <m>a</m>.
 
-      <p>
-        Our goal is to find a way of dealing with situations where <m>x=0</m> is a singular point of the ODE
-        <me>
-          x^{2}y''+xp(x)y'+q(x)y=0.
-        </me>
-        We know, in general, that we won't be able to find a power series solution <m>\sum_{n\geq0}^{}c_{n}x^{n}</m>; intuitively, a power series solution is too ``nice'' to be a solution of this ODE if <m>x=0</m> is a singular point.
-        To fix this, we change our guess for <m>y</m> to <m>y=x^{r}\sum_{n\geq0}^{}c_{n}x^{n}</m> or, equivalently,
-        <me>
-          y = \sum_{n\geq0}^{}c_{n}x^{n+r}.
-        </me>
-        Here, <m>r</m> can be any number (real or complex!), so in general <m>y</m> <em>will not be a power series</em>.
-        <aside>
-          <p>
-            Recall that a power series, by definition, has only nonnegative whole number powers of <m>x</m>.
-          </p>
-        </aside>
-        We lose a little bit by no longer assuming that <m>y</m> is a power series, but this expression may be flexible enough to lead to a solution of the ODE if <m>x=0</m> is a singular point.
-        Our goal now is to find the value of <m>r</m> based on the ODE.
-      </p>
-      <p>
-        To do so, we will plug <m>y=\sum_{n\geq0}^{}c_{n}x^{n+r}</m> into the ODE
-        <me>
-          x^{2}y''+xp(x)y'+q(x)y = 0
-        </me>
-        and attempt to get some conditions on <m>r</m>. First, note that
-        <md>
-          <mrow>y' \amp= \sum_{n\geq0}^{}(n+r)c_{n}x^{n+r-1}</mrow>
-          <mrow>y'' \amp= \sum_{n\geq0}^{}(n+r)(n+r-1)c_{n}x^{n+r-2}</mrow>
-        </md>
-        so when we plug these into the ODE we get
-        <me>
-          \sum_{n\geq0}^{}(n+r)(n+r-1)c_{n}x^{n+r}+\sum_{n\geq0}^{}p(x)(n+r)c_{n}x^{n+r}+\sum_{n\geq0}^{}q(x)c_{n}x^{n+r} = 0.
-        </me>
-        Now combine everything into one sum to get
-        <me>
-          \sum_{n\geq0}^{}\left[(n+r)(n+r-1)+p(x)(n+r)+q(x)\right]c_{n}x^{n+r} = 0.
-        </me>
-        So for this equation to be true, we need to have
-        <me>
-          \left[(n+r)(n+r-1)+p(x)(n+r)+q(x)\right]c_{n} = 0
-        </me>
-        for every <m>n</m> and every <m>x</m>.
-        Since we are trying to find <m>r</m>, we'll pick values for <m>n</m> and <m>x</m>.
-        In particular, if we assume that <m>p(x)</m> and <m>q(x)</m> exist at <m>x=0</m> we can pick <m>n=x=0</m> to get
-        <me>
-          r(r-1)+p(0)r+q(0) = 0
-        </me>
-        (we can assume that <m>c_{0}\neq0</m>). This equation tells us how to find <m>r</m>.
-      </p>
-      <definition xml:id="definition-indicial-equation">
-        <title>Indicial Equation</title>
-        <statement>
-          <p>
-            Suppose that <m>x=0</m> is a singular point of the ODE
-            <me>
-              x^{2}y''+xp(x)y'+q(x)y=0
-            </me>
-            but that <m>p(x)</m> and <m>q(x)</m> have well-defined power series at <m>x=0</m> (i.e. <m>p(0)</m> and <m>q(0)</m> make sense).
-            The <term>indicial equation</term> is given by
-            <me>
-              r(r-1)+p(0)r+q(0) = 0.
-            </me>
-          </p>
-        </statement>
-      </definition>
-      <p>
-        What we've shown is that if <m>y=x^{r}\sum_{n\geq0}^{}c_{n}x^{n}</m> is a solution of the ODE
-        <me>
-          x^{2}y''+xp(x)y'+q(x)y=0
-        </me>
-        then <m>r</m> must be a root of the indicial equation.
-        In fact, we can say more.
-      </p>
-      <theorem xml:id="theorem-method-of-frobenius">
-        <title>Method of Frobenius</title>
-        <statement>
-          <p>
-            Consider the ODE
-            <me>
-              x^{2}y''+xp(x)y'+q(x)y=0.
-            </me>
-            Let <m>r_{1}\geq r_{2}</m> be (real) roots of the indicial equation <m>r(r-1)+p(0)r+q(0)=0</m>.
-            <ol>
-              <li>
-                <p>
-                  There is a solution of the ODE of the form <m>x^{r_{1}}\sum_{n\geq0}^{}c_{n}x^{n}</m>.
-                </p>
-              </li>
-              <li>
-                <p>
-                  If <m>r_{1}-r_{2}</m> is <em>not</em> equal to an integer, then there exists a second linearly independent solution of the form <m>x^{r_{2}}\sum_{n\geq0}^{}d_{n}x^{n}</m>.
-                </p>
-              </li>
-            </ol>
-          </p>
-        </statement>
-      </theorem>
-      <example xml:id="example-using-method-of-frobenius">
-        <title>Using the Method of Frobenius</title>
-        <statement>
-          <p>
-            Find a series solution centered at <m>0</m> of the ODE
-            <me>
-              x^{2}y''+xy'+(x^{2}-\frac{1}{4})y=0.
-            </me>
-          </p>
-        </statement>
-        <solution>
-          <p>
-            If we divide through the ODE by <m>x^{2}</m> we get a divide-by-zero problem at <m>x=0</m>, so <m>x=0</m> is a singular point.
-            However, for this ODE we have
-            <md>
-              <mrow>p(x) \amp= 1</mrow>
-              <mrow>q(x) \amp= x^{2}-\frac{1}{4}</mrow>
-            </md>
-            so <m>p(0)</m> and <m>q(0)</m> both make sense.
-            This means we can use the method of Frobenius to find a solution.
-          </p>
-          <p>
-            The first step is to set up and solve the indicial equation, which in this case is given by
-            <me>
-              r(r-1)+r-\frac{1}{4} = 0.
-            </me>
-            We solve this algebraically for <m>r</m> to get the roots <m>r_{1}=\frac{1}{2}</m> and <m>r_{2}=-\frac{1}{2}</m>.
-            Since <m>r_{1}-r_{2} = 1</m> is an integer, the method of Frobenius does <em>not</em> guarantee two linearly independent solutions.
-            However, we are guaranteed one solution using <m>r_{1}</m>.
-            So we make the guess
-            <me>
-              y = x^{\frac{1}{2}}\sum_{n\geq0}^{}c_{n}x^{n} = \sum_{n\geq0}^{}c_{n}x^{n+\frac{1}{2}}.
-            </me>
-            Now we plug this into the ODE to get
-            <me>
-              \sum_{n\geq0}c_{n}(n+\frac{1}{2})(n-\frac{1}{2})x^{n+\frac{1}{2}} + \sum_{n\geq0}c_{n}(n+\frac{1}{2})x^{n+\frac{1}{2}} 
-              + \sum_{n\geq0}c_{n}x^{n+\frac{5}{2}} - \sum_{n\geq0}\frac{1}{4}c_{n}x^{n+\frac{1}{2}}
-            </me>
-            or just
-            <me>
-              \sum_{n\geq0}^{}\qty[(n+\frac{1}{2})(n-\frac{1}{2})+(n+\frac{1}{2})-\frac{1}{4}]c_{n}x^{n+\frac{1}{2}} 
-              +\sum_{n\geq2}^{}c_{n-2}x^{n+\frac{1}{2}}=0.
-            </me>
-            which simplifies to
-            <me>
-              \sum_{n\geq0}\brackets{n(n+1)}c_{n}x^{n+\frac{1}{2}}+\sum_{n\geq2}c_{n-2}x^{n+\frac{1}{2}} = 0.
-            </me>
-            So the recurrence relation the coefficients <m>c_{n}</m> need to satisfy is
-            <me>
-              c_{n} = -\frac{1}{n(n+1)}c_{n-2}\quad\text{for}\quad n\geq2.
-            </me>
-          </p>
-          <p>
-            The recurrence relation will tell us <em>nothing</em> about <m>c_{0},c_{1}</m>, so to see if there are any restrictions on <m>c_{0},c_{1}</m> we separate the <m>n=0</m> and <m>n=1</m> terms from the summation to get
-            <me>
-              0c_{0}x^{\frac{1}{2}}+2c_{1}x^{\frac{3}{2}}+\sum_{n\geq2}^{}\left[n(n+1)c_{n}+c_{n-2}\right]x^{n+\frac{1}{2}}=0
-            </me>
-            This equation places no restrictions at all on <m>c_{0}</m>, but it does force <m>c_{1} = 0</m> since we need the <m>x^{\frac{3}{2}}</m> term to disappear to make this equation true.
-            This tells us that we can ignore the coefficients <m>c_{n}</m> with odd index, since they will all disappear.
-          </p>
-          <p>
-            Now we'll try to find a pattern in the remaining coefficients:
-            <md>
-              <mrow>c_{2} \amp= -\frac{1}{2\cdot3}c_{0}</mrow>
-              <mrow>c_{4} \amp= -\frac{1}{4\cdot5}c_{2} = \frac{(-1)^{2}}{5!}c_{0}</mrow>
-              <mrow>c_{6} \amp= -\frac{1}{6\cdot7}c_{4} = \frac{(-1)^{3}}{7!}c_{0}</mrow>
-            </md>
-            and in general
-            <me>
-              c_{2n} = \frac{(-1)^{n}}{(2n+1)!}c_{0}.
-            </me>
-            So the solution of this ODE is given by
-            <me>
-              y = \sum_{n\geq0}c_{2n}x^{2n+\frac{1}{2}} = \sum_{n\geq0}\frac{(-1)^{n}}{(2n+1)!}c_{0}x^{2n+\frac{1}{2}},
-            </me>
-            which is actually just
-            <me>
-              y = c_{0}\frac{\sin x}{\sqrt{x}}
-            </me>
-          </p>
-        </solution>
-      </example>
-    </subsection>
-  </section>
+Recall that we have a result for <m>s</m>-shifting, or translation in the frequency domain:
+<me>\Laplace{e^{at}f(t)} = F(s-a) \quad\text{or}\quad\iLaplace{F(s-a)} = e^{at}f(t).</me>
+A similar result is true for <m>t</m>-shifting.
+\begin{theorem}\label{theorem:time-shifting}
+Let <m>f(t)</m> denote a piecewise continuous function with Laplace transform <m>F(s)</m>.
+Let <m>a\geq0</m>.
+Then <m>\Laplace{u(t-a)f(t-a)} = e^{-as}F(s)</m>, or equivalently <m>\iLaplace{e^{-as}F(s)} = u(t-a)f(t-a)</m>.
+\end{theorem}
+\begin{proof}
+To compute this we need to rely on the definition of the Laplace transform:
+<md>
+\Laplace{u(t-a)f(t-a)}
+\amp= \int_{0}^{\infty}u(t-a)f(t-a)e^{-st}\,dt \\
+\amp= \int_{a}^{\infty}f(t-a)e^{-st}\,dt \\
+\amp= \int_{0}^{\infty}f(\tau)e^{-s(\tau+a)}\,d\tau \\
+\amp= e^{-sa}\int_{0}^{\infty}f(\tau)e^{-s\tau}\,d\tau \\
+\amp= e^{-as}F(s).
+</md>
+\end{proof}
+The Heaviside function is useful for describing forces that turn on or off at specified times.
+\begin{example}
+A mass of \SI{1}{\kilogram} is attached to a spring that is held \SI{1}{\meter} to the right of its equilibrium position by a force of \US{4}{\newton}. Beginning at time <m>t=0</m>, a machine is turned on and applies an external force of <m>\cos3t</m> to the mass. 
+At time <m>t=2\pi</m> the machine is turned off and the external force disappears. 
+Let <m>x(t)</m> be the displacement of the mass at time <m>t</m>. 
+What is an ODE that models the motion of the mass?
+\end{example}
+\begin{proof}
+By Hooke's Law and Newton's Second Law, we have
+<me>mx''+kx = F_{E}(t)</me>
+where <m>F_{E}</m> is the external force at time <m>t</m>. 
+Since <m>m = 1</m>, <m>k = 4</m> and 
+\[
+F_{E}(t) = 
+\begin{cases}
+\cos3t \amp\text{if <m>0\leq t\lt 2\pi</m>}\\
+0 \amp\text{if <m>t\geq2\pi</m>}  
+\end{cases}
+\]\
+the motion of the mass satisfies the IVP 
+<me>x''+4x = F_{E}(t), x(0) = 1, x'(0) = 0.</me>
+We can rewrite <m>F_{E}(t)</m> as follows:
+<me>F_{E}(t) = [u(t-0)-u(t-2\pi)]\cos3t = u(t)\cos3t - u(t-2\pi)\cos3t.</me>
+
+So the IVP we need to solve is
+<me>x''+4x = u(t)\cos3t - u(t-2\pi)\cos3t, x(0) = 1, x'(0) = 0.</me>
+If we take Laplace transforms, this becomes
+<me>s^{2}X(s) - s + 4X(s) = \Laplace{F_{E}(t)},</me>
+where
+<md>
+\Laplace{F_{E}(t)}
+\amp= \Laplace{u(t)\cos3t} - \Laplace{u(t-2\pi)\cos3t} \\
+\amp= \frac{s}{s^{2}+9} - \Laplace{u(t-2\pi)\cos(3(t-2\pi)+6\pi)} \\
+\amp= \frac{s}{s^{2}+9} - \Laplace{u(t-2\pi)\cos(3(t-2\pi))} \\
+\amp= \frac{s}{s^{2}+9} - e^{-2\pi s}\frac{s}{s^{2}+9}.
+</md>
+So
+<me>s^{2}X(s) - s + 4X(s) = \frac{s}{s^{2}+9} - e^{-2\pi s}\frac{s}{s^{2}+9}.</me>
+If we solve this for <m>X(s)</m>, we get
+<me>X(s) = \frac{s}{s^{2}+4} + \frac{s}{(s^{2}+9)(s^{2}+4)} - e^{-2\pi s}\frac{s}{(s^{2}+9)(s^{2}+4)},</me>
+and if we simplify this using partial fractions this becomes
+<me>X(s) = \frac{s}{s^{2}+4} + \frac{1}{5}\brackets*{\frac{s}{s^{2}+4} - \frac{s}{s^{2}+9}}\parens*{1-e^{-2\pi s}}.</me>
+So the solution of the IVP is
+<md>
+x(t) 
+\amp= \iLaplace{\frac{s}{s^{2}+4} + \frac{1}{5}\brackets*{\frac{s}{s^{2}+4} - \frac{s}{s^{2}+9}}\parens*{1-e^{-2\pi s}}} \\
+\amp= \cos2t + \frac{1}{5}\parens*{\cos2t-\cos3t} - \frac{1}{5}\parens*{u(t-2\pi)\cos[2(t-2\pi)] - u(t-2\pi)\cos[3(t-2\pi)]}.
+</md>
+\end{proof}
+<term>SUGGESTED PROBLEMS:</term> 5, 9, 13, 17, 19, 21 odd
+\section{Dirac delta functions}
+\subsection{Impulses}
+Forces that act over very short time intervals\sidenote{For example, consider the force applied by a kick to a soccer ball, or a bat to a baseball.} may be complicated to describe exactly, but it seems we can approximate such a force if we treat it as instantaneous. 
+Our goal now is describe a meaningful mathematical interpretation of an instantaneous force.
+
+To be specific, let <m>f(t)</m> be a force that acts only from <m>t=a</m> to <m>t=b</m> (and is otherwise <m>0</m>). 
+Then the <term>impulse</term> of the force <m>f(t)</m> over the interval <m>[a,b]</m> is given by
+<me>p = \Int{a}{b}f(t)\dd{t}.</me>
+We view the impulse as essentially describing how the force acts over a short time interval, so we can switch from modeling instantaneous forces to instantaneous impulses. 
+And since the impulse is a number, all we really need to do is model an instantaneous <em>unit impulse</em>; any other impulse we can get by multiplication by a constant. 
+
+So this is our goal: find some function <m>d(t)</m> that has an instantaneous unit impulse at the point <m>t=0</m>.
+In other words, we want to find a function <m>d(t)</m> such that
+<me>\int_{0}^{0}d(t)\,dt = 1</me>
+But this is impossible for any function, since 
+<me>\Int{0}{0}d(t)\dd{t} = 0.</me>
+However, we can approximate the idea of an instantaneous unit impulse by defining 
+\begin{marginfigure}
+\centering
+\begin{tikzpicture}[scale=0.7]
+\begin{axis}[
+ticks = none,
+      enlargelimits=false,
+      legend cell align=left,
+      axis x line = middle,
+      xlabel = $t$,
+      axis y line = center,
+      ymin = -.5,
+      ymax = 1.5
+  ]
+  \addplot[domain=-.5:.5,thick,samples=200,blue]{1};
+  \addplot[domain=-2.5:-.5,thick,samples=200,blue]{0};
+  \addplot[domain=.5:2.5,thick,samples=200,blue]{0};
+  \addlegendentry{$d_{\varepsilon}(t)$}
+\end{axis}
+\end{tikzpicture}
+\caption{A plot of the approximation to unit impulse $d_{\varepsilon}(t)$.}
+\end{marginfigure}
+\[
+d_{\varepsilon}(t) = 
+\begin{cases}
+\frac{1}{\varepsilon} \amp\text{if <m>-\frac{\varepsilon}{2}\leq t\leq \frac{\varepsilon}{2}</m>} \\
+0 \amp\text{otherwise}.  
+\end{cases}
+\]
+Then for any <m>\varepsilon</m>, we have 
+<me>\Int{-\frac{\varepsilon}{2}}{\frac{\varepsilon}{2}}d_{\varepsilon}(t)\dd{t} = 1.</me>
+<m>d_{\varepsilon}(t)</m> is a completely valid function, and if we send <m>\varepsilon\to0</m> then it becomes a better and better approximation to an instantaneous unit impulse. Despite the fact that this limit does not exist (at least in the usual sense), we use it as a definition.
+\begin{definition}
+The <term>Dirac delta function</term>, denoted by the symbol <m>\delta(t)</m>, is defined by the equation
+<me>\delta(t) = \limit{\varepsilon}{0}d_{\varepsilon}(t).</me>
+\end{definition}
+The Dirac delta function is, of course, not an actual function.\sidenote{It's actually something called a \emph{generalized function}, or \emph{tempered distribution}.} 
+But it's still useful as a mathematical formulation of an instantaneous force with unit impulse at <m>t=0</m>. 
+We can also take translations of the Dirac delta, which we view as a ``function'' <m>\delta(t-a)</m> defined piecewise by 
+\[
+\delta(t-a)=
+\begin{cases}
+\infty \amp\text{if <m>t=a</m>}\\
+0 \amp\text{if <m>t\neq a</m>}.
+\end{cases}
+\]
+The most important property of the Dirac delta is that 
+\[
+\Int{\alpha}{\beta}\delta(t-a)\dd{t} = 
+\begin{cases}
+1 \amp\text{if <m>\alpha\leq a\leq\beta</m>} \\
+0 \amp\text{otherwise.}  
+\end{cases}
+\]
+We represent it graphically as an arrow:
+\begin{center}
+\begin{tikzpicture}
+\draw (-3,0)--(3,0);
+\draw[->,ultra thick, blue] (0,0)--(0,1) node[above,black]{$\delta(t)$};
+\draw[->,ultra thick, blue] (2.5,0)--(2.5,1) node[above,black]{$\delta(t-a)$};
+\node at (0,0) [below]{$t=0$};
+\node at (2.5,0) [below]{$t=a$};
+\end{tikzpicture}
+\end{center}
+We also have the important theorem formula for continuous functions.
+\begin{theorem}[Sifting property]
+Let <m>g(t)</m> be a continuous function and let <m>\alpha\leq a\leq\beta</m>. Then
+<me>\Int{\alpha}{\beta}g(t)\delta(t-a)\dd{t} = g(a)</me>
+\end{theorem}
+\begin{proof}[``Proof''.]
+We treat <m>\delta(t)</m> as a function and perform the above integration:
+<md>
+\Int{\alpha}{\beta}g(t)\delta(t-a)\dd{t}
+\amp= \Int{a}{a}g(t)\delta(t-a)\dd{t} \\
+\amp= g(a)\Int{a}{a}\delta(t-a)\dd{t} \\
+\amp= g(a)
+</md>
+\end{proof}
+The above theorem gives us another interpretation of the Dirac delta: it's a ``sampling function''. 
+When integrated against another function <m>g(t)</m> over an interval containing <m>a</m>, <m>\delta(t-a)</m> will pick out the value <m>g(a)</m>. 
+We can use this to find the Laplace transform of the Dirac delta.
+\begin{example}
+Compute <m>\Laplace{\delta(t-a)}</m>, where <m>a\geq0</m>.
+\end{example}
+\begin{proof}[Answer.]
+We use the definition of the Laplace transform:
+<md>
+\Laplace{\delta(t-a)}
+\amp= \int_{0}^{\infty}\delta(t-a)e^{-st}\,dt \\
+\amp= e^{-as}.
+</md>
+In particular, <m>\Laplace{\delta(t)} = 1</m>.
+\end{proof}
+
+\subsection{Dirac delta models}
+We use the Dirac delta to model instantaneous forces, such as sudden kicks or jolts.
+\begin{example}
+An object of mass <m>m=1</m>, at rest, is attached to a spring with spring constant <m>k=9</m>. 
+At time <m>t=0</m>, the a hammer strikes the mass providing an impulse of <m>3</m> and setting the mass in motion. What is the displacement <m>x(t)</m>?
+\end{example}
+\begin{proof}[Answer]
+<m>x(t)</m> satisfies the ODE
+<me>mx''+kx = f(t)</me>
+where <m>f(t)</m> is the external force. Since the hammer strikes quickly, we can model it as an instantaneous force of the form <m>c\delta(t)</m>. And since it provides an impulse of <m>3</m>, we can pick <m>f(t) = 3\delta(t)</m>. 
+As the mass is initially at rest, <m>x</m> satisfies the IVP
+<me>x''+9x = 3\delta(t)\qq{where}x(0) = x'(0) = 0.</me>
+To solve this, we take the Laplace transform of the IVP to get
+<me>s^{2}X(s)+9X(s) = 3</me>
+or just 
+<me>X(s) = \frac{3}{s^{2}+9}.</me>
+So <m>x(t) = \sin3t</m>.
+\end{proof}
+Note that the above solution does not appear to satisfy our initial conditions. 
+However, since we assumed the impulse acted instantaneously at time <m>t=0</m>, this is really the same as assuming that the mass had an initial velocity. 
+Now we look at what happens if we delay the hammer strike.
+\begin{example}\label{exmp:TimeDelay}
+Consider the spring-mass system above, but suppose now that the hammer hits the mass at time <m>t=4</m>. What is the displacement <m>x(t)</m>?
+\end{example}
+\begin{proof}[Answer]
+This time, the IVP we must solve is 
+<me>x''+9x = 3\delta(t-4)\qq{where}x(0)=x'(0)=0.</me>
+If we take Laplace transforms and solve for <m>X(s)</m> we get
+<me>X(s) = \frac{3e^{-4s}}{s^{2}+9}</me>
+and so, using our table, we see that
+\begin{marginfigure}
+\centering
+\begin{tikzpicture}[scale=0.7]
+\begin{axis}[
+        enlargelimits=false,
+        legend cell align=left,
+        axis x line = middle,
+        xlabel = $t$,
+        xmin = -1,
+        axis y line = center
+    ]
+    \addplot[domain=0:4,thick,samples=200,blue]{0};
+    \addplot[domain=4:9,thick,samples=200,blue]{sin(deg(3*x-12))};
+    \addlegendentry{$x(t)$}
+\end{axis}
+\end{tikzpicture}
+\caption{A plot of the displacement in Example~\ref{exmp:TimeDelay}.}
+\end{marginfigure}
+<me>x(t) = u(t-4)\sin[3(t-4)].</me>
+\end{proof}
+\begin{example}\label{exmp:Resonance}
+Once again we consider the spring-mass system used above, but now we suppose that the mass is struck with the hammer once every <m>\frac{2\pi}{3}</m> seconds, starting at <m>t=0</m>. Find <m>x(t)</m>.
+\end{example}
+\begin{proof}[Answer]
+The IVP we need to solve now is
+<md>
+x''+9x 
+\amp= 3\delta(t)+3\delta(t-\frac{2\pi}{3}) + 3\delta(t-\frac{4\pi}{3}) +\cdots \\
+\amp= 3\Sum{n=0}{\infty}\delta(t-\frac{2\pi n}{3})
+</md>
+where <m>x(0) = x'(0) = 0</m>. So once more we take Laplace transforms to get
+<me>s^{2}X(s)+9X(s) = 3\Sum{n=0}{\infty}\Laplace{\delta(t-\frac{2\pi n}{3})} = 3\Sum{n=0}{\infty}e^{-\frac{2\pi n}{3}s}</me>
+and so 
+<me>X(s) = \frac{3}{s^{2}+9}\Sum{n=0}{\infty}e^{-\frac{2\pi n}{3}s}</me>
+The displacement is then given by 
+<md>
+x(t)
+\amp= \iLaplace{X(s)} \\
+\amp= \iLaplace{\frac{3}{s^{2}+9}\cdot\Sum{n=0}{\infty}e^{-\frac{2\pi n}{3}s}} \\
+\amp= \iLaplace{\Sum{n=0}{\infty}e^{-\frac{2\pi n}{3}}\frac{3}{s^{2}+9}} \\
+\amp= \Sum{n=0}{\infty}u(t-\frac{2\pi n}{3})\sin[3(t-\frac{2\pi n}{3})] \\
+\amp= \Sum{n=0}{\infty}u(t-\frac{2\pi n}{3})\sin3t.
+</md>
+Each time the hammer strikes the mass, a factor of <m>\sin3t</m> is added to the displacement. The repeated hammer strikes are in tune with the natural frequency of the mass, so they create resonance. 
+\begin{marginfigure}[60pt]
+\begin{tikzpicture}[scale = .7]
+\begin{axis}[
+        enlargelimits=false,
+        legend cell align=left,
+        axis x line = middle,
+        xlabel = $t$,
+        ylabel = $x$,
+        axis y line = center
+    ]
+    \addplot[domain=0:2*pi/3,thick,samples=200,blue]{sin(deg(3*x))};
+    \addplot[domain=2*pi/3:4*pi/3,thick,samples=200,blue]{2*sin(deg(3*x))};
+    \addplot[domain=4*pi/3:6*pi/3,thick,samples=200,blue]{3*sin(deg(3*x))};
+    \addplot[domain=6*pi/3:8*pi/3,thick,samples=200,blue]{4*sin(deg(3*x))};
+    \addlegendentry{$x(t)$}
+\end{axis}
+\end{tikzpicture}
+\caption{The motion of the mass in Example~\ref{exmp:Resonance}.}
+\end{marginfigure}
+\end{proof}
+<term>SUGGESTED PROBLEMS:</term> 3, 7
+
+\section{Convolution product}
+Consider the function <m>F(s)</m> in the frequency domain <m>s</m> defined by 
+<me>F(s) = \frac{1}{s(s^{2}+4)}.</me>
+This does not match a Laplace transform on our table. 
+If we wanted to find the inverse transform <m>f(t)</m>, we would have to use partial fractions to find it. 
+However, <m>F(s)</m> is easily seen to be the <em>product</em> of two recognizable transforms:
+<me>F(s) = \frac{1}{s} \frac{1}{s^{2}+4} = \frac{1}{2}\Laplace{1}\Laplace{\sin2t}.</me>
+What we would like to do is find a way to determine inverse transforms of products of transforms. 
+To do this, we need to define the <em>convolution</em> of two functions.
+\begin{definition}
+Let <m>f</m> and <m>g</m> be piecewise continuous functions. 
+The <term>convolution</term> of <m>f</m> and <m>g</m>, denoted by <m>(f\ast g)(t)</m>, <m>f(t)\ast g(t)</m> or just <m>f\ast g</m>, is defined for <m>t\geq0</m> by 
+<me>(f\ast g)(t) = \Int{0}{t} f(\tau)g(t-\tau)\,d\tau.</me>
+The variable <m>\tau</m> is a dummy variable.
+\end{definition}
+Note that <m>f\ast g</m> lies in the time domain instead of the frequency domain. 
+In general, we will only take convolutions of functions in the time domain.
+
+Convolutions are important because they act as ``smoothing operators.'' 
+If you have a ``rough'' (i.e. non-differentiable) function, then convolving it with a properly chosen smooth function may give you a smooth approximation\sidenote{In general, smooth functions are easier to deal with and control errors for since they are differentiable.} to your original function. 
+\begin{example}
+Compute <m>u\ast t</m>, where <m>u(t)</m> is the unit step function.
+\end{example}
+\begin{proof}[Answer]
+By definition,
+<md>
+u(t)\ast t
+\amp= \Int{0}{t}u(\tau)(t-\tau)\,d\tau \\ 
+\amp= \Int{0}{t}(t-\tau)\,d\tau \\
+\amp= \qty[t\tau-\frac{\tau^{2}}{2}]_{\tau=0}^{\tau=t} \\
+\amp= \frac{t^{2}}{2}.
+</md>
+\end{proof}
+
+One important property of convolutions is that they are <em>commutative</em>:\sidenote{Saying that an operation is <term>commutative</term> means that the order in which you take the operation (that is, compute the ``multiplication'') does not matter. 
+For example, multiplication of real numbers is commutative but multiplication of matrices is not commutative.} that is, <m>f\ast g = g\ast f</m> for any piecewise continuous functions <m>f</m> and <m>g</m>. 
+Another important property of convolutions is that they tend to work well with integral transforms. 
+In particular, we have the following theorem.
+\begin{theorem}\label{thm:convolutionTransform}
+The Laplace transform distributes over convolution. 
+In other words, if <m>f</m> and <m>g</m> are piecewise continuous functions, then 
+<me>\Laplace{f(t)\ast g(t)} = \Laplace{f(t)}\Laplace{g(t)}.</me>
+Equivalently, if we write <m>F(s) = \Laplace{f(t)}</m> and <m>G(s) = \Laplace{g(t)}</m>, then 
+<me>\iLaplace{F(s)G(s)} = f(t)\ast g(t) = \Int{0}{t}f(\tau)g(t-\tau).</me>
+\end{theorem}
+\begin{proof}[Answer]
+A good Calc 3 exercise.
+\end{proof}
+One way to phrase the above result is that Laplace transforms turns convolution in the time domain into multiplication in the frequency domain. 
+Let's return to the example we started with.
+\begin{example}
+Let 
+<me>F(s) = \frac{1}{s(s^{2}+4)}.</me>
+Find <m>f(t) = \iLaplace{F(s)}</m>.
+\end{example}
+\begin{proof}[Answer]
+We will use Theorem~\ref{thm:convolutionTransform} to express the inverse transform:
+<md>
+f(t)
+\amp= \iLaplace{F(s)} \\
+\amp= \iLaplace{\frac{1}{s}\cdot\frac{1}{s^{2}+4}} \\
+\amp= 1\ast \frac{1}{2}\sin2t \\
+\amp= \frac{1}{2}\Int{0}{t}\sin2\tau\,d\tau \\
+\amp= -\frac{1}{4}\qty[\cos2\tau]_{\tau=0}^{\tau=t} \\
+\amp= \frac{1-\cos2t}{4}.
+</md>\end{proof}
+\begin{example}
+Let <m>x</m> be a function of <m>t</m>. 
+Solve the IVP
+<me>x''+4x'+13x = f(t)\qq{where}x(0) = x'(0) = 0</me>
+for <m>x(t)</m> in terms of the function <m>f(t)</m>.
+\end{example}
+\begin{proof}[Answer]
+We're trying to find the solution <m>x(t)</m> for arbitrary <m>f(t)</m>, which is something we definitely would not have been able to do in Chapter 3. 
+We will do so using Laplace transforms and Theorem~\ref{thm:convolutionTransform}. 
+So we start by taking the Laplace transform of the ODE to get 
+<me>s^{2}X(s) +4sX(s) + 13X(s) = F(s)</me>
+where <m>X(s) = \Laplace{x(t)}</m> and <m>F(s) = \Laplace{f(t)}</m>. 
+Now we solve for <m>X(s)</m> to get 
+<me>X(s) = \frac{F(s)}{s^{2}+4s+13} = F(s)G(s)</me>
+where
+<me>G(s) = \frac{1}{s^{2}+4s+13}</me> 
+Theorem~\ref{thm:convolutionTransform} tells us then that 
+<me>x(t) = \iLaplace{F(s)G(s)} = f(t)*g(t)</me>
+where 
+<md>
+g(t)
+\amp= \iLaplace{G(s)} \\
+\amp= \iLaplace{\frac{1}{s^{2}+4s+13}} \\ 
+\amp= \iLaplace{\frac{1}{(s+2)^{2}+9}} \amp \text{complete the square}\\
+\amp= \frac{1}{3}e^{-2t}\sin3t \amp \text{use a translation formula}
+</md>
+Therefore the solution of the ODE in terms of the function <m>f(t)</m> is given by
+<md>
+x(t)
+\amp= f(t)\ast g(t) \\
+\amp= \Int{0}{t}f(\tau)g(t-\tau)\,d\tau \\
+\amp= \int_{0}^{t}f(\tau)\frac{e^{-2(t-\tau)}\sin[3(t-\tau)]}{3}\,d\tau
+</md>
+\end{proof}
+<term>SUGGESTED PROBLEMS:</term> 1, 3, 17, 21, 25
 </chapter>

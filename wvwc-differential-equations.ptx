@@ -17,8 +17,8 @@
       \newcommand{\Sum}[2]{\sum_{#1}^{#2}}    
       \newcommand{\Int}[2]{\int_{#1}^{#2}}
       \newcommand{\limit}[2]{\lim_{#1\to#2}}
-      \newcommand{\Laplace}[1]{\mathcal{L}\set*{#1}}
-      \newcommand{\iLaplace}[1]{\mathcal{L}^{-1}\set*{#1}}
+      \newcommand{\Laplace}[1]{\mathcal{L}\left\{#1\right\}}
+      \newcommand{\iLaplace}[1]{\mathcal{L}^{-1}\left\{#1\right\}}
       \newcommand{\dv}[3][]{\dfrac{d^{#1} #2}{d #3^{#1}}}
       \newcommand{\pdv}[3][]{\dfrac{\partial^{#1} #2}{\partial #3^{#1}}}
       \newcommand{\dd}[2][]{\, d^{#1} #2\ }
@@ -88,6 +88,7 @@
       <xi:include href="./higher-order-linear-odes.ptx" /> <!-- Solutions of higher order linear ODEs with constant coefficients -->
       <xi:include href="./systems-odes.ptx" /> <!-- Solutions of systems of first order ODEs -->
       <xi:include href="./series-solutions.ptx" /> <!-- Methods of series solutions for ODEs -->
+      <xi:include href="./laplace-transforms.ptx" /> <!-- Laplace transforms -->
       <xi:include href="./fourier-analysis.ptx" />    <!-- Definition and basic examples of Fourier series -->
       <xi:include href="./partial-differential-equations.ptx" />  <!-- Definition and basic examples of PDEs -->
       <xi:include href="./backmatter.ptx" /> <!-- Index and whatnot. -->
