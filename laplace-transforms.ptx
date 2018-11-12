@@ -894,6 +894,25 @@
         </p>
       </solution>
     </example>
-    <term>SUGGESTED PROBLEMS:</term> 1, 3, 17, 21, 25
+    <p>
+      There are a couple of interesting things happening in the last example.
+      In particular, we were able to write the solution <m>x(t)</m> in terms of <m>f(t)</m> as
+      <me>x(t) = g(t)\ast f(t)</me>.
+      In these terms, we can view <m>f(t)</m> as the input into a particular system (whose behavior is determined by the ODE) and the solution <m>x(t)</m> is the corresponding output.
+      This relationship is even easier to write in the frequency domain: the frequency input <m>F(s)</m> is turned into the frequency output <m>X(s)</m> by means of the <term>transfer function</term> <m>G(s)</m>:
+      <me>X(s) = G(s)F(s)</me>.
+    </p>
+    <p>
+      The importance of the transfer function in applications is that it encodes <em>all possible outputs</em> the system is capable of producing.
+      There are multiple ways to find the transfer function, assuming that all initial conditions are <m>0</m>.
+      First, if <m>F(s)</m> is the input and <m>X(s)</m> is some measured output (once again, in the frequency domain), then the transfer function <m>G(s)</m> satisfies
+      <me>G(s) = \frac{X(s)}{F(s)}</me>,
+      and this quantity is independent of the particular choice of <m>F(s)</m>.
+      In particular, we can replace the time domain input <m>f(t)</m> with <m>\delta(t)</m>.
+      In this case, the corresponding output in the frequency domain is
+      <me>X(s) = G(s)\Laplace{\delta(t)} = G(s)</me>.
+      For this reason, the inverse transform of the transfer function is also known as the <term>impulse response</term> of the system.
+    </p>
+    <p><term>SUGGESTED PROBLEMS:</term> 1, 3, 17, 21, 25</p>
   </section>
 </chapter>
