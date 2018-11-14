@@ -284,7 +284,7 @@
       <statement>
         <p>
           Let <m>f(x)</m> be a piecewise continuous function on the interval <m>-\pi\leq x\leq\pi</m>, and suppose that it's also periodic with period <m>2\pi</m>, and is differentiable everywhere that it's continuous.
-          Then the Fourier series of <m>f(x)</m> converges to <m>f(x)</m> except at the points where <m>f(x)</m> is continuous.</p>
+          Then the Fourier series of <m>f(x)</m> converges to <m>f(x)</m> except at the points where <m>f(x)</m> is discontinuous.</p>
         </statement>
       </theorem>
     </subsection>
