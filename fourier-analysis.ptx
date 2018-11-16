@@ -180,7 +180,6 @@
           I1,I2,I3,I4,I5
         </input>
       </sage>
-
       <p>
         <xref ref="theorem-orthogonality-relations"/> will be our primary tool for expressing a function <m>f(x)</m> as a trigonometric series.
         To see how, suppose that we have
@@ -207,84 +206,86 @@
         <title>Fourier Series Coefficients</title>
         <idx><h>Fourier series</h><h>Coefficients</h></idx>
         <statement>
-          <p>Let <m>f(x)</m> be a periodic function with period <m>2\pi</m>.
-          Then the Fourier coefficients of <m>f(x)</m> are given by
+          <p>
+            Let <m>f(x)</m> be a periodic function with period <m>2\pi</m>.
+            Then the Fourier coefficients of <m>f(x)</m> are given by
+            <md>
+              <mrow>a_{0} \amp= \frac{1}{2\pi}\int_{-\pi}^{\pi}f(x)\,dx</mrow>
+              <mrow>a_{n} \amp = \frac{1}{\pi}\int_{-\pi}^{\pi}f(x)\cos nx\,dx\text{ for $n\geq1$.}</mrow>
+              <mrow>b_{n} \amp= \frac{1}{\pi}\int_{-\pi}^{\pi}f(x)\sin nx\,dx\text{ for $n\geq 1$.}</mrow>
+            </md>
+          </p>
+        </statement>
+      </theorem>
+      <example xml:id="example-fourier-series-of-x-cubed">
+        <title>The Fourier series of <m>x^{3}</m></title>
+        <p>
+          Define <m>f(x) = x^{3}</m> for <m>-\pi\leq x\leq \pi</m>.
+          To find its Fourier series, we can just use the previous formulas to find the values of the coefficients <m>a_{0},a_{k},b_{k}</m> for <m>k\geq1</m>.
+          We know that
           <md>
-            <mrow>a_{0} \amp= \frac{1}{2\pi}\int_{-\pi}^{\pi}f(x)\,dx</mrow>
-            <mrow>a_{n} \amp = \frac{1}{\pi}\int_{-\pi}^{\pi}f(x)\cos nx\,dx\text{ for $n\geq1$.}</mrow>
-            <mrow>b_{n} \amp= \frac{1}{\pi}\int_{-\pi}^{\pi}f(x)\sin nx\,dx\text{ for $n\geq 1$.}</mrow>
+            <mrow>a_{0} \amp = \frac{1}{2\pi}\int_{-\pi}^{\pi}x^{3}\,dx</mrow>
+            <mrow>a_{k} \amp = \frac{1}{\pi}\int_{-\pi}^{\pi}x^{3}\cos kx\,dx </mrow>
+            <mrow>b_{k} \amp = \frac{1}{\pi}\int_{-\pi}^{\pi}x^{3}\sin kx\,dx.</mrow>
+          </md>
+          As nasty as these are, the first two are actually very easy to compute.
+          Here's why: <m>x^{3}</m> and <m>x^{3}\cos kx</m> are both <em>odd</em> functions, and the integral of any odd function in an interval that is symmetric about <m>0</m> is always <m>0</m> (since the areas cancel out).
+          So <m>a_{0} = a_{k} = 0</m> for all <m>k\geq0</m>.
+          The last term is a bit more complicated, but we can use integration by parts (and I definitely recommend using a computer here) to show that
+          <me>\int x^{3}\sin kx\,dx = -\frac{{\left(k^{3} x^{3} - 6 \, k x\right)} \cos\left(k x\right) - 3 \, {\left(k^{2} x^{2} - 2\right)} \sin\left(k x\right)}{k^{4}} + C.</me>
+          If we plug in the limits of integration and simplify (again, computers are handy for this!), we get
+          <me>b_{k} = \frac{2 \, {\left(6 \, \pi - \pi^{3} k^{2}\right)} \left(-1\right)^{k}}{\pi k^{3}}.</me>
+          So the Fourier series for <m>f(x) = x^{3}</m> is given by
+          <md>
+            <mrow>a_{0} + \sum_{k=1}^{\infty}(a_{k}\cos kx+b_{k}\sin kx) \amp= \sum_{k=1}^{\infty}b_{k}\sin kx </mrow>
+            <mrow> \amp= \sum_{k=1}^{\infty}\frac{2 \, {\left(6 \, \pi - \pi^{3} k^{2}\right)} \left(-1\right)^{k}}{\pi k^{3}}\sin kx. </mrow>
           </md>
         </p>
-      </statement>
-    </theorem>
-    <example xml:id="example-fourier-series-of-x-cubed">
-      <title>The Fourier series of <m>x^{3}</m></title>
+      </example>
       <p>
-        Define <m>f(x) = x^{3}</m> for <m>-\pi\leq x\leq \pi</m>.
-        To find its Fourier series, we can just use the previous formulas to find the values of the coefficients <m>a_{0},a_{k},b_{k}</m> for <m>k\geq1</m>.
-        We know that
-        <md>
-          <mrow>a_{0} \amp = \frac{1}{2\pi}\int_{-\pi}^{\pi}x^{3}\,dx</mrow>
-          <mrow>a_{k} \amp = \frac{1}{\pi}\int_{-\pi}^{\pi}x^{3}\cos kx\,dx </mrow>
-          <mrow>b_{k} \amp = \frac{1}{\pi}\int_{-\pi}^{\pi}x^{3}\sin kx\,dx.</mrow>
-        </md>
-        As nasty as these are, the first two are actually very easy to compute.
-        Here's why: <m>x^{3}</m> and <m>x^{3}\cos kx</m> are both <em>odd</em> functions, and the integral of any odd function in an interval that is symmetric about <m>0</m> is always <m>0</m> (since the areas cancel out).
-        So <m>a_{0} = a_{k} = 0</m> for all <m>k\geq0</m>.
-        The last term is a bit more complicated, but we can use integration by parts (and I definitely recommend using a computer here) to show that
-        <me>\int x^{3}\sin kx\,dx = -\frac{{\left(k^{3} x^{3} - 6 \, k x\right)} \cos\left(k x\right) - 3 \, {\left(k^{2} x^{2} - 2\right)} \sin\left(k x\right)}{k^{4}} + C.</me>
-        If we plug in the limits of integration and simplify (again, computers are handy for this!), we get
-        <me>b_{k} = \frac{2 \, {\left(6 \, \pi - \pi^{3} k^{2}\right)} \left(-1\right)^{k}}{\pi k^{3}}.</me>
-        So the Fourier series for <m>f(x) = x^{3}</m> is given by
-        <md>
-          <mrow>a_{0} + \sum_{k=1}^{\infty}(a_{k}\cos kx+b_{k}\sin kx) \amp= \sum_{k=1}^{\infty}b_{k}\sin kx </mrow>
-          <mrow> \amp= \sum_{k=1}^{\infty}\frac{2 \, {\left(6 \, \pi - \pi^{3} k^{2}\right)} \left(-1\right)^{k}}{\pi k^{3}}\sin kx. </mrow>
-        </md>
+        A very good question at this point is, what relationship does the Fourier series that we found in the previous example have with the original function <m>f(x)</m>?
+        Are they actually equal?
+        If we use the following code (adapted from <url href="https://doxdrum.wordpress.com/2011/01/31/sage-tip-fourier-series-approximation/">here</url>) to compare the partial sums
+        <me>\sum_{k=1}^{n}\frac{2 \, {\left(6 \, \pi - \pi^{3} k^{2}\right)} \left(-1\right)^{k}}{\pi k^{3}}\sin kx</me>
+        of the Fourier series with <m>f(x) = x^{3}</m>, then it looks like the partial sums get closer and closer if we choose larger values of <m>n</m>.
       </p>
-    </example>
-    <p>
-      A very good question at this point is, what relationship does the Fourier series that we found in the previous example have with the original function <m>f(x)</m>?
-      Are they actually equal?
-      If we use the following code (adapted from <url href="https://doxdrum.wordpress.com/2011/01/31/sage-tip-fourier-series-approximation/">here</url>) to compare the partial sums
-      <me>\sum_{k=1}^{n}\frac{2 \, {\left(6 \, \pi - \pi^{3} k^{2}\right)} \left(-1\right)^{k}}{\pi k^{3}}\sin kx</me>
-      of the Fourier series with <m>f(x) = x^{3}</m>, then it looks like the partial sums get closer and closer if we choose larger values of <m>n</m>.
-    </p>
-    <sage>
-      <input>
-        var('x,k,i')
+      <sage>
+        <input>
+          var('x,k,i')
 
-        # Defines the function to determine Fourier series of. Feel free to play around with this.
-        f(x) = x**3
+          # Defines the function to determine Fourier series of. Feel free to play around with this.
+          f(x) = x**3
 
-        # Defines the Fourier coefficients.
-        def a(k):
-          coeff = integral(f(x)*cos(k*x), (x,-pi,pi))/pi
-          return coeff
+          # Defines the Fourier coefficients.
+          def a(k):
+            coeff = integral(f(x)*cos(k*x), (x,-pi,pi))/pi
+            return coeff
 
-        def b(k):
-          coeff = integral(f(x)*sin(k*x), (x,-pi,pi))/pi
-          return coeff
+          def b(k):
+            coeff = integral(f(x)*sin(k*x), (x,-pi,pi))/pi
+            return coeff
 
-        # Defines the corresponding (partial) Fourier series.
-        def FS(k):
-          return a(0)/2 + sum(a(i)*cos(i*x) + b(i)*sin(i*x), i, 1, k)
+          # Defines the corresponding (partial) Fourier series.
+          def FS(k):
+            return a(0)/2 + sum(a(i)*cos(i*x) + b(i)*sin(i*x), i, 1, k)
 
-        n = 3
-        p = plot(FS(n),(x,-pi,pi), color='red') + plot(f(x),(x,-pi,pi))
-        p
-      </input>
-    </sage>
-    <p>
-      In general, the question of whether or not a given Fourier series makes sense is a difficult one to answer.<fn xml:id="footnote-convergence-of-fourier-series">In fact, the convergence of Fourier series for what one might consider to be the more "well-behaved" functions in mathematics was an open question until the 1960s. See <url href="https://en.wikipedia.org/wiki/Carleson%27s_theorem">Carleson's Theorem</url>.</fn>
-      However, for many of the functions we care about in this course we have the following theorem.
-    </p>
-    <theorem xml:id="theorem-pointwise-convergence-of-fourier-series">
-      <title>Fourier Series of Piecewise Continuous Functions</title>
-      <idx><h>Fourier series</h><h>convergence</h></idx>
-      <statement>
-        <p>
-          Let <m>f(x)</m> be a piecewise continuous function on the interval <m>-\pi\leq x\leq\pi</m>, and suppose that it's also periodic with period <m>2\pi</m>, and is differentiable everywhere that it's continuous.
-          Then the Fourier series of <m>f(x)</m> converges to <m>f(x)</m> except at the points where <m>f(x)</m> is discontinuous.</p>
+          n = 3
+          p = plot(FS(n),(x,-pi,pi), color='red') + plot(f(x),(x,-pi,pi))
+          p
+        </input>
+      </sage>
+      <p>
+        In general, the question of whether or not a given Fourier series makes sense is a difficult one to answer.<fn xml:id="footnote-convergence-of-fourier-series">In fact, the convergence of Fourier series for what one might consider to be the more "well-behaved" functions in mathematics was an open question until the 1960s. See <url href="https://en.wikipedia.org/wiki/Carleson%27s_theorem">Carleson's Theorem</url>.</fn>
+        However, for many of the functions we care about in this course we have the following theorem.
+      </p>
+      <theorem xml:id="theorem-pointwise-convergence-of-fourier-series">
+        <title>Fourier Series of Piecewise Continuous Functions</title>
+        <idx><h>Fourier series</h><h>convergence</h></idx>
+        <statement>
+          <p>
+            Let <m>f(x)</m> be a piecewise continuous function on the interval <m>-\pi\leq x\leq\pi</m>, and suppose that it's also periodic with period <m>2\pi</m>, and is differentiable everywhere that it's continuous.
+            Then the Fourier series of <m>f(x)</m> converges to <m>f(x)</m> except at the points where <m>f(x)</m> is discontinuous.
+          </p>
         </statement>
       </theorem>
     </subsection>
@@ -402,22 +403,10 @@
       <p>
         In other words, a function <m>f(x)</m> is even if and only if its graph is symmetric about the <m>y</m>-axis, and is odd if and only if its graph is symmetric about the origin.
       </p>
-      <theorem xml:id="theorem-fourier-series-of-even-and-odd-functions">
-        <title>Fourier Series of Even and Odd Functions</title>
-        <idx><h>Fourier series</h><h>Fourier series for even and odd functions</h></idx>
-        <statement>
-          <p>
-            Let <m>f(x)</m> be a periodic function with period <m>p = 2L</m>, with corresponding Fourier series
-            <me>a_{0}+\sum_{k=1}^{\infty}\left(a_{k}\cos\left(\frac{k\pi}{L}x\right)+b_{k}\sin\left(\frac{k\pi}{L}x\right)\right).</me>
-            If <m>f(x)</m> is an odd function, then <m>a_{k} = 0</m> for <m>k\geq0</m>.
-            If <m>f(x)</m> is an even function, then <m>b_{k}=0</m> for <m>k\geq1</m>.
-          </p>
-        </statement>
-      </theorem>
       <p>
         In <xref ref="example-fourier-series-of-x-cubed" /> and <xref ref="example-fourier-series-of-x-squared" /> we began with functions that typically aren't thought of as periodic and found their Fourier series.
         Essentially what we did was we restricted our view of each function to a limited interval<fn xml:id="footnote-periodic-extensions"> <m>[-\pi,\pi]</m> in the case of <m>x^{3}</m> and <m>[-1,1]</m> in the case of <m>x^{2}</m></fn> and then viewed that segment as defining a periodic function.
-        This is the h idea behind <term>even and odd extensions</term> of functions.
+        This is the idea behind <term>even and odd extensions</term> of functions.
       </p>
       <definition xml:id="definition-even-and-odd-extensions">
         <title>Even and Odd Extensions</title>
@@ -784,7 +773,7 @@
       </statement>
     </theorem>
   </section>
-  <!-- I'm keeping these here for now in case I need to see how this is done later. -->
+<!-- I'm keeping these here for now in case I need to see how this is done later. -->
 <!--     <xi:include href="./sage/integers-sage.xml" />
 <xi:include href="./sage/integers-sage-exercises.xml" /> -->
 
