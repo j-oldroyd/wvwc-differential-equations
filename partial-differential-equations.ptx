@@ -357,7 +357,7 @@
         assume(n,'integer')
 
         def b(n):
-        return f.fourier_series_sine_coefficient(n,L).full_simplify()
+          return f.fourier_series_sine_coefficient(n,L).full_simplify()
 
         pretty_print(b(n))
       </input>
@@ -370,24 +370,24 @@
       We'll try to express the solution in a simpler way.
       In particular, we'll start by trying to simplify the solution of the boundary value problem in <xref ref="example-a-string-with-fixed-ends" autoname="yes" />.
       In that example, we saw that the solution of
-    <me>u_{tt} = 16u_{xx}</me>
-    with boundary conditions <m>u(0,t) = u(1,t) = 0</m> and initial conditions
-    <me>u(x,0) = f(x) = \begin{cases} 2x \amp 0\leq x\leq \frac{1}{2} \\ 2(1-x) \amp \frac{1}{2}\leq x\leq 1 \end{cases},\quad u_{t}(x,0) = 0</me>
-    was given by
-    <me>u(x,t) = \sum_{n=1}^{\infty}b_{n}\sin(n\pi x)\cos(4n\pi t),</me>
-    where <m>b_{n}</m> was the <m>n^{\th}</m> Fourier coefficient of the odd extension of <m>f(x)</m>.
-  </p>
-  <p>
-    If we look at this, it looks kind of like a Fourier series except that we have a product of sine and cosine.
-    We can make this look more like a Fourier series by using one of the product-to-sum formulas from trigonometry:
-  </p>
+      <me>u_{tt} = 16u_{xx}</me>
+      with boundary conditions <m>u(0,t) = u(1,t) = 0</m> and initial conditions
+      <me>u(x,0) = f(x) = \begin{cases} 2x \amp 0\leq x\leq \frac{1}{2} \\ 2(1-x) \amp \frac{1}{2}\leq x\leq 1 \end{cases},\quad u_{t}(x,0) = 0</me>
+      was given by
+      <me>u(x,t) = \sum_{n=1}^{\infty}b_{n}\sin(n\pi x)\cos(4n\pi t),</me>
+      where <m>b_{n}</m> was the <m>n^{\th}</m> Fourier coefficient of the odd extension of <m>f(x)</m>.
+    </p>
+    <p>
+      If we look at this, it looks kind of like a Fourier series except that we have a product of sine and cosine.
+      We can make this look more like a Fourier series by using one of the product-to-sum formulas from trigonometry:
+    </p>
     <me>\sin x\cos y = \frac{1}{2}[\sin(x+y)+\sin(x-y)].</me>
     <p>
       Using this formula, we get
-    <me>\sin(n\pi x)\cos(4n\pi t) = \frac{1}{2}[\sin[n\pi(x+4t)]+\sin[n\pi(x-4t)],</me>
-    which means we can write the solution <m>u(x,t)</m> as
-    <me>u(x,t) = \frac{1}{2}\left[\sum_{n=1}^{\infty}b_{n}\sin[n\pi(x+4t)] + \sum_{n=1}^{\infty}b_{n}\sin[n\pi(x-4t)]\right].</me>
-  </p>
+      <me>\sin(n\pi x)\cos(4n\pi t) = \frac{1}{2}[\sin[n\pi(x+4t)]+\sin[n\pi(x-4t)],</me>
+      which means we can write the solution <m>u(x,t)</m> as
+      <me>u(x,t) = \frac{1}{2}\left[\sum_{n=1}^{\infty}b_{n}\sin[n\pi(x+4t)] + \sum_{n=1}^{\infty}b_{n}\sin[n\pi(x-4t)]\right].</me>
+    </p>
     <p>
       Here's how this helps us.
       Since <m>b_{n}</m> is the <m>n^{\th}</m> Fourier coefficient of the odd extension of <m>f(x)</m>, each of these sums must be a Fourier series for the odd extension of <m>f(x)</m>!
@@ -402,7 +402,8 @@
       <index><main>Wave equation</main><sub>d'Alembert's solution</sub><sub>zero initial velocity</sub></index>
       <statement>
         <p>
-          Let <m>c\gt0</m>, and consider the boundary value problem</p>
+          Let <m>c\gt0</m>, and consider the boundary value problem
+        </p>
         <md>
           <mrow>u_{tt} \amp = c^{2}u_{xx} </mrow>
           <mrow>u(0,t) \amp = 0 </mrow>
@@ -412,43 +413,76 @@
         </md>.
         <p>
           Assuming that <m>f(x)</m> is piecewise twice differentiable, then the solution of this boundary value problem is given by
-        <me>u(x,t) = \frac{1}{2}[f^{*}(x-ct)+f^{*}(x+ct)]</me>
-        where <m>f^{*}</m> denotes the odd extension of <m>f(x)</m>.
-      </p>
+          <me>u(x,t) = \frac{1}{2}[f^{*}(x-ct)+f^{*}(x+ct)]</me>
+          where <m>f^{*}</m> denotes the odd extension of <m>f(x)</m>.
+        </p>
       </statement>
     </theorem>
     <example xml:id="example-boundary-value-problem-with-sinusoidal-deflection">
       <title>Boundary value problem with sinusoidal deflection</title>
-      <p>A string of length <m>L=1</m> has initial deflection, or position, given by <m>f(x) = \sin\pi x - \frac{1}{2}\sin2\pi x</m> for <m>0\leq x\leq 1</m>. The string is released at time <m>t=0</m>. Suppose <m>c=1</m>, and we want to find <m>u(x,t)</m>. Then we can do so very easily with <xref ref="theorem-d-alembert-s-solution-without-initial-velocity" autoname="yes" />, since the initial velocity of the string is <m>0</m>. So we have</p>
-      <me>u(x,t) = \frac{1}{2}[f^{*}(x-t)+f^{*}(x+t)],</me>
-      <p>where <m>f^{*}</m> is the odd extension of <m>f(x)</m>. However, since <m>f(x)</m> is itself an odd function, it follows that the odd extension is simply <m>\sin\pi x-\frac{1}{2}\sin2\pi x</m>. Therefore the solution is</p>
-      <me>u(x,t) = \frac{1}{2}\left[\sin(\pi(x-t))-\frac{1}{2}\sin(2\pi(x-t)) + \sin(\pi(x+t)) - \frac{1}{2}\sin(2\pi(x+t))\right].</me>
+      <statement>
+        <p>
+          A string of length <m>L=1</m> has initial deflection, or position, given by <m>f(x) = \sin\pi x - \frac{1}{2}\sin2\pi x</m> for <m>0\leq x\leq 1</m>.
+          The string is released at time <m>t=0</m>.
+          Suppose <m>c=1</m>.
+          Find <m>u(x,t)</m>.
+        </p>
+      </statement>
+      <solution>
+        <p>
+          We can do so very easily with <xref ref="theorem-d-alembert-s-solution-without-initial-velocity" autoname="yes" />, since the initial velocity of the string is <m>0</m>.
+          So we have
+          <me>u(x,t) = \frac{1}{2}[f^{*}(x-t)+f^{*}(x+t)],</me>
+          where <m>f^{*}</m> is the odd extension of <m>f(x)</m>.
+          However, since <m>f(x)</m> is itself an odd function, it follows that the odd extension is simply <m>\sin\pi x-\frac{1}{2}\sin2\pi x</m>.
+          Therefore the solution is
+        </p>
+        <me>u(x,t) = \frac{1}{2}\left[\sin(\pi(x-t))-\frac{1}{2}\sin(2\pi(x-t)) + \sin(\pi(x+t)) - \frac{1}{2}\sin(2\pi(x+t))\right].</me>
+      </solution>
     </example>
-
-    <p>d'Alembert's solution is very useful if we want to model a vibrating string with zero initial velocity. But what can we do if the string has an initial velocity? d'Alembert's solution actually suggests a possible approach to take. If we look at <xref ref="theorem-d-alembert-s-solution-without-initial-velocity" autoname="yes" />, it essentially states that the solution of the wave equation (assuming zero initial velocity) is the superposition of the rightward traveling wave <m>f(x-ct)</m> with the leftward traveling wave <m>f(x+ct)</m>. This suggests that superpositions of waves are fundamental to solutions of the wave equation.</p>
-    <p>We'll try something similar for the case <m>u_{t}(x,0) = g(x)</m>. We'll assume that adding in this initial velocity also adds in a new rightward traveling wave <m>G(x-ct)</m> and a new leftward traveling wave <m>H(x+ct)</m> into our solution <m>u(x,t)</m>, so that we have</p>
+    <p>
+      d'Alembert's solution is very useful if we want to model a vibrating string with zero initial velocity.
+      But what can we do if the string has an initial velocity?
+      d'Alembert's solution actually suggests a possible approach to take.
+      If we look at <xref ref="theorem-d-alembert-s-solution-without-initial-velocity" autoname="yes" />, it essentially states that the solution of the wave equation (assuming zero initial velocity) is the superposition of the rightward traveling wave <m>f(x-ct)</m> with the leftward traveling wave <m>f(x+ct)</m>.
+      This suggests that superpositions of waves are fundamental to solutions of the wave equation.
+    </p>
+    <p>
+      We'll try something similar for the case <m>u_{t}(x,0) = g(x)</m>.
+      We'll assume that adding in this initial velocity also adds in a new rightward traveling wave <m>G(x-ct)</m> and a new leftward traveling wave <m>H(x+ct)</m> into our solution <m>u(x,t)</m>, so that we have
+    </p>
     <me>u(x,t) = \frac{1}{2}[f^{*}(x-ct)+f^{*}(x+ct)] + G(x-ct) + H(x+ct).</me>
-    <p>Now we'll try to use the initial conditions to find <m>G</m> and <m>H</m>. Now, since we need <m>u(x,0) = f(x)</m> this forces</p>
+    <p>
+      Now we'll try to use the initial conditions to find <m>G</m> and <m>H</m>.
+      Now, since we need <m>u(x,0) = f(x)</m> this forces
+    </p>
     <me>G(x) + H(x) = 0\Rightarrow H(x) = -G(x).</me>
-    <p>Therefore our solution becomes</p>
-    <me>u(x,t) = \frac{1}{2}[f^{*}(x-ct)+f^{*}(x+ct)] + G(x-ct) - G(x+ct).</me>
-    <par>If we use the second initial condition <m>u_{t}(x,0) = g(x),</m> then we get</par>
-    <me>g(x) = -cG'(x) - cG'(x) = -2cG'(x) \Rightarrow G'(x) = -\frac{1}{2c}g(x).</me>
-    <p>Now we can integrate both sides to find <m>G(x)</m>! So there exists some <m>x_{0}</m> such that</p>
-    <me>G(x) = -\frac{1}{2c}\int_{x_{0}}^{x}g(s)\,ds.</me>
-    <p>Therefore</p>
-    <md>
-      <mrow>u(x,t) \amp = \frac{1}{2}[f^{*}(x-ct)+f^{*}(x+ct)] + G(x-ct) + H(x+ct) </mrow>
-      <mrow> \amp = \frac{1}{2}[f^{*}(x-ct)+f^{*}(x+ct)] + G(x-ct) - G(x+ct) </mrow>
-      <mrow> \amp = \frac{1}{2}[f^{*}(x-ct)+f^{*}(x+ct)] - \frac{1}{2c}\int_{x_{0}}^{x-ct}g(s)\,ds + \frac{1}{2c}\int_{x_{0}}^{x+ct}g(s)\,ds </mrow>
-      <mrow> \amp = \frac{1}{2}[f^{*}(x-ct)+f^{*}(x+ct)] + \frac{1}{2c}\int_{x-ct}^{x+ct}g(s)\,ds. </mrow>
-    </md>
-    <p>This gives the following adjustment to d'Alembert's solution.</p>
+    <p>
+      Therefore our solution becomes
+      <me>u(x,t) = \frac{1}{2}[f^{*}(x-ct)+f^{*}(x+ct)] + G(x-ct) - G(x+ct).</me>
+      If we use the second initial condition <m>u_{t}(x,0) = g(x),</m> then we get
+      <me>g(x) = -cG'(x) - cG'(x) = -2cG'(x) \Rightarrow G'(x) = -\frac{1}{2c}g(x).</me>
+    </p>
+    <p>
+      Now we can integrate both sides to find <m>G(x)</m>!
+      So there exists some <m>x_{0}</m> such that
+      <me>G(x) = -\frac{1}{2c}\int_{x_{0}}^{x}g(s)\,ds.</me>
+      Therefore
+      <md>
+        <mrow>u(x,t) \amp = \frac{1}{2}[f^{*}(x-ct)+f^{*}(x+ct)] + G(x-ct) + H(x+ct) </mrow>
+        <mrow> \amp = \frac{1}{2}[f^{*}(x-ct)+f^{*}(x+ct)] + G(x-ct) - G(x+ct) </mrow>
+        <mrow> \amp = \frac{1}{2}[f^{*}(x-ct)+f^{*}(x+ct)] - \frac{1}{2c}\int_{x_{0}}^{x-ct}g(s)\,ds + \frac{1}{2c}\int_{x_{0}}^{x+ct}g(s)\,ds </mrow>
+        <mrow> \amp = \frac{1}{2}[f^{*}(x-ct)+f^{*}(x+ct)] + \frac{1}{2c}\int_{x-ct}^{x+ct}g(s)\,ds </mrow>
+      </md>.
+      This gives the following adjustment to d'Alembert's solution.
+    </p>
     <theorem xml:id="theorem-d-alembert-s-solution-with-initial-velocity">
       <title>d'Alembert's Solution with Initial Velocity</title>
       <index><main>Wave equation</main><sub>d'Alembert's solution</sub><sub>with initial velocity</sub></index>
       <statement>
-        <p>Let <m>c\gt0</m>, and consider the boundary value problem</p>
+        <p>
+          Let <m>c\gt0</m>, and consider the boundary value problem
+        </p>
         <md>
           <mrow>u_{tt} \amp = c^{2}u_{xx} </mrow>
           <mrow>u(0,t) \amp = 0 </mrow>
@@ -456,88 +490,135 @@
           <mrow>u(x,0) \amp = f(x) </mrow>
           <mrow>u_{t}(x,0) \amp = g(x). </mrow>
         </md>
-        <p>Assuming that <m>f(x)</m> is piecewise twice differentiable and that <m>g(x)</m> is piecewise continuous, then the solution of this boundary value problem is given by</p>
-        <me>u(x,t) = \frac{1}{2}[f^{*}(x-ct)+f^{*}(x+ct)] + \frac{1}{2c}\int_{x-ct}^{x+ct}g^{*}(s)\,ds.</me>
-        <p>where <m>f^{*}</m> denotes the odd extension of <m>f(x)</m> and <m>g^{*}</m> the odd extension of <m>g(x)</m>.</p>
+        <p>
+          Assuming that <m>f(x)</m> is piecewise twice differentiable and that <m>g(x)</m> is piecewise continuous, then the solution of this boundary value problem is given by
+          <me>u(x,t) = \frac{1}{2}[f^{*}(x-ct)+f^{*}(x+ct)] + \frac{1}{2c}\int_{x-ct}^{x+ct}g^{*}(s)\,ds.</me>
+          where <m>f^{*}</m> denotes the odd extension of <m>f(x)</m> and <m>g^{*}</m> the odd extension of <m>g(x)</m>.
+        </p>
       </statement>
     </theorem>
     <example xml:id="example-boundary-value-problem-with-sinusoidal-deflection-and-initial-velocity">
       <title>Boundary value problem with sinusoidal deflection and initial velocity</title>
-      <p>Consider a string of length <m>L=1</m>, initial deflection <m>f(x) = \sin\pi x</m> and initial velocity <m>\frac{1}{4}\sin2\pi x</m>. Assume that <m>c = 2</m>. Then the vertical displacement <m>u(x,t)</m> of the string is given by</p>
-      <md>
-        <mrow> u(x,t) \amp = \frac{1}{2}[f^{*}(x-ct)+f^{*}(x+ct)] + \frac{1}{2c}\int_{x-ct}^{x+ct}g(s)\,ds </mrow>
-        <mrow> \amp = \frac{1}{2}[\sin(\pi(x-2t))+\sin(\pi(x+2t))] + \frac{1}{4}\int_{x-2t}^{x+2t}\frac{1}{4}\sin2\pi s\,ds </mrow>
-        <mrow> \amp = \frac{1}{2}[\sin(\pi(x-2t))+\sin(\pi(x+2t))] - \frac{1}{32\pi}\cos2\pi s\Bigg]_{x-2t}^{x+2t} </mrow>
-        <mrow> \amp = \frac{1}{2}[\sin(\pi(x-2t))+\sin(\pi(x+2t))] - \frac{\cos(2\pi(x+2t)) - \cos(2\pi(x-2t))}{32\pi} </mrow>
-      </md>
+      <statement>
+        <p>
+          Consider a string of length <m>L=1</m>, initial deflection <m>f(x) = \sin\pi x</m> and initial velocity <m>\frac{1}{4}\sin2\pi x</m>.
+          Assume that <m>c = 2</m>.
+          Find <m>u(x,t)</m>, the vertical displacement at <m>(x,t)</m>.
+        </p>
+      </statement>
+      <solution>
+        <p>
+          The vertical displacement <m>u(x,t)</m> of the string is given by
+        </p>
+        <md>
+          <mrow> u(x,t) \amp = \frac{1}{2}[f^{*}(x-ct)+f^{*}(x+ct)] + \frac{1}{2c}\int_{x-ct}^{x+ct}g(s)\,ds </mrow>
+          <mrow> \amp = \frac{1}{2}[\sin(\pi(x-2t))+\sin(\pi(x+2t))] + \frac{1}{4}\int_{x-2t}^{x+2t}\frac{1}{4}\sin2\pi s\,ds </mrow>
+          <mrow> \amp = \frac{1}{2}[\sin(\pi(x-2t))+\sin(\pi(x+2t))] - \frac{1}{32\pi}\cos2\pi s\Bigg]_{x-2t}^{x+2t} </mrow>
+          <mrow> \amp = \frac{1}{2}[\sin(\pi(x-2t))+\sin(\pi(x+2t))] - \frac{\cos(2\pi(x+2t)) - \cos(2\pi(x-2t))}{32\pi} </mrow>
+        </md>.
+      </solution>
     </example>
   </section>
-
   <section xml:id="section-the-heat-equation">
     <title>The Heat Equation</title>
     <introduction>
       <p>
-        The last equation we will look at is the <term>heat equation</term>, which models the temperature distribution of a thin bar of uniform density and constant cross-section placed along the <m>x</m>-axis. 
-        We also assume that the bar is perfectly insulated on its surface, so that heat flows along the bar in the <m>x</m>-direction only. 
+        The last equation we will look at is the <term>heat equation</term>, which models the temperature distribution of a thin bar of uniform density and constant cross-section placed along the <m>x</m>-axis.
+        We also assume that the bar is perfectly insulated on its surface, so that heat flows along the bar in the <m>x</m>-direction only.
         With these assumptions, the temperature <m>u(x,t)</m> of the bar at position <m>x</m> and time <m>t</m> satisfies the PDE
       </p>
       <md>
-        <mrow>\pdv{u}{t} \amp = c^{2}\pdv[2]{u}{x}. </mrow>
-      </md>
-      <p>This is called the <term>one-dimensional heat equation</term>.</p>
+        <mrow>\pdv{u}{t} \amp = c^{2}\pdv[2]{u}{x} </mrow>
+      </md>.
+      <p>
+        This is called the <term>one-dimensional heat equation</term>.
+      </p>
     </introduction>
     <subsection xml:id="subsection-bar-with-ends-fixed-at-">
       <title>Bar with ends fixed at <m>0</m></title>
-      <p>We will start by solving the heat equation for the case where the bar has ends which are fixed at temperature <m>0</m>. If we're given an initial temperature distribution <m>f(x)</m>, then <m>u(x,t)</m> is the solution of the boundary value problem</p>
+      <p>
+        We will start by solving the heat equation for the case where the bar has ends which are fixed at temperature <m>0</m>.
+        If we're given an initial temperature distribution <m>f(x)</m>, then <m>u(x,t)</m> is the solution of the boundary value problem
+      </p>
       <mdn>
         <mrow xml:id="equation-one-dimensional-heat-equation">u_{t} \amp = c^{2}u_{xx} </mrow>
         <mrow xml:id="heat-equation-boundary-conditions-fixed-temperature">u(0,t) = u(L,t) \amp = 0 </mrow>
         <mrow xml:id="heat-equation-initial-condition">u(x,0) \amp = f(x) </mrow>
-      </mdn>
-      <p>We can solve this boundary value problem using separation of variables, much as we did in <xref ref="section-wave-equation-and-separation-of-variables" autoname="yes" />. So to start, we assume that <m>u(x,t) = X(x)T(t)</m>. If we plug this into the heat equation <xref ref="equation-one-dimensional-heat-equation" />, then we get</p>
-      <men xml:id="equation-odes-from-heat-equation">
-      \frac{T'}{c^{2}T} = \frac{X''}{X} = k.
-    </men>
-    <p>Now we have three separate cases to consider for <m>k</m>: <m>k\gt0, k=0</m> or <m>k\lt0</m>. Just as with the wave equation, the only case that doesn't lead to trivial solutions is <m>k=-\mu^{2}\lt0</m>. In this case <xref ref="equation-odes-from-heat-equation" autoname="yes" /> leads to the two ODEs given by</p>
-    <md>
-      <mrow>X''+\mu^{2}X \amp = 0 </mrow>
-      <mrow>T'+c^{2}\mu^{2}T \amp = 0. </mrow>
-    </md>
-    <p>The boundary conditions in <xref ref="heat-equation-boundary-conditions-fixed-temperature" /> force <m>X(0) = X(L) = 0</m>, and the only nontrivial solutions of <m>X''+\mu^{2}X = 0</m> occur when <m>\mu = \frac{n\pi}{L}</m>. So we get the solutions <m>X = X_{n} = \sin\frac{n\pi}{L}x</m>, just as with the wave equation.</p>
-    <p>For the second ODE, we readily solve it to obtain <m>T = T_{n} = b_{n}e^{-\lambda_{n}^{2}t}</m> where <m>\lambda_{n} = c\frac{n\pi}{L}</m> as before. So every function</p>
-    <me>u_{n}(x,t) = X_{n}T_{n} = b_{n}\sin\frac{n\pi}{L}xe^{-\lambda_{n}^{2}t}</me>
-    <p>is a solution of <xref ref="equation-one-dimensional-heat-equation" /> that satisfies the boundary equations <xref ref="heat-equation-boundary-conditions-fixed-temperature" />. In order to satisfy the arbitrary initial condition <m>f(x)</m>, we take an infinite sum of the functions <m>u_{n}(x,t)</m> to get</p>
-    <me>u(x,t) = \sum_{n=1}^{\infty}b_{n}\sin\frac{n\pi}{L}x e^{-\lambda^{2}_{n}t}.</me>
-    <p>Finally, if we plug in <m>t=0</m> and use the initial condition <m>u(x,0) = f(x)</m>, we get <m>f(x) = \sum_{n=1}^{\infty}b_{n}\sin\frac{n\pi}{L}x</m>. This is just the Fourier series of the odd extension of <m>f(x)</m>, which lets us find <m>b_{n}</m>. We summarize all of this in the following theorem.</p>
-    <theorem xml:id="theorem-solution-of-the-heat-equation-with-fixed-temperature">
-      <index><main>Heat equation</main><sub>fixed ends</sub></index>
-      <title>Solution of the Heat Equation with Fixed Temperature</title>
-      <statement>
-        <p>The solution of the heat equation <xref ref="equation-one-dimensional-heat-equation" /> satisfying the boundary conditions <xref ref="heat-equation-boundary-conditions-fixed-temperature" /> and initial condition <xref ref="heat-equation-initial-condition" /> is given by</p>
-        <men xml:id="heat-equation-fixed-ends-solution">
-        u(x,t) = \sum_{n=1}^{\infty}b_{n}\sin\frac{n\pi}{L}x e^{-\lambda^{2}_{n}t}
-      </men>
-      where
-      <mdn>
-        <mrow xml:id="heat-equation-fixed-ends-solution-coeff">b_{n} \amp = \frac{2}{L}\int_{0}^{L}f(x)\sin\frac{n\pi}{L}x\,dx </mrow>
-        <mrow xml:id="heat-equation-fixed-ends-solution-exponent">\lambda_{n} \amp = c\frac{n\pi}{L}. </mrow>
-      </mdn>
-    </statement>
-  </theorem>
-
-  <example xml:id="example-sinusoidal-initial-temperature">
-    <title>Sinusoidal initial temperature</title>
-    <p>Consider a thin metal bar of length <m>\pi</m> placed on the <m>x</m>-axis, with one end at <m>x=0</m> and the other at <m>x=\pi</m>. Assuming that <m>c=1</m> and that the initial temperature is <m>f(x) = 30\sin x</m> for <m>0\leq x\leq\pi</m>, we can find the temperature distribution using <xref ref="theorem-solution-of-the-heat-equation-with-fixed-temperature" autoname="yes" />:</p>
-    <me>u(x,t) = \sum_{n=1}^{\infty}b_{n}\sin(n x)e^{-n^{2}t},</me>
-    <p>where <m>b_{n}</m> is the <m>n^{\th}</m> coefficient of the Fourier series of the odd extension of <m>f(x)</m>. The odd extension of <m>f(x)</m> is <m>30\sin x</m>. Furthermore, the Fourier series of <m>30\sin x</m> is clearly just <m>30\sin x</m>. So in other words,</p>
-    <me>b_{n} = \begin{cases} 30 \amp n=1 \\ 0 \amp otherwise.\end{cases}</me>
-    <p>Hence</p>
-    <me>u(x,t) = 30e^{-t}\sin x.</me>
-  </example>
-</subsection>
-</section>
-<!-- I'm keeping these here for now in case I need to see how this is done later. -->
+      </mdn>.
+      <p>
+        We can solve this boundary value problem using separation of variables, much as we did in <xref ref="section-wave-equation-and-separation-of-variables" autoname="yes" />.
+        So to start, we assume that <m>u(x,t) = X(x)T(t)</m>.
+        If we plug this into the heat equation <xref ref="equation-one-dimensional-heat-equation" />, then we get
+      </p>
+      <men xml:id="equation-odes-from-heat-equation"> \frac{T'}{c^{2}T} = \frac{X''}{X} = k.</men>
+      <p>
+        Now we have three separate cases to consider for <m>k</m>: <m>k\gt0, k=0</m> or <m>k\lt0</m>.
+        Just as with the wave equation, the only case that doesn't lead to trivial solutions is <m>k=-\mu^{2}\lt0</m>.
+        In this case <xref ref="equation-odes-from-heat-equation" autoname="yes" /> leads to the two ODEs given by
+      </p>
+      <md>
+        <mrow>X''+\mu^{2}X \amp = 0 </mrow>
+        <mrow>T'+c^{2}\mu^{2}T \amp = 0 </mrow>
+      </md>.
+      <p>
+        The boundary conditions in <xref ref="heat-equation-boundary-conditions-fixed-temperature" /> force <m>X(0) = X(L) = 0</m>, and the only nontrivial solutions of <m>X''+\mu^{2}X = 0</m> occur when <m>\mu = \frac{n\pi}{L}</m>.
+        So we get the solutions <m>X = X_{n} = \sin\frac{n\pi}{L}x</m>, just as with the wave equation.
+      </p>
+      <p>
+        For the second ODE, we readily solve it to obtain <m>T = T_{n} = b_{n}e^{-\lambda_{n}^{2}t}</m> where <m>\lambda_{n} = c\frac{n\pi}{L}</m> as before.
+        So every function
+        <me>u_{n}(x,t) = X_{n}T_{n} = b_{n}\sin\frac{n\pi}{L}xe^{-\lambda_{n}^{2}t}</me>
+        is a solution of <xref ref="equation-one-dimensional-heat-equation" /> that satisfies the boundary equations <xref ref="heat-equation-boundary-conditions-fixed-temperature" />.
+        In order to satisfy the arbitrary initial condition <m>f(x)</m>, we take an infinite sum of the functions <m>u_{n}(x,t)</m> to get
+      </p>
+      <me>u(x,t) = \sum_{n=1}^{\infty}b_{n}\sin\frac{n\pi}{L}x e^{-\lambda^{2}_{n}t}.</me>
+      <p>
+        Finally, if we plug in <m>t=0</m> and use the initial condition <m>u(x,0) = f(x)</m>, we get <m>f(x) = \sum_{n=1}^{\infty}b_{n}\sin\frac{n\pi}{L}x</m>.
+        This is just the Fourier series of the odd extension of <m>f(x)</m>, which lets us find <m>b_{n}</m>.
+        We summarize all of this in the following theorem.
+      </p>
+      <theorem xml:id="theorem-solution-of-the-heat-equation-with-fixed-temperature">
+        <index><main>Heat equation</main><sub>fixed ends</sub></index>
+        <title>Solution of the Heat Equation with Fixed Temperature</title>
+        <statement>
+          <p>
+            The solution of the heat equation <xref ref="equation-one-dimensional-heat-equation" /> satisfying the boundary conditions <xref ref="heat-equation-boundary-conditions-fixed-temperature" /> and initial condition <xref ref="heat-equation-initial-condition" /> is given by
+            <men xml:id="heat-equation-fixed-ends-solution">u(x,t) = \sum_{n=1}^{\infty}b_{n}\sin\frac{n\pi}{L}x e^{-\lambda^{2}_{n}t}</men>
+            where
+            <mdn>
+              <mrow xml:id="heat-equation-fixed-ends-solution-coeff">b_{n} \amp = \frac{2}{L}\int_{0}^{L}f(x)\sin\frac{n\pi}{L}x\,dx </mrow>
+              <mrow xml:id="heat-equation-fixed-ends-solution-exponent">\lambda_{n} \amp = c\frac{n\pi}{L}. </mrow>
+            </mdn>
+          </p>
+        </statement>
+      </theorem>
+      <example xml:id="example-sinusoidal-initial-temperature">
+        <title>Sinusoidal initial temperature</title>
+        <statement>
+          <p>
+            Consider a thin metal bar of length <m>\pi</m> placed on the <m>x</m>-axis, with one end at <m>x=0</m> and the other at <m>x=\pi</m>.
+            Assuming that <m>c=1</m> and that the initial temperature is <m>f(x) = 30\sin x</m> for <m>0\leq x\leq\pi</m>, find the temperature distribution using <xref ref="theorem-solution-of-the-heat-equation-with-fixed-temperature" autoname="yes" />.
+          </p>
+        </statement>
+        <solution>
+          <p>
+            The temperature is the function <m>u(x,t)</m> given by
+            <me>u(x,t) = \sum_{n=1}^{\infty}b_{n}\sin(n x)e^{-n^{2}t},</me>
+            where <m>b_{n}</m> is the <m>n^{\th}</m> coefficient of the Fourier series of the odd extension of <m>f(x)</m>.
+            The odd extension of <m>f(x)</m> is <m>30\sin x</m>.
+            Furthermore, the Fourier series of <m>30\sin x</m> is clearly just <m>30\sin x</m>.
+          </p>
+          <p>
+            So in other words,
+            <me>b_{n} = \begin{cases} 30 \amp n=1 \\ 0 \amp otherwise.\end{cases}</me>
+            Hence
+            <me>u(x,t) = 30e^{-t}\sin x.</me>
+          </p>
+        </solution>
+      </example>
+    </subsection>
+  </section>
+  <!-- I'm keeping these here for now in case I need to see how this is done later. -->
 <!--     <xi:include href="./sage/integers-sage.xml" />
 <xi:include href="./sage/integers-sage-exercises.xml" /> -->
-
 </chapter>
