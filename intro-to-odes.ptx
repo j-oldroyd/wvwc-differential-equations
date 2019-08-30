@@ -134,7 +134,7 @@
                         //label("$y = e^{x^{2}}$",C,S);
                         //dot(C,UnFill);
 
-                        //xaxis("$x$", xmin, xmax, defaultpen+black, Ticks (laxis, Step=1.0, NoZero), Arrows (6), above=true); 
+                        //xaxis("$x$", xmin, xmax, defaultpen+black, Ticks (laxis, Step=1.0, NoZero), Arrows (6), above=true);
                         //yaxis("$y$", ymin, ymax, defaultpen+black, Ticks (laxis, Step=1.0, NoZero), Arrows (6), above=true);
 
                         xaxis("$x$",YEquals(0),xmin,xmax,LeftTicks());

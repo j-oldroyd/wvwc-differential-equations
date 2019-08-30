@@ -28,7 +28,7 @@
       \newcommand{\parens}[1]{\left( #1 \right)}
       \newcommand{\qq}[1]{\quad\text{#1}\quad}
       % Inline vector... hopefully looks better than \irow.
-      \newcommand{\vecm}[1]{\boldsymbol{#1}}
+      % \newcommand{\vecm}[1]{\boldsymbol{#1}}
       \newcommand{\ivec}[1]{%
         \renewcommand{\arraystretch}{.8}%
         \begin{bmatrix}#1\end{bmatrix}%
