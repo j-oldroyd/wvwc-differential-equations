@@ -86,8 +86,8 @@
             We compute the Laplace transform <m>F(s)</m> using the definition:
             <md>
               <mrow>F(s) \amp= \Int{0}{\infty}te^{-st}\,dt</mrow>
-              <mrow>\amp= \qty[-\frac{t}{s}e^{-st}]_{0}^{\infty} + \frac{1}{s}\Int{0}{\infty}e^{-st}\,dt \amp\text{using integration by parts}</mrow>
-              <mrow>\amp= -\frac{1}{s^{2}}\qty[e^{-st}]_{0}^{\infty}</mrow>
+              <mrow>\amp= \left[-\frac{t}{s}e^{-st}\right]_{0}^{\infty} + \frac{1}{s}\Int{0}{\infty}e^{-st}\,dt \amp\text{using integration by parts}</mrow>
+              <mrow>\amp= -\frac{1}{s^{2}}\left[e^{-st}\right]_{0}^{\infty}</mrow>
               <mrow>\amp= \frac{1}{s^{2}}</mrow>
             </md>.
           </p>
@@ -156,7 +156,7 @@
             <md>
               <mrow>\Laplace{u(t)} \amp= \Int{0}{\infty}u(t)e^{-st}\,dt</mrow>
               <mrow>\amp= \Int{3}{\infty}e^{-st}\,dt \amp\text{since <m>u(t-3)</m> is <m>0</m> for values of <m>t\lt3</m>}</mrow>
-              <mrow>\amp= -\frac{1}{s}\qty[e^{-st}]_{3}^{\infty}</mrow>
+              <mrow>\amp= -\frac{1}{s}\left[e^{-st}\right]_{3}^{\infty}</mrow>
               <mrow>\amp= \frac{e^{-3s}}{s}</mrow>
             </md>.
           </p>
@@ -192,7 +192,7 @@
         <title>Inverse Laplace Transform</title>
         <statement>
           <p>
-            The <term>inverse Laplace transform</term> of a function <m>F(s)</m>, denoted <m>\mathcal{L}^{-1}\qty{F(s)}</m>, is a function <m>f(t)</m> such that <m>\Laplace{f(t)} = F(s)</m>.
+            The <term>inverse Laplace transform</term> of a function <m>F(s)</m>, denoted <m>\mathcal{L}^{-1}\left\{F(s)\right\}</m>, is a function <m>f(t)</m> such that <m>\Laplace{f(t)} = F(s)</m>.
           </p>
         </statement>
       </definition>
@@ -805,7 +805,7 @@
           <md>
             <mrow>u(t)\ast t \amp= \Int{0}{t}u(\tau)(t-\tau)\,d\tau </mrow>
             <mrow>\amp= \Int{0}{t}(t-\tau)\,d\tau </mrow>
-            <mrow>\amp= \qty[t\tau-\frac{\tau^{2}}{2}]_{\tau=0}^{\tau=t} </mrow>
+            <mrow>\amp= \left[t\tau-\frac{\tau^{2}}{2}\right]_{\tau=0}^{\tau=t} </mrow>
             <mrow>\amp= \frac{t^{2}}{2}</mrow>
           </md>
         </p>
@@ -849,7 +849,7 @@
             <mrow>\amp= \iLaplace{\frac{1}{s}\cdot\frac{1}{s^{2}+4}}</mrow>
             <mrow>\amp= 1\ast \frac{1}{2}\sin2t</mrow>
             <mrow>\amp= \frac{1}{2}\Int{0}{t}\sin2\tau\,d\tau</mrow>
-            <mrow>\amp= -\frac{1}{4}\qty[\cos2\tau]_{\tau=0}^{\tau=t}</mrow>
+            <mrow>\amp= -\frac{1}{4}\left[\cos2\tau\right]_{\tau=0}^{\tau=t}</mrow>
             <mrow>\amp= \frac{1-\cos2t}{4}</mrow>
           </md>
         </p>

@@ -21,7 +21,7 @@
             How can one accurately estimate the size of such a population?
         </p>
         <p>
-            The field of <term>differential equations</term> attempts to answer such questions by providing a model for the quantity of interest using information about its rate of change, which is sometimes easier to obtain than information about the quantity itself. 
+            The field of <term>differential equations</term> attempts to answer such questions by providing a model for the quantity of interest using information about its rate of change, which is sometimes easier to obtain than information about the quantity itself.
             Once we know enough about how a quantity changes, we hope to make a decent estimate for how the quantity actually behaves.
             There are actually two different types of differential equations that we will look at in this course.
             The first is the ordinary differential equation.
@@ -162,7 +162,7 @@
                 <solution>
                     <p>
                         To check that <m>x = A\cos(3t) + B\sin(3t)</m> is a general solution of <m>x''+9x = 0</m>, we just need to plug it into the ODE and show that it satisfies it.
-                        Since 
+                        Since
                         <me>x'' = -9(A\cos(3t)+B\sin(3t)) = -9x,</me>
                         this follows very quickly.
                     </p>
@@ -359,20 +359,17 @@
                                 xlabel={$t$},
                                 ylabel={$y$}
                                 ]
-                                \addplot[only marks,mark=*] table{%
-                                % 0 3
-                                1   1
-                                0   2
-                                2   2
-                                % 2 3
-                                2   1
-                                0   0
-                                0   1
-                                0   2
-                                1   2
-                                % 1 3
-                                1   0
-                                2   0
+                                \addplot[only marks,mark=*] table[row sep=\\]{%
+                                1   1\\
+                                0   2\\
+                                2   2\\
+                                2   1\\
+                                0   0\\
+                                0   1\\
+                                0   2\\
+                                1   2\\
+                                1   0\\
+                                2   0\\
                                 };
                                 \end{axis}
                             \end{tikzpicture}]]>
@@ -432,20 +429,17 @@
                                     samples=3
                                 ]
                                 \addplot3 [blue, thick, quiver={u={1/(\length)}, v={(x-y)/(\length)}, scale arrows=0.5}] {0};
-                                \addplot[only marks,mark=*] table{%
-                                % 0 3
-                                1   1
-                                0   2
-                                2   2
-                                % 2 3
-                                2   1
-                                0   0
-                                0   1
-                                0   2
-                                1   2
-                                % 1 3
-                                1   0
-                                2   0
+                                \addplot[only marks,mark=*] table[row sep=\\]{%
+                                1   1\\
+                                0   2\\
+                                2   2\\
+                                2   1\\
+                                0   0\\
+                                0   1\\
+                                0   2\\
+                                1   2\\
+                                1   0\\
+                                2   0\\
                                 };
                                 \end{axis}
                                 \end{tikzpicture}]]>
@@ -947,8 +941,8 @@
                                 ]
                                 \draw[fill=blue!40,opacity=.5] (.5,-.5) rectangle (1.5,1.5);
                                 \draw (1,1) node{$R$};
-                                \addplot[mark=*]table{%
-                                1   0
+                                \addplot[mark=*]table[row sep=\\]{%
+                                1   0\\
                                 } node[above right]{$(x_{0},y_{0})$};
                                 \end{axis}
                             \end{tikzpicture}]]>
