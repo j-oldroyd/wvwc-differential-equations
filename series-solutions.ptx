@@ -223,7 +223,7 @@
           </me>.
         </p>
         <p>
-          We need to find the values of the coefficients <m>c_{n}</m>; we do this by equating coefficients on both sides of the equation. 
+          We need to find the values of the coefficients <m>c_{n}</m>; we do this by equating coefficients on both sides of the equation.
           We want to write both series in terms of <m>x^{n}</m> so that we can do this, so we need to shift the summation on the left: we replace <m>n</m> with <m>n+1</m> inside the sum and decrease the limit of summation <m>n=1</m> to <m>n=0</m> to get
           <me>
             \sum_{n=0}^{\infty}(n+1)c_{n+1}x^{n} = \sum_{n=0}^{\infty}4c_{n}x^{n}
@@ -357,6 +357,69 @@
         </p>
       </solution>
     </example>
+    <p>
+      Now that we have an idea of how to solve differential equations using power series, it can be useful to know when this method is actually valid, i.e., when power series solutions exist.
+      We will be particularly concerned with solutions of second-order linear ODEs.
+    </p>
+    <theorem xml:id="theorem-existence-of-series-solutions">
+        <title>Existence of Series Solutions</title>
+        <statement>
+          <p>
+            Consider the differential equation
+            <me>y'' + P(x)y' + Q(x)y = R(x)</me>.
+            If <m>P(x), Q(x)</m> and <m>R(x)</m> are <term>analytic</term> at a point <m>x_{0}</m>, then every solution is also analytic at <m>x_{0}</m>.
+          </p>
+        </statement>
+    </theorem>
+    <example xml:id="example-a-legendre-equation">
+      <title>A Legendre Equation</title>
+      <statement>
+        <p>
+          Show that
+          <me>(1 - x^{2})y'' - 2xy' + 2y = 0</me>
+          has a series solution centered at <m>0</m> and then find the solution up to the coefficient of <m>x^{6}</m>.
+        </p>
+      </statement>
+      <solution>
+        <p>
+          First, note that the equation can be rewritten
+          <me>y'' - \frac{2x}{1 - x^{2}}y' + \frac{2}{1 - x^{2}}y = 0</me>,
+          so we are guaranteed a series solution centered at <m>x = 0</m>.
+          Furthermore, this solution has radius of convergence at least <m>R = 1</m>.
+        </p>
+        <p>
+          To find the solution, we return to the original equation and substitute <m>y = \sum_{n=0}^{\infty}c_{n}x^{n}</m> to get
+          <me>\sum_{n\geq2}n(n-1)c_{n}x^{n-2} - \sum_{n\geq2}n(n-1)c_{n}x^{n} - \sum_{n\geq1}2nc_{n}x^{n} + \sum_{n\geq0}2c_{n}x^{n} = 0</me>
+          which becomes
+          <me>\sum_{n\geq0}(n + 2)(n+1)c_{n+2}x^{n} - \sum_{n\geq2}n(n-1)c_{n}x^{n} - \sum_{n\geq1}2nc_{n}x^{n} + \sum_{n\geq0}2c_{n}x^{n} = 0</me>.
+          After a little algebra, we get the recurrence relation
+          <me>c_{n+2} = \frac{n-1}{n+1}c_{n}\quad\text{for}\quad n\geq2</me>.
+          Since this recurrence is not valid for <m>n = 0</m> or <m>n = 1</m>, we consider the coefficients of <m>x^{0}</m> and <m>x^{1}</m> separately:
+          <md>
+            <mrow>[x^{0}] \amp : 2c_{2} + 2c_{0} = 0 </mrow>
+            <mrow>[x^{1}] \amp : 6c_{3} = 0 </mrow>
+          </md>
+          So <m>c_{3} = 0</m>.
+        </p>
+        <p>
+          Now we can use the recurrence to list the first several terms of the solution:
+          <me>y = c_{1}x + c_{0}(1 - x^{2} - \frac{1}{3}x^{4} - \frac{1}{5}x^{6} - \cdots)</me>
+          In fact,
+          <me>y = c_{1}x - \sum_{n\geq0}\frac{1}{2n - 1}c_{0}x^{2n}</me>.
+        </p>
+      </solution>
+    </example>
+  </section>
+  <section xml:id="section-legendre-s-equation-and-legendre-polynomials">
+    <title>Legendre's Equation and Legendre Polynomials</title>
+    <introduction>
+      <p>
+        An important differential equation in applications is the <term>Legendre equation</term> given by
+        <men xml:id="equation-legendre-ode">(1 - x^{2})y'' - 2xy' + n(n + 1)y = 0</men>.
+        Our first example of this equation (with <m>n = 1</m>) was examined in <xref ref="example-a-legendre-equation" text="type-global" />.
+        By this example, we see that <xref ref="equation-legendre-ode" text="type-global" /> has a series solution centered at <m>x = 0</m> with radius of convergence at least <m>1</m>.
+      </p>
+    </introduction>
   </section>
   <section xml:id="section-frobenius-method">
     <title>Frobenius Method</title>
