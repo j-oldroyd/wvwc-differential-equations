@@ -428,11 +428,75 @@
         This recurrence is valid for <m>n \geq 0</m>, and allows us to write out the solution <m>y</m> in terms of the parameter <m>k</m> and the arbitrary constants <m>c_{0}</m> and <m>c_{1}</m>:
         <me>y = c_{0}y_{1}(x) + c_{1}y_{2}(x)</me>
         where
-        <md>
-          <mrow>y_{1}(x) \amp = 1 - \frac{k(k+1)}{2!}x^{2} + \frac{(k - 2)k(k+1)(k + 3)}{4!}x^{4} - \cdots</mrow>
-          <mrow>y_{2}(x) \amp = x - \frac{(k-1)(k+2)}{3!}x^{3} + \frac{(k-3)(k-1)(k+2)(k+4)}{5!}x^{5} - \cdots </mrow>
-        </md>.
+        <mdn>
+          <mrow xml:id="equation-legendre-soln-y1">y_{1}(x) \amp = 1 - \frac{k(k+1)}{2!}x^{2} + \frac{(k - 2)k(k+1)(k + 3)}{4!}x^{4} - \cdots</mrow>
+          <mrow xml:id="equation-legendre-soln-y2">y_{2}(x) \amp = x - \frac{(k-1)(k+2)}{3!}x^{3} + \frac{(k-3)(k-1)(k+2)(k+4)}{5!}x^{5} - \cdots </mrow>
+        </mdn>.
       </p>
+      <p>
+        Note that <m>y_{1}</m> and <m>y_{2}</m> form a basis of solutions (<xref ref="definition-basis-of-solutions" text="type-global" />) of the Legendre equation, which means that <m>y = c_{0}y_{1} + c_{1}y_{2}</m> must also be the general solution.
+      </p>
+    </subsection>
+    <subsection xml:id="subsection-legendre-polynomials">
+      <title>Legendre Polynomials</title>
+      <p>
+        Our solution of <xref ref="equation-legendre-ode" text="type-global" /> simplifies greatly if <m>k</m> happens to be an integer.
+        In particular, if <m>k</m> is a nonnegative integer then
+        <me>a_{k+2} = a_{k+4} = \cdots = 0</me>.
+        If <m>k</m> is even then the solution <m>y_{1}</m> given in <xref ref="equation-legendre-soln-y1" text="type-global" /> becomes a polynomial:
+        <me>y_{1} = 1 - \frac{k(k+1)}{2!}x^{2} + \cdots + (-1)^{k/2}\frac{[k - (k-2)][k - (k-4)]\cdots[k + (k-3)][k + (k-1)]}{k!}x^{k}</me>.
+        Likewise, if <m>k</m> is odd then <m>y_{2}</m> given in <xref ref="equation-legendre-soln-y2" text="type-global" /> becomes a polynomial instead:
+        <me>y_{2} = x - \frac{(k-1)(k+2)}{3!}x^{3} + \cdots + (-1)^{\frac{k-1}{2}}\frac{[k - (k - 2)][k - (k - 4)]\cdots[k + (k - 3)][k + (k - 1)]}{k!}x^{k}</me>.
+      </p>
+      <p>
+        By choosing <m>c_{0}</m> and <m>c_{1}</m> judiciously, we can guarantee that the polynomials <m>c_{0}y_{1}</m> (if <m>k</m> is even) or <m>c_{1}y_{2}</m> (if <m>k</m> is odd) are precisely equal to <m>1</m> at <m>x = 1</m>.
+        Doing so gives us the <term>Legendre polynomials</term> <m>P_{n}(x)</m>, defined more precisely in <xref ref="equation-legendre-poly" text="type-global" />:
+        <men xml:id="equation-legendre-poly">
+          P_{n}(x) = \begin{cases} \sum_{j = 0}^{n/2}(-1)^{j}\frac{(2n - 2j)!}{2^{n}j!(n - j)!(n - 2j)!}x^{n - 2j} \amp \text{ if }n\text{ is even} \\
+          \sum_{j = 0}^{(n-1)/2}(-1)^{j}\frac{(2n - 2j)!}{2^{n}j!(n - j)!(n - 2j)!}x^{n - 2j} \amp \text{ if }n\text{ is odd} \\ \end{cases}
+        </men>.
+      </p>
+      <p>
+        These polynomials satisfy several nice properties, but one of the most important characteristics they have is that <m>\{P_{n}(x)\}</m> forms an <em>orthogonal set</em> of polynomials on the interval <m>[-1,1]</m>.
+        This means that
+        <me>\int_{-1}^{1}P_{m}(x)P_{n}(x)\,dx = 0</me>
+        if <m>m\neq n</m>.
+        It can also be shown that
+        <me>\int_{-1}^{1}P_{m}(x)P_{n}(x)\,dx = \frac{2}{2n+1}</me>
+        if <m>m = n</m>.
+        This property allows us to express <em>any</em> polynomial as a finite sum of Legendre polynomials in a computationally efficient manner.
+        Furthermore, if we allow infinite series then we can use Legendre polynomials to express and continuous function on <m>[-1,1]</m>.
+      </p>
+      <p>
+        For actually computing Legendre polynomials, instead of using <xref ref="equation-legendre-poly" text="type-global" /> we often use <em>Rodrigues' formula</em>
+        <men xml:id="equation-rodrigues"> P_{n}(x) = \frac{1}{2^{n}n!}\dv[n]{}{x}[(x^{2} - 1)^{n}]</men>
+        or <em>Bonnet's recurrence</em>
+        <men xml:id="equation-bonnet-recurrence">(n + 1)P_{n + 1}(x) = (2n + 1)xP_{n}(x) - n P_{n-1}(x)</men>.
+        Either recurrence is simple to program into a CAS, as seen in the Sage cell below:
+      </p>
+      <sage>
+        <input>
+          def rodrigues(n):
+              Cn = (1 / (2^n * factorial(n)))
+              pn = (x^2 - 1)^n
+
+              pretty_print( (Cn * diff(pn, n)).full_simplify() )
+
+          def bonnet(n):
+              k = 1
+              P0 = 1
+              P1 = x
+              while k &lt; n:
+                  P0, P1 = P1, ((2*k + 1) / (k + 1)) * x * P1 - (k / (k + 1)) * P0
+                  k += 1
+
+              pretty_print( P1.full_simplify() )
+
+          n = 9
+          rodrigues(n)
+          bonnet(n)
+        </input>
+      </sage>
     </subsection>
   </section>
   <section xml:id="section-frobenius-method">
