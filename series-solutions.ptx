@@ -389,17 +389,12 @@
         </p>
         <p>
           To find the solution, we return to the original equation and substitute <m>y = \sum_{n=0}^{\infty}c_{n}x^{n}</m> to get
-          <me>\sum_{n\geq2}n(n-1)c_{n}x^{n-2} - \sum_{n\geq2}n(n-1)c_{n}x^{n} - \sum_{n\geq1}2nc_{n}x^{n} + \sum_{n\geq0}2c_{n}x^{n} = 0</me>
+          <me>\sum_{n\geq0}n(n-1)c_{n}x^{n-2} - \sum_{n\geq0}n(n-1)c_{n}x^{n} - \sum_{n\geq0}2nc_{n}x^{n} + \sum_{n\geq0}2c_{n}x^{n} = 0</me>
           which becomes
-          <me>\sum_{n\geq0}(n + 2)(n+1)c_{n+2}x^{n} - \sum_{n\geq2}n(n-1)c_{n}x^{n} - \sum_{n\geq1}2nc_{n}x^{n} + \sum_{n\geq0}2c_{n}x^{n} = 0</me>.
+          <me>\sum_{n\geq0}(n + 2)(n+1)c_{n+2}x^{n} - \sum_{n\geq0}n(n-1)c_{n}x^{n} - \sum_{n\geq0}2nc_{n}x^{n} + \sum_{n\geq0}2c_{n}x^{n} = 0</me>.
           After a little algebra, we get the recurrence relation
           <me>c_{n+2} = \frac{n-1}{n+1}c_{n}\quad\text{for}\quad n\geq2</me>.
-          Since this recurrence is not valid for <m>n = 0</m> or <m>n = 1</m>, we consider the coefficients of <m>x^{0}</m> and <m>x^{1}</m> separately:
-          <md>
-            <mrow>[x^{0}] \amp : 2c_{2} + 2c_{0} = 0 </mrow>
-            <mrow>[x^{1}] \amp : 6c_{3} = 0 </mrow>
-          </md>
-          So <m>c_{3} = 0</m>.
+          This recurrence is valid for <m>n\geq0</m>.
         </p>
         <p>
           Now we can use the recurrence to list the first several terms of the solution:
@@ -415,11 +410,30 @@
     <introduction>
       <p>
         An important differential equation in applications is the <term>Legendre equation</term> given by
-        <men xml:id="equation-legendre-ode">(1 - x^{2})y'' - 2xy' + n(n + 1)y = 0</men>.
+        <men xml:id="equation-legendre-ode">(1 - x^{2})y'' - 2xy' + k(k + 1)y = 0</men>.
         Our first example of this equation (with <m>n = 1</m>) was examined in <xref ref="example-a-legendre-equation" text="type-global" />.
         By this example, we see that <xref ref="equation-legendre-ode" text="type-global" /> has a series solution centered at <m>x = 0</m> with radius of convergence at least <m>1</m>.
+        Therefore the power series method is appropriate.
       </p>
     </introduction>
+    <subsection xml:id="subsection-solving-the-legendre-equation">
+      <title>Solving the Legendre Equation</title>
+      <p>
+        We'll proceed as we did in <xref ref="example-a-legendre-equation" text="type-global" />, altering the last sum as necessary to get
+        <me>\sum_{n\geq0}(n+2)(n+1)c_{n+2}x^{n} - \sum_{n\geq0}n(n-1)c_{n}x^{n} - \sum_{n\geq0}2nc_{n}x^{n} + \sum_{n\geq0}k(k+1)c_{n}x^{n} = 0</me>
+        which gives (after a bit of algebra, once again)
+        <me>c_{n+2} = -\frac{(k - n)(k + n + 1)}{(n + 2)(n + 1)}c_{n}</me>.
+      </p>
+      <p>
+        This recurrence is valid for <m>n \geq 0</m>, and allows us to write out the solution <m>y</m> in terms of the parameter <m>k</m> and the arbitrary constants <m>c_{0}</m> and <m>c_{1}</m>:
+        <me>y = c_{0}y_{1}(x) + c_{1}y_{2}(x)</me>
+        where
+        <md>
+          <mrow>y_{1}(x) \amp = 1 - \frac{k(k+1)}{2!}x^{2} + \frac{(k - 2)k(k+1)(k + 3)}{4!}x^{4} - \cdots</mrow>
+          <mrow>y_{2}(x) \amp = x - \frac{(k-1)(k+2)}{3!}x^{3} + \frac{(k-3)(k-1)(k+2)(k+4)}{5!}x^{5} - \cdots </mrow>
+        </md>.
+      </p>
+    </subsection>
   </section>
   <section xml:id="section-frobenius-method">
     <title>Frobenius Method</title>
