@@ -843,4 +843,106 @@
       </example>
     </subsection>
   </section>
+  <section xml:id="section-bessel-s-equation">
+    <title>Bessel's Equation</title>
+    <introduction>
+      <p>
+        As with Legendre's Equation <xref ref="equation-legendre-ode" text="type-global" />, another important differential equation in applications is <term>Bessel's equation</term>:
+        <men xml:id="equation-bessel">
+          x^{2}y'' + xy' + (x^{2} - \nu^{2})y = 0
+        </men>,
+        where <m>\nu \geq 0</m>.
+        By <xref ref="theorem-method-of-frobenius" text="type-global" />, this equation has a series solution at <m>x = 0</m> of the form
+        <me>y = x^{r}\sum_{k\geq0}c_{k}x^{k}</me>
+        where <m>r</m> is a solution of the indicial equation
+        <me>r(r - 1) + r - \nu^{2} = 0</me>,
+        or just
+        <me>r = \pm\nu</me>.
+        In particular, there we're guaranteed a series solution by setting <m>r = \nu</m>, since this is the larger root.
+        Note that <xref ref="example-using-method-of-frobenius" text="type-global" /> is actually a Bessel equation with parameter <m>\nu = \frac{1}{2}</m>.
+      </p>
+      <p>
+        Let
+        <me>y = x^{\nu}\sum_{k\geq0}c_{k}x^{k}</me>.
+        Then we can plug this into <xref ref="equation-bessel" text="type-global" /> to obtain
+        <men xml:id="equation-bessel-plugged-in">\sum_{k\geq0}(k+\nu)(k+\nu-1)c_{k}x^{k + \nu} + \sum_{k\geq0}(k+\nu)c_{k}x^{k + \nu} + \sum_{k\geq2}c_{k-2}x^{k + \nu} - \sum_{k\geq0}\nu^{2}c_{k}x^{k + \nu} = 0</men>,
+        which gives
+        <me>c_{k} = -\frac{c_{k-2}}{k(k+2\nu)}\qq{for}k\geq2</me>.
+        Since this only gives us data about <m>c_{k}, k\geq 2</m>, we should go back to <xref ref="equation-bessel-plugged-in" text="type-global" /> to see if we can say anything about <m>c_{0}</m> or <m>c_{1}</m>.
+        In fact, we get
+        <me>(2\nu + 1)c_{1} = 0 \implies c_{1} = 0</me>.
+        Hence our series solution only contains even-indexed coefficients.
+        Rewriting the recurrence to reflect this, we get
+        <men xml:id="equation-bessel-recurrence">
+          c_{2k} = -\frac{c_{2k - 2}}{2^{2}k(k + \nu)} = \frac{(-1)^{k}c_{0}}{2^{2m}k!(\nu + 1)(\nu + 2)\cdots(\nu + k)}\qq{for} k\geq2.
+        </men>
+      </p>
+    </introduction>
+    <subsection xml:id="subsection-bessel-functions-for-integer--nu-">
+      <title>Bessel Functions for Integer <m>\nu</m></title>
+      <p>
+        Now we consider what happens to solutions given by <xref ref="equation-bessel-recurrence" text="type-global" /> if <m>\nu = n</m> is a nonnegative integer.
+        To simplify matters (somewhat...), we add the restriction that <m>c_{0} = \frac{1}{2^{n}n!}</m>.
+        This allows us to write <xref ref="equation-bessel-recurrence" text="type-global" /> more simply as
+        <men xml:id="equation-bessel-function-nu-integer">
+          c_{2k} = \frac{(-1)^{k}}{2^{2k + n}(n + k)!}.
+        </men>
+        The resulting series
+        <men xml:id="equation-bessel-function-first-kind">
+          J_{n}(x) = x^{n}\sum_{k\geq0}\frac{(-1)^{k}}{2^{2k + n}k!(n + k)!}x^{2k}
+        </men>
+        is known as the <term>Bessel function of the first kind</term> of order <m>n</m>.
+      </p>
+      <example xml:id="example-finding-j_-0-m-and-j_-1-m-">
+        <title>Finding <m>J_{0}</m> and <m>J_{1}</m></title>
+        <statement>
+          <p>
+            Find the zeroth order and first order Bessel functions of the first kind.
+          </p>
+        </statement>
+        <solution>
+          <p>
+            Using <xref ref="equation-bessel-function-first-kind" text="type-global" />, we get
+            <md>
+              <mrow>J_{0}(x) \amp = \sum_{k\geq0}\frac{(-1)^{k}}{2^{2k}(k!)^{2}}x^{2k} \amp = 1 - \frac{1}{4}x^{2} + \frac{1}{16(4)}x^{4} - \cdots</mrow>
+              <mrow>J_{1}(x) \amp = x\sum_{k\geq0}\frac{(-1)^{k}}{2^{2k + 1}k!(1 + k)!}x^{2k} \amp = \frac{1}{2}x - \frac{1}{8(2)}x^{3} + \cdots</mrow>
+            </md>.
+          </p>
+        </solution>
+      </example>
+      <p>
+        These functions are important enough that they are built-in to most computer algebra systems.
+        Using Sage, we get the following plots:
+      </p>
+      <sage>
+        <input>
+          J0 = bessel_J(0, x)
+          J1 = bessel_J(1, x)
+
+          P = plot(J0, (x, -1, 50), legend_label = "$J_{0}(x)$")
+          P += plot(J1, (x, -1, 50), color = 'green', legend_label = "$J_{1}(x)$")
+          P.show()
+        </input>
+      </sage>
+      <p>
+        As we can see, these functions oscillate and tend towards <m>0</m>.
+        A useful (asymptotic) approximation is given by
+        <me>\sqrt{\frac{2}{\pi x}}\cos\left(x - \frac{n\pi}{2} - \frac{\pi}{4}\right)</me>,
+        as shown below.
+      </p>
+      <figure xml:id="figure-bessel-approximation-first-kind">
+        <caption>Approximating a Bessel function.</caption>
+      </figure>
+      <image xml:id="image-bessel-approximation-first-kind">
+        <sageplot>
+          f = sqrt(2 / (pi * x)) * cos(x - 3*pi / 4)
+          J1 = bessel_J(1, x)
+
+          P = plot(J1, (x, -1, 50), legend_label = "$J_{1}(x)$")
+          P += plot(f, (x, -1, 50), color = 'red', legend_label = r"$\sqrt{\frac{2}{\pi x}}\cos(x - 3\pi/4)$")
+          P
+        </sageplot>
+      </image>
+    </subsection>
+  </section>
 </chapter>
