@@ -747,12 +747,22 @@
             <ol>
               <li>
                 <p>
-                  There is a solution of the ODE of the form <m>x^{r_{1}}\sum_{n\geq0}^{}c_{n}x^{n}</m>.
+                  There is a solution of the ODE of the form <m>y_{1}(x) = x^{r_{1}}\sum_{n\geq0}^{}c_{n}x^{n}</m>.
                 </p>
               </li>
               <li>
                 <p>
-                  If <m>r_{1}-r_{2}</m> is <em>not</em> equal to an integer, then there exists a second linearly independent solution of the form <m>x^{r_{2}}\sum_{n\geq0}^{}d_{n}x^{n}</m>.
+                  If <m>r_{1}-r_{2}</m> is <em>not</em> equal to an integer, then there exists a second linearly independent solution of the form <m>y_{2}(x) = x^{r_{2}}\sum_{n\geq0}^{}d_{n}x^{n}</m>.
+                </p>
+              </li>
+              <li>
+                <p>
+                  If <m>r_{1} = r_{2}</m>, there exists a second linearly independent solution of the form <m>y_{2}(x) = y_{1}(x)\ln x + x^{r_{1}}(C_{0} + C_{1}x + \cdots )</m>.
+                </p>
+              </li>
+              <li>
+                <p>
+                  If <m>r_{1} - r_{2}</m> is a nonzero integer, there exists a second linearly independent solution of the form <m>y_{2}(x) = ky_{1}(x)\ln x + x^{r_{2}}(C_{0} + C_{1}x + \cdots )</m>.
                 </p>
               </li>
             </ol>
@@ -786,8 +796,7 @@
               r(r-1)+r-\frac{1}{4} = 0.
             </me>
             We solve this algebraically for <m>r</m> to get the roots <m>r_{1}=\frac{1}{2}</m> and <m>r_{2}=-\frac{1}{2}</m>.
-            Since <m>r_{1}-r_{2} = 1</m> is an integer, the method of Frobenius does <em>not</em> guarantee two linearly independent solutions.
-            However, we are guaranteed one solution using <m>r_{1}</m>.
+            Since <m>r_{1}-r_{2} = 1</m> is an integer, we are guaranteed a solution based on <m>r_{1} = \frac{1}{2}</m> and a second solution based on <m>r_{2} = -\frac{1}{2}</m> and the logarithm.
             So we make the guess
             <me>
               y = x^{\frac{1}{2}}\sum_{n\geq0}^{}c_{n}x^{n} = \sum_{n\geq0}^{}c_{n}x^{n+\frac{1}{2}}.
@@ -904,8 +913,8 @@
           <p>
             Using <xref ref="equation-bessel-function-first-kind" text="type-global" />, we get
             <md>
-              <mrow>J_{0}(x) \amp = \sum_{k\geq0}\frac{(-1)^{k}}{2^{2k}(k!)^{2}}x^{2k} \amp = 1 - \frac{1}{4}x^{2} + \frac{1}{16(4)}x^{4} - \cdots</mrow>
-              <mrow>J_{1}(x) \amp = x\sum_{k\geq0}\frac{(-1)^{k}}{2^{2k + 1}k!(1 + k)!}x^{2k} \amp = \frac{1}{2}x - \frac{1}{8(2)}x^{3} + \cdots</mrow>
+              <mrow>J_{0}(x) \amp = \sum_{k\geq0}\frac{(-1)^{k}}{2^{2k}(k!)^{2}}x^{2k} \amp= 1 - \frac{1}{4}x^{2} + \frac{1}{16(4)}x^{4} - \cdots</mrow>
+              <mrow>J_{1}(x) \amp = x\sum_{k\geq0}\frac{(-1)^{k}}{2^{2k + 1}k!(1 + k)!}x^{2k} \amp= \frac{1}{2}x - \frac{1}{8(2)}x^{3} + \cdots</mrow>
             </md>.
           </p>
         </solution>
@@ -927,7 +936,7 @@
       <p>
         As we can see, these functions oscillate and tend towards <m>0</m>.
         A useful (asymptotic) approximation is given by
-        <me>\sqrt{\frac{2}{\pi x}}\cos\left(x - \frac{n\pi}{2} - \frac{\pi}{4}\right)</me>,
+        <men xml:id="equation-bessel-asymptotic">\sqrt{\frac{2}{\pi x}}\cos\left(x - \frac{n\pi}{2} - \frac{\pi}{4}\right)</men>,
         as shown below.
       </p>
       <figure xml:id="figure-bessel-approximation-first-kind">
@@ -943,6 +952,54 @@
           P
         </sageplot>
       </image>
+    </subsection>
+    <subsection xml:id="subsection-bessel-functions-of-the-first-kind-for-nonnegative-order">
+      <title>Bessel Functions of the First Kind for Nonnegative Order</title>
+      <p>
+        Now we try to find a formula for <m>J_{\nu}(x)</m> assuming <m>\nu\geq0</m>.
+        To do so, we need to make sense of expressions like <m>(\nu + k)!</m>.
+        Thankfully, we can do so using the <em>Gamma function</em>.
+      </p>
+      <definition xml:id="definition-gamma-function">
+        <title>Gamma Function</title>
+        <idx><h>Gamma function</h></idx>
+        <statement>
+          <p>
+            The <term>Gamma function</term> is the function <m>\Gamma(x)</m> given by
+            <me>\Gamma(x) = \int_{0}^{\infty}t^{x-1}e^{-t}\,dt</me>.
+          </p>
+        </statement>
+      </definition>
+      <p>
+        An important property of the Gamma function is the following:
+        <me>\Gamma(x + 1) = x\Gamma(x)</me>.
+        If we replace <m>x</m> with an integer <m>n\geq0</m>, we get
+        <me>\Gamma(n + 1) = n!</me>.
+        It turns out that we can replace <m>(\nu + k)!</m> in <xref ref="equation-bessel-function-first-kind" text="type-global" /> with <m>\Gamma(\nu + k + 1)</m>, giving
+        <men xml:id="equation-bessel-first-kind-nonnegative-order">
+          J_{\nu}(x) = x^{\nu}\sum_{k\geq0}\frac{(-1)^{k}}{2^{2k + \nu}k!\Gamma(\nu + k + 1)}x^{2k} = \sum_{k\geq0} \frac{(-1)^{k}}{k!\Gamma(\nu + k + 1)}\left(\frac{x}{2}\right)^{2k + \nu}
+        </men>.
+        Note that the asymptotic expansion in <xref ref="equation-bessel-asymptotic" text="type-global" /> holds for noninteger <m>\nu</m> as well.
+      </p>
+    </subsection>
+    <subsection xml:id="subsection-general-solution-of-bessel-s-equation">
+      <title>General Solution of Bessel's Equation</title>
+      <p>
+        Since <xref ref="equation-bessel-plugged-in" text="type-global" /> is second-order, we need a second linearly independent solution to get the general solution.
+        If <m>\nu</m> is not an integer then we can find the second solution very quickly: <m>J_{-\nu}(x)</m>.
+        However, if <m>\nu</m> is an integer then it turns out that <m>J_{-\nu}(x) = (-1)^{n}J_{\nu}(x)</m>, and so fails to be linearly independent from <m>J_{\nu}</m>.
+      </p>
+      <p>
+        It turns out that a second, linearly independent solution <m>Y_{\nu}</m> is given as follows:
+        <mdn>
+          <mrow xml:id="equation-bessel-second-kind-noninteger">
+            Y_{\nu}(x) \amp = \frac{1}{\sin(\nu\pi)}[J_{\nu}(x)\cos(\nu\pi) - J_{-\nu}(x)]
+          </mrow>
+          <mrow xml:id="equation-bessel-second-kind-integer">
+            Y_{n}(x) \amp = \lim_{\nu\to n}Y_{\nu}(x)
+          </mrow>
+        </mdn>.
+      </p>
     </subsection>
   </section>
 </chapter>
