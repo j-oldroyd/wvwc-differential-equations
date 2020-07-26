@@ -630,7 +630,96 @@
       </example>
     </subsection>
   </section>
-  <section xml:id="subsection-the-fourier-transform">
+  <section xml:id="section-approximation-by-trigonometric-polynomials">
+    <title>Approximation by Trigonometric Polynomials</title>
+    <p>
+      If a function <m>f(x)</m> has a Fourier series and is equal to its Fourier series, i.e.,
+      <me>f(x) = a_{0} + \sum_{k=1}^{\infty}[a_{k}\cos\frac{k\pi}{L}x + b_{k}\sin\frac{k\pi}{L}x]</me>,
+      then the partial sums of the Fourier series should be good approximations of <m>f(x)</m>:
+      <me>f(x) \approx a_{0} + \sum_{k=1}^{N}[a_{k}\cos\frac{k\pi}{L}x + b_{k}\sin\frac{k\pi}{L}x] = \sum_{-N}^{N}c_{k}e^{i\frac{k\pi}{L}x}</me>.
+      Such a sum is a <term>trigonometric polynomial of degree <m>N</m></term>.
+    </p>
+    <p>
+      We can also consider approximating <m>f</m> with other trigonometric polynomials of degree <m>N</m>, say
+      <me>F(x) = A_{0} + \sum_{k=1}^{N}[A_{k}\cos\frac{k\pi}{L}x + B_{k}\sin\frac{k\pi}{L}x]</me>.
+      We'd like to know how good the approximation is.
+      To do this, we need to define a measure of error.
+    </p>
+    <definition xml:id="definition-square-error">
+      <title>Square Error</title>
+      <statement>
+        <p>
+          Given a function of period <m>p = 2L</m> <m>f(x)</m> and approximation <m>F(x)</m>, we define the <term>square error</term> to be
+          <me>E = \int_{-L}^{L}(f(x) - F(x))^{2}\,dx</me>,
+          assuming these are real-valued functions.
+        </p>
+      </statement>
+    </definition>
+    <p>
+      It turns out that if we are approximating <m>f(x)</m> by trigonometric polynomials <m>F(x)</m>, then the square error takes a specific form.
+    </p>
+    <theorem xml:id="theorem-square-error-formula">
+      <title>Square Error Formula</title>
+      <statement>
+        <p>
+          Let <m>f(x)</m> be a function of period <m>p = 2L</m> with Fourier coefficients <m>a_{k}</m> and <m>b_{k}</m>, and let
+          <me>F(x) = A_{0} + \sum_{k=1}^{N}[A_{k}\cos\frac{k\pi}{L}x + B_{k}\sin\frac{k\pi}{L}x]</me>
+          be a degree <m>N</m> trigonometric polynomial.
+          Then
+          <me>E \geq \int_{-L}^{L}f^{2}\,dx - L\left[2a_{0}^{2} + \sum_{k=1}^{N}(a_{k}^{2} + b_{k}^{2})\right]</me>.
+          The error <m>E</m> takes this minimum value if <m>A_{k} = a_{k}, B_{k} = b_{k}</m>.
+      </statement>
+    </theorem>
+    <example xml:id="example-error-from-a-trigonometric-polynomial">
+      <title>Error from a Trigonometric Polynomial</title>
+      <statement>
+        <p>
+          Define <m>f(x) = x^{3}</m> for <m>-\pi\leq x < \pi</m> as in <xref ref="example-fourier-series-of-x-cubed" text="type-global" />, and recall that the Fourier series is given by
+          <me>\sum_{k = 1}^{\infty}(-1)^{k}\frac{2(6 - \pi^{2}k^{2})}{k^{3}}\sin kx</me>.
+          Find the trigonometric polynomial of degree <m>N</m> that best approximates <m>f</m> and give the corresponding error.
+        </p>
+      </statement>
+      <solution>
+        <p>
+          The trigonometric polynomial of degree <m>N</m> that best approximates <m>f(x)</m> is
+          <me>\sum_{k = 1}^{N}(-1)^{k}\frac{2(6 - \pi^{2}k^{2})}{k^{3}}\sin kx</me>.
+          The corresponding square error is
+          <md>
+            <mrow>\int_{-\pi}^{\pi}x^{6}\,dx - \pi\sum_{k=1}^{N}\frac{4(6 - \pi^{2}k^{2})^{2}}{k^{6}} \amp = \frac{2\pi^{7}}{7} - \pi\sum_{k=1}^{N}\frac{4(6 - \pi^{2}k^{2})^{2}}{k^{6}} </mrow>.
+          </md>
+        </p>
+      </solution>
+    </example>
+    <p>
+      Since the square error is a positive value, it follows that
+      <me>2a_{0}^{2} + \sum_{k=1}^{N}(a_{k}^{2} + b_{k}^{2}) \leq \frac{1}{L}\int_{-L}^{L}f(x)^{2}\,dx</me>.
+      This is known as <term>Bessel's inequality</term>.
+      <xref ref="theorem-parseval-s-identity" text="type-global" /> states that this inequality becomes equality if we let <m>N\to\infty</m>.
+    </p>
+    <example xml:id="example-applying-bessel-s-inequality">
+      <title>Applying Bessel's Inequality</title>
+      <statement>
+        <p>
+          Let
+          <me>f(x) = \begin{cases} -1 \amp\text{ if } -1\leq x < 0 \\ 1 \amp\text{ if } 0 < x \leq 1 </me>.
+          Apply Bessel's inequality to this function.
+          What does Parseval's Identity say?
+        </p>
+      </statement>
+      <solution>
+        <p>
+          If we find the Fourier coefficients of <m>f</m>, we get
+          <me>b_{k} = \frac{2 - (-1)^{k}}{k\pi}</me>.
+          By Bessel's inequality, we know that
+          <me>\sum_{k=1}^{N}\left(\frac{2 - (-1)^{k}}{k\pi}\right) \leq 2</me>
+          for any <m>N</m>.
+          As <m>N\to\infty</m>, Parseval's gives the identity
+          <me>2\pi^{2} = \frac{3^{2}}{1^{2}} + \frac{1^{2}}{2^{2}} + \frac{3^{2}}{3^{2}} + \frac{1^{2}}{4^{2}} + \cdots</me>.
+        </p>
+      </solution>
+    </example>
+  </section>
+  <section xml:id="section-the-fourier-transform">
     <title>The Fourier Transform</title>
     <p>
       If <m>f(x)</m> is a periodic function with period <m>p=2L</m>, then we know how to find its Fourier series, both real and complex.
