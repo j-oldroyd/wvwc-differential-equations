@@ -447,24 +447,22 @@
       Hence the roots of the characteristic equation <em>completely</em> determine the general solutions of such ODEs.
       We summarize this in the following table.
     </p>
-    <figure xml:id="figure-roots-characteristic-equation-second-order">
-      <table xml:id="table-roots-characteristic-equation-second-order">
-        <tabular top="major" bottom="major">
-          <row bottom="major">
-            <cell>Roots</cell>
-            <cell>General solution</cell>
-          </row>
-          <row>
-            <cell><m>r_{1}\neq r_{2}</m></cell>
-            <cell><m>c_{1}e^{r_{1}x} + c_{2}e^{r_{2}x}</m></cell>
-          </row>
-          <row>
-            <cell><m>r_{1} = r_{2}</m></cell>
-            <cell><m>c_{1}e^{r_{1}x} + c_{2}xe^{r_{1}x}</m></cell>
-          </row>
-        </tabular>
-      </table>
-    </figure>
+    <table>
+      <tabular top="major" bottom="major">
+        <row bottom="major">
+          <cell>Roots</cell>
+          <cell>General solution</cell>
+        </row>
+        <row>
+          <cell><m>r_{1}\neq r_{2}</m></cell>
+          <cell><m>c_{1}e^{r_{1}x} + c_{2}e^{r_{2}x}</m></cell>
+        </row>
+        <row>
+          <cell><m>r_{1} = r_{2}</m></cell>
+          <cell><m>c_{1}e^{r_{1}x} + c_{2}xe^{r_{1}x}</m></cell>
+        </row>
+      </tabular>
+    </table>
     <p>
       Remember that it's not a problem if the characteristic equation has imaginary roots, and in fact we must account for these in order to completely describe the corresponding physical system.
       If we have imaginary roots, then we can simply use Euler's Formula to rewrite the solutions in terms of sine and cosine.

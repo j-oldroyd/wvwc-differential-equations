@@ -1,0 +1,918 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!--********************************************************************
+
+*********************************************************************-->
+<!-- This file was originally part of the book     -->
+<!-- (as copied on 2015/07/12)                     -->
+<!--                                               -->
+<!--   Abstract Algebra: Theory and Applications   -->
+<!--                                               -->
+<!-- Copyright (C) 1997-2014  Thomas W. Judson     -->
+
+<chapter xml:id="laplace-transforms" xmlns:xi="http://www.w3.org/2001/XInclude">
+  <title>Laplace Transforms</title>
+  <section xml:id="section-the-laplace-transform">
+    <title>The Laplace Transform</title>
+    <subsection xml:id="subsection-definition-and-basic-properties">
+      <title>Definition and Basic Properties</title>
+      <example xml:id="example-motivating-laplace">
+        <title>
+          Motivating the Laplace Transform
+        </title>
+        <statement>
+          <p>
+            A mass of <quantity><mag>1</mag><unit base="kilogram"/></quantity> is attached to a spring that is held <quantity><mag>1</mag><unit base="meter"/></quantity> to the right of its equilibrium position by a force of <quantity><mag>4</mag><unit base="newton"/></quantity>.
+            Beginning at time <m>t=0</m>, a machine is turned on and applies an external force of <m>\cos2t</m> to the mass.
+            At time <m>t=2\pi</m> the machine is turned off and the external force disappears.
+            Let <m>x(t)</m> be the displacement of the mass at time <m>t</m>.
+            What is an ODE that models the motion of the mass?
+          </p>
+        </statement>
+        <solution>
+          <p>
+            We can set this up as we did in Chapter 3. By Hooke's Law and Newton's Second Law, we have
+            <me>mx''+kx = F_{E}(t)</me>
+            where <m>F_{E}</m> is the external force at time <m>t</m>. Since <m>m = 1</m>, <m>k = 4</m> and
+            <me>
+              F_{E}(t) = 
+              \begin{cases}
+              \cos2t \amp \text{if }0\leq t\lt 2\pi\\
+              0 \amp\text{if } t\geq2\pi  
+              \end{cases}
+            </me>
+            the motion of the mass satisfies the ODE
+            <me>x''+4x = F_{E}(t).</me>
+          </p>
+        </solution>
+      </example>
+      <p>
+        For the above example we could try to solve it as we did in Chapter 3: first by finding the complementary solution <m>x_{c}</m> (which isn't a problem) and then by finding the particular solution <m>x_{p}</m> corresponding to <m>F_{E}</m>.
+        However, finding <m>x_{p}</m> will not be possible using our previous methods since the function <m>F_{E}</m> is not differentiable everywhere (nor continuous everywhere).
+        We would like to develop a method that lets us solve ODEs that involve discontinuous quantities.
+      </p>
+      <definition xml:id="definition-the-laplace-transform">
+        <title>The Laplace Transform</title>
+        <statement>
+          <p>
+            Let <m>f(t)</m> be defined for <m>t\geq0</m>. The <term>Laplace transform</term> of <m>f</m> is a function <m>F(s)</m>, or <m>\mathcal{L}\left\{ f(t) \right\}</m>, defined by
+            <me>F(s) = \mathcal{L}\left\{ f(t) \right\} = \Int{0}{\infty}f(t)e^{-st}\,dt</me>
+            for all values of <m>s</m> such that <m>F(s)</m> exists.
+            We often say that <m>f(t)</m> is in the <term>time domain</term> while <m>F(s)</m> is in the <term>frequency domain</term>.
+          </p>
+        </statement>
+      </definition>
+      <p>
+        One reason we care about the Laplace transform is that it lets us deal with solving linear ODEs involving discontinuous functions.
+        This is something we will begin to look at in the next section.
+      </p>
+      <example xml:id="example-computing-a-laplace-transform">
+        <title>Computing a Laplace Transform</title>
+        <statement>
+          <p>
+            Compute <m>\mathcal{L}\left\{ 1 \right\}</m>.
+          </p>
+        </statement>
+      </example>
+      <example xml:id="example-computing-the-laplace-of-t-">
+        <title>Computing the Laplace of <m>t</m></title>
+        <statement>
+          <p>
+            Compute the Laplace transform of <m>f(t) = t</m>.
+          </p>
+        </statement>
+        <solution>
+          <p>
+            We compute the Laplace transform <m>F(s)</m> using the definition:
+            <md>
+              <mrow>F(s) \amp= \Int{0}{\infty}te^{-st}\,dt</mrow>
+              <mrow>\amp= \left[-\frac{t}{s}e^{-st}\right]_{0}^{\infty} + \frac{1}{s}\Int{0}{\infty}e^{-st}\,dt \amp\text{using integration by parts}</mrow>
+              <mrow>\amp= -\frac{1}{s^{2}}\left[e^{-st}\right]_{0}^{\infty}</mrow>
+              <mrow>\amp= \frac{1}{s^{2}}</mrow>
+            </md>.
+          </p>
+        </solution>
+      </example>
+      <p>
+        In general,
+        <me>\mathcal{L}\left\{t^{n}\right\} = \frac{n!}{s^{n+1}}</me>
+        if <m>n\geq0</m> is a whole number.
+      </p>
+      <p>
+        The Laplace transform is also an example of a <term>linear transformation</term>.
+        In particular, we have the following theorem.
+      </p>
+      <theorem xml:id="theorem-linearity-of-the-laplace-transform">
+        <title>Linearity of the Laplace Transform</title>
+        <statement>
+          <p>
+            Let <m>a</m> and <m>b</m> be constants and suppose <m>f(t)</m> and <m>g(t)</m> are functions with respective Laplace transforms <m>F(s)</m> and <m>G(s)</m>. Then
+            <me>\Laplace{af+bg} = aF(s)+bG(s).</me>
+          </p>
+        </statement>
+      </theorem>
+      <example xml:id="example-computing-the-transform-of-a-polynomial">
+        <title>Computing the Transform of a Polynomial</title>
+        <statement>
+          <p>
+            Compute <m>\Laplace{(t-1)^{3}}</m>.
+          </p>
+        </statement>
+        <solution>
+          <p>
+            We could use the definition once again, but here's an easier way using the linearity of the Laplace transform. First, note that
+            <me>(t-1)^{3} = t^{3} - 3t^{2} +3t - 1</me>
+            so
+            <md>
+              <mrow>\Laplace{(t-1)^{3}} \amp= \Laplace{t^{3}-3t^{2}+3t-1}</mrow>
+              <mrow>\amp= \Laplace{t^{3}} - 3\Laplace{t^{2}} +3\Laplace{t} - \Laplace{1}</mrow>
+              <mrow>\amp= \frac{3!}{s^{4}} - 3\frac{2!}{s^{3}} + 3\frac{1!}{s^{2}} - \frac{0!}{s}</mrow>
+              <mrow>\amp= \frac{6}{s^{4}} - \frac{6}{s^{3}} + \frac{3}{s^{2}} - \frac{1}{s}</mrow>
+            </md>.
+          </p>
+        </solution>
+      </example>
+      <p>
+        Another benefit is that the Laplace transform works well with some discontinuous functions.
+      </p>
+      <example xml:id="example-the-unit-step-function">
+        <title>The Unit Step Function</title>
+        <statement>
+          <p>
+            Let <m>u(t)</m> be the <term>unit step function</term>, which is defined by
+            <me> u(t) = 
+              \begin{cases}
+              0 \amp\text{if }t\lt 0  \\
+              1 \amp\text{if }t\geq0
+              \end{cases}
+            </me>
+            Compute <m>\Laplace{u(t-3)}</m>.
+          </p>
+        </statement>
+        <solution>
+          <p>
+            Note that we are computing a <em>translation</em> of the usual unit step function.
+            We still compute <m>\Laplace{u(t-3)}</m> using the definition of the Laplace transform:
+            <md>
+              <mrow>\Laplace{u(t)} \amp= \Int{0}{\infty}u(t)e^{-st}\,dt</mrow>
+              <mrow>\amp= \Int{3}{\infty}e^{-st}\,dt \amp\text{since <m>u(t-3)</m> is <m>0</m> for values of <m>t\lt3</m>}</mrow>
+              <mrow>\amp= -\frac{1}{s}\left[e^{-st}\right]_{3}^{\infty}</mrow>
+              <mrow>\amp= \frac{e^{-3s}}{s}</mrow>
+            </md>.
+          </p>
+        </solution>
+      </example>
+      <p>
+        Some other important Laplace transforms are given below:
+        <md>
+          <mrow>\Laplace{e^{at}} \amp= \frac{1}{s-a}</mrow>
+          <mrow>\Laplace{\sin(\omega t)} \amp= \frac{k}{s^{2}+\omega^{2}}</mrow>
+          <mrow>\Laplace{\cos(\omega t)} \amp= \frac{s}{s^{2}+\omega^{2}}</mrow>
+        </md>.
+      </p>
+    </subsection>
+    <subsection xml:id="subsection-the-inverse-laplace-transform-m-s--shifting">
+      <title>The Inverse Laplace Transform; <m>s</m>-shifting</title>
+      <p>
+        An important theorem regarding Laplace transforms is the following:
+      </p>
+      <theorem xml:id="theorem-uniqueness-of-inverse-laplace">
+        <title>Uniqueness of Laplace Transforms</title>
+        <statement>
+          <p>
+            Suppose <m>f(t)</m> and <m>g(t)</m> have respective Laplace transforms <m>F(s)</m> and <m>G(s)</m>.
+            If <m>F(s) = G(s)</m> for all <m>s\gt c</m> (for some constant <m>c</m>) and <m>f(t)</m> and <m>g(t)</m> are piecewise continuous, then <m>f(t) = g(t)</m> on the interval <m>[0,\infty)</m>.
+          </p>
+        </statement>
+      </theorem>
+      <p>
+        The previous theorem says that the Laplace transform is unique for continuous functions: two different continuous functions will have two different Laplace transforms. This allows us to talk about taking inverse Laplace transforms.
+      </p>
+      <definition xml:id="definition-inverse-laplace">
+        <title>Inverse Laplace Transform</title>
+        <statement>
+          <p>
+            The <term>inverse Laplace transform</term> of a function <m>F(s)</m>, denoted <m>\mathcal{L}^{-1}\left\{F(s)\right\}</m>, is a function <m>f(t)</m> such that <m>\Laplace{f(t)} = F(s)</m>.
+          </p>
+        </statement>
+      </definition>
+      <p>
+        Just like the Laplace transform, the inverse Laplace transform is <term>linear</term>.
+      </p>
+      <example xml:id="example-finding-inverse-laplace">
+        <title>Finding an Inverse Transform</title>
+        <statement>
+          <p>
+            A continuous function <m>f(t)</m> has Laplace transform
+            <me>F(s) = \frac{3s}{s^{2}+5} + \frac{7}{s^{3}}.</me>
+            Find <m>f(t)</m>.
+          </p>
+          <solution>
+            <p>
+              We can find <m>f(t)</m> by taking the inverse Laplace transform of each term in <m>F(s)</m>:
+              <md>
+                <mrow>\iLaplace{\frac{3s}{s^{2}+5}} \amp= 3\iLaplace{\frac{s}{s^{2}+5}} = 3\cos(\sqrt{5}t)</mrow>
+                <mrow>\iLaplace{\frac{7}{s^{3}}} \amp= \frac{7}{2!}\iLaplace{\frac{2!}{s^{3}}} = \frac{7}{2}t^{2}</mrow>
+              </md>.
+              So
+              <me>f(t) = 3\cos(\sqrt{5}t)+\frac{7}{2}t^{2}.</me>
+            </p>
+          </solution>
+        </statement>
+      </example>
+      <theorem xml:id="theorem--s--shifting">
+        <title><m>s</m>-shifting</title>
+        <statement>
+          <p>
+            Suppose that <m>f(t)</m> has Laplace transform <m>F(s)</m>, defined for <m>s\gt k</m> for some <m>k</m>.
+            Then
+            <me>\Laplace{e^{at}f(t)} = F(s-a)\qq{or equivalently} \iLaplace{F(s-a)} = e^{at}f(t).</me>
+            In other words, multiplication by an exponential <m>e^{at}</m> in the \emph{time domain} corresponds to translation by <m>a</m> in the <em>frequency domain</em>.
+          </p>
+        </statement>
+      </theorem>
+      <example xml:id="example-inverse-laplace-with-frequency-shifting">
+        <title>Inverse Laplace with Frequency Shifting</title>
+        <statement>
+          <p>
+            A function <m>f(t)</m> has Laplace transform
+            <me>F(s) = \frac{4}{s^{2}+2s+3}.</me>
+            Find <m>f(t)</m>.
+          </p>
+        </statement>
+        <solution>
+          <p>
+            We'll start by completing the square on the denominator of <m>F(s)</m> to see if we can make it look like <m>(s-a)^{2}+\omega^{2}</m> for some <m>a,\omega</m>:
+            <me>F(s) = \frac{4}{(s^{2}+2s+1)+3-1} = \frac{4}{(s+1)^{2}+2}.</me>
+            This looks an \emph{awful} lot like the transform of <m>\sin(\sqrt{2}t)</m>.
+            Since we have <m>(s+1)^{2}</m> instead of <m>s^{2}</m>, this tells us that
+            <me>f(t) = \frac{4}{\sqrt{2}}e^{-t}\sin(\sqrt{2}t).</me>
+          </p>
+        </solution>
+      </example>
+      <term>SUGGESTED PROBLEMS:</term> 1, 3, 5, 9, 31, 37. 43
+    </subsection>
+  </section>
+  <section xml:id="section-transformation-of-initial-value-problems">
+    <title>Transformation of Initial Value Problems</title>
+    <theorem xml:id="theorem-laplace-transforms-of-derivatives">
+      <title>Laplace Transforms of Derivatives</title>
+      <statement>
+        <p>
+          Suppose that the function <m>f(t)</m> is piecewise smooth and that <m>F(s) = \Laplace{f(t)}</m> exists.
+          Then <m>\Laplace{f'(t)}</m> exists and
+          <me>\Laplace{f'(t)} = s\Laplace{f(t)}-f(0) = sF(s)-f(0).</me>
+        </p>
+      </statement>
+    </theorem>
+    <p>
+      The above theorem says that differentiation in the ``time domain'' corresponds to multiplication by <m>s</m> in the ``frequency domain.''
+      This will be the most useful property of the Laplace transform for us: it will turn differential equations in the time domain into algebraic equations in the frequency domain.
+    </p>
+    <example xml:id="example-laplace-transform-of-a-second-derivative">
+      <title>Laplace Transform of a Second Derivative</title>
+      <statement>
+        <p>
+          Let <m>f(t)</m> be piecewise smooth with Laplace transform <m>F(s)</m>.
+          Compute <m>\Laplace{f''(t)}</m> using <xref ref="theorem-laplace-transforms-of-derivatives" text="type-global" />.
+        </p>
+      </statement>
+      <solution>
+        <p>
+          By <xref ref="theorem-laplace-transforms-of-derivatives" text="type-global" /> we know that
+          <me>\Laplace{f'(t)} = sF(s)-f(0).</me>
+          We can apply <xref ref="theorem-laplace-transforms-of-derivatives" text="type-global" /> to <m>f'(t)</m> as well, since it must also be piecewise smooth:
+          <md>
+            <mrow>\Laplace{f''(t)} \amp= s\Laplace{f'(t)} - f'(0)</mrow>
+            <mrow>\amp= s(sF(s)-f(0)) - f'(0)</mrow>
+            <mrow>\amp= s^{2}F(s) - sf(0) - f'(0)</mrow>
+          </md>.
+          This process can be continued indefinitely.
+          In general,
+          <me>\Laplace{f^{(n)}(t)} = s^{n}F(s) - s^{n-1}f(0) - s^{n-2}f'(0) - \cdots -sf^{(n-2)}(0) - f^{(n-1)}(0).</me>
+          This gives us everything we need to start solving ODEs using Laplace transforms.
+        </p>
+      </solution>
+    </example>
+    <example xml:id="example-solving-ivps-with-laplace-transforms">
+      <title>Solving IVPs with Laplace Transforms</title>
+      <statement>
+        <p>
+          Solve the IVP
+          <me>x''+8x'+15x = 0 \qq{} x(0) = 2, x'(0) = -3</me>
+          where <m>x</m> is a function of <m>t</m>.
+        </p>
+      </statement>
+      <solution>
+        <p>
+          We will solve this by using Laplace transforms.
+          If we set <m>X(s) = \Laplace{x(t)}</m>, then
+          <md>
+            <mrow>\Laplace{x'(t)} \amp= sX(s) - 2</mrow>
+            <mrow>\Laplace{x''(t)} \amp= s^{2}X(s) - 2s +3</mrow>
+          </md>.
+          So if we take the Laplace transform of the entire ODE, we get
+          <me>\underbrace{s^{2}X(s) - 2s + 3}_{\Laplace{x''}} + \underbrace{8sX(s) - 16}_{\Laplace{8x'}} + 15X(s) = 0</me>
+          which simplifies to
+          <me>s^{2}X(s)+8sX(s)+15X(s) = 2s+13.</me>
+          To solve the ODE we need to find <m>x(t) = \mathcal{L}^{-1}\{X(s)\}</m>, so we now solve the above for <m>X(s)</m> in order to find the inverse Laplace transform.
+          If we do so, we get
+          <me>X(s) = \frac{2s+13}{s^{2}+8s+15} = \frac{2s+13}{(s+3)(s+5)}.</me>
+          This doesn't look like the Laplace transform of anything we know at the moment, but we can simplify the right hand side using partial fractions.
+          If we do so, we get
+          <me>X(s) = \frac{\frac{7}{2}}{s+3} - \frac{\frac{3}{2}}{s+5}.</me>
+          So
+          <md>
+            <mrow>x(t) \amp= \frac{7}{2}\mathcal{L}^{-1}\left\{\frac{1}{s+3}\right\} - \frac{3}{2}\mathcal{L}^{-1}\left\{\frac{1}{s+5}\right\}</mrow>
+            <mrow>\amp= \frac{7}{2}e^{-3t} - \frac{3}{2}e^{-5t}</mrow>
+          </md>.
+        </p>
+      </solution>
+    </example>
+    <example xml:id="example-nonhomogeneous-ivps-with-laplace-transforms">
+      <title>Nonhomogeneous IVPs with Laplace Transforms</title>
+      <statement>
+        <p>
+          Solve the IVP given by
+          <me>y''+9y = 10e^{-t},\quad y(0) = y'(0) = 0.</me>
+        </p>
+      </statement>
+      <solution>
+        <p>
+          We begin by taking the Laplace transform of both sides to get
+          <me>s^{2}Y(s) - sy(0) - y'(0) + 9Y(s) = \frac{10}{s+1}</me>
+          or just
+          <me>s^{2}Y(s) + 9Y(s) = \frac{10}{s+1}.</me>
+          So
+          <me>Y(s) = \frac{10}{(s+1)(s^{2}+9)}.</me>
+          By partial fractions, this becomes
+          <me>Y(s) = \frac{1-s}{s^{2}+9} + \frac{1}{s+1} = \frac{1}{s^{2}+9} - \frac{s}{s^{2}+9} + \frac{1}{s+1},</me>
+          so the solution of the ODE is
+          <md>
+            <mrow>y(t) \amp = \iLaplace{Y(s)}</mrow>
+            <mrow>\amp= \frac{1}{3}\sin3t -\cos3t + e^{-t}</mrow>
+          </md>.
+        </p>
+      </solution>
+    </example>
+    <term>SUGGESTED PROBLEMS:</term> 3-9 odd
+  </section>
+  <section xml:id="section-unit-step-functions-and-time-shifting">
+    <title>Unit Step Functions and Time Shifting</title>
+    <p>
+      The <term>unit step function</term> or <term>Heaviside function</term> is the function <m>u(t)</m> defined by
+      <me>
+        u(t) = \begin{cases}
+        0, \amp\text{ if }t\lt 0\\
+        1 \amp\text{ if } t\geq0
+        \end{cases}.
+      </me>
+      Note also that
+      <me>
+        u(t-a) = \begin{cases}
+        0 \amp\text{ if }t\lt a\\
+        1 \amp\text{ if } t\geq a
+        \end{cases}
+      </me>
+      for any <m>a</m>.
+    </p>
+    <p>
+      Recall that <xref ref="theorem--s--shifting" text="type-global" /> tells us how to deal with translation in the frequency domain:
+      <me>\Laplace{e^{at}f(t)} = F(s-a) \quad\text{or}\quad\iLaplace{F(s-a)} = e^{at}f(t).</me>
+      A similar result is true for <m>t</m>-shifting.
+    </p>
+    <theorem xml:id="theorem-time-shifting-of-laplace-transforms">
+      <title>Time Shifting of Laplace Transforms</title>
+      <statement>
+        <p>
+          Let <m>f(t)</m> denote a piecewise continuous function with Laplace transform <m>F(s)</m>.
+          Let <m>a\geq0</m>.
+          Then <m>\Laplace{u(t-a)f(t-a)} = e^{-as}F(s)</m>, or equivalently <m>\iLaplace{e^{-as}F(s)} = u(t-a)f(t-a)</m>.
+        </p>
+      </statement>
+      <proof>
+        <p>
+          To compute this we need to rely on the definition of the Laplace transform:
+          <md>
+            <mrow>\Laplace{u(t-a)f(t-a)} \amp= \int_{0}^{\infty}u(t-a)f(t-a)e^{-st}\,dt</mrow>
+            <mrow>\amp= \int_{a}^{\infty}f(t-a)e^{-st}\,dt</mrow>
+            <mrow>\amp= \int_{0}^{\infty}f(\tau)e^{-s(\tau+a)}\,d\tau</mrow>
+            <mrow>\amp= e^{-sa}\int_{0}^{\infty}f(\tau)e^{-s\tau}\,d\tau</mrow>
+            <mrow>\amp= e^{-as}F(s)</mrow>
+          </md>.
+        </p>
+      </proof>
+    </theorem>
+    <p>
+      The Heaviside function is useful for describing forces that turn on or off at specified times.
+      In particular, we can now solve the IVP given at the start of this chapter in <xref ref="example-motivating-laplace" text="type-global" />.
+    </p>
+    <example xml:id="example-ivp-with-discontinuous-forcing-function">
+      <title>IVP with Discontinuous Forcing Function</title>
+      <statement>
+        <p>
+          A mass of <quantity><mag>1</mag><unit base="kilogram"/></quantity> is attached to a spring that is held <quantity><mag>1</mag><unit base="meter"/></quantity> to the right of its equilibrium position by a force of <quantity><mag>4</mag><unit base="newton"/></quantity>.
+          Beginning at time <m>t=0</m>, a machine is turned on and applies an external force of <m>\cos2t</m> to the mass.
+          At time <m>t=2\pi</m> the machine is turned off and the external force disappears.
+          Let <m>x(t)</m> be the displacement of the mass at time <m>t</m>.
+          What is an ODE that models the motion of the mass?
+        </p>
+      </statement>
+      <solution>
+        <p>
+          By Hooke's Law and Newton's Second Law, we have
+          <me>mx''+kx = F_{E}(t)</me>
+          where <m>F_{E}</m> is the external force at time <m>t</m>.
+          Since <m>m = 1</m>, <m>k = 4</m> and
+          <me>
+            F_{E}(t) = 
+            \begin{cases}
+            \cos3t \amp\text{if }0\leq t\lt 2\pi\\
+            0 \amp\text{if }t\geq2\pi  
+            \end{cases}
+          </me>
+          the motion of the mass satisfies the IVP
+          <me>x''+4x = F_{E}(t), x(0) = 1, x'(0) = 0.</me>
+          We can rewrite <m>F_{E}(t)</m> as follows:
+          <me>F_{E}(t) = [u(t-0)-u(t-2\pi)]\cos3t = u(t)\cos3t - u(t-2\pi)\cos3t.</me>
+          So the IVP we need to solve is
+          <me>x''+4x = u(t)\cos3t - u(t-2\pi)\cos3t, x(0) = 1, x'(0) = 0.</me>
+        </p>
+        <p>
+          If we take Laplace transforms, this becomes
+          <me>s^{2}X(s) - s + 4X(s) = \Laplace{F_{E}(t)},</me>
+          where
+          <md>
+            <mrow>\Laplace{F_{E}(t)} \amp= \Laplace{u(t)\cos3t} - \Laplace{u(t-2\pi)\cos3t}</mrow>
+            <mrow>\amp= \frac{s}{s^{2}+9} - \Laplace{u(t-2\pi)\cos(3(t-2\pi)+6\pi)}</mrow>
+            <mrow>\amp= \frac{s}{s^{2}+9} - \Laplace{u(t-2\pi)\cos(3(t-2\pi))}</mrow>
+            <mrow>\amp= \frac{s}{s^{2}+9} - e^{-2\pi s}\frac{s}{s^{2}+9}</mrow>
+          </md>.
+          So
+          <me>s^{2}X(s) - s + 4X(s) = \frac{s}{s^{2}+9} - e^{-2\pi s}\frac{s}{s^{2}+9}.</me>
+          If we solve this for <m>X(s)</m>, we get
+          <me>X(s) = \frac{s}{s^{2}+4} + \frac{s}{(s^{2}+9)(s^{2}+4)} - e^{-2\pi s}\frac{s}{(s^{2}+9)(s^{2}+4)},</me>
+          and if we simplify this using partial fractions this becomes
+          <me>X(s) = \frac{s}{s^{2}+4} + \frac{1}{5}\brackets{\frac{s}{s^{2}+4} - \frac{s}{s^{2}+9}}\parens{1-e^{-2\pi s}}.</me>
+        </p>
+        <p>
+          So the solution of the IVP is
+          <md>
+            <mrow>x(t) \amp= \iLaplace{\frac{s}{s^{2}+4} + \frac{1}{5}\brackets{\frac{s}{s^{2}+4} - \frac{s}{s^{2}+9}}\parens{1-e^{-2\pi s}}}</mrow>
+            <mrow>\amp= \cos2t + \frac{1}{5}\parens{\cos2t-\cos3t} - \frac{1}{5}\parens{u(t-2\pi)\cos[2(t-2\pi)] - u(t-2\pi)\cos[3(t-2\pi)]}</mrow>
+          </md>.
+        </p>
+      </solution>
+    </example>
+    <term>SUGGESTED PROBLEMS:</term> 5, 9, 13, 17, 19, 21 odd
+  </section>
+  <section xml:id="section-dirac-delta-functions">
+    <title>Dirac Delta Functions</title>
+    <subsection xml:id="subsection-impulses">
+      <title>Impulses</title>
+      <p>
+        Forces that act over very short time intervals may be complicated to describe exactly, but it we can approximate such a force if we treat it as instantaneous.
+        Our goal now is describe a meaningful mathematical interpretation of an instantaneous force.
+      </p>
+      <p>
+        To be specific, let <m>f(t)</m> be a force that acts only from <m>t=a</m> to <m>t=b</m> (and is otherwise <m>0</m>).
+        Then the <term>impulse</term> of the force <m>f(t)</m> over the interval <m>[a,b]</m> is given by
+        <me>p = \Int{a}{b}f(t)\dd{t}.</me>
+        We view the impulse as essentially describing how the force acts over a short time interval, so we can switch from modeling instantaneous forces to instantaneous impulses.
+        And since the impulse is a number, all we really need to do is model an instantaneous <em>unit impulse</em>; any other impulse we can get by multiplication by a constant.
+      </p>
+      <p>
+        So this is our goal: find some function <m>d(t)</m> that has an instantaneous unit impulse at the point <m>t=0</m>.
+        In other words, we want to find a function <m>d(t)</m> such that
+        <me>\int_{0}^{0}d(t)\,dt = 1</me>
+        But this is impossible for any function, since
+        <me>\Int{0}{0}d(t)\dd{t} = 0.</me>
+        However, we can approximate the <em>idea</em> of an instantaneous unit impulse by defining
+        <me>
+          d_{\varepsilon}(t) = 
+          \begin{cases}
+          \frac{1}{\varepsilon} \amp\text{if }-\frac{\varepsilon}{2}\leq t\leq \frac{\varepsilon}{2} \\
+          0 \amp\text{otherwise}  
+          \end{cases}.
+        </me>
+        <figure xml:id="figure-approximation-unit-impulse">
+          <image>
+            <latex-image>
+              \begin{tikzpicture}[scale=0.7]
+              \begin{axis}[
+              ticks = none,
+              enlargelimits=false,
+              legend cell align=left,
+              axis x line = middle,
+              xlabel = $t$,
+              axis y line = center,
+              ymin = -.5,
+              ymax = 1.5
+              ]
+              \addplot[domain=-.5:.5,thick,samples=200,blue]{1};
+              \addplot[domain=-2.5:-.5,thick,samples=200,blue]{0};
+              \addplot[domain=.5:2.5,thick,samples=200,blue]{0};
+              \addlegendentry{$d_{\varepsilon}(t)$}
+              \end{axis}
+              \end{tikzpicture}
+            </latex-image>
+          </image>
+          <caption>Approximating the instantaneous unit impulse.</caption>
+        </figure>
+      </p>
+      <p>
+        Then for any <m>\varepsilon</m>, we have
+        <me>\Int{-\frac{\varepsilon}{2}}{\frac{\varepsilon}{2}}d_{\varepsilon}(t)\dd{t} = 1.</me>
+        <m>d_{\varepsilon}(t)</m> is a completely valid function, and if we send <m>\varepsilon\to0</m> then it becomes a better and better approximation to an instantaneous unit impulse.
+        Despite the fact that this limit does not exist (at least in the usual sense), we use it as a definition.
+      </p>
+      <definition xml:id="definition-dirac-delta">
+        <title>The Dirac Delta Function</title>
+        <statement>
+          <p>
+            The <term>Dirac delta function</term>, denoted by the symbol <m>\delta(t)</m>, is <q>defined</q> by the equation
+            <me>\delta(t) = \limit{\varepsilon}{0}d_{\varepsilon}(t).</me>
+          </p>
+        </statement>
+      </definition>
+      <p>
+        The Dirac delta function is, of course, not an actual function.
+        <aside>
+          <p>
+            The Dirac delta is actually an example of a <term>generalized function</term>, or <term>tempered distribution</term>.
+          </p>
+        </aside>
+        But it's still useful as a mathematical formulation of an instantaneous force with unit impulse at <m>t=0</m>.
+      </p>
+      <p>
+        We can also take translations of the Dirac delta, which we view as a <q>function</q> <m>\delta(t-a)</m> defined piecewise by
+        <me>
+          \delta(t-a)=
+          \begin{cases}
+          \infty \amp\text{if }t=a\\
+          0 \amp\text{if }t\neq a
+          \end{cases}.
+        </me>
+        We represent this graphically as an arrow:
+        <figure xml:id-figure-dirac-delta-plot="">
+          <image>
+            <latex-image>
+              \begin{tikzpicture}
+              \draw (-3,0)--(3,0);
+              \draw[->,ultra thick, blue] (0,0)--(0,1) node[above,black]{$\delta(t)$};
+              \draw[->,ultra thick, blue] (2.5,0)--(2.5,1) node[above,black]{$\delta(t-a)$};
+              \node at (0,0) [below]{$t=0$};
+              \node at (2.5,0) [below]{$t=a$};
+              \end{tikzpicture}
+            </latex-image>
+          </image>
+          <caption>A plot of the Dirac delta function.</caption>
+        </figure>
+      </p>
+      <p>
+        The most important property of the Dirac delta is that
+        <me>
+          \Int{\alpha}{\beta}\delta(t-a)\dd{t} = 
+          \begin{cases}
+          1 \amp\text{if }\alpha\leq a\leq\beta \\
+          0 \amp\text{otherwise.}  
+          \end{cases}
+        </me>
+      </p>
+      <p>
+        We also have the important theorem formula for continuous functions.
+      </p>
+      <theorem xml:id="theorem-sifting-property">
+        <title>Sifting Property</title>
+        <statement>
+          <p>
+            Let <m>g(t)</m> be a continuous function and let <m>\alpha\leq a\leq\beta</m>. Then
+            <me>\Int{\alpha}{\beta}g(t)\delta(t-a)\dd{t} = g(a)</me>
+          </p>
+        </statement>
+        <proof>
+          <p>
+            We treat <m>\delta(t)</m> as a function and perform the above integration:
+            <md>
+              \Int{\alpha}{\beta}g(t)\delta(t-a)\dd{t}
+              \amp= \Int{a}{a}g(t)\delta(t-a)\dd{t} \\
+              \amp= g(a)\Int{a}{a}\delta(t-a)\dd{t} \\
+              \amp= g(a)
+            </md>
+          </p>
+        </proof>
+      </theorem>
+      <p>
+        The above theorem gives us another interpretation of the Dirac delta: it's a <q>sampling function</q>.
+        When integrated against another function <m>g(t)</m> over an interval containing <m>a</m>, <m>\delta(t-a)</m> will pick out the value <m>g(a)</m>.
+        We can use this to find the Laplace transform of the Dirac delta.
+      </p>
+      <example xml:id="example-laplace-transform-of-the-dirac-delta-function">
+        <title>Laplace Transform of the Dirac Delta Function</title>
+        <statement>
+          <p>
+            Compute <m>\Laplace{\delta(t-a)}</m>, where <m>a\geq0</m>.
+          </p>
+        </statement>
+        <solution>
+          <p>
+            We use the definition of the Laplace transform:
+            <md>
+              <mrow>\Laplace{\delta(t-a)} \amp= \int_{0}^{\infty}\delta(t-a)e^{-st}\,dt</mrow>
+              <mrow>\amp= e^{-as}</mrow>
+            </md>.
+            In particular, <m>\Laplace{\delta(t)} = 1</m>.
+          </p>
+        </solution>
+      </example>
+    </subsection>
+    <subsection xml:id="subsection-dirac-delta-models">
+      <title>Dirac Delta Models</title>
+      <p>
+        We use the Dirac delta to model instantaneous forces, such as sudden kicks or jolts.
+      </p>
+      <example xml:id="example-ivp-with-impulse">
+        <title>IVP with Impulse</title>
+        <statement>
+          <p>
+            An object of mass <m>m=1</m>, at rest, is attached to a spring with spring constant <m>k=9</m>. 
+            At time <m>t=0</m>, the a hammer strikes the mass providing an impulse of <m>3</m> and setting the mass in motion. What is the displacement <m>x(t)</m>?
+          </p>
+        </statement>
+        <solution>
+          <p>
+            <m>x(t)</m> satisfies the ODE
+            <me>mx''+kx = f(t)</me>
+            where <m>f(t)</m> is the external force. Since the hammer strikes quickly, we can model it as an instantaneous force of the form <m>c\delta(t)</m>. And since it provides an impulse of <m>3</m>, we can pick <m>f(t) = 3\delta(t)</m>.
+            As the mass is initially at rest, <m>x</m> satisfies the IVP
+            <me>x''+9x = 3\delta(t)\qq{where}x(0) = x'(0) = 0.</me>
+            To solve this, we take the Laplace transform of the IVP to get
+            <me>s^{2}X(s)+9X(s) = 3</me>
+            or just
+            <me>X(s) = \frac{3}{s^{2}+9}.</me>
+            So <m>x(t) = \sin3t</m>.
+          </p>
+        </solution>
+      </example>
+      <p>
+        Note that the above solution does not appear to satisfy our initial conditions.
+        However, since we assumed the impulse acted instantaneously at time <m>t=0</m>, this is really the same as assuming that the mass had an initial velocity.
+        Now we look at what happens if we delay the hammer strike.
+      </p>
+      <example xml:id="example-time-delay">
+        <title>Time-delayed Strike</title>
+        <statement>
+          <p>
+            Consider the spring-mass system above, but suppose now that the hammer hits the mass at time <m>t=4</m>. 
+            What is the displacement <m>x(t)</m>?
+          </p>
+        </statement>
+        <solution>
+          <p>
+            This time, the IVP we must solve is
+            <me>x''+9x = 3\delta(t-4)\qq{where}x(0)=x'(0)=0.</me>
+            If we take Laplace transforms and solve for <m>X(s)</m> we get
+            <me>X(s) = \frac{3e^{-4s}}{s^{2}+9}</me>
+            and so, using our table, we see that
+            <me>x(t) = u(t-4)\sin[3(t-4)].</me>
+          </p>
+        </solution>
+      </example>
+      <figure xml:id="figure-time-delay">
+        <image>
+          <latex-image>
+            \begin{tikzpicture}[scale=0.7]
+            \begin{axis}[
+            enlargelimits=false,
+            legend cell align=left,
+            axis x line = middle,
+            xlabel = $t$,
+            xmin = -1,
+            axis y line = center
+            ]
+            \addplot[domain=0:4,thick,samples=200,blue]{0};
+            \addplot[domain=4:9,thick,samples=200,blue]{sin(deg(3*x-12))};
+            \addlegendentry{$x(t)$}
+            \end{axis}
+            \end{tikzpicture}
+          </latex-image>
+          <caption>
+            Time-delayed hammer strikes in <xref ref="example-time-delay" text="type-global" />
+          </caption>
+        </image>
+      </figure>
+
+      <example xml:id="example-resonance-with-an-impulse-train">
+        <title>Resonance with an Impulse Train</title>
+        <statement>
+          <p>
+            Once again we consider the spring-mass system used above, but now we suppose that the mass is struck with the hammer once every <m>\frac{2\pi}{3}</m> seconds, starting at <m>t=0</m>.
+            Find <m>x(t)</m>.
+          </p>
+        </statement>
+        <solution>
+          <p>
+            The IVP we need to solve now is
+            <md>
+              <mrow>x''+9x \amp= 3\delta(t)+3\delta(t-\frac{2\pi}{3}) + 3\delta(t-\frac{4\pi}{3}) +\cdots</mrow>
+              <mrow>\amp= 3\Sum{n=0}{\infty}\delta(t-\frac{2\pi n}{3})</mrow>
+            </md>
+            where <m>x(0) = x'(0) = 0</m>.
+            So once more we take Laplace transforms to get
+            <me>s^{2}X(s)+9X(s) = 3\Sum{n=0}{\infty}\Laplace{\delta(t-\frac{2\pi n}{3})} = 3\Sum{n=0}{\infty}e^{-\frac{2\pi n}{3}s}</me>
+            and so
+            <me>X(s) = \frac{3}{s^{2}+9}\Sum{n=0}{\infty}e^{-\frac{2\pi n}{3}s}</me>
+            The displacement is then given by
+            <md>
+              <mrow>x(t) \amp= \iLaplace{X(s)}</mrow>
+              <mrow>\amp= \iLaplace{\frac{3}{s^{2}+9}\cdot\Sum{n=0}{\infty}e^{-\frac{2\pi n}{3}s}}</mrow>
+              <mrow>\amp= \iLaplace{\Sum{n=0}{\infty}e^{-\frac{2\pi n}{3}}\frac{3}{s^{2}+9}}</mrow>
+              <mrow>\amp= \Sum{n=0}{\infty}u(t-\frac{2\pi n}{3})\sin[3(t-\frac{2\pi n}{3})]</mrow>
+              <mrow>\amp= \Sum{n=0}{\infty}u(t-\frac{2\pi n}{3})\sin3t</mrow>
+            </md>.
+            Each time the hammer strikes the mass, a factor of <m>\sin3t</m> is added to the displacement.
+            The repeated hammer strikes are in tune with the natural frequency of the mass, so they create resonance.
+          </p>
+        </solution>
+      </example>
+      <figure xml:id="figure-impulse-train-resonance">
+        <image>
+          <latex-image>
+            \begin{tikzpicture}[scale = .7]
+            \begin{axis}[
+            enlargelimits=false,
+            legend cell align=left,
+            axis x line = middle,
+            xlabel = $t$,
+            ylabel = $x$,
+            axis y line = center
+            ]
+            \addplot[domain=0:2*pi/3,thick,samples=200,blue]{sin(deg(3*x))};
+            \addplot[domain=2*pi/3:4*pi/3,thick,samples=200,blue]{2*sin(deg(3*x))};
+            \addplot[domain=4*pi/3:6*pi/3,thick,samples=200,blue]{3*sin(deg(3*x))};
+            \addplot[domain=6*pi/3:8*pi/3,thick,samples=200,blue]{4*sin(deg(3*x))};
+            \addlegendentry{$x(t)$}
+            \end{axis}
+            \end{tikzpicture}
+          </latex-image>
+          <caption>The position <m>x(t)</m> from <xref ref="example-resonance-with-an-impulse-train" text="type-global" />.</caption>
+        </image>
+      </figure>
+    </subsection>
+    <term>SUGGESTED PROBLEMS:</term> 3, 7
+  </section>
+  <section xml:id="section-convolution-products">
+    <title>Convolution Products</title>
+    <p>
+      Consider the function <m>F(s)</m> in the frequency domain <m>s</m> defined by
+      <me>F(s) = \frac{1}{s(s^{2}+4)}.</me>
+      This does not match a Laplace transform on our table.
+      If we wanted to find the inverse transform <m>f(t)</m>, we would have to use partial fractions to find it.
+      However, <m>F(s)</m> is easily seen to be the <em>product</em> of two recognizable transforms:
+      <me>F(s) = \frac{1}{s} \frac{1}{s^{2}+4} = \frac{1}{2}\Laplace{1}\Laplace{\sin2t}.</me>
+      What we would like to do is find a way to determine inverse transforms of products of transforms.
+      To do this, we need to define the <em>convolution</em> of two functions.
+    </p>
+    <definition xml:id="definition-convolution-of-functions">
+      <title>Convolution of Functions</title>
+      <statement>
+        <p>
+          Let <m>f</m> and <m>g</m> be piecewise continuous functions.
+          The <term>convolution</term> of <m>f</m> and <m>g</m>, denoted by <m>(f\ast g)(t)</m>, <m>f(t)\ast g(t)</m> or just <m>f\ast g</m>, is defined for <m>t\geq0</m> by
+          <me>(f\ast g)(t) = \Int{0}{t} f(\tau)g(t-\tau)\,d\tau.</me>
+          The variable <m>\tau</m> is a dummy variable.
+        </p>
+      </statement>
+    </definition>
+    <p>
+      Note that <m>f\ast g</m> lies in the time domain instead of the frequency domain.
+      In general, we will only take convolutions of functions in the time domain.
+    </p>
+    <p>
+      Convolutions are important because they act as <q>smoothing operators</q>.
+      If you have a <q>rough</q> (i.e. non-differentiable) function, then convolving it with a properly chosen smooth function may give you a smooth approximation.
+    </p>
+    <example xml:id="example-convolution-with-unit-step">
+      <title>Convolution with Unit Step</title>
+      <statement>
+        <p>
+          Compute <m>u\ast t</m>, where <m>u(t)</m> is the unit step function.
+        </p>
+      </statement>
+      <solution>
+        <p>
+          By definition,
+          <md>
+            <mrow>u(t)\ast t \amp= \Int{0}{t}u(\tau)(t-\tau)\,d\tau </mrow>
+            <mrow>\amp= \Int{0}{t}(t-\tau)\,d\tau </mrow>
+            <mrow>\amp= \left[t\tau-\frac{\tau^{2}}{2}\right]_{\tau=0}^{\tau=t} </mrow>
+            <mrow>\amp= \frac{t^{2}}{2}</mrow>
+          </md>
+        </p>
+      </solution>
+    </example>
+    <p>
+      One important property of convolutions is that they are <em>commutative</em>: that is, <m>f\ast g = g\ast f</m> for any piecewise continuous functions <m>f</m> and <m>g</m>.
+      Another important property of convolutions is that they tend to work well with integral transforms.
+      In particular, we have the following theorem.
+    </p>
+    <theorem xml:id="theorem-convolution-transform">
+      <title>Convolution Theorem</title>
+      <statement>
+        <p>
+          The Laplace transform distributes over convolution.
+          In other words, if <m>f</m> and <m>g</m> are piecewise continuous functions, then
+          <me>\Laplace{f(t)\ast g(t)} = \Laplace{f(t)}\Laplace{g(t)}.</me>
+          Equivalently, if we write <m>F(s) = \Laplace{f(t)}</m> and <m>G(s) = \Laplace{g(t)}</m>, then
+          <me>\iLaplace{F(s)G(s)} = f(t)\ast g(t) = \Int{0}{t}f(\tau)g(t-\tau).</me>
+        </p>
+      </statement>
+    </theorem>
+    <p>
+      One way to phrase the above result is that Laplace transforms turns convolution in the time domain into multiplication in the frequency domain.
+      Let's return to the example we started with.
+    </p>
+    <example xml:id="example-using-the-convolution-theorem">
+      <title>Using the Convolution Theorem</title>
+      <statement>
+        <p>
+          Let 
+          <me>F(s) = \frac{1}{s(s^{2}+4)}.</me>
+          Find <m>f(t) = \iLaplace{F(s)}</m>.
+        </p>
+      </statement>
+      <solution>
+        <p>
+          We will use <xref ref="theorem-convolution-transform" text="type-global" /> to express the inverse transform:
+          <md>
+            <mrow>f(t) \amp= \iLaplace{F(s)}</mrow>
+            <mrow>\amp= \iLaplace{\frac{1}{s}\cdot\frac{1}{s^{2}+4}}</mrow>
+            <mrow>\amp= 1\ast \frac{1}{2}\sin2t</mrow>
+            <mrow>\amp= \frac{1}{2}\Int{0}{t}\sin2\tau\,d\tau</mrow>
+            <mrow>\amp= -\frac{1}{4}\left[\cos2\tau\right]_{\tau=0}^{\tau=t}</mrow>
+            <mrow>\amp= \frac{1-\cos2t}{4}</mrow>
+          </md>
+        </p>
+      </solution>
+    </example>
+    <example xml:id="example-solving-ivps-with-the-convolution-theorem">
+      <title>Solving IVPs with the Convolution Theorem</title>
+      <statement>
+        <p>
+          Let <m>x</m> be a function of <m>t</m>.
+          Solve the IVP
+          <me>x''+4x'+13x = f(t)\qq{where}x(0) = x'(0) = 0</me>
+          for <m>x(t)</m> in terms of the function <m>f(t)</m>.
+        </p>
+      </statement>
+      <solution>
+        <p>
+          We're trying to find the solution <m>x(t)</m> for arbitrary <m>f(t)</m>, which is something we definitely would not have been able to do in Chapter 3.
+          We will do so using Laplace transforms and <xref ref="theorem-convolution-transform" text="type-global" />.
+          So we start by taking the Laplace transform of the ODE to get
+          <me>s^{2}X(s) +4sX(s) + 13X(s) = F(s)</me>
+          where <m>X(s) = \Laplace{x(t)}</m> and <m>F(s) = \Laplace{f(t)}</m>.
+          Now we solve for <m>X(s)</m> to get
+          <me>X(s) = \frac{F(s)}{s^{2}+4s+13} = F(s)G(s)</me>
+          where
+          <me>G(s) = \frac{1}{s^{2}+4s+13}</me>
+          <xref ref="theorem-convolution-transform" text="type-global" /> tells us then that
+          <me>x(t) = \iLaplace{F(s)G(s)} = f(t)*g(t)</me>
+          where
+          <md>
+            <mrow>g(t) \amp= \iLaplace{G(s)}</mrow>
+            <mrow>\amp= \iLaplace{\frac{1}{s^{2}+4s+13}} </mrow>
+            <mrow>\amp= \iLaplace{\frac{1}{(s+2)^{2}+9}} \amp \text{complete the square}</mrow>
+            <mrow>\amp= \frac{1}{3}e^{-2t}\sin3t \amp \text{use a translation formula}</mrow>
+          </md>
+          Therefore the solution of the ODE in terms of the function <m>f(t)</m> is given by
+          <md>
+            <mrow>x(t) \amp= f(t)\ast g(t)</mrow>
+            <mrow>\amp= \Int{0}{t}f(\tau)g(t-\tau)\,d\tau</mrow>
+            <mrow>\amp= \int_{0}^{t}f(\tau)\frac{e^{-2(t-\tau)}\sin[3(t-\tau)]}{3}\,d\tau</mrow>
+          </md>.
+        </p>
+      </solution>
+    </example>
+    <p>
+      There are a couple of interesting things happening in the last example.
+      In particular, we were able to write the solution <m>x(t)</m> in terms of <m>f(t)</m> as
+      <me>x(t) = g(t)\ast f(t)</me>.
+      In these terms, we can view <m>f(t)</m> as the input into a particular system (whose behavior is determined by the ODE) and the solution <m>x(t)</m> is the corresponding output.
+      This relationship is even easier to write in the frequency domain: the frequency input <m>F(s)</m> is turned into the frequency output <m>X(s)</m> by means of the <term>transfer function</term> <m>G(s)</m>:
+      <me>X(s) = G(s)F(s)</me>.
+    </p>
+    <p>
+      The importance of the transfer function in applications is that it encodes <em>all possible outputs</em> the system is capable of producing.
+      There are multiple ways to find the transfer function, assuming that all initial conditions are <m>0</m>.
+      First, if <m>F(s)</m> is the input and <m>X(s)</m> is some measured output (once again, in the frequency domain), then the transfer function <m>G(s)</m> satisfies
+      <me>G(s) = \frac{X(s)}{F(s)}</me>,
+      and this quantity is independent of the particular choice of <m>F(s)</m>.
+      In particular, we can replace the time domain input <m>f(t)</m> with <m>\delta(t)</m>.
+      In this case, the corresponding output in the frequency domain is
+      <me>X(s) = G(s)\Laplace{\delta(t)} = G(s)</me>.
+      For this reason, the inverse transform of the transfer function is also known as the <term>impulse response</term> of the system.
+    </p>
+    <p><term>SUGGESTED PROBLEMS:</term> 1, 3, 17, 21, 25</p>
+  </section>
+</chapter>
