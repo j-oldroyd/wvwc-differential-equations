@@ -458,14 +458,7 @@
                 <solution>
                     <p>
                         We can easily do this with a computer system (such as Sage!).
-                        For example, try running the cell below:
-                        <sage>
-                            <input>
-                                var('t, x')    % tells Sage what variables we're using
-                                f = x * (1 - x)
-                                plot_slope_field(f, (t, -10, 10), (x, -5, 5), color = "blue")
-                            </input>
-                        </sage>
+                        For example, try running the cell below this example.
                         If we do so, we get something like the following diagram:
                     </p>
                     <figure xml:id="figure-dirfield1">
@@ -490,6 +483,13 @@
                     </figure>
                 </solution>
             </example>
+            <sage>
+                <input>
+                    var('t, x')    # tells Sage what variables we're using
+                    f = x * (1 - x)
+                    plot_slope_field(f, (t, -10, 10), (x, -5, 5), color = "blue")
+                </input>
+            </sage>
             <p>
                 Direction fields are useful because they provide a means to obtain information about a differential equation (and the corresponding model) without actually having to solve the differential equation.
                 One way to do so is to create a <em>streamline plot</em>.
