@@ -457,8 +457,16 @@
                 </statement>
                 <solution>
                     <p>
-                        We can easily do this with a computer system (such as Maple!).
-                        If we do so, we get the following diagram:
+                        We can easily do this with a computer system (such as Sage!).
+                        For example, try running the cell below:
+                        <sage>
+                            <input>
+                                var('t, x')    % tells Sage what variables we're using
+                                f = x * (1 - x)
+                                plot_slope_field(f, (t, -10, 10), (x, -5, 5), color = "blue")
+                            </input>
+                        </sage>
+                        If we do so, we get something like the following diagram:
                     </p>
                     <figure xml:id="figure-dirfield1">
                         <image width="50%">
@@ -484,8 +492,19 @@
             </example>
             <p>
                 Direction fields are useful because they provide a means to obtain information about a differential equation (and the corresponding model) without actually having to solve the differential equation.
-                This is often done by drawing a <term>solution curve</term> through a direction field, which represents a solution of an initial value problem corresponding to the ODE the direction field is drawn from.
-                To draw a solution curve, just pick a point in the direction field and follow along the slopes as best you can.
+                One way to do so is to create a <em>streamline plot</em>.
+                This can be done easily in Sage, like so:
+                <sage>
+                    <input>
+                        var('t, x')
+                        f = x * (1 - x)
+                        streamline_plot(f, (t, -5, 5), (x, -1, 2))
+                    </input>
+                </sage>
+                This can also be created by hand from a slope field without too much trouble.
+            </p>
+            <p>
+                If we only graph a single curve in the direction field we get what's known as a <term>solution curve</term>, which represents a solution of an initial value problem corresponding to the ODE the direction field is drawn from.
             </p>
             <example xml:id="example-information-from-a-solution-curve">
                 <title>Information from a solution curve</title>
