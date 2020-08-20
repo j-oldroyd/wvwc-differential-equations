@@ -313,12 +313,12 @@
                 <me>y = \int x\,dx = \frac{1}{2}x^{2}+C.</me>
                 Any choice for <m>C</m> yields another solution of the ODE <m>\dv{y}{x} = x</m>.
             </p>
-            <aside>Again, it's very important in this course not to forget the arbitrary constant <m>C</m>!</aside>
+            <aside><p>Again, it's very important in this course not to forget the arbitrary constant <m>C</m>!</p></aside>
             <p>
                 Now let's make things a little more interesting.
                 Suppose we wanted to solve the ODE <m>\dv{y}{x} = e^{-x^{2}}</m>.
                 Then this is <em>impossible</em> to do in a single "closed-form".
-                <aside>By closed-form we basically mean in terms of the usual exponential, trigonometric and polynomial functions, as well as their inverses.</aside>
+                <aside><p>By closed-form we basically mean in terms of the usual exponential, trigonometric and polynomial functions, as well as their inverses.</p></aside>
                 This is because solving this ODE requires integrating <m>e^{-x^{2}}</m>, which as you may remember from Calculus 2 cannot be done without resorting to something like power series.
                 Even if we can't solve the ODE, or if we can't solve it easily, we still want to be able to obtain some information from it.
                 One way to do this is by using <term>direction fields</term>, which is a graphical representation of the ODE.
@@ -851,7 +851,7 @@
                 then we can say that
                 <me>\dv{x}{t} = r_{i}c_{i} - r_{o}c_{o} = r_{i}c_{i} - r_{0}\frac{x(t)}{V(t)}</me>
                 where <m>V(t)</m> is the volume of solution in the tank at time <m>t</m>.
-                <aside>We assume that <m>c_{i},r_{i},r_{o}</m> are all constant.</aside>
+                <aside><p>We assume that <m>c_{i},r_{i},r_{o}</m> are all constant.</p></aside>
                 Furthermore, if we let <m>V_{0} = V(0)</m> denote the initial volume of the solution in the tank then we can say that <m>V(t) = V_{0} + (r_{i}-r_{0})t.</m>
                 Hence the amount of solute <m>x(t)</m> obeys the first-order linear ODE
                 <me>\dv{x}{t} = r_{i}c_{i} - \frac{r_{o}}{V_{0}+(r_{i}-r_{o})t}x.</me>
