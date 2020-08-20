@@ -668,13 +668,14 @@
           Then
           <me>E \geq \int_{-L}^{L}f^{2}\,dx - L\left[2a_{0}^{2} + \sum_{k=1}^{N}(a_{k}^{2} + b_{k}^{2})\right]</me>.
           The error <m>E</m> takes this minimum value if <m>A_{k} = a_{k}, B_{k} = b_{k}</m>.
+        </p>
       </statement>
     </theorem>
     <example xml:id="example-error-from-a-trigonometric-polynomial">
       <title>Error from a Trigonometric Polynomial</title>
       <statement>
         <p>
-          Define <m>f(x) = x^{3}</m> for <m>-\pi\leq x < \pi</m> as in <xref ref="example-fourier-series-of-x-cubed" text="type-global" />, and recall that the Fourier series is given by
+          Define <m>f(x) = x^{3}</m> for <m>-\pi\leq x &lt; \pi</m> as in <xref ref="example-fourier-series-of-x-cubed" text="type-global" />, and recall that the Fourier series is given by
           <me>\sum_{k = 1}^{\infty}(-1)^{k}\frac{2(6 - \pi^{2}k^{2})}{k^{3}}\sin kx</me>.
           Find the trigonometric polynomial of degree <m>N</m> that best approximates <m>f</m> and give the corresponding error.
         </p>
@@ -701,7 +702,7 @@
       <statement>
         <p>
           Let
-          <me>f(x) = \begin{cases} -1 \amp\text{ if } -1\leq x < 0 \\ 1 \amp\text{ if } 0 < x \leq 1 </me>.
+          <me>f(x) = \begin{cases} -1 \amp\text{ if } -1\leq x &lt; 0 \\ 1 \amp\text{ if } 0 &lt; x \leq 1 </me>.
           Apply Bessel's inequality to this function.
           What does Parseval's Identity say?
         </p>
@@ -753,7 +754,7 @@
     </p>
     <definition xml:id="definition-absolutely-integrable-functions">
       <title>Absolutely Integrable Functions</title>
-      <index><main>Absolutely Integrable Functions</main></index>
+      <idx><h>Absolutely Integrable Functions</h></idx>
       <statement>
         <p>
           Let <m>f(x)</m> be a piecewise continuous function.
@@ -763,7 +764,7 @@
     </definition>
     <definition xml:id="definition-the-fourier-transform">
       <title>The Fourier Transform</title>
-      <index><main>Fourier Transform</main><sub>definition</sub></index>
+      <idx><h>Fourier Transform</h><h>definition</h></idx>
       <statement>
         <p>
           Let <m>f(x)</m> be an absolutely integrable piecewise continuous function.
@@ -794,7 +795,7 @@
     </p>
     <definition xml:id="definition-the-inverse-fourier-transform">
       <title>The Inverse Fourier Transform</title>
-      <index><main>Fourier Transform</main><sub>inverse transform</sub></index>
+      <idx><h>Fourier Transform</h><h>inverse transform</h></idx>
       <statement>
         <p>
           The inverse Fourier transform of <m>\hat{f}(\omega)</m> is
@@ -804,7 +805,7 @@
     </definition>
     <theorem xml:id="theorem-fourier-integral-representation">
       <title>Fourier Inversion Theorem</title>
-      <index><main>Fourier Transform</main><sub>inversion theorem</sub></index>
+      <idx><h>Fourier Transform</h><h>inversion theorem</h></idx>
       <statement>
         <p>
           Let <m>f(x)</m> be an absolutely integrable, piecewise differentiable function.
@@ -817,7 +818,7 @@
       <p>
         Define <m>\hat{f}(\omega)</m> by
         <me>\hat{f}(\omega) = \begin{cases} 1 \amp -1 &lt; x &lt; 1 \\ 0 \amp \text{otherwise.}\end{cases}</me>
-        Then we can find the inverse transform using <xref ref="definition-the-inverse-fourier-transform" autoname="yes" />:
+        Then we can find the inverse transform using <xref ref="definition-the-inverse-fourier-transform" text="type-global" />:
         <md>
           <mrow>\mathcal{F}^{-1}\{\hat{f}\} \amp = \frac{1}{2\pi}\int_{-\infty}^{\infty}\hat{f}(\omega)e^{i\omega x}\,d\omega </mrow>
           <mrow> \amp = \frac{1}{2\pi}\int_{-1}^{1}e^{i\omega x}\,d\omega </mrow>
@@ -836,7 +837,7 @@
     </p>
     <theorem xml:id="theorem-fourier-transforms-and-derivatives">
       <title>Fourier Transforms and Derivatives</title>
-      <index><main>Fourier Transform</main><sub>transforms fo derivatives</sub></index>
+      <idx><h>Fourier Transform</h><h>transforms fo derivatives</h></idx>
       <statement>
         <p>
           Let <m>f(x)</m> be differentiable with derivative <m>f'(x)</m>.
@@ -851,7 +852,7 @@
     </p>
     <theorem xml:id="theorem-convolution-theorem">
       <title>Convolution Theorem</title>
-      <index><main>Fourier Transform</main><sub>convolution theorem</sub></index>
+      <idx><h>Fourier Transform</h><h>convolution theorem</h></idx>
       <statement>
         <p>
           Suppose that <m>f(x),g(x)</m> are piecewise continuous, bounded and absolutely integrable.

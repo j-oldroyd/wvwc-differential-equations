@@ -40,7 +40,7 @@
         This idea leads to <term>partial derivatives</term>.
       </p>
       <definition xml:id="definition-partial-derivatives">
-        <index><main>Partial derivatives</main></index>
+        <idx><h>Partial derivatives</h></idx>
         <title>Partial derivatives</title>
         <statement>
           <p>
@@ -61,7 +61,7 @@
         The <term>order</term> of each of these partial derivatives is <m>2</m> and <m>3</m>, respectively.
       </p>
       <definition xml:id="definition-partial-differential-equation">
-        <index><main>Partial differential equations</main><sub>Definition</sub></index>
+        <idx><h>Partial differential equations</h><h>Definition</h></idx>
         <title>Partial differential equation</title>
         <statement>
           <p>
@@ -112,7 +112,7 @@
         Just as with linear homogeneous ODEs, PDEs that are linear and homogeneous satisfy the <term>superposition principle</term>.
       </p>
       <principle xml:id="principle-superposition-principle">
-        <index><main>Superposition principle</main><sub>partial differential equations</sub></index>
+        <idx><h>Superposition principle</h><h>partial differential equations</h></idx>
         <title>Superposition principle</title>
         <statement>
           <p>
@@ -216,7 +216,7 @@
     <p>
       Our goal will be to find <m>u(x,t)</m> subject to these conditions.
       To start, assume that <m>u(x,t) = X(x)T(t).</m>
-      If we plug this into <xref ref="equation-wave-equation" autoname="yes" />, then we get</p>
+      If we plug this into <xref ref="equation-wave-equation" text="type-global" />, then we get</p>
       <me>X(x)T''(t) = c^{2}X''(x)T(t).</me>
       <p>
         If we assume that <m>X(x),T(t)</m> are both nonzero, then we can rewrite this to get
@@ -233,24 +233,24 @@
         </mdn>.
         <p>
           We can add a few more restrictions to these ODEs to help us solve them.
-          Note that the boundary conditions <xref ref="equation-boundary-conditions" autoname="yes" /> force either <m>X(0) = X(L) = 0</m> or <m>T(t) = 0</m> for all <m>t</m>, which leads to <m>u(x,t) = 0</m>.
+          Note that the boundary conditions <xref ref="equation-boundary-conditions" text="type-global" /> force either <m>X(0) = X(L) = 0</m> or <m>T(t) = 0</m> for all <m>t</m>, which leads to <m>u(x,t) = 0</m>.
           So to avoid this trivial solution, we'll set <m>X(0) = X(L) = 0</m>.
         </p>
         <p>
-          We'll solve <xref ref="equation-separation-of-variables-1" autoname="yes" /> first since we have extra information to use.
+          We'll solve <xref ref="equation-separation-of-variables-1" text="type-global" /> first since we have extra information to use.
           So to start, suppose that <m>k&gt;0</m> and write <m>k = \mu^{2}</m> for some nonzero <m>\mu</m>.
-          Then <xref ref="equation-separation-of-variables-1" autoname="yes" /> becomes <m>X''-\mu^{2}X = 0</m> and has solution given by
+          Then <xref ref="equation-separation-of-variables-1" text="type-global" /> becomes <m>X''-\mu^{2}X = 0</m> and has solution given by
           <me>X(x) = c_{1}\sinh\mu x + c_{2}\cosh \mu x.</me>
         </p>
         <p>
           Now, <m>X(0)=0</m> forces <m>c_{2} = 0</m>, so we get <m>X(x) = c_{1}\sinh\mu x</m>.
           However, since <m>X(L) = 0</m> as well, we get <m>c_{1}\sinh\mu L = 0</m>.
           But the only way to solve this is to set <m>c_{1} = 0</m> since <m>\sinh u = 0</m> only if <m>u=0</m>.
-          So in other words, if we assume that <m>k = \mu^{2}\gt0</m>, then the only way to solve <xref ref="equation-separation-of-variables-1" autoname="yes" /> is to set <m>X(x) = 0</m>, which also forces <m>u(x,t) = 0</m>.
+          So in other words, if we assume that <m>k = \mu^{2}\gt0</m>, then the only way to solve <xref ref="equation-separation-of-variables-1" text="type-global" /> is to set <m>X(x) = 0</m>, which also forces <m>u(x,t) = 0</m>.
           Obviously, this isn't very useful.
           Similarly, if we assume that <m>k=0</m> then we get the same problem.
           So let's assume that <m>k=-\mu^{2}\lt0</m> for some nonzero <m>\mu</m>.
-          Then <xref ref="equation-separation-of-variables-1" autoname="yes" /> becomes <m>X''+\mu^{2}X = 0</m>, which has solution
+          Then <xref ref="equation-separation-of-variables-1" text="type-global" /> becomes <m>X''+\mu^{2}X = 0</m>, which has solution
         </p>
         <me>
         X(x) = c_{1}\sin\mu x + c_{2}\cos \mu x.
@@ -259,12 +259,12 @@
         The condition <m>X(0) = 0</m> forces <m>c_{2} = 0</m>, and the second boundary condition <m>X(L) = 0</m> forces <m>c_{1}\sin \mu L = 0</m>.
         We want to avoid setting <m>c_{1}</m> equal to <m>0</m> since this would give us <m>X=0</m> again, so we'll set <m>\sin \mu L= 0</m> instead.
         <em>This</em> tells us that <m>\mu L = n\pi</m> for some integer <m>n</m>, or just <m>\mu = \frac{n\pi}{L}</m>.
-        So nontrivial solutions of <xref ref="equation-separation-of-variables-1" autoname="yes" /> that satisfy the boundary conditions <m>X(0)=X(L) = 0</m> can occur only if <m> k = -\mu^{2}</m> where <m>\mu = \frac{n\pi}{L}</m> and <m>n=\pm1,\pm2,\ldots</m>.
+        So nontrivial solutions of <xref ref="equation-separation-of-variables-1" text="type-global" /> that satisfy the boundary conditions <m>X(0)=X(L) = 0</m> can occur only if <m> k = -\mu^{2}</m> where <m>\mu = \frac{n\pi}{L}</m> and <m>n=\pm1,\pm2,\ldots</m>.
         For each choice of <m>n</m> (ignoring sign), we get the solution <m>X_{n} = \sin\frac{n\pi}{L}x</m>.
       </p>
       <p>
-        Now we move on to solving <xref ref="equation-separation-of-variables-2" autoname="yes" />, but we still need to keep the condition <m>k=-(\frac{n\pi}{L})^{2}</m> for <m>n=\pm1,\pm2,\ldots</m>.
-        If we do so, then <xref ref="equation-separation-of-variables-2" autoname="yes" /> becomes <m>T''+(c\frac{n\pi}{L})^{2}T=0</m>, which has solutions given by
+        Now we move on to solving <xref ref="equation-separation-of-variables-2" text="type-global" />, but we still need to keep the condition <m>k=-(\frac{n\pi}{L})^{2}</m> for <m>n=\pm1,\pm2,\ldots</m>.
+        If we do so, then <xref ref="equation-separation-of-variables-2" text="type-global" /> becomes <m>T''+(c\frac{n\pi}{L})^{2}T=0</m>, which has solutions given by
         <me>
         T_{n} = b_{n}\cos\lambda_{n}t+b^{*}_{n}\sin\lambda_{n}t,
       </me>
@@ -273,11 +273,11 @@
     <p>
       So this means that every function of the form
       <me>u_{n}(x,t) = X_{n}T_{n} = \sin\frac{n\pi}{L}x\left(b_{n}\cos\lambda_{n}t+b^{*}_{n}\sin\lambda_{n}t\right)</me>
-      is a solution of <xref ref="equation-wave-equation" autoname="yes" /> subject to the boundary conditions <xref ref="equation-boundary-conditions" autoname="yes" />.
+      is a solution of <xref ref="equation-wave-equation" text="type-global" /> subject to the boundary conditions <xref ref="equation-boundary-conditions" text="type-global" />.
       It also follows from the superposition principle that any (finite) linear combination of these functions will give another solution that satisfies the boundary conditions.
     </p>
     <p>
-      However, this does <em>not</em> guarantee that we can solve for the initial conditions in <xref ref="equation-initial-condition" autoname="yes" />.
+      However, this does <em>not</em> guarantee that we can solve for the initial conditions in <xref ref="equation-initial-condition" text="type-global" />.
       To give ourselves as general a solution as possible, we will guess that the solution to the wave equation is actually a linear combination of all possible <m>u_{n}</m>.
       That is, we'll say that
     </p>
@@ -287,7 +287,7 @@
       To start, note that we must have
       <me>f(x) = u(x,0) = \sum_{n=1}^{\infty}b_{n}\sin\frac{n\pi}{L}x.</me>
       <em>This is a Fourier series</em>, and in particular it's the Fourier series of the odd extension of <m>f(x)</m> with period <m>2L</m>.
-      <fn>See <xref ref="theorem-fourier-coefficients-of-even-and-odd-functions" autoname="yes" />.</fn>
+      <fn>See <xref ref="theorem-fourier-coefficients-of-even-and-odd-functions" text="type-global" />.</fn>
       So it follows that
     </p>
     <me>b_{n} = \frac{2}{L}\int_{0}^{L}f(x)\sin\frac{n\pi}{L}x\,dx.</me>
@@ -304,11 +304,11 @@
       We can put all of this together into the following theorem.
     </p>
     <theorem xml:id="theorem-solution-of-the-wave-equation">
-      <index><main>Wave equation</main><sub>solution</sub></index>
+      <idx><h>Wave equation</h><h>solution</h></idx>
       <title>Solution of the Wave Equation</title>
       <statement>
         <p>
-          The solution of the wave equation <xref ref="equation-wave-equation" autoname="yes" /> with boundary conditions <xref ref="equation-boundary-conditions" /> and initial conditions <xref ref="equation-initial-condition" /> is given by
+          The solution of the wave equation <xref ref="equation-wave-equation" text="type-global" /> with boundary conditions <xref ref="equation-boundary-conditions" /> and initial conditions <xref ref="equation-initial-condition" /> is given by
           <me>u(x,t) = \sum_{n=1}^{\infty}\sin\frac{n\pi}{L}x(b_{n}\cos\lambda_{n}t+b^{*}_{b}\sin\lambda_{n}t),</me>
           where
           <me>b_{n} = \frac{2}{L}\int_{0}^{L}f(x)\sin\frac{n\pi}{L}\,dx\text{ and }b^{*}_{n} = \frac{2}{cn\pi}\int_{0}^{L}g(x)\sin\frac{n\pi}{L}x\,dx</me>
@@ -333,7 +333,7 @@
           <me>\pdv[2]{u}{t} = 16\pdv[2]{u}{x}</me>
           with boundary conditions <m>u(0,t) = u(1,t) = 0</m> and initial conditions
           <me>u(x,0) = f(x)\text{ and }u_{t}(x,0) = 0.</me>
-          We can find <m>u(x,t)</m> from <xref ref="theorem-solution-of-the-wave-equation" autoname="yes" />.
+          We can find <m>u(x,t)</m> from <xref ref="theorem-solution-of-the-wave-equation" text="type-global" />.
         </p>
         <p>
           Using the Sage cell below, we get
@@ -366,9 +366,9 @@
   <section xml:id="section-d-alembert-s-solution-of-the-wave-equation">
     <title>d'Alembert's Solution of the Wave Equation</title>
     <p>
-      Although <xref ref="theorem-solution-of-the-wave-equation" autoname="yes" /> solves the wave equation, it's a little complicated to work with.
+      Although <xref ref="theorem-solution-of-the-wave-equation" text="type-global" /> solves the wave equation, it's a little complicated to work with.
       We'll try to express the solution in a simpler way.
-      In particular, we'll start by trying to simplify the solution of the boundary value problem in <xref ref="example-a-string-with-fixed-ends" autoname="yes" />.
+      In particular, we'll start by trying to simplify the solution of the boundary value problem in <xref ref="example-a-string-with-fixed-ends" text="type-global" />.
       In that example, we saw that the solution of
       <me>u_{tt} = 16u_{xx}</me>
       with boundary conditions <m>u(0,t) = u(1,t) = 0</m> and initial conditions
@@ -399,7 +399,7 @@
     </p>
     <theorem xml:id="theorem-d-alembert-s-solution-without-initial-velocity">
       <title>d'Alembert's Solution without Initial Velocity</title>
-      <index><main>Wave equation</main><sub>d'Alembert's solution</sub><sub>zero initial velocity</sub></index>
+      <idx><h>Wave equation</h><h>d'Alembert's solution</h><h>zero initial velocity</h></idx>
       <statement>
         <p>
           Let <m>c\gt0</m>, and consider the boundary value problem
@@ -430,7 +430,7 @@
       </statement>
       <solution>
         <p>
-          We can do so very easily with <xref ref="theorem-d-alembert-s-solution-without-initial-velocity" autoname="yes" />, since the initial velocity of the string is <m>0</m>.
+          We can do so very easily with <xref ref="theorem-d-alembert-s-solution-without-initial-velocity" text="type-global" />, since the initial velocity of the string is <m>0</m>.
           So we have
           <me>u(x,t) = \frac{1}{2}[f^{*}(x-t)+f^{*}(x+t)],</me>
           where <m>f^{*}</m> is the odd extension of <m>f(x)</m>.
@@ -444,7 +444,7 @@
       d'Alembert's solution is very useful if we want to model a vibrating string with zero initial velocity.
       But what can we do if the string has an initial velocity?
       d'Alembert's solution actually suggests a possible approach to take.
-      If we look at <xref ref="theorem-d-alembert-s-solution-without-initial-velocity" autoname="yes" />, it essentially states that the solution of the wave equation (assuming zero initial velocity) is the superposition of the rightward traveling wave <m>f(x-ct)</m> with the leftward traveling wave <m>f(x+ct)</m>.
+      If we look at <xref ref="theorem-d-alembert-s-solution-without-initial-velocity" text="type-global" />, it essentially states that the solution of the wave equation (assuming zero initial velocity) is the superposition of the rightward traveling wave <m>f(x-ct)</m> with the leftward traveling wave <m>f(x+ct)</m>.
       This suggests that superpositions of waves are fundamental to solutions of the wave equation.
     </p>
     <p>
@@ -478,7 +478,7 @@
     </p>
     <theorem xml:id="theorem-d-alembert-s-solution-with-initial-velocity">
       <title>d'Alembert's Solution with Initial Velocity</title>
-      <index><main>Wave equation</main><sub>d'Alembert's solution</sub><sub>with initial velocity</sub></index>
+      <idx><h>Wave equation</h><h>d'Alembert's solution</h><h>with initial velocity</h></idx>
       <statement>
         <p>
           Let <m>c\gt0</m>, and consider the boundary value problem
@@ -546,7 +546,7 @@
         <mrow xml:id="heat-equation-initial-condition">u(x,0) \amp = f(x) </mrow>
       </mdn>.
       <p>
-        We can solve this boundary value problem using separation of variables, much as we did in <xref ref="section-wave-equation-and-separation-of-variables" autoname="yes" />.
+        We can solve this boundary value problem using separation of variables, much as we did in <xref ref="section-wave-equation-and-separation-of-variables" text="type-global" />.
         So to start, we assume that <m>u(x,t) = X(x)T(t)</m>.
         If we plug this into the heat equation <xref ref="equation-one-dimensional-heat-equation" />, then we get
       </p>
@@ -554,7 +554,7 @@
       <p>
         Now we have three separate cases to consider for <m>k</m>: <m>k\gt0, k=0</m> or <m>k\lt0</m>.
         Just as with the wave equation, the only case that doesn't lead to trivial solutions is <m>k=-\mu^{2}\lt0</m>.
-        In this case <xref ref="equation-odes-from-heat-equation" autoname="yes" /> leads to the two ODEs given by
+        In this case <xref ref="equation-odes-from-heat-equation" text="type-global" /> leads to the two ODEs given by
       </p>
       <md>
         <mrow>X''+\mu^{2}X \amp = 0 </mrow>
@@ -578,7 +578,7 @@
         We summarize all of this in the following theorem.
       </p>
       <theorem xml:id="theorem-solution-of-the-heat-equation-with-fixed-temperature">
-        <index><main>Heat equation</main><sub>fixed ends</sub></index>
+        <idx><h>Heat equation</h><h>fixed ends</h></idx>
         <title>Solution of the Heat Equation with Fixed Temperature</title>
         <statement>
           <p>
@@ -597,7 +597,7 @@
         <statement>
           <p>
             Consider a thin metal bar of length <m>\pi</m> placed on the <m>x</m>-axis, with one end at <m>x=0</m> and the other at <m>x=\pi</m>.
-            Assuming that <m>c=1</m> and that the initial temperature is <m>f(x) = 30\sin x</m> for <m>0\leq x\leq\pi</m>, find the temperature distribution using <xref ref="theorem-solution-of-the-heat-equation-with-fixed-temperature" autoname="yes" />.
+            Assuming that <m>c=1</m> and that the initial temperature is <m>f(x) = 30\sin x</m> for <m>0\leq x\leq\pi</m>, find the temperature distribution using <xref ref="theorem-solution-of-the-heat-equation-with-fixed-temperature" text="type-global" />.
           </p>
         </statement>
         <solution>
