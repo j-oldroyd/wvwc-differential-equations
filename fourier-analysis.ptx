@@ -702,7 +702,7 @@
       <statement>
         <p>
           Let
-          <me>f(x) = \begin{cases} -1 \amp\text{ if } -1\leq x &lt; 0 \\ 1 \amp\text{ if } 0 &lt; x \leq 1 </me>.
+          <me>f(x) = \begin{cases} -1 \amp\text{ if } -1\leq x &lt; 0 \\ 1 \amp\text{ if } 0 &lt; x \leq 1 \end{cases}</me>.
           Apply Bessel's inequality to this function.
           What does Parseval's Identity say?
         </p>
