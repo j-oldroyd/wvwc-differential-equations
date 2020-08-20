@@ -35,8 +35,8 @@
       \newcommand{\proj}[2]{\operatorname{proj}_{#1} #2}
     </macros>
     <latex-preamble>
-      \usepackage{physics}
-      \usepackage{caption}
+      <package>physics</package>
+      <package>caption</package>
     </latex-preamble>
     <latex-image-preamble>
       <!-- \usepackage{siunitx} -->
