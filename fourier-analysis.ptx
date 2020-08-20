@@ -818,7 +818,7 @@
       <p>
         Define <m>\hat{f}(\omega)</m> by
         <me>\hat{f}(\omega) = \begin{cases} 1 \amp -1 &lt; x &lt; 1 \\ 0 \amp \text{otherwise.}\end{cases}</me>
-        Then we can find the inverse transform using <xref ref="definition-the-inverse-fourier-transform" autoname="yes" />:
+        Then we can find the inverse transform using <xref ref="definition-the-inverse-fourier-transform" text="type-global" />:
         <md>
           <mrow>\mathcal{F}^{-1}\{\hat{f}\} \amp = \frac{1}{2\pi}\int_{-\infty}^{\infty}\hat{f}(\omega)e^{i\omega x}\,d\omega </mrow>
           <mrow> \amp = \frac{1}{2\pi}\int_{-1}^{1}e^{i\omega x}\,d\omega </mrow>

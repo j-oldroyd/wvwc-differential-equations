@@ -47,7 +47,7 @@
                     <p>
                         A <term>differential equation</term> is an equation relating some function with its derivatives.
                         A differential equation that involves a function of only one independent variable is called an <term>ordinary differential equation</term>, or ODE.
-                        A differential equation that involves a function of more than one independent variable (which you see a lot of in Calculus 3) is called a <term>partial differential equation</term>, or PDE, and will be studied in more detail in <xref ref="partial-differential-equations" autoname="yes" />.
+                        A differential equation that involves a function of more than one independent variable (which you see a lot of in Calculus 3) is called a <term>partial differential equation</term>, or PDE, and will be studied in more detail in <xref ref="partial-differential-equations" text="type-global" />.
                         The <term>order</term> of a differential equation is the highest derivative that appears in the equation.
                     </p>
                 </statement>
@@ -97,10 +97,10 @@
                 </solution>
             </example>
             <p>
-                In <xref ref="example-verifying-solutions" autoname="yes" />, <m>y = 5e^{x^{2}}</m> is not the only solution of <m>y' = 2xy</m>.
+                In <xref ref="example-verifying-solutions" text="type-global" />, <m>y = 5e^{x^{2}}</m> is not the only solution of <m>y' = 2xy</m>.
                 You can check that <m>y = 3e^{x^{2}}</m> and <m>y = -10e^{x^{2}}</m> are also solutions.
                 In fact, <em>any</em> function of the form <m>Ce^{x^{2}}</m> where <m>C</m> is a constant is a solution of <m>y' = 2xy</m>.
-                See <xref ref="figure-family-of-solutions" autoname="yes" />.
+                See <xref ref="figure-family-of-solutions" text="type-global" />.
             </p>
             <figure xml:id="figure-family-of-solutions">
                 <image>
@@ -173,7 +173,7 @@
                 </solution>
             </example>
             <p>
-                In <xref ref="example-a-trigonometric-sol" autoname="yes" />, to find a particular solution we just needed to plug in specific values for the arbitrary constants.
+                In <xref ref="example-a-trigonometric-sol" text="type-global" />, to find a particular solution we just needed to plug in specific values for the arbitrary constants.
                 In general, the particular solutions we'll be interested in are chosen to satisfy a given condition, which we call an <term>initial condition</term>.
                 These conditions often take the form <m>y(x_{0}) = y_{0}</m>.
                 Geometrically, we are picking a specific point <m>(x_{0},y_{0})</m> in the <m>xy</m>-plane that the solution must pass through.
