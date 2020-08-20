@@ -313,12 +313,12 @@
                 <me>y = \int x\,dx = \frac{1}{2}x^{2}+C.</me>
                 Any choice for <m>C</m> yields another solution of the ODE <m>\dv{y}{x} = x</m>.
             </p>
-            <fn>Again, it's very important in this course not to forget the arbitrary constant <m>C</m>!</fn>
+            <aside>Again, it's very important in this course not to forget the arbitrary constant <m>C</m>!</aside>
             <p>
                 Now let's make things a little more interesting.
                 Suppose we wanted to solve the ODE <m>\dv{y}{x} = e^{-x^{2}}</m>.
                 Then this is <em>impossible</em> to do in a single "closed-form".
-                <fn>By closed-form we basically mean in terms of the usual exponential, trigonometric and polynomial functions, as well as their inverses.</fn>
+                <aside>By closed-form we basically mean in terms of the usual exponential, trigonometric and polynomial functions, as well as their inverses.</aside>
                 This is because solving this ODE requires integrating <m>e^{-x^{2}}</m>, which as you may remember from Calculus 2 cannot be done without resorting to something like power series.
                 Even if we can't solve the ODE, or if we can't solve it easily, we still want to be able to obtain some information from it.
                 One way to do this is by using <term>direction fields</term>, which is a graphical representation of the ODE.
@@ -578,9 +578,9 @@
                 The simplest ODEs to solve are the first-order ODEs of the form <m>\dv{y}{x} = f(x)</m>.
                 The Fundamental Theorem of Calculus guarantees that the solution <m>y</m> is given by <m>y = \int f(x)\,dx</m>.
             </p>
-            <fn>
+            <aside>
                 Rather, the Fundamental Theorem of Calculus guarantees that the solution will be <m>y=\int f(x)\,dx</m> as long as <m>f</m> is a continuous function.
-            </fn>
+            </aside>
             <p>
                 Another type of ODE that is relatively straightforward to solve is the <term>separable ODE</term>, which is a first-order ODE that can be written in the form
             </p>
@@ -851,7 +851,7 @@
                 then we can say that
                 <me>\dv{x}{t} = r_{i}c_{i} - r_{o}c_{o} = r_{i}c_{i} - r_{0}\frac{x(t)}{V(t)}</me>
                 where <m>V(t)</m> is the volume of solution in the tank at time <m>t</m>.
-                <fn>We assume that <m>c_{i},r_{i},r_{o}</m> are all constant.</fn>
+                <aside>We assume that <m>c_{i},r_{i},r_{o}</m> are all constant.</aside>
                 Furthermore, if we let <m>V_{0} = V(0)</m> denote the initial volume of the solution in the tank then we can say that <m>V(t) = V_{0} + (r_{i}-r_{0})t.</m>
                 Hence the amount of solute <m>x(t)</m> obeys the first-order linear ODE
                 <me>\dv{x}{t} = r_{i}c_{i} - \frac{r_{o}}{V_{0}+(r_{i}-r_{o})t}x.</me>
