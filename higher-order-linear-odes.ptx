@@ -289,7 +289,6 @@
       <m>y_{c}</m> was found by solving the corresponding homogeneous equation and we used the method of undetermined coefficients to find <m>y_{p}</m>.
       Although we are now looking at higher order ODEs, the method of undetermined coefficients remains unchanged.
     </p>
-
     <example>
       <statement>
         <p>
@@ -371,7 +370,6 @@
               <cell><m>\parens{C_{6}t+C_{7}}\cos2t+\parens{C_{8}t+C_{9}}\sin2t</m></cell>
             </row>
           </tabular>
-          <caption>Initial guess of <m>x_{p}</m> for <m>\dv[7]{x}{t}+8\dv[5]{x}{t}+16\dv[3]{x}{t} = 5t-3t^{2}+e^{-t}\cos2t-3t\sin2t.</m></caption>
         </table>
         <p>
           However, we now have a problem with overlaps between <m>x_{p}</m> and <m>x_{c}</m>.
@@ -389,7 +387,8 @@
       <me>
         a_{n}y^{(n)}+a_{n-1}y^{(n-1)}+\dots+a_{1}y'+a_{0}y = f(x)   
       </me>
-      can be summarized by the following table:
+      can be summarized by the following table.
+      Note that <m>x^m</m> is the <em>smallest</em> power of <m>x</m> required to remove any overlaps with <m>y_{c}</m>.
     </p>
     <table>
       <tabular top="major">
@@ -418,9 +417,7 @@
           <cell><m>x^{m}e^{ax}\brackets{(C_{k}x^{k}+\dots+C_{1}x+C_{0})\cosh bx+(D_{k}x^{k}+\dots+D_{1}x+D_{0})\sinh bx}</m></cell>
         </row>
       </tabular>
-      <caption><m>x^m</m> is the <em>smallest</em> power of <m>x</m> required to remove any overlaps with <m>y_{c}</m>.</caption>
     </table>
-
     <example>
       <statement>
         <p>

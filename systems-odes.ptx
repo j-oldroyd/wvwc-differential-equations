@@ -130,7 +130,7 @@ This is a first-order system relating <m>x(t)</m> and <m>y(t)</m>.
 
 <definition xml:id="definition-matrices-and-vectors">
   <idx><h>matrices</h><h>definition</h></idx>
-  <idx><h>vectors</h><h>definition</h><seealso>matrices</seealso></idx>
+  <idx><h>vectors</h><h>definition</h><see>matrices</see></idx>
   <statement>
     <p>
       An <m>m\times n</m> <term>matrix</term> is an array of <m>m</m> rows and <m>n</m> columns.
@@ -1100,7 +1100,7 @@ This is a first-order system relating <m>x(t)</m> and <m>y(t)</m>.
         <cell>Complex, not pure imaginary</cell>
       </row>
     </tabular>
-    <caption>Eigenvalue conditions for stability.</caption>
+    <title>Eigenvalue conditions for stability.</title>
   </table>
   <p>
     The rule of thumb is this: the real parts of the eigenvalues determine whether a trajectory moves towards or away from the origin, and the imaginary part determines if the trajectory has a periodic/oscillating nature to it.
