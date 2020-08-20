@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<mathbook xmlns:xi="http://www.w3.org/2001/XInclude" xml:lang="en-US">
+<pretext xmlns:xi="http://www.w3.org/2001/XInclude" xml:lang="en-US">
 
   <!-- Custom LaTeX settings... I hope. -->
   <docinfo>
@@ -93,4 +93,4 @@
       <xi:include href="./partial-differential-equations.ptx" />  <!-- Definition and basic examples of PDEs -->
       <xi:include href="./backmatter.ptx" /> <!-- Index and whatnot. -->
     </book>
-  </mathbook>
+  </pretext>
