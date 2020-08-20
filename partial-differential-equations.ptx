@@ -40,7 +40,7 @@
         This idea leads to <term>partial derivatives</term>.
       </p>
       <definition xml:id="definition-partial-derivatives">
-        <index><main>Partial derivatives</main></index>
+        <idx><h>Partial derivatives</h></idx>
         <title>Partial derivatives</title>
         <statement>
           <p>
@@ -61,7 +61,7 @@
         The <term>order</term> of each of these partial derivatives is <m>2</m> and <m>3</m>, respectively.
       </p>
       <definition xml:id="definition-partial-differential-equation">
-        <index><main>Partial differential equations</main><sub>Definition</sub></index>
+        <idx><h>Partial differential equations</h><h>Definition</h></idx>
         <title>Partial differential equation</title>
         <statement>
           <p>
@@ -112,7 +112,7 @@
         Just as with linear homogeneous ODEs, PDEs that are linear and homogeneous satisfy the <term>superposition principle</term>.
       </p>
       <principle xml:id="principle-superposition-principle">
-        <index><main>Superposition principle</main><sub>partial differential equations</sub></index>
+        <idx><h>Superposition principle</h><h>partial differential equations</h></idx>
         <title>Superposition principle</title>
         <statement>
           <p>
@@ -304,7 +304,7 @@
       We can put all of this together into the following theorem.
     </p>
     <theorem xml:id="theorem-solution-of-the-wave-equation">
-      <index><main>Wave equation</main><sub>solution</sub></index>
+      <idx><h>Wave equation</h><h>solution</h></idx>
       <title>Solution of the Wave Equation</title>
       <statement>
         <p>
@@ -399,7 +399,7 @@
     </p>
     <theorem xml:id="theorem-d-alembert-s-solution-without-initial-velocity">
       <title>d'Alembert's Solution without Initial Velocity</title>
-      <index><main>Wave equation</main><sub>d'Alembert's solution</sub><sub>zero initial velocity</sub></index>
+      <idx><h>Wave equation</h><h>d'Alembert's solution</h><h>zero initial velocity</h></idx>
       <statement>
         <p>
           Let <m>c\gt0</m>, and consider the boundary value problem
@@ -478,7 +478,7 @@
     </p>
     <theorem xml:id="theorem-d-alembert-s-solution-with-initial-velocity">
       <title>d'Alembert's Solution with Initial Velocity</title>
-      <index><main>Wave equation</main><sub>d'Alembert's solution</sub><sub>with initial velocity</sub></index>
+      <idx><h>Wave equation</h><h>d'Alembert's solution</h><h>with initial velocity</h></idx>
       <statement>
         <p>
           Let <m>c\gt0</m>, and consider the boundary value problem
@@ -578,7 +578,7 @@
         We summarize all of this in the following theorem.
       </p>
       <theorem xml:id="theorem-solution-of-the-heat-equation-with-fixed-temperature">
-        <index><main>Heat equation</main><sub>fixed ends</sub></index>
+        <idx><h>Heat equation</h><h>fixed ends</h></idx>
         <title>Solution of the Heat Equation with Fixed Temperature</title>
         <statement>
           <p>

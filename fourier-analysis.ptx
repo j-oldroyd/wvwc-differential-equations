@@ -754,7 +754,7 @@
     </p>
     <definition xml:id="definition-absolutely-integrable-functions">
       <title>Absolutely Integrable Functions</title>
-      <index><main>Absolutely Integrable Functions</main></index>
+      <idx><h>Absolutely Integrable Functions</h></idx>
       <statement>
         <p>
           Let <m>f(x)</m> be a piecewise continuous function.
@@ -764,7 +764,7 @@
     </definition>
     <definition xml:id="definition-the-fourier-transform">
       <title>The Fourier Transform</title>
-      <index><main>Fourier Transform</main><sub>definition</sub></index>
+      <idx><h>Fourier Transform</h><h>definition</h></idx>
       <statement>
         <p>
           Let <m>f(x)</m> be an absolutely integrable piecewise continuous function.
@@ -795,7 +795,7 @@
     </p>
     <definition xml:id="definition-the-inverse-fourier-transform">
       <title>The Inverse Fourier Transform</title>
-      <index><main>Fourier Transform</main><sub>inverse transform</sub></index>
+      <idx><h>Fourier Transform</h><h>inverse transform</h></idx>
       <statement>
         <p>
           The inverse Fourier transform of <m>\hat{f}(\omega)</m> is
@@ -805,7 +805,7 @@
     </definition>
     <theorem xml:id="theorem-fourier-integral-representation">
       <title>Fourier Inversion Theorem</title>
-      <index><main>Fourier Transform</main><sub>inversion theorem</sub></index>
+      <idx><h>Fourier Transform</h><h>inversion theorem</h></idx>
       <statement>
         <p>
           Let <m>f(x)</m> be an absolutely integrable, piecewise differentiable function.
@@ -837,7 +837,7 @@
     </p>
     <theorem xml:id="theorem-fourier-transforms-and-derivatives">
       <title>Fourier Transforms and Derivatives</title>
-      <index><main>Fourier Transform</main><sub>transforms fo derivatives</sub></index>
+      <idx><h>Fourier Transform</h><h>transforms fo derivatives</h></idx>
       <statement>
         <p>
           Let <m>f(x)</m> be differentiable with derivative <m>f'(x)</m>.
@@ -852,7 +852,7 @@
     </p>
     <theorem xml:id="theorem-convolution-theorem">
       <title>Convolution Theorem</title>
-      <index><main>Fourier Transform</main><sub>convolution theorem</sub></index>
+      <idx><h>Fourier Transform</h><h>convolution theorem</h></idx>
       <statement>
         <p>
           Suppose that <m>f(x),g(x)</m> are piecewise continuous, bounded and absolutely integrable.
