@@ -561,13 +561,15 @@
         Direction fields are useful because they provide a means to obtain information about a differential equation (and the corresponding model) without actually having to solve the differential equation.
         One way to do so is to create a <em>streamline plot</em>.
         This can be done easily in Sage, like so:
-        <sage>
-          <input>
-            var('t, x')
-            f = x * (1 - x)
-            streamline_plot(f, (t, -5, 5), (x, -1, 2))
-          </input>
-        </sage>
+      </p>
+      <sage>
+        <input>
+          var('t, x')
+          f = x * (1 - x)
+          streamline_plot(f, (t, -5, 5), (x, -1, 2))
+        </input>
+      </sage>
+      <p>
         This can also be created by hand from a slope field without too much trouble.
       </p>
       <p>
@@ -592,6 +594,7 @@
             So if we start at this point and trace a curve that flows with the direction field, we get the following solution curve:
           </p>
           <figure xml:id="figure-solcurve1">
+            <caption>The solution curve corresponding to the initial condition <m>x(0) = \frac{1}{2}</m></caption>
             <image xml:id="image-solncurve1" width="50%">
               <asymptote>
                 import graph;
@@ -626,7 +629,6 @@
                 label("$0$", (0,0), SE);
               </asymptote>
             </image>
-            <caption>The solution curve corresponding to the initial condition <m>x(0) = \frac{1}{2}</m>.</caption>
           </figure>
           <p>
             So it appears that <m>\lim_{t\to\infty}x(t) = 1</m>.
@@ -655,9 +657,7 @@
       </aside>
       <p>
         Another type of ODE that is relatively straightforward to solve is the <term>separable ODE</term>, which is a first-order ODE that can be written in the form
-      </p>
-      <me>\dv{y}{x} = f(x)g(y).</me>
-      <p>
+        <me>\dv{y}{x} = f(x)g(y).</me>
         These ODEs can be solved by integration as well, but only after some rearranging.
       </p>
       <example xml:id="example-solving-a-separable-ode">
@@ -673,13 +673,13 @@
             It may not look like it at first, but this ODE is separable since we can rewrite it as <m>y^\prime = x(1+4y^{2})</m>.
             To solve this ODE, we need to move the <m>y</m> terms to the left hand side of the equation and the <m>x</m> terms to the right hand side.
             We'll abuse notation a little bit to do so by rewriting <m>y^\prime = \dv{y}{x}</m> and treating <m>\dv{y}{x}</m> as a fraction, but it won't get us into too much trouble here:
+            <md>
+              <mrow>\dv{y}{x} = x(1+4y^{2}) &amp;\Rightarrow \frac{dy}{1+4y^{2}} = x\,dx </mrow>
+              <mrow> &amp;\Rightarrow \int\frac{dy}{1+4y^{2}}  = \int x\,dx </mrow>
+              <mrow> &amp;\Rightarrow \frac{1}{2}\tan^{-1}(2y)  = \frac{1}{2}x^{2}+C </mrow>
+              <mrow> &amp;\Rightarrow \tan^{-1}(2y)  = x^{2}+C_{1} </mrow>
+            </md>.
           </p>
-          <md>
-            <mrow>\dv{y}{x} = x(1+4y^{2}) &amp;\Rightarrow \frac{dy}{1+4y^{2}} = x\,dx </mrow>
-            <mrow> &amp;\Rightarrow \int\frac{dy}{1+4y^{2}}  = \int x\,dx </mrow>
-            <mrow> &amp;\Rightarrow \frac{1}{2}\tan^{-1}(2y)  = \frac{1}{2}x^{2}+C </mrow>
-            <mrow> &amp;\Rightarrow \tan^{-1}(2y)  = x^{2}+C_{1} </mrow>
-          </md>
           <p>
             At this step we can either leave the solution as is (in <term>implicit form</term>) or solve for <m>y</m> to get an <term>explicit form</term>.
             We'll leave this in implicit form and then plug in the initial condition to get
@@ -1107,7 +1107,7 @@
               # Define iterates.
               yn(x) = y0
               for k in range(n):
-              yn(x) = y0 + integral(f(t, yn(x=t)), t, x0, x)
+                yn(x) = y0 + integral(f(t, yn(x=t)), t, x0, x)
 
               # Display n^th iterate.
               show(yn(x))
@@ -1244,7 +1244,7 @@
 
               # Compute Euler's method approximations.
               for k in range(n):
-              xn, yn = xn + h, yn + h*f(xn, yn)
+                xn, yn = xn + h, yn + h*f(xn, yn)
 
               show((xn, yn))
             </input>
