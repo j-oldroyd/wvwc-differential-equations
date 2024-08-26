@@ -575,11 +575,13 @@ y = \int x\,dx = \frac{1}{2}x^{2}+C.
 f = x * (1 - x)
 plot_slope_field(f, (t, -10, 10), (x, -5, 5), color = "blue")
 </script></div>
-<div class="para" id="subsection-direction-fields-and-solution-curves-12">Direction fields are useful because they provide a means to obtain information about a differential equation (and the corresponding model) without actually having to solve the differential equation. One way to do so is to create a <em class="emphasis">streamline plot</em>. This can be done easily in Sage, like so: <div id="subsection-direction-fields-and-solution-curves-12-2" class="ptx-sagecell sagecell-sage"><script type="text/x-sage">var('t, x')
+<div class="para" id="subsection-direction-fields-and-solution-curves-12">Direction fields are useful because they provide a means to obtain information about a differential equation (and the corresponding model) without actually having to solve the differential equation. One way to do so is to create a <em class="emphasis">streamline plot</em>. This can be done easily in Sage, like so:</div>
+<div id="subsection-direction-fields-and-solution-curves-13" class="ptx-sagecell sagecell-sage"><script type="text/x-sage">var('t, x')
 f = x * (1 - x)
 streamline_plot(f, (t, -5, 5), (x, -1, 2))
-</script></div> This can also be created by hand from a slope field without too much trouble.</div>
-<div class="para" id="subsection-direction-fields-and-solution-curves-13">If we only graph a single curve in the direction field we get what’s known as a <dfn class="terminology">solution curve</dfn>, which represents a solution of an initial value problem corresponding to the ODE the direction field is drawn from.</div>
+</script></div>
+<div class="para" id="subsection-direction-fields-and-solution-curves-14">This can also be created by hand from a slope field without too much trouble.</div>
+<div class="para" id="subsection-direction-fields-and-solution-curves-15">If we only graph a single curve in the direction field we get what’s known as a <dfn class="terminology">solution curve</dfn>, which represents a solution of an initial value problem corresponding to the ODE the direction field is drawn from.</div>
 <article class="example example-like" id="example-information-from-a-solution-curve"><h4 class="heading">
 <span class="type">Example</span><span class="space"> </span><span class="codenumber">1.2.7</span><span class="period">.</span><span class="space"> </span><span class="title">Information from a solution curve.</span>
 </h4>
@@ -596,7 +598,7 @@ x(0) &amp; = \frac{1}{2}.
 </div>
 <div class="solutions"><details id="example-information-from-a-solution-curve-3" class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="period">.</span></summary><div class="solution solution-like knowl__content">
 <div class="para" id="example-information-from-a-solution-curve-3-1">Since we don’t know how to solve this IVP yet, we’ll make use of the direction field from <a href="section-direction-fields.html#example-plotting-a-direction-field-with-a-cas" class="xref" data-knowl="./knowl/xref/example-plotting-a-direction-field-with-a-cas.html" data-reveal-label="Reveal" data-close-label="Close" title="Example 1.2.5: Plotting a direction field with a CAS">Example 1.2.5</a> to find an approximate solution curve. Since the initial condition is <span class="process-math">\(x(0) = \frac{1}{2}\text{,}\)</span> this means that the solution must pass through the point <span class="process-math">\((0,\frac{1}{2})\text{.}\)</span> So if we start at this point and trace a curve that flows with the direction field, we get the following solution curve:</div> <figure class="figure figure-like" id="figure-solcurve1"><div class="image-box" style="width: 50%; margin-left: 25%; margin-right: 25%;"><div class="asymptote-box" style="padding-top: 99.7085759404549%"><iframe src="generated/asymptote/image-solncurve1.html" class="asymptote"></iframe></div></div>
-<figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">1.2.8<span class="period">.</span></span><span class="space"> </span>The solution curve corresponding to the initial condition <span class="process-math">\(x(0) = \frac{1}{2}\text{.}\)</span></figcaption></figure> <div class="para" id="example-information-from-a-solution-curve-3-3">So it appears that <span class="process-math">\(\lim_{t\to\infty}x(t) = 1\text{.}\)</span>
+<figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">1.2.8<span class="period">.</span></span><span class="space"> </span>The solution curve corresponding to the initial condition <span class="process-math">\(x(0) = \frac{1}{2}\)</span></figcaption></figure> <div class="para" id="example-information-from-a-solution-curve-3-3">So it appears that <span class="process-math">\(\lim_{t\to\infty}x(t) = 1\text{.}\)</span>
 </div>
 </div></details></div></article></section></section></div>
 <div class="ptx-content-footer">

@@ -599,7 +599,7 @@ n = 3
 # Define iterates.
 yn(x) = y0
 for k in range(n):
-yn(x) = y0 + integral(f(t, yn(x=t)), t, x0, x)
+  yn(x) = y0 + integral(f(t, yn(x=t)), t, x0, x)
 
 # Display n^th iterate.
 show(yn(x))
@@ -684,7 +684,7 @@ n = 4
 
 # Compute Euler's method approximations.
 for k in range(n):
-xn, yn = xn + h, yn + h*f(xn, yn)
+  xn, yn = xn + h, yn + h*f(xn, yn)
 
 show((xn, yn))
 </script></div>
