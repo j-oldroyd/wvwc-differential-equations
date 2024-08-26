@@ -1,0 +1,1650 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!--********************************************************************
+
+*********************************************************************-->
+<!-- This file was originally part of the book     -->
+<!-- (as copied on 2015/07/12)                     -->
+<!--                                               -->
+<!--   Abstract Algebra: Theory and Applications   -->
+<!--                                               -->
+<!-- Copyright (C) 1997-2014  Thomas W. Judson     -->
+
+<chapter xml:id="intro-to-odes" xmlns:xi="http://www.w3.org/2001/XInclude">
+  <title>Introduction to Ordinary Differential Equations</title>
+  <shorttitle>Introduction</shorttitle>
+  <introduction>
+    <p>
+      In the sciences, many quantities of interest are varying quantities.
+      Some changing quantities, like the position of a baseball dropped from a height of <quantity><mag>100</mag><unit base="foot"/></quantity>, are relatively simple to determine, but others are more complicated.
+      Think of a wildlife population, which varies from season to season and year to year.
+      How can one accurately estimate the size of such a population?
+    </p>
+
+    <p>
+      The field of <term>differential equations</term> attempts to answer such questions by providing a model for the quantity of interest using information about its rate of change, which is sometimes easier to obtain than information about the quantity itself.
+      Once we know enough about how a quantity changes, we hope to make a decent estimate for how the quantity actually behaves.
+      There are actually two different types of differential equations that we will look at in this course.
+      The first is the ordinary differential equation.
+    </p>
+  </introduction>
+
+  <section xml:id="section-ordinary-differential-equations">
+    <title>Ordinary Differential Equations</title>
+
+    <introduction xml:id="introduction-ordinary-differential-equations">
+      <p>
+        This section introduces basic concepts from the field of differential equations.
+      </p>
+    </introduction>
+
+    <subsection xml:id="subsection-basic-concepts-for-odes">
+      <title>Basic Concepts</title>
+
+      <p>
+        First, a definition of the primary concept in this course: the differential equation.
+      </p>
+
+      <definition xml:id="definition-differential-equations">
+        <title>Differential Equations</title>
+        <idx><h>differential equations</h><h>definition</h></idx>
+
+        <statement>
+          <p>
+            A <term>differential equation</term> is an equation relating some function with its derivatives.
+            A differential equation that involves a function of only one independent variable is called an <term>ordinary differential equation</term>, or ODE.
+            A differential equation that involves a function of more than one independent variable (which you see a lot of in Calculus 3) is called a <term>partial differential equation</term>, or PDE, and will be studied in more detail in <xref ref="partial-differential-equations" text="type-global" />.
+            The <term>order</term> of a differential equation is the highest derivative that appears in the equation.
+          </p>
+        </statement>
+      </definition>
+
+      <p>
+        Examples of ODEs:
+        <ul>
+          <li>
+            <p>
+              <m>\dv[2]{y}{x} + y = 0</m>; this is a second order ODE relating the unknown function <m>y</m> with its second derivative.
+            </p>
+          </li>
+
+          <li>
+            <p>
+              <m>5t^{2}x^{'''} - e^{x} = 3t</m>; this is a seventh order ODE involving the derivatives of the unknown function <m>x</m>. Note that in this ODE <m>t</m> is the independent variable whereas <m>x</m> serves as the dependent variable.
+            </p>
+          </li>
+        </ul>
+      </p>
+
+      <p>
+        Just as with equations in algebra, we can sometimes solve a differential equation.
+      </p>
+
+      <definition xml:id="definition-solution-of-a-differential-equation">
+        <title>Solution of a Differential Equation</title>
+        <idx><h>differential equations</h><h>solution</h></idx>
+
+        <statement>
+          <p>
+            A function is a <term>solution</term> of a differential equation if it satisfies the differential equation.
+          </p>
+        </statement>
+      </definition>
+
+      <p>
+        It is straightforward to check if a function is a solution of some given differential equation, but <em>finding</em> solutions will make up the bulk of this course.
+      </p>
+
+      <example xml:id="example-verifying-solutions">
+        <title>Verifying solutions</title>
+
+        <statement>
+          <p>
+            Is <m>y = 5e^{x^{2}}</m> a solution of the ODE <m>y^\prime= 2xy</m>?
+          </p>
+        </statement>
+
+        <solution>
+          <p>
+            At this point we don't know how to solve differential equations, but that doesn't mean we can't <em>check</em> solutions of differential equations.
+            To do so, we just plug <m>5e^{x^{2}}</m> wherever <m>y</m> shows up in the ODE and see if the resulting equation is true.
+            So we have
+            <md>
+              <mrow>y^\prime &amp; = 2xy </mrow>
+              <mrow>(5e^{x^{2}})^\prime &amp; = 2x(5e^{x^{2}}) \text{ after substituting }y = 5e^{x^{2}}</mrow>
+              <mrow>10xe^{x^{2}} &amp; = 10xe^{x^{2}} \text{ after simplifying} </mrow>
+            </md>
+            This is a true statement, so <m>y = 5e^{x^{2}}</m> satisfies the ODE.
+            Hence <m>5e^{x^{2}}</m> is a solution of the ODE.
+          </p>
+        </solution>
+      </example>
+
+      <p>
+        In <xref ref="example-verifying-solutions" text="type-global" />, <m>y = 5e^{x^{2}}</m> is not the only solution of <m>y^\prime = 2xy</m>.
+        You can check that <m>y = 3e^{x^{2}}</m> and <m>y = -10e^{x^{2}}</m> are also solutions.
+        In fact, <em>any</em> function of the form <m>Ce^{x^{2}}</m> where <m>C</m> is a constant is a solution of <m>y^\prime = 2xy</m>.
+        See <xref ref="figure-family-of-solutions" text="type-global" />.
+      </p>
+
+      <figure xml:id="figure-family-of-solutions">
+        <caption>A family of solutions of <m>y^\prime = 2xy</m>.</caption>
+        <image xml:id="image-family-of-solutions">
+          <asymptote>
+            import graph;
+            import slopefield;
+            import fontsize;
+            defaultpen(fontsize(9pt));
+            size(200);
+            real dy(real x,real y) {return 2*x*y;}
+            real xmin=-2, xmax=2;
+            real ymin=-1.2, ymax=3;
+
+            //add(slopefield(dy,(xmin,ymin),(xmax,ymax),20,deepgreen+0.4bp,Arrow));
+
+            pair C=(0,-0.4);
+            draw(curve(C,dy,(xmin,ymin),(xmax,ymax)),deepblue+1bp,"$y=-0.4e^{x^{2}}$");
+
+            //label("$y = -0.4e^{x^{2}}$",C,N);
+            //dot(C,UnFill);
+
+            pair C=(0,1.8);
+            draw(curve(C,dy,(xmin,ymin),(xmax,ymax)),deepgreen+1bp,"$y = 1.8e^{x^{2}}$");
+
+            //label("$y = 1.8e^{x^{2}}$",C,S);
+            //dot(C,UnFill);
+
+            pair C=(0,1);
+            draw(curve(C,dy,(xmin,ymin),(xmax,ymax)),deepred+1bp,"$y = e^{x^{2}}$");
+
+            //label("$y = e^{x^{2}}$",C,S);
+            //dot(C,UnFill);
+
+            //xaxis("$x$", xmin, xmax, defaultpen+black, Ticks (laxis, Step=1.0, NoZero), Arrows (6), above=true);
+            //yaxis("$y$", ymin, ymax, defaultpen+black, Ticks (laxis, Step=1.0, NoZero), Arrows (6), above=true);
+
+            xaxis("$x$",YEquals(0),xmin,xmax,LeftTicks());
+            //xaxis(YEquals(ymax),xmin,xmax);
+            yaxis("$y$",XEquals(0),ymin,ymax,RightTicks());
+            //yaxis(XEquals(xmax),ymin,ymax);
+
+            attach(legend(),point(E),20E,UnFill);
+          </asymptote>
+        </image>
+      </figure>
+
+      <p>
+        Solutions of ODEs that depend on arbitrary constants, such as <m>y = Ce^{x^{2}}</m> above, are called <term>general solutions</term>.
+        Solutions of ODEs that do not depend on arbitrary constants, such as <m>y = 5e^{x^{2}}</m>, are called <term>particular solutions</term>.
+      </p>
+
+      <example xml:id="example-a-trigonometric-sol">
+        <title>A trigonometric solution</title>
+
+        <statement>
+          <p>
+            Show that <m>x = A\cos(3t) + B\sin(3t)</m>, where <m>A</m> and <m>B</m> are arbitrary constants, is a general solution of <m>x'' + 9x = 0</m>.
+            Then find a particular solution.
+          </p>
+        </statement>
+
+        <solution>
+          <p>
+            To check that <m>x = A\cos(3t) + B\sin(3t)</m> is a general solution of <m>x''+9x = 0</m>, we just need to plug it into the ODE and show that it satisfies it.
+            Since
+            <me>x'' = -9(A\cos(3t)+B\sin(3t)) = -9x,</me>
+            this follows very quickly.
+          </p>
+          <p>
+            To find a particular solution, all we need to do in this case is to pick specific values for <m>A</m> and <m>B</m> (any values will work here).
+            So one particular solution of <m>x''+9x = 0</m> is given by <m>x = \frac{3}{2}\cos(3t) - \sin(3t)</m>, among infinitely many others.
+          </p>
+        </solution>
+      </example>
+
+      <p>
+        In <xref ref="example-a-trigonometric-sol" text="type-global" />, to find a particular solution we just needed to plug in specific values for the arbitrary constants.
+        In general, the particular solutions we'll be interested in are chosen to satisfy a given condition, which we call an <term>initial condition</term>.
+        These conditions often take the form <m>y(x_{0}) = y_{0}</m>.
+        Geometrically, we are picking a specific point <m>(x_{0},y_{0})</m> in the <m>xy</m>-plane that the solution must pass through.
+      </p>
+
+      <p>
+        An ODE together with an initial condition is called an <term>initial value problem (IVP)</term>.
+        Although ODEs by themselves typically have infinitely many solutions, specifying an initial condition that the solution must satisfy is often enough to get a unique particular solution instead of a general solution.
+      </p>
+
+      <example xml:id="example-solving-an-ivp">
+        <title>Solving an IVP</title>
+        <statement>
+          <p>
+            Solve the IVP <m>\dv{y}{x} = -xe^{-x^{2}}, y(0)=1</m>.
+          </p>
+        </statement>
+
+        <solution>
+          <p>
+            We need to find a function <m>y</m> that satisfies two different constraints: <m>y^\prime = -xe^{-x^{2}}</m> and <m>y(0)=1</m>.
+            We'll start with the first one, which we actually know how to do from Calculus I.
+            If <m>y^\prime = -xe^{-x^{2}}</m>, then
+            <me>y = \int -xe^{-x^{2}}\,dx = \frac{1}{2}e^{-x^{2}}+C.</me>
+            Now we need to make sure that <m>y</m> is equal to <m>1</m> if <m>x=0</m>.
+            We do this by setting <m>y=1</m>, <m>x=0</m> and choosing the right value for <m>C</m> to make the resulting equation true:
+            <me>1 = \frac{1}{2} + C \Rightarrow C = \frac{1}{2}.</me>
+            So the solution of this IVP is the function <m>y = \frac{e^{-x^{2}}+1}{2}</m>.
+          </p>
+        </solution>
+      </example>
+
+      <p>
+        Two important things to keep in mind before we move to the next topic:
+        <ol>
+          <li>
+            <p>
+              ODEs by themselves have general solutions, whereas IVPs have particular solutions.
+            </p>
+          </li>
+
+          <li>
+            <p>
+              When solving IVPs, it's important to keep track of any arbitrary constants that appear. Neglecting arbitrary constants usually makes it impossible to find the right particular solution.
+            </p>
+          </li>
+        </ol>
+      </p>
+    </subsection>
+
+    <subsection xml:id="subsection-mathematical-models">
+      <title>Mathematical Models</title>
+
+      <p>
+        Differential equations are useful because they can provide a mathematical model of a physical quantity.
+        Analyzing the model allows us to infer something meaningful about the quantity in question.
+        A relatively simple model comes from <term>Newton's Law of Cooling</term>, which relates the temperature of an object with the temperature of the surrounding medium (such as air or water).
+        In particular, Newton's Law of Cooling states that the time rate of change of the temperature of an object is proportional to the difference of the temperature of the object with that of the temperature of the surrounding medium.
+      </p>
+
+      <example xml:id="example-newton-s-law-of-cooling">
+        <title>Newton's Law of Cooling</title>
+        <statement>
+          <p>
+            Restate Newton's Law of Cooling as a differential equation.
+          </p>
+        </statement>
+        <solution>
+          <p>
+            It may not be obvious that Newton's Law of Cooling can be restated as a differential equation, but the phrase "rate of change" that appears in the statement of the law is a good clue that this can be done.
+            To do this, first we need to give the relevant quantities (the temperature of the object and the temperature of the surrounding medium) names.
+            Let <m>T(t)</m> denote the temperature of the object at time <m>t</m> and let <m>A(t)</m> denote the temperature of the surrounding medium at time <m>t</m>.
+            Then Newton's Law of Cooling says that
+            <me>\dv{T}{t} = k(T-A)</me>
+            where <m>k</m> is some constant.
+          </p>
+          <p>
+            Although we can't determine <m>k</m> precisely (this would require experimentation and depends on the object and medium in question), we can still say something useful about it.
+            In particular, <m>k</m> must be negative.
+            To see why, consider what the object does if <m>T\gt A</m> and <m>T\lt A</m>.
+            If <m>T\gt A</m>, then the object must be cooling since the surrounding medium is cooler than the object.
+            If the object is cooling, then <m>\dv{T}{t}\lt0</m>.
+            On the other hand, if <m>T\lt A</m> then <m>\dv{T}{t}\gt0</m> since the object would be heating up in this case.
+            The only way for this to occur is if <m>k\lt0</m>.
+          </p>
+        </solution>
+      </example>
+
+      <p>
+        Most of the mathematical models we'll look at will take the form of an IVP.
+      </p>
+
+      <example xml:id="example-an-ivp-modeling-a-falling-object">
+        <title>An IVP modeling a falling object</title>
+        <statement>
+          <p>
+            A ball weighing <quantity><mag>0.5</mag><unit prefix="kilo" base="gram"/></quantity> is dropped from a height of <quantity><mag>100</mag><unit base="meter"/></quantity> and is acted upon by gravity and air resistance.
+            Assuming that the force of air resistance is proportional to the velocity of the ball, what is an IVP that models the movement of the ball?
+          </p>
+        </statement>
+
+        <solution>
+          <p>
+            What we need to do is to translate this physical situation into mathematics, and to do that we need to start assigning names to the quantities of interest.
+            The quantities that matter in this problem are the movement of the ball, the force of gravity and the force of air resistance.
+            We'll name them as follows:
+            <md>
+              <mrow>\text{height of the ball }t\text{ seconds after its released} &amp;= y(t) </mrow>
+              <mrow>\text{force of gravity} &amp;= F_{G} = mg = -4.9</mrow>
+              <mrow>\text{force of air resistance} &amp;= F_{R} = k\dv{y}{t} </mrow>
+            </md>
+            where <m>C</m> is negative (since air resistance should act <em>against</em> velocity).
+            To get a differential equation out of all this, we'll use Newton's Second Law (which is actually a second-order ODE in disguise).
+            This says that the net force on the ball should be equal to its mass times acceleration: <m>F = ma</m>.
+            So we have
+            <me>F_{G}+F_{R} = 0.5\dv[2]{y}{t}</me>
+            or just
+            <me>-4.9+k\dv{y}{t} = 0.5\dv[2]{y}{t}.</me>
+            The initial condition in this case would be <m>y(0) = 100</m>.
+            So our IVP is
+            <me>-4.9+k\dv{y}{t} = 0.5\dv[2]{y}{t}, y(0) = 100.</me>
+          </p>
+        </solution>
+      </example>
+
+      <p>
+        One quick note about the IVP in <xref ref="example-an-ivp-modeling-a-falling-object" text="type-global" />
+        The differential equation was second-order, but there was only one corresponding initial condition.
+        As we'll see later, this is not enough to find a unique solution to this IVP.
+        For most IVPs we'll solve, we'll need as many initial conditions as the order of the ODE.
+        Something to look forward to.
+      </p>
+    </subsection>
+
+    <conclusion>
+      <p>
+        Now that we have a rough idea of what an ODE and an IVP actually are, we can move on to solving them.
+        In the next section, we'll look at a method that we can use to visualize ODEs and their solutions and another method that can be used to approximate solutions of ODEs.
+      </p>
+    </conclusion>
+  </section>
+
+  <section xml:id="section-direction-fields">
+    <title>Direction Fields</title>
+    <introduction>
+      <p>
+        This section corresponds to Section 1.2 from the textbook.
+      </p>
+    </introduction>
+    <subsection xml:id="subsection-direction-fields-and-solution-curves">
+      <title>Direction Fields and Solution Curves</title>
+      <p>
+        Suppose we wanted to solve the ODE <m>\dv{y}{x} = x</m>.
+        Then we can do so using the tools already available to us, since the mystery function <m>y=y(x)</m> must have derivative given by <m>x</m>.
+        So
+        <me>y = \int x\,dx = \frac{1}{2}x^{2}+C.</me>
+        Any choice for <m>C</m> yields another solution of the ODE <m>\dv{y}{x} = x</m>.
+      </p>
+      <aside><p>Again, it's very important in this course not to forget the arbitrary constant <m>C</m>!</p></aside>
+      <p>
+        Now let's make things a little more interesting.
+        Suppose we wanted to solve the ODE <m>\dv{y}{x} = e^{-x^{2}}</m>.
+        Then this is <em>impossible</em> to do in a single "closed-form".
+      </p>
+      <aside><p>By closed-form we basically mean in terms of the usual exponential, trigonometric and polynomial functions, as well as their inverses.</p></aside>
+      <p>
+        This is because solving this ODE requires integrating <m>e^{-x^{2}}</m>, which as you may remember from Calculus 2 cannot be done without resorting to something like power series.
+        Even if we can't solve the ODE, or if we can't solve it easily, we still want to be able to obtain some information from it.
+        One way to do this is by using <term>direction fields</term>, which is a graphical representation of the ODE.
+      </p>
+      <p>
+        To construct a direction field for an ODE of the form
+        <me>\dv{y}{x} = f(x,y)</me>
+        perform the following steps:
+        <ol>
+          <li>Pick a point <m>(a,b)</m> in the <m>xy</m>-plane.</li>
+          <li>Plug the point <m>(a,b)</m> into <m>f(x,y)</m> to obtain the number <m>f(a,b)</m>.</li>
+          <li>Plot a short line segment with slope <m>f(a,b)</m> at the point <m>(a,b)</m>.</li>
+          <li>Repeat at several other points in the <m>xy</m>-plane until you develop a satisfactory picture of the behavior of the ODE.</li>
+        </ol>
+        The resulting graph is called the direction field for the ODE.
+      </p>
+      <aside><p>Direction fields are often called slope fields.</p></aside>
+      <example xml:id="example-plotting-a-direction-field-by-hand">
+        <title>Plotting a direction field by hand</title>
+        <statement>
+          <p>
+            Fill in the direction field for <m>y^\prime = t - y</m> at the indicated points:
+          </p>
+          <figure xml:id="figure-dirfield-template">
+            <caption>Graph for hand plot of direction field.</caption>
+            <image xml:id="image-dirfield-template" width="50%">
+              <latex-image>
+              \begin{tikzpicture}
+                \begin{axis}[%
+                axis x line = center,
+                axis y line = center,
+                grid=both,
+                xtick={-1,...,3},
+                ytick={-1,...,3},
+                xmin=-2,
+                xmax=4,
+                ymin=-2,
+                ymax=4,
+                xlabel={$t$},
+                ylabel={$y$}
+                ]
+                \addplot[only marks,mark=*] table[row sep=\\]{%
+                1   1\\
+                0   2\\
+                2   2\\
+                2   1\\
+                0   0\\
+                0   1\\
+                0   2\\
+                1   2\\
+                1   0\\
+                2   0\\
+                };
+                \end{axis}
+                \end{tikzpicture}
+              </latex-image>
+            </image>
+          </figure>
+        </statement>
+        <solution>
+          <p>
+            To plot the direction field, remember that we're basically plotting <em>slopes</em>.
+            So we first need to figure out <m>y^\prime = t-y</m> at the indicated points.
+            The following table lists values for <m>y^\prime</m> at some of these points:
+          </p>
+          <table>
+            <title>Slopes of <m>t-y</m></title>
+            <tabular halign="center" top="major" bottom="minor">
+              <row bottom="minor">
+                <cell><m>(t,y)</m></cell>
+                <cell><m>y^\prime = t-y</m></cell>
+              </row>
+              <row>
+                <cell><m>(0,0)</m></cell>
+                <cell><m>0-0 = 0</m></cell>
+              </row>
+              <row>
+                <cell><m>(2,2)</m></cell>
+                <cell><m>2-2=0</m></cell>
+              </row>
+              <row>
+                <cell><m>(1,2)</m></cell>
+                <cell><m>1-2 = -1</m></cell>
+              </row>
+              <row bottom="major">
+                <cell><m>(0,1)</m></cell>
+                <cell><m>0-1=-1</m></cell>
+              </row>
+            </tabular>
+          </table>
+          <p>
+            If we fill out the remaining values of <m>y^\prime</m> and plot the corresponding slopes, we should get something like this:
+          </p>
+          <figure>
+            <caption>Direction field of <m>y^\prime = t-y</m></caption>
+            <image width="50%">
+              <latex-image>
+              \def\length{sqrt(1+(x-y)^2)}
+              \begin{tikzpicture}
+              \begin{axis}[
+              axis x line = center,
+              axis y line = center,
+              grid=both,
+              xlabel={$t$},
+              ylabel={$y$},
+              view={0}{90},
+              domain=0:2,
+              y domain=0:2,
+              xmin=-2, ymin=-2,
+              xmax=4, ymax=4,
+              xtick={-1,...,3},
+              ytick={-1,...,3},
+              samples=3
+              ]
+              \addplot3 [blue, thick, quiver={u={1/(\length)}, v={(x-y)/(\length)}, scale arrows=0.5}] {0};
+                \addplot[only marks,mark=*] table[row sep=\\]{%
+                1   1\\
+                0   2\\
+                2   2\\
+                2   1\\
+                0   0\\
+                0   1\\
+                0   2\\
+                1   2\\
+                1   0\\
+                2   0\\
+                };
+                \end{axis}
+                \end{tikzpicture}
+              </latex-image>
+            </image>
+          </figure>
+        </solution>
+      </example>
+      <example xml:id="example-plotting-a-direction-field-with-a-cas">
+        <title>Plotting a direction field with a CAS</title>
+        <statement>
+          <p>
+            Plot the direction field for the differential equation <m>x^\prime = x(1-x)</m>, where <m>x=x(t)</m>.
+          </p>
+        </statement>
+        <solution>
+          <p>
+            We can easily do this with a computer system (such as Sage!).
+            For example, try running the cell below this example.
+            If we do so, we get something like the following diagram:
+          </p>
+          <figure xml:id="figure-dirfield1">
+            <caption>Direction field for <m>x^\prime = x(1-x)</m></caption>
+            <image xml:id="image-dirfield1" width="50%">
+              <asymptote>
+                import graph;
+                import slopefield;
+
+                real eps=0.2;
+
+                //This gives the size of the figure.
+                size(200);
+
+                //plot annotations
+                arrowbar axisarrow = Arrow(TeXHead);
+                Label xlabel = Label("$t$", position = EndPoint, align = 2E);
+                Label ylabel = Label("$x$", position = EndPoint, align = 2N);
+
+                //This is to draw the slope field.
+                real func1(real x, real y) {return y*(1-y);}
+                real xmin=-3, xmax=3;
+                real ymin=-3, ymax=3;
+
+                add(slopefield(func1,(-3,-3),(3,3),15,deepcyan+0.3bp));
+
+                //label axes and origin
+                xaxis(YZero,xmin-eps,xmax+eps, LeftTicks(NoZeroFormat), L=xlabel, arrow=axisarrow);
+                yaxis(XZero,ymin-eps,ymax+eps, RightTicks(NoZeroFormat), L=ylabel, arrow=axisarrow);
+                label("$0$", (0,0), SE);
+              </asymptote>
+            </image>
+          </figure>
+        </solution>
+      </example>
+      <sage>
+        <input>
+          var('t, x')    # tells Sage what variables we're using
+          f = x * (1 - x)
+          plot_slope_field(f, (t, -10, 10), (x, -5, 5), color = "blue")
+        </input>
+      </sage>
+      <p>
+        Direction fields are useful because they provide a means to obtain information about a differential equation (and the corresponding model) without actually having to solve the differential equation.
+        One way to do so is to create a <em>streamline plot</em>.
+        This can be done easily in Sage, like so:
+        <sage>
+          <input>
+            var('t, x')
+            f = x * (1 - x)
+            streamline_plot(f, (t, -5, 5), (x, -1, 2))
+          </input>
+        </sage>
+        This can also be created by hand from a slope field without too much trouble.
+      </p>
+      <p>
+        If we only graph a single curve in the direction field we get what's known as a <term>solution curve</term>, which represents a solution of an initial value problem corresponding to the ODE the direction field is drawn from.
+      </p>
+      <example xml:id="example-information-from-a-solution-curve">
+        <title>Information from a solution curve</title>
+        <statement>
+          <p>
+            Let <m>x(t)</m> represent the solution of the initial value problem
+            <md>
+              <mrow>x^\prime &amp; = x(1-x) </mrow>
+              <mrow>x(0) &amp; = \frac{1}{2}. </mrow>
+            </md>
+            Determine <m>\lim_{t\to\infty}x(t)</m>.
+          </p>
+        </statement>
+        <solution>
+          <p>
+            Since we don't know how to solve this IVP yet, we'll make use of the direction field from <xref ref="example-plotting-a-direction-field-with-a-cas" text="type-global" /> to find an approximate solution curve.
+            Since the initial condition is <m>x(0) = \frac{1}{2}</m>, this means that the solution must pass through the point <m>(0,\frac{1}{2})</m>.
+            So if we start at this point and trace a curve that flows with the direction field, we get the following solution curve:
+          </p>
+          <figure xml:id="figure-solcurve1">
+            <image xml:id="image-solncurve1" width="50%">
+              <asymptote>
+                import graph;
+                import slopefield;
+                import fontsize;
+                defaultpen(fontsize(9pt));
+                size(200);
+
+                real eps=0.2;
+
+                //plot annotations
+                arrowbar axisarrow = Arrow(TeXHead);
+                Label xlabel = Label("$t$", position = EndPoint, align = 2E);
+                Label ylabel = Label("$x$", position = EndPoint, align = 2N);
+
+                //This is to draw the slope field.
+                real func1(real x, real y) {return y*(1-y);}
+                real xmin=-3, xmax=3;
+                real ymin=-3, ymax=3;
+
+                add(slopefield(func1,(xmin,ymin),(xmax,ymax),15,deepcyan+0.3bp));
+
+                pair C=(0,0.5);
+                draw(curve(C,func1,(xmin,ymin),(xmax,ymax)),deepblue+1bp);
+
+                label("$(0,\frac{1}{2})$",C,NW+W,opacity(0.1));
+                dot(C);
+
+                //label axes and origin
+                xaxis(YZero,xmin-eps,xmax+eps, LeftTicks(NoZeroFormat), L=xlabel, arrow=axisarrow);
+                yaxis(XZero,ymin-eps,ymax+eps, RightTicks(NoZeroFormat), L=ylabel, arrow=axisarrow);
+                label("$0$", (0,0), SE);
+              </asymptote>
+            </image>
+            <caption>The solution curve corresponding to the initial condition <m>x(0) = \frac{1}{2}</m>.</caption>
+          </figure>
+          <p>
+            So it appears that <m>\lim_{t\to\infty}x(t) = 1</m>.
+          </p>
+        </solution>
+      </example>
+    </subsection>
+  </section>
+  <section xml:id="section-separable-odes-and-substitution">
+    <title>Separable ODEs and Substitution</title>
+    <introduction>
+      <p>
+        This section corresponds to Section 1.3 from the text.
+      </p>
+    </introduction>
+    <subsection xml:id="subsection-separable-odes">
+      <title>Separable ODEs</title>
+      <p>
+        The simplest ODEs to solve are the first-order ODEs of the form <m>\dv{y}{x} = f(x)</m>.
+        The Fundamental Theorem of Calculus guarantees that the solution <m>y</m> is given by <m>y = \int f(x)\,dx</m>.
+      </p>
+      <aside>
+        <p>
+          Rather, the Fundamental Theorem of Calculus guarantees that the solution will be <m>y=\int f(x)\,dx</m> as long as <m>f</m> is a continuous function.
+        </p>
+      </aside>
+      <p>
+        Another type of ODE that is relatively straightforward to solve is the <term>separable ODE</term>, which is a first-order ODE that can be written in the form
+      </p>
+      <me>\dv{y}{x} = f(x)g(y).</me>
+      <p>
+        These ODEs can be solved by integration as well, but only after some rearranging.
+      </p>
+      <example xml:id="example-solving-a-separable-ode">
+        <title>Solving a separable ODE</title>
+        <statement>
+          <p>
+            Solve the IVP given by <m>y^\prime = x+4xy^{2}, y(0)=1</m>.
+          </p>
+        </statement>
+        <solution>
+          <p>
+            The first step to solving this IVP is to solve the ODE <m>y^\prime = x+4xy^{2}</m>.
+            It may not look like it at first, but this ODE is separable since we can rewrite it as <m>y^\prime = x(1+4y^{2})</m>.
+            To solve this ODE, we need to move the <m>y</m> terms to the left hand side of the equation and the <m>x</m> terms to the right hand side.
+            We'll abuse notation a little bit to do so by rewriting <m>y^\prime = \dv{y}{x}</m> and treating <m>\dv{y}{x}</m> as a fraction, but it won't get us into too much trouble here:
+          </p>
+          <md>
+            <mrow>\dv{y}{x} = x(1+4y^{2}) &amp;\Rightarrow \frac{dy}{1+4y^{2}} = x\,dx </mrow>
+            <mrow> &amp;\Rightarrow \int\frac{dy}{1+4y^{2}}  = \int x\,dx </mrow>
+            <mrow> &amp;\Rightarrow \frac{1}{2}\tan^{-1}(2y)  = \frac{1}{2}x^{2}+C </mrow>
+            <mrow> &amp;\Rightarrow \tan^{-1}(2y)  = x^{2}+C_{1} </mrow>
+          </md>
+          <p>
+            At this step we can either leave the solution as is (in <term>implicit form</term>) or solve for <m>y</m> to get an <term>explicit form</term>.
+            We'll leave this in implicit form and then plug in the initial condition to get
+            <me>\tan^{-1}(2) = C_{1}.</me>
+            So the implicit solution of this IVP is given by
+            <me>\tan^{-1}(2y) = x^{2}+\tan^{-1}(2).</me>
+          </p>
+        </solution>
+      </example>
+      <example xml:id="example-newton-s-law-of-cooling-again">
+        <title>Newton's Law of Cooling again</title>
+        <statement>
+          <p>
+            A metal plate is removed from an oven and placed in a room.
+            The temperature of the plate is <m>100^{\circ}</m> Celsius and the temperature of the room is fixed at <m>15^{\circ}</m> Celsius.
+            After <m>20</m> minutes the temperature of the plate drops to <m>90^{\circ}</m> Celsius.
+            How hot is the plate after five hours?
+          </p>
+        </statement>
+        <solution>
+          <p>
+            Let <m>T(t)</m> denote the temperature of the plate <m>t</m> minutes after being removed from the oven and let <m>A(t)</m> denote the temperature of the room <m>t</m> minutes after the plate is removed from the oven.
+            Then <m>T(0) = 100</m> and Newton's Law of Cooling says that
+          </p>
+          <me>\dv{T}{t} = k(T-15).</me>
+          <p>
+            To answer this question we need to find <m>T</m>, and although we don't know <m>k</m> at the moment we can still make some progress just by remembering that it's a constant.
+            This ODE is separable, so we'll separate variables and integrate both sides to get
+            <me>\ln(T-15) = kt+C</me>
+            which simplifies to <m>T-15 = C_{1}e^{kt}</m> or just <m>T = 15+C_{1}e^{kt}</m>.
+          </p>
+          <p>
+            Now we need to find <m>C_{1}</m> and <m>k</m>.
+            To find <m>C_{1}</m>, we just use the initial condition to get <m>C_{1} = 85</m>.
+            The only piece of information that we have left to find <m>k</m> is the fact that the temperature of the plate drops to <m>90</m> after <m>20</m> minutes.
+            In other words, <m>T(20) = 90</m>.
+            Therefore
+            <me>90 = 15+85e^{20k}</me>
+            which becomes
+            <me>\ln\frac{75}{85} = 20k</me>.
+            Therefore <m>k = \frac{1}{20}\ln\frac{15}{17}\approx-.006.</m>
+          </p>
+          <p>
+            So, finally, <m>T(t) = 15+85e^{-.006t}</m> and the temperature after five hours is <m>T(300)\approx28</m>.
+          </p>
+        </solution>
+      </example>
+    </subsection>
+    <subsection xml:id="subsection-substitution-methods">
+      <title>Substitution Methods</title>
+      <p>
+        At this point we can only solve a couple types of differential equations.
+        An ODE that isn't of the form <m>\dv{y}{x} = f(x)</m> or separable may prove troublesome.
+        However, there are certain cases where we can rewrite an ODE into one of these forms by using the right substitution.
+      </p>
+      <example xml:id="example-substitution-to-solve-an-ode">
+        <title>Substitution to solve an ODE</title>
+        <statement>
+          <p>
+            Find the general solution of <m>y^\prime = (x+y+3)^{2}</m>.
+          </p>
+        </statement>
+        <solution>
+          <p>
+            This ODE is not separable and we can't just integrate it (since the right hand side depends on the dependent variable).
+            However, the form of the right hand side suggests a substitution: <m>u = x+y+3</m>.
+            This would simplify things quite a bit, leaving us with <m>y^\prime=u^{2}</m>.
+            The only problem with this is that <m>y^\prime</m> depends on <m>x</m>, not <m>u</m>.
+            We must rewrite <m>y^\prime</m> in terms of the new variable <m>u</m>, which isn't too bad.
+            Since <m>u = x+y+3</m>, we get <m>y^\prime = u^\prime-1</m>.
+            Therefore the ODE becomes
+            <me>u^\prime-1 = u^{2}\text{ or just }\dv{u}{x} = 1+u^{2}.</me>
+          </p>
+          <p>
+            This new ODE <em>is</em> separable, and so we separate variables and integrate to get <m>\tan^{-1}u = x+C</m>.
+            If we don't care about finding an explicit solution, then we can just replace <m>u</m> to get the equation back in terms of <m>y</m>.
+            So our (implicit) general solution is <m>\tan^{-1}(x+y+3) = x+C</m>.
+          </p>
+        </solution>
+      </example>
+      <example xml:id="example-a-less-obvious-substitution">
+        <title>A less obvious substitution</title>
+        <statement>
+          <p>
+            Find an explicit solution of <m>xy^\prime=x+y</m>.
+          </p>
+        </statement>
+        <solution>
+          <p>
+            It's tough to see what to do right away, so we'll try simplifying the ODE first.
+            In particular, we'll solve for <m>y^\prime</m> to get
+            <me>y^\prime = 1+\frac{y}{x}.</me>
+            If we stare at this for a while, we might convince ourselves that the right hand side really just depends on <m>\frac{y}{x}</m>, so we'll try replacing that with <m>u</m>.
+            Then the ODE becomes <m>y^\prime=1+u</m>.
+          </p>
+          <p>
+            Once again, this is much simpler but we need to rewrite <m>y^\prime</m> in terms of <m>u</m>.
+            Since <m>u=\frac{y}{x}</m>, this means that <m>y=ux</m> and so <m>y^\prime = u+u^\prime x</m>.
+            Then the ODE becomes
+            <me>u+x\dv{u}{x} = 1+u\text{ or just } x\dv{u}{x} = 1</me>.
+          </p>
+          <p>
+            This new ODE can be rearranged to get <m>\dv{u}{x} = \frac{1}{x}</m>, and so <m>u = \ln|x|+C</m>.
+            Getting back in terms of <m>y</m>, we have <m>\frac{y}{x} = \ln|x|+C</m> or just <m>y = x\ln|x|+Cx</m>.
+          </p>
+        </solution>
+      </example>
+    </subsection>
+  </section>
+  <section xml:id="section-first-order-linear-odes">
+    <title>First-Order Linear ODEs</title>
+    <introduction>
+      <p>
+        In this section we introduce a new type of ODE that we can solve, in addition to separable ODEs and "simple" ODEs of the form <m>y^\prime=f(x)</m>.
+        The ODEs that we'll consider in this section are <term>first-order linear ODEs</term>.
+      </p>
+      <definition xml:id="definition-first-order-linear-odes">
+        <title>First-Order Linear ODEs</title>
+        <idx><h>first-order ODEs</h><h>first-order linear ODEs</h></idx>
+        <statement>
+          <p>
+            A first-order ODE is said to be linear if it can be written in the following form:
+            <me>\dv{y}{x} + P(x)y = Q(x).</me>
+          </p>
+        </statement>
+      </definition>
+      <p>
+        We've actually seen such an ODE all the way back in <xref ref="example-an-ivp-modeling-a-falling-object" text="type-global" />.
+        The ODE that we came up with in that problem can be rewritten as a first-order linear ODE with the right substitution (say, <m>u = y^\prime</m>).
+        Our first goal in this section is then to figure out how to solve these ODEs.
+      </p>
+      <p>
+        Note that this section corresponds to Section 1.5 from the text.
+      </p>
+    </introduction>
+    <subsection xml:id="subsection-integrating-factors">
+      <title>Integrating Factors</title>
+      <p>
+        To get a sense of how to solve first-order linear ODEs, we'll try some relatively simple examples first.
+      </p>
+      <example xml:id="example-solving-a-first-order-linear-ode">
+        <title>Solving a first-order linear ODE</title>
+        <statement>
+          <p>
+            Find the general solution of <m>\dv{y}{x}+2y = x</m>.
+          </p>
+        </statement>
+        <solution>
+          <p>
+            First, note that the ODE is indeed a first-order linear ODE since it takes the form given in <xref ref="definition-first-order-linear-odes" text="type-global" />.
+            If we stare at the ODE for a bit, we might think that the left hand side looks like something we'd get after using the product rule.
+            Just compare <m>(fg)^\prime = fg^\prime +f^\prime g</m> with <m>\dv{y}{x}+2y</m>, and it appears that the unknown function <m>y</m> is taking the place of <m>g</m> in the product rule formula.
+            If we could just figure out what the function <m>f</m> is supposed to be, then we could drastically simplify the left hand side of the ODE.
+          </p>
+          <p>
+            Unfortunately, there is no such function <m>f</m> that works here.
+            If there were, we'd have to have <m>f^\prime=2</m> and <m>f=2x</m>, and clearly we aren't multiplying <m>\dv{y}{x}</m> by <m>2x</m> in the ODE.
+            But we can pull a dirty trick here!
+            We'll multiply through the ODE by <m>e^{2x}</m> to get the new ODE
+            <me>e^{2x}\dv{y}{x}+2e^{2x}y = xe^{2x}.</me>
+            It might not be all that obvious why this helps us out, but now the left hand side can be simplified by the product rule:
+            <me>e^{2x}\dv{y}{x}+2e^{2x}y = \dv{}{x}[e^{2x}y].</me>
+          </p>
+          <p>
+            So we can rewrite the entire ODE as
+            <me>\dv{}{x}[e^{2x}y] = xe^{2x}.</me>
+            We can integrate this on both sides to get <m>e^{2x}y = \int xe^{2x}\,dx</m>, or just
+            <me>e^{2x}y = \frac{1}{2}xe^{2x} - \frac{1}{4}e^{2x}+C.</me>
+            The explicit solution would be <m>y = \frac{1}{2}x - \frac{1}{4} + Ce^{-2x}</m>.
+          </p>
+        </solution>
+      </example>
+      <p>
+        The function <m>e^{2x}</m> that we used in <xref ref="example-solving-a-first-order-linear-ode" text="type-global" /> is called an <term>integrating factor</term>.
+        Integrating factors are our primary tool in solving first-order linear ODEs.
+        In general, to solve a first-order linear ODE <m>y^\prime +P(x)y=Q(x)</m> the first thing you must do is to multiply through it by the integrating factor <m>e^{\int P(x)\,dx}</m>.
+      </p>
+      <example xml:id="example-solving-a-first-order-linear-ode-in-disguise">
+        <title>Solving a first-order linear ODE in disguise</title>
+        <statement>
+          <p>
+            Solve the second-order ODE given by
+            <me>tx''+\frac{t}{1+t^{2}}x^\prime = \frac{2t^{2}}{(1+t^{2})^{2}}e^{-\tan^{-1}t}</me>
+            with initial conditions <m>x(0) = x^\prime(0) = -1.</m>
+          </p>
+        </statement>
+        <solution>
+          <p>
+            Even though this is a second-order ODE, we can rewrite it as a first-order ODE using the substitution <m>u = x^\prime</m>.
+            Then the ODE becomes
+            <me>tu+\frac{t}{1+t^{2}}u = \frac{2t^{2}}{(1+t^{2})^{2}}e^{-\tan^{-1}t}.</me>
+            If we divide through by <m>t</m>, we get
+            <me>u+\frac{1}{1+t^{2}}u = \frac{2t}{(1+t^{2})^{2}}e^{-\tan^{-1}t}.</me>
+            This can be solved by integrating factors since it takes the form given in <xref ref="definition-first-order-linear-odes" text="type-global" />.
+            The integrating factor we need is given by
+            <me>e^{\int \frac{1}{1+t^{2}}\,dt} = e^{\tan^{-1}t}.</me>
+          </p>
+          <p>
+            Now we multiply through the ODE by this integrating factor and rewrite the left hand side using the product rule to get
+            <me>\dv{}{t}[e^{\tan^{-1}t}u] = \frac{2t}{(1+t^{2})^{2}}.</me>
+            At this step we can integrate both sides to get
+            <me>e^{\tan^{-1}t}u = -\frac{1}{1+t^{2}}+C,</me>
+            which becomes
+            <me>x^\prime = -\frac{e^{-\tan^{-1}t}}{1+t^{2}}+Ce^{-\tan^{-1}t}.</me>
+          </p>
+          <p>
+            If we plug in the initial condition <m>x^\prime (0) = -1</m>, this forces <m>C=0</m>.
+            Hence
+            <me>x^\prime = -\frac{e^{-\tan^{-1}t}}{1+t^{2}}.</me>
+            Now we integrate one last time to get <m>x</m>:
+            <me>x = e^{-\tan^{-1}t}+D.</me>
+            If we use the last initial condition <m>x(0)=-1</m>, we see that <m>D = -2</m>.
+            Hence the solution of this IVP is
+            <me>x = e^{-\tan^{-1}t}-2.</me>
+          </p>
+        </solution>
+      </example>
+    </subsection>
+    <subsection xml:id="subsection-applications">
+      <title>Applications</title>
+      <p>
+        A common application of first-order linear ODEs is in modeling "mixture" problems.
+        Suppose we have a tank which contains a solution (mixture of solute and solvent, such as salt and water).
+        Some amount of solution is also flowing into and out of the tank.
+        We want to measure the amount of solute in the tank at time <m>t</m>, call this amount <m>x(t)</m>.
+        Then <m>x(t)</m> will change depending on how the solute flows into and out of the tank, making it a prime target for a differential equation.
+      </p>
+      <p>
+        If we set
+        <md>
+          <mrow>c_{i} &amp; =\text{concentration of solute flowing in} </mrow>
+          <mrow>c_{o} &amp; =\text{concentration of solute flowing out} </mrow>
+          <mrow>r_{i} &amp; =\text{rate solution is flowing in} </mrow>
+          <mrow>r_{o} &amp; = \text{rate solution is flowing out} </mrow>
+        </md>
+        then we can say that
+        <me>\dv{x}{t} = r_{i}c_{i} - r_{o}c_{o} = r_{i}c_{i} - r_{0}\frac{x(t)}{V(t)}</me>
+        where <m>V(t)</m> is the volume of solution in the tank at time <m>t</m>.
+        <aside><p>We assume that <m>c_{i},r_{i},r_{o}</m> are all constant.</p></aside>
+        Furthermore, if we let <m>V_{0} = V(0)</m> denote the initial volume of the solution in the tank then we can say that <m>V(t) = V_{0} + (r_{i}-r_{0})t.</m>
+        Hence the amount of solute <m>x(t)</m> obeys the first-order linear ODE
+        <me>\dv{x}{t} = r_{i}c_{i} - \frac{r_{o}}{V_{0}+(r_{i}-r_{o})t}x.</me>
+      </p>
+      <example xml:id="example-salt-in-a-tank">
+        <title>Salt in a tank</title>
+        <statement>
+          <p>
+            A tank contains <quantity><mag>100</mag><unit base="liter"/></quantity> of a solution consisting of <quantity><mag>50</mag><unit base="gram" prefix="kilo"/></quantity> of salt dissolved in water.
+            Solution containing <quantity><mag>1</mag><unit base="gram" prefix="kilo"/><per base="liter"/></quantity> of salt is pumped into the tank at a rate of <quantity><mag>2</mag><unit base="liter"/><per base="minute"/></quantity> and the well-mixed solution is pumped out at the rate of <quantity><mag>3</mag><unit base="liter"/><per base="minute"/></quantity>.
+            How much salt will be in the tank after <m>t</m> minutes?
+          </p>
+        </statement>
+        <solution>
+          <p>
+            Let <m>x(t)</m> denote the amount of salt in the tank after <m>t</m> minutes, so <m>x(0) = 50</m>.
+            Then
+            <me>\dv{x}{t} = r_{i}c_{i}-r_{o}c_{o} = 2\cdot1-3\frac{x}{100-t}.</me>
+            We can rearrange this to get
+            <me>\dv{x}{t} + \frac{3}{100-t}x = 2.</me>
+            This ODE is linear and has integrating factor <m>(100-t)^{-3}</m>.
+            Multiplying through the ODE by the integrating factor and rewriting it using the product rule then gives us
+            <me>\dv{}{t}[(100-t)^{-3}x] = 2(100-t)^{-3}.</me>
+          </p>
+          <p>
+            Now we can integrate both sides to get
+            <me>(100-t)^{-3}x = (100-t)^{-2}+C</me>
+            or just <m>x = 100-t+C(100-t)^{3}</m>.
+            Finally, the initial condition can be used to show that <m>C = -\frac{1}{20000}</m>, so <m>x = 100-t - \frac{1}{20000}(100-t)^{3}</m>.
+          </p>
+        </solution>
+      </example>
+    </subsection>
+  </section>
+  <section xml:id="section-existence-and-uniqueness-of-solutions">
+    <title>Existence and Uniqueness of Solutions</title>
+    <shorttitle>Existence and Uniqueness</shorttitle>
+    <introduction>
+      <p>
+        This section corresponds to Section 1.7 from the text.
+      </p>
+    </introduction>
+    <subsection xml:id="subsection-existence-and-uniqueness-theorem">
+      <title>Existence and Uniqueness Theorem</title>
+      <p>
+        There are two important questions we need to consider when developing a mathematical model using differential equations (i.e. IVPs):
+        <ol>
+          <li>Does the initial value problem have a solution? (Existence).</li>
+          <li>If it has a solution, is the solution unique? (Uniqueness).</li>
+        </ol>
+        Ideally, the answer to both of these questions will be yes.
+      </p>
+      <example xml:id="example-the-answer-is-no">
+        <title>The answer is no</title>
+        <statement>
+          <p>
+            Does <m>x\dv{y}{x} = \sqrt[3]{y},y(1) = 0</m> have a unique solution?
+          </p>
+        </statement>
+        <solution>
+          <p>
+            We can find a solution to this IVP by treating the ODE as separable.
+            If we do so, we find that <m>y = \left(\frac{2}{3}\ln x\right)^{\frac{3}{2}}</m>.
+            On the other hand, we can also eyeball a second solution: <m>y=0</m>.
+            So this IVP has <em>two</em> different solutions: <m>y_{1} = \left(\frac{2}{3}\ln x\right)^{\frac{3}{2}}</m> and <m>y_{2} = 0</m>.
+          </p>
+        </solution>
+      </example>
+      <p>
+        Clearly, IVPs don't always have unique solutions.
+        Sometimes it's difficult to determine precisely when an IVP can have a unique solution, but most of the cases we'll care about in this class will fall under the following theorem.
+      </p>
+      <theorem xml:id="theorem-existence-and-uniqueness-theorem">
+        <title>Existence and Uniqueness Theorem</title>
+        <idx><h>first-order ODEs</h><h>existence and uniqueness</h></idx>
+        <statement>
+          <p>
+            Consider the IVP given by <m>\dv{y}{x} = f(x,y), y(x_{0}) = y_{0}</m>.
+            If <m>f(x,y)</m> is bounded and continuous within some rectangle in the plane containing <m>(x_{0},y_{0})</m>, then the IVP has at least one solution.
+            If in addition <m>f_{y}(x,y)</m> is also bounded and continuous within some rectangle containing <m>(x_{0},y_{0})</m>, then the IVP has a unique solution.
+          </p>
+        </statement>
+      </theorem>
+      <p>
+        If we go back to <xref ref="example-the-answer-is-no" text="type-global" />, then we see that <xref ref="theorem-existence-and-uniqueness-theorem" text="type-global" /> has something to say about the IVP in that example.
+        In that example, we had <m>f(x,y) = \sqrt[3]{y}, f_{y}(x,y) = \frac{1}{3}y^{-\frac{2}{3}}</m> and <m>(x_{0},y_{0}) = (1,0)</m>.
+        Let's draw a rectangle around this point:
+        <figure xml:id="figure-existence-and-uniqueness-1">
+          <image width="50%">
+            <latex-image>
+            \begin{tikzpicture}
+              \begin{axis}[%
+              axis x line = center,
+              axis y line = center,
+              xlabel = {$x$},
+              ylabel = {$y$},
+              xmin=0,
+              xmax=2,
+              ymin=-1,
+              ymax=2,
+              grid = both
+              ]
+              \draw[fill=blue!40,opacity=.5] (.5,-.5) rectangle (1.5,1.5);
+              \draw (1,1) node{$R$};
+              \addplot[mark=*]table[row sep=\\]{%
+              1   0\\
+              } node[above right]{$(x_{0},y_{0})$};
+              \end{axis}
+              \end{tikzpicture}
+            </latex-image>
+          </image>
+        </figure>
+      </p>
+      <p>
+        Now <m>f</m> is continuous and <m>-\frac{1}{2}\leq y\leq\frac{3}{2}</m> within this rectangle, so
+        <me>-\sqrt[3]{\frac{1}{2}}\leq f(x,y)\leq\sqrt[3]{\frac{3}{2}}</me>
+        everywhere inside of this triangle.
+        So <xref ref="theorem-existence-and-uniqueness-theorem" text="type-global" /> guarantees <em>at least one</em> solution of the IVP, and indeed there is at least one solution.
+        However, the problem with uniqueness stems from the fact that <m>f_{y}</m> has a divide-by-zero problem inside this rectangle.
+        Furthermore, it's impossible to draw a rectangle around <m>(1,0)</m> that avoids this divide-by-zero problem.
+        Hence there is no guarantee of uniqueness.
+      </p>
+      <p>
+        On the other hand, if we changed the initial condition to <m>y(1) = 0.000001</m> then we would be guaranteed a unique solution.
+        Moving that initial condition off of the <m>x</m>-axis is all we need to do to guarantee uniqueness.
+      </p>
+    </subsection>
+    <subsection xml:id="subsection-picard-iteration">
+      <title>Picard Iteration</title>
+      <p>
+        Now that we know of a way to determine whether or not certain ODEs have solutions, we'd like a method for actually finding these solutions.
+        We've seen a few different methods for solving specific first-order ODEs, but what we'll do now is discuss a method that works for a large class of first-order ODEs.
+        The only catch is that it may take us an infinite amount of time to get the solution.
+      </p>
+      <p>
+        Consider the IVP <m>\dv{y}{x} = f(x,y), y(x_{0}) = y_{0}</m>.
+        We can rewrite this differential equation as an <term>integral equation</term>:
+        <me>y(x) = y_{0} + \int_{x_{0}}^{x}f(t,y(t))\,dt.</me>
+        It looks quite a bit different, but solutions of this integral equation are also solutions of the corresponding differential equation.
+        Our goal now is to approximate a solution to this integral equation.
+      </p>
+      <p>
+        To start, let's make a guess as to what the solution of our IVP should be.
+        To keep things simple we'll start with a constant function, say <m>\phi_{0}(x) = y_{0}</m> so that we at least satisfy the initial condition.
+        Now this guess may not be a good match for the solution of the IVP away from the initial condition, so we'll adjust the guess using the integral equation to get the new function <m>\phi_{1}</m>:
+        <me>\phi_{1}(x) = y_{0} + \int_{x_{0}}^{x}f(t,\phi_{0})\,dt.</me>
+        Now <m>\phi_{1}</m> may not be a great approximation either away from the initial condition, but we can adjust it using the integral equation just like we did to <m>\phi_{0}</m>.
+      </p>
+      <p>
+        The method described in the previous paragraph is <term>Picard's Method</term>.
+        In general, the <m>n^{\text{th}}</m> iteration of Picard's Method is given by
+        <me>\phi_{n}(x) = y_{0}+\int_{x_{0}}^{x}f(t,\phi_{n-1}(t))\,dt,</me>
+        and the first iterate is the constant function <m>\phi_{0} = y_{0}.</m>
+        It may seem strange to consider these functions as approximate solutions of the IVP in question, but each iterate actually solves an IVP very similar to the one that we care about, <m>\dv{y}{x} = f(x,y), y(x_{0}) = y_{0}</m>.
+        In particular,
+        <me>\dv{\phi_{n}}{x} = f(x,\phi_{n-1}), \phi_{n}(x_{0}) = y_{0}</me>
+        for all <m>n\geq1</m>.
+        This method doesn't always work, but if <m>f(x,y)</m> satisfies the conditions given in <xref ref="theorem-existence-and-uniqueness-theorem" text="type-global" /> then this method will (after potentially infinitely many steps) provide a solution to the IVP.
+        Since the computations involved are quite tedious, it's best to use a CAS if possible.
+      </p>
+      <example xml:id="example-using-sage-to-compute-picard-iterates">
+        <title>Using Sage to Compute Picard Iterates</title>
+
+        <statement>
+          <p>
+            Consider the initial value problem given by
+            <me>y^\prime = x + y^2, y(1) = -1</me>.
+            We want to approximate the solution by using Picard iteration (note that the differential equation is neither separable nor linear!).
+            We do this with the Sage cell below:
+          </p>
+          <sage>
+            <input>
+              # We need to tell Sage that y is a variable.
+              var('t,y')
+
+              # Now we define f(x,y) and our initial conditions.
+              f(x, y) = x + y^2
+              x0, y0 = 1, -1
+
+              # We will also decide how many Picard iterates we want.
+              # The below computes 3 iterates, but you're welcome
+              # to change n. However, things get very complicated
+              # very quickly for this example!
+              n = 3
+
+              # Define iterates.
+              yn(x) = y0
+              for k in range(n):
+              yn(x) = y0 + integral(f(t, yn(x=t)), t, x0, x)
+
+              # Display n^th iterate.
+              show(yn(x))
+            </input>
+            <output>
+              1/4400*x^11 + 1/400*x^10 + 1/720*x^9 - 9/160*x^8 - 1/56*x^7 + 77/100*x^6 - 191/200*x^5 - 399/80*x^4 + 4741/240*x^3 - 497/16*x^2 + 10201/400*x - 5517209/554400
+            </output>
+          </sage>
+        </statement>
+      </example>
+    </subsection>
+    <subsection xml:id="subsection-euler-s-method">
+      <title>Euler's Method</title>
+      <p>
+        The Picard iteration approach can be useful for finding series approximations of the solution of an ODE.
+        If a more numerical approach is desired, then <em>Euler's method</em> might be useful.
+        Euler's method can be thought of as an algorithmic version of tracing a solution curve through a direction field (see <xref ref="section-direction-fields" text="type-global" />).
+      </p>
+      <algorithm xml:id="algorithm-euler-s-method">
+        <title>Euler's Method</title>
+        <statement>
+          <p>
+            Consider the initial value problem
+            <me>\dv{y}{x} = f(x, y), y(x_0) = y_0.</me>
+            The equations defining Euler's method for a given step size <m>h</m> are
+            <md>
+              <mrow>x_n \amp = x_{n-1} + h </mrow>
+              <mrow>y_n \amp = y_{n-1} + hf(x_{n-1}, y_{n-1}) </mrow>
+            </md>.
+          </p>
+        </statement>
+      </algorithm>
+      <p>
+        For Euler's method, the general rule of thumb is as follows: the smaller <m>h</m> is, the better the approximation.
+        However, one should expect degrading performance as the method moves farther from the initial condition <m>(x_0, y_0)</m>.
+      </p>
+      <example xml:id="example-euler-s-method-applied-to-nonlinear-ode">
+        <title>Euler's Method Applied to Nonlinear ODE</title>
+        <statement>
+          <p>
+            Let <m>y(x)</m> denote the solution of the IVP given by
+            <me>y^\prime = x + y^2, y(0) = 1</me>.
+            Estimate <m>y(2)</m> using Euler's method with a step size of <m>h = \frac{1}{2}</m>.
+          </p>
+        </statement>
+        <solution>
+          <p>
+            First, note that we are justified in saying the solution exists at all by <xref ref="theorem-existence-and-uniqueness-theorem" text="type-global" />.
+            Euler's method now produces the following approximations:
+          </p>
+          <tabular>
+            <row bottom="major">
+              <cell>
+                <m>n</m>
+              </cell>
+              <cell>
+                <m>x_n</m>
+              </cell>
+              <cell>
+                <m>y_n</m>
+              </cell>
+            </row>
+            <row>
+              <cell>
+                <m>0</m>
+              </cell>
+              <cell>
+                <m>0</m>
+              </cell>
+              <cell>
+                <m>1</m>
+              </cell>
+            </row>
+            <row>
+              <cell>
+                <m>1</m>
+              </cell>
+              <cell>
+                <m>0.5</m>
+              </cell>
+              <cell>
+                <m>1.5</m>
+              </cell>
+            </row>
+            <row>
+              <cell>
+                <m>2</m>
+              </cell>
+              <cell>
+                <m>1</m>
+              </cell>
+              <cell>
+                <m>2.875</m>
+              </cell>
+            </row>
+            <row>
+              <cell>
+                <m>3</m>
+              </cell>
+              <cell>
+                <m>1.5</m>
+              </cell>
+              <cell>
+                <m>7.508</m>
+              </cell>
+            </row>
+            <row>
+              <cell>
+                <m>4</m>
+              </cell>
+              <cell>
+                <m>2</m>
+              </cell>
+              <cell>
+                <m>36.441</m>
+              </cell>
+            </row>
+          </tabular>
+          <p>
+            Such computations are best performed using a CAS, such as the Sage code below:
+          </p>
+          <sage>
+            <input>
+              # Define y to be a variable in case this hasn't
+              # been done.
+              var('y')
+
+              # Define starting parameters and f(x,y).
+              xn, yn, h = 0, 1, 0.5
+              f(x,y) = x + y^2
+
+              # To get to x = 2 we need n = 4 steps.
+              n = 4
+
+              # Compute Euler's method approximations.
+              for k in range(n):
+              xn, yn = xn + h, yn + h*f(xn, yn)
+
+              show((xn, yn))
+            </input>
+            <output>
+              (2.00000000000000, 36.4414367675781)
+            </output>
+          </sage>
+        </solution>
+      </example>
+    </subsection>
+  </section>
+  <section xml:id="section-population-models-and-autonomous-equations">
+    <title>Population Models and Autonomous Equations</title>
+    <shorttitle>Autonomous Equations</shorttitle>
+    <subsection xml:id="subsection-population-equations">
+      <title>Population Equations</title>
+      <p>
+        Suppose we're monitoring the population of some species, and let's denote the population at time <m>t</m> by <m>P(t)</m>.
+        An obvious question to consider is how that population will change over time.
+        Mathematically, this means we want to obtain information on <m>\dv{P}{t}</m> and then use it to estimate <m>P(t)</m>.
+      </p>
+      <p>
+        A simple model for <m>\dv{P}{t}</m> is to assume it depends only on the birth rate <m>\beta</m> and death rate <m>\delta</m> of the species in question.
+        Then we can write
+        <men xml:id="equation-natural-growth">
+        \dv{P}{t} = (\beta - \delta)P.
+      </men>
+      If we assume that <m>\beta,\delta</m> are constants, then this equation is separable and we can solve it to obtain
+      <me>
+      P(t) = P_{0}e^{(\beta - \delta)t},
+    </me>
+    where <m>P_{0}</m> represents the "initial population", or population at time <m>t = 0</m>.
+    We call <xref ref="equation-natural-growth" text="type-global" /> the <term>natural growth equation</term>.
+  </p>
+  <p>
+    The natural growth equation is simple, but it's probably too simple to be useful expect in certain scenarios (such as measuring half-life).
+    To get a more flexible model, we can generalize <xref ref="equation-natural-growth" text="type-global" /> by assuming that the birth and death rates are actually functions of time.
+    This gives us the <term>general population equation</term>.
+  </p>
+  <definition xml:id="definition-general-population-equation">
+    <title>General Population Equation</title>
+    <statement>
+      <p>
+        The general population equation for a population <m>P(t)</m> is given by
+        <me>\dv{P}{t} = (\beta(t) - \delta(t))P.</me>
+      </p>
+    </statement>
+  </definition>
+  <example xml:id="example-population-explosion">
+    <title>Population Explosion</title>
+    <statement>
+      <p>
+        A population has <m>100</m> members at time <m>t = 0</m> years with a death rate of <m>.25P</m> and a birth rate of <m>.5P</m>, where <m>P(t)</m> denotes the population after <m>t</m> years.
+        Find <m>P(t)</m> and determine if this is a reasonable population model.
+      </p>
+    </statement>
+    <solution>
+      <p>
+        If we assume that the population obeys the general growth equation, then we get
+        <me>P^\prime = .25P^{2}, P(0) = 100.</me>
+        This ODE is separable, and we can therefore solve it to get
+        <me>P(t) = \frac{100}{1 - 25t}.</me>
+      </p>
+      <p>
+        So we have a solution, and furthermore <xref ref="theorem-existence-and-uniqueness-theorem" text="type-global" /> guarantees that the solution is unique.
+        But if you stare at this for a bit, you might see that it has a divide-by-zero problem.
+        In particular, 
+        <me>\lim_{t\to(\frac{1}{25})^{+}}P(t) = \infty.</me>
+        In other words, the population becomes infinite in about two weeks!
+      </p>
+    </solution>
+  </example>
+</subsection>
+<subsection xml:id="subsection-the-logistic-equation">
+  <title>The Logistic Equation</title>
+  <p>
+    <xref ref="example-population-explosion" text="type-global" /> shows that we need to be more careful with our assumptions on population growth.
+    One relatively simple assumption we can make is to assume that the birth rate <m>\beta(t)</m> decreases as population <m>P</m> increases.
+    This makes sense in the physical world as well: as population increases, existing and finite resources (such as food) must be shared between more and more members of the population.
+    Since there's less to go around, we should expect growth to slow down.
+    In particular, let's assume that
+    <md>
+      <mrow>\beta(t) &amp; = \beta_{0} - \beta_{1}P </mrow>
+      <mrow>\delta(t) &amp; = \delta_{0} </mrow>
+    </md>
+    where <m>\beta_{0},\beta_{1}</m> and <m>\delta_{0}</m> are all positive constants.
+    Then the population equation for this scenario becomes
+    <me>\dv{P}{t} = (\beta_{0} - \beta_{1}P - \delta_{0})P.</me>
+  </p>
+  <p>
+    With a little algebra, we get the <term>logistic equation</term>:
+    <me>\dv{P}{t} = kP(M-P)</me>
+    for constants <m>k</m> and <m>M</m>.
+    This equation is separable, and can be solved using partial fractions to obtain
+    <me>P(t) = \frac{MP_{0}}{P_{0} + (M - P_{0})e^{-kMt}},</me>
+    where <m>P_{0} = P(0)</m>.
+    In order to verify the reasonableness of our logistic model, let's see what happens to the population as time increases.
+  </p>
+  <example xml:id="example-long-term-behavior-of-logistic-growth">
+    <title>Long-Term Behavior of Logistic Growth</title>
+    <statement>
+      <p>
+        What is the long-term population of a species that grows according to the logistic equation <m>\dv{P}{t} = kP(M-P)</m>?
+      </p>
+    </statement>
+    <solution>
+      <p>
+        Using the fact that
+        <me>P(t) = \frac{MP_{0}}{P_{0} + (M - P_{0})e^{-kMt}},</me>
+        we have
+        <me>\lim_{t\to\infty}P(t) = M.</me>
+        So the population should eventually level out at <m>M</m>.
+      </p>
+    </solution>
+  </example>
+  <p>
+    In the logistic equation <m>P^\prime = kP(M-P)</m>, the value <m>M</m> is the <term>carrying capacity</term>, and denotes the maximum sustainable population according to the model.
+  </p>
+  <example xml:id="example-population-growth-in-the-usa">
+    <title>Population Growth in the USA</title>
+    <statement>
+      <p>
+        In millions, the population of the USA in 1990 was <m>250</m> and was growing at a rate of <m>3.1</m> per year.
+        In 2012, the population was <m>314</m> and was growing at a rate of <m>2.3</m> per year.
+        Assuming that the population of the USA grows logistically, estimate the population of the USA in 2017 and compare it to the current estimate of <m>325.7</m>.
+      </p>
+    </statement>
+    <solution>
+      <p>
+        Let <m>P(t)</m> denote the population of the USA (in millions), where <m>t</m> is the number of years after 1990.
+        Then
+        <me>\dv{P}{t} = kP(M-P)</me>
+        and
+        <me>P(t) = \frac{MP_{0}}{P_{0} + (M - P_{0})e^{-kMt}}.</me>
+        So we need to find <m>k</m> and <m>M</m>.
+      </p>
+      <p>
+        When <m>t = 0</m>, we have <m>P^\prime = 3.1</m> and <m>P = 250</m>.
+        Similarly, when <m>t = 22</m> we have <m>P^\prime = 2.3</m> and <m>P = 314</m>.
+        Therefore
+        <md>
+          <mrow>3.1 &amp; = 250k(M - 250) </mrow>
+          <mrow>2.3 &amp; = 314k(M - 314) </mrow>
+        </md>
+        Solving this system gives us <m>k\approx.00008</m> and <m>M \approx 406.4</m>.
+        Hence
+        <me>P(t) = \frac{101600}{250 + 156.4e^{-.03t}}.</me>
+      </p>
+      <p>
+        This model estimates the population in 2017 to be
+        <me>P(27) = 317.9,</me>
+        which is about a <m>2\%</m> error.
+        Note also that this model predicts the carrying capacity of the USA to be <m>406.4</m>.
+      </p>
+    </solution>
+  </example>
+</subsection>
+<subsection xml:id="section-stability-of-solutions">
+  <title>Stability of Solutions</title>
+  <p>
+    The logistic equation
+    <me>\dv{P}{t} = kP(M-P)</me>
+    is a particularly nice separable ODE since the right hand side depends only on the unknown function <m>P</m>.
+    So we can write <m>P^\prime = f(P)</m>, where <m>f(P) = kP(M-P)</m>.
+    ODEs like this (where the independent variable does not appear explicitly) are called <term>autonomous ODEs</term>.
+  </p>
+  <p>
+    Autonomous ODEs like <m>\dv{x}{t} = f(x)</m> are useful because the behavior of their solutions can be determined <em>qualitatively</em>, without actually solving the ODE.
+    This is done by looking for the constant solutions of the ODE, that is, solutions of the form <m>x = c</m>.
+    For any such solution, we must have <m>f(c) = 0</m> as well.
+    These solutions (i.e., the solutions of <m>f(x) = 0</m>) are called the <term>critical points</term> or <term>equilibrium solutions</term> of the ODE.
+    These solutions completely determine the long-term behavior of <em>every other solution</em>.
+  </p>
+  <example xml:id="example-finding-equilibrium-solutions">
+    <title>Finding Equilibrium Solutions</title>
+    <statement>
+      <p>
+        Find the equilibrium solutions of <m>\dv{x}{t} = -x^{2} + 7x - 10</m>.
+      </p>
+    </statement>
+    <solution>
+      <p>
+        We need to solve the equation <m>-x^{2} + 7x - 10 = 0</m>.
+        Thankfully, we can factor this to get <m>(2-x)(x-5) = 0</m>, and so the equilibrium solutions are <m>x = 2,5</m>.
+      </p>
+    </solution>
+  </example>
+  <definition xml:id="definition-stability-critial-points">
+    <title>Stability of Solutions</title>
+    <statement>
+      <p>
+        A critical point is <term>stable</term> if solutions that start "near" the point stay near it.
+        A critical point is <term>unstable</term> if solutions that start "near" the point can diverge away from it.
+      </p>
+    </statement>
+  </definition>
+  <example xml:id="example-determining-the-stability-of-solutions">
+    <title>Determining the Stability of Solutions</title>
+    <statement>
+      <p>
+        What are the stable critical points of <m>\dv{x}{t} = -x^{2} + 7x - 10</m>?
+      </p>
+    </statement>
+    <solution>
+      <p>
+        We already know that the critical points are <m>x = 2, 5</m>.
+        We can determine their stability by making use of a <term>phase diagram</term>, which is essentially a sign chart for <m>f(x) = -x^{2} + 7x - 10</m>:
+      </p>
+      <figure>
+        <caption>The phase diagram for <m>x^\prime = f(x).</m></caption>
+        <image width="50%">
+          <latex-image><![CDATA[
+          \begin{tikzpicture}
+          % draw the line
+          \draw (-1,0) -- (7,0);
+
+          % draw arrows on line 
+          \draw[ultra thick,color=blue,<-] (1,0) -- (2,0);
+          \draw[ultra thick,color=blue,->] (2,0) -- (3,0);
+          \draw[ultra thick,color=blue,->] (4,0) -- (5,0);
+          \draw[ultra thick,color=blue,<-] (5,0) -- (6,0);
+
+          % draw the ticks at critical points
+          \foreach \x in {2,5}
+          \draw[xshift=\x cm] (0pt,5pt) -- (0pt,-2pt) node[yshift=-.4cm]{$x=\the\numexpr\x$};
+
+          % label the signs
+          \node[yshift=.5cm] at (1,0){$f(x)<0$};
+          \node[yshift=.5cm] at (3.5,0){$f(x)>0$};
+          \node[yshift=.5cm] at (6,0){$f(x)<0$};
+          \end{tikzpicture}]]>
+        </latex-image>
+      </image>
+    </figure>
+    <p>
+      This shows us that solutions that begin near <m>x = 2</m> tend to move away from <m>x = 2</m>, which solutions near <m>x = 5</m> tend to move towards <m>x = 5</m>.
+      So <m>x = 2</m> is unstable and <m>x = 5</m> is stable.
+    </p>
+  </solution>
+</example>
+<example xml:id="example-determining-a-sustainable-population">
+  <title>Determining a Sustainable Population</title>
+  <statement>
+    <p>
+      Consider a population of fish that obeys the logistic equation
+      <me>\dv{P}{t} = 2P(30 - P)</me>
+      where <m>P(t)</m> is the population of fish (in thousands) after <m>t</m> years.
+      Suppose that the population is also harvested at some rate <m>h</m> (in thousands per year).
+      What is the maximum sustainable rate of harvesting?
+    </p>
+  </statement>
+  <solution>
+    <p>
+      To account for the harvesting, we need to modify the ODE:
+      <me>\dv{P}{t} = 2P(30 - P) - h.</me>
+      The harvesting will be sustainable as long as the population does not become extinct.
+      To determine this long term behavior, we'll find the critical points and set up a phase diagram.
+    </p>
+    <p>
+      The critical points are given by
+      <me>P = 15 \pm \sqrt{3600 - 8h}</me>
+      by the quadratic formula.
+      We now have three cases to consider: <m>3600 - 8h \lt 0, 3600 - 8h = 0, 3600 - 8h \gt 0.</m>
+      In terms of <m>h</m>, these reduce to <m>h \lt 450, h = 450, h \gt 450</m>.
+    </p>
+    <ol>
+      <li>
+        <p>
+          In the first case, if <m>h \lt 450</m> then we have two positive, real critical points:
+          <me>0 \lt c_{1} \lt 15 \lt c_{2} \lt 75.</me>
+          The phase diagram for this situation is
+        </p>
+        <figure>
+          <image width="50%">
+            <latex-image><![CDATA[
+            \begin{tikzpicture}
+            % draw the line
+            \draw (-1,0) -- (7,0);
+
+            % draw arrows on line 
+            \draw[ultra thick,color=blue,<-] (1,0) -- (2,0);
+            \draw[ultra thick,color=blue,->] (2,0) -- (3,0);
+            \draw[ultra thick,color=blue,->] (4,0) -- (5,0);
+            \draw[ultra thick,color=blue,<-] (5,0) -- (6,0);
+
+            % draw the ticks at critical points
+            \draw[xshift=0 cm] (0pt,5pt) -- (0pt,-2pt) node[yshift=-.4cm]{$P=0$};
+            \draw[xshift=2 cm] (0pt,5pt) -- (0pt,-2pt) node[yshift=-.4cm]{$P=c_{1}$};
+            \draw[xshift=3.5 cm] (0pt,5pt) -- (0pt,-2pt) node[yshift=-.4cm]{$P=15$};
+            \draw[xshift=5 cm] (0pt,5pt) -- (0pt,-2pt) node[yshift=-.4cm]{$P=c_{2}$};
+            \draw[xshift=6.5 cm] (0pt,5pt) -- (0pt,-2pt) node[yshift=-.4cm]{$P=75$};
+
+            % label the signs
+            \node[yshift=.5cm] at (0,0){$\dv{P}{t}<0$};
+            \node[yshift=.5cm] at (3.5,0){$\dv{P}{t}>0$};
+            \node[yshift=.5cm] at (6.5,0){$\dv{P}{t}<0$};
+            \end{tikzpicture}]]>
+          </latex-image>
+        </image>
+      </figure>
+      <p>
+        So we see that <m>c_{1}</m> is unstable while <m>c_{2}</m> is stable.
+        In particular, as long as <m>P\geq c_{1} = 15 - \sqrt{3600 - 8h}</m>, then the rate of harvesting is sustainable.
+      </p>
+    </li>
+    <li>
+      <p>
+        Now assume that <m>h = 450</m>.
+        Then we have only one equilibrium solution: <m>c = 15</m>.
+        The corresponding phase diagram is
+      </p>
+      <figure>
+        <image width="50%">
+          <latex-image><![CDATA[
+          \begin{tikzpicture}
+          % draw the line
+          \draw (0,0) -- (4,0);
+
+          % draw arrows on line 
+          \draw[ultra thick,color=blue,<-] (1,0) -- (2,0);
+          \draw[ultra thick,color=blue,<-] (2,0) -- (3,0);
+
+          % draw the ticks at critical points
+          \draw[xshift=2 cm] (0pt,5pt) -- (0pt,-2pt) node[yshift=-.4cm]{$P=15$};
+
+          % label the signs
+          \node[yshift=.5cm] at (1,0){$\dv{P}{t}<0$};
+          \node[yshift=.5cm] at (3,0){$\dv{P}{t}<0$};
+          \end{tikzpicture}
+          ]]>
+        </latex-image>
+      </image>
+    </figure>
+    <p>
+      We interpret the phase diagram as follows: if <m>P</m> is less than <p>15,000</p> then the population will collapse to extinction.
+      Otherwise, the population will stabilize at <m>15,000</m>.
+      This type of critical point is often called <term>semi-stable.</term>
+    </p>
+  </li>
+  <li>
+    <p>
+      Finally, consider the case <m>h \gt 450</m>.
+      Then we have no (real) critical points.
+      Since imaginary populations don't make sense in this model, there is no sustainable population.
+      No matter how large the initial population, it will eventually go extinct if harvested at a rate greater than <m>450</m>.
+    </p>
+  </li>
+</ol>
+<p>
+  By the above, the largest sustainable harvesting rate is <m>h = 450,</m> as long as <m>P_{0}\geq 15</m>.
+</p>
+</solution>
+</example>
+</subsection>
+<subsection xml:id="subsection-linear-stability-analysis">
+  <title>Linear Stability Analysis</title>
+  <p>
+    Given the autonomous ODE <m>\dv{x}{t} = f(x)</m>, we saw above that we can qualify the behavior of equilibrium solutions by setting up a phase diagram.
+    We can go a step further and actually qualify the growth of solutions that are "near" equilibrium solutions.
+    In particular, we have the following theorem.
+  </p>
+  <theorem xml:id="theorem-linear-stability-analysis">
+    <title>Linear Stability Analysis</title>
+    <statement>
+      <p>
+        Suppose <m>\dv{x}{t} = f(x)</m> where <m>f(x)</m> is continuously differentiable, and let <m>x^{*}</m> denote a critical point/equilibrium solution of the ODE.
+        If <m>f^\prime (x^{*}) \lt 0</m>, then <m>x^{*}</m> is stable and solutions near <m>x^{*}</m> will move exponentially towards <m>x^{*}</m>.
+        If <m>f^\prime (x^{*}) \gt 0</m>, then <m>x^{*}</m> is unstable and solutions near <m>x^{*}</m> will move exponentially away from <m>x^{*}</m>.
+        If <m>f^\prime (x^{*}) = 0</m>, then more advanced methods are required.
+      </p>
+    </statement>
+  </theorem>
+  <example xml:id="example-classifying-the-critical-points-of-the-logistic-equation">
+    <title>Classifying the Critical Points of the Logistic Equation</title>
+    <statement>
+      <p>
+        Classify the critical points of the logistic equation as stable or unstable.
+      </p>
+    </statement>
+    <solution>
+      <p>
+        Recall that the logistic equation is given by <m>P^\prime = kP(M-P) = f(P)</m> for (we'll assume) positive constants <m>k,M</m>.
+        From here, we clearly see that the critical points are <m>P = 0</m> and <m>P = M</m> (which makes sense from a population standpoint!).
+        We could set up a phase diagram to determine stability, but we'll use <xref ref="theorem-linear-stability-analysis" text="type-global" /> instead.
+      </p>
+      <p>
+        Since <m>f^\prime (P) = k(M-P) - kP</m>, we see that
+        <md>
+          <mrow>f^\prime (0) &amp; = kM \gt 0</mrow>
+          <mrow>f^\prime (M) &amp; = -kM \lt 0 </mrow>
+        </md>
+        Hence <m>P = 0</m> is unstable, while <m>P = M</m> is stable.
+      </p>
+    </solution>
+  </example>
+</subsection>
+</section>
+
+<!-- I'm keeping these here for now in case I need to see how this is done later. -->
+<!--     <xi:include href="./sage/integers-sage.xml" />
+<xi:include href="./sage/integers-sage-exercises.xml" /> -->
+
+</chapter>

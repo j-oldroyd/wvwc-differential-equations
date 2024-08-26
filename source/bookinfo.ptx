@@ -1,0 +1,199 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<docinfo xmlns:xi="http://www.w3.org/2001/XInclude">
+  <macros>
+    \newcommand{\RR}{\mathbb{R}}
+    \newcommand{\QQ}{\mathbb{Q}}
+    \newcommand{\NN}{\mathbb{N}}
+    \newcommand{\ZZ}{\mathbb{Z}}
+    \newcommand{\CC}{\mathbb{C}}
+    \renewcommand{\th}{\text{th}}
+    \newcommand{\grad}{\nabla}
+    \newcommand{\curl}{\nabla\times}
+    \newcommand{\curlt}{\operatorname{curl}}
+    \renewcommand{\div}{\nabla\cdot}
+    \newcommand{\divt}{\operatorname{div}}
+    \newcommand{\del}{\nabla}
+    \newcommand{\vecm}[1]{\boldsymbol{\mathbf{#1}}}
+    \renewcommand{\vec}[1]{\vecm{#1}}
+    \newcommand{\vb}[1]{\mathbf{#1}}
+    \newcommand{\Sum}[2]{\sum_{#1}^{#2}}
+    \newcommand{\Int}[2]{\int_{#1}^{#2}}
+    \newcommand{\limit}[2]{\lim_{#1\to#2}}
+    \newcommand{\Laplace}[1]{\mathcal{L}\set{#1}}
+    \newcommand{\iLaplace}[1]{\mathcal{L}^{-1}\set{#1}}
+    \newcommand{\dv}[3][]{\dfrac{d^{#1} #2}{d #3^{#1}}}
+    \newcommand{\pdv}[3][]{\dfrac{\partial^{#1} #2}{\partial #3^{#1}}}
+    \newcommand{\dd}[2][]{\, d^{#1} #2\ }
+    \newcommand{\abs}[1]{\left| #1 \right|}
+    \newcommand{\norm}[1]{\left\| #1 \right\|}
+    \newcommand{\dotprod}[1]{\left\langle #1 \right\rangle}
+    \newcommand{\set}[1]{\left\{ #1 \right\}}
+    \newcommand{\brackets}[1]{\left[ #1 \right]}
+    \newcommand{\parens}[1]{\left( #1 \right)}
+    \newcommand{\qq}[1]{\quad\text{#1}\quad}
+    % Inline vector... hopefully looks better than \irow.
+    \newcommand{\ivec}[1]{%
+    \renewcommand{\arraystretch}{.8}%
+    \begin{bmatrix}#1\end{bmatrix}%
+    }
+    \newcommand{\proj}[2]{\operatorname{proj}_{#1} #2}
+    \newcommand{\erf}[1]{\operatorname{erf} #1}
+    \newcommand{\dr}{\cdot d\vb{r}}
+    \newcommand{\dn}{\cdot\vb{n}\,ds}
+  </macros>
+  <latex-image-preamble>
+    <!-- \usepackage{siunitx} -->
+    \usepackage{pgfplots}
+    \usepackage{tikz-qtree}
+    \pgfplotsset{compat=newest}
+    \usetikzlibrary{%
+      angles,
+      arrows,
+      backgrounds,
+      calc,
+      decorations.pathmorphing,
+      decorations.markings,
+      decorations.pathreplacing,
+      graphs,
+      graphs.standard,
+      intersections,
+      patterns,
+      positioning,
+      quotes,
+      shapes.geometric,
+    }
+    \usepgfplotslibrary{%
+      fillbetween,
+      colorbrewer,
+    }
+
+    \definecolor{darkgreen}{rgb}{0.125,0.5,0.169}
+
+    % Functions for point mass examples in 7.6
+    \pgfmathdeclarefunction{curvei}{1}{%
+    \pgfmathparse{0.05*#1*(#1-7)*(#1-12)}%
+    }
+    \pgfmathdeclarefunction{curveii}{1}{%
+    \pgfmathparse{-0.03*(#1)*(#1-6)*(#1-18)}%
+    }
+
+    % my axis/plot settings; partially inspired by ORCCA calc manual
+    \pgfplotsset{
+      % cycle list/Set1,
+      colormap/Set1,
+      % define a style that incorporates the `cycle list`
+      MyCycleList cycle list/.style={
+        cycle multiindex* list={
+        linestyles*\nextlist
+        mark=none\nextlist
+        Set1%
+        },
+      },
+      myplot/.style={% primary style for curves
+        mark=none,
+        line width=1pt,
+        &lt;-&gt;,
+        % solid,
+        smooth,
+        samples=100,
+        },
+      myaxis/.style={% primary style for axes
+        view={120}{30},
+        % cycle list name=Set1,
+        MyCycleList cycle list,
+        axis lines=center,
+        axis line style={shorten &lt;=-10pt, shorten &gt;=-10pt, latex-latex},
+        % axis line style = {latex-latex},
+        axis equal image,
+        xlabel={$x$}, xlabel style={at=(current axis.right of origin), anchor=west, xshift=10pt},
+        ylabel={$y$}, ylabel style={at=(current axis.above origin), anchor=south, yshift=10pt},
+        xmin = -7, xmax = 7,
+        ymin = -7, ymax = 7,
+        grid = both,
+        grid style={line width=.1pt, draw=gray!30},
+        major grid style={line width=.2pt,draw=gray!60},
+        % grid = minor,
+        % grid=major,
+        % grid style = {solid,gray!40},
+        % minor xtick = {-7,-6,...,7},
+        % minor ytick = {-7,-6,...,7},
+        xtick={\pgfkeysvalueof{/pgfplots/xmin},...,\pgfkeysvalueof{/pgfplots/xmax}},
+        ytick={\pgfkeysvalueof{/pgfplots/ymin},...,\pgfkeysvalueof{/pgfplots/ymax}},
+        minor tick num=1,
+        tick label style={font=\footnotesize},
+        scale only axis,  % only scale axes when specifying height/width
+        legend cell align=left,
+        vector/.style={-stealth,blue,very thick}
+        , 
+        vector guide/.style={dashed,red,thick}
+        },
+      numberline/.style={% style for drawing numberline
+        axis x line = center,
+        axis y line = none,
+        axis line style={shorten &gt;=-10pt, shorten &lt;=-10pt, &lt;-&gt;},
+        xlabel={$x$}, xlabel style={at=(current axis.right of origin), anchor=west, xshift=10pt},
+        ymin=0,
+        ymax=0},
+      mypolarplot/.style={%PGFPlots polaraxis settings
+        clip=false, % needed for double line (last \addplot command)
+        domain=0:360, % plot full cycle
+        samples=180, % number of samples; can be locally adjusted
+        grid=both, % display major and minor grids
+        major grid style={gray!70}, 
+        minor grid style={gray!20}, 
+        minor x tick num=3, % 3 minor x ticks between majors
+        minor y tick num=1, % 1 minor y tick between majors
+        xtick={0,30,45,60,90,120,135,150,180,210,225,240,270,300,315,330},
+        xticklabels={%
+        $0$,
+        $\frac{\pi}{6}$,
+        $\frac{ \pi}{4}$,
+        $\frac{\pi}{3}$,
+        $\frac{ \pi}{2}$,
+        $\frac{2\pi}{3}$,
+        $\frac{3\pi}{4}$,
+        $\frac{5\pi}{6}$,
+        $\pi$,
+        $\frac{7\pi}{6}$,
+        $\frac{5\pi}{4}$,
+        $\frac{4\pi}{3}$,
+        $\frac{3\pi}{2}$,
+        $\frac{5\pi}{3}$,
+        $\frac{7\pi}{4}$,
+        $\frac{11\pi}{6}$
+        },
+        yticklabel style={anchor=north}, % move label position
+        },
+      }
+
+    \tikzset{%
+      jumpdot/.style={mark=*,solid},
+      excl/.append style={jumpdot,fill=white},
+      incl/.append style={jumpdot,fill=black},
+      }
+  </latex-image-preamble>
+    <!-- this is the default, but supresses a warning -->
+      <!-- <cross-references text="type-global" />
+      <search>
+      <google>
+        <cx>008832104071767086392:woji51c1uko</cx>
+      </google>
+  </search> -->
+
+  <!-- the other option is "long" which will produce an -->
+  <!-- entire front matter section with more headings   -->
+  <author-biographies length="short" />
+
+  <brandlogo source="./wvwc-logo.jpg" />
+
+<!--   <covers front="images/original-front-cover-aata.pdf"
+    back="images/plain-back-cover-aata.pdf"/> -->
+
+  <!-- Prefix to enhance Sage notebook contents -->
+  <initialism>WVWC-DE</initialism>
+
+  <!-- this is the default, but supresses a warning -->
+  <cross-references text="type-global" />
+
+</docinfo>

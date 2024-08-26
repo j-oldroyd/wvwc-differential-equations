@@ -1,0 +1,179 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!--********************************************************************
+Copyright 2015 Robert A. Beezer
+
+This file is part of MathBook XML.
+
+MathBook XML is free software: you can redistribute it and/or modify
+it under the terms of the GNU General Public License as published by
+the Free Software Foundation, either version 2 or version 3 of the
+License (at your option).
+
+MathBook XML is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+GNU General Public License for more details.
+
+You should have received a copy of the GNU General Public License
+along with MathBook XML.  If not, see <http://www.gnu.org/licenses/>.
+*********************************************************************-->
+<!-- This file was originally part of the book     -->
+<!-- (as copied on 2015/07/12)                     -->
+<!--                                               -->
+<!--   Abstract Algebra: Theory and Applications   -->
+<!--                                               -->
+<!-- Copyright (C) 1997-2014  Thomas W. Judson     -->
+
+<backmatter xml:id="backmatter" xmlns:xi="http://www.w3.org/2001/XInclude">
+  <title>Back Matter</title> <!-- mostly for HTML sectioning -->
+
+  <appendix>
+    <title>Notation</title>
+
+    <p>
+      The following table defines some of the notation used in this book.
+      Page numbers or references refer to the first appearance of each symbol.
+    </p>
+
+    <notation-list />
+  </appendix>
+
+  <appendix>
+    <title>Table of Laplace Transforms</title>
+    <table xml:id="table-laplace-transforms">
+      <title>Table of Common Laplace Transforms</title>
+      <tabular xml:id="tabular-laplace-transforms" top="major">
+        <row>
+          <cell>
+            <m>1</m>
+          </cell>
+          <cell>
+            <m>\displaystyle\frac{1}{s}</m>
+          </cell>
+        </row>
+        <row>
+          <cell>
+            <m>t</m>
+          </cell>
+          <cell>
+            <m>\displaystyle\frac{1}{s^{2}}</m>
+          </cell>
+        </row>
+        <row>
+          <cell>
+            <m>t^n</m>, <m>n=0,1,2,\ldots</m>
+          </cell>
+          <cell>
+            <m>\displaystyle\frac{n!}{s^{n+1}}</m>
+          </cell>
+        </row>
+        <row>
+          <cell>
+            <m>\sin(kt)</m>
+          </cell>
+          <cell>
+            <m>\displaystyle\frac{k}{s^{2}+k^{2}}</m>
+          </cell>
+        </row>
+        <row>
+          <cell>
+            <m>\cos(kt)</m>
+          </cell>
+          <cell>
+            <m>\displaystyle\frac{s}{s^{2}+k^{2}}</m>
+          </cell>
+        </row>
+        <row>
+          <cell>
+            <m>\sinh(kt)</m>
+          </cell>
+          <cell>
+            <m>\displaystyle\frac{k}{s^{2}-k^{2}}</m>
+          </cell>
+        </row>
+        <row>
+          <cell>
+            <m>\cosh(kt)</m>
+          </cell>
+          <cell>
+            <m>\displaystyle\frac{s}{s^{2}-k^{2}}</m>
+          </cell>
+        </row>
+        <row>
+          <cell>
+            <m>e^{at}</m>
+          </cell>
+          <cell>
+            <m>\displaystyle\frac{1}{s-a}</m>
+          </cell>
+        </row>
+        <row>
+          <cell>
+            <m>e^{at}f(t)</m>
+          </cell>
+          <cell>
+            <m>F(s-a)</m>
+          </cell>
+        </row>
+        <row>
+          <cell>
+            <m>u(t-a)</m>
+          </cell>
+          <cell>
+            <m>\displaystyle\frac{e^{-as}}{s}</m>
+          </cell>
+        </row>
+        <row>
+          <cell>
+            <m>u(t-a)f(t-a)</m>
+          </cell>
+          <cell>
+            <m>e^{-as}F(s)</m>
+          </cell>
+        </row>
+        <row>
+          <cell>
+            <m>f^(n)(t)</m>
+          </cell>
+          <cell>
+            <m>s^nF(s) - s^{n-1}f(0) - s^{n-2}f^{\prime}(0) - \cdots - f^{(n-1)}(0)</m>
+          </cell>
+        </row>
+        <row>
+          <cell>
+            <m>f(t)\ast g(t)</m>
+          </cell>
+          <cell>
+            <m>F(s)G(s)</m>
+          </cell>
+        </row>
+        <row bottom="major">
+          <cell>
+            <m>\delta(t-a)</m>
+          </cell>
+          <cell>
+            <m>e^{-as}</m>
+          </cell>
+        </row>
+      </tabular>
+    </table>
+  </appendix>
+
+    <!-- <appendix>
+        <title>Hints and Solutions to Selected Exercises</title>
+        <solution-list />
+      </appendix> -->
+
+      <xi:include href="./gfdl-mathbook.ptx" />           <!-- GFDL License text -->
+
+      <!-- Index follows appendices, preceded only colophon -->
+      <index>
+        <index-list />
+      </index>
+
+      <colophon>
+        <p>This book was authored in PreTeXt.</p>
+      </colophon>
+
+    </backmatter>

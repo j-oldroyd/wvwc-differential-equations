@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<pretext xmlns:xi="http://www.w3.org/2001/XInclude" xml:lang="en-US">
+
+  <xi:include href="./bookinfo.ptx" /> <!-- Preamble, etc. -->
+  <book xml:id="wvwc-differential-equations">
+    <title>Differential Equations Lecture Notes</title>
+    <subtitle>West Virginia Wesleyan College</subtitle>
+    <xi:include href="./frontmatter.ptx" />
+
+    <part xml:id="part-odes">
+      <title>Ordinary Differential Equations</title>
+      <xi:include href="./intro-to-odes.ptx" />   <!-- Definition and basic examples of ODEs -->
+      <xi:include href="./linear-odes-constant-coefficients.ptx" /> <!-- Solutions of linear ODEs with constant coefficients. -->
+      <xi:include href="./higher-order-linear-odes.ptx" /> <!-- Solutions of higher order linear ODEs with constant coefficients -->
+      <xi:include href="./systems-odes.ptx" /> <!-- Solutions of systems of first order ODEs -->
+      <xi:include href="./series-solutions.ptx" /> <!-- Methods of series solutions for ODEs -->
+      <xi:include href="./laplace-transforms.ptx" /> <!-- Laplace transforms -->
+    </part>
+    <part xml:id="part-pdes">
+      <title>Partial Differential Equations</title>
+      <xi:include href="./fourier-analysis.ptx" />    <!-- Definition and basic examples of Fourier series -->
+      <xi:include href="./partial-differential-equations.ptx" />  <!-- Definition and basic examples of PDEs -->
+    </part>
+    <xi:include href="./backmatter.ptx" /> <!-- Index and whatnot. -->
+  </book>
+</pretext>

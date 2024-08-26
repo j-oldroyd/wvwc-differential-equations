@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!--********************************************************************
+Copyright 2015 Robert A. Beezer
+
+This file is part of PreTeXt.
+
+PreTeXt is free software: you can redistribute it and/or modify
+it under the terms of the GNU General Public License as published by
+the Free Software Foundation, either version 2 or version 3 of the
+License (at your option).
+
+PreTeXt is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+GNU General Public License for more details.
+
+You should have received a copy of the GNU General Public License
+along with PreTeXt.  If not, see <http://www.gnu.org/licenses/>.
+*********************************************************************-->
+
+<!-- This is the "decorative" version for use when testing or     -->
+<!-- building samples for the website, keep in sync with the      -->
+<!-- "structural" version, which is  "publication-structural.xml" -->
+
+<publication>
+    <common>
+        <tableofcontents level="3"/>
+    </common>
+
+    <source webwork-problems="../generated-assets/webwork/webwork-representations.ptx">
+      <directories external="../assets" generated="../generated-assets"/>
+    </source>
+
+    <numbering>
+      <!-- the divisions element describes the numbering of divisions.  -->
+      <!-- @part-structure should be "decorative" or "structural",      -->
+      <!-- were the latter would restart numbering chapters within each -->
+      <!-- part (this only matters if your book has parts).             -->
+      <!-- The attribute @chapter-start give the number of the first    -->
+      <!-- chapter.  @level says how deep (chapter->section->subsection)-->
+      <!-- numbering should appear.                                     -->
+      <!-- For use with a book organized by parts -->
+      <divisions part-structure="decorative" chapter-start="1" level="3"/>
+
+      <!-- The next elements say how the levels deep to break up the    -->
+      <!-- numbering of the respective elements. Can't be more than the -->
+      <!-- @level on divisions above.                                   -->
+      <blocks level="3"/>
+      <projects level="0"/>
+      <equations level="2"/>
+      <footnotes level="0"/>
+    </numbering>
+
+      <!-- LaTeX specific options: set @print="yes" to get pdf set up   -->
+      <!-- for printing; set @sides="two" if the printing woudl be two- -->
+      <!-- sided.  The asymptote/@links set to "yes" would produce      -->
+      <!-- links the html version of asymptote graphics.                -->
+    <latex print="no" sides="two">
+      <asymptote links="no"/>
+    </latex>
+
+    <!-- HTML-Specific Options -->
+    <html>
+        <!-- @xml:id of a page to be target of index.html redirect -->
+        <!-- This is the @xml:id of the "frontmatter", so this is  -->
+        <!-- default behavior, but we do this as a test and as an  -->
+        <!-- illustration                                          -->
+        <index-page ref="wvwc-differential-equations"/>
+        <!-- Base URL for HTML hosting. Currently using            -->
+        <!-- GitHub Pages. According to documentation, value       -->
+        <!-- be a directory and end in a slash                     -->
+        <baseurl href="https://j-oldroyd.github.io/wvwc-differential-equations/output/html/" />
+        <!-- Present examples without knowls. -->
+        <knowl example="no"/>
+        <!-- Set calculator for textbook.-->
+        <calculator model="geogebra-graphing"/>
+        <!-- specify the style of the html by giving names to      -->
+        <!-- override defaults.  Ex: to use "style_oscarlevin.css" -->
+        <!-- put <css style="oscarlevin"/>                         -->
+        <!-- @colors now implemented                               -->
+        <!-- also @knowls, @toc, and @banner, although no          -->
+        <!-- alternative styles exist yet for those.               -->
+        <css style="default" colors="default"/>
+        <!-- Google search, via masthead textbox is switched on    -->
+        <!-- and associated with a Google account via CX number    -->
+        <!-- <search google-cx=""/> -->
+        <search variant="default"/>
+    </html>
+
+    <epub>
+      <cover front="cover/frontcover_canva.png"/>
+    </epub>
+
+</publication>
