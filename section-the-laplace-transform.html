@@ -1,0 +1,785 @@
+<!DOCTYPE html>
+<!--********************************************-->
+<!--*       Generated from PreTeXt source      *-->
+<!--*                                          *-->
+<!--*         https://pretextbook.org          *-->
+<!--*                                          *-->
+<!--********************************************-->
+<html lang="en-US" dir="ltr">
+<head xmlns:og="http://ogp.me/ns#" xmlns:book="https://ogp.me/ns/book#">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>WVWC-DE The Laplace Transform</title>
+<meta name="Keywords" content="Authored in PreTeXt">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta property="og:type" content="book">
+<meta property="og:image" content="https://j-oldroyd.github.io/wvwc-differential-equations/output/html/external/./wvwc-logo.jpg">
+<meta property="book:title" content="Differential Equations Lecture Notes">
+<meta property="book:author" content="Jesse Oldroyd">
+<script src="https://sagecell.sagemath.org/static/embedded_sagecell.js"></script><script>
+var runestoneMathReady = new Promise((resolve) => window.rsMathReady = resolve);
+window.MathJax = {
+  "tex": {
+    "inlineMath": [
+      [
+        "\\(",
+        "\\)"
+      ]
+    ],
+    "tags": "none",
+    "tagSide": "right",
+    "tagIndent": ".8em",
+    "packages": {
+      "[+]": [
+        "base",
+        "extpfeil",
+        "ams",
+        "amscd",
+        "color",
+        "newcommand",
+        "knowl"
+      ]
+    }
+  },
+  "options": {
+    "ignoreHtmlClass": "tex2jax_ignore|ignore-math",
+    "processHtmlClass": "process-math",
+    "renderActions": {
+      "findScript": [
+        10,
+        function (doc) {
+            document.querySelectorAll('script[type^="math/tex"]').forEach(function(node) {
+                var display = !!node.type.match(/; *mode=display/);
+                var math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+                var text = document.createTextNode('');
+                node.parentNode.replaceChild(text, node);
+                math.start = {node: text, delim: '', n: 0};
+                math.end = {node: text, delim: '', n: 0};
+                doc.math.push(math);
+            });
+        },
+        ""
+      ]
+    }
+  },
+  "chtml": {
+    "scale": 0.98,
+    "mtextInheritFont": true
+  },
+  "loader": {
+    "load": [
+      "input/asciimath",
+      "[tex]/extpfeil",
+      "[tex]/amscd",
+      "[tex]/color",
+      "[tex]/newcommand",
+      "[pretext]/mathjaxknowl3.js"
+    ],
+    "paths": {
+      "pretext": "_static/pretext/js/lib"
+    }
+  },
+  "startup": {
+    pageReady() {
+      return MathJax.startup.defaultPageReady().then(function () {
+      console.log("in ready function");
+      rsMathReady();
+      }
+    )}
+  }
+};
+</script><script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script><script>// Make *any* div with class 'sagecell-sage' an executable Sage cell
+// Their results will be linked, only within language type
+sagecell.makeSagecell({
+  "inputLocation": "div.sagecell-sage",
+  "linked": true,
+  "linkKey": "linked-sage",
+  "autoeval": false,
+  "languages": [
+    "sage"
+  ],
+  "evalButtonText": "Evaluate (Sage)"
+});
+</script><script src="https://cdnjs.cloudflare.com/ajax/libs/lunr.js/2.3.9/lunr.min.js" integrity="sha512-4xUl/d6D6THrAnXAwGajXkoWaeMNwEKK4iNfq5DotEbLPAfk6FSxSP3ydNxqDgCw1c/0Z1Jg6L8h2j+++9BZmg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script><script src="lunr-pretext-search-index.js" async=""></script><script src="_static/pretext/js/pretext_search.js"></script><link href="_static/pretext/css/pretext_search.css" rel="stylesheet" type="text/css">
+<script src="_static/pretext/js/lib/jquery.min.js"></script><script src="_static/pretext/js/lib/jquery.sticky.js"></script><script src="_static/pretext/js/lib/jquery.espy.min.js"></script><script src="_static/pretext/js/pretext.js"></script><script src="_static/pretext/js/pretext_add_on.js?x=1"></script><script src="_static/pretext/js/user_preferences.js"></script><script src="_static/pretext/js/lib/knowl.js"></script><!--knowl.js code controls Sage Cells within knowls--><script>sagecellEvalName='Evaluate (Sage)';
+</script><link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+<link href="https://fonts.googleapis.com/css2?family=Inconsolata:wght@400;700&amp;family=Noto+Serif:ital,wght@0,400;0,700;1,400;1,700&amp;family=Tinos:ital,wght@0,400;0,700;1,400;1,700&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.cdnfonts.com/css/dejavu-serif" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Roboto+Serif:opsz,wdth,wght@8..144,50..150,100..900&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Open+Sans:wdth,wght@75..100,300..800&amp;display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200">
+<script src="https://cdn.geogebra.org/apps/deployggb.js"></script><link href="_static/pretext/css/pretext.css" rel="stylesheet" type="text/css">
+<link href="_static/pretext/css/pretext_add_on.css" rel="stylesheet" type="text/css">
+<link href="_static/pretext/css/shell_default.css" rel="stylesheet" type="text/css">
+<link href="_static/pretext/css/banner_default.css" rel="stylesheet" type="text/css">
+<link href="_static/pretext/css/navbar_default.css" rel="stylesheet" type="text/css">
+<link href="_static/pretext/css/toc_default.css" rel="stylesheet" type="text/css">
+<link href="_static/pretext/css/knowls_default.css" rel="stylesheet" type="text/css">
+<link href="_static/pretext/css/style_default.css" rel="stylesheet" type="text/css">
+<link href="_static/pretext/css/colors_default.css" rel="stylesheet" type="text/css">
+<link href="_static/pretext/css/setcolors.css" rel="stylesheet" type="text/css">
+<style>
+#subsection-basic-concepts-for-odes-16-1 { counter-set: subsection-basic-concepts-for-odes-16-1 0; }
+#subsection-basic-concepts-for-odes-16-1 > li::marker { content: ""counter(subsection-basic-concepts-for-odes-16-1,decimal)"."; }
+#subsection-basic-concepts-for-odes-16-1 > li { counter-increment: subsection-basic-concepts-for-odes-16-1; }
+#subsection-direction-fields-and-solution-curves-7-2 { counter-set: subsection-direction-fields-and-solution-curves-7-2 0; }
+#subsection-direction-fields-and-solution-curves-7-2 > li::marker { content: ""counter(subsection-direction-fields-and-solution-curves-7-2,decimal)"."; }
+#subsection-direction-fields-and-solution-curves-7-2 > li { counter-increment: subsection-direction-fields-and-solution-curves-7-2; }
+#subsection-existence-and-uniqueness-theorem-2-1 { counter-set: subsection-existence-and-uniqueness-theorem-2-1 0; }
+#subsection-existence-and-uniqueness-theorem-2-1 > li::marker { content: ""counter(subsection-existence-and-uniqueness-theorem-2-1,decimal)"."; }
+#subsection-existence-and-uniqueness-theorem-2-1 > li { counter-increment: subsection-existence-and-uniqueness-theorem-2-1; }
+#example-determining-a-sustainable-population-3-3 { counter-set: example-determining-a-sustainable-population-3-3 0; }
+#example-determining-a-sustainable-population-3-3 > li::marker { content: ""counter(example-determining-a-sustainable-population-3-3,decimal)"."; }
+#example-determining-a-sustainable-population-3-3 > li { counter-increment: example-determining-a-sustainable-population-3-3; }
+#example-types-of-second-order-odes-2-1 { counter-set: example-types-of-second-order-odes-2-1 0; }
+#example-types-of-second-order-odes-2-1 > li::marker { content: ""counter(example-types-of-second-order-odes-2-1,decimal)"."; }
+#example-types-of-second-order-odes-2-1 > li { counter-increment: example-types-of-second-order-odes-2-1; }
+#subsection-free-damped-motion-6 { counter-set: subsection-free-damped-motion-6 0; }
+#subsection-free-damped-motion-6 > li::marker { content: ""counter(subsection-free-damped-motion-6,decimal)":"; }
+#subsection-free-damped-motion-6 > li { counter-increment: subsection-free-damped-motion-6; }
+#example-systems-odes-solving-system-two-equations-3-1-4 { counter-set: example-systems-odes-solving-system-two-equations-3-1-4 0; }
+#example-systems-odes-solving-system-two-equations-3-1-4 > li::marker { content: ""counter(example-systems-odes-solving-system-two-equations-3-1-4,decimal)"."; }
+#example-systems-odes-solving-system-two-equations-3-1-4 > li { counter-increment: example-systems-odes-solving-system-two-equations-3-1-4; }
+#subsection-solving-differential-equations-with-power-series-5-2 { counter-set: subsection-solving-differential-equations-with-power-series-5-2 0; }
+#subsection-solving-differential-equations-with-power-series-5-2 > li::marker { content: ""counter(subsection-solving-differential-equations-with-power-series-5-2,decimal)"."; }
+#subsection-solving-differential-equations-with-power-series-5-2 > li { counter-increment: subsection-solving-differential-equations-with-power-series-5-2; }
+#theorem-method-of-frobenius-3-1-4 { counter-set: theorem-method-of-frobenius-3-1-4 0; }
+#theorem-method-of-frobenius-3-1-4 > li::marker { content: ""counter(theorem-method-of-frobenius-3-1-4,decimal)"."; }
+#theorem-method-of-frobenius-3-1-4 > li { counter-increment: theorem-method-of-frobenius-3-1-4; }
+#section-transformation-of-initial-value-problems-3-1-1 { counter-set: section-transformation-of-initial-value-problems-3-1-1 0; }
+#section-transformation-of-initial-value-problems-3-1-1 > li::marker { content: ""counter(section-transformation-of-initial-value-problems-3-1-1,decimal)"."; }
+#section-transformation-of-initial-value-problems-3-1-1 > li { counter-increment: section-transformation-of-initial-value-problems-3-1-1; }
+#example-computing-the-transform-of-a-time-shifted-function-2-1-1 { counter-set: example-computing-the-transform-of-a-time-shifted-function-2-1-1 0; }
+#example-computing-the-transform-of-a-time-shifted-function-2-1-1 > li::marker { content: ""counter(example-computing-the-transform-of-a-time-shifted-function-2-1-1,decimal)"."; }
+#example-computing-the-transform-of-a-time-shifted-function-2-1-1 > li { counter-increment: example-computing-the-transform-of-a-time-shifted-function-2-1-1; }
+#subsection-important-pdes-3 { counter-set: subsection-important-pdes-3 0; }
+#subsection-important-pdes-3 > li::marker { content: ""counter(subsection-important-pdes-3,decimal)"."; }
+#subsection-important-pdes-3 > li { counter-increment: subsection-important-pdes-3; }
+#subsection-important-pdes-5-1 { counter-set: subsection-important-pdes-5-1 0; }
+#subsection-important-pdes-5-1 > li::marker { content: ""counter(subsection-important-pdes-5-1,decimal)"."; }
+#subsection-important-pdes-5-1 > li { counter-increment: subsection-important-pdes-5-1; }
+#gfdl-section4-3 { counter-set: gfdl-section4-3 0; }
+#gfdl-section4-3 > li::marker { content: ""counter(gfdl-section4-3,upper-alpha)"."; }
+#gfdl-section4-3 > li { counter-increment: gfdl-section4-3; }
+</style>
+</head>
+<body class="pretext book ignore-math">
+<a class="assistive" href="#ptx-content">Skip to main content</a><header id="ptx-masthead" class="ptx-masthead"><div class="ptx-banner">
+<a id="logo-link" class="logo-link" target="_blank" href=""><img src="external/./wvwc-logo.jpg" alt="Logo image"></a><div class="title-container">
+<h1 class="heading"><a href="wvwc-differential-equations.html"><span class="title">Differential Equations Lecture Notes:</span> <span class="subtitle">West Virginia Wesleyan College</span></a></h1>
+<p class="byline">Jesse Oldroyd</p>
+</div>
+</div></header><nav id="ptx-navbar" class="ptx-navbar navbar"><button class="toc-toggle button" title="Contents"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5d2;</span><span class="name">Contents</span></button><a class="index-button button" href="backmatter-5.html" title="Index"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe88e;</span><span class="name">Index</span></a><div class="searchbox">
+<div class="searchwidget"><button id="searchbutton" class="searchbutton button" type="button" title="Search book"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe8b6;</span><span class="name">Search Book</span></button></div>
+<div id="searchresultsplaceholder" class="searchresultsplaceholder" style="display: none">
+<div class="search-results-controls">
+<input aria-label="Search term" id="ptxsearch" class="ptxsearch" type="text" name="terms" placeholder="Search term"><button title="Close search" id="closesearchresults" class="closesearchresults"><span class="material-symbols-outlined">close</span></button>
+</div>
+<h2 class="search-results-heading">Search Results: </h2>
+<div id="searchempty" class="searchempty"><span>No results.</span></div>
+<ol id="searchresults" class="searchresults"></ol>
+</div>
+</div>
+<span class="nav-other-controls"><button id="calculator-toggle" class="calculator-toggle button" title="Show calculator" aria-expanded="false" aria-controls="calculator-container"><span class="icon material-symbols-outlined" aria-hidden="true">&#xea5f;</span><span class="name">Calc</span></button><div id="calculator-container" class="calculator-container" style="display: none; z-index:100;"><div id="geogebra-calculator"></div></div>
+<script>
+var ggbApp = new GGBApplet({"appName": "graphing",
+    "width": 330,
+    "height": 600,
+    "showToolBar": true,
+    "showAlgebraInput": true,
+    "perspective": "G/A",
+    "algebraInputPosition": "bottom",
+    "scaleContainerClass": "calculator-container",
+    "allowUpscale": true,
+    "autoHeight": true,
+    "disableAutoScale": false},
+true);
+</script></span><span class="treebuttons"><a class="previous-button button" href="laplace-transforms.html" title="Previous"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cb;</span><span class="name">Prev</span></a><a class="up-button button" href="laplace-transforms.html" title="Up"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5ce;</span><span class="name">Up</span></a><a class="next-button button" href="section-transformation-of-initial-value-problems.html" title="Next"><span class="name">Next</span><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cc;</span></a></span></nav><div id="latex-macros" class="hidden-content process-math" style="display:none"><span class="process-math">\(\newcommand{\RR}{\mathbb{R}}
+\newcommand{\QQ}{\mathbb{Q}}
+\newcommand{\NN}{\mathbb{N}}
+\newcommand{\ZZ}{\mathbb{Z}}
+\newcommand{\CC}{\mathbb{C}}
+\renewcommand{\th}{\text{th}}
+\newcommand{\grad}{\nabla}
+\newcommand{\curl}{\nabla\times}
+\newcommand{\curlt}{\operatorname{curl}}
+\renewcommand{\div}{\nabla\cdot}
+\newcommand{\divt}{\operatorname{div}}
+\newcommand{\del}{\nabla}
+\newcommand{\vecm}[1]{\boldsymbol{\mathbf{#1}}}
+\renewcommand{\vec}[1]{\vecm{#1}}
+\newcommand{\vb}[1]{\mathbf{#1}}
+\newcommand{\Sum}[2]{\sum_{#1}^{#2}}
+\newcommand{\Int}[2]{\int_{#1}^{#2}}
+\newcommand{\limit}[2]{\lim_{#1\to#2}}
+\newcommand{\Laplace}[1]{\mathcal{L}\set{#1}}
+\newcommand{\iLaplace}[1]{\mathcal{L}^{-1}\set{#1}}
+\newcommand{\dv}[3][]{\dfrac{d^{#1} #2}{d #3^{#1}}}
+\newcommand{\pdv}[3][]{\dfrac{\partial^{#1} #2}{\partial #3^{#1}}}
+\newcommand{\dd}[2][]{\, d^{#1} #2\ }
+\newcommand{\abs}[1]{\left| #1 \right|}
+\newcommand{\norm}[1]{\left\| #1 \right\|}
+\newcommand{\dotprod}[1]{\left\langle #1 \right\rangle}
+\newcommand{\set}[1]{\left\{ #1 \right\}}
+\newcommand{\brackets}[1]{\left[ #1 \right]}
+\newcommand{\parens}[1]{\left( #1 \right)}
+\newcommand{\qq}[1]{\quad\text{#1}\quad}
+\newcommand{\ivec}[1]{
+\renewcommand{\arraystretch}{.8}
+\begin{bmatrix}#1\end{bmatrix}
+}
+\newcommand{\proj}[2]{\operatorname{proj}_{#1} #2}
+\newcommand{\erf}[1]{\operatorname{erf} #1}
+\newcommand{\dr}{\cdot d\vb{r}}
+\newcommand{\dn}{\cdot\vb{n}\,ds}
+\newcommand{\lt}{&lt;}
+\newcommand{\gt}{&gt;}
+\newcommand{\amp}{&amp;}
+\definecolor{fillinmathshade}{gray}{0.9}
+\newcommand{\fillinmath}[1]{\mathchoice{\colorbox{fillinmathshade}{$\displaystyle     \phantom{\,#1\,}$}}{\colorbox{fillinmathshade}{$\textstyle        \phantom{\,#1\,}$}}{\colorbox{fillinmathshade}{$\scriptstyle      \phantom{\,#1\,}$}}{\colorbox{fillinmathshade}{$\scriptscriptstyle\phantom{\,#1\,}$}}}
+\)</span></div>
+<div class="ptx-page">
+<div id="ptx-sidebar" class="ptx-sidebar"><nav id="ptx-toc" class="ptx-toc depth3 parts"><ul class="structural contains-active toc-item-list">
+<li class="toc-item toc-frontmatter">
+<div class="toc-title-box"><a href="front.html" class="internal"><span class="title">Front Matter</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-colophon"><div class="toc-title-box"><a href="front-colophon.html" class="internal"><span class="title">Colophon</span></a></div></li>
+<li class="toc-item toc-biography"><div class="toc-title-box"><a href="author-bio-JEO.html" class="internal"><span class="title">Author Biography</span></a></div></li>
+<li class="toc-item toc-preface"><div class="toc-title-box"><a href="preface.html" class="internal"><span class="title">Preface</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-part contains-active">
+<div class="toc-title-box"><a href="part-odes.html" class="internal"><span class="codenumber">I</span> <span class="title">Ordinary Differential Equations</span></a></div>
+<ul class="structural toc-item-list contains-active">
+<li class="toc-item toc-chapter">
+<div class="toc-title-box"><a href="intro-to-odes.html" class="internal"><span class="codenumber">1</span> <span class="title">Introduction</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="section-ordinary-differential-equations.html" class="internal"><span class="codenumber">1.1</span> <span class="title">Ordinary Differential Equations</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="section-ordinary-differential-equations.html#subsection-basic-concepts-for-odes" class="internal"><span class="title">Basic Concepts</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="section-ordinary-differential-equations.html#subsection-mathematical-models" class="internal"><span class="title">Mathematical Models</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="section-direction-fields.html" class="internal"><span class="codenumber">1.2</span> <span class="title">Direction Fields</span></a></div>
+<ul class="structural toc-item-list"><li class="toc-item toc-subsection"><div class="toc-title-box"><a href="section-direction-fields.html#subsection-direction-fields-and-solution-curves" class="internal"><span class="title">Direction Fields and Solution Curves</span></a></div></li></ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="section-separable-odes-and-substitution.html" class="internal"><span class="codenumber">1.3</span> <span class="title">Separable ODEs and Substitution</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="section-separable-odes-and-substitution.html#subsection-separable-odes" class="internal"><span class="title">Separable ODEs</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="section-separable-odes-and-substitution.html#subsection-substitution-methods" class="internal"><span class="title">Substitution Methods</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="section-first-order-linear-odes.html" class="internal"><span class="codenumber">1.4</span> <span class="title">First-Order Linear ODEs</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="section-first-order-linear-odes.html#subsection-integrating-factors" class="internal"><span class="title">Integrating Factors</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="section-first-order-linear-odes.html#subsection-applications" class="internal"><span class="title">Applications</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="section-existence-and-uniqueness-of-solutions.html" class="internal"><span class="codenumber">1.5</span> <span class="title">Existence and Uniqueness</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="section-existence-and-uniqueness-of-solutions.html#subsection-existence-and-uniqueness-theorem" class="internal"><span class="title">Existence and Uniqueness Theorem</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="section-existence-and-uniqueness-of-solutions.html#subsection-picard-iteration" class="internal"><span class="title">Picard Iteration</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="section-existence-and-uniqueness-of-solutions.html#subsection-euler-s-method" class="internal"><span class="title">Euler’s Method</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="section-population-models-and-autonomous-equations.html" class="internal"><span class="codenumber">1.6</span> <span class="title">Autonomous Equations</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="section-population-models-and-autonomous-equations.html#subsection-population-equations" class="internal"><span class="title">Population Equations</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="section-population-models-and-autonomous-equations.html#subsection-the-logistic-equation" class="internal"><span class="title">The Logistic Equation</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="section-population-models-and-autonomous-equations.html#section-stability-of-solutions" class="internal"><span class="title">Stability of Solutions</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="section-population-models-and-autonomous-equations.html#subsection-linear-stability-analysis" class="internal"><span class="title">Linear Stability Analysis</span></a></div></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-item toc-chapter">
+<div class="toc-title-box"><a href="linear-odes-constant-coefficients.html" class="internal"><span class="codenumber">2</span> <span class="title">Constant Coefficients</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="section-second-order-linear-odes.html" class="internal"><span class="codenumber">2.1</span> <span class="title">Second-Order Linear ODEs</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="section-second-order-linear-odes.html#subsection-types-of-linear-odes" class="internal"><span class="title">Types of Linear ODEs</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="section-second-order-linear-odes.html#subsection-solutions-of-second-order-linear-ODEs" class="internal"><span class="title">Solutions of Second-Order Linear ODEs</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="section-homogeneous-odes-with-constant-coefficients.html" class="internal"><span class="codenumber">2.2</span> <span class="title">Homogeneous ODEs</span></a></div></li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="section-spring-mass-models.html" class="internal"><span class="codenumber">2.3</span> <span class="title">Spring-Mass Models</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="section-spring-mass-models.html#subsection-free-undamped-motion" class="internal"><span class="title">Free Undamped Motion</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="section-spring-mass-models.html#subsection-free-damped-motion" class="internal"><span class="title">Free Damped Motion</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="section-solutions-of-nonhomogeneous-equations.html" class="internal"><span class="codenumber">2.4</span> <span class="title">Non-homogeneous Equations</span></a></div>
+<ul class="structural toc-item-list"><li class="toc-item toc-subsection"><div class="toc-title-box"><a href="section-solutions-of-nonhomogeneous-equations.html#subsection-the-method-of-undetermined-coefficients" class="internal"><span class="title">The Method of Undetermined Coefficients</span></a></div></li></ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="section-forced-oscillations-and-resonance.html" class="internal"><span class="codenumber">2.5</span> <span class="title">Forced Oscillations and Resonance</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="section-forced-oscillations-and-resonance.html#subsection-undamped-systems" class="internal"><span class="title">Undamped Systems</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="section-forced-oscillations-and-resonance.html#subsection-damped-systems" class="internal"><span class="title">Damped Systems</span></a></div></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-item toc-chapter">
+<div class="toc-title-box"><a href="higher-order-linear-odes.html" class="internal"><span class="codenumber">3</span> <span class="title">Higher Order Linear ODEs</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="section-homogeneous-linear-odes-with-constant-coefficients.html" class="internal"><span class="codenumber">3.1</span> <span class="title">Homogeneous ODEs</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="section-non-homogeneous-linear-odes-with-constant-coefficients.html" class="internal"><span class="codenumber">3.2</span> <span class="title">Non-homogeneous ODEs</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-chapter">
+<div class="toc-title-box"><a href="systems-of-odes.html" class="internal"><span class="codenumber">4</span> <span class="title">Linear Systems</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="section-systems-of-odes-as-models.html" class="internal"><span class="codenumber">4.1</span> <span class="title">Systems of ODEs as Models</span></a></div></li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="section-constant-coefficient-systems-and-the-phase-plane.html" class="internal"><span class="codenumber">4.2</span> <span class="title">Constant Coefficient Systems</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="section-constant-coefficient-systems-and-the-phase-plane.html#subsection-matrix-odes-constant-coefficients" class="internal"><span class="title">Solutions of <span class="process-math">\(\vec{x}^\prime = A\vec{x}\)</span></span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="section-constant-coefficient-systems-and-the-phase-plane.html#subsection-finding-eigenvalues-and-eigenvectors" class="internal"><span class="title">Finding Eigenvalues and Eigenvectors</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="section-constant-coefficient-systems-and-the-phase-plane.html#subsection-solving-matrix-odes" class="internal"><span class="title">Solving Matrix ODEs</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="section-constant-coefficient-systems-and-the-phase-plane.html#subsection-applications-of-matrix-odes" class="internal"><span class="title">Applications of Matrix ODEs</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="section-phase-plane-criteria-for-critical-points-stability.html" class="internal"><span class="codenumber">4.3</span> <span class="title">Phase Portraits and Critical Points</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="section-phase-plane-criteria-for-critical-points-stability.html#subsection-the-phase-plane" class="internal"><span class="title">The Phase Plane</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="section-phase-plane-criteria-for-critical-points-stability.html#subsection-eigenvalue-criteria-for-stability" class="internal"><span class="title">Eigenvalue Criteria for Stability</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="section-nonlinear-systems.html" class="internal"><span class="codenumber">4.4</span> <span class="title">Nonlinear Systems</span></a></div>
+<ul class="structural toc-item-list"><li class="toc-item toc-subsection"><div class="toc-title-box"><a href="section-nonlinear-systems.html#subsection-classification-of-critical-points-and-linearization" class="internal"><span class="title">Classification of Critical Points and Linearization</span></a></div></li></ul>
+</li>
+</ul>
+</li>
+<li class="toc-item toc-chapter">
+<div class="toc-title-box"><a href="series-solutions.html" class="internal"><span class="codenumber">5</span> <span class="title">Series Solutions</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="section-power-series-method.html" class="internal"><span class="codenumber">5.1</span> <span class="title">Power Series Method</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="section-power-series-method.html#subsection-review-of-power-series" class="internal"><span class="title">Review of Power Series</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="section-power-series-method.html#subsection-solving-differential-equations-with-power-series" class="internal"><span class="title">Solving Differential Equations with Power Series</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="section-legendre-s-equation-and-legendre-polynomials.html" class="internal"><span class="codenumber">5.2</span> <span class="title">Legendre’s Equation</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="section-legendre-s-equation-and-legendre-polynomials.html#subsection-solving-the-legendre-equation" class="internal"><span class="title">Solving the Legendre Equation</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="section-legendre-s-equation-and-legendre-polynomials.html#subsection-legendre-polynomials" class="internal"><span class="title">Legendre Polynomials</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="section-frobenius-method.html" class="internal"><span class="codenumber">5.3</span> <span class="title">Frobenius’ Method</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="section-frobenius-method.html#subsection-ordinary-points-and-singular-points" class="internal"><span class="title">Ordinary Points and Singular Points</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="section-frobenius-method.html#subsection-solutions-at-singular-points-and-indicial-equations" class="internal"><span class="title">Solutions at Singular Points and Indicial Equations</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="section-bessel-s-equation.html" class="internal"><span class="codenumber">5.4</span> <span class="title">Bessel’s Equation</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="section-bessel-s-equation.html#subsection-bessel-functions-for-integer--nu-" class="internal"><span class="title">Bessel Functions for Integer <span class="process-math">\(\nu\)</span></span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="section-bessel-s-equation.html#subsection-bessel-functions-of-the-first-kind-for-nonnegative-order" class="internal"><span class="title">Bessel Functions of the First Kind for Nonnegative Order</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="section-bessel-s-equation.html#subsection-general-solution-of-bessel-s-equation" class="internal"><span class="title">General Solution of Bessel’s Equation</span></a></div></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-item toc-chapter contains-active">
+<div class="toc-title-box"><a href="laplace-transforms.html" class="internal"><span class="codenumber">6</span> <span class="title">Laplace Transforms</span></a></div>
+<ul class="structural toc-item-list contains-active">
+<li class="toc-item toc-section active">
+<div class="toc-title-box"><a href="section-the-laplace-transform.html" class="internal"><span class="codenumber">6.1</span> <span class="title">The Laplace Transform</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="section-the-laplace-transform.html#subsection-definition-and-basic-properties" class="internal"><span class="title">Definition and Basic Properties</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="section-the-laplace-transform.html#subsection-the-inverse-laplace-transform-m-s--shifting" class="internal"><span class="title">The Inverse Laplace Transform; <span class="process-math">\(s\)</span>-shifting</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="section-transformation-of-initial-value-problems.html" class="internal"><span class="codenumber">6.2</span> <span class="title">Transformation of IVPs</span></a></div>
+<ul class="structural toc-item-list"><li class="toc-item toc-subsection"><div class="toc-title-box"><a href="section-transformation-of-initial-value-problems.html#subsection-solving-ivps-with-the-laplace-transform" class="internal"><span class="title">Solving IVPs with the Laplace Transform</span></a></div></li></ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="section-unit-step-functions-and-time-shifting.html" class="internal"><span class="codenumber">6.3</span> <span class="title"><span class="process-math">\(t\)</span>-shifting</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="section-unit-step-functions-and-time-shifting.html#subsection-time-shifting" class="internal"><span class="title">Time Shifting</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="section-unit-step-functions-and-time-shifting.html#subsection-transforms-of-piecewise-functions" class="internal"><span class="title">Transforms of Piecewise Functions</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="section-dirac-delta-functions.html" class="internal"><span class="codenumber">6.4</span> <span class="title">Dirac Delta Functions</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="section-dirac-delta-functions.html#subsection-impulses" class="internal"><span class="title">Impulses</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="section-dirac-delta-functions.html#subsection-dirac-delta-models" class="internal"><span class="title">Dirac Delta Models</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="section-convolution-products.html" class="internal"><span class="codenumber">6.5</span> <span class="title">Convolution Products</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="section-convolution-products.html#subsection-convolutions" class="internal"><span class="title">Convolutions</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="section-convolution-products.html#subsection-convolutions-and-transform-problems" class="internal"><span class="title">Convolutions and Transform Problems</span></a></div></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-item toc-part">
+<div class="toc-title-box"><a href="part-pdes.html" class="internal"><span class="codenumber">II</span> <span class="title">Partial Differential Equations</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-chapter">
+<div class="toc-title-box"><a href="fourier-analysis.html" class="internal"><span class="codenumber">7</span> <span class="title">Fourier Analysis</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="section-fourier-series.html" class="internal"><span class="codenumber">7.1</span> <span class="title">Fourier Series</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="section-fourier-series.html#subsection-fourier-periodic-functions" class="internal"><span class="title">Periodic Functions</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="section-fourier-series.html#subsection-fourier-periodic-trigonometric-and-fourier-series" class="internal"><span class="title">Trigonometric Series and Fourier Series</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="section-functions-of-arbitrary-period-even-and-odd-extensions.html" class="internal"><span class="codenumber">7.2</span> <span class="title">Functions of Arbitrary Period</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="section-functions-of-arbitrary-period-even-and-odd-extensions.html#subsection-fourier-series-of-functions-of-arbitrary-period" class="internal"><span class="title">Fourier Series of Functions of Arbitrary Period</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="section-functions-of-arbitrary-period-even-and-odd-extensions.html#subsection-even-and-odd-extensions" class="internal"><span class="title">Even and Odd Extensions</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="section-complex-fourier-series-and-parsevals-identity.html" class="internal"><span class="codenumber">7.3</span> <span class="title">Complex Fourier Series and Parseval’s Identity</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="section-complex-fourier-series-and-parsevals-identity.html#subsection-complex-fourier-series" class="internal"><span class="title">Complex Fourier Series</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="section-complex-fourier-series-and-parsevals-identity.html#subsection-parseval-s-identity" class="internal"><span class="title">Parseval’s Identity</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="section-approximation-by-trigonometric-polynomials.html" class="internal"><span class="codenumber">7.4</span> <span class="title">Approximation by Trigonometric Polynomials</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="section-the-fourier-transform.html" class="internal"><span class="codenumber">7.5</span> <span class="title">The Fourier Transform</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-chapter">
+<div class="toc-title-box"><a href="partial-differential-equations.html" class="internal"><span class="codenumber">8</span> <span class="title">Partial Differential Equations</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="section-basic-concepts.html" class="internal"><span class="codenumber">8.1</span> <span class="title">Basic Concepts</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="section-basic-concepts.html#subsection-partial-derivatives-and-pdes" class="internal"><span class="title">Partial derivatives and PDEs</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="section-basic-concepts.html#subsection-linear-homogeneous-pdes-and-the-superposition-principle" class="internal"><span class="title">Linear homogeneous PDEs and the superposition principle</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="section-basic-concepts.html#subsection-important-pdes" class="internal"><span class="title">Important PDEs</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="section-wave-equation-and-separation-of-variables.html" class="internal"><span class="codenumber">8.2</span> <span class="title">The Wave Equation and Separation of Variables</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="section-d-alembert-s-solution-of-the-wave-equation.html" class="internal"><span class="codenumber">8.3</span> <span class="title">d’Alembert’s Solution of the Wave Equation</span></a></div></li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="section-the-heat-equation.html" class="internal"><span class="codenumber">8.4</span> <span class="title">The Heat Equation</span></a></div>
+<ul class="structural toc-item-list"><li class="toc-item toc-subsection"><div class="toc-title-box"><a href="section-the-heat-equation.html#subsection-bar-with-ends-fixed-at-" class="internal"><span class="title">Bar with ends fixed at <span class="process-math">\(0\)</span></span></a></div></li></ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-item toc-backmatter">
+<div class="toc-title-box"><a href="backmatter.html" class="internal"><span class="title">Back Matter</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-appendix"><div class="toc-title-box"><a href="backmatter-2.html" class="internal"><span class="codenumber">A</span> <span class="title">Notation</span></a></div></li>
+<li class="toc-item toc-appendix"><div class="toc-title-box"><a href="backmatter-3.html" class="internal"><span class="codenumber">B</span> <span class="title">Table of Laplace Transforms</span></a></div></li>
+<li class="toc-item toc-appendix"><div class="toc-title-box"><a href="appendix-gfdl.html" class="internal"><span class="codenumber">C</span> <span class="title">GNU Free Documentation License</span></a></div></li>
+<li class="toc-item toc-index"><div class="toc-title-box"><a href="backmatter-5.html" class="internal"><span class="title">Index</span></a></div></li>
+<li class="toc-item toc-colophon"><div class="toc-title-box"><a href="backmatter-6.html" class="internal"><span class="title">Colophon</span></a></div></li>
+</ul>
+</li>
+</ul></nav></div>
+<main class="ptx-main"><div id="ptx-content" class="ptx-content"><section class="section" id="section-the-laplace-transform"><h2 class="heading hide-type">
+<span class="type">Section</span><span class="space"> </span><span class="codenumber">6.1</span><span class="space"> </span><span class="title">The Laplace Transform</span>
+</h2>
+<section class="introduction" id="section-the-laplace-transform-2"><div class="para" id="section-the-laplace-transform-2-1">We start with an example motivating the need for the Laplace transform.</div></section><article class="example example-like" id="example-motivating-laplace"><h3 class="heading">
+<span class="type">Example</span><span class="space"> </span><span class="codenumber">6.1.1</span><span class="period">.</span><span class="space"> </span><span class="title">Motivating the Laplace transform.</span>
+</h3>
+<div class="para" id="example-motivating-laplace-2-1">A mass of <span class="quantity">1 </span> is attached to a spring that is held <span class="quantity">1 m</span> to the right of its equilibrium position by a force of <span class="quantity">4 N</span>. Beginning at time <span class="process-math">\(t=0\text{,}\)</span> a machine is turned on and applies an external force of <span class="process-math">\(\cos2t\)</span> to the mass. At time <span class="process-math">\(t=2\pi\)</span> the machine is turned off and the external force disappears. Let <span class="process-math">\(x(t)\)</span> be the displacement of the mass at time <span class="process-math">\(t\text{.}\)</span> What is an ODE that models the motion of the mass?</div>
+<div class="solutions"><details id="example-motivating-laplace-3" class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="period">.</span></summary><div class="solution solution-like knowl__content"><div class="para logical" id="example-motivating-laplace-3-1">
+<div class="para">We can set this model up as we did in <a href="section-forced-oscillations-and-resonance.html" class="internal" title="Section 2.5: Forced Oscillations and Resonance">Section 2.5</a>. By Hooke’s Law and Newton’s Second Law, we have</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/section-forced-oscillations-and-resonance.html">
+\begin{equation*}
+mx''+kx = F_{E}(t)
+\end{equation*}
+</div>
+<div class="para">where <span class="process-math">\(F_{E}\)</span> is the external force at time <span class="process-math">\(t\text{.}\)</span> Since <span class="process-math">\(m = 1\text{,}\)</span> <span class="process-math">\(k = 4\)</span> and</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/section-forced-oscillations-and-resonance.html">
+\begin{equation*}
+F_{E}(t) = \begin{cases} \cos2t \amp \text{if }0\leq t\lt 2\pi\\0 \amp\text{if } t\geq2\pi  \end{cases}
+\end{equation*}
+</div>
+<div class="para">the motion of the mass satisfies the ODE</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/section-forced-oscillations-and-resonance.html">
+\begin{equation*}
+x''+4x = F_{E}(t)\text{.}
+\end{equation*}
+</div>
+</div></div></details></div></article><div class="para" id="section-the-laplace-transform-4">For the above example we could try to solve the resulting equation by using techniques that we developed in <a href="linear-odes-constant-coefficients.html" class="internal" title="Chapter 2: Linear ODEs with Constant Coefficients">Chapter 2</a>. This approach requires finding the complementary solution <span class="process-math">\(x_{c}\)</span> (which isn’t a problem) and then by finding the particular solution <span class="process-math">\(x_{p}\)</span> corresponding to <span class="process-math">\(F_{E}\text{.}\)</span> However, finding <span class="process-math">\(x_{p}\)</span> will not be possible using our previous methods since the function <span class="process-math">\(F_{E}\)</span> is not differentiable everywhere (nor continuous everywhere). The power series method will not be as effective here for the same reason: that only works if we’re dealing with analytic functions.</div>
+<div class="para" id="section-the-laplace-transform-5">We would like to develop a method that lets us solve ODEs that involve discontinuous quantities. The approach that we’ll take is to introduce a “smoothing operator” in the form of an integral.</div>
+<aside class="aside aside-like" id="section-the-laplace-transform-6"><div class="para" id="section-the-laplace-transform-6-1">We will see in <a href="section-convolution-products.html" class="internal" title="Section 6.5: Convolution Products">Section 6.5</a> that integrals can be used to smooth out cusps and jumps in the graph of a function. This is analogous to smoothing edges in an image by applying a blur filter.</div></aside><section class="subsection" id="subsection-definition-and-basic-properties"><h3 class="heading hide-type">
+<span class="type">Subsection</span><span class="space"> </span><span class="codenumber"></span><span class="space"> </span><span class="title">Definition and Basic Properties</span>
+</h3>
+<article class="definition definition-like" id="definition-the-laplace-transform"><h4 class="heading">
+<span class="type">Definition</span><span class="space"> </span><span class="codenumber">6.1.2</span><span class="period">.</span><span class="space"> </span><span class="title">The Laplace Transform.</span>
+</h4>  <div class="para logical" id="definition-the-laplace-transform-4-1">
+<div class="para">Let <span class="process-math">\(f(t)\)</span> be defined for <span class="process-math">\(t\geq0\text{.}\)</span> The <dfn class="terminology">Laplace transform</dfn> of <span class="process-math">\(f\)</span> is the function <span class="process-math">\(F(s)\text{,}\)</span> or <span class="process-math">\(\mathcal{L}\left\{ f(t) \right\}\text{,}\)</span> defined by</div>
+<div class="displaymath process-math">
+\begin{equation*}
+F(s) = \mathcal{L}\left\{ f(t) \right\} = \int_{0}^{\infty}f(t)e^{-st}\,dt
+\end{equation*}
+</div>
+<div class="para">for all values of <span class="process-math">\(s\)</span> such that <span class="process-math">\(F(s)\)</span> exists. We often say that <span class="process-math">\(f(t)\)</span> is in the <dfn class="terminology">time domain</dfn> while <span class="process-math">\(F(s)\)</span> is in the <dfn class="terminology">frequency domain</dfn>.</div>
+</div></article><aside class="aside aside-like" id="subsection-definition-and-basic-properties-3"><div class="para" id="subsection-definition-and-basic-properties-3-1">The time domain and frequency domain terminology employed in <a href="section-the-laplace-transform.html#definition-the-laplace-transform" class="xref" data-knowl="./knowl/xref/definition-the-laplace-transform.html" data-reveal-label="Reveal" data-close-label="Close" title="Definition 6.1.2: The Laplace Transform">Definition 6.1.2</a> is a little unusual at the moment, but will hopefully make more sense in <a href="section-the-fourier-transform.html" class="internal" title="Section 7.5: The Fourier Transform">Section 7.5</a>. Essentially, if <span class="process-math">\(s\)</span> is a complex parameter then the exponential that appears in the Laplace transform introduces sinusoidal waves by <a href="section-homogeneous-odes-with-constant-coefficients.html#theorem-euler-s-formula" class="xref" data-knowl="./knowl/xref/theorem-euler-s-formula.html" data-reveal-label="Reveal" data-close-label="Close" title="Theorem 2.2.5: Euler’s Formula">Euler’s formula</a>. The parameter <span class="process-math">\(s\)</span> then determines the frequency of these waves.</div></aside><div class="para" id="subsection-definition-and-basic-properties-4">Derivatives of discontinuous functions are not as well behaved as integrals of discontinuous functions. Therefore the Laplace transform should prove to be a useful tool in dealing with differential equations that have discontinuous terms. This is something we will begin to look at in <a href="section-transformation-of-initial-value-problems.html" class="internal" title="Section 6.2: Transformation of Initial Value Problems">Section 6.2</a>. For now, we just want to get some practice performing computations with this new formula in the next couple of examples.</div>
+<article class="example example-like" id="example-computing-a-laplace-transform"><h4 class="heading">
+<span class="type">Example</span><span class="space"> </span><span class="codenumber">6.1.3</span><span class="period">.</span><span class="space"> </span><span class="title">Computing a Laplace transform.</span>
+</h4>
+<div class="para" id="example-computing-a-laplace-transform-2-1">Compute <span class="process-math">\(\mathcal{L}\left\{ 1 \right\}\text{.}\)</span>
+</div></article><article class="example example-like" id="example-computing-the-laplace-of-t-"><h4 class="heading">
+<span class="type">Example</span><span class="space"> </span><span class="codenumber">6.1.4</span><span class="period">.</span><span class="space"> </span><span class="title">Computing the Laplace transform of <span class="process-math">\(t\)</span>.</span>
+</h4>
+<div class="para" id="example-computing-the-laplace-of-t--2-1">Compute the Laplace transform of <span class="process-math">\(f(t) = t\text{.}\)</span>
+</div>
+<div class="solutions"><details id="example-computing-the-laplace-of-t--3" class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="period">.</span></summary><div class="solution solution-like knowl__content"><div class="para logical" id="example-computing-the-laplace-of-t--3-1">
+<div class="para">We compute the Laplace transform <span class="process-math">\(F(s)\)</span> using the definition:</div>
+<div class="displaymath process-math" id="example-computing-the-laplace-of-t--3-1-2">
+\begin{align*}
+F(s) \amp= \int_{0}^{\infty}te^{-st}\,dt\\
+\amp= \left[-\frac{t}{s}e^{-st}\right]_{0}^{\infty} + \frac{1}{s}\int_{0}^{\infty}e^{-st}\,dt \amp\text{using integration by parts}\\
+\amp= -\frac{1}{s^{2}}\left[e^{-st}\right]_{0}^{\infty}\\
+\amp= \frac{1}{s^{2}}\text{.}
+\end{align*}
+</div>
+</div></div></details></div></article><div class="para logical" id="subsection-definition-and-basic-properties-7">
+<div class="para">In general,</div>
+<div class="displaymath process-math">
+\begin{equation*}
+\mathcal{L}\left\{t^{n}\right\} = \frac{n!}{s^{n+1}}
+\end{equation*}
+</div>
+<div class="para">if <span class="process-math">\(n\geq0\)</span> is a whole number.</div>
+</div>
+<div class="para" id="subsection-definition-and-basic-properties-8">The Laplace transform is also an example of a <dfn class="terminology">linear transformation</dfn>. In particular, we have the following useful theorem for simplifying certain transforms.</div>
+<article class="theorem theorem-like" id="theorem-linearity-of-the-laplace-transform"><h4 class="heading">
+<span class="type">Theorem</span><span class="space"> </span><span class="codenumber">6.1.5</span><span class="period">.</span><span class="space"> </span><span class="title">Linearity of the Laplace transform.</span>
+</h4>
+<div class="para logical" id="theorem-linearity-of-the-laplace-transform-2-1">
+<div class="para">Let <span class="process-math">\(a\)</span> and <span class="process-math">\(b\)</span> be constants and suppose <span class="process-math">\(f(t)\)</span> and <span class="process-math">\(g(t)\)</span> are functions with respective Laplace transforms <span class="process-math">\(F(s)\)</span> and <span class="process-math">\(G(s)\text{.}\)</span> Then</div>
+<div class="displaymath process-math">
+\begin{equation*}
+\Laplace{af+bg} = aF(s)+bG(s)\text{.}
+\end{equation*}
+</div>
+</div></article><div class="para" id="subsection-definition-and-basic-properties-10">In combination with the formula <span class="process-math">\(\Laplace{t^n} = \frac{n!}{s^{n+1}}\text{,}\)</span> we can now compute the Laplace transform of any polynomial function with relative ease.</div>
+<article class="example example-like" id="example-computing-the-transform-of-a-polynomial"><h4 class="heading">
+<span class="type">Example</span><span class="space"> </span><span class="codenumber">6.1.6</span><span class="period">.</span><span class="space"> </span><span class="title">Computing the transform of a polynomial.</span>
+</h4>
+<div class="para" id="example-computing-the-transform-of-a-polynomial-2-1">Compute <span class="process-math">\(\Laplace{(t-1)^{3}}\text{.}\)</span>
+</div>
+<div class="solutions"><details id="example-computing-the-transform-of-a-polynomial-3" class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="period">.</span></summary><div class="solution solution-like knowl__content"><div class="para logical" id="example-computing-the-transform-of-a-polynomial-3-1">
+<div class="para">We could use the definition once again, but here’s an easier way using the linearity of the Laplace transform. First, note that</div>
+<div class="displaymath process-math">
+\begin{equation*}
+(t-1)^{3} = t^{3} - 3t^{2} +3t - 1\text{,}
+\end{equation*}
+</div>
+<div class="para">and so</div>
+<div class="displaymath process-math" id="example-computing-the-transform-of-a-polynomial-3-1-2">
+\begin{align*}
+\Laplace{(t-1)^{3}} \amp= \Laplace{t^{3}-3t^{2}+3t-1}\\
+\amp= \Laplace{t^{3}} - 3\Laplace{t^{2}} +3\Laplace{t} - \Laplace{1}\\
+\amp= \frac{3!}{s^{4}} - 3\frac{2!}{s^{3}} + 3\frac{1!}{s^{2}} - \frac{0!}{s}\\
+\amp= \frac{6}{s^{4}} - \frac{6}{s^{3}} + \frac{3}{s^{2}} - \frac{1}{s}\text{.}
+\end{align*}
+</div>
+</div></div></details></div></article><div class="para" id="subsection-definition-and-basic-properties-12">As mentioned previously, the Laplace transform works well with some discontinuous functions due to its definition as an integral. The exponential <em class="emphasis">kernel</em> <span class="process-math">\(e^{-st}\)</span> acts to smooth out discontinuities present in a function.</div>
+<article class="example example-like" id="example-the-unit-step-function"><h4 class="heading">
+<span class="type">Example</span><span class="space"> </span><span class="codenumber">6.1.7</span><span class="period">.</span><span class="space"> </span><span class="title">The Unit Step Function.</span>
+</h4>
+<div class="para logical" id="example-the-unit-step-function-2-1">
+<div class="para">Let <span class="process-math">\(u(t)\)</span> be the <dfn class="terminology">unit step function</dfn>, which is defined by</div>
+<div class="displaymath process-math">
+\begin{equation*}
+u(t) = \begin{cases}0 \amp\text{ if } t\lt 0\\1 \amp\text{ if } t\geq0\end{cases}\text{.}
+\end{equation*}
+</div>
+<div class="para">Compute <span class="process-math">\(\Laplace{u(t-3)}\text{.}\)</span>
+</div>
+</div>
+<div class="solutions"><details id="example-the-unit-step-function-3" class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="period">.</span></summary><div class="solution solution-like knowl__content"><div class="para logical" id="example-the-unit-step-function-3-1">
+<div class="para">Note that we are computing a <em class="emphasis">translation</em> of the usual unit step function. Since we don’t have a formula for the transform of a (translated) unit step, we will need to compute <span class="process-math">\(\Laplace{u(t-3)}\)</span> using the definition of the Laplace transform:</div>
+<div class="displaymath process-math" id="example-the-unit-step-function-3-1-3">
+\begin{align*}
+\Laplace{u(t)} \amp= \int_{0}^{\infty}u(t)e^{-st}\,dt\\
+\amp= \int_{3}^{\infty}e^{-st}\,dt \amp\text{ since }u(t-3) \text{ is }0 \text{ for values of }t\lt3\\
+\amp= -\frac{1}{s}\left[e^{-st}\right]_{3}^{\infty}\\
+\amp= \frac{e^{-3s}}{s}\text{.}
+\end{align*}
+</div>
+</div></div></details></div></article><div class="para" id="subsection-definition-and-basic-properties-14">We can verify the result of <a href="section-the-laplace-transform.html#example-the-unit-step-function" class="xref" data-knowl="./knowl/xref/example-the-unit-step-function.html" data-reveal-label="Reveal" data-close-label="Close" title="Example 6.1.7: The Unit Step Function">Example 6.1.7</a> using Sage as below:</div>
+<div id="subsection-definition-and-basic-properties-15" class="ptx-sagecell sagecell-sage"><script type="text/x-sage">var('s, t')
+
+# define function to take the Laplace transform of
+f = piecewise([((-oo,3),0), ((3,oo),1)])
+
+# take the Laplace transform, going from t domain to s domain
+show(f.laplace(t,s))
+</script></div>
+<div class="para logical" id="subsection-definition-and-basic-properties-16">
+<div class="para">Some other important Laplace transforms are given below:</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/definition-the-laplace-transform.html" id="subsection-definition-and-basic-properties-16-1">
+\begin{align*}
+\Laplace{e^{at}} \amp= \frac{1}{s-a}\\
+\Laplace{\sin(k\,t)} \amp= \frac{k}{s^{2}+k^{2}}\\
+\Laplace{\cos(k\,t)} \amp= \frac{s}{s^{2}+k^{2}}\text{.}
+\end{align*}
+</div>
+<div class="para">Formulas such as these can be proved using <a href="section-the-laplace-transform.html#definition-the-laplace-transform" class="xref" data-knowl="./knowl/xref/definition-the-laplace-transform.html" data-reveal-label="Reveal" data-close-label="Close" title="Definition 6.1.2: The Laplace Transform">Definition 6.1.2</a>, which often requires (repeated) applications of integration by parts. A trickier way to prove some transform formulas makes use of power series.</div>
+</div>
+<article class="example example-like" id="example-laplace-finding-a-transform-using-power-series"><h4 class="heading">
+<span class="type">Example</span><span class="space"> </span><span class="codenumber">6.1.8</span><span class="period">.</span><span class="space"> </span><span class="title">Finding a transform using power series.</span>
+</h4>
+<div class="para" id="example-laplace-finding-a-transform-using-power-series-2-1">Find <span class="process-math">\(\Laplace{\sin(k\,t)}\)</span> where <span class="process-math">\(k\)</span> is a constant.</div>
+<div class="solutions"><details id="example-laplace-finding-a-transform-using-power-series-3" class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="period">.</span></summary><div class="solution solution-like knowl__content">
+<div class="para logical" id="example-laplace-finding-a-transform-using-power-series-3-1">
+<div class="para">The power series for <span class="process-math">\(\sin(k\,t)\)</span> centered at <span class="process-math">\(0\)</span> is</div>
+<div class="displaymath process-math">
+\begin{equation*}
+\sum_{n=0}^{\infty}\frac{(-1)^n}{(2n+1)!}(k\,t)^{2n+1} = \sum_{n=0}^{\infty} \frac{(-1)^n k^{2n+1}}{(2n+1)!}t^{2n+1}\text{.}
+\end{equation*}
+</div>
+<div class="para">This power series converges everywhere and we can take its Laplace transform. By linearity, we get</div>
+<div class="displaymath process-math" id="example-laplace-finding-a-transform-using-power-series-3-1-4">
+\begin{align*}
+\Laplace{\sin(kt)} \amp= \sum_{n=0}^{\infty}\frac{(-1)^nk^{2n+1}}{(2n+1)!}\Laplace{t^{2n+1}}\\
+\amp = \sum_{n=0}^{\infty}\frac{(-1)^n k^{2n+1}}{s^{2n+2}} \\
+\amp = \frac{k}{s^2}\sum_{n=0}^{\infty}\parens{-\frac{k^2}{s^2}} \\
+\amp = \frac{k}{s^2+k^2} \text{.}
+\end{align*}
+</div>
+</div> <div class="para" id="example-laplace-finding-a-transform-using-power-series-3-2">Therefore <span class="process-math">\(\Laplace{\sin(kt)} = \frac{k}{s^2+k^2}\text{.}\)</span>
+</div>
+</div></details></div></article></section><section class="subsection" id="subsection-the-inverse-laplace-transform-m-s--shifting"><h3 class="heading hide-type">
+<span class="type">Subsection</span><span class="space"> </span><span class="codenumber"></span><span class="space"> </span><span class="title">The Inverse Laplace Transform; <span class="process-math">\(s\)</span>-shifting</span>
+</h3>
+<div class="para" id="subsection-the-inverse-laplace-transform-m-s--shifting-2">The Laplace transform method that we will see in <a href="section-transformation-of-initial-value-problems.html" class="internal" title="Section 6.2: Transformation of Initial Value Problems">Section 6.2</a> involves transforming a time domain problem into a frequency domain problem that can be solved with algebra. The crucial next step is transforming the frequency domain solution of our problem back into the time domain. The next result justifies this last step.</div>
+<article class="theorem theorem-like" id="theorem-uniqueness-of-inverse-laplace"><h4 class="heading">
+<span class="type">Theorem</span><span class="space"> </span><span class="codenumber">6.1.9</span><span class="period">.</span><span class="space"> </span><span class="title">Uniqueness of Laplace Transforms.</span>
+</h4>
+<div class="para" id="theorem-uniqueness-of-inverse-laplace-2-1">Suppose <span class="process-math">\(f(t)\)</span> and <span class="process-math">\(g(t)\)</span> have respective Laplace transforms <span class="process-math">\(F(s)\)</span> and <span class="process-math">\(G(s)\text{.}\)</span> If <span class="process-math">\(F(s) = G(s)\)</span> for all <span class="process-math">\(s\gt c\)</span> (for some constant <span class="process-math">\(c\)</span>) and <span class="process-math">\(f(t)\)</span> and <span class="process-math">\(g(t)\)</span> are piecewise continuous, then <span class="process-math">\(f(t) = g(t)\)</span> on the interval <span class="process-math">\([0,\infty)\text{.}\)</span>
+</div></article><div class="para" id="subsection-the-inverse-laplace-transform-m-s--shifting-4">
+<a href="section-the-laplace-transform.html#theorem-uniqueness-of-inverse-laplace" class="xref" data-knowl="./knowl/xref/theorem-uniqueness-of-inverse-laplace.html" data-reveal-label="Reveal" data-close-label="Close" title="Theorem 6.1.9: Uniqueness of Laplace Transforms">Theorem 6.1.9</a> says that the Laplace transform is unique for continuous functions: two different continuous functions will have two different Laplace transforms. This allows us to talk about taking <em class="emphasis">inverse</em> Laplace transforms.</div>
+<article class="definition definition-like" id="definition-inverse-laplace"><h4 class="heading">
+<span class="type">Definition</span><span class="space"> </span><span class="codenumber">6.1.10</span><span class="period">.</span><span class="space"> </span><span class="title">Inverse Laplace Transform.</span>
+</h4>  <div class="para" id="definition-inverse-laplace-4-1">The <dfn class="terminology">inverse Laplace transform</dfn> of a function <span class="process-math">\(F(s)\text{,}\)</span> denoted <span class="process-math">\(\mathcal{L}^{-1}\left\{F(s)\right\}\text{,}\)</span> is a function <span class="process-math">\(f(t)\)</span> such that <span class="process-math">\(\Laplace{f(t)} = F(s)\text{.}\)</span>
+</div> <aside class="aside aside-like" id="definition-inverse-laplace-4-2"><div class="para logical" id="definition-inverse-laplace-4-2-1">
+<div class="para">There is an integral formula for the inverse Laplace transform as well. In particular,</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/table-laplace-transforms.html">
+\begin{equation*}
+\iLaplace{F(s)} = \frac{1}{2\pi i}\int_{\gamma-i\infty}^{\gamma+i\infty}F(s)e^{st}\dd{t}
+\end{equation*}
+</div>
+<div class="para">where <span class="process-math">\(\gamma\)</span> is a large enough real number. We aren’t quite equipped to deal integrals such as this, so we will focus on using a table of Laplace transforms as in <a href="backmatter-3.html#table-laplace-transforms" class="xref" data-knowl="./knowl/xref/table-laplace-transforms.html" data-reveal-label="Reveal" data-close-label="Close" title="Table B.0.1: Table of Common Laplace Transforms">Table B.0.1</a> to compute inverse transforms.</div>
+</div></aside></article><div class="para logical" id="subsection-the-inverse-laplace-transform-m-s--shifting-6">
+<div class="para">Simple inverse transforms can be found by reversing known transforms. For example,</div>
+<div class="displaymath process-math">
+\begin{equation*}
+\iLaplace{\frac{{n!}}{s^{n+1}}} = t^n
+\end{equation*}
+</div>
+<div class="para">for <span class="process-math">\(n = 0, 1, 2, \ldots\text{.}\)</span> The linearity of the inverse transform is also helpful in computing certain transformations.</div>
+</div>
+<article class="example example-like" id="example-finding-inverse-laplace"><h4 class="heading">
+<span class="type">Example</span><span class="space"> </span><span class="codenumber">6.1.11</span><span class="period">.</span><span class="space"> </span><span class="title">Finding an inverse transform.</span>
+</h4>
+<div class="para logical" id="example-finding-inverse-laplace-2-1">
+<div class="para">A continuous function <span class="process-math">\(f(t)\)</span> has Laplace transform</div>
+<div class="displaymath process-math">
+\begin{equation*}
+F(s) = \frac{3s}{s^{2}+5} + \frac{7}{s^{3}}\text{.}
+\end{equation*}
+</div>
+<div class="para">Find <span class="process-math">\(f(t)\text{.}\)</span>
+</div>
+</div>
+<div class="solutions"><details id="example-finding-inverse-laplace-3" class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="period">.</span></summary><div class="solution solution-like knowl__content">
+<div class="para logical" id="example-finding-inverse-laplace-3-1">
+<div class="para">We can find <span class="process-math">\(f(t)\)</span> by taking the inverse Laplace transform of each term in <span class="process-math">\(F(s)\text{:}\)</span>
+</div>
+<div class="displaymath process-math" id="example-finding-inverse-laplace-3-1-3">
+\begin{align*}
+\iLaplace{\frac{3s}{s^{2}+5}} \amp= 3\iLaplace{\frac{s}{s^{2}+5}} = 3\cos(\sqrt{5}t)\\
+\iLaplace{\frac{7}{s^{3}}} \amp= \frac{7}{2!}\iLaplace{\frac{2!}{s^{3}}} = \frac{7}{2}t^{2}\text{.}
+\end{align*}
+</div>
+<div class="para">So</div>
+<div class="displaymath process-math">
+\begin{equation*}
+f(t) = 3\cos(\sqrt{5}t)+\frac{7}{2}t^{2}\text{.}
+\end{equation*}
+</div>
+</div> <aside class="aside aside-like" id="example-finding-inverse-laplace-3-2"><div class="para" id="example-finding-inverse-laplace-3-2-1">Technically, we can only say that we know <span class="process-math">\(f(t)\)</span> for <span class="process-math">\(t\geq0\text{.}\)</span> We have no knowledge whatsoever about <span class="process-math">\(f(t)\)</span> for <span class="process-math">\(t \lt 0\text{.}\)</span> However, this will cause no trouble for us.</div></aside>
+</div></details></div></article><div class="para" id="subsection-the-inverse-laplace-transform-m-s--shifting-8">Now we will move on to more general formulas for computing Laplace transformations and their inverses. The first such formula shows a correspondence between <em class="emphasis">time scaling</em> and <em class="emphasis">frequency shifting</em>.</div>
+<article class="theorem theorem-like" id="theorem--s--shifting"><h4 class="heading">
+<span class="type">Theorem</span><span class="space"> </span><span class="codenumber">6.1.12</span><span class="period">.</span><span class="space"> </span><span class="title"><span class="process-math">\(s\)</span>-shifting.</span>
+</h4>
+<div class="para logical" id="theorem--s--shifting-2-1">
+<div class="para">Suppose that <span class="process-math">\(f(t)\)</span> has Laplace transform <span class="process-math">\(F(s)\text{,}\)</span> defined for <span class="process-math">\(s\gt k\)</span> for some <span class="process-math">\(k\text{.}\)</span> Then</div>
+<div class="displaymath process-math">
+\begin{equation*}
+\Laplace{e^{at}f(t)} = F(s-a)\qq{or equivalently} \iLaplace{F(s-a)} = e^{at}f(t)\text{.}
+\end{equation*}
+</div>
+<div class="para">In other words, multiplication by an exponential <span class="process-math">\(e^{at}\)</span> in the <em class="emphasis">time domain</em> corresponds to translation by <span class="process-math">\(a\)</span> in the <em class="emphasis">frequency domain</em>.</div>
+</div></article><div class="para" id="subsection-the-inverse-laplace-transform-m-s--shifting-10">
+<a href="section-the-laplace-transform.html#theorem--s--shifting" class="xref" data-knowl="./knowl/xref/theorem--s--shifting.html" data-reveal-label="Reveal" data-close-label="Close" title="Theorem 6.1.12: s-shifting">Theorem 6.1.12</a> allows to find a wide range of inverse transformations. In combination with partial fractions, we can now (theoretically) find the inverse transform of any rational function of <span class="process-math">\(s\text{.}\)</span>
+</div>
+<article class="example example-like" id="example-inverse-laplace-with-frequency-shifting"><h4 class="heading">
+<span class="type">Example</span><span class="space"> </span><span class="codenumber">6.1.13</span><span class="period">.</span><span class="space"> </span><span class="title">Inverse Laplace with frequency shifting.</span>
+</h4>
+<div class="para logical" id="example-inverse-laplace-with-frequency-shifting-2-1">
+<div class="para">A function <span class="process-math">\(f(t)\)</span> has Laplace transform</div>
+<div class="displaymath process-math">
+\begin{equation*}
+F(s) = \frac{4}{s^{2}+2s+3}\text{.}
+\end{equation*}
+</div>
+<div class="para">Find <span class="process-math">\(f(t)\text{.}\)</span>
+</div>
+</div>
+<div class="solutions"><details id="example-inverse-laplace-with-frequency-shifting-3" class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="period">.</span></summary><div class="solution solution-like knowl__content"><div class="para logical" id="example-inverse-laplace-with-frequency-shifting-3-1">
+<div class="para">We’ll start by completing the square on the denominator of <span class="process-math">\(F(s)\)</span> to see if we can make it look like <span class="process-math">\((s-a)^{2}+\omega^{2}\)</span> for some <span class="process-math">\(a,\omega\text{:}\)</span>
+</div>
+<div class="displaymath process-math">
+\begin{equation*}
+F(s) = \frac{4}{(s^{2}+2s+1)+3-1} = \frac{4}{(s+1)^{2}+2}\text{.}
+\end{equation*}
+</div>
+<div class="para">This looks an <em class="emphasis">awful</em> lot like the transform of <span class="process-math">\(\sin(\sqrt{2}t)\text{.}\)</span> Since we have <span class="process-math">\((s+1)^{2}\)</span> instead of <span class="process-math">\(s^{2}\text{,}\)</span> this tells us that</div>
+<div class="displaymath process-math">
+\begin{equation*}
+f(t) = \frac{4}{\sqrt{2}}e^{-t}\sin(\sqrt{2}t)\text{.}
+\end{equation*}
+</div>
+</div></div></details></div></article><div class="para" id="subsection-the-inverse-laplace-transform-m-s--shifting-12">The following Sage cell verifies the computation in <a href="section-the-laplace-transform.html#example-inverse-laplace-with-frequency-shifting" class="xref" data-knowl="./knowl/xref/example-inverse-laplace-with-frequency-shifting.html" data-reveal-label="Reveal" data-close-label="Close" title="Example 6.1.13: Inverse Laplace with frequency shifting">Example 6.1.13</a>.</div>
+<div id="subsection-the-inverse-laplace-transform-m-s--shifting-13" class="ptx-sagecell sagecell-sage"><script type="text/x-sage">var('s t') # specify variables
+show(inverse_laplace(4/(s^2 + 2*s + 3), s, t))
+</script></div></section><section class="conclusion" id="section-the-laplace-transform-9"><div class="para" id="section-the-laplace-transform-9-1">Now that we’ve had some practice in evaluating Laplace transforms, we’ll move on to using them to solve differential equations.</div></section></section></div>
+<div class="ptx-content-footer">
+<a class="previous-button button" href="laplace-transforms.html" title="Previous"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cb;</span><span class="name">Prev</span></a><a class="top-button button" href="#" title="Top"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5ce;</span><span class="name">Top</span></a><a class="next-button button" href="section-transformation-of-initial-value-problems.html" title="Next"><span class="name">Next</span><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cc;</span></a>
+</div></main>
+</div>
+<div id="ptx-page-footer" class="ptx-page-footer">
+<a class="pretext-link" href="https://pretextbook.org" title="PreTeXt"><div class="logo"><svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" viewBox="338 3000 8772 6866"><g style="stroke-width:.025in; stroke:black; fill:none"><polyline points="472,3590 472,9732 " style="stroke:#000000;stroke-width:174; stroke-linejoin:miter; stroke-linecap:round; "></polyline><path style="stroke:#000000;stroke-width:126;stroke-linecap:butt;" d="M 4724,9448 A 4660 4660  0  0  1  8598  9259"></path><path style="stroke:#000000;stroke-width:174;stroke-linecap:butt;" d="M 4488,9685 A 4228 4228  0  0  0   472  9732"></path><path style="stroke:#000000;stroke-width:126;stroke-linecap:butt;" d="M 4724,3590 A 4241 4241  0  0  1  8598  3496"></path><path style="stroke:#000000;stroke-width:126;stroke-linecap:round;" d="M 850,3496  A 4241 4241  0  0  1  4724  3590"></path><path style="stroke:#000000;stroke-width:126;stroke-linecap:round;" d="M 850,9259  A 4507 4507  0  0  1  4724  9448"></path><polyline points="5385,4299 4062,8125" style="stroke:#000000;stroke-width:300; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="8598,3496 8598,9259" style="stroke:#000000;stroke-width:126; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="850,3496 850,9259" style="stroke:#000000;stroke-width:126; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="4960,9685 4488,9685" style="stroke:#000000;stroke-width:174; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="3070,4582 1889,6141 3070,7700" style="stroke:#000000;stroke-width:300; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="6418,4582 7600,6141 6418,7700" style="stroke:#000000;stroke-width:300; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="8976,3590 8976,9732" style="stroke:#000000;stroke-width:174; stroke-linejoin:miter; stroke-linecap:round;"></polyline><path style="stroke:#000000;stroke-width:174;stroke-linecap:butt;" d="M 4960,9685 A 4228 4228  0  0  1  8976  9732"></path></g></svg></div></a><a class="runestone-link" href="https://runestone.academy" title="Runestone Academy"><img class="logo" src="https://runestone.academy/runestone/static/images/RAIcon_cropped.png"></a><a class="mathjax-link" href="https://www.mathjax.org" title="MathJax"><img class="logo" src="https://www.mathjax.org/badge/badge-square-2.png"></a>
+</div>
+</body>
+</html>

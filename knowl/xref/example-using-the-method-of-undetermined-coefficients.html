@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en-US" dir="ltr">
+<!--********************************************-->
+<!--*       Generated from PreTeXt source      *-->
+<!--*                                          *-->
+<!--*         https://pretextbook.org          *-->
+<!--*                                          *-->
+<!--********************************************-->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="robots" content="noindex, nofollow">
+</head>
+<body class="ignore-math">
+<article class="example example-like"><h4 class="heading">
+<span class="type">Example</span><span class="space"> </span><span class="codenumber">2.4.2</span><span class="period">.</span><span class="space"> </span><span class="title">Using the Method of Undetermined Coefficients.</span>
+</h4>
+<div class="para logical">
+<div class="para">Find the general solution of the ODE given by</div>
+<div class="displaymath process-math">
+\begin{equation*}
+y'' - y^\prime - 2y = 3x + 4.
+\end{equation*}
+</div>
+</div>
+<div class="solutions"><details class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="period">.</span></summary><div class="solution solution-like knowl__content">
+<div class="para logical">
+<div class="para">To find the general solution we need to do two things: find the complementary solution <span class="process-math">\(y_{c}\)</span> of the associated homogeneous equation and find a single particular solution <span class="process-math">\(y_{p}\)</span> of the given ODE. We already know how to find <span class="process-math">\(y_{c},\)</span><aside class="aside aside-like"><div class="para">The characteristic equation of the ODE is <span class="process-math">\((r + 1)(r - 2)\text{.}\)</span>
+</div></aside> which is just</div>
+<div class="displaymath process-math">
+\begin{equation*}
+y_{c} = c_{1}e^{x} + c_{2}e^{-2x}.
+\end{equation*}
+</div>
+<div class="para">Once we can find a single particular solution <span class="process-math">\(y_{p}\)</span> we’ll be finished.</div>
+</div> <div class="para">If we stare that the ODE, then we see that <span class="process-math">\(y\)</span> and its derivatives must cancel each other and leave a polynomial. So it’s reasonable to guess that a polynomial might be a solution of the ODE, or equivalently, <span class="process-math">\(y_{p}\)</span> <em class="emphasis">should be a polynomial</em>. Since the degree<aside class="aside aside-like"><div class="para">Recall that the degree of a polynomial is just the highest power of the variable in the polynomial.</div></aside> of the right hand side is <span class="process-math">\(1\text{,}\)</span> then <span class="process-math">\(y_{p}\)</span> should probably be degree <span class="process-math">\(1\)</span> as well. This means that <span class="process-math">\(y_{p} = A_{1}x + A_{2}\)</span> for some constants <span class="process-math">\(A_{1},A_{2}\text{.}\)</span>
+</div> <div class="para logical">
+<div class="para">To find these constants (<dfn class="terminology">undetermined coefficients</dfn>), we plug our guess into the ODE to get</div>
+<div class="displaymath process-math">
+\begin{equation*}
+0 - A_{1} - 2A_{1}x - 2A_{2} = 3x + 4.
+\end{equation*}
+</div>
+<div class="para">The only way for this equation to be true is for</div>
+<div class="displaymath process-math">
+\begin{align*}
+-A_{1} - 2A_{2} &amp; = 4 \\
+-2A_{1} &amp; = 3
+\end{align*}
+</div>
+<div class="para">So <span class="process-math">\(A_{1} = -\frac{3}{2}, A_{2} = \frac{5}{4}\)</span> and <span class="process-math">\(y_{p} = -\frac{3}{2}x + \frac{5}{4}\text{.}\)</span> Hence the general solution of the ODE is</div>
+<div class="displaymath process-math">
+\begin{equation*}
+y = y_{c} + y_{p} = c_{1}e^{x} + c_{2}e^{-2x} - \frac{3}{2}x + \frac{5}{4}.
+\end{equation*}
+</div>
+</div>
+</div></details></div></article><span class="incontext"><a class="internal" href="section-solutions-of-nonhomogeneous-equations.html#example-using-the-method-of-undetermined-coefficients">in-context</a></span>
+</body>
+</html>

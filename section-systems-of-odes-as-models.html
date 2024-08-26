@@ -1,0 +1,778 @@
+<!DOCTYPE html>
+<!--********************************************-->
+<!--*       Generated from PreTeXt source      *-->
+<!--*                                          *-->
+<!--*         https://pretextbook.org          *-->
+<!--*                                          *-->
+<!--********************************************-->
+<html lang="en-US" dir="ltr">
+<head xmlns:og="http://ogp.me/ns#" xmlns:book="https://ogp.me/ns/book#">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>WVWC-DE Systems of ODEs as Models</title>
+<meta name="Keywords" content="Authored in PreTeXt">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta property="og:type" content="book">
+<meta property="og:image" content="https://j-oldroyd.github.io/wvwc-differential-equations/output/html/external/./wvwc-logo.jpg">
+<meta property="book:title" content="Differential Equations Lecture Notes">
+<meta property="book:author" content="Jesse Oldroyd">
+<script src="https://sagecell.sagemath.org/static/embedded_sagecell.js"></script><script>
+var runestoneMathReady = new Promise((resolve) => window.rsMathReady = resolve);
+window.MathJax = {
+  "tex": {
+    "inlineMath": [
+      [
+        "\\(",
+        "\\)"
+      ]
+    ],
+    "tags": "none",
+    "tagSide": "right",
+    "tagIndent": ".8em",
+    "packages": {
+      "[+]": [
+        "base",
+        "extpfeil",
+        "ams",
+        "amscd",
+        "color",
+        "newcommand",
+        "knowl"
+      ]
+    }
+  },
+  "options": {
+    "ignoreHtmlClass": "tex2jax_ignore|ignore-math",
+    "processHtmlClass": "process-math",
+    "renderActions": {
+      "findScript": [
+        10,
+        function (doc) {
+            document.querySelectorAll('script[type^="math/tex"]').forEach(function(node) {
+                var display = !!node.type.match(/; *mode=display/);
+                var math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+                var text = document.createTextNode('');
+                node.parentNode.replaceChild(text, node);
+                math.start = {node: text, delim: '', n: 0};
+                math.end = {node: text, delim: '', n: 0};
+                doc.math.push(math);
+            });
+        },
+        ""
+      ]
+    }
+  },
+  "chtml": {
+    "scale": 0.98,
+    "mtextInheritFont": true
+  },
+  "loader": {
+    "load": [
+      "input/asciimath",
+      "[tex]/extpfeil",
+      "[tex]/amscd",
+      "[tex]/color",
+      "[tex]/newcommand",
+      "[pretext]/mathjaxknowl3.js"
+    ],
+    "paths": {
+      "pretext": "_static/pretext/js/lib"
+    }
+  },
+  "startup": {
+    pageReady() {
+      return MathJax.startup.defaultPageReady().then(function () {
+      console.log("in ready function");
+      rsMathReady();
+      }
+    )}
+  }
+};
+</script><script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script><script>// Make *any* div with class 'sagecell-sage' an executable Sage cell
+// Their results will be linked, only within language type
+sagecell.makeSagecell({
+  "inputLocation": "div.sagecell-sage",
+  "linked": true,
+  "linkKey": "linked-sage",
+  "autoeval": false,
+  "languages": [
+    "sage"
+  ],
+  "evalButtonText": "Evaluate (Sage)"
+});
+</script><script src="https://cdnjs.cloudflare.com/ajax/libs/lunr.js/2.3.9/lunr.min.js" integrity="sha512-4xUl/d6D6THrAnXAwGajXkoWaeMNwEKK4iNfq5DotEbLPAfk6FSxSP3ydNxqDgCw1c/0Z1Jg6L8h2j+++9BZmg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script><script src="lunr-pretext-search-index.js" async=""></script><script src="_static/pretext/js/pretext_search.js"></script><link href="_static/pretext/css/pretext_search.css" rel="stylesheet" type="text/css">
+<script src="_static/pretext/js/lib/jquery.min.js"></script><script src="_static/pretext/js/lib/jquery.sticky.js"></script><script src="_static/pretext/js/lib/jquery.espy.min.js"></script><script src="_static/pretext/js/pretext.js"></script><script src="_static/pretext/js/pretext_add_on.js?x=1"></script><script src="_static/pretext/js/user_preferences.js"></script><script src="_static/pretext/js/lib/knowl.js"></script><!--knowl.js code controls Sage Cells within knowls--><script>sagecellEvalName='Evaluate (Sage)';
+</script><link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+<link href="https://fonts.googleapis.com/css2?family=Inconsolata:wght@400;700&amp;family=Noto+Serif:ital,wght@0,400;0,700;1,400;1,700&amp;family=Tinos:ital,wght@0,400;0,700;1,400;1,700&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.cdnfonts.com/css/dejavu-serif" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Roboto+Serif:opsz,wdth,wght@8..144,50..150,100..900&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Open+Sans:wdth,wght@75..100,300..800&amp;display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200">
+<script src="https://cdn.geogebra.org/apps/deployggb.js"></script><link href="_static/pretext/css/pretext.css" rel="stylesheet" type="text/css">
+<link href="_static/pretext/css/pretext_add_on.css" rel="stylesheet" type="text/css">
+<link href="_static/pretext/css/shell_default.css" rel="stylesheet" type="text/css">
+<link href="_static/pretext/css/banner_default.css" rel="stylesheet" type="text/css">
+<link href="_static/pretext/css/navbar_default.css" rel="stylesheet" type="text/css">
+<link href="_static/pretext/css/toc_default.css" rel="stylesheet" type="text/css">
+<link href="_static/pretext/css/knowls_default.css" rel="stylesheet" type="text/css">
+<link href="_static/pretext/css/style_default.css" rel="stylesheet" type="text/css">
+<link href="_static/pretext/css/colors_default.css" rel="stylesheet" type="text/css">
+<link href="_static/pretext/css/setcolors.css" rel="stylesheet" type="text/css">
+<style>
+#subsection-basic-concepts-for-odes-16-1 { counter-set: subsection-basic-concepts-for-odes-16-1 0; }
+#subsection-basic-concepts-for-odes-16-1 > li::marker { content: ""counter(subsection-basic-concepts-for-odes-16-1,decimal)"."; }
+#subsection-basic-concepts-for-odes-16-1 > li { counter-increment: subsection-basic-concepts-for-odes-16-1; }
+#subsection-direction-fields-and-solution-curves-7-2 { counter-set: subsection-direction-fields-and-solution-curves-7-2 0; }
+#subsection-direction-fields-and-solution-curves-7-2 > li::marker { content: ""counter(subsection-direction-fields-and-solution-curves-7-2,decimal)"."; }
+#subsection-direction-fields-and-solution-curves-7-2 > li { counter-increment: subsection-direction-fields-and-solution-curves-7-2; }
+#subsection-existence-and-uniqueness-theorem-2-1 { counter-set: subsection-existence-and-uniqueness-theorem-2-1 0; }
+#subsection-existence-and-uniqueness-theorem-2-1 > li::marker { content: ""counter(subsection-existence-and-uniqueness-theorem-2-1,decimal)"."; }
+#subsection-existence-and-uniqueness-theorem-2-1 > li { counter-increment: subsection-existence-and-uniqueness-theorem-2-1; }
+#example-determining-a-sustainable-population-3-3 { counter-set: example-determining-a-sustainable-population-3-3 0; }
+#example-determining-a-sustainable-population-3-3 > li::marker { content: ""counter(example-determining-a-sustainable-population-3-3,decimal)"."; }
+#example-determining-a-sustainable-population-3-3 > li { counter-increment: example-determining-a-sustainable-population-3-3; }
+#example-types-of-second-order-odes-2-1 { counter-set: example-types-of-second-order-odes-2-1 0; }
+#example-types-of-second-order-odes-2-1 > li::marker { content: ""counter(example-types-of-second-order-odes-2-1,decimal)"."; }
+#example-types-of-second-order-odes-2-1 > li { counter-increment: example-types-of-second-order-odes-2-1; }
+#subsection-free-damped-motion-6 { counter-set: subsection-free-damped-motion-6 0; }
+#subsection-free-damped-motion-6 > li::marker { content: ""counter(subsection-free-damped-motion-6,decimal)":"; }
+#subsection-free-damped-motion-6 > li { counter-increment: subsection-free-damped-motion-6; }
+#example-systems-odes-solving-system-two-equations-3-1-4 { counter-set: example-systems-odes-solving-system-two-equations-3-1-4 0; }
+#example-systems-odes-solving-system-two-equations-3-1-4 > li::marker { content: ""counter(example-systems-odes-solving-system-two-equations-3-1-4,decimal)"."; }
+#example-systems-odes-solving-system-two-equations-3-1-4 > li { counter-increment: example-systems-odes-solving-system-two-equations-3-1-4; }
+#subsection-solving-differential-equations-with-power-series-5-2 { counter-set: subsection-solving-differential-equations-with-power-series-5-2 0; }
+#subsection-solving-differential-equations-with-power-series-5-2 > li::marker { content: ""counter(subsection-solving-differential-equations-with-power-series-5-2,decimal)"."; }
+#subsection-solving-differential-equations-with-power-series-5-2 > li { counter-increment: subsection-solving-differential-equations-with-power-series-5-2; }
+#theorem-method-of-frobenius-3-1-4 { counter-set: theorem-method-of-frobenius-3-1-4 0; }
+#theorem-method-of-frobenius-3-1-4 > li::marker { content: ""counter(theorem-method-of-frobenius-3-1-4,decimal)"."; }
+#theorem-method-of-frobenius-3-1-4 > li { counter-increment: theorem-method-of-frobenius-3-1-4; }
+#section-transformation-of-initial-value-problems-3-1-1 { counter-set: section-transformation-of-initial-value-problems-3-1-1 0; }
+#section-transformation-of-initial-value-problems-3-1-1 > li::marker { content: ""counter(section-transformation-of-initial-value-problems-3-1-1,decimal)"."; }
+#section-transformation-of-initial-value-problems-3-1-1 > li { counter-increment: section-transformation-of-initial-value-problems-3-1-1; }
+#example-computing-the-transform-of-a-time-shifted-function-2-1-1 { counter-set: example-computing-the-transform-of-a-time-shifted-function-2-1-1 0; }
+#example-computing-the-transform-of-a-time-shifted-function-2-1-1 > li::marker { content: ""counter(example-computing-the-transform-of-a-time-shifted-function-2-1-1,decimal)"."; }
+#example-computing-the-transform-of-a-time-shifted-function-2-1-1 > li { counter-increment: example-computing-the-transform-of-a-time-shifted-function-2-1-1; }
+#subsection-important-pdes-3 { counter-set: subsection-important-pdes-3 0; }
+#subsection-important-pdes-3 > li::marker { content: ""counter(subsection-important-pdes-3,decimal)"."; }
+#subsection-important-pdes-3 > li { counter-increment: subsection-important-pdes-3; }
+#subsection-important-pdes-5-1 { counter-set: subsection-important-pdes-5-1 0; }
+#subsection-important-pdes-5-1 > li::marker { content: ""counter(subsection-important-pdes-5-1,decimal)"."; }
+#subsection-important-pdes-5-1 > li { counter-increment: subsection-important-pdes-5-1; }
+#gfdl-section4-3 { counter-set: gfdl-section4-3 0; }
+#gfdl-section4-3 > li::marker { content: ""counter(gfdl-section4-3,upper-alpha)"."; }
+#gfdl-section4-3 > li { counter-increment: gfdl-section4-3; }
+</style>
+</head>
+<body class="pretext book ignore-math">
+<a class="assistive" href="#ptx-content">Skip to main content</a><header id="ptx-masthead" class="ptx-masthead"><div class="ptx-banner">
+<a id="logo-link" class="logo-link" target="_blank" href=""><img src="external/./wvwc-logo.jpg" alt="Logo image"></a><div class="title-container">
+<h1 class="heading"><a href="wvwc-differential-equations.html"><span class="title">Differential Equations Lecture Notes:</span> <span class="subtitle">West Virginia Wesleyan College</span></a></h1>
+<p class="byline">Jesse Oldroyd</p>
+</div>
+</div></header><nav id="ptx-navbar" class="ptx-navbar navbar"><button class="toc-toggle button" title="Contents"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5d2;</span><span class="name">Contents</span></button><a class="index-button button" href="backmatter-5.html" title="Index"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe88e;</span><span class="name">Index</span></a><div class="searchbox">
+<div class="searchwidget"><button id="searchbutton" class="searchbutton button" type="button" title="Search book"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe8b6;</span><span class="name">Search Book</span></button></div>
+<div id="searchresultsplaceholder" class="searchresultsplaceholder" style="display: none">
+<div class="search-results-controls">
+<input aria-label="Search term" id="ptxsearch" class="ptxsearch" type="text" name="terms" placeholder="Search term"><button title="Close search" id="closesearchresults" class="closesearchresults"><span class="material-symbols-outlined">close</span></button>
+</div>
+<h2 class="search-results-heading">Search Results: </h2>
+<div id="searchempty" class="searchempty"><span>No results.</span></div>
+<ol id="searchresults" class="searchresults"></ol>
+</div>
+</div>
+<span class="nav-other-controls"><button id="calculator-toggle" class="calculator-toggle button" title="Show calculator" aria-expanded="false" aria-controls="calculator-container"><span class="icon material-symbols-outlined" aria-hidden="true">&#xea5f;</span><span class="name">Calc</span></button><div id="calculator-container" class="calculator-container" style="display: none; z-index:100;"><div id="geogebra-calculator"></div></div>
+<script>
+var ggbApp = new GGBApplet({"appName": "graphing",
+    "width": 330,
+    "height": 600,
+    "showToolBar": true,
+    "showAlgebraInput": true,
+    "perspective": "G/A",
+    "algebraInputPosition": "bottom",
+    "scaleContainerClass": "calculator-container",
+    "allowUpscale": true,
+    "autoHeight": true,
+    "disableAutoScale": false},
+true);
+</script></span><span class="treebuttons"><a class="previous-button button" href="systems-of-odes.html" title="Previous"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cb;</span><span class="name">Prev</span></a><a class="up-button button" href="systems-of-odes.html" title="Up"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5ce;</span><span class="name">Up</span></a><a class="next-button button" href="section-constant-coefficient-systems-and-the-phase-plane.html" title="Next"><span class="name">Next</span><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cc;</span></a></span></nav><div id="latex-macros" class="hidden-content process-math" style="display:none"><span class="process-math">\(\newcommand{\RR}{\mathbb{R}}
+\newcommand{\QQ}{\mathbb{Q}}
+\newcommand{\NN}{\mathbb{N}}
+\newcommand{\ZZ}{\mathbb{Z}}
+\newcommand{\CC}{\mathbb{C}}
+\renewcommand{\th}{\text{th}}
+\newcommand{\grad}{\nabla}
+\newcommand{\curl}{\nabla\times}
+\newcommand{\curlt}{\operatorname{curl}}
+\renewcommand{\div}{\nabla\cdot}
+\newcommand{\divt}{\operatorname{div}}
+\newcommand{\del}{\nabla}
+\newcommand{\vecm}[1]{\boldsymbol{\mathbf{#1}}}
+\renewcommand{\vec}[1]{\vecm{#1}}
+\newcommand{\vb}[1]{\mathbf{#1}}
+\newcommand{\Sum}[2]{\sum_{#1}^{#2}}
+\newcommand{\Int}[2]{\int_{#1}^{#2}}
+\newcommand{\limit}[2]{\lim_{#1\to#2}}
+\newcommand{\Laplace}[1]{\mathcal{L}\set{#1}}
+\newcommand{\iLaplace}[1]{\mathcal{L}^{-1}\set{#1}}
+\newcommand{\dv}[3][]{\dfrac{d^{#1} #2}{d #3^{#1}}}
+\newcommand{\pdv}[3][]{\dfrac{\partial^{#1} #2}{\partial #3^{#1}}}
+\newcommand{\dd}[2][]{\, d^{#1} #2\ }
+\newcommand{\abs}[1]{\left| #1 \right|}
+\newcommand{\norm}[1]{\left\| #1 \right\|}
+\newcommand{\dotprod}[1]{\left\langle #1 \right\rangle}
+\newcommand{\set}[1]{\left\{ #1 \right\}}
+\newcommand{\brackets}[1]{\left[ #1 \right]}
+\newcommand{\parens}[1]{\left( #1 \right)}
+\newcommand{\qq}[1]{\quad\text{#1}\quad}
+\newcommand{\ivec}[1]{
+\renewcommand{\arraystretch}{.8}
+\begin{bmatrix}#1\end{bmatrix}
+}
+\newcommand{\proj}[2]{\operatorname{proj}_{#1} #2}
+\newcommand{\erf}[1]{\operatorname{erf} #1}
+\newcommand{\dr}{\cdot d\vb{r}}
+\newcommand{\dn}{\cdot\vb{n}\,ds}
+\newcommand{\lt}{&lt;}
+\newcommand{\gt}{&gt;}
+\newcommand{\amp}{&amp;}
+\definecolor{fillinmathshade}{gray}{0.9}
+\newcommand{\fillinmath}[1]{\mathchoice{\colorbox{fillinmathshade}{$\displaystyle     \phantom{\,#1\,}$}}{\colorbox{fillinmathshade}{$\textstyle        \phantom{\,#1\,}$}}{\colorbox{fillinmathshade}{$\scriptstyle      \phantom{\,#1\,}$}}{\colorbox{fillinmathshade}{$\scriptscriptstyle\phantom{\,#1\,}$}}}
+\)</span></div>
+<div class="ptx-page">
+<div id="ptx-sidebar" class="ptx-sidebar"><nav id="ptx-toc" class="ptx-toc depth3 parts"><ul class="structural contains-active toc-item-list">
+<li class="toc-item toc-frontmatter">
+<div class="toc-title-box"><a href="front.html" class="internal"><span class="title">Front Matter</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-colophon"><div class="toc-title-box"><a href="front-colophon.html" class="internal"><span class="title">Colophon</span></a></div></li>
+<li class="toc-item toc-biography"><div class="toc-title-box"><a href="author-bio-JEO.html" class="internal"><span class="title">Author Biography</span></a></div></li>
+<li class="toc-item toc-preface"><div class="toc-title-box"><a href="preface.html" class="internal"><span class="title">Preface</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-part contains-active">
+<div class="toc-title-box"><a href="part-odes.html" class="internal"><span class="codenumber">I</span> <span class="title">Ordinary Differential Equations</span></a></div>
+<ul class="structural toc-item-list contains-active">
+<li class="toc-item toc-chapter">
+<div class="toc-title-box"><a href="intro-to-odes.html" class="internal"><span class="codenumber">1</span> <span class="title">Introduction</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="section-ordinary-differential-equations.html" class="internal"><span class="codenumber">1.1</span> <span class="title">Ordinary Differential Equations</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="section-ordinary-differential-equations.html#subsection-basic-concepts-for-odes" class="internal"><span class="title">Basic Concepts</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="section-ordinary-differential-equations.html#subsection-mathematical-models" class="internal"><span class="title">Mathematical Models</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="section-direction-fields.html" class="internal"><span class="codenumber">1.2</span> <span class="title">Direction Fields</span></a></div>
+<ul class="structural toc-item-list"><li class="toc-item toc-subsection"><div class="toc-title-box"><a href="section-direction-fields.html#subsection-direction-fields-and-solution-curves" class="internal"><span class="title">Direction Fields and Solution Curves</span></a></div></li></ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="section-separable-odes-and-substitution.html" class="internal"><span class="codenumber">1.3</span> <span class="title">Separable ODEs and Substitution</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="section-separable-odes-and-substitution.html#subsection-separable-odes" class="internal"><span class="title">Separable ODEs</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="section-separable-odes-and-substitution.html#subsection-substitution-methods" class="internal"><span class="title">Substitution Methods</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="section-first-order-linear-odes.html" class="internal"><span class="codenumber">1.4</span> <span class="title">First-Order Linear ODEs</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="section-first-order-linear-odes.html#subsection-integrating-factors" class="internal"><span class="title">Integrating Factors</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="section-first-order-linear-odes.html#subsection-applications" class="internal"><span class="title">Applications</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="section-existence-and-uniqueness-of-solutions.html" class="internal"><span class="codenumber">1.5</span> <span class="title">Existence and Uniqueness</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="section-existence-and-uniqueness-of-solutions.html#subsection-existence-and-uniqueness-theorem" class="internal"><span class="title">Existence and Uniqueness Theorem</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="section-existence-and-uniqueness-of-solutions.html#subsection-picard-iteration" class="internal"><span class="title">Picard Iteration</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="section-existence-and-uniqueness-of-solutions.html#subsection-euler-s-method" class="internal"><span class="title">Euler’s Method</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="section-population-models-and-autonomous-equations.html" class="internal"><span class="codenumber">1.6</span> <span class="title">Autonomous Equations</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="section-population-models-and-autonomous-equations.html#subsection-population-equations" class="internal"><span class="title">Population Equations</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="section-population-models-and-autonomous-equations.html#subsection-the-logistic-equation" class="internal"><span class="title">The Logistic Equation</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="section-population-models-and-autonomous-equations.html#section-stability-of-solutions" class="internal"><span class="title">Stability of Solutions</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="section-population-models-and-autonomous-equations.html#subsection-linear-stability-analysis" class="internal"><span class="title">Linear Stability Analysis</span></a></div></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-item toc-chapter">
+<div class="toc-title-box"><a href="linear-odes-constant-coefficients.html" class="internal"><span class="codenumber">2</span> <span class="title">Constant Coefficients</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="section-second-order-linear-odes.html" class="internal"><span class="codenumber">2.1</span> <span class="title">Second-Order Linear ODEs</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="section-second-order-linear-odes.html#subsection-types-of-linear-odes" class="internal"><span class="title">Types of Linear ODEs</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="section-second-order-linear-odes.html#subsection-solutions-of-second-order-linear-ODEs" class="internal"><span class="title">Solutions of Second-Order Linear ODEs</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="section-homogeneous-odes-with-constant-coefficients.html" class="internal"><span class="codenumber">2.2</span> <span class="title">Homogeneous ODEs</span></a></div></li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="section-spring-mass-models.html" class="internal"><span class="codenumber">2.3</span> <span class="title">Spring-Mass Models</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="section-spring-mass-models.html#subsection-free-undamped-motion" class="internal"><span class="title">Free Undamped Motion</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="section-spring-mass-models.html#subsection-free-damped-motion" class="internal"><span class="title">Free Damped Motion</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="section-solutions-of-nonhomogeneous-equations.html" class="internal"><span class="codenumber">2.4</span> <span class="title">Non-homogeneous Equations</span></a></div>
+<ul class="structural toc-item-list"><li class="toc-item toc-subsection"><div class="toc-title-box"><a href="section-solutions-of-nonhomogeneous-equations.html#subsection-the-method-of-undetermined-coefficients" class="internal"><span class="title">The Method of Undetermined Coefficients</span></a></div></li></ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="section-forced-oscillations-and-resonance.html" class="internal"><span class="codenumber">2.5</span> <span class="title">Forced Oscillations and Resonance</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="section-forced-oscillations-and-resonance.html#subsection-undamped-systems" class="internal"><span class="title">Undamped Systems</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="section-forced-oscillations-and-resonance.html#subsection-damped-systems" class="internal"><span class="title">Damped Systems</span></a></div></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-item toc-chapter">
+<div class="toc-title-box"><a href="higher-order-linear-odes.html" class="internal"><span class="codenumber">3</span> <span class="title">Higher Order Linear ODEs</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="section-homogeneous-linear-odes-with-constant-coefficients.html" class="internal"><span class="codenumber">3.1</span> <span class="title">Homogeneous ODEs</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="section-non-homogeneous-linear-odes-with-constant-coefficients.html" class="internal"><span class="codenumber">3.2</span> <span class="title">Non-homogeneous ODEs</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-chapter contains-active">
+<div class="toc-title-box"><a href="systems-of-odes.html" class="internal"><span class="codenumber">4</span> <span class="title">Linear Systems</span></a></div>
+<ul class="structural toc-item-list contains-active">
+<li class="toc-item toc-section active"><div class="toc-title-box"><a href="section-systems-of-odes-as-models.html" class="internal"><span class="codenumber">4.1</span> <span class="title">Systems of ODEs as Models</span></a></div></li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="section-constant-coefficient-systems-and-the-phase-plane.html" class="internal"><span class="codenumber">4.2</span> <span class="title">Constant Coefficient Systems</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="section-constant-coefficient-systems-and-the-phase-plane.html#subsection-matrix-odes-constant-coefficients" class="internal"><span class="title">Solutions of <span class="process-math">\(\vec{x}^\prime = A\vec{x}\)</span></span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="section-constant-coefficient-systems-and-the-phase-plane.html#subsection-finding-eigenvalues-and-eigenvectors" class="internal"><span class="title">Finding Eigenvalues and Eigenvectors</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="section-constant-coefficient-systems-and-the-phase-plane.html#subsection-solving-matrix-odes" class="internal"><span class="title">Solving Matrix ODEs</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="section-constant-coefficient-systems-and-the-phase-plane.html#subsection-applications-of-matrix-odes" class="internal"><span class="title">Applications of Matrix ODEs</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="section-phase-plane-criteria-for-critical-points-stability.html" class="internal"><span class="codenumber">4.3</span> <span class="title">Phase Portraits and Critical Points</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="section-phase-plane-criteria-for-critical-points-stability.html#subsection-the-phase-plane" class="internal"><span class="title">The Phase Plane</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="section-phase-plane-criteria-for-critical-points-stability.html#subsection-eigenvalue-criteria-for-stability" class="internal"><span class="title">Eigenvalue Criteria for Stability</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="section-nonlinear-systems.html" class="internal"><span class="codenumber">4.4</span> <span class="title">Nonlinear Systems</span></a></div>
+<ul class="structural toc-item-list"><li class="toc-item toc-subsection"><div class="toc-title-box"><a href="section-nonlinear-systems.html#subsection-classification-of-critical-points-and-linearization" class="internal"><span class="title">Classification of Critical Points and Linearization</span></a></div></li></ul>
+</li>
+</ul>
+</li>
+<li class="toc-item toc-chapter">
+<div class="toc-title-box"><a href="series-solutions.html" class="internal"><span class="codenumber">5</span> <span class="title">Series Solutions</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="section-power-series-method.html" class="internal"><span class="codenumber">5.1</span> <span class="title">Power Series Method</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="section-power-series-method.html#subsection-review-of-power-series" class="internal"><span class="title">Review of Power Series</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="section-power-series-method.html#subsection-solving-differential-equations-with-power-series" class="internal"><span class="title">Solving Differential Equations with Power Series</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="section-legendre-s-equation-and-legendre-polynomials.html" class="internal"><span class="codenumber">5.2</span> <span class="title">Legendre’s Equation</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="section-legendre-s-equation-and-legendre-polynomials.html#subsection-solving-the-legendre-equation" class="internal"><span class="title">Solving the Legendre Equation</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="section-legendre-s-equation-and-legendre-polynomials.html#subsection-legendre-polynomials" class="internal"><span class="title">Legendre Polynomials</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="section-frobenius-method.html" class="internal"><span class="codenumber">5.3</span> <span class="title">Frobenius’ Method</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="section-frobenius-method.html#subsection-ordinary-points-and-singular-points" class="internal"><span class="title">Ordinary Points and Singular Points</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="section-frobenius-method.html#subsection-solutions-at-singular-points-and-indicial-equations" class="internal"><span class="title">Solutions at Singular Points and Indicial Equations</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="section-bessel-s-equation.html" class="internal"><span class="codenumber">5.4</span> <span class="title">Bessel’s Equation</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="section-bessel-s-equation.html#subsection-bessel-functions-for-integer--nu-" class="internal"><span class="title">Bessel Functions for Integer <span class="process-math">\(\nu\)</span></span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="section-bessel-s-equation.html#subsection-bessel-functions-of-the-first-kind-for-nonnegative-order" class="internal"><span class="title">Bessel Functions of the First Kind for Nonnegative Order</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="section-bessel-s-equation.html#subsection-general-solution-of-bessel-s-equation" class="internal"><span class="title">General Solution of Bessel’s Equation</span></a></div></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-item toc-chapter">
+<div class="toc-title-box"><a href="laplace-transforms.html" class="internal"><span class="codenumber">6</span> <span class="title">Laplace Transforms</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="section-the-laplace-transform.html" class="internal"><span class="codenumber">6.1</span> <span class="title">The Laplace Transform</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="section-the-laplace-transform.html#subsection-definition-and-basic-properties" class="internal"><span class="title">Definition and Basic Properties</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="section-the-laplace-transform.html#subsection-the-inverse-laplace-transform-m-s--shifting" class="internal"><span class="title">The Inverse Laplace Transform; <span class="process-math">\(s\)</span>-shifting</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="section-transformation-of-initial-value-problems.html" class="internal"><span class="codenumber">6.2</span> <span class="title">Transformation of IVPs</span></a></div>
+<ul class="structural toc-item-list"><li class="toc-item toc-subsection"><div class="toc-title-box"><a href="section-transformation-of-initial-value-problems.html#subsection-solving-ivps-with-the-laplace-transform" class="internal"><span class="title">Solving IVPs with the Laplace Transform</span></a></div></li></ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="section-unit-step-functions-and-time-shifting.html" class="internal"><span class="codenumber">6.3</span> <span class="title"><span class="process-math">\(t\)</span>-shifting</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="section-unit-step-functions-and-time-shifting.html#subsection-time-shifting" class="internal"><span class="title">Time Shifting</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="section-unit-step-functions-and-time-shifting.html#subsection-transforms-of-piecewise-functions" class="internal"><span class="title">Transforms of Piecewise Functions</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="section-dirac-delta-functions.html" class="internal"><span class="codenumber">6.4</span> <span class="title">Dirac Delta Functions</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="section-dirac-delta-functions.html#subsection-impulses" class="internal"><span class="title">Impulses</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="section-dirac-delta-functions.html#subsection-dirac-delta-models" class="internal"><span class="title">Dirac Delta Models</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="section-convolution-products.html" class="internal"><span class="codenumber">6.5</span> <span class="title">Convolution Products</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="section-convolution-products.html#subsection-convolutions" class="internal"><span class="title">Convolutions</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="section-convolution-products.html#subsection-convolutions-and-transform-problems" class="internal"><span class="title">Convolutions and Transform Problems</span></a></div></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-item toc-part">
+<div class="toc-title-box"><a href="part-pdes.html" class="internal"><span class="codenumber">II</span> <span class="title">Partial Differential Equations</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-chapter">
+<div class="toc-title-box"><a href="fourier-analysis.html" class="internal"><span class="codenumber">7</span> <span class="title">Fourier Analysis</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="section-fourier-series.html" class="internal"><span class="codenumber">7.1</span> <span class="title">Fourier Series</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="section-fourier-series.html#subsection-fourier-periodic-functions" class="internal"><span class="title">Periodic Functions</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="section-fourier-series.html#subsection-fourier-periodic-trigonometric-and-fourier-series" class="internal"><span class="title">Trigonometric Series and Fourier Series</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="section-functions-of-arbitrary-period-even-and-odd-extensions.html" class="internal"><span class="codenumber">7.2</span> <span class="title">Functions of Arbitrary Period</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="section-functions-of-arbitrary-period-even-and-odd-extensions.html#subsection-fourier-series-of-functions-of-arbitrary-period" class="internal"><span class="title">Fourier Series of Functions of Arbitrary Period</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="section-functions-of-arbitrary-period-even-and-odd-extensions.html#subsection-even-and-odd-extensions" class="internal"><span class="title">Even and Odd Extensions</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="section-complex-fourier-series-and-parsevals-identity.html" class="internal"><span class="codenumber">7.3</span> <span class="title">Complex Fourier Series and Parseval’s Identity</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="section-complex-fourier-series-and-parsevals-identity.html#subsection-complex-fourier-series" class="internal"><span class="title">Complex Fourier Series</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="section-complex-fourier-series-and-parsevals-identity.html#subsection-parseval-s-identity" class="internal"><span class="title">Parseval’s Identity</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="section-approximation-by-trigonometric-polynomials.html" class="internal"><span class="codenumber">7.4</span> <span class="title">Approximation by Trigonometric Polynomials</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="section-the-fourier-transform.html" class="internal"><span class="codenumber">7.5</span> <span class="title">The Fourier Transform</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-chapter">
+<div class="toc-title-box"><a href="partial-differential-equations.html" class="internal"><span class="codenumber">8</span> <span class="title">Partial Differential Equations</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="section-basic-concepts.html" class="internal"><span class="codenumber">8.1</span> <span class="title">Basic Concepts</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="section-basic-concepts.html#subsection-partial-derivatives-and-pdes" class="internal"><span class="title">Partial derivatives and PDEs</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="section-basic-concepts.html#subsection-linear-homogeneous-pdes-and-the-superposition-principle" class="internal"><span class="title">Linear homogeneous PDEs and the superposition principle</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="section-basic-concepts.html#subsection-important-pdes" class="internal"><span class="title">Important PDEs</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="section-wave-equation-and-separation-of-variables.html" class="internal"><span class="codenumber">8.2</span> <span class="title">The Wave Equation and Separation of Variables</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="section-d-alembert-s-solution-of-the-wave-equation.html" class="internal"><span class="codenumber">8.3</span> <span class="title">d’Alembert’s Solution of the Wave Equation</span></a></div></li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="section-the-heat-equation.html" class="internal"><span class="codenumber">8.4</span> <span class="title">The Heat Equation</span></a></div>
+<ul class="structural toc-item-list"><li class="toc-item toc-subsection"><div class="toc-title-box"><a href="section-the-heat-equation.html#subsection-bar-with-ends-fixed-at-" class="internal"><span class="title">Bar with ends fixed at <span class="process-math">\(0\)</span></span></a></div></li></ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-item toc-backmatter">
+<div class="toc-title-box"><a href="backmatter.html" class="internal"><span class="title">Back Matter</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-appendix"><div class="toc-title-box"><a href="backmatter-2.html" class="internal"><span class="codenumber">A</span> <span class="title">Notation</span></a></div></li>
+<li class="toc-item toc-appendix"><div class="toc-title-box"><a href="backmatter-3.html" class="internal"><span class="codenumber">B</span> <span class="title">Table of Laplace Transforms</span></a></div></li>
+<li class="toc-item toc-appendix"><div class="toc-title-box"><a href="appendix-gfdl.html" class="internal"><span class="codenumber">C</span> <span class="title">GNU Free Documentation License</span></a></div></li>
+<li class="toc-item toc-index"><div class="toc-title-box"><a href="backmatter-5.html" class="internal"><span class="title">Index</span></a></div></li>
+<li class="toc-item toc-colophon"><div class="toc-title-box"><a href="backmatter-6.html" class="internal"><span class="title">Colophon</span></a></div></li>
+</ul>
+</li>
+</ul></nav></div>
+<main class="ptx-main"><div id="ptx-content" class="ptx-content"><section class="section" id="section-systems-of-odes-as-models"><h2 class="heading hide-type">
+<span class="type">Section</span><span class="space"> </span><span class="codenumber">4.1</span><span class="space"> </span><span class="title">Systems of ODEs as Models</span>
+</h2>
+<div class="para" id="section-systems-of-odes-as-models-2">Interdependent quantities can often be represented mathematically by a system of equations. If we have information about the rates of change of these quantities, then we may be able to develop a model using a system of differential equations.</div>
+<article class="definition definition-like" id="definition-first-order-system"><h3 class="heading">
+<span class="type">Definition</span><span class="space"> </span><span class="codenumber">4.1.1</span><span class="period">.</span>
+</h3> <div class="para" id="definition-first-order-system-2">A <dfn class="terminology">first order system</dfn> of ODEs is a system of differential equations involving some collection of functions and their first derivatives.</div></article><div class="para" id="section-systems-of-odes-as-models-4">We are still only dealing with ordinary differential equations which means that we will only ever have one independent variable. However, when dealing with systems of ODEs we will be working with several <em class="emphasis">dependent</em> variables.</div>
+<div class="para logical" id="section-systems-of-odes-as-models-5">
+<div class="para">The systems of ODEs that we will consider will typically look like the following:</div>
+<div class="displaymath process-math" id="section-systems-of-odes-as-models-5-1">
+\begin{align*}
+x_{1}^\prime  \amp=  a_{11}x_{1} +a_{12}x_{2}+\dots+a_{1n}x_{n}\\
+x^\prime_{2}  \amp=  a_{21}x_{1} + a_{22}x_{2} + \dots + a_{2n}x_{2}\\
+\amp\vdots\\
+x^\prime_{n}  \amp=  a_{n1}x_{1} + a_{n2}x_{2} + \dots + a_{nn}x_{n}
+\end{align*}
+</div>
+<div class="para">where <span class="process-math">\(a_{ij}\)</span> are constants and <span class="process-math">\(y_{i}\)</span> are functions of <span class="process-math">\(t\text{.}\)</span>
+</div>
+</div>
+<article class="example example-like" id="example-interconnected-tanks"><h3 class="heading">
+<span class="type">Example</span><span class="space"> </span><span class="codenumber">4.1.2</span><span class="period">.</span>
+</h3>
+<div class="para" id="example-interconnected-tanks-1-1">Two brine tanks are set up as in <a href="section-systems-of-odes-as-models.html#figure-interconnected-tanks" class="xref" data-knowl="./knowl/xref/figure-interconnected-tanks.html" data-reveal-label="Reveal" data-close-label="Close" title="Figure 4.1.3">Figure 4.1.3</a>. Fresh water flows into the tank at a rate of <span class="process-math">\(r_{1}\text{,}\)</span> well-mixed solution flows from Tank 1 to Tank 2 at a rate of <span class="process-math">\(r_{2}\)</span> and well-mixed solution flows out of Tank 2 at a rate of <span class="process-math">\(r_{3}\text{.}\)</span> Suppose that <span class="process-math">\(r_{1}, r_{2}\)</span> and  <span class="process-math">\(r_{3}\)</span> are <span class="quantity">5 <sup>gal</sup>⁄<sub>min</sub></span>, the volume of solution in Tank 1 is <span class="quantity">10 gal</span> and the volume of solution in Tank 2 is <span class="quantity">7 gal</span>. Suppose Tank 1 has <span class="quantity">5 lb</span> of salt at time <span class="process-math">\(t=0\)</span> and Tank 2 has <span class="quantity">2 lb</span> of salt at time <span class="process-math">\(t=0\text{.}\)</span> Set up a first-order system that describes the amount of salt in each tank at time <span class="process-math">\(t\text{.}\)</span>
+</div>
+<div class="solutions"><details id="example-interconnected-tanks-2" class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="period">.</span></summary><div class="solution solution-like knowl__content"><div class="para logical" id="example-interconnected-tanks-2-1">
+<div class="para">Let <span class="process-math">\(x_{1}(t)\)</span> denote the amount of salt in Tank 1 at time <span class="process-math">\(t\text{,}\)</span> and <span class="process-math">\(x_{2}(t)\)</span> denote the amount of salt in Tank 2 at time <span class="process-math">\(t\text{.}\)</span> Using the mixture ODE <span class="process-math">\(\dv{x}{t} = r_{i}c_{i}-r_{o}\frac{x}{V(t)}\)</span> developed in <a href="section-first-order-linear-odes.html" class="internal" title="Section 1.4: First-Order Linear ODEs">Section 1.4</a>, we can write</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/section-first-order-linear-odes.html" id="example-interconnected-tanks-2-1-7">
+\begin{align*}
+\dv{x_{1}}{t} \amp= 5\cdot0 - 5\frac{x_{1}}{10}\\
+\dv{x_{2}}{t} \amp= 5\frac{x_{1}}{10}-5\frac{x_{2}}{7}
+\end{align*}
+</div>
+<div class="para">or just</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/section-first-order-linear-odes.html" id="example-interconnected-tanks-2-1-8">
+\begin{align*}
+x^\prime_{1}  \amp=  -\frac{1}{2}x_{1}\\
+x^\prime_{2}  \amp=  \frac{1}{2}x_{1}-\frac{5}{7}x_{2},
+\end{align*}
+</div>
+<div class="para">with initial conditions <span class="process-math">\(x_{1}(0) = 5\)</span> and <span class="process-math">\(x_{2}(0) = 2\text{.}\)</span>
+</div>
+</div></div></details></div></article><figure class="figure figure-like" id="figure-interconnected-tanks"><div class="image-box" style="width: 70%; margin-left: 15%; margin-right: 15%;">
+<img src="generated/latex-image/latex-image-interconnected-tanks.svg" role="img" class="contained" alt="described in detail following the image" aria-describedby="image-interconnected-tanks-description"><details class="image-description" aria-live="polite"><summary title="details"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe88e;</span></summary><div id="image-interconnected-tanks-description"><div class="para" id="image-interconnected-tanks-1-1">A diagram representing a system of two interconnected tanks. Fresh water is flowing into the first tank. The well-mixed solution then flows from the first tank into the second tank. The well-mixed solution from the second tank then flows out of the system.</div></div></details>
+</div>
+<figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">4.1.3<span class="period">.</span></span><span class="space"> </span>The two interconnected tanks from <a href="section-systems-of-odes-as-models.html#example-interconnected-tanks" class="xref" data-knowl="./knowl/xref/example-interconnected-tanks.html" data-reveal-label="Reveal" data-close-label="Close" title="Example 4.1.2">Example 4.1.2</a>.</figcaption></figure><div class="para" id="section-systems-of-odes-as-models-8">To actually solve systems of ODEs, we’ll use <em class="emphasis">matrices</em> to rewrite these systems as <em class="emphasis">matrix ODEs</em>.</div>
+<article class="definition definition-like" id="definition-matrices-and-vectors"><h3 class="heading">
+<span class="type">Definition</span><span class="space"> </span><span class="codenumber">4.1.4</span><span class="period">.</span>
+</h3> <div class="para" id="definition-matrices-and-vectors-3-1">An <span class="process-math">\(m\times n\)</span> <dfn class="terminology">matrix</dfn> is an array of <span class="process-math">\(m\)</span> rows and <span class="process-math">\(n\)</span> columns. <span class="process-math">\(m\times1\)</span> matrices are called (<dfn class="terminology">column</dfn>) <dfn class="terminology">vectors</dfn>. Matrices are typically denoted with capital italic letters (such as <span class="process-math">\(A\text{,}\)</span> <span class="process-math">\(M\)</span>) and vectors are often denoted with lower case bold letters (such as <span class="process-math">\(\vec{v},\vec{x})\text{.}\)</span> A <dfn class="terminology">zero matrix</dfn> will be denoted using <span class="process-math">\(\vec{0}\text{.}\)</span>
+</div></article><div class="para logical" id="section-systems-of-odes-as-models-10">
+<div class="para">As a brief example, let</div>
+<div class="displaymath process-math">
+\begin{equation*}
+A = \begin{bmatrix} 1\amp2\amp-1\\3\amp0\amp0\end{bmatrix}\quad\text{and}\quad \vec{y} = \begin{bmatrix} 1\\-1\\1 \end{bmatrix}.
+\end{equation*}
+</div>
+<div class="para">Then <span class="process-math">\(A\)</span> is a <span class="process-math">\(2\times3\)</span> matrix and <span class="process-math">\(\vec{y}\)</span> is a <span class="process-math">\(3\times 1\)</span> vector.</div>
+</div>
+<article class="definition definition-like" id="definition-matrix-vector-product"><h3 class="heading">
+<span class="type">Definition</span><span class="space"> </span><span class="codenumber">4.1.5</span><span class="period">.</span><span class="space"> </span><span class="title">Matrix-Vector Product.</span>
+</h3> <div class="para logical" id="definition-matrix-vector-product-2-1">
+<div class="para">Let <span class="process-math">\(A\)</span> be the <span class="process-math">\(2\times 2\)</span> matrix</div>
+<div class="displaymath process-math">
+\begin{equation*}
+A = \begin{bmatrix} a_{11}\amp a_{12}\\a_{21}\amp a_{22} \end{bmatrix}
+\end{equation*}
+</div>
+<div class="para">and let <span class="process-math">\(\vec{v} = \begin{bmatrix} v_{1}\\v_{2} \end{bmatrix}\text{.}\)</span> Then their <dfn class="terminology">product</dfn> <span class="process-math">\(A\vec{v}\)</span> is the vector defined to be</div>
+<div class="displaymath process-math">
+\begin{equation*}
+A\vec{v} = \begin{bmatrix} a_{11}v_{1}+a_{12}v_{2}\\a_{21}v_{1}+a_{22}v_{2} \end{bmatrix}.
+\end{equation*}
+</div>
+<div class="para">The <span class="process-math">\(2\times 2\)</span> <dfn class="terminology">identity matrix</dfn> is the matrix <span class="process-math">\(I = \begin{bmatrix}1\amp0\\0\amp1\end{bmatrix}\text{.}\)</span> A <dfn class="terminology">scalar</dfn> is just a constant. To multiply a scalar <span class="process-math">\(c\)</span> with a matrix <span class="process-math">\(A\text{,}\)</span> just multiply every element of <span class="process-math">\(A\)</span> with <span class="process-math">\(c\text{.}\)</span>
+</div>
+</div></article><div class="para" id="section-systems-of-odes-as-models-12">If <span class="process-math">\(A\)</span> is any <span class="process-math">\(2\times2\)</span> matrix and <span class="process-math">\(\vec{v}\)</span> and <span class="process-math">\(2\times1\)</span> vector, then <span class="process-math">\(AI=IA=A\)</span> and <span class="process-math">\(I\vec{v} = \vec{v}\text{.}\)</span>
+</div>
+<article class="example example-like" id="example-systems-odes-matrix-vector-product"><h3 class="heading">
+<span class="type">Example</span><span class="space"> </span><span class="codenumber">4.1.6</span><span class="period">.</span>
+</h3>
+<div class="para" id="example-systems-odes-matrix-vector-product-1-1">Let <span class="process-math">\(A = \begin{bmatrix} 1\amp0\\-3\amp2 \end{bmatrix},\vec{v}_{1} = \begin{bmatrix}1\\1\end{bmatrix}\)</span> and <span class="process-math">\(\vec{v}_{2} = \begin{bmatrix}0\\5\end{bmatrix}\text{.}\)</span> Compute <span class="process-math">\(A\vec{v}_{1}\)</span> and <span class="process-math">\(A\vec{v}_{2}\text{.}\)</span>
+</div>
+<div class="solutions"><details id="example-systems-odes-matrix-vector-product-2" class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="period">.</span></summary><div class="solution solution-like knowl__content"><div class="para logical" id="example-systems-odes-matrix-vector-product-2-1">
+<div class="para">By definition,</div>
+<div class="displaymath process-math">
+\begin{equation*}
+A\vec{v}_{1} = \begin{bmatrix}1\cdot1+0\cdot1\\-3\cdot1+2\cdot1\end{bmatrix} = \begin{bmatrix}1\\-1\end{bmatrix}\quad\text{and}\quad A\vec{v}_{2} = \begin{bmatrix}1\cdot0+0\cdot5\\-3\cdot0+2\cdot5\end{bmatrix} = \begin{bmatrix}0\\10\end{bmatrix}.
+\end{equation*}
+</div>
+</div></div></details></div></article><div class="para" id="section-systems-of-odes-as-models-14">In <a href="section-systems-of-odes-as-models.html#example-systems-odes-matrix-vector-product" class="xref" data-knowl="./knowl/xref/example-systems-odes-matrix-vector-product.html" data-reveal-label="Reveal" data-close-label="Close" title="Example 4.1.6">Example 4.1.6</a>, notice that <span class="process-math">\(A\vec{v}_{2} = 2\vec{v}_{2}\text{.}\)</span> This means that <span class="process-math">\(A\)</span> didn’t really do all that much to <span class="process-math">\(\vec{v}_{2}\)</span> except to stretch it by a factor of <span class="process-math">\(2\text{.}\)</span> Vectors with this property will turn out to be the key to solving our systems of ODEs.</div>
+<div class="para" id="section-systems-of-odes-as-models-15">
+<em class="emphasis">Any</em> linear system can be written as an equivalent first-order system or matrix ODE.</div>
+<article class="example example-like" id="example-systems-odes-interconnected-spring-mass-system"><h3 class="heading">
+<span class="type">Example</span><span class="space"> </span><span class="codenumber">4.1.7</span><span class="period">.</span><span class="space"> </span><span class="title">Interconnected spring-mass system.</span>
+</h3>
+<div class="para" id="example-systems-odes-interconnected-spring-mass-system-2-1">Consider a spring mass system with two masses arranged as follows:</div> <figure class="figure figure-like" id="figure-systems-odes-interconnected-spring-mass-system"><div class="image-box" style="width: 80%; margin-left: 10%; margin-right: 10%;">
+<img src="generated/latex-image/latex-image-systems-odes-interconnected-spring-mass-system.svg" role="img" class="contained" alt="described in detail following the image" aria-describedby="image-systems-odes-interconnected-spring-mass-system-description"><details class="image-description" aria-live="polite"><summary title="details"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe88e;</span></summary><div id="image-systems-odes-interconnected-spring-mass-system-description"><div class="para" id="image-systems-odes-interconnected-spring-mass-system-1-1">A diagram representing two masses connected horizontally by springs. The first mass is connected to a wall by a spring. The first mass is also connected to the second mass by another spring with a possibly different spring constant.</div></div></details>
+</div>
+<figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">4.1.8<span class="period">.</span></span><span class="space"> </span>A spring-mass system with interconnected masses</figcaption></figure> <div class="para" id="example-systems-odes-interconnected-spring-mass-system-2-3">Determine a first-order system that the displacements <span class="process-math">\(x_1\)</span> and <span class="process-math">\(x_2\)</span> must satisfy.</div>
+<div class="solutions"><details id="example-systems-odes-interconnected-spring-mass-system-3" class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="period">.</span></summary><div class="solution solution-like knowl__content">
+<div class="para" id="example-systems-odes-interconnected-spring-mass-system-3-1">From <a href="section-spring-mass-models.html" class="internal" title="Section 2.3: Spring-Mass Models">Section 2.3</a> we know how to model a spring-mass system with a single mass using <a href="section-second-order-linear-odes.html#theorem-hooke-s-law" class="xref" data-knowl="./knowl/xref/theorem-hooke-s-law.html" data-reveal-label="Reveal" data-close-label="Close" title="Theorem 2.1.3: Hooke’s Law">Theorem 2.1.3</a> and Newton’s Second Law. We will apply this same analysis to the displacements <span class="process-math">\(x_1\)</span> and <span class="process-math">\(x_2\)</span> individually.</div> <div class="para" id="example-systems-odes-interconnected-spring-mass-system-3-2">To begin, we will analyze the forces acting on the first mass. Here there are two forces to consider: the force caused by the motion of <span class="process-math">\(m_1\)</span> and the force caused by the motion of <span class="process-math">\(m_2\text{.}\)</span> Likewise, the second mass is also influenced by two forces. We arrange these in the following table:</div> <figure class="table table-like" id="table-systems-odes-interconnected-spring-mass-system"><figcaption><span class="type">Table</span><span class="space"> </span><span class="codenumber">4.1.9<span class="period">.</span></span><span class="space"> </span>Forces acting on an interconnected spring-mass system</figcaption><div class="tabular-box natural-width"><table class="tabular">
+<tr>
+<td class="l m b1 r0 l0 t3 lines">mass</td>
+<td class="l m b1 r0 l0 t3 lines">forces</td>
+</tr>
+<tr>
+<td class="l m b0 r0 l0 t0 lines"><span class="process-math">\(m_1\)</span></td>
+<td class="l m b0 r0 l0 t0 lines"><span class="process-math">\(-k_1x_1, -k_2x_1, k_2x_2\)</span></td>
+</tr>
+<tr>
+<td class="l m b3 r0 l0 t0 lines"><span class="process-math">\(m_2\)</span></td>
+<td class="l m b3 r0 l0 t0 lines"><span class="process-math">\(k_2x_1, -k_2x_2\)</span></td>
+</tr>
+</table></div></figure> <div class="para logical" id="example-systems-odes-interconnected-spring-mass-system-3-4">
+<div class="para">Now we can apply Newton’s Second Law to get the <em class="emphasis">second</em>-order system</div>
+<div class="displaymath process-math" id="example-systems-odes-interconnected-spring-mass-system-3-4-2">
+\begin{align*}
+m_1x_1'' \amp = -k_1x_1 - k_2x_1 + k_2x_2 \\
+m_2x_2'' \amp = k_2x_1 - k_2x_2 \text{.}
+\end{align*}
+</div>
+<div class="para">At this point we can introduce new dependent variables <span class="process-math">\(u_1, u_2, u_3\)</span> and <span class="process-math">\(u_4\)</span> to get an equivalent first-order system.</div>
+</div> <div class="para" id="example-systems-odes-interconnected-spring-mass-system-3-5">Although this type of system is new, the solutions behave as expected. In particular, both <span class="process-math">\(x_1\)</span> and <span class="process-math">\(x_2\)</span> display periodic motion as can be seen by the Sage example below.</div> <div id="example-systems-odes-interconnected-spring-mass-system-3-6" class="ptx-sagecell sagecell-sage"><script type="text/x-sage"># Define our independent variable
+var('t')
+
+# Define the dependent variables as functions of t
+x1 = function('x_1')(t)
+x2 = function('x_2')(t)
+
+# System parameters
+m1, m2 = 1, 1
+k1, k2 = 4, 4
+
+# Define the equations in our system
+# If you wish to solve the corresponding first-order system,
+# you will need to specify four equations.
+de1 = m1*diff(x1, t, 2) == -(k1+k2)*x1 + k2*x2
+de2 = m2*diff(x1, t, 2) == k2*x1 - k2*x2
+
+# Display the (general) solution of this system
+# Note that the solution depends on initial conditions which
+# were NOT provided. In particular, D_0(x)(0) represents an
+# iniital condition of the form x'(0)
+show(desolve_system([de1, de2], [x1, x2]))
+</script></div>
+</div></details></div></article><article class="definition definition-like" id="definition-eigenvectors-and-eigenvalues"><h3 class="heading">
+<span class="type">Definition</span><span class="space"> </span><span class="codenumber">4.1.10</span><span class="period">.</span><span class="space"> </span><span class="title">Eigenvectors and eigenvalues.</span>
+</h3>  <div class="para" id="definition-eigenvectors-and-eigenvalues-3-1">Let <span class="process-math">\(A\)</span> be a matrix. A nonzero vector <span class="process-math">\(\vec{v}\)</span> is an <dfn class="terminology">eigenvector</dfn> of <span class="process-math">\(A\)</span> if <span class="process-math">\(A\vec{v} = \lambda\vec{v}\)</span> for some scalar <span class="process-math">\(\lambda\text{.}\)</span> We call <span class="process-math">\(\lambda\)</span> an <dfn class="terminology">eigenvalue</dfn> of <span class="process-math">\(A\)</span> corresponding to the eigenvector <span class="process-math">\(\vec{v}\text{.}\)</span>
+</div></article><article class="example example-like" id="example-eigenvalue-eigenvector"><h3 class="heading">
+<span class="type">Example</span><span class="space"> </span><span class="codenumber">4.1.11</span><span class="period">.</span>
+</h3>
+<div class="para" id="example-eigenvalue-eigenvector-1-1">Determine if <span class="process-math">\(\vec{v} = \begin{bmatrix}-2\\1\end{bmatrix}\)</span> is an eigenvector of <span class="process-math">\(A = \begin{bmatrix}1\amp4\\1\amp1\end{bmatrix}\text{.}\)</span>
+</div>
+<div class="solutions"><details id="example-eigenvalue-eigenvector-2" class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="period">.</span></summary><div class="solution solution-like knowl__content"><div class="para logical" id="example-eigenvalue-eigenvector-2-1">
+<div class="para">To do this, we just need to compute <span class="process-math">\(A\vec{v}:\)</span>
+</div>
+<div class="displaymath process-math">
+\begin{equation*}
+A\vec{v} = \begin{bmatrix}1\amp4\\1\amp1\end{bmatrix}\begin{bmatrix}-2\\1\end{bmatrix} = \begin{bmatrix}2\\-1\end{bmatrix} = -\vec{v}\text{.}
+\end{equation*}
+</div>
+<div class="para">So <span class="process-math">\(\vec{v}\)</span> is an eigenvector of <span class="process-math">\(A\)</span> with corresponding eigenvalue <span class="process-math">\(\lambda=-1\text{.}\)</span>
+</div>
+</div></div></details></div></article><div class="para" id="section-systems-of-odes-as-models-19">Since we will be looking at systems of ODEs which involve functions, we will need to define vector-valued functions. These objects will represent the solutions of our systems.</div>
+<article class="definition definition-like" id="definition-vector-valued-function"><h3 class="heading">
+<span class="type">Definition</span><span class="space"> </span><span class="codenumber">4.1.12</span><span class="period">.</span><span class="space"> </span><span class="title">Vector-Valued Functions.</span>
+</h3>  <div class="para" id="definition-vector-valued-function-4-1">A <dfn class="terminology">vector-valued function</dfn> is a vector whose elements are functions. If each of the functions in a vector <span class="process-math">\(\vec{x}\)</span> depends on the variable <span class="process-math">\(t\text{,}\)</span> we often write <span class="process-math">\(\vec{x}(t)\)</span> to denote this. The derivative of a vector-valued function <span class="process-math">\(\vec{x}(t) = \begin{bmatrix}x_{1}(t)\\x_{2}(t)\end{bmatrix}\)</span> is the new vector-valued function <span class="process-math">\(\vec{x}^\prime(t)=\begin{bmatrix}x^\prime_{1}(t)\\x^\prime_{2}(t)\end{bmatrix}\text{.}\)</span>
+</div></article><div class="para logical" id="section-systems-of-odes-as-models-21">
+<div class="para">We now have all of the tools we need to rewrite a first-order system as a matrix ODE. Let</div>
+<div class="displaymath process-math" id="section-systems-of-odes-as-models-21-1">
+\begin{align*}
+x^\prime \amp= a_{11}x+a_{12}y\\
+y^\prime \amp= a_{21}x+a_{22}y
+\end{align*}
+</div>
+<div class="para">If <span class="process-math">\(A = \begin{bmatrix}a_{11}\amp a_{12} \\ a_{21}\amp a_{22}\end{bmatrix}\)</span> and <span class="process-math">\(\vec{x} = \begin{bmatrix}x\\y\end{bmatrix}\text{,}\)</span> then</div>
+<div class="displaymath process-math">
+\begin{equation*}
+A\vec{x} = \begin{bmatrix}x^\prime\\y^\prime\end{bmatrix} = \vec{x}^\prime\text{.}
+\end{equation*}
+</div>
+<div class="para">In other words, we may rewrite the system as the matrix ODE</div>
+<div class="displaymath process-math">
+\begin{equation*}
+\vec{x}^\prime =A\vec{x}\text{.}
+\end{equation*}
+</div>
+</div>
+<article class="example example-like" id="example-systems-odes-matrix-ode"><h3 class="heading">
+<span class="type">Example</span><span class="space"> </span><span class="codenumber">4.1.13</span><span class="period">.</span>
+</h3>
+<div class="para logical" id="example-systems-odes-matrix-ode-1-1">
+<div class="para">Write the system</div>
+<div class="displaymath process-math" id="example-systems-odes-matrix-ode-1-1-1">
+\begin{align*}
+x^\prime_{1}  \amp = -\frac{1}{2}x_{1}\\
+x^\prime_{2}  \amp = \frac{1}{2}x_{1}-\frac{5}{7}x_{2}
+\end{align*}
+</div>
+<div class="para">as a matrix ODE.</div>
+</div>
+<div class="solutions"><details id="example-systems-odes-matrix-ode-2" class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="period">.</span></summary><div class="solution solution-like knowl__content"><div class="para logical" id="example-systems-odes-matrix-ode-2-1">
+<div class="para">We need to find a matrix <span class="process-math">\(A\)</span> and vector <span class="process-math">\(\vec{x}\)</span> to let us rewrite this system. The matrix <span class="process-math">\(A\)</span> is formed from the coefficients of <span class="process-math">\(x_{1},x_{2}\)</span> on the right hand side of the system:</div>
+<div class="displaymath process-math">
+\begin{equation*}
+A = \begin{bmatrix}-\frac{1}{2}\amp 0\\\frac{1}{2}\amp -\frac{5}{7}\end{bmatrix}.
+\end{equation*}
+</div>
+<div class="para">The vector <span class="process-math">\(\vec{x}\)</span> is just made up of the dependent variables <span class="process-math">\(x_{1},x_{2}\text{:}\)</span>
+</div>
+<div class="displaymath process-math">
+\begin{equation*}
+\vec{x} = \begin{bmatrix}x_{1}\\x_{2}\end{bmatrix}.
+\end{equation*}
+</div>
+<div class="para">With these terms, the original system of ODEs is equivalent to the single matrix ODE</div>
+<div class="displaymath process-math">
+\begin{equation*}
+\vec{x}^\prime = A\vec{x}.
+\end{equation*}
+</div>
+</div></div></details></div></article><article class="example example-like" id="example-systems-odes-matrix-ode-solution"><h3 class="heading">
+<span class="type">Example</span><span class="space"> </span><span class="codenumber">4.1.14</span><span class="period">.</span>
+</h3>
+<div class="para logical" id="example-systems-odes-matrix-ode-solution-1-1">
+<div class="para">Show that <span class="process-math">\(e^{-t}\vec{x}_{0}\)</span> where <span class="process-math">\(\vec{x}_{0} = \begin{bmatrix}-2\\1\end{bmatrix}\)</span> is a solution of the system</div>
+<div class="displaymath process-math">
+\begin{equation*}
+\vec{x}^\prime = \begin{bmatrix}1\amp 4\\1\amp 1\end{bmatrix}\vec{x}.
+\end{equation*}
+</div>
+</div>
+<div class="solutions"><details id="example-systems-odes-matrix-ode-solution-2" class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="period">.</span></summary><div class="solution solution-like knowl__content"><div class="para logical" id="example-systems-odes-matrix-ode-solution-2-1">
+<div class="para">We’ll check that <span class="process-math">\(\vec{x}_{0}\)</span> is a solution of the matrix ODE just as we check solutions for normal ODEs: plug the potential solution into the ODE and check both sides. If we do so, we get</div>
+<div class="displaymath process-math">
+\begin{equation*}
+\dv{}{t}\brackets*{e^{-t}\vec{x}_{0}} = -e^{-t}\begin{bmatrix}-2\\1\end{bmatrix} = e^{-t}\begin{bmatrix}2\\-1\end{bmatrix}
+\end{equation*}
+</div>
+<div class="para">and</div>
+<div class="displaymath process-math">
+\begin{equation*}
+\begin{bmatrix}1\amp 4\\1\amp 1\end{bmatrix}e^{-t}\vec{x}_{0} = e^{-t}\begin{bmatrix}1\amp 4\\1\amp 1\end{bmatrix}\begin{bmatrix}-2\\1\end{bmatrix} = e^{-t}\begin{bmatrix}2\\-1\end{bmatrix}\text{.}
+\end{equation*}
+</div>
+<div class="para">Since these expressions match, this means that <span class="process-math">\(e^{-t}\vec{x}_{0}\)</span> is a solution of the ODE.</div>
+</div></div></details></div></article><div class="para" id="section-systems-of-odes-as-models-24">One thing to note about the previous example is that <span class="process-math">\(\begin{bmatrix}-2\\1\end{bmatrix}\)</span> was an eigenvector of <span class="process-math">\(\begin{bmatrix}1\amp 4\\1\amp 1\end{bmatrix}\)</span> with corresponding eigenvalue <span class="process-math">\(\lambda=-1\text{.}\)</span> See <a href="section-systems-of-odes-as-models.html#example-eigenvalue-eigenvector" class="xref" data-knowl="./knowl/xref/example-eigenvalue-eigenvector.html" data-reveal-label="Reveal" data-close-label="Close" title="Example 4.1.11">Example 4.1.11</a>. This suggests that solutions of the matrix ODE <span class="process-math">\(\vec{x}^\prime = A\vec{x}\)</span> take the form <span class="process-math">\(\vec{x} = e^{\lambda t}\vec{x}_{0}\text{,}\)</span> where <span class="process-math">\(\lambda\)</span> is an eigenvalue of <span class="process-math">\(A\)</span> with corresponding eigenvector <span class="process-math">\(\vec{x}_{0}\text{.}\)</span> One last concept we need is that of linear independence of vectors.</div>
+<article class="definition definition-like" id="definition-linear-independence-of-vectors"><h3 class="heading">
+<span class="type">Definition</span><span class="space"> </span><span class="codenumber">4.1.15</span><span class="period">.</span><span class="space"> </span><span class="title">Linear Independence of Vectors.</span>
+</h3>  <div class="para logical" id="definition-linear-independence-of-vectors-3-1">
+<div class="para">Let <span class="process-math">\(\vec{x}_{1},\dots,\vec{x}_{n}\)</span> denote a collection of vectors. We say that the vectors are <dfn class="terminology">linearly independent</dfn> if the equality</div>
+<div class="displaymath process-math">
+\begin{equation*}
+\sum_{i=1}^{n}c_{i}\vec{x}_{i} = \vec{0}
+\end{equation*}
+</div>
+<div class="para">is possible if and only if <span class="process-math">\(c_{1}=\dots=c_{n}=0\text{.}\)</span> Otherwise, we say that the vectors are <dfn class="terminology">linearly dependent</dfn>.</div>
+</div></article><div class="para" id="section-systems-of-odes-as-models-26">Just as before, our primary tool for showing if a collection is linearly independent is the Wronskian.</div>
+<article class="definition definition-like" id="definition-wronskian-of-vectors"><h3 class="heading">
+<span class="type">Definition</span><span class="space"> </span><span class="codenumber">4.1.16</span><span class="period">.</span>
+</h3> <div class="para logical" id="definition-wronskian-of-vectors-3-1">
+<div class="para">The <dfn class="terminology">Wronskian</dfn> of <span class="process-math">\(\vec{x}_{1},\dots,\vec{x}_{n}\)</span> is the number <span class="process-math">\(W(\vec{x}_{1},\dots,\vec{x}_{n})\)</span> defined by</div>
+<div class="displaymath process-math">
+\begin{equation*}
+W(\vec{x}_{1},\dots,\vec{x}_{n}) = \begin{vmatrix}\vec{x}_{1}  \amp  \dots   \amp  \vec{x}_{n}\end{vmatrix}.
+\end{equation*}
+</div>
+<div class="para">The vectors <span class="process-math">\(\vec{x}_{1},\dots,\vec{x}_{n}\)</span> are linearly independent if and only if their Wronskian is nonzero.</div>
+</div></article></section></div>
+<div class="ptx-content-footer">
+<a class="previous-button button" href="systems-of-odes.html" title="Previous"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cb;</span><span class="name">Prev</span></a><a class="top-button button" href="#" title="Top"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5ce;</span><span class="name">Top</span></a><a class="next-button button" href="section-constant-coefficient-systems-and-the-phase-plane.html" title="Next"><span class="name">Next</span><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cc;</span></a>
+</div></main>
+</div>
+<div id="ptx-page-footer" class="ptx-page-footer">
+<a class="pretext-link" href="https://pretextbook.org" title="PreTeXt"><div class="logo"><svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" viewBox="338 3000 8772 6866"><g style="stroke-width:.025in; stroke:black; fill:none"><polyline points="472,3590 472,9732 " style="stroke:#000000;stroke-width:174; stroke-linejoin:miter; stroke-linecap:round; "></polyline><path style="stroke:#000000;stroke-width:126;stroke-linecap:butt;" d="M 4724,9448 A 4660 4660  0  0  1  8598  9259"></path><path style="stroke:#000000;stroke-width:174;stroke-linecap:butt;" d="M 4488,9685 A 4228 4228  0  0  0   472  9732"></path><path style="stroke:#000000;stroke-width:126;stroke-linecap:butt;" d="M 4724,3590 A 4241 4241  0  0  1  8598  3496"></path><path style="stroke:#000000;stroke-width:126;stroke-linecap:round;" d="M 850,3496  A 4241 4241  0  0  1  4724  3590"></path><path style="stroke:#000000;stroke-width:126;stroke-linecap:round;" d="M 850,9259  A 4507 4507  0  0  1  4724  9448"></path><polyline points="5385,4299 4062,8125" style="stroke:#000000;stroke-width:300; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="8598,3496 8598,9259" style="stroke:#000000;stroke-width:126; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="850,3496 850,9259" style="stroke:#000000;stroke-width:126; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="4960,9685 4488,9685" style="stroke:#000000;stroke-width:174; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="3070,4582 1889,6141 3070,7700" style="stroke:#000000;stroke-width:300; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="6418,4582 7600,6141 6418,7700" style="stroke:#000000;stroke-width:300; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="8976,3590 8976,9732" style="stroke:#000000;stroke-width:174; stroke-linejoin:miter; stroke-linecap:round;"></polyline><path style="stroke:#000000;stroke-width:174;stroke-linecap:butt;" d="M 4960,9685 A 4228 4228  0  0  1  8976  9732"></path></g></svg></div></a><a class="runestone-link" href="https://runestone.academy" title="Runestone Academy"><img class="logo" src="https://runestone.academy/runestone/static/images/RAIcon_cropped.png"></a><a class="mathjax-link" href="https://www.mathjax.org" title="MathJax"><img class="logo" src="https://www.mathjax.org/badge/badge-square-2.png"></a>
+</div>
+</body>
+</html>

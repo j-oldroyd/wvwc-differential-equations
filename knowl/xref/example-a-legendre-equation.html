@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en-US" dir="ltr">
+<!--********************************************-->
+<!--*       Generated from PreTeXt source      *-->
+<!--*                                          *-->
+<!--*         https://pretextbook.org          *-->
+<!--*                                          *-->
+<!--********************************************-->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="robots" content="noindex, nofollow">
+</head>
+<body class="ignore-math">
+<article class="example example-like"><h4 class="heading">
+<span class="type">Example</span><span class="space"> </span><span class="codenumber">5.1.11</span><span class="period">.</span><span class="space"> </span><span class="title">A Legendre Equation.</span>
+</h4>
+<div class="para logical">
+<div class="para">Show that</div>
+<div class="displaymath process-math">
+\begin{equation*}
+(1 - x^{2})y'' - 2xy^\prime + 2y = 0
+\end{equation*}
+</div>
+<div class="para">has a series solution centered at <span class="process-math">\(0\)</span> and then find the solution up to the coefficient of <span class="process-math">\(x^{6}\text{.}\)</span>
+</div>
+</div>
+<div class="solutions"><details class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="period">.</span></summary><div class="solution solution-like knowl__content">
+<div class="para logical">
+<div class="para">First, note that the equation can be rewritten</div>
+<div class="displaymath process-math">
+\begin{equation*}
+y'' - \frac{2x}{1 - x^{2}}y^\prime + \frac{2}{1 - x^{2}}y = 0\text{,}
+\end{equation*}
+</div>
+<div class="para">so we are guaranteed a series solution centered at <span class="process-math">\(x = 0\text{.}\)</span> Furthermore, this solution has radius of convergence at least <span class="process-math">\(R = 1\text{.}\)</span>
+</div>
+</div> <div class="para logical">
+<div class="para">To find the solution, we return to the original equation and substitute <span class="process-math">\(y = \sum_{n=0}^{\infty}c_{n}x^{n}\)</span> to get</div>
+<div class="displaymath process-math">
+\begin{equation*}
+\sum_{n\geq0}n(n-1)c_{n}x^{n-2} + \sum_{n\geq0}\brackets{-n(n-1) - 2n + 2}c_{n}x^{n} = 0
+\end{equation*}
+</div>
+<div class="para">which becomes</div>
+<div class="displaymath process-math">
+\begin{equation*}
+\sum_{n\geq0}\brackets{(n + 2)(n+1)c_{n+2} - n(n-1)c_{n} - 2nc_{n} + 2c_{n}}x^{n} = 0\text{.}
+\end{equation*}
+</div>
+<div class="para">After a little algebra, we get the recurrence relation</div>
+<div class="displaymath process-math">
+\begin{equation*}
+c_{n+2} = \frac{n-1}{n+1}c_{n}\text{.}
+\end{equation*}
+</div>
+<div class="para">This recurrence is valid for <span class="process-math">\(n\geq0\text{.}\)</span>
+</div>
+</div> <div class="para logical">
+<div class="para">Now we can use the recurrence to list the first several terms of the solution:</div>
+<div class="displaymath process-math">
+\begin{equation*}
+y = c_{1}x + c_{0}(1 - x^{2} - \frac{1}{3}x^{4} - \frac{1}{5}x^{6} - \cdots)
+\end{equation*}
+</div>
+<div class="para">In fact,</div>
+<div class="displaymath process-math">
+\begin{equation*}
+y = c_{1}x - \sum_{n\geq0}\frac{1}{2n - 1}c_{0}x^{2n} = c_1x + C_0x\ln\parens{\frac{1+x}{1-x}}\text{.}
+\end{equation*}
+</div>
+</div> <aside class="aside aside-like"><div class="para">In the last equation, <span class="process-math">\(C_0\)</span> has been substituted for <span class="process-math">\(-\frac{c_0}{2}\text{.}\)</span>
+</div></aside>
+</div></details></div></article><span class="incontext"><a class="internal" href="section-power-series-method.html#example-a-legendre-equation">in-context</a></span>
+</body>
+</html>

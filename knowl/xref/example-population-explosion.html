@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en-US" dir="ltr">
+<!--********************************************-->
+<!--*       Generated from PreTeXt source      *-->
+<!--*                                          *-->
+<!--*         https://pretextbook.org          *-->
+<!--*                                          *-->
+<!--********************************************-->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="robots" content="noindex, nofollow">
+</head>
+<body class="ignore-math">
+<article class="example example-like"><h4 class="heading">
+<span class="type">Example</span><span class="space"> </span><span class="codenumber">1.6.2</span><span class="period">.</span><span class="space"> </span><span class="title">Population Explosion.</span>
+</h4>
+<div class="para">A population has <span class="process-math">\(100\)</span> members at time <span class="process-math">\(t = 0\)</span> years with a death rate of <span class="process-math">\(.25P\)</span> and a birth rate of <span class="process-math">\(.5P\text{,}\)</span> where <span class="process-math">\(P(t)\)</span> denotes the population after <span class="process-math">\(t\)</span> years. Find <span class="process-math">\(P(t)\)</span> and determine if this is a reasonable population model.</div>
+<div class="solutions"><details class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="period">.</span></summary><div class="solution solution-like knowl__content">
+<div class="para logical">
+<div class="para">If we assume that the population obeys the general growth equation, then we get</div>
+<div class="displaymath process-math">
+\begin{equation*}
+P^\prime = .25P^{2}, P(0) = 100.
+\end{equation*}
+</div>
+<div class="para">This ODE is separable, and we can therefore solve it to get</div>
+<div class="displaymath process-math">
+\begin{equation*}
+P(t) = \frac{100}{1 - 25t}.
+\end{equation*}
+</div>
+</div> <div class="para logical">
+<div class="para">So we have a solution, and furthermore <a href="section-existence-and-uniqueness-of-solutions.html#theorem-existence-and-uniqueness-theorem" class="xref" data-knowl="./knowl/xref/theorem-existence-and-uniqueness-theorem.html" data-reveal-label="Reveal" data-close-label="Close" title="Theorem 1.5.2: Existence and Uniqueness Theorem">Theorem 1.5.2</a> guarantees that the solution is unique. But if you stare at this for a bit, you might see that it has a divide-by-zero problem. In particular,</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/theorem-existence-and-uniqueness-theorem.html">
+\begin{equation*}
+\lim_{t\to(\frac{1}{25})^{+}}P(t) = \infty.
+\end{equation*}
+</div>
+<div class="para">In other words, the population becomes infinite in about two weeks!</div>
+</div>
+</div></details></div></article><span class="incontext"><a class="internal" href="section-population-models-and-autonomous-equations.html#example-population-explosion">in-context</a></span>
+</body>
+</html>

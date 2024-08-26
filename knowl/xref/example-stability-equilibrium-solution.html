@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en-US" dir="ltr">
+<!--********************************************-->
+<!--*       Generated from PreTeXt source      *-->
+<!--*                                          *-->
+<!--*         https://pretextbook.org          *-->
+<!--*                                          *-->
+<!--********************************************-->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="robots" content="noindex, nofollow">
+</head>
+<body class="ignore-math">
+<article class="example example-like"><h4 class="heading">
+<span class="type">Example</span><span class="space"> </span><span class="codenumber">4.3.4</span><span class="period">.</span><span class="space"> </span><span class="title">Classifying a critical point using a phase portrait.</span>
+</h4>
+<div class="para logical">
+<div class="para">Using a phase portrait, determine the type of critical point that <span class="process-math">\(\vec{y} = \vec{0}\)</span> is for the matrix ODE <span class="process-math">\(\vec{y}^\prime=A\vec{y}\)</span> where</div>
+<div class="displaymath process-math">
+\begin{equation*}
+\vec{y} = \begin{bmatrix}y_{1}(t) \\ y_{2}(t)\end{bmatrix}\quad\text{and}\quad A = \begin{bmatrix}3 \amp  4 \\ -4 \amp  3\end{bmatrix}\text{.}
+\end{equation*}
+</div>
+</div>
+<div class="solutions"><details class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="period">.</span></summary><div class="solution solution-like knowl__content">
+<div class="para logical">
+<div class="para">As seen in <a href="section-phase-plane-criteria-for-critical-points-stability.html#figure-classify-stability-using-phase-portrait" class="xref" data-knowl="./knowl/xref/figure-classify-stability-using-phase-portrait.html" data-reveal-label="Reveal" data-close-label="Close" title="Figure 4.3.5">Figure 4.3.5</a>, every (nonzero) trajectory will spiral outward from <span class="process-math">\(\vec{y} = \vec{0}\)</span> as <span class="process-math">\(t\to\infty\text{,}\)</span> so <span class="process-math">\(\vec{0}\)</span> is a spiral point of this system. To see why, we only need to look at the eigenvalues of <span class="process-math">\(A\text{,}\)</span> which we find to be</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/figure-classify-stability-using-phase-portrait.html">
+\begin{equation*}
+\lambda_{1} = 3+4i,\lambda_{2} = 3-4i\text{.}
+\end{equation*}
+</div>
+<div class="para">This means that the general solution of <span class="process-math">\(\vec{y}^\prime = A\vec{y}\)</span> must look like</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/figure-classify-stability-using-phase-portrait.html">
+\begin{align*}
+\vec{y} \amp = c_{1}e^{(3+4i)t}\vec{y}_{1} + c_{2}e^{(3-4i)t}\vec{y}_{2}\\
+\amp = e^{3t}\brackets{c_{1}e^{4it}\vec{y}_{1}+c_{2}e^{-4it}\vec{y}_{2}}\\
+\amp = e^{3t}\brackets{(\cos4t)\vec{x}_{1}+(\sin4t)\vec{x}_{2}}\text{.}
+\end{align*}
+</div>
+</div> <div class="para">The real part of the eigenvalues leads to the “growth term” of <span class="process-math">\(e^{3t}\)</span> appearing in the solution, which causes the trajectories to diverge as <span class="process-math">\(t\to\infty\text{.}\)</span> The imaginary part of the eigenvalues leads to the “oscillating terms” of <span class="process-math">\(\cos4t,\sin4t\)</span> appearing in the solution, which gives the trajectories their spiral motion.</div>
+</div></details></div></article><span class="incontext"><a class="internal" href="section-phase-plane-criteria-for-critical-points-stability.html#example-stability-equilibrium-solution">in-context</a></span>
+</body>
+</html>
