@@ -193,7 +193,6 @@
       </p>
       <theorem xml:id="theorem-finding-radius-convergence">
         <idx><h>power series</h><h>radius of convergence</h></idx>
-        <title>Finding the radius of convergence</title>
         <statement>
           <p>
             Given the power series <m>\sum_{n=0}^{\infty}c_{n}x^{n}</m>, define the number <m>\rho</m> by the limit
@@ -794,7 +793,6 @@
             <md>
               <mrow>y \amp= \sum_{k\geq0}^{}c_{k}x^{k}</mrow>
               <mrow>\amp= \sum_{k\geq0}c_{2k}x^{2k} + \sum_{k\geq0}c_{2k+1}x^{2k+1}</mrow>
-              % \amp= c_{0}+c_{1}x+c_{2}x^{2}+c_{3}x^{3}+c_{4}x^{4}+c_{5}x^{5} + \cdots
               <mrow>\amp= c_{0}\sum_{k\geq0}^{}(-1)^{k}\frac{x^{2k}}{2^{k}}+c_{1}\sum_{k\geq0}^{}(-1)^{k}\frac{x^{2k+1}}{2^{k}}</mrow>
               <mrow>\amp= c_{0}\sum_{k\geq0}^{}\left(-\frac{x^{2}}{2}\right)^{k}+c_{1}x\sum_{k\geq0}^{}\left(-\frac{x^{2}}{2}\right)^{k}</mrow>
               <mrow>\amp= \frac{c_{0}}{1+\frac{x^{2}}{2}} + \frac{c_{1}x}{1+\frac{x^{2}}{2}}</mrow>
@@ -1170,14 +1168,42 @@
       <figure xml:id="figure-bessel-approximation-first-kind">
         <caption>Approximating a Bessel function</caption>
         <image xml:id="image-bessel-approximation-first-kind">
-          <sageplot>
+          <!-- <sageplot>
             f = sqrt(2 / (pi * x)) * cos(x - 3*pi / 4)
             J1 = bessel_J(1, x)
 
             P = plot(J1, (x, -1, 50), legend_label = "$J_{1}(x)$")
             P += plot(f, (x, -1, 50), color = 'red', legend_label = r"$\sqrt{\frac{2}{\pi x}}\cos(x - 3\pi/4)$")
             P
-          </sageplot>
+          </sageplot> -->
+          <asymptote>
+            import graph;
+            import fontsize;
+
+            defaultpen(fontsize(9pt));
+            size(200);
+
+            real bessel1(real x) {return Jn(1, x);}
+            real bessel1approx(real x) {return sqrt(2/(pi*x))*cos(x-3*pi/4);}
+            real xmin=-1, xmax=10;
+            real ymin=-2, ymax=2;
+            real eps = 0.2;
+
+            //plot graphs
+            draw(graph(bessel1, -1, 10), deepblue+1bp, "$y = J_1(x)$");
+            draw(graph(bessel1approx, 0.05, 10), deepgreen+1bp, "$y = \sqrt{\frac{2}{\pi x}}\cos(x - \frac{3\pi}{4})$");
+
+            //plot annotations
+            arrowbar axisarrow = Arrow(TeXHead);
+            Label xlabel = Label("$x$", position = EndPoint, align = 2E);
+            Label ylabel = Label("$y$", position = EndPoint, align = 2N);
+
+            xaxis(YEquals(0),xmin - eps,xmax + eps, LeftTicks(NoZeroFormat), L=xlabel, arrow=axisarrow);
+            yaxis(XEquals(0),ymin - eps,ymax + eps,RightTicks(NoZeroFormat), L = ylabel, arrow = axisarrow);
+            // "Nice" labeling for origin.
+            label("$0$", (0,0), NW);
+            attach(legend(),point(E),20E,UnFill);
+          </asymptote>
         </image>
       </figure>
     </subsection>
@@ -1193,7 +1219,7 @@
         <idx><h>Gamma function</h></idx>
         <notation>
           <usage><m>\Gamma(x)</m></usage>
-          <descrption>Gamma function</descrption>
+          <description>Gamma function</description>
         </notation>
         <statement>
           <p>
