@@ -1129,6 +1129,27 @@
       </p>
     </introduction>
 
+    <subsection xml:id="subsec-existence-and-uniqueness-for-linear-differential-equations">
+      <title>Existence and uniqueness for linear differential equations</title>
+      <p>
+        Recall that a first-order linear ordinary differential equation is one that can be written in the form <xref ref="definition-first-order-linear-odes"/>.
+        For such equations, we have the following relatively simple test for existence and uniqueness.
+      </p>
+
+      <theorem xml:id="thm-existence-uniqueness-first-order-linear">
+        <statement>
+          <p>
+            Consider the initial value problem given by
+            <me>
+              y' + P(x)y = Q(x), y(x_0) = y_0
+            </me>
+            and let <m>I</m> be an open interval on which <m>P(x)</m> and <m>Q(x)</m> are both continuous, with <m>b\in I</m>.
+            Then the initial value problem has a unique solution.
+          </p>
+        </statement>
+      </theorem>
+      
+    </subsection>
 
     <subsection xml:id="subsection-existence-and-uniqueness-theorem">
       <title>Existence and Uniqueness Theorem</title>
