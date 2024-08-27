@@ -116,9 +116,9 @@ window.MathJax = {
 #subsection-existence-and-uniqueness-theorem-2-1 { counter-set: subsection-existence-and-uniqueness-theorem-2-1 0; }
 #subsection-existence-and-uniqueness-theorem-2-1 > li::marker { content: ""counter(subsection-existence-and-uniqueness-theorem-2-1,decimal)"."; }
 #subsection-existence-and-uniqueness-theorem-2-1 > li { counter-increment: subsection-existence-and-uniqueness-theorem-2-1; }
-#example-determining-a-sustainable-population-3-3 { counter-set: example-determining-a-sustainable-population-3-3 0; }
-#example-determining-a-sustainable-population-3-3 > li::marker { content: ""counter(example-determining-a-sustainable-population-3-3,decimal)"."; }
-#example-determining-a-sustainable-population-3-3 > li { counter-increment: example-determining-a-sustainable-population-3-3; }
+#example-determining-a-sustainable-population-3-2-5 { counter-set: example-determining-a-sustainable-population-3-2-5 0; }
+#example-determining-a-sustainable-population-3-2-5 > li::marker { content: ""counter(example-determining-a-sustainable-population-3-2-5,decimal)"."; }
+#example-determining-a-sustainable-population-3-2-5 > li { counter-increment: example-determining-a-sustainable-population-3-2-5; }
 #example-types-of-second-order-odes-2-1 { counter-set: example-types-of-second-order-odes-2-1 0; }
 #example-types-of-second-order-odes-2-1 > li::marker { content: ""counter(example-types-of-second-order-odes-2-1,decimal)"."; }
 #example-types-of-second-order-odes-2-1 > li { counter-increment: example-types-of-second-order-odes-2-1; }
@@ -699,16 +699,16 @@ P(27) = 317.9,
 <div class="para">The harvesting will be sustainable as long as the population does not become extinct. To determine this long term behavior, we’ll find the critical points and set up a phase diagram.</div>
 </div> <div class="para logical" id="example-determining-a-sustainable-population-3-2">
 <div class="para">The critical points are given by</div>
-<div class="displaymath process-math">
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/figure-population-models-sustainable-population-h-equals-450.html">
 \begin{equation*}
 P = 15 \pm \sqrt{3600 - 8h}
 \end{equation*}
 </div>
 <div class="para">by the quadratic formula. We now have three cases to consider: <span class="process-math">\(3600 - 8h \lt 0, 3600 - 8h = 0, 3600 - 8h \gt 0.\)</span> In terms of <span class="process-math">\(h\text{,}\)</span> these reduce to <span class="process-math">\(h \lt 450, h = 450, h \gt 450\text{.}\)</span>
 </div>
-</div> <ol class="decimal" id="example-determining-a-sustainable-population-3-3">
-<li id="example-determining-a-sustainable-population-3-3-1">
-<div class="para logical" id="example-determining-a-sustainable-population-3-3-1-1">
+<ol class="decimal" id="example-determining-a-sustainable-population-3-2-5">
+<li id="example-determining-a-sustainable-population-3-2-5-1">
+<div class="para logical" id="example-determining-a-sustainable-population-3-2-5-1-1">
 <div class="para">In the first case, if <span class="process-math">\(h \lt 450\)</span> then we have two positive, real critical points:</div>
 <div class="displaymath process-math">
 \begin{equation*}
@@ -717,18 +717,19 @@ P = 15 \pm \sqrt{3600 - 8h}
 </div>
 <div class="para">The phase diagram for this situation is</div>
 </div>
-<figure class="figure figure-like" id="example-determining-a-sustainable-population-3-3-1-2"><div class="image-box" style="width: 50%; margin-left: 25%; margin-right: 25%;"><img src="generated/latex-image/example-determining-a-sustainable-population-3-3-1-2-1.svg" role="img" class="contained"></div>
-<figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">1.6.10<span class="period">.</span></span><span class="space"> </span></figcaption></figure><div class="para" id="example-determining-a-sustainable-population-3-3-1-3">So we see that <span class="process-math">\(c_{1}\)</span> is unstable while <span class="process-math">\(c_{2}\)</span> is stable. In particular, as long as <span class="process-math">\(P\geq c_{1} = 15 - \sqrt{3600 - 8h}\text{,}\)</span> then the rate of harvesting is sustainable.</div>
+<figure class="figure figure-like" id="example-determining-a-sustainable-population-3-2-5-1-2"><div class="image-box" style="width: 50%; margin-left: 25%; margin-right: 25%;"><img src="generated/latex-image/example-determining-a-sustainable-population-3-2-5-1-2-2.svg" role="img" class="contained"></div>
+<figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">1.6.10<span class="period">.</span></span><span class="space"> </span>Phase diagram for <span class="process-math">\(h \lt 450\)</span></figcaption></figure><div class="para" id="example-determining-a-sustainable-population-3-2-5-1-3">So we see that <span class="process-math">\(c_{1}\)</span> is unstable while <span class="process-math">\(c_{2}\)</span> is stable. In particular, as long as <span class="process-math">\(P\geq c_{1} = 15 - \sqrt{3600 - 8h}\text{,}\)</span> then the rate of harvesting is sustainable.</div>
 </li>
-<li id="example-determining-a-sustainable-population-3-3-2">
-<div class="para" id="example-determining-a-sustainable-population-3-3-2-1">Now assume that <span class="process-math">\(h = 450\text{.}\)</span> Then we have only one equilibrium solution: <span class="process-math">\(c = 15\text{.}\)</span> The corresponding phase diagram is</div>
-<figure class="figure figure-like" id="example-determining-a-sustainable-population-3-3-2-2"><div class="image-box" style="width: 50%; margin-left: 25%; margin-right: 25%;"><img src="generated/latex-image/example-determining-a-sustainable-population-3-3-2-2-1.svg" role="img" class="contained"></div>
-<figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">1.6.11<span class="period">.</span></span><span class="space"> </span></figcaption></figure><div class="para" id="example-determining-a-sustainable-population-3-3-2-3">We interpret the phase diagram as follows: if <span class="process-math">\(P\)</span> is less than <div class="para" id="example-determining-a-sustainable-population-3-3-2-3-2">15,000</div> then the population will collapse to extinction. Otherwise, the population will stabilize at <span class="process-math">\(15,000\text{.}\)</span> This type of critical point is often called <dfn class="terminology">semi-stable.</dfn>
+<li id="example-determining-a-sustainable-population-3-2-5-2">
+<div class="para" id="example-determining-a-sustainable-population-3-2-5-2-1">Now assume that <span class="process-math">\(h = 450\text{.}\)</span> Then we have only one equilibrium solution: <span class="process-math">\(c = 15\text{.}\)</span> We interpret the phase diagram in <a href="section-population-models-and-autonomous-equations.html#figure-population-models-sustainable-population-h-equals-450" class="xref" data-knowl="./knowl/xref/figure-population-models-sustainable-population-h-equals-450.html" data-reveal-label="Reveal" data-close-label="Close" title="Figure 1.6.11">Figure 1.6.11</a> as follows: if <span class="process-math">\(P\)</span> is less than <span class="process-math">\(15,000\)</span> then the population will collapse to extinction. Otherwise, the population will stabilize at <span class="process-math">\(15,000\text{.}\)</span> This type of critical point is often called <dfn class="terminology">semi-stable.</dfn>
 </div>
+<figure class="figure figure-like" id="figure-population-models-sustainable-population-h-equals-450"><div class="image-box" style="width: 50%; margin-left: 25%; margin-right: 25%;"><img src="generated/latex-image/image-population-models-sustainable-population-h-equals-450.svg" role="img" class="contained"></div>
+<figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">1.6.11<span class="period">.</span></span><span class="space"> </span>Phase diagram for <span class="process-math">\(h = 450\)</span></figcaption></figure>
 </li>
-<li id="example-determining-a-sustainable-population-3-3-3"><div class="para" id="example-determining-a-sustainable-population-3-3-3-1">Finally, consider the case <span class="process-math">\(h \gt 450\text{.}\)</span> Then we have no (real) critical points. Since imaginary populations don’t make sense in this model, there is no sustainable population. No matter how large the initial population, it will eventually go extinct if harvested at a rate greater than <span class="process-math">\(450\text{.}\)</span>
+<li id="example-determining-a-sustainable-population-3-2-5-3"><div class="para" id="example-determining-a-sustainable-population-3-2-5-3-1">Finally, consider the case <span class="process-math">\(h \gt 450\text{.}\)</span> Then we have no (real) critical points. Since imaginary populations don’t make sense in this model, there is no sustainable population. No matter how large the initial population, it will eventually go extinct if harvested at a rate greater than <span class="process-math">\(450\text{.}\)</span>
 </div></li>
-</ol> <div class="para" id="example-determining-a-sustainable-population-3-4">By the above, the largest sustainable harvesting rate is <span class="process-math">\(h = 450,\)</span> as long as <span class="process-math">\(P_{0}\geq 15\text{.}\)</span>
+</ol>
+</div> <div class="para" id="example-determining-a-sustainable-population-3-3">By the above, the largest sustainable harvesting rate is <span class="process-math">\(h = 450,\)</span> as long as <span class="process-math">\(P_{0}\geq 15\text{.}\)</span>
 </div>
 </div></details></div></article></section><section class="subsection" id="subsection-linear-stability-analysis"><h3 class="heading hide-type">
 <span class="type">Subsection</span><span class="space"> </span><span class="codenumber"></span><span class="space"> </span><span class="title">Linear Stability Analysis</span>

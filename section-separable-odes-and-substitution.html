@@ -116,9 +116,9 @@ window.MathJax = {
 #subsection-existence-and-uniqueness-theorem-2-1 { counter-set: subsection-existence-and-uniqueness-theorem-2-1 0; }
 #subsection-existence-and-uniqueness-theorem-2-1 > li::marker { content: ""counter(subsection-existence-and-uniqueness-theorem-2-1,decimal)"."; }
 #subsection-existence-and-uniqueness-theorem-2-1 > li { counter-increment: subsection-existence-and-uniqueness-theorem-2-1; }
-#example-determining-a-sustainable-population-3-3 { counter-set: example-determining-a-sustainable-population-3-3 0; }
-#example-determining-a-sustainable-population-3-3 > li::marker { content: ""counter(example-determining-a-sustainable-population-3-3,decimal)"."; }
-#example-determining-a-sustainable-population-3-3 > li { counter-increment: example-determining-a-sustainable-population-3-3; }
+#example-determining-a-sustainable-population-3-2-5 { counter-set: example-determining-a-sustainable-population-3-2-5 0; }
+#example-determining-a-sustainable-population-3-2-5 > li::marker { content: ""counter(example-determining-a-sustainable-population-3-2-5,decimal)"."; }
+#example-determining-a-sustainable-population-3-2-5 > li { counter-increment: example-determining-a-sustainable-population-3-2-5; }
 #example-types-of-second-order-odes-2-1 { counter-set: example-types-of-second-order-odes-2-1 0; }
 #example-types-of-second-order-odes-2-1 > li::marker { content: ""counter(example-types-of-second-order-odes-2-1,decimal)"."; }
 #example-types-of-second-order-odes-2-1 > li { counter-increment: example-types-of-second-order-odes-2-1; }
@@ -538,13 +538,14 @@ true);
 </h4>
 <div class="para" id="example-newton-s-law-of-cooling-again-2-1">A metal plate is removed from an oven and placed in a room. The temperature of the plate is <span class="process-math">\(100^{\circ}\)</span> Celsius and the temperature of the room is fixed at <span class="process-math">\(15^{\circ}\)</span> Celsius. After <span class="process-math">\(20\)</span> minutes the temperature of the plate drops to <span class="process-math">\(90^{\circ}\)</span> Celsius. How hot is the plate after five hours?</div>
 <div class="solutions"><details id="example-newton-s-law-of-cooling-again-3" class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="period">.</span></summary><div class="solution solution-like knowl__content">
-<div class="para" id="example-newton-s-law-of-cooling-again-3-1">Let <span class="process-math">\(T(t)\)</span> denote the temperature of the plate <span class="process-math">\(t\)</span> minutes after being removed from the oven and let <span class="process-math">\(A(t)\)</span> denote the temperature of the room <span class="process-math">\(t\)</span> minutes after the plate is removed from the oven. Then <span class="process-math">\(T(0) = 100\)</span> and Newton’s Law of Cooling says that</div>
+<div class="para logical" id="example-newton-s-law-of-cooling-again-3-1">
+<div class="para">Let <span class="process-math">\(T(t)\)</span> denote the temperature of the plate <span class="process-math">\(t\)</span> minutes after being removed from the oven and let <span class="process-math">\(A(t)\)</span> denote the temperature of the room <span class="process-math">\(t\)</span> minutes after the plate is removed from the oven. Then <span class="process-math">\(T(0) = 100\)</span> and Newton’s Law of Cooling says that</div>
 <div class="displaymath process-math">
 \begin{equation*}
-\dv{T}{t} = k(T-15).
+\dv{T}{t} = k(T-15)\text{.}
 \end{equation*}
 </div>
-<div class="para logical" id="example-newton-s-law-of-cooling-again-3-3">
+</div> <div class="para logical" id="example-newton-s-law-of-cooling-again-3-2">
 <div class="para">To answer this question we need to find <span class="process-math">\(T\text{,}\)</span> and although we don’t know <span class="process-math">\(k\)</span> at the moment we can still make some progress just by remembering that it’s a constant. This ODE is separable, so we’ll separate variables and integrate both sides to get</div>
 <div class="displaymath process-math">
 \begin{equation*}
@@ -553,7 +554,7 @@ true);
 </div>
 <div class="para">which simplifies to <span class="process-math">\(T-15 = C_{1}e^{kt}\)</span> or just <span class="process-math">\(T = 15+C_{1}e^{kt}\text{.}\)</span>
 </div>
-</div> <div class="para logical" id="example-newton-s-law-of-cooling-again-3-4">
+</div> <div class="para logical" id="example-newton-s-law-of-cooling-again-3-3">
 <div class="para">Now we need to find <span class="process-math">\(C_{1}\)</span> and <span class="process-math">\(k\text{.}\)</span> To find <span class="process-math">\(C_{1}\text{,}\)</span> we just use the initial condition to get <span class="process-math">\(C_{1} = 85\text{.}\)</span> The only piece of information that we have left to find <span class="process-math">\(k\)</span> is the fact that the temperature of the plate drops to <span class="process-math">\(90\)</span> after <span class="process-math">\(20\)</span> minutes. In other words, <span class="process-math">\(T(20) = 90\text{.}\)</span> Therefore</div>
 <div class="displaymath process-math">
 \begin{equation*}
@@ -568,7 +569,7 @@ true);
 </div>
 <div class="para">Therefore <span class="process-math">\(k = \frac{1}{20}\ln\frac{15}{17}\approx-.006.\)</span>
 </div>
-</div> <div class="para" id="example-newton-s-law-of-cooling-again-3-5">So, finally, <span class="process-math">\(T(t) = 15+85e^{-.006t}\)</span> and the temperature after five hours is <span class="process-math">\(T(300)\approx28\text{.}\)</span>
+</div> <div class="para" id="example-newton-s-law-of-cooling-again-3-4">So, finally, <span class="process-math">\(T(t) = 15+85e^{-.006t}\)</span> and the temperature after five hours is <span class="process-math">\(T(300)\approx28\text{.}\)</span>
 </div>
 </div></details></div></article></section><section class="subsection" id="subsection-substitution-methods"><h3 class="heading hide-type">
 <span class="type">Subsection</span><span class="space"> </span><span class="codenumber"></span><span class="space"> </span><span class="title">Substitution Methods</span>
