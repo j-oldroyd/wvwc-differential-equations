@@ -26,18 +26,9 @@
         Consider the function <m>f(x)</m> given by the following graph:
       </p>
       <figure xml:id="figure-fourier-periodic-function">
-        <caption>A periodic function.</caption>
+        <caption>A periodic function</caption>
         <image xml:id="image-fourier-periodic-function">
-          <description>The graph of a periodic function.</description>
-          <!-- <sageplot>
-            # Declare variables and function!
-            var('x')
-            f(x) = cos(5*x)-5*sin(3*x)
-
-            # This actually plots the graph.
-            p = plot(f(x),(x,-3*pi,3*pi))
-            p
-          </sageplot> -->
+          <description><p>The graph of a periodic function.</p></description>
           <latex-image>
             \begin{tikzpicture}
               \begin{axis}[%
@@ -87,28 +78,10 @@
           The period, in particular, is <m>T = \frac{2\pi}{n}</m>.
           The periodic nature of these functions can also be seen from their graphs:
         </p>
-        <!-- <sage>
-          <input>
-            # This is setting up our graph.
-            x = np.linspace(-3*np.pi,3*np.pi,200)
-            y1 = np.cos(5*x)
-            y2 = np.sin(2*x)
-
-            # This actually plots the graphs.
-            plt.subplot(2,1,1)
-            plt.plot(x,y1,label=r'$\cos(5x)$')
-            plt.legend()
-
-            plt.subplot(2,1,2)
-            plt.plot(x,y2,label=r'$\sin(2x)$')
-            plt.legend()
-            plt.show()
-          </input>
-        </sage> -->
         <figure xml:id="figure-fourier-period-sine-cosine">
-          <caption>Graphs of <m>\sin(nx)</m> and <m>\cos(nx)</m>.</caption>
+          <caption>Graphs of <m>\sin(nx)</m> and <m>\cos(nx)</m></caption>
           <image xml:id="image-fourier-period-sine-cosine" width="60%">
-            <description>An image showing the periodic nature of sine and cosine.</description>
+            <description><p>An image showing the periodic nature of sine and cosine.</p></description>
             <latex-image>
               \begin{tikzpicture}
                 \begin{axis}[%
@@ -356,23 +329,23 @@
           p.show()
         </input>
       </sage>
-      <conclusion>
-        <p>
-          In general, the question of whether or not a given Fourier series makes sense is a difficult one to answer.<fn xml:id="footnote-convergence-of-fourier-series">In fact, the convergence of Fourier series for what one might consider to be the more "well-behaved" functions in mathematics was an open question until the 1960s. See <url href="https://en.wikipedia.org/wiki/Carleson%27s_theorem">Carleson's Theorem</url>.</fn>
-          However, for many of the functions we care about in this course we have the following theorem.
-        </p>
-        <theorem xml:id="theorem-pointwise-convergence-of-fourier-series">
-          <title>Fourier Series of Piecewise Continuous Functions</title>
-          <idx><h>Fourier series</h><h>convergence</h></idx>
-          <statement>
-            <p>
-              Let <m>f(x)</m> be a piecewise continuous function on the interval <m>-\pi\leq x\leq\pi</m>, and suppose that it's also periodic with period <m>2\pi</m>, and is differentiable everywhere that it's continuous.
-              Then the Fourier series of <m>f(x)</m> converges to <m>f(x)</m> except at the points where <m>f(x)</m> is discontinuous.
-            </p>
-          </statement>
-        </theorem>
-      </conclusion>
     </subsection>
+    <conclusion>
+      <p>
+        In general, the question of whether or not a given Fourier series makes sense is a difficult one to answer.<fn xml:id="footnote-convergence-of-fourier-series">In fact, the convergence of Fourier series for what one might consider to be the more "well-behaved" functions in mathematics was an open question until the 1960s. See <url href="https://en.wikipedia.org/wiki/Carleson%27s_theorem">Carleson's Theorem</url>.</fn>
+        However, for many of the functions we care about in this course we have the following theorem.
+      </p>
+      <theorem xml:id="theorem-pointwise-convergence-of-fourier-series">
+        <title>Fourier Series of Piecewise Continuous Functions</title>
+        <idx><h>Fourier series</h><h>convergence</h></idx>
+        <statement>
+          <p>
+            Let <m>f(x)</m> be a piecewise continuous function on the interval <m>-\pi\leq x\leq\pi</m>, and suppose that it's also periodic with period <m>2\pi</m>, and is differentiable everywhere that it's continuous.
+            Then the Fourier series of <m>f(x)</m> converges to <m>f(x)</m> except at the points where <m>f(x)</m> is discontinuous.
+          </p>
+        </statement>
+      </theorem>
+    </conclusion>
   </section>
   <section xml:id="section-functions-of-arbitrary-period-even-and-odd-extensions">
     <title>Functions of Arbitrary Period; Even and Odd Extensions</title>
@@ -387,7 +360,7 @@
         <caption>Sawtooth and square wave of period <m>p=1</m></caption>
         <sidebyside widths="40% 40%" margins="auto" valign="middle">
           <image xml:id="image-fourier-sawtooth-wave">
-            <latex-image xml:id="latex-image-fourier-sawtooth-wave">
+            <latex-image>
               \begin{tikzpicture}
                 \begin{axis}[
                   myaxis,
@@ -406,7 +379,7 @@
             </latex-image>
           </image>
           <image xml:id="image-fourier-square-wave">
-            <latex-image xml:id="latex-image-fourier-square-wave">
+            <latex-image>
               \begin{tikzpicture}
                 \begin{axis}[
                   myaxis,
@@ -825,8 +798,8 @@
           <me>\sum_{k = 1}^{N}(-1)^{k}\frac{2(6 - \pi^{2}k^{2})}{k^{3}}\sin kx</me>.
           The corresponding square error is
           <md>
-            <mrow>\int_{-\pi}^{\pi}x^{6}\,dx - \pi\sum_{k=1}^{N}\frac{4(6 - \pi^{2}k^{2})^{2}}{k^{6}} \amp = \frac{2\pi^{7}}{7} - \pi\sum_{k=1}^{N}\frac{4(6 - \pi^{2}k^{2})^{2}}{k^{6}} </mrow>.
-          </md>
+            <mrow>\int_{-\pi}^{\pi}x^{6}\,dx - \pi\sum_{k=1}^{N}\frac{4(6 - \pi^{2}k^{2})^{2}}{k^{6}} \amp = \frac{2\pi^{7}}{7} - \pi\sum_{k=1}^{N}\frac{4(6 - \pi^{2}k^{2})^{2}}{k^{6}} </mrow>
+          </md>.
         </p>
       </solution>
     </example>
