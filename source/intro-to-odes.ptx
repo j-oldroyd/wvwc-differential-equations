@@ -1727,7 +1727,20 @@
           <figure>
             <caption>The phase diagram for <m>x^\prime = f(x).</m></caption>
             <image width="50%">
-              <latex-image><![CDATA[ \begin{tikzpicture} % draw the line \draw (-1,0) -- (7,0); % draw arrows on line \draw[ultra thick,color=blue,<-] (1,0) -- (2,0); \draw[ultra thick,color=blue,->] (2,0) -- (3,0); \draw[ultra thick,color=blue,->] (4,0) -- (5,0); \draw[ultra thick,color=blue,<-] (5,0) -- (6,0); % draw the ticks at critical points \foreach \x in {2,5} \draw[xshift=\x cm] (0pt,5pt) -- (0pt,-2pt) node[yshift=-.4cm]{$x=\the\numexpr\x$}; % label the signs \node[yshift=.5cm] at (1,0){$f(x)<0$}; \node[yshift=.5cm] at (3.5,0){$f(x)>0$}; \node[yshift=.5cm] at (6,0){$f(x)<0$}; \end{tikzpicture}]]>
+              <latex-image>
+                \begin{tikzpicture} 
+                % draw the line \draw (-1,0) -- (7,0); 
+                % draw arrows on line \draw[ultra thick,color=blue,&lt;-] (1,0) -- (2,0); 
+                \draw[ultra thick,color=blue,-&gt;] (2,0) -- (3,0); 
+                \draw[ultra thick,color=blue,-&gt;] (4,0) -- (5,0); 
+                \draw[ultra thick,color=blue,&lt;-] (5,0) -- (6,0); 
+                
+                % draw the ticks at critical points 
+                \foreach \x in {2,5} \draw[xshift=\x cm] (0pt,5pt) -- (0pt,-2pt) node[yshift=-.4cm]{$x=\the\numexpr\x$}; 
+                % label the signs \node[yshift=.5cm] at (1,0){$f(x)&lt;0$}; 
+                \node[yshift=.5cm] at (3.5,0){$f(x)&gt;0$}; 
+                \node[yshift=.5cm] at (6,0){$f(x)&lt;0$}; 
+                \end{tikzpicture}
               </latex-image>
             </image>
           </figure>
