@@ -1,24 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 
-<!--********************************************************************
-Copyright 2015 Robert A. Beezer
-
-This file is part of PreTeXt.
-
-PreTeXt is free software: you can redistribute it and/or modify
-it under the terms of the GNU General Public License as published by
-the Free Software Foundation, either version 2 or version 3 of the
-License (at your option).
-
-PreTeXt is distributed in the hope that it will be useful,
-but WITHOUT ANY WARRANTY; without even the implied warranty of
-MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-GNU General Public License for more details.
-
-You should have received a copy of the GNU General Public License
-along with PreTeXt.  If not, see <http://www.gnu.org/licenses/>.
-*********************************************************************-->
-
 <!-- This is the "decorative" version for use when testing or     -->
 <!-- building samples for the website, keep in sync with the      -->
 <!-- "structural" version, which is  "publication-structural.xml" -->
@@ -70,7 +51,7 @@ along with PreTeXt.  If not, see <http://www.gnu.org/licenses/>.
         <!-- Base URL for HTML hosting. Currently using            -->
         <!-- GitHub Pages. According to documentation, value       -->
         <!-- be a directory and end in a slash                     -->
-        <baseurl href="https://j-oldroyd.github.io/wvwc-differential-equations/output/html/" />
+        <baseurl href="https://j-oldroyd.github.io/wvwc-differential-equations/" />
         <!-- Present examples without knowls. -->
         <knowl example="no"/>
         <!-- Set calculator for textbook.-->
