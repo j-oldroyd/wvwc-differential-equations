@@ -1,15 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 
-<!--********************************************************************
-
-*********************************************************************-->
-<!-- This file was originally part of the book     -->
-<!-- (as copied on 2015/07/12)                     -->
-<!--                                               -->
-<!--   Abstract Algebra: Theory and Applications   -->
-<!--                                               -->
-<!-- Copyright (C) 1997-2014  Thomas W. Judson     -->
-
 <chapter xml:id="linear-odes-constant-coefficients" xmlns:xi="http://www.w3.org/2001/XInclude">
   <title>Linear ODEs with Constant Coefficients</title>
   <shorttitle>Constant Coefficients</shorttitle>
@@ -306,11 +296,11 @@
         This is a huge hint that <m>y</m> should look like an exponential function.
         So we'll guess that <m>y = e^{rx}</m> for some real number <m>r</m>, and see if we can't pick <m>r</m> in just the right way to get a solution to the ODE.
         If we plug <m>e^{rx}</m> into the ODE, we get
+        <md>
+          <mrow>y''- y^\prime - 6y &amp; = r^{2}e^{rx} - re^{rx} - 6e^{rx} </mrow>
+          <mrow> &amp; = e^{rx}(r^{2} - r - 6) </mrow>
+        </md>.
       </p>
-      <md>
-        <mrow>y''- y^\prime - 6y &amp; = r^{2}e^{rx} - re^{rx} - 6e^{rx} </mrow>
-        <mrow> &amp; = e^{rx}(r^{2} - r - 6). </mrow>
-      </md>
       <p>
         So we need to set <m>e^{rx}(r^{2} - r - 6)</m> equal to <m>0</m> and solve for <m>r</m>, which gives
         <me>r = -2, 3.</me>
