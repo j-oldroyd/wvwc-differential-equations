@@ -6,7 +6,7 @@
       name="web" 
       format="html"
       source="wvwc-differential-equations.ptx"
-      deploy-dir="preview/html"
+      deploy-dir="preview/wvwc-differential-equations"
       output-dir="html">
         <stringparams author.tools="yes"/>
       </target>
@@ -14,7 +14,7 @@
       name="print" 
       format="pdf"
       source="wvwc-differential-equations.ptx"
-      deploy-dir="preview/print"
+      deploy-dir="preview/wvwc-differential-equations/print"
       xsl="wvwc-differential-equations-latex.xsl"/>
     <target
       name="print-dyslexic"
