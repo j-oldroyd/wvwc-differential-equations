@@ -7,7 +7,7 @@
   <introduction>
     <p>
       Now we move on to solving linear ODEs with constant coefficients.
-      We'll start with solving second-order ODEs.
+      We'll start with solving second-order ODEs since we already know how to solve first-order linear ODEs.
     </p>
   </introduction>
 
