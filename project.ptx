@@ -14,6 +14,7 @@
       name="print" 
       format="pdf"
       source="wvwc-differential-equations.ptx"
+      output-filename="wvwc-differential-equations.pdf"
       deploy-dir="preview/wvwc-differential-equations/print"
       xsl="wvwc-differential-equations-latex.xsl"/>
     <target
