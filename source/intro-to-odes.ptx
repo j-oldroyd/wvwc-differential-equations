@@ -131,26 +131,19 @@
             real dy(real x,real y) {return 2*x*y;}
             real xmin=-2, xmax=2;
             real ymin=-1.2, ymax=3;
-            //add(slopefield(dy,(xmin,ymin),(xmax,ymax),20,deepgreen+0.4bp,Arrow));
+            real eps=0.1;
+            
+            //Draw points for initial conditions and corresponding solutions
             pair C=(0,-0.4);
             draw(curve(C,dy,(xmin,ymin),(xmax,ymax)),deepblue+1bp,"$y=-0.4e^{x^{2}}$");
-            //label("$y = -0.4e^{x^{2}}$",C,N);
-            //dot(C,UnFill);
             pair C=(0,1.8);
             draw(curve(C,dy,(xmin,ymin),(xmax,ymax)),deepgreen+1bp,"$y = 1.8e^{x^{2}}$");
-            //label("$y = 1.8e^{x^{2}}$",C,S);
-            //dot(C,UnFill);
             pair C=(0,1);
             draw(curve(C,dy,(xmin,ymin),(xmax,ymax)),deepred+1bp,"$y = e^{x^{2}}$");
-            //label("$y = e^{x^{2}}$",C,S);
-            //dot(C,UnFill);
-            //xaxis("$x$", xmin, xmax, defaultpen+black, Ticks (laxis, Step=1.0, NoZero), Arrows (6), above=true);
-            //yaxis("$y$", ymin, ymax, defaultpen+black, Ticks (laxis, Step=1.0, NoZero), Arrows (6), above=true);
-            xaxis("$x$",YEquals(0),xmin,xmax,LeftTicks());
-            //xaxis(YEquals(ymax),xmin,xmax);
-            yaxis("$y$",XEquals(0),ymin,ymax,RightTicks());
-            //yaxis(XEquals(xmax),ymin,ymax);
-            attach(legend(),point(E),20E,UnFill);
+
+            //Plot annotations
+            xaxis(YEquals(0),xmin - eps,xmax + eps, LeftTicks(NoZeroFormat), L=xlabel, arrow=axisarrow);
+            yaxis(XEquals(0),ymin - eps,ymax + eps,RightTicks(NoZeroFormat), L = ylabel, arrow = axisarrow);
           </asymptote>
         </image>
       </figure>
