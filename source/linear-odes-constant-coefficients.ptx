@@ -69,13 +69,13 @@
 
       <p>
         Newton's Second Law is a great source of linear second-order ODEs, as <xref ref="example-a-second-order-model" text="type-global" /> shows.
-        However, we will first need to state <term>Hooke's Law</term>.
+        However, we will first need to state <term>Hooke's law</term>.
       </p>
 
       <theorem xml:id="theorem-hooke-s-law">
-        <title>Hooke's Law</title>
+        <title>Hooke's law</title>
 
-        <idx>Hooke's Law</idx>
+        <idx>Hooke's law</idx>
         <statement>
           <p>
             Consider an object attached to a spring.
@@ -111,7 +111,7 @@
       </example>
       <aside>
       <p>
-        The reason we take <m>F_{S} = -kx</m> in Hooke's Law is because we want to emphasize that the spring force is a <em>restoring force</em>, since it acts against the displacement of the mass.
+        The reason we take <m>F_{S} = -kx</m> in Hooke's law is because we want to emphasize that the spring force is a <em>restoring force</em>, since it acts against the displacement of the mass.
       </p>
       </aside>
 
@@ -465,8 +465,8 @@
           The imaginary roots <em>are not a problem</em>, and in fact provide significant information about the motion of the mass, as we'll soon see.
           The general solution of the ODE is
           <me>
-            x = c_{1}e^{-2it} + c_{2}e^{2it}.
-          </me>
+            x = c_{1}e^{-2it} + c_{2}e^{2it}
+          </me>.
         </p>
 
         <p>
@@ -474,12 +474,12 @@
           <md>
             <mrow>3 &amp; = c_{1} + c_{2} </mrow>
             <mrow>0 &amp; = -2ic_{1} + 2ic_{2} </mrow>
-          </md>
+          </md>.
           The second equation implies that <m>c_{1} = c_{2}</m>, and applying this to the first equation now gives <m>c_{1} = c_{2} = \frac{3}{2}</m>.
           Hence the displacement of the mass is given by
           <me>
-            x = \frac{3}{2}e^{-2it} + \frac{3}{2}e^{2it}.
-          </me>
+            x = \frac{3}{2}e^{-2it} + \frac{3}{2}e^{2it}
+          </me>.
         </p>
       </solution>
     </example>
@@ -490,9 +490,9 @@
     </p>
 
     <theorem xml:id="theorem-euler-s-formula">
-      <title>Euler's Formula</title>
+      <title>Euler's formula</title>
 
-      <idx>Euler's Formula</idx>
+      <idx>Euler's formula</idx>
       <statement>
         <p>
           For all <m>x</m>, the following equations hold:
@@ -500,24 +500,28 @@
             <mrow>e^{ix} &amp; = \cos x + i\sin x </mrow>
             <mrow>\cos x &amp; = \frac{e^{ix}+e^{-ix}}{2} </mrow>
             <mrow>\sin x &amp; = \frac{e^{ix} - e^{-ix}}{2i} </mrow>
-          </md>
+          </md>.
         </p>
       </statement>
     </theorem>
 
     <p>
-      So using Euler's Formula on the solution from <xref ref="example-spring-mass-system-revisited" text="type-global" /> gives
+      So using Euler's formula on the solution from <xref ref="example-spring-mass-system-revisited" text="type-global" /> gives
       <md>
         <mrow>x &amp; = \frac{3}{2}e^{-2it} + \frac{3}{2} e^{2it} </mrow>
         <mrow> &amp; = 3\frac{e^{-2it} + e^{2it}}{2} </mrow>
-        <mrow> &amp; = 3\cos2t. </mrow>
-      </md>
+        <mrow> &amp; = 3\cos2t </mrow>
+      </md>.
       So the imaginary roots <m>\pm2i</m> from <xref ref="example-spring-mass-system-revisited" text="type-global" /> actually relate to the <em>frequency</em> of the spring-mass system in that problem.
       This is a trend we will see often in this course: imaginary numbers corresponding to oscillating quantities.
     </p>
 
     <p>
       Now we'll take a look at how to solve second-order homogeneous ODEs whose characteristic equations have repeated roots.
+      This can only happen if the characteristic equation takes the form <m>(r-r_1)^2=0</m>, which means that the original ODE still has <m>y = e^{r_1x}</m> as one solution.
+      To get the general solution we need a second, linearly independent, solution.
+      We can guess that this second solution must also involve the exponential <m>e^{r_1x}</m>, but it can't be a scalar multiple since we need a linearly independent solution.
+      Therefore, we will try <m>xe^{r_1x}</m> as our second solution.
     </p>
 
     <example xml:id="example-repeated-roots-in-the-characteristic-equation">
@@ -537,22 +541,17 @@
           </me>
           The only solution of this equation is <m>r=-1</m>, which is a repeated root.
           We can still get one solution of the ODE using this root, namely <m>y_{1} = e^{-x}</m>, but we need two linearly independent solutions in order to find the general solution.
-        </p>
-
-        <p>
-          To get the other solution, we'll make another guess: whatever it happens to be, it should look quite a bit like the first solution <m>e^{-x}</m>, since it still needs to cancel out with its derivatives the same way that <m>e^{-x}</m> does.
-          The easiest way to get a function that looks like <m>e^{-x}</m> but is still linearly independent from <m>e^{-x}</m> is to just multiply by <m>x</m>.
-          In other words, we'll guess (and check!) that <m>y_{2} = xe^{-x}</m> is another solution of <m>y''+2y^\prime+y = 0</m>.
+          We'll guess (and check!) that <m>y_{2} = xe^{-x}</m> is another solution of <m>y''+2y'+y = 0</m>.
           If we plug <m>y_{2}</m> into the ODE, we get
           <md>
             <mrow>y''_{2} + 2y'_{2} + y_{2} &amp; = \underbrace{-2e^{-x} + xe^{-x}}_{y''_{2}} + \underbrace{2e^{-x} - 2xe^{-x}}_{y'_{2}} + \underbrace{xe^{-x}}_{y_{2}} </mrow>
-            <mrow> &amp; = 0, </mrow>
+            <mrow> &amp; = 0 </mrow>
           </md>
           which shows that <m>y_{2}</m> is indeed a solution of the ODE.
-          Since it's also linearly independent (which we can check via the Wronskian), this means that the general solution of <m>y''+2y^\prime+y=0</m> is
+          Since <m>\{y_1, y_2\}</m> is a linearly independent set of solutions (which we can check via the Wronskian), this means that the general solution of <m>y''+2y^\prime+y=0</m> is
           <me>
-            y = c_{1}y_{1} + c_{2}y_{2} = c_{1}e^{-x} + c_{2}xe^{-x}.
-          </me>
+            y = c_{1}y_{1} + c_{2}y_{2} = c_{1}e^{-x} + c_{2}xe^{-x}
+          </me>.
         </p>
       </solution>
     </example>
@@ -586,7 +585,7 @@
 
     <p>
       Remember that it's not a problem if the characteristic equation has imaginary roots, and in fact we must account for these in order to completely describe the corresponding physical system.
-      If we have imaginary roots, then we can simply use Euler's Formula to rewrite the solutions in terms of sine and cosine.
+      If we have imaginary roots, then we can simply use Euler's formula to rewrite the solutions in terms of sine and cosine.
     </p>
   </section>
 
@@ -597,7 +596,8 @@
       <p>
         In this section we examine a common application of second-order ODEs: modeling movement in a spring-mass system.
         We will look at two different types of motion: undamped and damped.
-        Note that this section corresponds to Section 2.4 of the text.
+        Damped motion will result from forces internal to the system and lead to homogeneous ODEs.
+        External forces lead to non-homogeneous models, which we will consider in <xref ref="section-forced-oscillations-and-resonance"/>.
       </p>
     </introduction>
 
@@ -611,7 +611,7 @@
 
       <figure xml:id="figure-spring-mass-system">
         <caption>A spring-mass system</caption>
-        <image>
+        <image xml:id="image-spring-mass-system">
           <latex-image>
             \begin{tikzpicture}
             % Stolen shamelessly from stackexchange.
@@ -640,18 +640,18 @@
       </figure>
 
       <p>
-        If we let <m>x(t)</m> denote the displacement of the mass from the spring's equilibrium position and let <m>F_{S} = -kx</m> denote the force of the spring on the mass (see <xref ref="theorem-hooke-s-law" text="custom">Hooke's Law</xref>), and assume that no other force is acting on the mass, then we know from <xref ref="example-a-second-order-model" text="type-global" /> that <m>x(t)</m> satisfies the second-order ODE given by
+        If we let <m>x(t)</m> denote the displacement of the mass from the spring's equilibrium position and let <m>F_{S} = -kx</m> denote the force of the spring on the mass (see <xref ref="theorem-hooke-s-law" text="custom">Hooke's law</xref>), and assume that no other force is acting on the mass, then we know from <xref ref="example-a-second-order-model" text="type-global" /> that <m>x(t)</m> satisfies the second-order ODE given by
         <me>
-          mx'' + kx = 0.
-        </me>
-        If we set <m>\omega_{0} = \sqrt{\frac{k}{m}}</m>, we can rewrite this to get
+          mx'' + kx = 0
+        </me>.
+        Now set <m>\omega_{0} = \sqrt{\frac{k}{m}}</m> so that we can rewrite this to get
         <me>
-          x'' + \omega_{0}^{2}x = 0.
-        </me>
+          x'' + \omega_{0}^{2}x = 0
+        </me>.
       </p>
 
       <p>
-        One thing we can notice right away about solutions of <m>x''+\omega_{0}^{2}x = 0</m> is that they should all be periodic (see <xref ref="definition-fourier-periodic-functions" text="type-global" />), which, of course, makes sense!.
+        One thing we can notice right away about solutions of <m>x''+\omega_{0}^{2}x = 0</m> is that they should all be periodic (see <xref ref="definition-fourier-periodic-functions" text="type-global" />), which, of course, makes sense!
         To see why, note that the roots of the characteristic equation are <m>\pm i\omega_{0}</m>, which means that the solutions may be written in the form
         <me>
           x = c_{1}e^{-i\omega_{0}t} + c_{2}e^{i\omega_{0}t},
@@ -660,17 +660,18 @@
         <me>
           x = A\cos\omega_{0}t + B\sin\omega_{0}t
         </me>
-        using Euler's Formula.
+        using <xref ref="theorem-euler-s-formula" text="title"/>.
         Hence every solution of <m>x''+\omega_{0}^{2}x = 0</m> is a sinusoidal wave.
       </p>
 
       <p>
         We can go even further by making use of some clever algebra and the appropriate trigonometric formulas if we assume that <m>x\neq0</m> (i.e.
-        <m>A</m> and <m>B</m> are not <em>both</em> <m>0</m>):
+        <m>A</m> and <m>B</m> are not <em>both</em> <m>0</m>).
+        In this case, we may write
         <md>
           <mrow>x &amp; = A\cos\omega_{0}t + B\sin\omega_{0}t </mrow>
           <mrow> &amp; = \sqrt{A^{2}+B^{2}}\left(\frac{A}{\sqrt{A^{2}+B^{2}}}\cos\omega_{0}t + \frac{B}{\sqrt{A^{2} + B^{2}}}\sin\omega_{0}t\right) </mrow>
-        </md>
+        </md>.
         Now set <m>C = \sqrt{A^{2} + B^{2}}</m> and define <m>\varphi</m> implicitly by <m>\cos\varphi = \frac{A}{C}</m> and <m>\sin\varphi = \frac{B}{C}</m>.
         Then we get
         <me>
@@ -681,6 +682,7 @@
       <aside>
       <p>
         There are infinitely many choices for <m>\varphi</m> here, but we can select a unique one if we make the extra restriction that <m>\varphi\in[0,2\pi)</m>.
+        Computer systems often include a function named <c>atan2</c> to handle the computation of <m>\varphi</m>, although this usually returns an angle in <m>(-\pi, \pi)</m>.
       </p>
       </aside>
 
@@ -699,7 +701,7 @@
             Let <m>x(t)</m> denote the position of the mass <m>t</m> seconds after being released, so that <m>x(0) = -5</m> and <m>x^\prime(0) = 0</m>.
             We could find the time it takes for the mass to return to its starting position by first finding <m>x(t)</m>, but a quicker way is to just find the period <m>T</m> of <m>x</m>.
             To do this, we must find the circular frequency <m>\omega_{0} = \sqrt{\frac{k}{m}}</m>.
-            Thankfully, half of the work is done for us (we know <m>m=5</m>), so we only need the value of <m>k</m> which itself comes from Hooke's Law.
+            Thankfully, half of the work is done for us (we know <m>m=5</m>), so we only need the value of <m>k</m> which itself comes from Hooke's law.
           </p>
 
           <p>
@@ -949,9 +951,9 @@
         This will help us to model systems involving an external force.
       </p>
       <aside>
-        <p>
-          This section corresponds to Section 2.7 of the text.
-        </p>
+      <p>
+        This section corresponds to Section 2.7 of the text.
+      </p>
       </aside>
     </introduction>
 
