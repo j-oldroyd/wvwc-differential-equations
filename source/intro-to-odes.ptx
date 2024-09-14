@@ -21,7 +21,7 @@
   </introduction>
 
   <section xml:id="section-ordinary-differential-equations">
-    <title>Ordinary Differential Equations</title>
+    <title>Ordinary differential equations</title>
 
     <introduction xml:id="introduction-ordinary-differential-equations">
       <p>
@@ -31,14 +31,14 @@
 
 
     <subsection xml:id="subsection-basic-concepts-for-odes">
-      <title>Basic Concepts</title>
+      <title>Basic concepts</title>
 
       <p>
         First, a definition of the primary concept in this course: the differential equation.
       </p>
 
       <definition xml:id="definition-differential-equations">
-        <title>Differential Equations</title>
+        <title>Differential equations</title>
 
         <idx><h>differential equations</h><h>definition</h></idx>
         <statement>
@@ -73,7 +73,7 @@
       </p>
 
       <definition xml:id="definition-solution-of-a-differential-equation">
-        <title>Solution of a Differential Equation</title>
+        <title>Solution of a differential equation</title>
 
         <idx><h>differential equations</h><h>solution</h></idx>
         <statement>
@@ -131,26 +131,19 @@
             real dy(real x,real y) {return 2*x*y;}
             real xmin=-2, xmax=2;
             real ymin=-1.2, ymax=3;
-            //add(slopefield(dy,(xmin,ymin),(xmax,ymax),20,deepgreen+0.4bp,Arrow));
+            real eps=0.1;
+            
+            //Draw points for initial conditions and corresponding solutions
             pair C=(0,-0.4);
             draw(curve(C,dy,(xmin,ymin),(xmax,ymax)),deepblue+1bp,"$y=-0.4e^{x^{2}}$");
-            //label("$y = -0.4e^{x^{2}}$",C,N);
-            //dot(C,UnFill);
             pair C=(0,1.8);
             draw(curve(C,dy,(xmin,ymin),(xmax,ymax)),deepgreen+1bp,"$y = 1.8e^{x^{2}}$");
-            //label("$y = 1.8e^{x^{2}}$",C,S);
-            //dot(C,UnFill);
             pair C=(0,1);
             draw(curve(C,dy,(xmin,ymin),(xmax,ymax)),deepred+1bp,"$y = e^{x^{2}}$");
-            //label("$y = e^{x^{2}}$",C,S);
-            //dot(C,UnFill);
-            //xaxis("$x$", xmin, xmax, defaultpen+black, Ticks (laxis, Step=1.0, NoZero), Arrows (6), above=true);
-            //yaxis("$y$", ymin, ymax, defaultpen+black, Ticks (laxis, Step=1.0, NoZero), Arrows (6), above=true);
-            xaxis("$x$",YEquals(0),xmin,xmax,LeftTicks());
-            //xaxis(YEquals(ymax),xmin,xmax);
-            yaxis("$y$",XEquals(0),ymin,ymax,RightTicks());
-            //yaxis(XEquals(xmax),ymin,ymax);
-            attach(legend(),point(E),20E,UnFill);
+
+            //Plot annotations
+            xaxis(YEquals(0),xmin - eps,xmax + eps, LeftTicks(NoZeroFormat), L=xlabel, arrow=axisarrow);
+            yaxis(XEquals(0),ymin - eps,ymax + eps,RightTicks(NoZeroFormat), L = ylabel, arrow = axisarrow);
           </asymptote>
         </image>
       </figure>
@@ -247,7 +240,7 @@
 
 
     <subsection xml:id="subsection-mathematical-models">
-      <title>Mathematical Models</title>
+      <title>Mathematical models</title>
 
       <p>
         Differential equations are useful because they can provide a mathematical model of a physical quantity.
@@ -350,17 +343,19 @@
   </section>
 
   <section xml:id="section-direction-fields">
-    <title>Direction Fields</title>
+    <title>Direction fields</title>
 
     <introduction>
       <p>
-        This section corresponds to Section 1.2 from the textbook.
+        Differential equations can often be quite difficult to solve, if not impossible.
+        In this section we will discuss a method to visualize the behavior of certain first-order differential equations without first solving them.
+        This approach, the <em>direction field</em> or <em>slope field</em>, is one that we will use again in <xref ref="systems-odes"/>.
       </p>
     </introduction>
 
 
     <subsection xml:id="subsection-direction-fields-and-solution-curves">
-      <title>Direction Fields and Solution Curves</title>
+      <title>Direction fields and solution curves</title>
 
       <p>
         Suppose we wanted to solve the ODE <m>\dv{y}{x} = x</m>.
@@ -374,6 +369,7 @@
       <aside>
         <p>Again, it's very important in this course not to forget the arbitrary constant <m>C</m>!</p>
       </aside>
+
       <p>
         Now let's make things a little more interesting.
         Suppose we wanted to solve the ODE <m>\dv{y}{x} = e^{-x^{2}}</m>.
@@ -385,6 +381,7 @@
           polynomial functions, as well as their inverses.
         </p>
       </aside>
+
       <p>
         This is because solving this ODE requires integrating <m>e^{-x^{2}}</m>, which as you may remember from Calculus 2 cannot be done without resorting to something like power series.
         Even if we can't solve the ODE, or if we can't solve it easily, we still want to be able to obtain some information from it.
@@ -421,6 +418,7 @@
           Direction fields are often called slope fields.
         </p>
       </aside>
+
       <example xml:id="example-plotting-a-direction-field-by-hand">
         <title>Plotting a direction field by hand</title>
 
@@ -683,7 +681,7 @@
   </section>
 
   <section xml:id="section-separable-odes-and-substitution">
-    <title>Separable ODEs and Substitution</title>
+    <title>Separable ODEs and substitution</title>
 
     <introduction>
       <p>
@@ -805,7 +803,7 @@
 
 
     <subsection xml:id="subsection-substitution-methods">
-      <title>Substitution Methods</title>
+      <title>Substitution methods</title>
 
       <p>
         At this point we can only solve a couple types of differential equations.
@@ -883,7 +881,7 @@
   </section>
 
   <section xml:id="section-first-order-linear-odes">
-    <title>First-Order Linear ODEs</title>
+    <title>First-order linear ODEs</title>
 
     <introduction>
       <p>
@@ -892,7 +890,7 @@
       </p>
 
       <definition xml:id="definition-first-order-linear-odes">
-        <title>First-Order Linear ODEs</title>
+        <title>First-order linear ODEs</title>
 
         <idx><h>first-order ODEs</h><h>first-order linear ODEs</h></idx>
         <statement>
@@ -918,7 +916,7 @@
 
 
     <subsection xml:id="subsection-integrating-factors">
-      <title>Integrating Factors</title>
+      <title>Integrating factors</title>
 
       <p>
         To get a sense of how to solve first-order linear ODEs, we'll try some relatively simple examples first.
@@ -1116,9 +1114,9 @@
   </section>
 
   <section xml:id="section-existence-and-uniqueness-of-solutions">
-    <title>Existence and Uniqueness of Solutions</title>
+    <title>Existence and uniqueness of solutions</title>
 
-    <shorttitle>Existence and Uniqueness</shorttitle>
+    <shorttitle>Existence and uniqueness</shorttitle>
     <introduction>
       <p>
         Now that we have seen how to solve several different types of differential equations, we will move on to the more general problem of determining when a given differential equation is actually solvable.
@@ -1152,7 +1150,7 @@
     </subsection>
 
     <subsection xml:id="subsection-existence-and-uniqueness-theorem">
-      <title>Existence and Uniqueness Theorem</title>
+      <title>Existence and uniqueness theorem</title>
 
       <p>
         There are two important questions we need to consider when developing a mathematical model using differential equations (i.e.
@@ -1194,7 +1192,7 @@
       </p>
 
       <theorem xml:id="theorem-existence-and-uniqueness-theorem">
-        <title>Existence and Uniqueness Theorem</title>
+        <title>Existence and uniqueness theorem</title>
 
         <idx><h>first-order ODEs</h><h>existence and uniqueness</h></idx>
         <statement>
@@ -1259,7 +1257,7 @@
 
 
     <subsection xml:id="subsection-picard-iteration">
-      <title>Picard Iteration</title>
+      <title>Picard iteration</title>
 
       <p>
         Now that we know of a way to determine whether or not certain ODEs have solutions, we'd like a method for actually finding these solutions.
@@ -1304,7 +1302,7 @@
       </p>
 
       <example xml:id="example-using-sage-to-compute-picard-iterates">
-        <title>Using Sage to Compute Picard Iterates</title>
+        <title>Using Sage to compute Picard iterates</title>
 
         <statement>
           <p>
@@ -1348,7 +1346,7 @@
 
 
     <subsection xml:id="subsection-euler-s-method">
-      <title>Euler's Method</title>
+      <title>Euler's method</title>
 
       <p>
         The Picard iteration approach can be useful for finding series approximations of the solution of an ODE.
@@ -1357,7 +1355,7 @@
       </p>
 
       <algorithm xml:id="algorithm-euler-s-method">
-        <title>Euler's Method</title>
+        <title>Euler's method</title>
 
         <statement>
           <p>
@@ -1380,7 +1378,7 @@
       </p>
 
       <example xml:id="example-euler-s-method-applied-to-nonlinear-ode">
-        <title>Euler's Method Applied to Nonlinear ODE</title>
+        <title>Euler's method applied to a nonlinear ODE</title>
 
         <statement>
           <p>
@@ -1468,11 +1466,11 @@
   </section>
 
   <section xml:id="section-population-models-and-autonomous-equations">
-    <title>Population Models and Autonomous Equations</title>
+    <title>Population models and autonomous equations</title>
 
     <shorttitle>Autonomous Equations</shorttitle>
-    <subsection xml:id="subsection-population-equations">
-      <title>Population Equations</title>
+    <subsection xml:id="subsection-population-models">
+      <title>Population models</title>
 
       <p>
         Suppose we're monitoring the population of some species, and let's denote the population at time <m>t</m> by <m>P(t)</m>.
@@ -1501,7 +1499,7 @@
       </p>
 
       <definition xml:id="definition-general-population-equation">
-        <title>General Population Equation</title>
+        <title>General population equation</title>
 
         <statement>
           <p>
@@ -1514,7 +1512,7 @@
       </definition>
 
       <example xml:id="example-population-explosion">
-        <title>Population Explosion</title>
+        <title>Population explosion</title>
 
         <statement>
           <p>
@@ -1550,7 +1548,7 @@
 
 
     <subsection xml:id="subsection-the-logistic-equation">
-      <title>The Logistic Equation</title>
+      <title>The logistic equation</title>
 
       <p>
         <xref ref="example-population-explosion" text="type-global" /> shows that we need to be more careful with our assumptions on population growth. One relatively simple assumption we can make is to assume that the birth rate <m>\beta(t)</m> decreases as population <m>P</m> increases. This makes sense in the physical world as well: as population increases, existing and finite resources (such as food) must be shared between more and more members of the population. Since there's less to go around, we should expect growth to slow down. In particular, let's assume that
@@ -1580,7 +1578,7 @@
       </p>
 
       <example xml:id="example-long-term-behavior-of-logistic-growth">
-        <title>Long-Term Behavior of Logistic Growth</title>
+        <title>Long-term behavior of logistic growth</title>
 
         <statement>
           <p>
@@ -1608,7 +1606,7 @@
       </p>
 
       <example xml:id="example-population-growth-in-the-usa">
-        <title>Population Growth in the USA</title>
+        <title>Population growth in the USA</title>
 
         <statement>
           <p>
@@ -1661,7 +1659,7 @@
 
 
     <subsection xml:id="section-stability-of-solutions">
-      <title>Stability of Solutions</title>
+      <title>Stability of solutions</title>
 
       <p>
         The logistic equation
@@ -1682,7 +1680,7 @@
       </p>
 
       <example xml:id="example-finding-equilibrium-solutions">
-        <title>Finding Equilibrium Solutions</title>
+        <title>Finding equilibrium solutions</title>
 
         <statement>
           <p>
@@ -1699,7 +1697,7 @@
       </example>
 
       <definition xml:id="definition-stability-critial-points">
-        <title>Stability of Solutions</title>
+        <title>Stability of solutions</title>
 
         <statement>
           <p>
@@ -1710,7 +1708,7 @@
       </definition>
 
       <example xml:id="example-determining-the-stability-of-solutions">
-        <title>Determining the Stability of Solutions</title>
+        <title>Determining the stability of solutions</title>
 
         <statement>
           <p>
@@ -1753,7 +1751,7 @@
       </example>
 
       <example xml:id="example-determining-a-sustainable-population">
-        <title>Determining a Sustainable Population</title>
+        <title>Determining a sustainable population</title>
 
         <statement>
           <p>
@@ -1883,7 +1881,7 @@
 
 
     <subsection xml:id="subsection-linear-stability-analysis">
-      <title>Linear Stability Analysis</title>
+      <title>Linear stability analysis</title>
 
       <p>
         Given the autonomous ODE <m>\dv{x}{t} = f(x)</m>, we saw above that we can qualify the behavior of equilibrium solutions by setting up a phase diagram.
@@ -1892,7 +1890,7 @@
       </p>
 
       <theorem xml:id="theorem-linear-stability-analysis">
-        <title>Linear Stability Analysis</title>
+        <title>Linear stability analysis</title>
 
         <statement>
           <p>
@@ -1905,7 +1903,7 @@
       </theorem>
 
       <example xml:id="example-classifying-the-critical-points-of-the-logistic-equation">
-        <title>Classifying the Critical Points of the Logistic Equation</title>
+        <title>Classifying the critical points of the logistic equation</title>
 
         <statement>
           <p>
