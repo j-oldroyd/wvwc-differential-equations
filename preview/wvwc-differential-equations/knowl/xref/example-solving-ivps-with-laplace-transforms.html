@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en-US" dir="ltr">
+<!--********************************************-->
+<!--*       Generated from PreTeXt source      *-->
+<!--*                                          *-->
+<!--*         https://pretextbook.org          *-->
+<!--*                                          *-->
+<!--********************************************-->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="robots" content="noindex, nofollow">
+</head>
+<body class="ignore-math">
+<article class="example example-like"><h4 class="heading">
+<span class="type">Example</span><span class="space"> </span><span class="codenumber">6.2.3</span><span class="period">.</span><span class="space"> </span><span class="title">Solving a second-order IVP.</span>
+</h4>
+<div class="para logical">
+<div class="para">Solve the IVP</div>
+<div class="displaymath process-math">
+\begin{equation*}
+x''+8x^\prime+15x = 0 \qq{} x(0) = 2, x^\prime(0) = -3
+\end{equation*}
+</div>
+<div class="para">where <span class="process-math">\(x\)</span> is a function of <span class="process-math">\(t\text{.}\)</span>
+</div>
+</div>
+<div class="solutions"><details class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="period">.</span></summary><div class="solution solution-like knowl__content">
+<div class="para logical">
+<div class="para">We will solve this by using Laplace transforms. If we set <span class="process-math">\(X(s) = \Laplace{x(t)}\text{,}\)</span> then</div>
+<div class="displaymath process-math">
+\begin{align*}
+\Laplace{x'(t)} \amp= sX(s) - 2\\
+\Laplace{x''(t)} \amp= s^{2}X(s) - 2s +3\text{.}
+\end{align*}
+</div>
+<div class="para">So if we take the Laplace transform of the entire ODE, we get</div>
+<div class="displaymath process-math">
+\begin{equation*}
+\underbrace{s^{2}X(s) - 2s + 3}_{\Laplace{x''}} + \underbrace{8sX(s) - 16}_{\Laplace{8x'}} + 15X(s) = 0
+\end{equation*}
+</div>
+<div class="para">which simplifies to</div>
+<div class="displaymath process-math">
+\begin{equation*}
+s^{2}X(s)+8sX(s)+15X(s) = 2s+13\text{,}
+\end{equation*}
+</div>
+<div class="para">and so</div>
+<div class="displaymath process-math">
+\begin{equation*}
+X(s) = \frac{2s+13}{s^2+8s+15}\text{.}
+\end{equation*}
+</div>
+</div> <div class="para logical">
+<div class="para">To solve the ODE we need to find <span class="process-math">\(x(t) = \mathcal{L}^{-1}\{X(s)\}\text{.}\)</span> Now, <span class="process-math">\(X(s)\)</span> doesn’t look like the Laplace transform of anything we know at the moment, but we can simplify the right hand side using partial fractions. If we do so, we get</div>
+<div class="displaymath process-math">
+\begin{equation*}
+X(s) = \frac{\frac{7}{2}}{s+3} - \frac{\frac{3}{2}}{s+5}\text{.}
+\end{equation*}
+</div>
+<div class="para">Therefore,</div>
+<div class="displaymath process-math">
+\begin{align*}
+x(t) \amp= \frac{7}{2}\mathcal{L}^{-1}\left\{\frac{1}{s+3}\right\} - \frac{3}{2}\mathcal{L}^{-1}\left\{\frac{1}{s+5}\right\}\\
+\amp= \frac{7}{2}e^{-3t} - \frac{3}{2}e^{-5t}\text{.}
+\end{align*}
+</div>
+</div>
+</div></details></div></article><span class="incontext"><a class="internal" href="section-transformation-of-initial-value-problems.html#example-solving-ivps-with-laplace-transforms">in-context</a></span>
+</body>
+</html>

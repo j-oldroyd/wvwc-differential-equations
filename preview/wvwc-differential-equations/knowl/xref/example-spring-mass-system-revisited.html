@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en-US" dir="ltr">
+<!--********************************************-->
+<!--*       Generated from PreTeXt source      *-->
+<!--*                                          *-->
+<!--*         https://pretextbook.org          *-->
+<!--*                                          *-->
+<!--********************************************-->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="robots" content="noindex, nofollow">
+</head>
+<body class="ignore-math">
+<article class="example example-like"><h3 class="heading">
+<span class="type">Example</span><span class="space"> </span><span class="codenumber">2.2.4</span><span class="period">.</span><span class="space"> </span><span class="title">Spring-mass system revisited.</span>
+</h3>
+<div class="para">An object of mass <span class="quantity">4 kg</span> is attached to a horizontal, frictionless spring. Suppose the spring constant is given by <span class="process-math">\(k=16\text{.}\)</span> The mass is held <span class="quantity">3 m</span> to the right of the spring’s equilibrium position, and is then released at time <span class="process-math">\(t=0\)</span> where <span class="process-math">\(t\)</span> is in seconds. Find the displacement <span class="process-math">\(x(t)\)</span> of the mass.</div>
+<div class="solutions"><details class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="period">.</span></summary><div class="solution solution-like knowl__content">
+<div class="para logical">
+<div class="para">We know from <a href="section-second-order-linear-odes.html#example-a-second-order-model" class="xref" data-knowl="./knowl/xref/example-a-second-order-model.html" data-reveal-label="Reveal" data-close-label="Close" title="Example 2.1.4: A second-order model">Example 2.1.4</a> that the second-order ODE given by</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/example-a-second-order-model.html">
+\begin{equation*}
+4x'' + kx = 0\quad\text{or}\quad x'' + 4x = 0
+\end{equation*}
+</div>
+<div class="para">provides a model for <span class="process-math">\(x(t)\text{,}\)</span> but now we are in a position to solve it. The characteristic equation of this ODE is <span class="process-math">\(r^{2} + 4 = 0\text{,}\)</span> which has roots <span class="process-math">\(r=\pm2i\text{.}\)</span> The imaginary roots <em class="emphasis">are not a problem</em>, and in fact provide significant information about the motion of the mass, as we’ll soon see. The general solution of the ODE is</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/example-a-second-order-model.html">
+\begin{equation*}
+x = c_{1}e^{-2it} + c_{2}e^{2it}\text{.}
+\end{equation*}
+</div>
+</div> <div class="para logical">
+<div class="para">The initial conditions are <span class="process-math">\(x(0) = 3\)</span> and <span class="process-math">\(x^\prime(0) = 0\text{,}\)</span> which give the equations</div>
+<div class="displaymath process-math">
+\begin{align*}
+3 &amp; = c_{1} + c_{2} \\
+0 &amp; = -2ic_{1} + 2ic_{2} \text{.}
+\end{align*}
+</div>
+<div class="para">The second equation implies that <span class="process-math">\(c_{1} = c_{2}\text{,}\)</span> and applying this to the first equation now gives <span class="process-math">\(c_{1} = c_{2} = \frac{3}{2}\text{.}\)</span> Hence the displacement of the mass is given by</div>
+<div class="displaymath process-math">
+\begin{equation*}
+x = \frac{3}{2}e^{-2it} + \frac{3}{2}e^{2it}\text{.}
+\end{equation*}
+</div>
+</div>
+</div></details></div></article><span class="incontext"><a class="internal" href="section-homogeneous-odes-with-constant-coefficients.html#example-spring-mass-system-revisited">in-context</a></span>
+</body>
+</html>

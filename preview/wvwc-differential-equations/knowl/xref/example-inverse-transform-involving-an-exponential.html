@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en-US" dir="ltr">
+<!--********************************************-->
+<!--*       Generated from PreTeXt source      *-->
+<!--*                                          *-->
+<!--*         https://pretextbook.org          *-->
+<!--*                                          *-->
+<!--********************************************-->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="robots" content="noindex, nofollow">
+</head>
+<body class="ignore-math">
+<article class="example example-like"><h4 class="heading">
+<span class="type">Example</span><span class="space"> </span><span class="codenumber">6.3.3</span><span class="period">.</span><span class="space"> </span><span class="title">Inverse transform involving an exponential.</span>
+</h4>
+<div class="para logical">
+<div class="para">Compute the inverse Laplace transform of</div>
+<div class="displaymath process-math">
+\begin{equation*}
+G(s) = \frac{e^{-7s}}{s^2+2s+1}\text{.}
+\end{equation*}
+</div>
+</div>
+<div class="solutions"><details class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="period">.</span></summary><div class="solution solution-like knowl__content">
+<div class="para logical">
+<div class="para">The exponential term <span class="process-math">\(e^{-7s}\)</span> tells us that our inverse transform should involve the unit step <span class="process-math">\(u(t-7)\text{.}\)</span> To find the rest of our inverse transform, we must identify <span class="process-math">\(f(t) = \iLaplace{\frac{1}{s^2+2s+1}}\text{.}\)</span> By factoring, we get</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/theorem--s--shifting.html">
+\begin{equation*}
+\iLaplace{\frac{1}{s^2+2s+1}} = \iLaplace{\frac{1}{(s+1)^2}}\text{.}
+\end{equation*}
+</div>
+<div class="para">This involves frequency shifting and so we apply <a href="section-the-laplace-transform.html#theorem--s--shifting" class="xref" data-knowl="./knowl/xref/theorem--s--shifting.html" data-reveal-label="Reveal" data-close-label="Close" title="Theorem 6.1.12: s-shifting">Theorem 6.1.12</a> to compute the inverse transform:</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/theorem--s--shifting.html">
+\begin{equation*}
+\iLaplace{\frac{1}{(s+1)^2}} = e^{-t}\iLaplace{\frac{1}{s^2}} = te^{-t}\text{.}
+\end{equation*}
+</div>
+</div> <div class="para logical">
+<div class="para">Therefore,</div>
+<div class="displaymath process-math">
+\begin{align*}
+g(t) \amp = \iLaplace{G(s)} \\
+\amp = u(t-7)f(t-7) \\
+\amp = u(t-7)(t-7)e^{-(t-7)} \text{.}
+\end{align*}
+</div>
+</div>
+</div></details></div></article><span class="incontext"><a class="internal" href="section-unit-step-functions-and-time-shifting.html#example-inverse-transform-involving-an-exponential">in-context</a></span>
+</body>
+</html>

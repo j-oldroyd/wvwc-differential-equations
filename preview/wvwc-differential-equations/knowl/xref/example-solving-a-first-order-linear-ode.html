@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en-US" dir="ltr">
+<!--********************************************-->
+<!--*       Generated from PreTeXt source      *-->
+<!--*                                          *-->
+<!--*         https://pretextbook.org          *-->
+<!--*                                          *-->
+<!--********************************************-->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="robots" content="noindex, nofollow">
+</head>
+<body class="ignore-math">
+<article class="example example-like"><h4 class="heading">
+<span class="type">Example</span><span class="space"> </span><span class="codenumber">1.4.2</span><span class="period">.</span><span class="space"> </span><span class="title">Solving a first-order linear ODE.</span>
+</h4>
+<div class="para">Find the general solution of <span class="process-math">\(\dv{y}{x}+2y = x\text{.}\)</span>
+</div>
+<div class="solutions"><details class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="period">.</span></summary><div class="solution solution-like knowl__content">
+<div class="para">First, note that the ODE is indeed a first-order linear ODE since it takes the form given in <a href="section-first-order-linear-odes.html#definition-first-order-linear-odes" class="xref" data-knowl="./knowl/xref/definition-first-order-linear-odes.html" data-reveal-label="Reveal" data-close-label="Close" title="Definition 1.4.1: First-order linear ODEs">Definition 1.4.1</a>. If we stare at the ODE for a bit, we might think that the left hand side looks like something we’d get after using the product rule. Just compare <span class="process-math">\((fg)^\prime = fg^\prime +f^\prime g\)</span> with <span class="process-math">\(\dv{y}{x}+2y\text{,}\)</span> and it appears that the unknown function <span class="process-math">\(y\)</span> is taking the place of <span class="process-math">\(g\)</span> in the product rule formula. If we could just figure out what the function <span class="process-math">\(f\)</span> is supposed to be, then we could drastically simplify the left hand side of the ODE.</div> <div class="para logical">
+<div class="para">Unfortunately, there is no such function <span class="process-math">\(f\)</span> that works here. If there were, we’d have to have <span class="process-math">\(f^\prime=2\)</span> and <span class="process-math">\(f=2x\text{,}\)</span> and clearly we aren’t multiplying <span class="process-math">\(\dv{y}{x}\)</span> by <span class="process-math">\(2x\)</span> in the ODE. But we can pull a dirty trick here! We’ll multiply through the ODE by <span class="process-math">\(e^{2x}\)</span> to get the new ODE</div>
+<div class="displaymath process-math">
+\begin{equation*}
+e^{2x}\dv{y}{x}+2e^{2x}y = xe^{2x}.
+\end{equation*}
+</div>
+<div class="para">It might not be all that obvious why this helps us out, but now the left hand side can be simplified by the product rule:</div>
+<div class="displaymath process-math">
+\begin{equation*}
+e^{2x}\dv{y}{x}+2e^{2x}y = \dv{}{x}[e^{2x}y].
+\end{equation*}
+</div>
+</div> <div class="para logical">
+<div class="para">So we can rewrite the entire ODE as</div>
+<div class="displaymath process-math">
+\begin{equation*}
+\dv{}{x}[e^{2x}y] = xe^{2x}.
+\end{equation*}
+</div>
+<div class="para">We can integrate this on both sides to get <span class="process-math">\(e^{2x}y = \int xe^{2x}\,dx\text{,}\)</span> or just</div>
+<div class="displaymath process-math">
+\begin{equation*}
+e^{2x}y = \frac{1}{2}xe^{2x} - \frac{1}{4}e^{2x}+C.
+\end{equation*}
+</div>
+<div class="para">The explicit solution would be <span class="process-math">\(y = \frac{1}{2}x - \frac{1}{4} + Ce^{-2x}\text{.}\)</span>
+</div>
+</div>
+</div></details></div></article><span class="incontext"><a class="internal" href="section-first-order-linear-odes.html#example-solving-a-first-order-linear-ode">in-context</a></span>
+</body>
+</html>
