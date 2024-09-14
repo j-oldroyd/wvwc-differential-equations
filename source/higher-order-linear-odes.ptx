@@ -38,18 +38,22 @@
       Our main tool for showing that a collection <m>\{y_{1},\dots,y_{n}\}</m> of solutions is in fact linearly independent is again the <em>Wronskian</em>.
     </p>
     <definition xml:id="definition-the-wronskian-of-several-functions">
-      <idx><h>Wronskian</h><h>Wronskian of several functions</h></idx>
       <title>The Wronskian of Several Functions</title>
-      Let <m>\{y_{1},\dots,y_{n}\}</m> be a collection of functions.
-      Then the <term>Wronskian</term> of <m>\{y_{1},\dots,y_{n}\}</m>, denoted by <m>W(y_{1},\dots,y_{n})</m>, is defined by
-      <me>
-        W(y_{1},\dots,y_{n}) = \left|\begin{array}{cccc}
-        y_{1} \amp y_{2} \amp \dots   \amp y_{n}   \\
-        y^\prime_{1}  \amp y^\prime_{2}  \amp \dots   \amp y^\prime_{n}  \\
-        \vdots  \amp \vdots  \amp \ddots  \amp \vdots  \\
-        y^{(n-1)}_{1} \amp y^{(n-1)}_{2} \amp \dots   \amp y^{(n-1)}_{n} \\
-        \end{array}\right|.
-      </me>
+      <idx><h>Wronskian</h><h>Wronskian of several functions</h></idx>
+      <statement>
+        <p>
+            Let <m>\{y_{1},\dots,y_{n}\}</m> be a collection of functions.
+            Then the <term>Wronskian</term> of <m>\{y_{1},\dots,y_{n}\}</m>, denoted by <m>W(y_{1},\dots,y_{n})</m>, is defined by
+            <me>
+              W(y_{1},\dots,y_{n}) = \left|\begin{array}{cccc}
+              y_{1} \amp y_{2} \amp \dots   \amp y_{n}   \\
+              y^\prime_{1}  \amp y^\prime_{2}  \amp \dots   \amp y^\prime_{n}  \\
+              \vdots  \amp \vdots  \amp \ddots  \amp \vdots  \\
+              y^{(n-1)}_{1} \amp y^{(n-1)}_{2} \amp \dots   \amp y^{(n-1)}_{n} \\
+              \end{array}\right|.
+            </me>
+          </p>
+        </statement>
     </definition>
     <p>
       Just as before, we have the following connection between the Wronskian and linear independence.
@@ -103,28 +107,28 @@
           If we can show that they're also linearly independent, then this will imply that the general solution of the ODE is given by
           <me>y = c_{1}e^{x}+c_{2}e^{2x}+c_{3}e^{3x}.</me>
           To do this, we just compute the Wronskian of these functions:
+          <md>
+            <mrow>
+              W(e^{x},e^{2x},e^{3x})
+              \amp= \left|
+              \begin{array}{ccc}
+              e^{x} \amp e^{2x}  \amp e^{3x}  \\
+              e^{x} \amp 2e^{2x} \amp 3e^{3x} \\
+              e^{x} \amp 4e^{2x} \amp 9e^{3x} \\
+              \end{array}
+              \right|
+            </mrow>
+            <mrow>
+              \amp= e^{x}(18e^{5x}-12e^{5x})-e^{2x}(9e^{4x}-3e^{4x})+e^{3x}(4e^{3x}-2e^{3x})
+            </mrow>
+            <mrow>
+              \amp= 2e^{6x}
+            </mrow>
+            <mrow>
+              \amp\neq0.
+            </mrow>
+          </md>
         </p>
-        <md>
-          <mrow>
-            W(e^{x},e^{2x},e^{3x})
-            \amp= \left|
-            \begin{array}{ccc}
-            e^{x} \amp e^{2x}  \amp e^{3x}  \\
-            e^{x} \amp 2e^{2x} \amp 3e^{3x} \\
-            e^{x} \amp 4e^{2x} \amp 9e^{3x} \\
-            \end{array}
-            \right|
-          </mrow>
-          <mrow>
-            \amp= e^{x}(18e^{5x}-12e^{5x})-e^{2x}(9e^{4x}-3e^{4x})+e^{3x}(4e^{3x}-2e^{3x})
-          </mrow>
-          <mrow>
-            \amp= 2e^{6x}
-          </mrow>
-          <mrow>
-            \amp\neq0.
-          </mrow>
-        </md>
         <p>
           Since the Wronskian is nonzero, <m>y_{1},y_{2}</m> and <m>y_{3}</m> are in fact linearly independent, and so the general solution of this ODE is
           <me>y = c_{1}e^{x}+c_{2}e^{2x}+c_{3}e^{3x}.</me>
@@ -200,9 +204,12 @@
       </statement>
       <solution>
         <p>
-          We'll set up a table listing each root, its multiplicity and its contribution to the general solution:
+          <xref ref="table-roots-of-characteristic-equation"/> gives the roots of the characterisitc equation and their contributions to the general solution.
+          So the general solution of this ODE is
+          <me>c_{1}+c_{2}e^{t}+c_{3}e^{-t}+c_{4}te^{-t}+c_{5}e^{3t/2}+c_{6}te^{3t/2}+c_{7}t^{2}e^{3t/2}</me>.
         </p>
-        <table>
+        <table xml:id="table-roots-of-characteristic-equation">
+          <title>Table of roots</title>
           <tabular bottom="major" top="major">
             <row bottom="major">
               <cell>Root</cell>
@@ -231,8 +238,6 @@
             </row>
           </tabular>
         </table>
-        So the general solution of this ODE is
-        <me>c_{1}+c_{2}e^{t}+c_{3}e^{-t}+c_{4}te^{-t}+c_{5}e^{3t/2}+c_{6}te^{3t/2}+c_{7}t^{2}e^{3t/2}.</me>
       </solution>
     </example>
     <example>
