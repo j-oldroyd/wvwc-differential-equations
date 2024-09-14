@@ -142,6 +142,9 @@
             draw(curve(C,dy,(xmin,ymin),(xmax,ymax)),deepred+1bp,"$y = e^{x^{2}}$");
 
             //Plot annotations
+            arrowbar axisarrow = Arrow(TeXHead);
+            Label xlabel = Label("$x$", position = EndPoint, align = S);
+            Label ylabel = Label("$y$", position = EndPoint, align = E);
             xaxis(YEquals(0),xmin - eps,xmax + eps, LeftTicks(NoZeroFormat), L=xlabel, arrow=axisarrow);
             yaxis(XEquals(0),ymin - eps,ymax + eps,RightTicks(NoZeroFormat), L = ylabel, arrow = axisarrow);
           </asymptote>
@@ -349,7 +352,7 @@
       <p>
         Differential equations can often be quite difficult to solve, if not impossible.
         In this section we will discuss a method to visualize the behavior of certain first-order differential equations without first solving them.
-        This approach, the <em>direction field</em> or <em>slope field</em>, is one that we will use again in <xref ref="systems-odes"/>.
+        This approach, the <em>direction field</em> or <em>slope field</em>, is one that we will use again in <xref ref="systems-of-odes"/>.
       </p>
     </introduction>
 
