@@ -1,25 +1,18 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 
-<!--********************************************************************
-
-*********************************************************************-->
-<!-- This file was originally part of the book     -->
-<!-- (as copied on 2015/07/12)                     -->
-<!--                                               -->
-<!--   Abstract Algebra: Theory and Applications   -->
-<!--                                               -->
-<!-- Copyright (C) 1997-2014  Thomas W. Judson     -->
-
 <chapter xml:id="higher-order-linear-odes" xmlns:xi="http://www.w3.org/2001/XInclude">
   <title>Higher Order Linear ODEs</title>
+
   <introduction>
     <p>
       This chapter applies many of the ideas developed in <xref ref="linear-odes-constant-coefficients" text="type-global" /> to higher order linear ODEs.
       We'll begin by transferring many of the concepts and terms introduced in <xref first="section-second-order-linear-odes" last="section-homogeneous-odes-with-constant-coefficients" text="type-global">Sections</xref>.
     </p>
   </introduction>
+
   <section xml:id="section-homogeneous-linear-odes-with-constant-coefficients">
-    <title>Homogeneous Linear ODEs with Constant Coefficients</title>
+    <title>Homogeneous linear ODEs with constant coefficients</title>
+
     <shorttitle>Homogeneous ODEs</shorttitle>
     <p>
       Each tool that we used for solving second order linear ODEs with constant coefficients, in other words those ODEs of the form <m>ay''+by^\prime+cy=f(x)</m>, can be extended to solving more general <m>n^{\text{th}}</m> order linear ODEs with constant coefficients, which take the form
@@ -30,6 +23,7 @@
       In this section, we'll focus on solutions of <em>homogeneous</em> <m>n^{\th}</m> order linear ODEs with constant coefficients.
       These are the ODEs where <m>f(x) = 0</m> in <xref ref="equation-constant-coeffs" text="hybrid"/>.
     </p>
+
     <p>
       Recall that in Chapter 2, the general solution of <m>ay''+by^\prime+cy=0</m> could be obtained by finding <em>two</em> linearly independent solutions <m>y_{1},y_{2}</m>.
       The general solution was then <m>y = c_{1}y_{1}+c_{2}y_{2}</m> (which is guaranteed to be a solution by <xref ref="theorem-the-superposition-principle" text="type-global" /> where <m>c_{1},c_{2}</m> are arbitrary constants.
@@ -37,30 +31,37 @@
       The general solution in this case is now <m>y = \sum_{i=1}^{n}c_{i}y_{i}</m>, where <m>c_{i},1\leq i\leq n</m> are arbitrary constants.
       Our main tool for showing that a collection <m>\{y_{1},\dots,y_{n}\}</m> of solutions is in fact linearly independent is again the <em>Wronskian</em>.
     </p>
+
     <definition xml:id="definition-the-wronskian-of-several-functions">
-      <title>The Wronskian of Several Functions</title>
+      <title>The Wronskian of several functions</title>
+
       <idx><h>Wronskian</h><h>Wronskian of several functions</h></idx>
+      <notation>
+        <usage><m>W(f_1, \ldots, f_n)</m></usage>
+        <description>
+          the Wronskian of <m>n</m> functions
+        </description>
+      </notation>
+
       <statement>
         <p>
-            Let <m>\{y_{1},\dots,y_{n}\}</m> be a collection of functions.
-            Then the <term>Wronskian</term> of <m>\{y_{1},\dots,y_{n}\}</m>, denoted by <m>W(y_{1},\dots,y_{n})</m>, is defined by
-            <me>
-              W(y_{1},\dots,y_{n}) = \left|\begin{array}{cccc}
-              y_{1} \amp y_{2} \amp \dots   \amp y_{n}   \\
-              y^\prime_{1}  \amp y^\prime_{2}  \amp \dots   \amp y^\prime_{n}  \\
-              \vdots  \amp \vdots  \amp \ddots  \amp \vdots  \\
-              y^{(n-1)}_{1} \amp y^{(n-1)}_{2} \amp \dots   \amp y^{(n-1)}_{n} \\
-              \end{array}\right|.
-            </me>
-          </p>
-        </statement>
+          Let <m>\{y_{1},\dots,y_{n}\}</m> be a collection of functions.
+          Then the <term>Wronskian</term> of <m>\{y_{1},\dots,y_{n}\}</m>, denoted by <m>W(y_{1},\dots,y_{n})</m>, is defined by
+          <me>
+            W(y_{1},\dots,y_{n}) = \left|\begin{array}{cccc} y_{1} \amp y_{2} \amp \dots   \amp y_{n}   \\ y^\prime_{1}  \amp y^\prime_{2}  \amp \dots   \amp y^\prime_{n}  \\ \vdots  \amp \vdots  \amp \ddots  \amp \vdots  \\ y^{(n-1)}_{1} \amp y^{(n-1)}_{2} \amp \dots   \amp y^{(n-1)}_{n} \\ \end{array}\right|.
+          </me>
+        </p>
+      </statement>
     </definition>
+
     <p>
       Just as before, we have the following connection between the Wronskian and linear independence.
       This theorem is a restatement of <xref ref="theorem-linear-independence-and-the-wronskian" text="type-global" /> for collections involving more than two functions.
     </p>
+
     <theorem xml:id="theorem-linear-independence-and-the-wronskian-several-functions">
-      <title>Linear Independence and the Wronskian (Several Functions)</title>
+      <title>Linear independence and the Wronskian (several functions)</title>
+
       <statement>
         <p>
           Let <m>I</m> be some open interval (we often take <m>I</m> to be <m>(-\infty,\infty)</m>, but it doesn't have to be so) and let <m>\set{y_{1},\dots,y_{n}}</m> be solutions of <xref ref="equation-constant-coeffs" text="hybrid" />.
@@ -68,11 +69,14 @@
         </p>
       </statement>
     </theorem>
+
     <p>
       Now that we have a tool for determining linear independence of several functions, we can also define a <em>basis of solutions</em> for higher order ODEs.
     </p>
+
     <definition xml:id="definition-basis-of-solutions-higher-order">
-      <title>Basis of Solutions (Higher Order ODEs)</title>
+      <title>Basis of solutions (higher order ODEs)</title>
+
       <idx><h>higher order ODEs</h><h>higher order linear ODEs</h><h>basis</h></idx>
       <statement>
         <p>
@@ -81,156 +85,188 @@
         </p>
       </statement>
     </definition>
+
     <p>
       Bases are used to determine general solutions of linear ODEs.
     </p>
+
     <example xml:id="example-finding-a-basis-set-of-solutions">
-      <title>Finding a Basis Set of Solutions</title>
+      <title>Finding a basis set of solutions</title>
+
       <statement>
-        <p>Find the general solution of
-          <me>y^{(3)}-6y''+11y^\prime-6y=0</me>
+        <p>
+          Find the general solution of
+          <me>
+            y^{(3)}-6y''+11y^\prime-6y=0
+          </me>
           where <m>y</m> is a function of <m>x</m>.
         </p>
       </statement>
+
       <solution>
         <p>
           Just as we did for second order ODEs, we'll solve this by finding the characteristic equation.
           To get the characteristic equation, we replace derivatives of <m>y</m> with powers of <m>r</m> to get
-          <me>r^{3}-6r^{2}+11r-6=0.</me>
+          <me>
+            r^{3}-6r^{2}+11r-6=0.
+          </me>
           Now we need to solve this equation.
           It can factor (notice that <m>r=1</m> is a solution and then divide <m>r^{3}-6r^{2}+11r-6</m> by <m>r-1</m>) as
-          <me>(r-1)(r-2)(r-3)=0</me>
-          and so <m>r=1,2,3.</m>
-          This means that the functions
-          <me>y_{1} = e^{x},y_{2} = e^{2x},y_{3} = e^{3x}</me>
+          <me>
+            (r-1)(r-2)(r-3)=0
+          </me>
+          and so <m>r=1,2,3.</m> This means that the functions
+          <me>
+            y_{1} = e^{x},y_{2} = e^{2x},y_{3} = e^{3x}
+          </me>
           are all solutions of the original ODE.
           If we can show that they're also linearly independent, then this will imply that the general solution of the ODE is given by
-          <me>y = c_{1}e^{x}+c_{2}e^{2x}+c_{3}e^{3x}.</me>
+          <me>
+            y = c_{1}e^{x}+c_{2}e^{2x}+c_{3}e^{3x}.
+          </me>
           To do this, we just compute the Wronskian of these functions:
           <md>
-            <mrow>
-              W(e^{x},e^{2x},e^{3x})
-              \amp= \left|
-              \begin{array}{ccc}
-              e^{x} \amp e^{2x}  \amp e^{3x}  \\
-              e^{x} \amp 2e^{2x} \amp 3e^{3x} \\
-              e^{x} \amp 4e^{2x} \amp 9e^{3x} \\
-              \end{array}
-              \right|
-            </mrow>
-            <mrow>
-              \amp= e^{x}(18e^{5x}-12e^{5x})-e^{2x}(9e^{4x}-3e^{4x})+e^{3x}(4e^{3x}-2e^{3x})
-            </mrow>
-            <mrow>
-              \amp= 2e^{6x}
-            </mrow>
-            <mrow>
-              \amp\neq0.
-            </mrow>
+            <mrow> W(e^{x},e^{2x},e^{3x}) \amp= \left| \begin{array}{ccc} e^{x} \amp e^{2x}  \amp e^{3x}  \\ e^{x} \amp 2e^{2x} \amp 3e^{3x} \\ e^{x} \amp 4e^{2x} \amp 9e^{3x} \\ \end{array} \right| </mrow>
+            <mrow> \amp= e^{x}(18e^{5x}-12e^{5x})-e^{2x}(9e^{4x}-3e^{4x})+e^{3x}(4e^{3x}-2e^{3x}) </mrow>
+            <mrow> \amp= 2e^{6x} </mrow>
+            <mrow> \amp\neq0. </mrow>
           </md>
         </p>
+
         <p>
           Since the Wronskian is nonzero, <m>y_{1},y_{2}</m> and <m>y_{3}</m> are in fact linearly independent, and so the general solution of this ODE is
-          <me>y = c_{1}e^{x}+c_{2}e^{2x}+c_{3}e^{3x}.</me>
+          <me>
+            y = c_{1}e^{x}+c_{2}e^{2x}+c_{3}e^{3x}.
+          </me>
         </p>
       </solution>
     </example>
     <aside>
-      <p>
-        It can get tedious to try to compute the Wronskian every time when solving linear ODEs with constant coefficients, so it's good to note that <m>\set{e^{r_{1}x},\dots,e^{r_{n}x}}</m> is guaranteed to be linearly independent as long as each of the <m>r_{i}</m> are distinct from the others.
-      </p>
+    <p>
+      It can get tedious to try to compute the Wronskian every time when solving linear ODEs with constant coefficients, so it's good to note that <m>\set{e^{r_{1}x},\dots,e^{r_{n}x}}</m> is guaranteed to be linearly independent as long as each of the <m>r_{i}</m> are distinct from the others.
+    </p>
     </aside>
+
     <example>
       <statement>
         <p>
           Find the general solution of <m>y^{(4)}-y=0</m>, where <m>y</m> is a function of <m>x</m>.
         </p>
       </statement>
+
       <solution>
         <p>
           We begin by finding the characteristic equation, which is
-          <me>r^{4}-1=0\quad\text{or}\quad (r^{2}-1)(r^{2}+1)=0.</me>
+          <me>
+            r^{4}-1=0\quad\text{or}\quad (r^{2}-1)(r^{2}+1)=0.
+          </me>
           This has solutions <m>r=\pm1,\pm i</m>.
           This means that <m>y_{1} = e^{x},y_{2}=e^{-x},y_{3}=e^{ix}</m> and <m>y=e^{-ix}</m> are all solutions of the ODE.
           Since the roots of the characteristic equation are all distinct, this means that these solutions are linearly independent from each other.
           Since we have four linearly independent solutions, we can then construct the general solution of this ODE:
-          <me>y = c_{1}e^{x}+c_{2}e^{-x}+c_{3}e^{ix}+c_{4}e^{-ix},</me>
+          <me>
+            y = c_{1}e^{x}+c_{2}e^{-x}+c_{3}e^{ix}+c_{4}e^{-ix},
+          </me>
           which we can also rewrite using Euler's Formula <m>e^{i\theta} = \cos\theta+i\sin\theta</m> to get
-          <me>y = c_{1}e^{x}+c_{2}e^{-x}+A\cos x+B\sin x.</me>
+          <me>
+            y = c_{1}e^{x}+c_{2}e^{-x}+A\cos x+B\sin x.
+          </me>
         </p>
       </solution>
     </example>
+
     <p>
       In general, any root of the characteristic equation of the form <m>r=a\pm bi</m> contributes the term <m>e^{ax}\brackets{A\cos bx+B\sin bx}</m> to the general solution.
       As we saw in Chapter 2, it's possible for some characteristic equations to have repeated roots.
       In this case, we initially weren't able to get enough linearly independent solutions, so we had to adjust our method a bit.
       The same adjustment will work here.
     </p>
+
     <example xml:id="example-characteristic-equation-with-repeated-roots">
-      <title>Characteristic Equation with Repeated Roots</title>
+      <title>Characteristic equation with repeated roots</title>
+
       <statement>
         <p>
           Find the general solution of
-          <me>x^{(3)}+4x''+4x^\prime=0</me>
+          <me>
+            x^{(3)}+4x''+4x^\prime=0
+          </me>
           where <m>x</m> is a function of <m>t</m>.
         </p>
       </statement>
+
       <solution>
         <p>
           The characteristic equation is
-          <me>r^{3}+4r^{2}+4r = 0\quad\text{or}\quad r(r+2)^{2}=0</me>
+          <me>
+            r^{3}+4r^{2}+4r = 0\quad\text{or}\quad r(r+2)^{2}=0
+          </me>
           so <m>r=0,-2,-2</m>.
           One solution of the ODE will be <m>x_{1} = e^{0t} = 1</m>, and a second solution will be <m>x_{2} = e^{-2t}</m>.
           But since <m>r=-2</m> is a repeated root, it does not provide a third linearly independent solution <m>x_{3}</m>.
           So we'll use the same trick we used before and multiply by <m>t</m> to get a third solution: <m>x_{3} = te^{-2t}</m>.
           It can be verified that <m>x_{3}</m> is in fact a solution of the ODE, and is also linearly independent from <m>x_{1},x_{2}</m>.
           Therefore the general solution of the ODE is
-          <me>x = c_{1}+c_{2}e^{-2t}+c_{3}te^{-2t}.</me>
+          <me>
+            x = c_{1}+c_{2}e^{-2t}+c_{3}te^{-2t}.
+          </me>
         </p>
       </solution>
     </example>
+
     <p>
       Solutions of linear, homogeneous ODEs with constant coefficients depend <em>entirely</em> on the roots of the corresponding characteristic equation.
       If we write the independent variable as <m>x</m>, and if <m>r_{k}</m> denotes a single root of the characteristic equation, then the general solution of the ODE will contain <m>e^{r_{k}x},xe^{r_{k}x},x^{2}e^{r_{k}x},\dots</m>, with the number of exponentials contributed by <m>r_{k}</m> being equal to its multiplicity.
       That is, the number of times <m>r_{k}</m> appears as a solution of the characteristic equation.
     </p>
+
     <example>
       <statement>
         <p>
           A linear, homogeneous ODE with constant coefficients (and independent variable <m>t</m>) has characteristic equation given by
-          <me> r(r-1)(r+1)^{2}(2r-3)^{3} = 0.</me>
+          <me>
+            r(r-1)(r+1)^{2}(2r-3)^{3} = 0.
+          </me>
           What is the general solution of the ODE?
         </p>
       </statement>
+
       <solution>
         <p>
-          <xref ref="table-roots-of-characteristic-equation"/> gives the roots of the characterisitc equation and their contributions to the general solution.
-          So the general solution of this ODE is
-          <me>c_{1}+c_{2}e^{t}+c_{3}e^{-t}+c_{4}te^{-t}+c_{5}e^{3t/2}+c_{6}te^{3t/2}+c_{7}t^{2}e^{3t/2}</me>.
+          <xref ref="table-roots-of-characteristic-equation"/> gives the roots of the characterisitc equation and their contributions to the general solution. So the general solution of this ODE is
+          <me>
+            c_{1}+c_{2}e^{t}+c_{3}e^{-t}+c_{4}te^{-t}+c_{5}e^{3t/2}+c_{6}te^{3t/2}+c_{7}t^{2}e^{3t/2}
+          </me>.
         </p>
+
         <table xml:id="table-roots-of-characteristic-equation">
           <title>Table of roots</title>
+
           <tabular bottom="major" top="major">
             <row bottom="major">
               <cell>Root</cell>
               <cell>Multiplicity</cell>
               <cell>Contribution</cell>
             </row>
+
             <row>
               <cell><m>0</m></cell>
               <cell><m>1</m></cell>
               <cell><m>1</m></cell>
             </row>
+
             <row>
               <cell><m>1</m></cell>
               <cell><m>1</m></cell>
               <cell><m>e^{t}</m></cell>
             </row>
+
             <row>
               <cell><m>-1</m></cell>
               <cell><m>2</m></cell>
               <cell><m>e^{-t},te^{-t}</m> </cell>
             </row>
+
             <row>
               <cell><m>\frac{3}{2}</m></cell>
               <cell><m>3</m></cell>
@@ -240,50 +276,68 @@
         </table>
       </solution>
     </example>
+
     <example>
       <statement>
         <p>
           An ODE (with independent variable <m>x</m>) has characteristic equation given by
-          <me>r^{2}(r-3)(r^{2}+4)(r^{2}+6r+13)^{3}=0.</me>
+          <me>
+            r^{2}(r-3)(r^{2}+4)(r^{2}+6r+13)^{3}=0.
+          </me>
           Find the general solution.
         </p>
       </statement>
+
       <solution>
         <p>
           We'll set up another table help us determine the general solution:
         </p>
-        <table>
-          <tabular top="major" bottom="major">
-            <row bottom="major">
-              <cell>Root</cell>
-              <cell>Multiplicity</cell>
-              <cell>Contribution</cell>
-            </row>
-            <row>
-              <cell><m>0</m></cell>
-              <cell><m>2</m></cell>
-              <cell><m>1,x</m></cell>
-            </row>
-            <row>
-              <cell><m>3</m></cell>  <cell><m>1</m></cell> <cell><m>e^{3x}</m></cell>
-            </row>
-            <row>
-              <cell><m>\pm2i</m></cell> <cell><m>1</m></cell> <cell><m>\cos2x,\sin2x</m></cell>
-            </row>
-            <row>
-              <cell><m>-3\pm2i</m></cell> <cell><m>3</m></cell> <cell><m>e^{-3x}\cos2x,e^{-3x}\sin2x,xe^{-3x}\cos2x,xe^{-3x}\sin2x,x^{2}e^{-3x}\cos2x,x^{2}e^{-3x}\sin2x</m></cell>
-            </row>
-          </tabular>
-        </table>
+
+        <tabular top="major" bottom="major">
+          <row bottom="major">
+            <cell>Root</cell>
+            <cell>Multiplicity</cell>
+            <cell>Contribution</cell>
+          </row>
+
+          <row>
+            <cell><m>0</m></cell>
+            <cell><m>2</m></cell>
+            <cell><m>1,x</m></cell>
+          </row>
+
+          <row>
+            <cell><m>3</m></cell>
+            <cell><m>1</m></cell>
+            <cell><m>e^{3x}</m></cell>
+          </row>
+
+          <row>
+            <cell><m>\pm2i</m></cell>
+            <cell><m>1</m></cell>
+            <cell><m>\cos2x,\sin2x</m></cell>
+          </row>
+
+          <row>
+            <cell><m>-3\pm2i</m></cell>
+            <cell><m>3</m></cell>
+            <cell><m>e^{-3x}\cos2x,e^{-3x}\sin2x,xe^{-3x}\cos2x,xe^{-3x}\sin2x,x^{2}e^{-3x}\cos2x,x^{2}e^{-3x}\sin2x</m></cell>
+          </row>
+        </tabular>
+
         <p>
           So the general solution is
-          <me>c_{1}+c_{2}x+c_{3}e^{3x}+A\cos2x+B\sin2x+e^{-3x}\brackets{(A_{1}+A_{2}x+A_{3}x^{2})\cos2x+(B_{1}+B_{2}x+B_{3}x^{2})\sin2x}.</me>
+          <me>
+            c_{1}+c_{2}x+c_{3}e^{3x}+A\cos2x+B\sin2x+e^{-3x}\brackets{(A_{1}+A_{2}x+A_{3}x^{2})\cos2x+(B_{1}+B_{2}x+B_{3}x^{2})\sin2x}.
+          </me>
         </p>
       </solution>
     </example>
   </section>
+
   <section xml:id="section-non-homogeneous-linear-odes-with-constant-coefficients">
-    <title>Non-homogeneous Linear ODEs with Constant Coefficients</title>
+    <title>Non-homogeneous linear ODEs with constant coefficients</title>
+
     <shorttitle>Non-homogeneous ODEs</shorttitle>
     <p>
       For second order ODEs that were nonhomogeneous, linear and had constant coefficients, we found their general solution by first finding the complementary solution <m>y_{c}</m> and then a corresponding particular solution <m>y_{p}</m>.
@@ -291,6 +345,7 @@
       <m>y_{c}</m> was found by solving the corresponding homogeneous equation and we used the method of undetermined coefficients to find <m>y_{p}</m>.
       Although we are now looking at higher order ODEs, the method of undetermined coefficients remains unchanged.
     </p>
+
     <example>
       <statement>
         <p>
@@ -300,6 +355,7 @@
           </me>
         </p>
       </statement>
+
       <solution>
         <p>
           The general solution takes the form <m>y = y_{c}+y_{p}</m>, where <m>y_{c}</m> is a solution of the associated homogeneous equation <m>y^{(3)}-y^\prime=0</m> and <m>y_{p}</m> is a single solution of the original ODE <m>y^{(3)}-y^\prime=\sinh 2x</m>.
@@ -312,6 +368,7 @@
           However, when we take this guess and plug it into the ODE, we'll start seeing terms involving <m>\cosh 2x</m> as well (since <m>\frac{d}{dx}\sinh 2x = 2\cosh 2x</m>) so this means we'll want to include <m>\cosh 2x</m> into our guess for <m>y_{p}</m> also.
           So we'll modify our guess to be <m>y_{p} = C\cosh 2x+D\sinh 2x</m>.
         </p>
+
         <p>
           Since our guess for <m>y_{p}</m> doesn't overlap with <m>y_{c}</m>, we can proceed with plugging our guess into the original ODE <m>y^{(3)}-y^\prime=\sinh 2x</m> and equating coefficients, just as we did before.
           <md>
@@ -319,17 +376,19 @@
             <mrow>\amp= \parens{8C\sinh2x+8D\cosh2x}-\parens{2C\sinh2x+2D\cosh2x}</mrow>
             <mrow>\amp= 6C\sinh2x+6D\cosh2x.</mrow>
           </md>
-          So we get <m>C = \frac{1}{6}</m> and <m>D=0</m>, which means that <m>y_{p} = \frac{1}{6}\cosh2x</m>. When solving for <m>y_{p}</m>, always remember to plug the values you find back into the guess for <m>y_{p}</m> that you used!
-          So the general solution of the ODE is
+          So we get <m>C = \frac{1}{6}</m> and <m>D=0</m>, which means that <m>y_{p} = \frac{1}{6}\cosh2x</m>.
+          When solving for <m>y_{p}</m>, always remember to plug the values you find back into the guess for <m>y_{p}</m> that you used! So the general solution of the ODE is
           <me>
             y = c_{1}+A\cosh x+B\sinh x+\frac{1}{6}\cosh2x.
           </me>
         </p>
       </solution>
     </example>
+
     <p>
       Just as before, we also need to worry about overlaps.
     </p>
+
     <example>
       <statement>
         <p>
@@ -339,6 +398,7 @@
           </me>
         </p>
       </statement>
+
       <solution>
         <p>
           We need to find <m>x_{c}</m> first since <m>x_{p}</m> will change depending on <m>x_{c}</m>.
@@ -351,28 +411,33 @@
             x_{c} = c_{1}+c_{2}t+c_{3}t^{2}+A\cos2t+B\sin2t + t\brackets{C\cos2t+D\sin2t}.
           </me>
         </p>
+
         <p>
           Now we come up with a guess for <m>x_{p}</m> using the right hand side of the original ODE and dividing it into ``components:''
         </p>
-        <table>
-          <tabular top="major">
-            <row bottom="major">
-              <cell>Component</cell> <cell>Contribution to <m>x_{p}</m> </cell>
-            </row>
-            <row>
-              <cell><m>2t-3t^{2}</m></cell>
-              <cell><m>C_{1}t^{2}+C_{2}t+C_{3}</m></cell>
-            </row>
-            <row>
-              <cell><m>e^{-t}\cos2t</m></cell>
-              <cell><m>e^{-t}\brackets{C_{4}\cos2t+C_{5}\sin2t}</m></cell>
-            </row>
-            <row bottom="major">
-              <cell><m>-3t\sin2t</m></cell>
-              <cell><m>\parens{C_{6}t+C_{7}}\cos2t+\parens{C_{8}t+C_{9}}\sin2t</m></cell>
-            </row>
-          </tabular>
-        </table>
+
+        <tabular top="major">
+          <row bottom="major">
+            <cell>Component</cell>
+            <cell>Contribution to <m>x_{p}</m> </cell>
+          </row>
+
+          <row>
+            <cell><m>2t-3t^{2}</m></cell>
+            <cell><m>C_{1}t^{2}+C_{2}t+C_{3}</m></cell>
+          </row>
+
+          <row>
+            <cell><m>e^{-t}\cos2t</m></cell>
+            <cell><m>e^{-t}\brackets{C_{4}\cos2t+C_{5}\sin2t}</m></cell>
+          </row>
+
+          <row bottom="major">
+            <cell><m>-3t\sin2t</m></cell>
+            <cell><m>\parens{C_{6}t+C_{7}}\cos2t+\parens{C_{8}t+C_{9}}\sin2t</m></cell>
+          </row>
+        </tabular>
+
         <p>
           However, we now have a problem with overlaps between <m>x_{p}</m> and <m>x_{c}</m>.
           The guess corresponding to the first component overlaps with <m>x_{c}</m>, so we need to multiply it by <m>t^{3}</m> to remove the overlap.
@@ -384,42 +449,48 @@
         </p>
       </solution>
     </example>
+
     <p>
       The method of undetermined coefficients applied to the ODE
       <me>
-        a_{n}y^{(n)}+a_{n-1}y^{(n-1)}+\dots+a_{1}y^\prime+a_{0}y = f(x)   
+        a_{n}y^{(n)}+a_{n-1}y^{(n-1)}+\dots+a_{1}y^\prime+a_{0}y = f(x)
       </me>
       can be summarized by the following table.
       Note that <m>x^m</m> is the <em>smallest</em> power of <m>x</m> required to remove any overlaps with <m>y_{c}</m>.
     </p>
-    <table>
-      <tabular top="major">
-        <row bottom="major">
-          <cell>Component of <m>f(x)</m></cell>
-          <cell>Contribution to <m>y_{p}</m></cell>
-        </row>
-        <row>
-          <cell><m>c_{k}x^{k}+\dots+c_{1}x+c_{0}</m></cell>
-          <cell><m>x^{m}(C_{k}x^{k}+C_{k-1}x^{k-1}+\dots+C_{1}x+C_{0})</m></cell>
-        </row>
-        <row>
-          <cell><m>(c_{k}x^{k}+\dots+c_{1}x+c_{0})e^{ax}\sin bx</m></cell>
-          <cell><m>x^{m}e^{ax}\brackets{(C_{k}x^{k}+\dots+C_{1}x+C_{0})\cos bx+(D_{k}x^{k}+\dots+D_{1}x+D_{0})\sin bx}</m></cell>
-        </row>
-        <row>
-          <cell><m>(c_{k}x^{k}+\dots+c_{1}x+c_{0})e^{ax}\cos bx</m></cell>
-          <cell><m>x^{m}e^{ax}\brackets{(C_{k}x^{k}+\dots+C_{1}x+C_{0})\cos bx+(D_{k}x^{k}+\dots+D_{1}x+D_{0})\sin bx}</m></cell>
-        </row>
-        <row>
-          <cell><m>(c_{k}x^{k}+\dots+c_{1}x+c_{0})e^{ax}\sinh bx</m></cell>
-          <cell><m>x^{m}e^{ax}\brackets{(C_{k}x^{k}+\dots+C_{1}x+C_{0})\cosh bx+(D_{k}x^{k}+\dots+D_{1}x+D_{0})\sinh bx}</m></cell>
-        </row>
-        <row bottom="major">
-          <cell><m>(c_{k}x^{k}+\dots+c_{1}x+c_{0})e^{ax}\cosh bx</m></cell>
-          <cell><m>x^{m}e^{ax}\brackets{(C_{k}x^{k}+\dots+C_{1}x+C_{0})\cosh bx+(D_{k}x^{k}+\dots+D_{1}x+D_{0})\sinh bx}</m></cell>
-        </row>
-      </tabular>
-    </table>
+
+    <tabular top="major">
+      <row bottom="major">
+        <cell>Component of <m>f(x)</m></cell>
+        <cell>Contribution to <m>y_{p}</m></cell>
+      </row>
+
+      <row>
+        <cell><m>c_{k}x^{k}+\dots+c_{1}x+c_{0}</m></cell>
+        <cell><m>x^{m}(C_{k}x^{k}+C_{k-1}x^{k-1}+\dots+C_{1}x+C_{0})</m></cell>
+      </row>
+
+      <row>
+        <cell><m>(c_{k}x^{k}+\dots+c_{1}x+c_{0})e^{ax}\sin bx</m></cell>
+        <cell><m>x^{m}e^{ax}\brackets{(C_{k}x^{k}+\dots+C_{1}x+C_{0})\cos bx+(D_{k}x^{k}+\dots+D_{1}x+D_{0})\sin bx}</m></cell>
+      </row>
+
+      <row>
+        <cell><m>(c_{k}x^{k}+\dots+c_{1}x+c_{0})e^{ax}\cos bx</m></cell>
+        <cell><m>x^{m}e^{ax}\brackets{(C_{k}x^{k}+\dots+C_{1}x+C_{0})\cos bx+(D_{k}x^{k}+\dots+D_{1}x+D_{0})\sin bx}</m></cell>
+      </row>
+
+      <row>
+        <cell><m>(c_{k}x^{k}+\dots+c_{1}x+c_{0})e^{ax}\sinh bx</m></cell>
+        <cell><m>x^{m}e^{ax}\brackets{(C_{k}x^{k}+\dots+C_{1}x+C_{0})\cosh bx+(D_{k}x^{k}+\dots+D_{1}x+D_{0})\sinh bx}</m></cell>
+      </row>
+
+      <row bottom="major">
+        <cell><m>(c_{k}x^{k}+\dots+c_{1}x+c_{0})e^{ax}\cosh bx</m></cell>
+        <cell><m>x^{m}e^{ax}\brackets{(C_{k}x^{k}+\dots+C_{1}x+C_{0})\cosh bx+(D_{k}x^{k}+\dots+D_{1}x+D_{0})\sinh bx}</m></cell>
+      </row>
+    </tabular>
+
     <example>
       <statement>
         <p>
@@ -429,6 +500,7 @@
           </me>
         </p>
       </statement>
+
       <solution>
         <p>
           We begin by finding <m>y_{c}</m>.
@@ -439,22 +511,24 @@
           </me>
           Now we can set up <m>y_{p}</m>:
         </p>
-        <table>
-          <tabular top="major">
-            <row bottom="major">
-              <cell>Component</cell>
-              <cell>Contribution to <m>y_{p}</m></cell>
-            </row>
-            <row>
-              <cell><m>x</m></cell>
-              <cell><m>x(C_{1}x+C_{2})</m></cell>
-            </row>
-            <row bottom="major">
-              <cell><m>e^{-3x}\sin x</m></cell>
-              <cell><m>e^{-3x}\brackets{C_{3}\cos x+C_{4}\sin x}</m></cell>
-            </row>
-          </tabular>
-        </table>
+
+        <tabular top="major">
+          <row bottom="major">
+            <cell>Component</cell>
+            <cell>Contribution to <m>y_{p}</m></cell>
+          </row>
+
+          <row>
+            <cell><m>x</m></cell>
+            <cell><m>x(C_{1}x+C_{2})</m></cell>
+          </row>
+
+          <row bottom="major">
+            <cell><m>e^{-3x}\sin x</m></cell>
+            <cell><m>e^{-3x}\brackets{C_{3}\cos x+C_{4}\sin x}</m></cell>
+          </row>
+        </tabular>
+
         <p>
           So our initial guess for <m>y_{p}</m> is given by <m>y_{p} = C_{1}x^{2}+C_{2}x+C_{3}e^{-3x}\cos x+C_{4}e^{-3x}\sin x</m>.
           Plugging this into the ODE into a CAS such as Maple or Sage gives
@@ -475,6 +549,7 @@
             C_{1} = \frac{1}{6},C_{2} = \frac{2}{9},C_{3} = -\frac{41}{3530},C_{4}=-\frac{43}{3530}.
           </me>
         </p>
+
         <p>
           So the general solution of the ODE is
           <me>
@@ -484,21 +559,19 @@
       </solution>
     </example>
     <sage>
-      <input>
+    <input>
         # Set variables
         c1, c2, c3, c4 = var('c1 c2 c3 c4')
-
         # Set up equations as variables for clarity
         eqn1 = 6*c1
         eqn2 = 3*c2 - 4*c1
         eqn3 = -43*c3 + 41*c4
         eqn4 = -41*c3 - 43*c4
-
         solve([eqn1 == 1, eqn2 == 0, eqn3 == 0, eqn4 == 1], c1, c2, c3, c4)
-      </input>
-      <output>
+    </input>
+    <output>
         [[c1 == (1/6), c2 == (2/9), c3 == (-41/3530), c4 == (-43/3530)]]
-      </output>
+    </output>
     </sage>
   </section>
 </chapter>
