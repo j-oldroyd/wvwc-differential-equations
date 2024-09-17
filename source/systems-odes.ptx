@@ -14,7 +14,7 @@
   <title>Systems of Ordinary Differential Equations</title>
   <shorttitle>Linear Systems</shorttitle>
   <section xml:id="section-systems-of-odes-as-models">
-    <title>Systems of ODEs as Models</title>
+    <title>Systems of ODEs as models</title>
 
     <p>
       Interdependent quantities can often be represented mathematically by a system of equations.
@@ -23,10 +23,11 @@
 
     <definition xml:id="definition-first-order-system">
       <idx><h>first-order systems</h><h>definition</h></idx>
-
+      <statement>
       <p>
         A <term>first order system</term> of ODEs is a system of differential equations involving some collection of functions and their first derivatives.
       </p>
+    </statement>
     </definition>
 
     <p>
@@ -46,6 +47,7 @@
     </p>
 
     <example xml:id="example-interconnected-tanks">
+      <title>Modeling interconnected tanks</title>
       <statement>
         <p>
           Two brine tanks are set up as in <xref ref="figure-interconnected-tanks" text="type-global" />.
@@ -75,6 +77,7 @@
     </example>
 
     <figure xml:id="figure-interconnected-tanks">
+      <caption>The two interconnected tanks from <xref ref="example-interconnected-tanks" text="type-global" /></caption>
       <image xml:id="image-interconnected-tanks" width="70%">
         <description>
           <p>
@@ -84,7 +87,7 @@
             The well-mixed solution from the second tank then flows out of the system.
           </p>
         </description>
-        <latex-image xml:id="latex-image-interconnected-tanks"><![CDATA[
+        <latex-image>
           \begin{tikzpicture}[scale=.7]
           % stolen shamelessly from stackexchange somebody CALL THE COPS
           % draw the tanks
@@ -108,15 +111,14 @@
           \draw[color = black] (3,5)--(3,2)--(4,2)--(4,5);
 
           % add the rates
-          \draw[->] (0.5,7)--(0.5,5)node[pos=0,anchor=south west]{$r_{1}$};
-          \draw[->] (3,1.5)--(4,1.5)node[midway, yshift = .5cm]{$r_{2}$};
-          \draw[->] (6.5,0)--(6.5,-2)node[pos=1,anchor=north]{$r_{3}$};
+          \draw[-&gt;] (0.5,7)--(0.5,5)node[pos=0,anchor=south west]{$r_{1}$};
+          \draw[-&gt;] (3,1.5)--(4,1.5)node[midway, yshift = .5cm]{$r_{2}$};
+          \draw[-&gt;] (6.5,0)--(6.5,-2)node[pos=1,anchor=north]{$r_{3}$};
           \node at (1,1){Tank 1};
           \node at (6,1){Tank 2};
-          \end{tikzpicture}]]>
+          \end{tikzpicture}
         </latex-image>
       </image>
-      <caption>The two interconnected tanks from <xref ref="example-interconnected-tanks" text="type-global" />.</caption>
     </figure>
 
     <p>
@@ -124,9 +126,9 @@
     </p>
 
     <definition xml:id="definition-matrices-and-vectors">
+      <title>Matrices and vectors</title>
       <idx><h>matrices</h><h>definition</h></idx>
       <idx><h>vectors</h><h>definition</h><see>matrices</see></idx>
-
       <statement>
         <p>
           An <m>m\times n</m> <term>matrix</term> is an array of <m>m</m> rows and <m>n</m> columns.
@@ -146,7 +148,7 @@
     </p>
 
     <definition xml:id="definition-matrix-vector-product">
-      <title>Matrix-Vector Product</title>
+      <title>Matrix-vector product</title>
 
       <statement>
         <p>
@@ -171,6 +173,7 @@
     </p>
 
     <example xml:id="example-systems-odes-matrix-vector-product">
+      <title>Computing a matrix-vector product</title>
       <statement>
         <p>
           Let <m>A = \begin{bmatrix} 1\amp0\\-3\amp2 \end{bmatrix},\vec{v}_{1} = \begin{bmatrix}1\\1\end{bmatrix}</m> and <m>\vec{v}_{2} = \begin{bmatrix}0\\5\end{bmatrix}</m>.
@@ -206,8 +209,6 @@
               Consider a spring mass system with two masses arranged as follows:
           </p>
 
-          <figure xml:id="figure-systems-odes-interconnected-spring-mass-system">
-            <caption>A spring-mass system with interconnected masses</caption>
             <image xml:id="image-systems-odes-interconnected-spring-mass-system" width="80%">
               <description>
                 <p>
@@ -217,7 +218,7 @@
                 </p>
               </description>
 
-              <latex-image xml:id="latex-image-systems-odes-interconnected-spring-mass-system">
+              <latex-image>
                 \begin{tikzpicture}
                 % Stolen shamelessly from stackexchange.
 
@@ -255,7 +256,6 @@
                 \end{tikzpicture}
               </latex-image>
             </image>
-          </figure>
 
           <p>
             Determine a first-order system that the displacements <m>x_1</m> and <m>x_2</m> must satisfy.
@@ -264,7 +264,7 @@
 
         <solution>
             <p>
-                From <xref ref="section-spring-mass-models" text="type-global" /> we know how to model a spring-mass system with a single mass using <xref ref="theorem-hooke-s-law" custom="Hooke's Law" /> and Newton's Second Law.
+                From <xref ref="section-spring-mass-models" text="type-global" /> we know how to model a spring-mass system with a single mass using <xref ref="theorem-hooke-s-law" text="custom">Hooke's law</xref> and Newton's Second Law.
                 We will apply this same analysis to the displacements <m>x_1</m> and <m>x_2</m> individually.
             </p>
 
@@ -275,8 +275,6 @@
               We arrange these in the following table:
             </p>
 
-            <table xml:id="table-systems-odes-interconnected-spring-mass-system">
-              <title>Forces acting on an interconnected spring-mass system</title>
               <tabular top="major">
                 <row bottom="minor">
                   <cell>mass</cell>
@@ -291,7 +289,6 @@
                   <cell><m>k_2x_1, -k_2x_2</m></cell>
                 </row>
               </tabular>
-            </table>
 
             <p>
               Now we can apply Newton's Second Law to get the <em>second</em>-order system
@@ -350,6 +347,7 @@
     </definition>
 
     <example xml:id="example-eigenvalue-eigenvector">
+      <title>Determining if a vector is an eigenvector</title>
       <statement>
         <p>
           Determine if <m>\vec{v} = \begin{bmatrix}-2\\1\end{bmatrix}</m> is an eigenvector of <m>A = \begin{bmatrix}1\amp4\\1\amp1\end{bmatrix}</m>.
@@ -371,7 +369,7 @@
     </p>
 
     <definition xml:id="definition-vector-valued-function">
-      <title>Vector-Valued Functions</title>
+      <title>Vector-valued functions</title>
       <idx><h>vectors</h><h>vector-valued functions</h></idx>
 
       <notation>
@@ -406,6 +404,7 @@
     </p>
 
     <example xml:id="example-systems-odes-matrix-ode">
+      <title>Writing a system as a matrix ODE</title>
       <statement>
         <p>
           Write the system
@@ -437,6 +436,7 @@
     </example>
 
     <example xml:id="example-systems-odes-matrix-ode-solution">
+      <title>Solution of a matrix ODE</title>
       <statement>
         <p>
           Show that <m>e^{-t}\vec{x}_{0}</m> where <m>\vec{x}_{0} = \begin{bmatrix}-2\\1\end{bmatrix}</m> is a solution of the system
@@ -464,7 +464,7 @@
     </p>
 
     <definition xml:id="definition-linear-independence-of-vectors">
-      <title>Linear Independence of Vectors</title>
+      <title>Linear independence of vectors</title>
 
       <idx><h>linear independence</h><h>vectors</h></idx>
 
@@ -510,7 +510,7 @@
   </section>
 
   <section xml:id="section-constant-coefficient-systems-and-the-phase-plane">
-    <title>Constant Coefficient Systems</title>
+    <title>Constant coefficient systems</title>
 
     <introduction>
       <p>
@@ -527,7 +527,7 @@
       </p>
 
       <theorem xml:id="theorem-solutions-of-matrix-odes-constant-coefficients">
-        <title>Solutions of Systems</title>
+        <title>Solutions of systems</title>
 
         <statement>
           <p>
@@ -569,8 +569,8 @@
             <md>
               <mrow>W(\vec{x}_{1},\vec{x}_{2},\vec{x}_{3}) \amp = \begin{vmatrix} 1  \amp  -1  \amp  -\frac{1}{2} \\ 1 \amp  1 \amp  -\frac{1}{2} \\ 1 \amp  0 \amp  1\end{vmatrix}</mrow>
               <mrow>\amp = 1+\frac{3}{2}+\frac{1}{2}</mrow>
-              <mrow>\amp = 3</mrow>.
-            </md>
+              <mrow>\amp = 3</mrow>
+            </md>.
           </p>
 
           <p>
@@ -592,7 +592,7 @@
     </subsection>
 
     <subsection xml:id="subsection-finding-eigenvalues-and-eigenvectors">
-      <title>Finding Eigenvalues and Eigenvectors</title>
+      <title>Finding eigenvalues and eigenvectors</title>
 
       <p>
         <xref ref="theorem-solutions-of-matrix-odes-constant-coefficients" text="type-global" /> shows that solving systems of first-order ODEs comes down to finding eigenvalues and eigenvectors of the corresponding matrix ODE.
@@ -607,16 +607,8 @@
         <me>A\vec{v}-\lambda\vec{v} = (A-\lambda I)\vec{v} = \vec{0}</me>
         where <m>I</m> is the identity matrix.
         Since <m>\vec{v}\neq\vec{0}</m> (since it's an eigenvector!), linear algebra tells us that <m>\det(A-\lambda I) = 0</m>.
-        This gives us the following theorem.
+        This gives us the following definition and theorem.
       </p>
-
-      <theorem xml:id="theorem-theorem-eigenvalues-from-characteristic-equation">
-        <statement>
-          <p>
-            The eigenvalues of a square matrix <m>A</m> are the solutions of the equation <m>\det(A-\lambda I) = 0</m>.
-          </p>
-        </statement>
-      </theorem>
 
       <definition xml:id="definition-characteristic-equation">
         <statement>
@@ -625,6 +617,16 @@
           </p>
         </statement>
       </definition>
+
+      <theorem xml:id="theorem-theorem-eigenvalues-from-characteristic-equation">
+        <title>Eigenvalues and the characteristic equation</title>
+        <statement>
+          <p>
+            The eigenvalues of a square matrix <m>A</m> are the solutions of the equation <m>\det(A-\lambda I) = 0</m>.
+          </p>
+        </statement>
+      </theorem>
+
 
       <example xml:id="example-system-odes-finding-eigenvalues-2x2">
         <title>Finding eigenvalues of a <m>2\times2</m> matrix</title>
@@ -716,10 +718,10 @@
             Then we know that
             <me>\begin{bmatrix}1 \amp  4 \\ 1 \amp  1\end{bmatrix}\vec{v} = \lambda\vec{v} \Rightarrow \begin{bmatrix}v_{1}+4v_{2} \\ v_{1} + v_{2}\end{bmatrix} = \begin{bmatrix} \lambda v_{1} \\ \lambda v_{2} \end{bmatrix}</me>.
             This tells us that if <m>\vec{v} = \begin{bmatrix}v_{1} \\ v_{2} \end{bmatrix}</m> is an eigenvector for <m>\lambda</m>, then its entries need to satisfy
-            <mdn xml:id="equation-eigenvector-relation">
-              <mrow number="no">v_{1}+4v_{2}\amp =\lambda v_{1}</mrow>
-              <mrow number="no">v_{1}+v_{2} \amp = \lambda v_{2}</mrow>
-            </mdn>
+            <md>
+              <mrow>v_{1}+4v_{2}\amp =\lambda v_{1}</mrow>
+              <mrow>v_{1}+v_{2} \amp = \lambda v_{2}</mrow>
+            </md>
             which boils down to
             <md>
               <mrow>(1-\lambda)v_{1}+4v_{2} \amp = 0</mrow>
@@ -815,7 +817,7 @@
     </subsection>
 
     <subsection xml:id="subsection-solving-matrix-odes">
-      <title>Solving Matrix ODEs</title>
+      <title>Solving matrix odes</title>
 
       <p>
         We now have the tools we need to begin solving matrix ODEs.
@@ -827,6 +829,7 @@
       </p>
 
       <theorem xml:id="theorem-linear-independence-distinct-eigenvalues">
+        <title>Distinct eigenvalues and linear independence</title>
         <statement>
           <p>
             Let <m>A</m> be an <m>n\times n</m> matrix with constant entries.
@@ -946,8 +949,8 @@
             <md>
               <mrow>\dv{x_{1}}{t} \amp = 3x_{1}+x_{3}</mrow>
               <mrow>\dv{x_{2}}{t} \amp = 9x_{1}-x_{2}+2x_{3}</mrow>
-              <mrow>\dv{x_{3}}{t} \amp = -9x_{1} + 4x_{2} - x_{3}</mrow>.
-            </md>
+              <mrow>\dv{x_{3}}{t} \amp = -9x_{1} + 4x_{2} - x_{3}</mrow>
+            </md>.
           </p>
         </statement>
 
