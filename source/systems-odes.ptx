@@ -1338,7 +1338,7 @@
       </table>
 
       <p>
-        <m>\vec{0}</m> was a saddle point in <xref ref="example-sketch-phase-portrait" text="type-global" /> since there were incoming trajectories on the line <m>y_{2} = y_{1}</m> and outgoing trajectories on the line <m>y_{2} = -\frac{2}{3}y_{1}</m> as indicated in <xref ref="figure-sketch-phase-portrait" text="type-global" />.
+        <m>\vec{0}</m> was a saddle point in <xref ref="example-sketch-phase-portrait" text="type-global" /> since there were incoming trajectories on the line <m>y_{2} = y_{1}</m> and outgoing trajectories on the line <m>y_{2} = -\frac{2}{3}y_{1}</m> as indicated in the corresponding phase portrait.
       </p>
 
       <example xml:id="example-stability-equilibrium-solution">
@@ -2164,17 +2164,17 @@
           x3 = function('x3')(t)
           de1 = diff(x1, t) == 3*x1 + x3
           de2 = diff(x2, t) == 9*x1 - x2 + 2*x3
-          de3 = diff(x3, t) == 3*x1 + x3
+          de3 = diff(x3, t) == -9*x1 + 4*x2 - x3
           show(desolve_system([de1, de2, de3], [x1, x2, x3]))
         </input>
         <output>
-          [x1(t) == 1/4*(3*x1(0) + x3(0))*e^(4*t) + 1/4*x1(0) - 1/4*x3(0),
-           x2(t) == 11/20*(3*x1(0) + x3(0))*e^(4*t) - 1/5*(12*x1(0) - 5*x2(0) - x3(0))*e^(-t) + 3/4*x1(0) - 3/4*x3(0),
-           x3(t) == 1/4*(3*x1(0) + x3(0))*e^(4*t) - 3/4*x1(0) + 3/4*x3(0)]
+          [x1(t) == 8/17*(x1(0) - 1)*e^(3*t) + 1/17*((9*x1(0) + 8)*cos(t) + 3*(12*x1(0) + 5)*sin(t))*e^(-t),
+           x2(t) == 18/17*(x1(0) - 1)*e^(3*t) - 1/17*((18*x1(0) - 1)*cos(t) - (81*x1(0) + 38)*sin(t))*e^(-t),
+           x3(t) == -((9*x1(0) + 4)*sin(t) + cos(t))*e^(-t)]
         </output>
       </sage>
       <p>
-        Solve a corresponding IVP, say with <m>x_1(0) = 1, x_2(0) = x_3(0) = -1</m>, can be done by providing the <c>ics</c> argument to <c>desolve_system</c>.
+        Solving a corresponding IVP, say with <m>x_1(0) = 1, x_2(0) = x_3(0) = -1</m>, can be done by providing the <c>ics</c> argument to <c>desolve_system</c>.
       </p>
       <sage>
         <input>
@@ -2184,13 +2184,126 @@
           x3 = function('x3')(t)
           de1 = diff(x1, t) == 3*x1 + x3
           de2 = diff(x2, t) == 9*x1 - x2 + 2*x3
-          de3 = diff(x3, t) == 3*x1 + x3
+          de3 = diff(x3, t) == -9*x1 + 4*x2 - x3
           show(desolve_system([de1, de2, de3], [x1, x2, x3], ics=[0, 1, -1, -1]))
         </input>
         <output>
-          [x1(t) == 1/2*e^(4*t) + 1/2,
-           x2(t) == 11/10*e^(4*t) - 18/5*e^(-t) + 3/2,
-           x3(t) == 1/2*e^(4*t) - 3/2]
+          [x1(t) == (cos(t) + 3*sin(t))*e^(-t),
+           x2(t) == -(cos(t) - 7*sin(t))*e^(-t),
+           x3(t) == -(cos(t) + 13*sin(t))*e^(-t)]
+        </output>
+      </sage>
+      <p>
+        Linear systems can also be solved using the eigenvector and eigenvalue approach developed in <xref ref="section-constant-coefficient-systems-and-the-phase-plane"/> as done in the original solution in <xref ref="example-systems-odes-3x3-system"/>.
+        In Octave, the required code is the following.
+      </p>
+      <sage language="octave">
+        <input>
+          format short % without this, complex numbers display as pairs
+          M = [3, 0, 1; 9, -1, 2; -9, 4, -1]
+          [U,D] = eig(M)
+        </input>
+        <output>
+          M =
+
+            3   0   1
+            9  -1   2
+            -9   4  -1
+
+          U =
+
+            0.2023 + 0.0506i   0.2023 - 0.0506i   0.4061 +      0i
+            0.4551 - 0.1011i   0.4551 + 0.1011i   0.9138 +      0i
+            -0.8597 +      0i  -0.8597 -      0i  0.0000 +      0i
+
+          D =
+
+          Diagonal Matrix
+
+            -1.0000 + 1.0000i                  0                  0
+                            0  -1.0000 - 1.0000i                  0
+                            0                  0   3.0000 +      0i
+        </output>
+      </sage>
+      <p>
+        Each column of the matrix <m>U</m> is an eigenvector of <m>M</m> with corresponding eigenvalue given in the matrix <m>D</m>.
+        The solution of the system can be given as 
+        <me>
+          \vec{x}(t) = c_1\begin{bmatrix} 0.2023 + 0.0506i  \\ 0.4551 - 0.1011i  \\ -0.8597 \end{bmatrix}e^{(-1+i)t}
+          + c_2\begin{bmatrix} 0.2023 - 0.0506i \\ 0.4551 + 0.1011i \\ -0.8597\end{bmatrix}e^{(-1-i)t} 
+          + c_3\begin{bmatrix} 0.4061 \\ 0.9138 \\ 0 \end{bmatrix}e^{3t}
+        </me>.
+        Solving for initial conditions requires solving the matrix equation <m>U\vec{c} = \vec{x}_0</m>.
+        Octave makes this simple by providing the forward slash operator <c>\</c>.
+      </p>
+      <sage language="octave">
+        <input>
+          format short % without this, complex numbers display as pairs
+          M = [3, 0, 1; 9, -1, 2; -9, 4, -1]
+          [U,D] = eig(M)
+
+          x0 = [1; -1; -1] % x(0) = [1; -1; -1]
+          c = U\x0
+        </input>
+        <output>
+          x0 =
+
+            1
+            -1
+            -1
+
+          c =
+
+            5.8158e-01 - 7.5605e+00i
+            5.8158e-01 + 7.5605e+00i
+            -7.7184e-16 + 4.8240e-16i
+        </output>
+      </sage>
+      <p>
+        We can make use of Octave's concept of array operations to make defining <m>\vec{x}(t)</m> a little smoother.
+      </p>
+      <sage language="octave">
+        <input>
+          format short % without this, complex numbers display as pairs
+          M = [3, 0, 1; 9, -1, 2; -9, 4, -1];
+          [U,D] = eig(M);
+
+          x0 = [1; -1; -1];
+          c = U\x0;
+
+          lambda = diag(D); % vector of eigenvalues
+          x = @(t) U*(c.*exp(lambda*t))
+
+          x(0), x(1) % we can evaluate our solution 
+
+          % plot of x(t) for 0≤t≤=10
+          T=linspace(0, 10);
+          pts = x(T);
+          xpts = pts(1,:);
+          ypts = pts(2,:);
+          zpts = pts(3,:);
+          plot3(xpts, ypts, zpts)
+          xlabel('x')
+          ylabel('y')
+          zlabel('z')
+          legend('x(t)')
+        </input>
+        <output>
+          x =
+
+          @(t) U * (c .* exp (lambda * t))
+
+          ans =
+
+            1.0000 - 0.0000i
+            -1.0000 + 0.0000i
+            -1.0000 + 0.0000i
+
+          ans =
+
+            1.1274 + 0.0000i
+            1.9682 + 0.0000i
+            -4.2230 + 0.0000i
         </output>
       </sage>
     </subsection>
