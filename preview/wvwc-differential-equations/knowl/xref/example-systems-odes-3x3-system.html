@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en-US" dir="ltr">
+<!--********************************************-->
+<!--*       Generated from PreTeXt source      *-->
+<!--*                                          *-->
+<!--*         https://pretextbook.org          *-->
+<!--*                                          *-->
+<!--********************************************-->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="robots" content="noindex, nofollow">
+<script>// Make *any* div with class 'sagecell-sage' an executable Sage cell
+// Their results will be linked, only within language type
+sagecell.makeSagecell({
+  "inputLocation": "div.sagecell-sage",
+  "linked": true,
+  "linkKey": "linked-sage",
+  "autoeval": false,
+  "languages": [
+    "sage"
+  ],
+  "evalButtonText": "Evaluate (Sage)"
+});
+</script>
+</head>
+<body class="ignore-math">
+<article class="example example-like"><h4 class="heading">
+<span class="type">Example</span><span class="space"> </span><span class="codenumber">4.2.11</span><span class="period">.</span><span class="space"> </span><span class="title">Solving a system of three differential equations.</span>
+</h4>
+<div class="para logical">
+<div class="para">Solve the first-order system</div>
+<div class="displaymath process-math">
+\begin{align*}
+\dv{x_{1}}{t} \amp = 3x_{1}+x_{3}\\
+\dv{x_{2}}{t} \amp = 9x_{1}-x_{2}+2x_{3}\\
+\dv{x_{3}}{t} \amp = -9x_{1} + 4x_{2} - x_{3}\text{.}
+\end{align*}
+</div>
+</div>
+<div class="solutions"><details class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="period">.</span></summary><div class="solution solution-like knowl__content">
+<div class="para logical">
+<div class="para">As long as this system has distinct eigenvalues the above method will work. Once again we rewrite the system as a matrix ODE; in this case, the matrix ODE we must solve is</div>
+<div class="displaymath process-math">
+\begin{equation*}
+\vec{x}^\prime = \begin{bmatrix}3 \amp  0 \amp  1 \\ 9 \amp  -1 \amp  2 \\ -9 \amp  4 \amp  -1\end{bmatrix}\vec{x} = A\vec{x}\text{.}
+\end{equation*}
+</div>
+</div> <div class="para">To find the eigenvalues we must solve the characteristic equation <span class="process-math">\(\det(A-\lambda I)=0\text{.}\)</span> However, we can also use Sage to perform this task.</div> <aside class="aside aside-like"><div class="para">We could also use MATLAB/Octave, but the resulting eigenvectors wouldn’t look as nice as the output provided by Sage. This is because MATLAB’s <code class="code-inline tex2jax_ignore">eig</code> command produces <dfn class="terminology">normalized</dfn> output which often involves dividing entries by square roots.</div></aside> <div id="example-systems-odes-3x3-system-3-4" class="ptx-sagecell sagecell-sage"><script type="text/x-sage"># Define our matrix
+M = matrix([ [3, 0, 1],
+[9, -1, 2],
+[-9, 4, -1]] )
+# Finds eigenvectors, corresponding eigenvalues and "algebraic multiplicty".
+M.eigenvectors_right()
+</script></div> <div class="para logical">
+<div class="para">This produces a list containing the eigenvalues of <span class="process-math">\(A\)</span> as well as the corresponding eigenvectors. So we see that the eigenvalues are given by</div>
+<div class="displaymath process-math">
+\begin{equation*}
+\lambda_{1} = 3, \quad\lambda_{2} = -1 - i\quad\text{ and }\quad\lambda_{3} = -1 + i\text{,}
+\end{equation*}
+</div>
+<div class="para">while the corresponding eigenvectors are given by</div>
+<div class="displaymath process-math">
+\begin{equation*}
+\vec{v}_{1} = \begin{bmatrix}1 \\ \frac{9}{4} \\ 0\end{bmatrix}, \quad\vec{v}_{2} = \begin{bmatrix} 1 \\ 2 + i \\ -4 - i \end{bmatrix}\quad\text{and}\vec{v}_{3} = \begin{bmatrix} 1 \\ 2 - i \\ -4 + i \end{bmatrix}\text{.}
+\end{equation*}
+</div>
+</div> <div class="para logical">
+<div class="para">We now have everything we need for the general solution of the matrix ODE. It’s just</div>
+<div class="displaymath process-math">
+\begin{equation*}
+\vec{x} = c_{1}e^{3t}\begin{bmatrix}1 \\ \frac{9}{4} \\ 0\end{bmatrix} + c_{2}e^{(-1 - i)t}\begin{bmatrix} 1 \\ 2 + i \\ -4 - i \end{bmatrix} + c_{3}e^{(-1 + i)t}\begin{bmatrix} 1 \\ 2 - i \\ -4 + i \end{bmatrix}\text{.}
+\end{equation*}
+</div>
+</div>
+</div></details></div></article><span class="incontext"><a class="internal" href="section-constant-coefficient-systems-and-the-phase-plane.html#example-systems-odes-3x3-system">in-context</a></span>
+</body>
+</html>
