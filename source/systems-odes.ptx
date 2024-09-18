@@ -2098,6 +2098,101 @@
           2
         </output>
       </sage>
+      <p>
+        To enter matrices in Sage, we can use the <c>Matrix</c> command.
+        The input to this command is typically a list of lists, each representing a row of the matrix.
+        By providing two optional arguments for the number of rows and number of columns, Sage can also reshape a list into an appropriate matrix.
+      </p>
+      <sage>
+        <input>
+          M = Matrix([1,2,3])
+          N = Matrix([[1],[2],[3]])
+          P = Matrix(3,1,[1,2,3])
+          show(M,N,P)
+        </input>
+        <output>
+          (
+                   [1]  [1]
+                   [2]  [2]
+          [1 2 3], [3], [3]
+          )
+        </output>
+      </sage>
+      <p>
+        Creating a matrix is a little bit easier to do in Octave, as Octave supports the bracket notation for vectors in the creation of matrices as well.
+        Octave also inludes a <c>reshape</c> command.
+      </p>
+      <sage language="octave">
+        <input>
+          M = [1, 2, 3]
+          N = [1; 2; 3]
+          P = reshape([1,2,3], 3, 1)
+        </input>
+        <output>
+          M =
+
+          1 2 3
+
+          N =
+
+          1
+          2
+          3
+
+          P =
+
+          1
+          2
+          3
+        </output>
+      </sage>
+    </subsection>
+    <subsection xml:id="subsec-solving-matrix-odes">
+      <title>Solving matrix ODEs</title>
+      <p>
+        For solving matrix ODEs exactly, we can use Sage's <c>desolve_system</c> command.
+        The code below shows how to solve <xref ref="example-systems-odes-3x3-system"/>.
+        First, we define our unknown functions in terms of the variable <m>t</m>.
+        Then we define each equation in our system.
+        Finally, we use <c>desolve_system</c> to produce the solution.
+      </p>
+      <sage>
+        <input>
+          var('t')
+          x1 = function('x1')(t)
+          x2 = function('x2')(t)
+          x3 = function('x3')(t)
+          de1 = diff(x1, t) == 3*x1 + x3
+          de2 = diff(x2, t) == 9*x1 - x2 + 2*x3
+          de3 = diff(x3, t) == 3*x1 + x3
+          show(desolve_system([de1, de2, de3], [x1, x2, x3]))
+        </input>
+        <output>
+          [x1(t) == 1/4*(3*x1(0) + x3(0))*e^(4*t) + 1/4*x1(0) - 1/4*x3(0),
+           x2(t) == 11/20*(3*x1(0) + x3(0))*e^(4*t) - 1/5*(12*x1(0) - 5*x2(0) - x3(0))*e^(-t) + 3/4*x1(0) - 3/4*x3(0),
+           x3(t) == 1/4*(3*x1(0) + x3(0))*e^(4*t) - 3/4*x1(0) + 3/4*x3(0)]
+        </output>
+      </sage>
+      <p>
+        Solve a corresponding IVP, say with <m>x_1(0) = 1, x_2(0) = x_3(0) = -1</m>, can be done by providing the <c>ics</c> argument to <c>desolve_system</c>.
+      </p>
+      <sage>
+        <input>
+          var('t')
+          x1 = function('x1')(t)
+          x2 = function('x2')(t)
+          x3 = function('x3')(t)
+          de1 = diff(x1, t) == 3*x1 + x3
+          de2 = diff(x2, t) == 9*x1 - x2 + 2*x3
+          de3 = diff(x3, t) == 3*x1 + x3
+          show(desolve_system([de1, de2, de3], [x1, x2, x3], ics=[0, 1, -1, -1]))
+        </input>
+        <output>
+          [x1(t) == 1/2*e^(4*t) + 1/2,
+           x2(t) == 11/10*e^(4*t) - 18/5*e^(-t) + 3/2,
+           x3(t) == 1/2*e^(4*t) - 3/2]
+        </output>
+      </sage>
     </subsection>
   </section>
 </chapter>
