@@ -1,17 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 
-<!--********************************************************************
-
-*********************************************************************-->
-<!-- This file was originally part of the book     -->
-<!-- (as copied on 2015/07/12)                     -->
-<!--                                               -->
-<!--   Abstract Algebra: Theory and Applications   -->
-<!--                                               -->
-<!-- Copyright (C) 1997-2014  Thomas W. Judson     -->
-
 <chapter xml:id="systems-of-odes" xmlns:xi="http://www.w3.org/2001/XInclude">
   <title>Systems of Ordinary Differential Equations</title>
+
   <shorttitle>Linear Systems</shorttitle>
   <section xml:id="section-systems-of-odes-as-models">
     <title>Systems of ODEs as models</title>
@@ -24,10 +15,10 @@
     <definition xml:id="definition-first-order-system">
       <idx><h>first-order systems</h><h>definition</h></idx>
       <statement>
-      <p>
-        A <term>first order system</term> of ODEs is a system of differential equations involving some collection of functions and their first derivatives.
-      </p>
-    </statement>
+        <p>
+          A <term>first order system</term> of ODEs is a system of differential equations involving some collection of functions and their first derivatives.
+        </p>
+      </statement>
     </definition>
 
     <p>
@@ -48,6 +39,7 @@
 
     <example xml:id="example-interconnected-tanks">
       <title>Modeling interconnected tanks</title>
+
       <statement>
         <p>
           Two brine tanks are set up as in <xref ref="figure-interconnected-tanks" text="type-global" />.
@@ -77,7 +69,9 @@
     </example>
 
     <figure xml:id="figure-interconnected-tanks">
-      <caption>The two interconnected tanks from <xref ref="example-interconnected-tanks" text="type-global" /></caption>
+      <caption>The two interconnected tanks from <xref ref="example-interconnected-tanks" text="type-global" />
+      </caption>
+
       <image xml:id="image-interconnected-tanks" width="70%">
         <description>
           <p>
@@ -105,11 +99,9 @@
           \filldraw[blue!40] (4,3.5)--(7,3.5)--(7,-1)--(6,-1)--(6,0)--(4,0) % tank 2
           -- cycle;
           \end{pgfonlayer}
-
           % connection piece
           \filldraw[white,draw=white] (3,2)--(3,5)--(4,5)--(4,2)--cycle;
           \draw[color = black] (3,5)--(3,2)--(4,2)--(4,5);
-
           % add the rates
           \draw[-&gt;] (0.5,7)--(0.5,5)node[pos=0,anchor=south west]{$r_{1}$};
           \draw[-&gt;] (3,1.5)--(4,1.5)node[midway, yshift = .5cm]{$r_{2}$};
@@ -127,6 +119,7 @@
 
     <definition xml:id="definition-matrices-and-vectors">
       <title>Matrices and vectors</title>
+
       <idx><h>matrices</h><h>definition</h></idx>
       <idx><h>vectors</h><h>definition</h><see>matrices</see></idx>
       <statement>
@@ -174,6 +167,7 @@
 
     <example xml:id="example-systems-odes-matrix-vector-product">
       <title>Computing a matrix-vector product</title>
+
       <statement>
         <p>
           Let <m>A = \begin{bmatrix} 1\amp0\\-3\amp2 \end{bmatrix},\vec{v}_{1} = \begin{bmatrix}1\\1\end{bmatrix}</m> and <m>\vec{v}_{2} = \begin{bmatrix}0\\5\end{bmatrix}</m>.
@@ -202,141 +196,129 @@
     </p>
 
     <example xml:id="example-systems-odes-interconnected-spring-mass-system">
-        <title>Interconnected spring-mass system</title>
+      <title>Interconnected spring-mass system</title>
 
-        <statement>
-          <p>
-              Consider a spring mass system with two masses arranged as follows:
-          </p>
+      <statement>
+        <p>
+          Consider a spring mass system with two masses arranged as follows:
+        </p>
 
-            <image xml:id="image-systems-odes-interconnected-spring-mass-system" width="80%">
-              <description>
-                <p>
-                  A diagram representing two masses connected horizontally by springs.
-                  The first mass is connected to a wall by a spring.
-                  The first mass is also connected to the second mass by another spring with a possibly different spring constant.
-                </p>
-              </description>
-
-              <latex-image>
+        <image xml:id="image-systems-odes-interconnected-spring-mass-system" width="80%">
+          <description>
+            <p>
+              A diagram representing two masses connected horizontally by springs.
+              The first mass is connected to a wall by a spring.
+              The first mass is also connected to the second mass by another spring with a possibly different spring constant.
+            </p>
+          </description>
+          <latex-image>
                 \begin{tikzpicture}
                 % Stolen shamelessly from stackexchange.
-
                 % This determines how the spring will look.
                 \tikzstyle{spring}=[decorate,decoration={coil,pre length=0.3cm,post
                 length=0.3cm,segment length=3,amplitude=1.5mm}]
-
                 \tikzstyle{ground}=[fill,pattern=north east lines,draw=none,minimum
                 width=0.75cm,minimum height=0.3cm]
-
                 % This draws the blocks.
                 \node[draw,outer sep=0pt,thick] (M1) [minimum width=1cm, minimum height=1cm] {$m_1$};
                 \node[draw,outer sep=0pt,thick, right=of M1, xshift=2cm] (M2) [minimum width=1cm, minimum height=1cm] {$m_2$};
-
                 % This draws the springs.
                 \draw[spring] ($(M1.west) - (4,0)$) -- ($(M1.west)$) node [midway,yshift=.5cm] {$k_1$};
                 \draw[spring] ($(M1.east)$) -- ($(M2.west)$) node [midway,yshift=.5cm] {$k_2$};
-
                 % This draws the walls and floor.
                 \draw[thick] ($(M1.south west) - (4,0)$) -- ($(M1.north west) + (-4,.5)$);
                 \draw[thick] ($(M1.south west) - (4,0)$) -- ($(M1.south west) + (4,0)$);
-
                 \draw[thick] ($(M2.south east)$) -- ($(M2.south east) + (4,0)$);
                 \draw[thick] ($(M2.south east) + (4,0)$) -- ($(M2.north east) + (4,.5)$);
-
                 % This draws the equilibrium positions.
                 \draw[dashed] ($(M1.south west)-(2,.5)$) -- ($(M1.south west) - (2,-.5)$) node [below, yshift=-1cm,align=left] {\footnotesize Equilibrium\\ \footnotesize position};
                 \draw[dashed] ($(M2.south west)-(2,.5)$) -- ($(M2.south west) - (2,-.5)$) node [below, yshift=-1cm,align=left] {\footnotesize Equilibrium\\ \footnotesize position}; 
-
                 % This illustrates displacements.
                 \draw [decorate,decoration={brace,amplitude=5pt,mirror},yshift=-2pt]
                 ($(M1.south west)-(2,0)$) -- ($(M1.south west)$) node [black,midway,yshift=-10pt] {$x_1$};
                 \draw [decorate,decoration={brace,amplitude=5pt,mirror},yshift=-2pt]
                 ($(M2.south west)-(2,0)$) -- ($(M2.south west)$) node [black,midway,yshift=-10pt] {$x_2$};
                 \end{tikzpicture}
-              </latex-image>
-            </image>
+          </latex-image>
+        </image>
 
-          <p>
-            Determine a first-order system that the displacements <m>x_1</m> and <m>x_2</m> must satisfy.
-          </p>
-        </statement>
+        <p>
+          Determine a first-order system that the displacements <m>x_1</m> and <m>x_2</m> must satisfy.
+        </p>
+      </statement>
 
-        <solution>
-            <p>
-                From <xref ref="section-spring-mass-models" text="type-global" /> we know how to model a spring-mass system with a single mass using <xref ref="theorem-hooke-s-law" text="custom">Hooke's law</xref> and Newton's Second Law.
-                We will apply this same analysis to the displacements <m>x_1</m> and <m>x_2</m> individually.
-            </p>
+      <solution>
+        <p>
+          From <xref ref="section-spring-mass-models" text="type-global" /> we know how to model a spring-mass system with a single mass using <xref ref="theorem-hooke-s-law" text="custom">Hooke's law</xref> and Newton's Second Law.
+          We will apply this same analysis to the displacements <m>x_1</m> and <m>x_2</m> individually.
+        </p>
 
-            <p>
-              To begin, we will analyze the forces acting on the first mass.
-              Here there are two forces to consider: the force caused by the motion of <m>m_1</m> and the force caused by the motion of <m>m_2</m>.
-              Likewise, the second mass is also influenced by two forces.
-              We arrange these in the following table:
-            </p>
+        <p>
+          To begin, we will analyze the forces acting on the first mass.
+          Here there are two forces to consider: the force caused by the motion of <m>m_1</m> and the force caused by the motion of <m>m_2</m>.
+          Likewise, the second mass is also influenced by two forces.
+          We arrange these in the following table:
+        </p>
 
-              <tabular top="major">
-                <row bottom="minor">
-                  <cell>mass</cell>
-                  <cell>forces</cell>
-                </row>
-                <row>
-                  <cell><m>m_1</m></cell>
-                  <cell><m>-k_1x_1, -k_2x_1, k_2x_2</m></cell>
-                </row>
-                <row bottom="major">
-                  <cell><m>m_2</m></cell>
-                  <cell><m>k_2x_1, -k_2x_2</m></cell>
-                </row>
-              </tabular>
+        <tabular top="major">
+          <row bottom="minor">
+            <cell>mass</cell>
+            <cell>forces</cell>
+          </row>
 
-            <p>
-              Now we can apply Newton's Second Law to get the <em>second</em>-order system
-              <md>
-                <mrow>m_1x_1'' \amp = -k_1x_1 - k_2x_1 + k_2x_2 </mrow>
-                <mrow>m_2x_2'' \amp = k_2x_1 - k_2x_2 </mrow>
-              </md>.
-              At this point we can introduce new dependent variables <m>u_1, u_2, u_3</m> and <m>u_4</m> to get an equivalent first-order system.
-            </p>
+          <row>
+            <cell><m>m_1</m></cell>
+            <cell><m>-k_1x_1, -k_2x_1, k_2x_2</m></cell>
+          </row>
 
-            <p>
-              Although this type of system is new, the solutions behave as expected.
-              In particular, both <m>x_1</m> and <m>x_2</m> display periodic motion as can be seen by the Sage example below.
-            </p>
+          <row bottom="major">
+            <cell><m>m_2</m></cell>
+            <cell><m>k_2x_1, -k_2x_2</m></cell>
+          </row>
+        </tabular>
 
-            <sage>
-              <input>
+        <p>
+          Now we can apply Newton's Second Law to get the <em>second</em>-order system
+          <md>
+            <mrow>m_1x_1'' \amp = -k_1x_1 - k_2x_1 + k_2x_2 </mrow>
+            <mrow>m_2x_2'' \amp = k_2x_1 - k_2x_2 </mrow>
+          </md>.
+          At this point we can introduce new dependent variables <m>u_1, u_2, u_3</m> and <m>u_4</m> to get an equivalent first-order system.
+        </p>
+
+        <p>
+          Although this type of system is new, the solutions behave as expected.
+          In particular, both <m>x_1</m> and <m>x_2</m> display periodic motion as can be seen by the Sage example below.
+        </p>
+        <sage>
+        <input>
                 # Define our independent variable
                 var('t')
-
                 # Define the dependent variables as functions of t
                 x1 = function('x_1')(t)
                 x2 = function('x_2')(t)
-
                 # System parameters
                 m1, m2 = 1, 1
                 k1, k2 = 4, 4
-
                 # Define the equations in our system
                 # If you wish to solve the corresponding first-order system,
                 # you will need to specify four equations.
                 de1 = m1*diff(x1, t, 2) == -(k1+k2)*x1 + k2*x2
                 de2 = m2*diff(x1, t, 2) == k2*x1 - k2*x2
-
                 # Display the (general) solution of this system
                 # Note that the solution depends on initial conditions which
                 # were NOT provided. In particular, D_0(x)(0) represents an
                 # iniital condition of the form x'(0)
                 show(desolve_system([de1, de2], [x1, x2]))
-              </input>
-            </sage>
-        </solution>
+        </input>
+        </sage>
+      </solution>
     </example>
 
     <definition xml:id="definition-eigenvectors-and-eigenvalues">
       <title>Eigenvectors and eigenvalues</title>
-      <idx><h>matrices</h><h>eigenvalues and eigenvectors</h></idx>
 
+      <idx><h>matrices</h><h>eigenvalues and eigenvectors</h></idx>
       <statement>
         <p>
           Let <m>A</m> be a matrix.
@@ -348,6 +330,7 @@
 
     <example xml:id="example-eigenvalue-eigenvector">
       <title>Determining if a vector is an eigenvector</title>
+
       <statement>
         <p>
           Determine if <m>\vec{v} = \begin{bmatrix}-2\\1\end{bmatrix}</m> is an eigenvector of <m>A = \begin{bmatrix}1\amp4\\1\amp1\end{bmatrix}</m>.
@@ -357,7 +340,9 @@
       <solution>
         <p>
           To do this, we just need to compute <m>A\vec{v}:</m>
-          <me>A\vec{v} = \begin{bmatrix}1\amp4\\1\amp1\end{bmatrix}\begin{bmatrix}-2\\1\end{bmatrix} = \begin{bmatrix}2\\-1\end{bmatrix} = -\vec{v}</me>.
+          <me>
+            A\vec{v} = \begin{bmatrix}1\amp4\\1\amp1\end{bmatrix}\begin{bmatrix}-2\\1\end{bmatrix} = \begin{bmatrix}2\\-1\end{bmatrix} = -\vec{v}
+          </me>.
           So <m>\vec{v}</m> is an eigenvector of <m>A</m> with corresponding eigenvalue <m>\lambda=-1</m>.
         </p>
       </solution>
@@ -370,12 +355,10 @@
 
     <definition xml:id="definition-vector-valued-function">
       <title>Vector-valued functions</title>
-      <idx><h>vectors</h><h>vector-valued functions</h></idx>
 
+      <idx><h>vectors</h><h>vector-valued functions</h></idx>
       <notation>
-        <usage>
-          <m>\vec{x}(t)</m>
-        </usage>
+        <usage> <m>\vec{x}(t)</m> </usage>
         <description>
           a vector whose elements are functions
         </description>
@@ -398,13 +381,18 @@
         <mrow>y^\prime \amp= a_{21}x+a_{22}y</mrow>
       </md>
       If <m>A = \begin{bmatrix}a_{11}\amp a_{12} \\ a_{21}\amp a_{22}\end{bmatrix}</m> and <m>\vec{x} = \begin{bmatrix}x\\y\end{bmatrix}</m>, then
-      <me>A\vec{x} = \begin{bmatrix}x^\prime\\y^\prime\end{bmatrix} = \vec{x}^\prime</me>.
+      <me>
+        A\vec{x} = \begin{bmatrix}x^\prime\\y^\prime\end{bmatrix} = \vec{x}^\prime
+      </me>.
       In other words, we may rewrite the system as the matrix ODE
-      <me>\vec{x}^\prime =A\vec{x}</me>.
+      <me>
+        \vec{x}^\prime =A\vec{x}
+      </me>.
     </p>
 
     <example xml:id="example-systems-odes-matrix-ode">
       <title>Writing a system as a matrix ODE</title>
+
       <statement>
         <p>
           Write the system
@@ -437,10 +425,13 @@
 
     <example xml:id="example-systems-odes-matrix-ode-solution">
       <title>Solution of a matrix ODE</title>
+
       <statement>
         <p>
           Show that <m>e^{-t}\vec{x}_{0}</m> where <m>\vec{x}_{0} = \begin{bmatrix}-2\\1\end{bmatrix}</m> is a solution of the system
-          <me>\vec{x}^\prime = \begin{bmatrix}1\amp 4\\1\amp 1\end{bmatrix}\vec{x}.</me>
+          <me>
+            \vec{x}^\prime = \begin{bmatrix}1\amp 4\\1\amp 1\end{bmatrix}\vec{x}.
+          </me>
         </p>
       </statement>
 
@@ -448,9 +439,13 @@
         <p>
           We'll check that <m>\vec{x}_{0}</m> is a solution of the matrix ODE just as we check solutions for normal ODEs: plug the potential solution into the ODE and check both sides.
           If we do so, we get
-          <me>\dv{}{t}\brackets*{e^{-t}\vec{x}_{0}} = -e^{-t}\begin{bmatrix}-2\\1\end{bmatrix} = e^{-t}\begin{bmatrix}2\\-1\end{bmatrix}</me>
+          <me>
+            \dv{}{t}\brackets*{e^{-t}\vec{x}_{0}} = -e^{-t}\begin{bmatrix}-2\\1\end{bmatrix} = e^{-t}\begin{bmatrix}2\\-1\end{bmatrix}
+          </me>
           and
-          <me>\begin{bmatrix}1\amp 4\\1\amp 1\end{bmatrix}e^{-t}\vec{x}_{0} = e^{-t}\begin{bmatrix}1\amp 4\\1\amp 1\end{bmatrix}\begin{bmatrix}-2\\1\end{bmatrix} = e^{-t}\begin{bmatrix}2\\-1\end{bmatrix}</me>.
+          <me>
+            \begin{bmatrix}1\amp 4\\1\amp 1\end{bmatrix}e^{-t}\vec{x}_{0} = e^{-t}\begin{bmatrix}1\amp 4\\1\amp 1\end{bmatrix}\begin{bmatrix}-2\\1\end{bmatrix} = e^{-t}\begin{bmatrix}2\\-1\end{bmatrix}
+          </me>.
           Since these expressions match, this means that <m>e^{-t}\vec{x}_{0}</m> is a solution of the ODE.
         </p>
       </solution>
@@ -467,7 +462,6 @@
       <title>Linear independence of vectors</title>
 
       <idx><h>linear independence</h><h>vectors</h></idx>
-
       <statement>
         <p>
           Let <m>\vec{x}_{1},\dots,\vec{x}_{n}</m> denote a collection of vectors.
@@ -487,11 +481,8 @@
 
     <definition xml:id="definition-wronskian-of-vectors">
       <idx><h>Wronskian</h><h>vectors</h></idx>
-
       <notation>
-        <usage>
-          <m>W(\vec{x_1}, \vec{x_2}, \ldots, \vec{x_n})</m>
-        </usage>
+        <usage> <m>W(\vec{x_1}, \vec{x_2}, \ldots, \vec{x_n})</m> </usage>
         <description>
           the Wronskian of <m>n</m> vectors
         </description>
@@ -517,6 +508,7 @@
         The content in this section represents a higher-dimensional analog of the content in <xref ref="section-second-order-linear-odes" text="type-global" />.
       </p>
     </introduction>
+
 
     <subsection xml:id="subsection-matrix-odes-constant-coefficients">
       <title>Solutions of <m>\vec{x}^\prime = A\vec{x}</m></title>
@@ -591,20 +583,24 @@
       </example>
     </subsection>
 
+
     <subsection xml:id="subsection-finding-eigenvalues-and-eigenvectors">
       <title>Finding eigenvalues and eigenvectors</title>
 
       <p>
-        <xref ref="theorem-solutions-of-matrix-odes-constant-coefficients" text="type-global" /> shows that solving systems of first-order ODEs comes down to finding eigenvalues and eigenvectors of the corresponding matrix ODE.
-        So it's important for us to know how to find these.
+        <xref ref="theorem-solutions-of-matrix-odes-constant-coefficients" text="type-global" /> shows that solving systems of first-order ODEs comes down to finding eigenvalues and eigenvectors of the corresponding matrix ODE. So it's important for us to know how to find these.
       </p>
 
       <p>
         Let <m>A</m> be an <m>n\times n</m> matrix and suppose that <m>\vec{v}</m> is an eigenvector with corresponding eigenvalue <m>\lambda</m>.
         Then
-        <me>A\vec{v} = \lambda\vec{v}</me>.
+        <me>
+          A\vec{v} = \lambda\vec{v}
+        </me>.
         We can rearrange this to get
-        <me>A\vec{v}-\lambda\vec{v} = (A-\lambda I)\vec{v} = \vec{0}</me>
+        <me>
+          A\vec{v}-\lambda\vec{v} = (A-\lambda I)\vec{v} = \vec{0}
+        </me>
         where <m>I</m> is the identity matrix.
         Since <m>\vec{v}\neq\vec{0}</m> (since it's an eigenvector!), linear algebra tells us that <m>\det(A-\lambda I) = 0</m>.
         This gives us the following definition and theorem.
@@ -620,13 +616,13 @@
 
       <theorem xml:id="theorem-theorem-eigenvalues-from-characteristic-equation">
         <title>Eigenvalues and the characteristic equation</title>
+
         <statement>
           <p>
             The eigenvalues of a square matrix <m>A</m> are the solutions of the equation <m>\det(A-\lambda I) = 0</m>.
           </p>
         </statement>
       </theorem>
-
 
       <example xml:id="example-system-odes-finding-eigenvalues-2x2">
         <title>Finding eigenvalues of a <m>2\times2</m> matrix</title>
@@ -641,11 +637,17 @@
           <p>
             First, we need to set up the characteristic equation of <m>A</m>.
             Since
-            <me>A-\lambda I = \begin{bmatrix}1-\lambda \amp  4 \\ 1 \amp  1-\lambda\end{bmatrix}</me>,
+            <me>
+              A-\lambda I = \begin{bmatrix}1-\lambda \amp  4 \\ 1 \amp  1-\lambda\end{bmatrix}
+            </me>,
             we get
-            <me>\det(A-\lambda I) = (1-\lambda)^{2} - 4 = \lambda^{2}-2\lambda+3</me>
+            <me>
+              \det(A-\lambda I) = (1-\lambda)^{2} - 4 = \lambda^{2}-2\lambda+3
+            </me>
             so the characteristic equation of <m>A</m> is
-            <me>\lambda^{2}-2\lambda+3 = 0</me>
+            <me>
+              \lambda^{2}-2\lambda+3 = 0
+            </me>
             which has solutions <m>\lambda_{1} = -1,\lambda_{2} = 3</m>.
             So the eigenvalues of <m>A</m> are <m>-1,3</m>.
           </p>
@@ -658,22 +660,18 @@
         MATLAB on the other hand is designed for performing matrix computations and therefore its code for finding eigenvalues is simpler.
         We only need to use the <c>eig</c> command:
       </p>
-
       <sage language="octave">
-        <input>
+      <input>
           % Define the matrix
           A = [1, 1; 1, 4];
-
           % Compute the eigenvalues of A
           eig(A)
-        </input>
-
-        <output>
+      </input>
+      <output>
           ans =
-
               3.0000
              -1.0000
-        </output>
+      </output>
       </sage>
 
       <p>
@@ -686,15 +684,16 @@
         <statement>
           <p>
             Let
-            <me>A = \begin{bmatrix}1 \amp  3 \amp  -4 \amp  5 \\ 0 \amp  3 \amp  -2 \amp  -2 \\ 0 \amp  0 \amp  1 \amp  10^{50\pi-300} \\ 0 \amp  0 \amp  0 \amp  0\end{bmatrix}</me>.
+            <me>
+              A = \begin{bmatrix}1 \amp  3 \amp  -4 \amp  5 \\ 0 \amp  3 \amp  -2 \amp  -2 \\ 0 \amp  0 \amp  1 \amp  10^{50\pi-300} \\ 0 \amp  0 \amp  0 \amp  0\end{bmatrix}
+            </me>.
             Find the eigenvalues of <m>A</m>.
           </p>
         </statement>
 
         <solution>
           <p>
-            <m>A</m> is a triangular matrix since everything below the main diagonal is <m>0</m>.
-            Therefore the eigenvalues of <m>A</m> are <m>1,3,1,0</m>.
+            <m>A</m> is a triangular matrix since everything below the main diagonal is <m>0</m>. Therefore the eigenvalues of <m>A</m> are <m>1,3,1,0</m>.
           </p>
         </solution>
       </example>
@@ -716,7 +715,9 @@
           <p>
             Suppose that <m>\vec{v} = \begin{bmatrix} v_{1} \\ v_{2} \end{bmatrix}</m> is an eigenvector corresponding to <m>\lambda</m>.
             Then we know that
-            <me>\begin{bmatrix}1 \amp  4 \\ 1 \amp  1\end{bmatrix}\vec{v} = \lambda\vec{v} \Rightarrow \begin{bmatrix}v_{1}+4v_{2} \\ v_{1} + v_{2}\end{bmatrix} = \begin{bmatrix} \lambda v_{1} \\ \lambda v_{2} \end{bmatrix}</me>.
+            <me>
+              \begin{bmatrix}1 \amp  4 \\ 1 \amp  1\end{bmatrix}\vec{v} = \lambda\vec{v} \Rightarrow \begin{bmatrix}v_{1}+4v_{2} \\ v_{1} + v_{2}\end{bmatrix} = \begin{bmatrix} \lambda v_{1} \\ \lambda v_{2} \end{bmatrix}
+            </me>.
             This tells us that if <m>\vec{v} = \begin{bmatrix}v_{1} \\ v_{2} \end{bmatrix}</m> is an eigenvector for <m>\lambda</m>, then its entries need to satisfy
             <md>
               <mrow>v_{1}+4v_{2}\amp =\lambda v_{1}</mrow>
@@ -739,7 +740,9 @@
             We don't really care about what the entries of <m>\vec{v}</m> look like so long as <m>\vec{v}</m> is an eigenvector, so we can pick <m>v_{1},v_{2}</m> however we want, just so long as they satisfy this relation (and are not both <m>0</m>!).
             So pick <m>v_{2} = 1</m>, which forces <m>v_{1} = -2</m>.
             Then
-            <me>\vec{v} = \begin{bmatrix}-2\\1\end{bmatrix}</me>
+            <me>
+              \vec{v} = \begin{bmatrix}-2\\1\end{bmatrix}
+            </me>
             is an eigenvector of <m>A</m> corresponding to the eigenvalue <m>\lambda_{1} = -1</m>.
           </p>
 
@@ -750,7 +753,9 @@
               <mrow>v_{1} - 2v_{2} \amp = 0</mrow>
             </md>
             The second equation simplifies to <m>v_{1} = 2v_{2}</m>, so one eigenvector for <m>\lambda_{2}</m> is
-            <me>\vec{v} = \begin{bmatrix}2 \\ 1\end{bmatrix}.</me>
+            <me>
+              \vec{v} = \begin{bmatrix}2 \\ 1\end{bmatrix}.
+            </me>
           </p>
         </solution>
       </example>
@@ -760,61 +765,50 @@
         If we use MATLAB/Octave, then the <c>eig</c> command once again does the heavy lifting for us.
         Each column of the matrix <m>U</m> produced below is an eigenvector of <m>A</m>.
       </p>
-
       <sage language="octave">
-        <input>
+      <input>
           # Define A
           A = [1, 4; 1, 1];
-
           # Compute eigenvectors
           [U, V] = eig(A)
-        </input>
-
-        <output>
+      </input>
+      <output>
           U =
-
               0.8944   -0.8944
               0.4472    0.4472
-
-
           V =
-
               3.0000         0
                    0   -1.0000
-        </output>
+      </output>
       </sage>
 
       <p>
         Looking forward to <xref ref="theorem-linear-independence-distinct-eigenvalues" text="type-global" />, note that the eigenvectors we found in <xref ref="example-system-odes-finding-eigenvectors-2x2" text="type-global" /> are linearly indepednent.
         This can be verified by computing the Wronskian as done using Sage below:
       </p>
-
       <aside>
-        <p>
-          You may have noticed that the matrix constructed in the Sage cell here is actually <q>flipped</q>: the eigenvectors are appearing as the rows instead of the columns.
-          It turns out that this causes no problems for us since turning rows into columns (or columns into rows) has no affect on the determinant.
-          Therefore the Wronskian is unchanged.
-        </p>
+      <p>
+        You may have noticed that the matrix constructed in the Sage cell here is actually <q>flipped</q>: the eigenvectors are appearing as the rows instead of the columns.
+        It turns out that this causes no problems for us since turning rows into columns (or columns into rows) has no affect on the determinant.
+        Therefore the Wronskian is unchanged.
+      </p>
       </aside>
-
       <sage>
-        <input>
+      <input>
           # Define our vectors
           v1 = vector([-2, 1])
           v2 = vector([2, 1])
-
           # Define our matrix
           M = matrix([v1, v2])
-
           # Compute the determinant, i.e., the Wronskian
           M.det()
-        </input>
-
-        <output>
+      </input>
+      <output>
           -4
-        </output>
+      </output>
       </sage>
     </subsection>
+
 
     <subsection xml:id="subsection-solving-matrix-odes">
       <title>Solving matrix odes</title>
@@ -822,7 +816,9 @@
       <p>
         We now have the tools we need to begin solving matrix ODEs.
         Recall that if <m>A</m> is an <m>n\times n</m> matrix with constant entries, and if <m>\vec{x}_{1},\vec{x}_{2},\ldots,\vec{x}_{n}</m> are <m>n</m> linearly independent solutions of the matrix ODE <m>\vec{x}^\prime=A\vec{x}</m>, then the general solution of the matrix ODE is
-        <me>\vec{x} = \sum_{k=1}^{n}c_{k}\vec{x}_{k}</me>.
+        <me>
+          \vec{x} = \sum_{k=1}^{n}c_{k}\vec{x}_{k}
+        </me>.
         Furthermore, if <m>\lambda</m> is an eigenvalue of <m>A</m> with eigenvector <m>\vec{v}</m>, then <m>e^{\lambda t}\vec{v}</m> is a solution of <m>\vec{x}^\prime=A\vec{x}</m>.
         So solving the matrix ODE <m>\vec{x}^\prime=A\vec{x}</m> requires finding enough eigenvectors and eigenvalues.
         A useful theorem is the following:
@@ -830,6 +826,7 @@
 
       <theorem xml:id="theorem-linear-independence-distinct-eigenvalues">
         <title>Distinct eigenvalues and linear independence</title>
+
         <statement>
           <p>
             Let <m>A</m> be an <m>n\times n</m> matrix with constant entries.
@@ -841,10 +838,13 @@
 
       <example xml:id="example-systems-ode-solving-2x2-matrix-ode">
         <title>Solving a matrix ODE</title>
+
         <statement>
           <p>
             Solve the matrix ODE given by <m>\vec{x}^\prime = A\vec{x}</m> where
-            <me>A = \begin{bmatrix}1\amp 4\\1\amp 1\end{bmatrix}</me>.
+            <me>
+              A = \begin{bmatrix}1\amp 4\\1\amp 1\end{bmatrix}
+            </me>.
           </p>
         </statement>
 
@@ -852,13 +852,19 @@
           <p>
             We already have everything we need.
             We know that the eigenvalues of <m>A</m> are <m>\lambda_{1}=-1</m> and <m>\lambda_{2}=3</m> from <xref ref="example-system-odes-finding-eigenvalues-2x2" text="type-global"/>, and likewise some corresponding eigenvectors are
-            <me>\vec{v}_{1} = \begin{bmatrix}-2\\1\end{bmatrix}\qq{and} \vec{v}_{2} = \begin{bmatrix}2\\1\end{bmatrix}</me>
+            <me>
+              \vec{v}_{1} = \begin{bmatrix}-2\\1\end{bmatrix}\qq{and} \vec{v}_{2} = \begin{bmatrix}2\\1\end{bmatrix}
+            </me>
             thanks to <xref ref="example-system-odes-finding-eigenvectors-2x2" text="type-global" />.
             Since the eigenvalues are distinct it follows that these eigenvectors are linearly independent (we could also check this using the Wronskian).
             We can therefore build two linearly independent solutions to the matrix ODE:
-            <me>\vec{x}_{1} = e^{\lambda_{1}t}\vec{v}_{1} = e^{-t}\begin{bmatrix}-2\\1\end{bmatrix}\qq{and} \vec{x}_{2} = e^{\lambda_{2}t}\vec{v}_{2} = e^{3t}\begin{bmatrix}2\\1\end{bmatrix}</me>.
+            <me>
+              \vec{x}_{1} = e^{\lambda_{1}t}\vec{v}_{1} = e^{-t}\begin{bmatrix}-2\\1\end{bmatrix}\qq{and} \vec{x}_{2} = e^{\lambda_{2}t}\vec{v}_{2} = e^{3t}\begin{bmatrix}2\\1\end{bmatrix}
+            </me>.
             So the general solution of the matrix ODE is
-            <me>\vec{x} = c_{1}\vec{x}_{1} + c_{2}\vec{x}_{2} = c_{1}e^{-t}\begin{bmatrix}-2\\1\end{bmatrix} + c_{2}e^{3t}\begin{bmatrix}2\\1\end{bmatrix}</me>.
+            <me>
+              \vec{x} = c_{1}\vec{x}_{1} + c_{2}\vec{x}_{2} = c_{1}e^{-t}\begin{bmatrix}-2\\1\end{bmatrix} + c_{2}e^{3t}\begin{bmatrix}2\\1\end{bmatrix}
+            </me>.
           </p>
 
           <p>
@@ -885,7 +891,9 @@
         <solution>
           <p>
             First, note that this system is equivalent to the matrix ODE <m>\vec{x}^\prime = A\vec{x}</m> where
-            <me>\vec{x} = \begin{bmatrix}x_{1} \\ x_{2}\end{bmatrix}\qq{and} A = \begin{bmatrix}1 \amp  -5 \\ 1 \amp  -1\end{bmatrix}</me>.
+            <me>
+              \vec{x} = \begin{bmatrix}x_{1} \\ x_{2}\end{bmatrix}\qq{and} A = \begin{bmatrix}1 \amp  -5 \\ 1 \amp  -1\end{bmatrix}
+            </me>.
             To solve this system we need to find the eigenvalues and eigenvectors of <m>A</m>, and then use these to build our general solution.
             <ol>
               <li>
@@ -896,7 +904,8 @@
                 <p>
                   We find the eigenvalues of <m>A</m> by solving the characteristic equation <m>\det(A - \lambda I) = 0</m> for <m>\lambda</m>.
                   Since <m>\det(A - \lambda I) = \lambda^{2}+4</m>, we see that the eigenvalues of <m>A</m> are <m>\lambda_{1} = -2i</m> and <m>\lambda_{2} = 2i</m>.
-                  The fact that these eigenvalues are complex is <em>not</em> a problem. They're still distinct, so our method will work.
+                  The fact that these eigenvalues are complex is <em>not</em> a problem.
+                  They're still distinct, so our method will work.
                 </p>
               </li>
 
@@ -918,9 +927,13 @@
                     <mrow>v_{1} - (1+\lambda)v_{2} \amp = 0.</mrow>
                   </md>
                   Setting <m>\lambda=-2i</m> in the second equation gives <m>v_{1} = (1-2i)v_{2}</m>, so an eigenvector of <m>A</m> corresponding to <m>\lambda_{1} = -2i</m> is
-                  <me>\vec{v} = \begin{bmatrix}1-2i \\ 1\end{bmatrix}</me>.
+                  <me>
+                    \vec{v} = \begin{bmatrix}1-2i \\ 1\end{bmatrix}
+                  </me>.
                   Similarly, an eigenvector corresponding to <m>\lambda_{2}=2i</m> is
-                  <me>\vec{v}_{2} = \begin{bmatrix}1+2i\\1\end{bmatrix}</me>.
+                  <me>
+                    \vec{v}_{2} = \begin{bmatrix}1+2i\\1\end{bmatrix}
+                  </me>.
                 </p>
               </li>
 
@@ -932,7 +945,9 @@
                 <p>
                   At this step it is easy to construct the solution of the matrix ODE.
                   It's just
-                  <me>\vec{x} = c_{1}e^{\lambda_{1}t}\vec{v}_{1} + c_{2}e^{\lambda_{2}t}\vec{v}_{2} = \begin{bmatrix}c_{1}e^{-2it}(1-2i)+c_{2}e^{2it}(1+2i) \\ c_{1}e^{-2it}+c_{2}e^{2it}\end{bmatrix}.</me>
+                  <me>
+                    \vec{x} = c_{1}e^{\lambda_{1}t}\vec{v}_{1} + c_{2}e^{\lambda_{2}t}\vec{v}_{2} = \begin{bmatrix}c_{1}e^{-2it}(1-2i)+c_{2}e^{2it}(1+2i) \\ c_{1}e^{-2it}+c_{2}e^{2it}\end{bmatrix}.
+                  </me>
                 </p>
               </li>
             </ol>
@@ -958,33 +973,31 @@
           <p>
             As long as this system has distinct eigenvalues the above method will work.
             Once again we rewrite the system as a matrix ODE; in this case, the matrix ODE we must solve is
-            <me>\vec{x}^\prime = \begin{bmatrix}3 \amp  0 \amp  1 \\ 9 \amp  -1 \amp  2 \\ -9 \amp  4 \amp  -1\end{bmatrix}\vec{x} = A\vec{x}</me>.
+            <me>
+              \vec{x}^\prime = \begin{bmatrix}3 \amp  0 \amp  1 \\ 9 \amp  -1 \amp  2 \\ -9 \amp  4 \amp  -1\end{bmatrix}\vec{x} = A\vec{x}
+            </me>.
           </p>
 
           <p>
             To find the eigenvalues we must solve the characteristic equation <m>\det(A-\lambda I)=0</m>.
             However, we can also use Sage to perform this task.
           </p>
-
           <aside>
-            <p>
-              We could also use MATLAB/Octave, but the resulting eigenvectors wouldn't look as nice as the output provided by Sage.
-              This is because MATLAB's <c>eig</c> command produces <term>normalized</term> output which often involves dividing entries by square roots.
-            </p>
+          <p>
+            We could also use MATLAB/Octave, but the resulting eigenvectors wouldn't look as nice as the output provided by Sage.
+            This is because MATLAB's <c>eig</c> command produces <term>normalized</term> output which often involves dividing entries by square roots.
+          </p>
           </aside>
-
           <sage>
-            <input>
+          <input>
               # Define our matrix
               M = matrix([ [3, 0, 1],
               [9, -1, 2],
               [-9, 4, -1]] )
-
               # Finds eigenvectors, corresponding eigenvalues and "algebraic multiplicty".
               M.eigenvectors_right()
-            </input>
-
-            <output>
+          </input>
+          <output>
               [(3,
                 [
                 (1, 9/4, 0)
@@ -992,28 +1005,35 @@
                 1),
                (-1 - 1*I, [(1, 2 + 1*I, -4 - 1*I)], 1),
                (-1 + 1*I, [(1, 2 - 1*I, -4 + 1*I)], 1)]
-             </output>
+          </output>
           </sage>
 
           <p>
             This produces a list containing the eigenvalues of <m>A</m> as well as the corresponding eigenvectors.
             So we see that the eigenvalues are given by
-            <me>\lambda_{1} = 3, \quad\lambda_{2} = -1 - i\quad\text{ and }\quad\lambda_{3} = -1 + i</me>,
+            <me>
+              \lambda_{1} = 3, \quad\lambda_{2} = -1 - i\quad\text{ and }\quad\lambda_{3} = -1 + i
+            </me>,
             while the corresponding eigenvectors are given by
-            <me>\vec{v}_{1} = \begin{bmatrix}1 \\ \frac{9}{4} \\ 0\end{bmatrix}, \quad\vec{v}_{2} = \begin{bmatrix} 1 \\ 2 + i \\ -4 - i \end{bmatrix}\quad\text{and}\vec{v}_{3} = \begin{bmatrix} 1 \\ 2 - i \\ -4 + i \end{bmatrix}</me>.
+            <me>
+              \vec{v}_{1} = \begin{bmatrix}1 \\ \frac{9}{4} \\ 0\end{bmatrix}, \quad\vec{v}_{2} = \begin{bmatrix} 1 \\ 2 + i \\ -4 - i \end{bmatrix}\quad\text{and}\vec{v}_{3} = \begin{bmatrix} 1 \\ 2 - i \\ -4 + i \end{bmatrix}
+            </me>.
           </p>
 
           <p>
             We now have everything we need for the general solution of the matrix ODE.
             It's just
-            <me>\vec{x} = c_{1}e^{3t}\begin{bmatrix}1 \\ \frac{9}{4} \\ 0\end{bmatrix} + c_{2}e^{(-1 - i)t}\begin{bmatrix} 1 \\ 2 + i \\ -4 - i \end{bmatrix} + c_{3}e^{(-1 + i)t}\begin{bmatrix} 1 \\ 2 - i \\ -4 + i \end{bmatrix}</me>.
+            <me>
+              \vec{x} = c_{1}e^{3t}\begin{bmatrix}1 \\ \frac{9}{4} \\ 0\end{bmatrix} + c_{2}e^{(-1 - i)t}\begin{bmatrix} 1 \\ 2 + i \\ -4 - i \end{bmatrix} + c_{3}e^{(-1 + i)t}\begin{bmatrix} 1 \\ 2 - i \\ -4 + i \end{bmatrix}
+            </me>.
           </p>
         </solution>
       </example>
     </subsection>
 
+
     <subsection xml:id="subsection-applications-of-matrix-odes">
-      <title>Applications of Matrix ODEs</title>
+      <title>Applications of matrix ODEs</title>
 
       <p>
         Now we use matrix ODEs to model physical systems.
@@ -1041,10 +1061,12 @@
             Then from Section 4.1, we know that
             <md>
               <mrow>x^\prime_{1} \amp = -\frac{1}{2}x_{1}</mrow>
-              <mrow>x^\prime_{2} \amp = \frac{1}{2}x_{1}-\frac{5}{7}x_{2}</mrow>.
-            </md>
+              <mrow>x^\prime_{2} \amp = \frac{1}{2}x_{1}-\frac{5}{7}x_{2}</mrow>
+            </md>.
             If we set
-            <me>\vec{x} = \begin{bmatrix} x_{1} \\ x_{2} \end{bmatrix} \qq{and} A = \begin{bmatrix}-\frac{1}{2} \amp  0 \\ \frac{1}{2} \amp  -\frac{5}{7}\end{bmatrix}</me>
+            <me>
+              \vec{x} = \begin{bmatrix} x_{1} \\ x_{2} \end{bmatrix} \qq{and} A = \begin{bmatrix}-\frac{1}{2} \amp  0 \\ \frac{1}{2} \amp  -\frac{5}{7}\end{bmatrix}
+            </me>
             then this system is equivalent to the matrix ODE <m>\vec{x}^\prime = A\vec{x}</m>.
           </p>
 
@@ -1057,37 +1079,51 @@
           <p>
             Now we find corresponding eigenvectors.
             So let
-            <me>\vec{v} = \begin{bmatrix}v_{1} \\ v_{2}\end{bmatrix}</me>.
+            <me>
+              \vec{v} = \begin{bmatrix}v_{1} \\ v_{2}\end{bmatrix}
+            </me>.
             If <m>\vec{v}</m> is an eigenvector for <m>\lambda</m>, then we know <m>A\vec{v} = \lambda\vec{v}</m>, which gives the system
             <md>
               <mrow>(-\frac{1}{2}-\lambda)v_{1} \amp = 0</mrow>
-              <mrow>\frac{1}{2}v_{1} + (-\frac{5}{7}-\lambda)v_{2} \amp = 0</mrow>.
-            </md>
+              <mrow>\frac{1}{2}v_{1} + (-\frac{5}{7}-\lambda)v_{2} \amp = 0</mrow>
+            </md>.
             If we set <m>\lambda=-\frac{1}{2}</m>, then we just get <m>v_{1} = \frac{3}{14}v_{2}</m>.
             So an eigenvector corresponding to <m>\lambda_{1} = -\frac{1}{2}</m> is
-            <me>\vec{v}_{1} = \begin{bmatrix}3\\14\end{bmatrix}</me>.
+            <me>
+              \vec{v}_{1} = \begin{bmatrix}3\\14\end{bmatrix}
+            </me>.
           </p>
 
           <p>
             Similarly, if we set <m>\lambda=-\frac{5}{7}</m> we get <m>v_{1} = 0</m>, but no restrictions on <m>v_{2}</m>.
             So an eigenvector corresponding to <m>\lambda_{2} = -\frac{5}{7}</m> is
-            <me>\vec{v}_{2} = \begin{bmatrix}0\\1\end{bmatrix}</me>.
+            <me>
+              \vec{v}_{2} = \begin{bmatrix}0\\1\end{bmatrix}
+            </me>.
           </p>
 
           <p>
             We can now write down the general solution of the matrix ODE:
-            <me>\vec{x} = c_{1}e^{-\frac{5t}{7}}\begin{bmatrix}0\\1\end{bmatrix} + c_{2}e^{-\frac{t}{2}}\begin{bmatrix}3\\14\end{bmatrix} = \begin{bmatrix}3c_{2}e^{-\frac{t}{2}} \\ c_{1}e^{-\frac{5t}{7}}+14c_{2}e^{-\frac{t}{2}}\end{bmatrix}</me>.
+            <me>
+              \vec{x} = c_{1}e^{-\frac{5t}{7}}\begin{bmatrix}0\\1\end{bmatrix} + c_{2}e^{-\frac{t}{2}}\begin{bmatrix}3\\14\end{bmatrix} = \begin{bmatrix}3c_{2}e^{-\frac{t}{2}} \\ c_{1}e^{-\frac{5t}{7}}+14c_{2}e^{-\frac{t}{2}}\end{bmatrix}
+            </me>.
             But we're not done yet, since we have the initial conditions <m>x_{1}(0) = 5</m> and <m>x_{2}(0) = 2</m>, or in terms of our matrix ODE
-            <me>\vec{x}(0) = \begin{bmatrix}5\\2\end{bmatrix}</me>.
+            <me>
+              \vec{x}(0) = \begin{bmatrix}5\\2\end{bmatrix}
+            </me>.
             We can use this to find <m>c_{1}</m> and <m>c_{2}</m>.
             If we set <m>t=0</m> then we get
-            <me>\begin{bmatrix}3c_{2} \\ c_{1} + 14c_{2}\end{bmatrix} = \begin{bmatrix}5\\2\end{bmatrix}</me>,
+            <me>
+              \begin{bmatrix}3c_{2} \\ c_{1} + 14c_{2}\end{bmatrix} = \begin{bmatrix}5\\2\end{bmatrix}
+            </me>,
             so <m>c_{2} = \frac{5}{3}</m> and <m>c_{1} = 2 - 14\frac{5}{3} = -\frac{64}{3}</m>.
           </p>
 
           <p>
             So the solution of the matrix ODE (and hence the original system) is
-            <me>\vec{x} = \begin{bmatrix}5e^{-\frac{t}{2}} \\ -\frac{64}{3}e^{-\frac{5t}{7}}+\frac{70}{3}e^{-\frac{t}{2}}\end{bmatrix}</me>.
+            <me>
+              \vec{x} = \begin{bmatrix}5e^{-\frac{t}{2}} \\ -\frac{64}{3}e^{-\frac{5t}{7}}+\frac{70}{3}e^{-\frac{t}{2}}\end{bmatrix}
+            </me>.
             The amount of salt in the first tank, <m>x_{1}</m>, is given by the top entry and the amount of salt in the second tank, <m>x_{2}</m>, is given by the bottom entry.
           </p>
         </solution>
@@ -1096,7 +1132,7 @@
   </section>
 
   <section xml:id="section-phase-plane-criteria-for-critical-points-stability">
-    <title>Phase Portraits and Critical Points</title>
+    <title>Phase portraits and critical points</title>
 
     <introduction>
       <p>
@@ -1106,13 +1142,16 @@
       </p>
     </introduction>
 
+
     <subsection xml:id="subsection-the-phase-plane">
-      <title>The Phase Plane</title>
+      <title>The phase plane</title>
 
       <p>
         Just as we were able to plot direction fields for first-order autonomous ODEs, we can do something similar for autonomous first-order systems with two equations and constant coefficients.
         These are precisely the systems that can be written as a matrix ODE of the form
-        <me>\vec{x}^\prime = A\vec{x}</me>
+        <me>
+          \vec{x}^\prime = A\vec{x}
+        </me>
         where <m>A</m> is a <m>2\times2</m> matrix.
       </p>
 
@@ -1123,7 +1162,9 @@
           <mrow number="no">x^\prime_{2}  \amp =  a_{21}x_{1}+  a_{22}x_{2}</mrow>
         </mdn>
         or
-        <me>\vec{x}^\prime = A\vec{x}\quad\text{where}\quad A = \begin{bmatrix}a_{11}  \amp  a_{12}  \\  a_{21}  \amp  a_{22}\end{bmatrix}</me>.
+        <me>
+          \vec{x}^\prime = A\vec{x}\quad\text{where}\quad A = \begin{bmatrix}a_{11}  \amp  a_{12}  \\  a_{21}  \amp  a_{22}\end{bmatrix}
+        </me>.
         The solution of this system looks like <m>\vec{x}(t) = \begin{bmatrix}x_{1}(t) \\ x_{2}(t)\end{bmatrix}</m>.
       </p>
 
@@ -1149,7 +1190,9 @@
         <solution>
           <p>
             First, note that we can rewrite the system as <m>\vec{y}^\prime = A\vec{y}</m> using
-            <me>\vec{y} = \begin{bmatrix}y_{1}\\y_{2}\end{bmatrix}\quad\text{and}\quad A = \begin{bmatrix}2 \amp  -3 \\-2 \amp  1\end{bmatrix}</me>.
+            <me>
+              \vec{y} = \begin{bmatrix}y_{1}\\y_{2}\end{bmatrix}\quad\text{and}\quad A = \begin{bmatrix}2 \amp  -3 \\-2 \amp  1\end{bmatrix}
+            </me>.
             Now, we can view <m>\vec{y}</m> as corresponding to a point in the phase plane.
             Hence <m>\vec{y}^\prime</m> corresponds to a <em>tangent</em> of a trajectory passing through the point <m>\vec{y}</m>.
           </p>
@@ -1157,101 +1200,93 @@
           <p>
             For example, let's find the tangent at the point <m>\vec{y} = \begin{bmatrix}2\\2\end{bmatrix}</m>.
             The tangent is given by the corresponding <m>\vec{y}^\prime</m> at this point which is just <m>A\vec{y}</m>:
-            <me>\vec{y}^\prime = A\vec{y} = \begin{bmatrix}2 \amp  -3 \\ -2 \amp  1\end{bmatrix}\begin{bmatrix}2\\2\end{bmatrix} = \begin{bmatrix}-2 \\ -2\end{bmatrix}</me>.
+            <me>
+              \vec{y}^\prime = A\vec{y} = \begin{bmatrix}2 \amp  -3 \\ -2 \amp  1\end{bmatrix}\begin{bmatrix}2\\2\end{bmatrix} = \begin{bmatrix}-2 \\ -2\end{bmatrix}
+            </me>.
             So at the point <m>(2,2)</m> in the phase plane, the trajectory should be heading in the same direction as that of the point <m>(-2,-2)</m> relative to the origin.
             In other words, the tangent vector would point two units left and two units down from the point <m>(2,2)</m>.
           </p>
 
           <p>
             Similarly, if we let <m>\vec{y} = \begin{bmatrix}0\\1\end{bmatrix}</m> then we get
-            <me>\vec{y}^\prime = A\vec{y} = \begin{bmatrix}2 \amp  -3 \\ -2 \amp  1\end{bmatrix}\begin{bmatrix}0\\1\end{bmatrix} = \begin{bmatrix}-3 \\ 1\end{bmatrix}</me>.
+            <me>
+              \vec{y}^\prime = A\vec{y} = \begin{bmatrix}2 \amp  -3 \\ -2 \amp  1\end{bmatrix}\begin{bmatrix}0\\1\end{bmatrix} = \begin{bmatrix}-3 \\ 1\end{bmatrix}
+            </me>.
             So the trajectory going through <m>(0,1)</m> in the phase plane should be heading in the direction of <m>(-3,1)</m> viewed from the origin.
+            Plotting other points in the phase plane like this, we get the image below.
           </p>
 
+          <image xml:id="image-sketch-phase-portrait" width="50%">
+            <asymptote>
+              import graph;
+              import fontsize;
+              size(200);
+              defaultpen(fontsize(9pt));
+              pair a=(-2,-2);
+              pair b=(2,2);
+              real xmin=-2, xmax=2;
+              real ymin=-2, ymax=2;
+              real eps=.2;
+              //incoming and outgoing trajectories
+              real f_in(real x) {return x;}
+              real f_out(real x) {return -(2/3)*x;}
+              //nullclines
+              real y1(real x) {return (2/3)*x;}
+              real y2(real x) {return 2*x;}
+              //plot annotations
+              arrowbar axisarrow = Arrow(TeXHead);
+              Label xlabel = Label("$y_1$", position = EndPoint, align = 2E);
+              Label ylabel = Label("$y_2$", position = EndPoint, align = 2N);
+              path vector(pair z) {return (0,0) -- unit((2z.x - 3z.y,-2z.x + z.y));}
+              //graph phase portrait, trajectories and nullclines
+              add(vectorfield(vector,a,b,15,deepcyan+0.2bp));
+              draw(graph(f_in,xmin,xmax),blue);
+              draw(graph(f_out,xmin-eps,xmax+eps),red);
+              draw(graph(y1,xmin,xmax),deepmagenta);
+              draw(graph(y2,xmin/2,xmax/2),deepmagenta);
+              //draw labels
+              label(rotate(45)*Label("$y_2=y_1$"), (1, f_in(1)), SE, blue);
+              label(rotate(-atan(2/3)*(180/pi))*"$y_2=-\frac{2}{3}y_1$", (1, f_out(1)), NE, red);
+              label(rotate(atan(2/3)*(180/pi))*"$\dot{y_1}=0$", (.5, y1(.5)), SE, deepmagenta);
+              label(rotate(atan(2)*(180/pi))*"$\dot{y_2}=0$", (.55, y2(.55)), SE, deepmagenta);
+              //label axes and origin
+              xaxis(YZero,xmin-eps,xmax+eps, LeftTicks(NoZeroFormat), L=xlabel, arrow=axisarrow);
+              yaxis(XZero,ymin-eps,ymax+eps, RightTicks(NoZeroFormat), L=ylabel, arrow=axisarrow);
+              label("$0$", (0,0), SE);
+            </asymptote>
+          </image>
+
           <p>
-            Plotting other points in the phase plane like this, we get <xref ref="figure-sketch-phase-portrait" text="type-global" />.
-            One thing we can see from this is that trajectories that lie on the line, equivalently, those with initial conditions <m>y_{1}(0) = y_{2}(0)</m>, appear to approach the origin while all others move away from the origin.
+            One thing we can see from this is that trajectories that lie on the line <m>y_1 = y_2</m>, which corresponds to the initial conditions <m>y_{1}(0) = y_{2}(0)</m>, appear to approach the origin while all others move away from the origin.
+            Likewise, the trajectories on the line <m>y_2 = -\frac{2}{3}y_1</m> move directly away from the origin.
             We can see why this is by looking at the general solution of the original system, which is
-            <me>\vec{y} = c_{1}e^{4t}\begin{bmatrix}-3\\2\end{bmatrix}+c_{2}e^{-t}\begin{bmatrix}1\\1\end{bmatrix}</me>.
+            <me>
+              \vec{y} = c_{1}e^{4t}\begin{bmatrix}-3\\2\end{bmatrix}+c_{2}e^{-t}\begin{bmatrix}1\\1\end{bmatrix}
+            </me>.
           </p>
 
           <p>
             If <m>\vec{y}</m> lies on the line <m>y_{2} = y_{1}</m>, then <m>c_{1}</m> has to equal <m>0</m>, which follows from the fact that <m>\begin{bmatrix}-3\\2\end{bmatrix}</m> and <m>\begin{bmatrix}1\\1\end{bmatrix}</m> are linearly independent.
             So trajectories that lie on the line <m>y_{2} = y_{1}</m> must take the form <m>\vec{y} = c_{2}e^{-t}\begin{bmatrix}1\\1\end{bmatrix}</m>, and every solution of this form goes to <m>\vec{0}</m> as <m>t\to\infty</m>.
-            <em>Every other trajectory</em> will move away from the origin as <m>t\to\infty</m>, although the trajectories that lie on the line <m>y_{2} = -\frac{2}{3}y_{1}</m> will travel to the origin as <m>t\to-\infty</m> (i.e. <q>backwards in time</q>):
+            <em>Every other trajectory</em> will move away from the origin as <m>t\to\infty</m>, although the trajectories that lie on the line <m>y_{2} = -\frac{2}{3}y_{1}</m> will travel to the origin as <m>t\to-\infty</m> (i.e.
+            <q>backwards in time</q>):
           </p>
         </solution>
       </example>
-
-      <figure xml:id="figure-sketch-phase-portrait">
-        <image xml:id="image-sketch-phase-portrait" width="50%">
-          <asymptote>
-            import graph;
-            import fontsize;
-            size(200);
-            defaultpen(fontsize(9pt));
-
-            pair a=(-2,-2);
-            pair b=(2,2);
-
-            real xmin=-2, xmax=2;
-            real ymin=-2, ymax=2;
-            real eps=.2;
-
-            //incoming and outgoing trajectories
-            real f_in(real x) {return x;}
-            real f_out(real x) {return -(2/3)*x;}
-
-            //nullclines
-            real y1(real x) {return (2/3)*x;}
-            real y2(real x) {return 2*x;}
-
-            //plot annotations
-            arrowbar axisarrow = Arrow(TeXHead);
-            Label xlabel = Label("$y_1$", position = EndPoint, align = 2E);
-            Label ylabel = Label("$y_2$", position = EndPoint, align = 2N);
-
-            path vector(pair z) {return (0,0) -- unit((2z.x - 3z.y,-2z.x + z.y));}
-
-            //graph phase portrait, trajectories and nullclines
-            add(vectorfield(vector,a,b,15,deepcyan+0.2bp));
-            draw(graph(f_in,xmin,xmax),blue);
-            draw(graph(f_out,xmin-eps,xmax+eps),red);
-            draw(graph(y1,xmin,xmax),deepmagenta);
-            draw(graph(y2,xmin/2,xmax/2),deepmagenta);
-
-            //draw labels
-            label(rotate(45)*Label("$y_2=y_1$"), (1, f_in(1)), SE, blue);
-            label(rotate(-atan(2/3)*(180/pi))*"$y_2=-\frac{2}{3}y_1$", (1, f_out(1)), NE, red);
-            label(rotate(atan(2/3)*(180/pi))*"$\dot{y_1}=0$", (.5, y1(.5)), SE, deepmagenta);
-            label(rotate(atan(2)*(180/pi))*"$\dot{y_2}=0$", (.55, y2(.55)), SE, deepmagenta);
-
-            //label axes and origin
-            xaxis(YZero,xmin-eps,xmax+eps, LeftTicks(NoZeroFormat), L=xlabel, arrow=axisarrow);
-            yaxis(XZero,ymin-eps,ymax+eps, RightTicks(NoZeroFormat), L=ylabel, arrow=axisarrow);
-            label("$0$", (0,0), SE);
-          </asymptote>
-        </image>
-
-        <caption>The phase portrait from <xref ref="example-sketch-phase-portrait" text="type-global" />. The blue line represents the two incoming trajectories at <m>\vec{0}</m> and the red line represents two outgoing trajectories at <m>\vec{0}</m>.</caption>
-      </figure>
 
       <p>
         Vector fields can also be plotted easily using SageMath.
         The code cell below demonstrates the use of the <c>plot_vector_field</c> command to sketch the phase portrait from <xref ref="example-sketch-phase-portrait" text="type-global" />.
       </p>
-
       <sage>
-        <input>
+      <input>
           # Define variables
           var('y1 y2')
-
           # Create phase portrait for system
           VF=plot_vector_field([2*y1 - 3*y2,-2*y1 + y2],[y1,-2,2],[y2,-2,2])
-
           # Display the plot
           show(VF)
-        </input>
+      </input>
       </sage>
 
       <p>
@@ -1312,15 +1347,47 @@
         <statement>
           <p>
             Using a phase portrait, determine the type of critical point that <m>\vec{y} = \vec{0}</m> is for the matrix ODE <m>\vec{y}^\prime=A\vec{y}</m> where
-            <me>\vec{y} = \begin{bmatrix}y_{1}(t) \\ y_{2}(t)\end{bmatrix}\quad\text{and}\quad A = \begin{bmatrix}3 \amp  4 \\ -4 \amp  3\end{bmatrix}</me>.
+            <me>
+              \vec{y} = \begin{bmatrix}y_{1}(t) \\ y_{2}(t)\end{bmatrix}\quad\text{and}\quad A = \begin{bmatrix}3 \amp  4 \\ -4 \amp  3\end{bmatrix}
+            </me>.
           </p>
         </statement>
 
         <solution>
           <p>
-            As seen in <xref ref="figure-classify-stability-using-phase-portrait" text="type-global" />, every (nonzero) trajectory will spiral outward from <m>\vec{y} = \vec{0}</m> as <m>t\to\infty</m>, so <m>\vec{0}</m> is a spiral point of this system.
+            This system produces the following phase portrait:
+          </p>
+
+          <image xml:id="image-classify-stability-using-phase-portrait" width="50%">
+            <asymptote>
+                import graph;
+                import fontsize;
+                size(200);
+                defaultpen(fontsize(9pt));
+                pair a=(-2,-2);
+                pair b=(2,2);
+                real xmin=-2, xmax=2;
+                real ymin=-2, ymax=2;
+                real eps=.2;
+                //plot annotations
+                arrowbar axisarrow = Arrow(TeXHead);
+                Label xlabel = Label("$y_1$", position = EndPoint, align = 2E);
+                Label ylabel = Label("$y_2$", position = EndPoint, align = 2N);
+                path vector(pair z) {return (0,0) -- unit((3z.x + 4z.y,-4z.x + 3z.y));}
+                add(vectorfield(vector,a,b,15,deepcyan+0.2bp));
+                //label axes
+                xaxis(YZero,xmin-eps,xmax+eps, LeftTicks(NoZeroFormat), L=xlabel, arrow=axisarrow);
+                yaxis(XZero,ymin-eps,ymax+eps, RightTicks(NoZeroFormat), L=ylabel, arrow=axisarrow);
+                label("$0$", (0,0), SE);
+            </asymptote>
+          </image>
+
+          <p>
+            As seen above, every (nonzero) trajectory will spiral outward from <m>\vec{y} = \vec{0}</m> as <m>t\to\infty</m>, so <m>\vec{0}</m> is a spiral point of this system.
             To see why, we only need to look at the eigenvalues of <m>A</m>, which we find to be
-            <me>\lambda_{1} = 3+4i,\lambda_{2} = 3-4i</me>.
+            <me>
+              \lambda_{1} = 3+4i,\lambda_{2} = 3-4i
+            </me>.
             This means that the general solution of <m>\vec{y}^\prime = A\vec{y}</m> must look like
             <md>
               <mrow>\vec{y} \amp = c_{1}e^{(3+4i)t}\vec{y}_{1} + c_{2}e^{(3-4i)t}\vec{y}_{2}</mrow>
@@ -1335,39 +1402,6 @@
           </p>
         </solution>
       </example>
-
-      <figure xml:id="figure-classify-stability-using-phase-portrait">
-        <image xml:id="image-classify-stability-using-phase-portrait" width="50%">
-          <asymptote>
-            import graph;
-            import fontsize;
-            size(200);
-            defaultpen(fontsize(9pt));
-
-            pair a=(-2,-2);
-            pair b=(2,2);
-
-            real xmin=-2, xmax=2;
-            real ymin=-2, ymax=2;
-            real eps=.2;
-
-            //plot annotations
-            arrowbar axisarrow = Arrow(TeXHead);
-            Label xlabel = Label("$y_1$", position = EndPoint, align = 2E);
-            Label ylabel = Label("$y_2$", position = EndPoint, align = 2N);
-
-            path vector(pair z) {return (0,0) -- unit((3z.x + 4z.y,-4z.x + 3z.y));}
-
-            add(vectorfield(vector,a,b,15,deepcyan+0.2bp));
-
-            //label axes
-            xaxis(YZero,xmin-eps,xmax+eps, LeftTicks(NoZeroFormat), L=xlabel, arrow=axisarrow);
-            yaxis(XZero,ymin-eps,ymax+eps, RightTicks(NoZeroFormat), L=ylabel, arrow=axisarrow);
-            label("$0$", (0,0), SE);
-          </asymptote>
-        </image>
-        <caption>The phase portrait for <xref ref="example-stability-equilibrium-solution" text="type-global" />.</caption>
-      </figure>
 
       <p>
         In general, the eigenvalues of the matrix <m>A</m> in the system <m>\vec{y}^\prime = A\vec{y}</m> will determine the type of critical point that <m>\vec{0}</m> is for the system <m>\vec{y}^\prime=A\vec{y}</m>.
@@ -1391,9 +1425,13 @@
           <p>
             We could sketch the phase portrait for this system, but we can also determine the behavior of the trajectories <m>\vec{y} = \begin{bmatrix} y_{1} \\ y_{2} \end{bmatrix} </m> if we can find a relationship between <m>y_{1}</m> and <m>y_{2}</m>.
             To do so, we <q>cross-multiply</q> the system to get
-            <me>4y_{1}y^\prime_{1} = -4y_{2}y^\prime_{2} \quad\text{or}\quad 4y_{1}\dd{y_{1}} = -4y_{2}\dd{y_{2}}</me>.
+            <me>
+              4y_{1}y^\prime_{1} = -4y_{2}y^\prime_{2} \quad\text{or}\quad 4y_{1}\dd{y_{1}} = -4y_{2}\dd{y_{2}}
+            </me>.
             So we can integrate this to get
-            <me>2y_{1}^{2} = -2y_{2}^{2}+C\qq{or}y_{1}^{2}+y_{2}^{2} = C_{1}</me>.
+            <me>
+              2y_{1}^{2} = -2y_{2}^{2}+C\qq{or}y_{1}^{2}+y_{2}^{2} = C_{1}
+            </me>.
           </p>
 
           <p>
@@ -1404,17 +1442,18 @@
       </example>
     </subsection>
 
+
     <subsection xml:id="subsection-eigenvalue-criteria-for-stability">
-      <title>Eigenvalue Criteria for Stability</title>
+      <title>Eigenvalue criteria for stability</title>
 
       <p>
         Consider the matrix ODE <m>\vec{y}^\prime = A\vec{y}</m>.
         Let <m>\lambda_{1},\lambda_{2}</m> denote the eigenvalues of the <m>2\times 2</m> matrix <m>A</m>.
-        Then <m>\vec{0}</m> is a:
+        Then we can classify <m>\vec{0}</m> using <xref ref="table-eigenvalue-conditions-stability"/>.
       </p>
 
       <table xml:id="table-eigenvalue-conditions-stability">
-        <title>Eigenvalue conditions for stability.</title>
+        <title>Eigenvalue conditions for stability</title>
 
         <tabular top="major">
           <row bottom="major">
@@ -1443,11 +1482,10 @@
           </row>
         </tabular>
       </table>
-
       <aside>
-        <p>
-          The rule of thumb is this: the real parts of the eigenvalues determine whether a trajectory moves towards or away from the origin, and the imaginary part determines if the trajectory has a periodic/oscillating nature to it.
-        </p>
+      <p>
+        The rule of thumb is this: the real parts of the eigenvalues determine whether a trajectory moves towards or away from the origin, and the imaginary part determines if the trajectory has a periodic/oscillating nature to it.
+      </p>
       </aside>
 
       <p>
@@ -1474,14 +1512,18 @@
             Then in order for <m>\vec{0}</m> to be asymptotically stable, we need <m>\vec{y}\to\vec{0}</m> as <m>t\to\infty</m>.
             Let <m>\lambda_{1},\lambda_{2}</m> denote the eigenvalues of <m>A</m>.
             Then <m>\vec{y}</m> will have the form
-            <me>\vec{y} = c_{1}e^{\lambda_{1}t}\vec{y}_{1}+c_{2}e^{\lambda_{2}t}\vec{y}_{2}</me>.
+            <me>
+              \vec{y} = c_{1}e^{\lambda_{1}t}\vec{y}_{1}+c_{2}e^{\lambda_{2}t}\vec{y}_{2}
+            </me>.
           </p>
 
           <p>
             The previous paragraph shows that <m>\vec{y}</m> must go to <m>\vec{0}</m> as <m>t\to\infty</m> if either <m>c_{1}=c_{2}=0</m> or if each exponential goes to <m>0</m> as <m>t\to\infty</m>.
             Since we assume <m>\vec{y}\neq\vec{0}</m>, this means we need <m>e^{\lambda_{i}t}\to0</m> for <m>i=1,2</m> as <m>t\to\infty</m>.
             This implies that the <em>real part</em> of each eigenvalue must be negative, because the real part of each eigenvalue is what determines the growth of <m>e^{\lambda_{i}t}</m>: if <m>\lambda_{i} = a+bi</m>, then
-            <me>e^{\lambda_{i}t} = e^{at}[A\cos bt+B\sin bt]</me>.
+            <me>
+              e^{\lambda_{i}t} = e^{at}[A\cos bt+B\sin bt]
+            </me>.
             So <m>\vec{0}</m> is asymptotically stable if the real parts of <em>both</em> eigenvalues are negative.
           </p>
         </solution>
@@ -1497,56 +1539,17 @@
 
         <statement>
           <p>
-            Two tanks <m>T_{1}</m> and <m>T_{2}</m> containing
-            <quantity>
-              <mag>200</mag>
-              <unit base="gallon" />
-            </quantity>
-            each of a water-salt mixture are set up as follows:
+            Two tanks <m>T_{1}</m> and <m>T_{2}</m> containing <quantity> <mag>200</mag> <unit base="gallon" /> </quantity> each of a water-salt mixture are set up as follows:
             <ul>
               <li>
                 <p>
-                  Tank 1: Pure water flows in at
-                  <quantity>
-                    <mag>12</mag>
-                    <unit base="gallon" />
-                    <per base="minute" />
-                  </quantity>
-                  and solution from Tank 2 flows in at
-                  <quantity>
-                    <mag>4</mag>
-                    <unit base="gallon" />
-                    <per base="minute" />
-                  </quantity>;
-                  solution also flows out of Tank 1 and into Tank 2 at
-                  <quantity>
-                    <mag>16</mag>
-                    <unit base="gallon" />
-                    <per base="minute" />
-                  </quantity>.
+                  Tank 1: Pure water flows in at <quantity> <mag>12</mag> <unit base="gallon" /> <per base="minute" /> </quantity> and solution from Tank 2 flows in at <quantity> <mag>4</mag> <unit base="gallon" /> <per base="minute" /> </quantity>; solution also flows out of Tank 1 and into Tank 2 at <quantity> <mag>16</mag> <unit base="gallon" /> <per base="minute" /> </quantity>.
                 </p>
               </li>
 
               <li>
                 <p>
-                  Solution from Tank 1 flows in at
-                  <quantity>
-                    <mag>16</mag>
-                    <unit base="gallon"/>
-                    <per base="minute"/>
-                  </quantity>;
-                  solution flows out of Tank 2 and into Tank 1 at
-                  <quantity>
-                    <mag>4</mag>
-                    <unit base="gallon"/>
-                    <per base="minute"/>
-                  </quantity>,
-                  and solution is emptied from Tank 2 at an addition rate of
-                  <quantity>
-                    <mag>12</mag>
-                    <unit base="gallon"/>
-                    <per base="minute"/>
-                  </quantity>
+                  Solution from Tank 1 flows in at <quantity> <mag>16</mag> <unit base="gallon"/> <per base="minute"/> </quantity>; solution flows out of Tank 2 and into Tank 1 at <quantity> <mag>4</mag> <unit base="gallon"/> <per base="minute"/> </quantity>, and solution is emptied from Tank 2 at an addition rate of <quantity> <mag>12</mag> <unit base="gallon"/> <per base="minute"/> </quantity>
                 </p>
               </li>
             </ul>
@@ -1563,13 +1566,17 @@
               <mrow>y^\prime_{2}  \amp =  16\frac{y_{1}}{200} - 16\frac{y_{2}}{200}</mrow>
             </md>.
             This system is equivalent to the matrix ODE <m>\vec{y}^\prime = A\vec{y}</m> where
-            <me>\vec{y} = \begin{bmatrix}y_{1}\\y_{2}\end{bmatrix}\quad\text{and}\quad A = \begin{bmatrix}-\frac{2}{25} \amp  \frac{1}{50} \\ \frac{2}{25} \amp  -\frac{2}{25}\end{bmatrix}</me>.
+            <me>
+              \vec{y} = \begin{bmatrix}y_{1}\\y_{2}\end{bmatrix}\quad\text{and}\quad A = \begin{bmatrix}-\frac{2}{25} \amp  \frac{1}{50} \\ \frac{2}{25} \amp  -\frac{2}{25}\end{bmatrix}
+            </me>.
             We need to determine the long-term behavior of solutions of this ODE, which is itself determined by the eigenvalues of <m>A</m>.
           </p>
 
           <p>
             The eigenvalues of <m>A</m> are
-            <me>\lambda_{1} = -\frac{1}{25}\quad\text{and}\quad\lambda_{2} = -\frac{3}{25}</me>.
+            <me>
+              \lambda_{1} = -\frac{1}{25}\quad\text{and}\quad\lambda_{2} = -\frac{3}{25}
+            </me>.
             Since both eigenvalues have negative real part, it follows that <m>\vec{0}</m> is an asymptotically stable critical point of <m>\vec{y}^\prime=A\vec{y}</m>.
             Therefore <em>every</em> trajectory <m>\vec{y}\to\vec{0}</m> as <m>t\to\infty</m>.
             So no matter how much salt is initially in the tanks, the amount of salt will always go to <m>0</m>.
@@ -1580,7 +1587,7 @@
   </section>
 
   <section xml:id="section-nonlinear-systems">
-    <title>Nonlinear Systems</title>
+    <title>Nonlinear systems</title>
 
     <introduction>
       <p>
@@ -1591,16 +1598,17 @@
         </md>.
         where <m>y_{i} = y_{i}(t)</m>.
       </p>
-
       <aside>
-        <p>
-          <em>Autonomous</em> just means we can write the system without explicitly referring to the independent variable <m>t</m>.
-        </p>
+      <p>
+        <em>Autonomous</em> just means we can write the system without explicitly referring to the independent variable <m>t</m>.
+      </p>
       </aside>
 
       <p>
         We can also write such a system as a vector equation:
-        <men xml:id="equation-nonlinear-system">\vec{y}^\prime = \vec{f}(\vec{y})</men>.
+        <men xml:id="equation-nonlinear-system">
+          \vec{y}^\prime = \vec{f}(\vec{y})
+        </men>.
         although not as a matrix ODE (if the functions <m>f_{i}</m> are nonlinear).
       </p>
 
@@ -1610,7 +1618,9 @@
 
       <p>
         We call a point <m>P = (y_1, y_2)</m> in the phase plane a <term>critical point</term> of <xref ref="equation-nonlinear-system" text="type-global" /> if
-        <me>f_{1}(y_{1},y_{2}) = 0\quad\text{and}\quad f_{2}(y_{1},y_{2}) = 0</me>.
+        <me>
+          f_{1}(y_{1},y_{2}) = 0\quad\text{and}\quad f_{2}(y_{1},y_{2}) = 0
+        </me>.
         In other words, <m>P</m> is a critical point of <m>\vec{y}^\prime = \vec{f}(\vec{y})</m> if <m>\vec{f}(P) = \vec{0}</m>.
         Just as before, critical points represent solutions of the system that are in equilibrium.
       </p>
@@ -1628,14 +1638,18 @@
           <p>
             First, we have to rewrite the pendulum ODE as a first order system.
             We can do this without too much trouble as follows: set
-            <me>\theta_{1} = \theta\quad\text{and}\quad\theta_{2} = \theta_{1}^\prime = \theta^\prime</me>.
+            <me>
+              \theta_{1} = \theta\quad\text{and}\quad\theta_{2} = \theta_{1}^\prime = \theta^\prime
+            </me>.
             Then the ODE <m>\theta''+\frac{g}{l}\sin\theta = 0</m> turns into the system
             <md>
               <mrow>\theta^\prime_{1} \amp = \theta_{2}</mrow>
               <mrow>\theta^\prime_{2} \amp = -\frac{g}{l}\sin\theta_{1}</mrow>
             </md>,
             which we can also write as <m>\boldsymbol{\theta}^\prime = \vec{f}(\boldsymbol{\theta})</m> using
-            <me>\vecm{\theta} = \begin{bmatrix}\theta_{1} \\ \theta_{2}\end{bmatrix}\quad\text{and}\quad \vec{f}(\vecm{\theta}) = \begin{bmatrix}\theta_{2} \\ -\frac{g}{l}\sin\theta_{2}\end{bmatrix}</me>.
+            <me>
+              \vecm{\theta} = \begin{bmatrix}\theta_{1} \\ \theta_{2}\end{bmatrix}\quad\text{and}\quad \vec{f}(\vecm{\theta}) = \begin{bmatrix}\theta_{2} \\ -\frac{g}{l}\sin\theta_{2}\end{bmatrix}
+            </me>.
           </p>
 
           <p>
@@ -1646,8 +1660,9 @@
       </example>
     </introduction>
 
+
     <subsection xml:id="subsection-classification-of-critical-points-and-linearization">
-      <title>Classification of Critical Points and Linearization</title>
+      <title>Classification of critical points and linearization</title>
 
       <p>
         Critical points of systems are important because they can represent long-term behavior of a system.
@@ -1660,15 +1675,11 @@
       </p>
 
       <definition xml:id="definition-the-jacobian-of-a-nonlinear-system">
-        <title>The Jacobian of a Nonlinear System</title>
+        <title>The Jacobian of a nonlinear system</title>
 
         <idx>Jacobian</idx>
-
         <notation>
-          <usage>
-            <m>J_{\vec{f}}(\vec{y})</m>
-          </usage>
-
+          <usage> <m>J_{\vec{f}}(\vec{y})</m> </usage>
           <description>
             Jacobian of <m>\vec{y}^\prime = \vec{f}(\vec{y})</m>
           </description>
@@ -1677,15 +1688,18 @@
         <statement>
           <p>
             Let
-            <me>\vec{y} = \begin{bmatrix}y_{1} \\ y_{2}\end{bmatrix}\quad\text{and}\quad\vec{f}(\vec{y}) = \begin{bmatrix}f_{1}(y_{1},y_{2}) \\ f_{2}(y_{1},y_{2})\end{bmatrix}</me>.
+            <me>
+              \vec{y} = \begin{bmatrix}y_{1} \\ y_{2}\end{bmatrix}\quad\text{and}\quad\vec{f}(\vec{y}) = \begin{bmatrix}f_{1}(y_{1},y_{2}) \\ f_{2}(y_{1},y_{2})\end{bmatrix}
+            </me>.
             The <term>Jacobian</term> of <m>\vec{f}</m> is the matrix <m>J_{\vec{f}}(y_{1},y_{2})</m> given by
-            <me>J_{\vec{f}}(y_{1},y_{2}) = \begin{bmatrix}\pdv{f_{1}}{y_{1}} \amp  \pdv{f_{1}}{y_{2}} \\ \pdv{f_{2}}{y_{1}} \amp  \pdv{f_{2}}{y_{2}}\end{bmatrix}</me>.
+            <me>
+              J_{\vec{f}}(y_{1},y_{2}) = \begin{bmatrix}\pdv{f_{1}}{y_{1}} \amp  \pdv{f_{1}}{y_{2}} \\ \pdv{f_{2}}{y_{1}} \amp  \pdv{f_{2}}{y_{2}}\end{bmatrix}
+            </me>.
           </p>
-
           <aside>
-            <p>
-              If <m>\vec{f}</m> is understood from context, we often write <m>J</m> instead of <m>J_{\vec{f}}</m> for the Jacobian.
-            </p>
+          <p>
+            If <m>\vec{f}</m> is understood from context, we often write <m>J</m> instead of <m>J_{\vec{f}}</m> for the Jacobian.
+          </p>
           </aside>
         </statement>
       </definition>
@@ -1693,7 +1707,9 @@
       <p>
         The Jacobian is important since it allows us to <em>linearize</em> a nonlinear system.
         More precisely, the <term>linearization</term> of <m>\vec{y}^\prime = \vec{f}(\vec{y})</m> at the point <m>P = (p_{1},p_{2})</m> is the linear system <m>\vec{y}^\prime = A\vec{y}</m>, where
-        <me>A = J(p_{1},p_{2}).</me>
+        <me>
+          A = J(p_{1},p_{2}).
+        </me>
       </p>
 
       <example xml:id="example-systems-odes-linearize-pendulum-system">
@@ -1709,9 +1725,13 @@
           <p>
             For this system, we have <m>f_{1}(\theta_{1},\theta_{2}) = \theta_{2}</m> and <m>f_{2}(\theta_{1},\theta_{2}) = -\frac{g}{l}\sin\theta_{1}</m>.
             The Jacobian is then given by
-            <me>J(\theta_{1},\theta_{2}) = \begin{bmatrix}0 \amp  1 \\ -\frac{g}{l}\cos\theta_{1} \amp  0\end{bmatrix}</me>.
+            <me>
+              J(\theta_{1},\theta_{2}) = \begin{bmatrix}0 \amp  1 \\ -\frac{g}{l}\cos\theta_{1} \amp  0\end{bmatrix}
+            </me>.
             So to get the linearization we need to set
-            <me>A = J(0,0) = \begin{bmatrix}0 \amp  1 \\ -\frac{g}{l} \amp  0\end{bmatrix}</me>.
+            <me>
+              A = J(0,0) = \begin{bmatrix}0 \amp  1 \\ -\frac{g}{l} \amp  0\end{bmatrix}
+            </me>.
           </p>
         </solution>
       </example>
@@ -1732,11 +1752,10 @@
               <mrow>\dv{y}{t} \amp = -x^{2} - y </mrow>
             </md>.
           </p>
-
           <aside>
-            <p>
-              This example taken from <url href="https://www.math.uci.edu/~ndonalds/math3d/nonlinear.pdf" visual="www.math.uci.edu/~ndonalds/math3d/nonlinear.pdf">here.</url>
-            </p>
+          <p>
+            This example taken from <url href="https://www.math.uci.edu/~ndonalds/math3d/nonlinear.pdf" visual="www.math.uci.edu/~ndonalds/math3d/nonlinear.pdf">here.</url>
+          </p>
           </aside>
         </statement>
 
@@ -1749,227 +1768,192 @@
               <mrow>y \amp = x </mrow>
             </md>,
             while the equation of the nullcline <m>\dot{y}=0</m> is
-            <me>y = -x^2</me>.
-            Hence there are three critical points for this system as seen in <xref ref="figure-classify-critical-points" text="type-global" />.
-            In particular, these points are <m>(0,0), (-1,-1)</m> and <m>(1,-1)</m>.
+            <me>
+              y = -x^2
+            </me>.
+            Now we graph the nullclines (and the phase portrait):
           </p>
 
-          <figure xml:id="figure-classify-critical-points">
-            <image xml:id="image-classify-critical-points" width="50%">
-              <asymptote>
-                import graph;
-                import fontsize;
-                size(200);
-                defaultpen(fontsize(9pt));
+          <image xml:id="image-classify-critical-points" width="50%">
+            <asymptote>
+              import graph;
+              import fontsize;
+              size(200);
+              defaultpen(fontsize(9pt));
+              real eps=.1;
+              real xmin=-2, xmax=2;
+              real ymin=-2, ymax=2;
+              pair a=(xmin,ymin);
+              pair b=(xmax,ymax);
+              //incoming and outgoing trajectories
+              //real f_in(real x) {return x;}
+              //real f_out(real x) {return -(2/3)*x;}
+              //nullclines
+              real xdot1(real x) {return x;}
+              real ydot1(real x) {return -x^2;}
+               //define and add curve
+              pair xdot2(real y) {
+                return (1, y);
+              }
+              path curveC = graph(xdot2, ymin, ymax, operator ..); // "operator .." is for bezier; 0≤t≤2
+              Label Lx1 = Label("$\dot{x}=0$", deepmagenta, position=Relative(0.65), align=W);
+              Label Lx2 = Label("$\dot{x}=0$", deepmagenta, position=Relative(0.6), align=E);
+              Label Ly = Label("$\dot{y}=0$", deepblue, position=Relative(0.25), align=E);
+              draw(graph(xdot1,xmin,xmax), deepmagenta, L=rotate(45)*Lx1);
+              draw(graph(ydot1,xmin,xmax), deepblue, L=rotate(degrees(atan(2.2)))*Ly);
+              draw(curveC, deepmagenta+0.6bp, L = rotate(-90)*Lx2);
+              //plot annotations
+              arrowbar axisarrow = Arrow(TeXHead);
+              Label xlabel = Label("$x$", position = EndPoint, align = 2E);
+              Label ylabel = Label("$y$", position = EndPoint, align = 2N);
+              path vector(pair z) {return (0,0) -- ((z.x - z.y-z.x*z.x + z.x*z.y,-z.x^2 - z.y));}
+              //graph phase portrait
+              add(vectorfield(vector,a,b,20,deepcyan+0.2bp));
+              //Crop picture
+              limits((-2,-2),(2,2),Crop);
+              //graph critical points
+              dot((0, 0));
+              dot((-1, -1));
+              dot((1,-1));
+              //label("$(1,-1)$", (-1,-1), SE);
+              //label axes
+              xaxis(YZero,xmin-eps,xmax+eps, LeftTicks(NoZeroFormat), L=xlabel, arrow=axisarrow);
+              yaxis(XZero,ymin-eps,ymax+eps, RightTicks(NoZeroFormat), L=ylabel, arrow=axisarrow);
+              label("$0$", (0,0), SE);
+            </asymptote>
+          </image>
 
-                real eps=.1;
-
-                real xmin=-2, xmax=2;
-                real ymin=-2, ymax=2;
-                pair a=(xmin,ymin);
-                pair b=(xmax,ymax);
-
-                //incoming and outgoing trajectories
-                //real f_in(real x) {return x;}
-                //real f_out(real x) {return -(2/3)*x;}
-
-                //nullclines
-                real xdot1(real x) {return x;}
-                real ydot1(real x) {return -x^2;}
-                 //define and add curve
-                pair xdot2(real y) {
-                  return (1, y);
-                }
-
-                path curveC = graph(xdot2, ymin, ymax, operator ..); // "operator .." is for bezier; 0≤t≤2
-                Label Lx1 = Label("$\dot{x}=0$", deepmagenta, position=Relative(0.65), align=W);
-                Label Lx2 = Label("$\dot{x}=0$", deepmagenta, position=Relative(0.6), align=E);
-                Label Ly = Label("$\dot{y}=0$", deepblue, position=Relative(0.25), align=E);
-                draw(graph(xdot1,xmin,xmax), deepmagenta, L=rotate(45)*Lx1);
-                draw(graph(ydot1,xmin,xmax), deepblue, L=rotate(degrees(atan(2.2)))*Ly);
-                draw(curveC, deepmagenta+0.6bp, L = rotate(-90)*Lx2);
-
-                //plot annotations
-                arrowbar axisarrow = Arrow(TeXHead);
-                Label xlabel = Label("$x$", position = EndPoint, align = 2E);
-                Label ylabel = Label("$y$", position = EndPoint, align = 2N);
-
-                path vector(pair z) {return (0,0) -- ((z.x - z.y-z.x*z.x + z.x*z.y,-z.x^2 - z.y));}
-
-                //graph phase portrait
-                add(vectorfield(vector,a,b,20,deepcyan+0.2bp));
-
-                //Crop picture
-                limits((-2,-2),(2,2),Crop);
-
-                //graph critical points
-                dot((0, 0));
-                dot((-1, -1));
-                dot((1,-1));
-                //label("$(1,-1)$", (-1,-1), SE);
-
-                //label axes
-                xaxis(YZero,xmin-eps,xmax+eps, LeftTicks(NoZeroFormat), L=xlabel, arrow=axisarrow);
-                yaxis(XZero,ymin-eps,ymax+eps, RightTicks(NoZeroFormat), L=ylabel, arrow=axisarrow);
-                label("$0$", (0,0), SE);
-              </asymptote>
-            </image>
-            <caption>The phase portrait and nullclines for the system</caption>
-          </figure>
+          <p>
+            The nullclines for <m>\dot{x}</m> and <m>\dot{y}</m> intersect in three places.
+            Hence, there are three critical points for this system: <m>(0,0), (-1,-1)</m> and <m>(1,-1)</m>.
+          </p>
 
           <p>
             To determine the behavior of solutions at these critical points, we'll find the Jacobian at each point.
             First, we have
-            <me>J(x,y) = \begin{bmatrix} 1 - 2x + y \amp x - 1 \\ -2x \amp -1\end{bmatrix}</me>.
+            <me>
+              J(x,y) = \begin{bmatrix} 1 - 2x + y \amp x - 1 \\ -2x \amp -1\end{bmatrix}
+            </me>.
             At <m>(0,0)</m>, we get
-            <me>J(0,0) = \begin{bmatrix} 1 \amp -1 \\ 0 \amp -1\end{bmatrix}</me>.
+            <me>
+              J(0,0) = \begin{bmatrix} 1 \amp -1 \\ 0 \amp -1\end{bmatrix}
+            </me>.
             The eigenvalues are <m>1</m> and <m>-1</m>, meaning that this critical point is a saddle point.
+            This is illustrated in the phase portrait below.
           </p>
 
-          <figure xml:id="figure-classify-critical-points-linearization-0-0">
-            <image xml:id="image-classify-critical-points-linearization-0-0" width="50%">
-              <asymptote>
+          <image xml:id="image-classify-critical-points-linearization-0-0" width="50%">
+            <asymptote>
                 import graph;
                 import fontsize;
                 size(200);
                 defaultpen(fontsize(9pt));
-
                 real eps=.05;
                 real xmin=-.5, xmax=.5;
                 real ymin=-.5, ymax=.5;
-
                 pair a=(xmin,ymin);
                 pair b=(xmax,ymax);
-
                 //incoming and outgoing trajectories
                 //real f_in(real x) {return x;}
                 //real f_out(real x) {return -(2/3)*x;}
-
                 //nullclines
                 //real y1(real x) {return (2/3)*x;}
                 //real y2(real x) {return 2*x;}
-
                 path vector(pair z) {return (0,0) -- ((z.x - z.y-z.x*z.x + z.x*z.y,-z.x^2 +- z.y));}
-
                 //graph phase portrait
                 add(vectorfield(vector,a,b,20,deepcyan+0.2bp));
-
                 //graph critical point
                 dot((0, 0));
                 label("$(0,0)$", (0,0), SE);
-
                 //label axes
                 xaxis("$x$",BottomTop,LeftTicks);
                 yaxis("$y$",LeftRight,RightTicks(trailingzero));
-              </asymptote>
-            </image>
-            <caption>The phase portrait at <m>(0,0)</m></caption>
-          </figure>
+            </asymptote>
+          </image>
 
           <p>
             At <m>(-1,-1)</m> we get
-            <me>J(-1,-1) = \begin{bmatrix}2 \amp -2 \\ 2 \amp -1\end{bmatrix}</me>
+            <me>
+              J(-1,-1) = \begin{bmatrix}2 \amp -2 \\ 2 \amp -1\end{bmatrix}
+            </me>
             which has eigenvalues <m>\lambda = \frac{1}{2}\pm\frac{1}{2}\sqrt{7}i</m>.
             Hence <m>(-1,-1)</m> should be a spiral point.
           </p>
 
-          <figure xml:id="figure-classify-critical-points-linearization-neg1-neg1">
-            <image xml:id="image-classify-critical-points-linearization-neg1-neg1" width="50%">
-              <asymptote>
+          <image xml:id="image-classify-critical-points-linearization-neg1-neg1" width="50%">
+            <asymptote>
                 import graph;
                 import fontsize;
                 size(200);
                 defaultpen(fontsize(9pt));
-
                 real eps=.05;
                 real xmin=-1.5, xmax=-.5;
                 real ymin=-1.5, ymax=-.5;
-
                 pair a=(xmin,ymin);
                 pair b=(xmax,ymax);
-
                 //incoming and outgoing trajectories
                 //real f_in(real x) {return x;}
                 //real f_out(real x) {return -(2/3)*x;}
-
                 //nullclines
                 //real y1(real x) {return (2/3)*x;}
                 //real y2(real x) {return 2*x;}
-
                 //plot annotations
                 //arrowbar axisarrow = Arrow(TeXHead);
                 //Label xlabel = Label("$x$", position = EndPoint, align = 2E);
                 //Label ylabel = Label("$y$", position = EndPoint, align = 2N);
-
                 path vector(pair z) {return (0,0) -- ((z.x - z.y-z.x*z.x + z.x*z.y,-z.x^2 +- z.y));}
-
                 //graph phase portrait
                 add(vectorfield(vector,a,b,20,deepcyan+0.2bp));
-
                 //graph critical point
                 dot((-1, -1));
                 label("$(-1,-1)$", (-1,-1), SE);
-
                 //label axes
                 xaxis("$x$",BottomTop,LeftTicks);
                 yaxis("$y$",LeftRight,RightTicks(trailingzero));
-              </asymptote>
-            </image>
-            <caption>The phase portrait at <m>(-1,-1)</m></caption>
-          </figure>
+            </asymptote>
+          </image>
 
           <p>
             Finally, at <m>(1,-1)</m> we get
-            <me>J(1,-1) = \begin{bmatrix} -2 \amp 0 \\ -2 \amp -1\end{bmatrix}</me>,
+            <me>
+              J(1,-1) = \begin{bmatrix} -2 \amp 0 \\ -2 \amp -1\end{bmatrix}
+            </me>,
             which has eigenvalues <m>-2,-1</m>.
             Hence <m>(1,-1)</m> is an asymptotically stable node.
           </p>
 
-          <figure xml:id="figure-classify-critical-points-linearization-1-neg1">
-            <image xml:id="image-classify-critical-points-linearization-1-neg1" width="50%">
-              <asymptote>
+          <image xml:id="image-classify-critical-points-linearization-1-neg1" width="50%">
+            <asymptote>
                 import graph;
                 import fontsize;
                 size(200);
                 defaultpen(fontsize(9pt));
-
                 real eps=.05;
                 real xmin=.5, xmax=1.5;
                 real ymin=-1.5, ymax=-.5;
-
                 pair a=(xmin,ymin);
                 pair b=(xmax,ymax);
-
                 //incoming and outgoing trajectories
                 //real f_in(real x) {return x;}
                 //real f_out(real x) {return -(2/3)*x;}
-
                 //nullclines
                 //real y1(real x) {return (2/3)*x;}
                 //real y2(real x) {return 2*x;}
-
                 //plot annotations
                 //arrowbar axisarrow = Arrow(TeXHead);
                 //Label xlabel = Label("$x$", position = EndPoint, align = 2E);
                 //Label ylabel = Label("$y$", position = EndPoint, align = 2N);
-
                 path vector(pair z) {return (0,0) -- ((z.x - z.y-z.x*z.x + z.x*z.y,-z.x^2 - z.y));}
-
                 //graph phase portrait
                 add(vectorfield(vector,a,b,20,deepcyan+0.2bp));
-
                 //graph critical point
                 dot((1, -1));
                 label("$(1,-1)$", (1,-1), SE);
-
                 //label axes
                 xaxis("$x$",BottomTop,LeftTicks);
                 yaxis("$y$",LeftRight,RightTicks(trailingzero));
-              </asymptote>
-            </image>
-            <caption>The phase portrait at <m>(1,-1)</m></caption>
-          </figure>
-
+            </asymptote>
+          </image>
         </solution>
       </example>
 
@@ -1999,24 +1983,34 @@
         <solution>
           <p>
             The critical points are the points <m>(y_{1},y_{2})</m> that satisfy the equations
-            <me>ay_{1}-by_{1}y_{2} = 0\quad\text{and}\quad ky_{1}y_{2} - ly_{2} = 0.</me>
+            <me>
+              ay_{1}-by_{1}y_{2} = 0\quad\text{and}\quad ky_{1}y_{2} - ly_{2} = 0.
+            </me>
             Equivalently, we need
-            <me>y_{1}(a-by_{2}) = 0\quad\text{and}\quad y_{2}(ky_{1}-l) = 0.</me>
+            <me>
+              y_{1}(a-by_{2}) = 0\quad\text{and}\quad y_{2}(ky_{1}-l) = 0.
+            </me>
             This has solutions <m>y_{1} = y_{2} = 0</m> and <m>y_{1} = \frac{l}{k},y_{2} = \frac{a}{b}</m>, which shows that the critical points are <m>(0,0)</m> and <m>(\frac{l}{k},\frac{a}{b})</m>.
           </p>
 
           <p>
             To classify the critical points of this system we will linearize the system.
             The Jacobian of
-            <me>\vec{f}(\vec{y}) = \begin{bmatrix}ay_{1}-by_{1}y_{2} \\ ky_{1}y_{2} - ly_{2}\end{bmatrix}</me>
+            <me>
+              \vec{f}(\vec{y}) = \begin{bmatrix}ay_{1}-by_{1}y_{2} \\ ky_{1}y_{2} - ly_{2}\end{bmatrix}
+            </me>
             is
-            <me>J(y_{1},y_{2}) = \begin{bmatrix}a-by_{2} \amp  -by_{1} \\ ky_{2} \amp  ky_{1} - l\end{bmatrix}</me>.
+            <me>
+              J(y_{1},y_{2}) = \begin{bmatrix}a-by_{2} \amp  -by_{1} \\ ky_{2} \amp  ky_{1} - l\end{bmatrix}
+            </me>.
             Now we will examine the Jacobian at each critical point.
           </p>
 
           <p>
             At <m>(0,0)</m>, we get
-            <me>J(0,0) = \begin{bmatrix}a \amp  0 \\ 0 \amp  -l\end{bmatrix}</me>,
+            <me>
+              J(0,0) = \begin{bmatrix}a \amp  0 \\ 0 \amp  -l\end{bmatrix}
+            </me>,
             which has eigenvalues <m>\lambda=a,-l</m> which indicate a saddle point.
             Since these eigenvalues have nonzero real part, the origin is a hyperbolic critical point of the system and so we know that it also behaves as a saddle point in the original system.
             In particular, there exist trajectories heading into the origin, so it's possible for both species to go extinct in this model.
@@ -2025,7 +2019,9 @@
           <p>
             Now we'll classify the second critical point <m>(\frac{l}{k},\frac{a}{b})</m>.
             The Jacobian at this point gives us the matrix
-            <me>A = J(\frac{l}{k},\frac{a}{b}) = \begin{bmatrix}0 \amp  -\frac{bl}{k} \\ \frac{ak}{b} \amp  0\end{bmatrix}</me>.
+            <me>
+              A = J(\frac{l}{k},\frac{a}{b}) = \begin{bmatrix}0 \amp  -\frac{bl}{k} \\ \frac{ak}{b} \amp  0\end{bmatrix}
+            </me>.
             This matrix has characteristic equation <m>\lambda^{2} + al = 0</m>, and so has eigenvalues <m>\lambda=\pm i\sqrt{al}</m>.
             Since the eigenvalues are pure imaginary, this suggests that <m>(\frac{l}{k},\frac{a}{b})</m> is a center, which is indeed the case.
             In particular, trajectories near this critical point <em>must be periodic</em>.
