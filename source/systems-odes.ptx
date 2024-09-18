@@ -2033,4 +2033,71 @@
       </example>
     </subsection>
   </section>
+
+  <section xml:id="sec-sage-and-octave-for-systems-of-odes">
+    <title>Sage and Octave for systems of ODEs</title>
+    <introduction>
+      <p>
+        The purpose of this section is to discuss useful code in both Sage and Octave for working with systems of ODEs.
+        Generally, algebraic work is best handled with Sage while numerical computations might be easier in Octave.
+        Octave is designed as an open-source alternative to MATLAB, so familiarity with one programming language leads to familiarity with the other.
+      </p>
+    </introduction>
+    <subsection xml:id="subsec-vectors-and-matrices">
+      <title>Vectors and matrices</title>
+      <p>
+        The fundamental objects in this chapter are vectors and matrices.
+        Both Sage and Octave are designed to handle these quantities, though Octave is better suited to dealing with purely numerical examples.
+        In Sage, we can create vectors using the <c>vector</c> command, which takes as input a list of (possibly symbolic) values.
+      </p>
+      <sage>
+        <input>
+          v1 = vector([1, 2])
+          v2 = vector([2*x, -3])
+          v1 - v2
+        </input>
+        <output>
+          (-2*x + 1, 5)
+        </output>
+      </sage>
+      <p>
+        You should note that the output produced by the <c>vector</c> command in Sage is not considered to be either a row vector or a column vector.
+        If you specifically want to represent a row or column vector, you can use the <c>Matrix</c> command which we will see soon or the <c>row()</c> and <c>column()</c> methods:
+      </p>
+      <sage>
+        <input>
+          v1 = vector([1, 2])
+          v1_col = v1.column()
+          v1_row = v1.row()
+          v1_col, v1_row
+        </input>
+        <output>
+          (
+          [1]       
+          [2], [1 2]
+          )
+        </output>
+      </sage>
+      <p>
+        In Octave, we can simply use brackets <c>[]</c> to define vectors (and matrices).
+        Entries of a row vector must be separated by commas or spaces, while entries of a column vector must be separated by semicolons.
+      </p>
+      <sage language="octave">
+        <input>
+          v1_row = [1, 2]
+          v1_col = [1; 2]
+        </input>
+        <output>
+          v1_row =
+
+          1 2
+
+          v1_col =
+
+          1
+          2
+        </output>
+      </sage>
+    </subsection>
+  </section>
 </chapter>
