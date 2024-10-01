@@ -2036,6 +2036,7 @@
 
   <section xml:id="sec-sage-and-octave-for-systems-of-odes">
     <title>Sage and Octave for systems of ODEs</title>
+
     <introduction>
       <p>
         The purpose of this section is to discuss useful code in both Sage and Octave for working with systems of ODEs.
@@ -2043,112 +2044,114 @@
         Octave is designed as an open-source alternative to MATLAB, so familiarity with one programming language leads to familiarity with the other.
       </p>
     </introduction>
+
+
     <subsection xml:id="subsec-vectors-and-matrices">
       <title>Vectors and matrices</title>
+
       <p>
         The fundamental objects in this chapter are vectors and matrices.
         Both Sage and Octave are designed to handle these quantities, though Octave is better suited to dealing with purely numerical examples.
         In Sage, we can create vectors using the <c>vector</c> command, which takes as input a list of (possibly symbolic) values.
       </p>
       <sage>
-        <input>
+      <input>
           v1 = vector([1, 2])
           v2 = vector([2*x, -3])
           v1 - v2
-        </input>
-        <output>
+      </input>
+      <output>
           (-2*x + 1, 5)
-        </output>
+      </output>
       </sage>
+
       <p>
         You should note that the output produced by the <c>vector</c> command in Sage is not considered to be either a row vector or a column vector.
         If you specifically want to represent a row or column vector, you can use the <c>Matrix</c> command which we will see soon or the <c>row()</c> and <c>column()</c> methods:
       </p>
       <sage>
-        <input>
+      <input>
           v1 = vector([1, 2])
           v1_col = v1.column()
           v1_row = v1.row()
           v1_col, v1_row
-        </input>
-        <output>
+      </input>
+      <output>
           (
           [1]       
           [2], [1 2]
           )
-        </output>
+      </output>
       </sage>
+
       <p>
         In Octave, we can simply use brackets <c>[]</c> to define vectors (and matrices).
         Entries of a row vector must be separated by commas or spaces, while entries of a column vector must be separated by semicolons.
       </p>
       <sage language="octave">
-        <input>
+      <input>
           v1_row = [1, 2]
           v1_col = [1; 2]
-        </input>
-        <output>
+      </input>
+      <output>
           v1_row =
-
           1 2
-
           v1_col =
-
           1
           2
-        </output>
+      </output>
       </sage>
+
       <p>
         To enter matrices in Sage, we can use the <c>Matrix</c> command.
         The input to this command is typically a list of lists, each representing a row of the matrix.
         By providing two optional arguments for the number of rows and number of columns, Sage can also reshape a list into an appropriate matrix.
       </p>
       <sage>
-        <input>
+      <input>
           M = Matrix([1,2,3])
           N = Matrix([[1],[2],[3]])
           P = Matrix(3,1,[1,2,3])
           show(M,N,P)
-        </input>
-        <output>
+      </input>
+      <output>
           (
                    [1]  [1]
                    [2]  [2]
           [1 2 3], [3], [3]
           )
-        </output>
+      </output>
       </sage>
+
       <p>
         Creating a matrix is a little bit easier to do in Octave, as Octave supports the bracket notation for vectors in the creation of matrices as well.
         Octave also inludes a <c>reshape</c> command.
       </p>
       <sage language="octave">
-        <input>
+      <input>
           M = [1, 2, 3]
           N = [1; 2; 3]
           P = reshape([1,2,3], 3, 1)
-        </input>
-        <output>
+      </input>
+      <output>
           M =
-
           1 2 3
-
           N =
-
           1
           2
           3
-
           P =
-
           1
           2
           3
-        </output>
+      </output>
       </sage>
     </subsection>
+
+
     <subsection xml:id="subsec-solving-matrix-odes">
       <title>Solving matrix ODEs</title>
+
       <p>
         For solving matrix ODEs exactly, we can use Sage's <c>desolve_system</c> command.
         The code below shows how to solve <xref ref="example-systems-odes-3x3-system"/>.
@@ -2157,7 +2160,7 @@
         Finally, we use <c>desolve_system</c> to produce the solution.
       </p>
       <sage>
-        <input>
+      <input>
           var('t')
           x1 = function('x1')(t)
           x2 = function('x2')(t)
@@ -2166,18 +2169,19 @@
           de2 = diff(x2, t) == 9*x1 - x2 + 2*x3
           de3 = diff(x3, t) == -9*x1 + 4*x2 - x3
           show(desolve_system([de1, de2, de3], [x1, x2, x3]))
-        </input>
-        <output>
+      </input>
+      <output>
           [x1(t) == 8/17*(x1(0) - 1)*e^(3*t) + 1/17*((9*x1(0) + 8)*cos(t) + 3*(12*x1(0) + 5)*sin(t))*e^(-t),
            x2(t) == 18/17*(x1(0) - 1)*e^(3*t) - 1/17*((18*x1(0) - 1)*cos(t) - (81*x1(0) + 38)*sin(t))*e^(-t),
            x3(t) == -((9*x1(0) + 4)*sin(t) + cos(t))*e^(-t)]
-        </output>
+      </output>
       </sage>
+
       <p>
         Solving a corresponding IVP, say with <m>x_1(0) = 1, x_2(0) = x_3(0) = -1</m>, can be done by providing the <c>ics</c> argument to <c>desolve_system</c>.
       </p>
       <sage>
-        <input>
+      <input>
           var('t')
           x1 = function('x1')(t)
           x2 = function('x2')(t)
@@ -2186,96 +2190,83 @@
           de2 = diff(x2, t) == 9*x1 - x2 + 2*x3
           de3 = diff(x3, t) == -9*x1 + 4*x2 - x3
           show(desolve_system([de1, de2, de3], [x1, x2, x3], ics=[0, 1, -1, -1]))
-        </input>
-        <output>
+      </input>
+      <output>
           [x1(t) == (cos(t) + 3*sin(t))*e^(-t),
            x2(t) == -(cos(t) - 7*sin(t))*e^(-t),
            x3(t) == -(cos(t) + 13*sin(t))*e^(-t)]
-        </output>
+      </output>
       </sage>
+
       <p>
         Linear systems can also be solved using the eigenvector and eigenvalue approach developed in <xref ref="section-constant-coefficient-systems-and-the-phase-plane"/> as done in the original solution in <xref ref="example-systems-odes-3x3-system"/>.
         In Octave, the required code is the following.
       </p>
       <sage language="octave">
-        <input>
+      <input>
           format short % without this, complex numbers display as pairs
           M = [3, 0, 1; 9, -1, 2; -9, 4, -1]
           [U,D] = eig(M)
-        </input>
-        <output>
+      </input>
+      <output>
           M =
-
             3   0   1
             9  -1   2
             -9   4  -1
-
           U =
-
             0.2023 + 0.0506i   0.2023 - 0.0506i   0.4061 +      0i
             0.4551 - 0.1011i   0.4551 + 0.1011i   0.9138 +      0i
             -0.8597 +      0i  -0.8597 -      0i  0.0000 +      0i
-
           D =
-
           Diagonal Matrix
-
             -1.0000 + 1.0000i                  0                  0
                             0  -1.0000 - 1.0000i                  0
                             0                  0   3.0000 +      0i
-        </output>
+      </output>
       </sage>
+
       <p>
         Each column of the matrix <m>U</m> is an eigenvector of <m>M</m> with corresponding eigenvalue given in the matrix <m>D</m>.
-        The solution of the system can be given as 
+        The solution of the system can be given as
         <me>
-          \vec{x}(t) = c_1\begin{bmatrix} 0.2023 + 0.0506i  \\ 0.4551 - 0.1011i  \\ -0.8597 \end{bmatrix}e^{(-1+i)t}
-          + c_2\begin{bmatrix} 0.2023 - 0.0506i \\ 0.4551 + 0.1011i \\ -0.8597\end{bmatrix}e^{(-1-i)t} 
-          + c_3\begin{bmatrix} 0.4061 \\ 0.9138 \\ 0 \end{bmatrix}e^{3t}
+          \vec{x}(t) = c_1\begin{bmatrix} 0.2023 + 0.0506i  \\ 0.4551 - 0.1011i  \\ -0.8597 \end{bmatrix}e^{(-1+i)t} + c_2\begin{bmatrix} 0.2023 - 0.0506i \\ 0.4551 + 0.1011i \\ -0.8597\end{bmatrix}e^{(-1-i)t} + c_3\begin{bmatrix} 0.4061 \\ 0.9138 \\ 0 \end{bmatrix}e^{3t}
         </me>.
         Solving for initial conditions requires solving the matrix equation <m>U\vec{c} = \vec{x}_0</m>.
         Octave makes this simple by providing the forward slash operator <c>\</c>.
       </p>
       <sage language="octave">
-        <input>
+      <input>
           format short % without this, complex numbers display as pairs
           M = [3, 0, 1; 9, -1, 2; -9, 4, -1]
           [U,D] = eig(M)
-
           x0 = [1; -1; -1] % x(0) = [1; -1; -1]
           c = U\x0
-        </input>
-        <output>
+      </input>
+      <output>
           x0 =
-
             1
             -1
             -1
-
           c =
-
             5.8158e-01 - 7.5605e+00i
             5.8158e-01 + 7.5605e+00i
             -7.7184e-16 + 4.8240e-16i
-        </output>
+      </output>
       </sage>
+
       <p>
         We can make use of Octave's concept of array operations to make defining <m>\vec{x}(t)</m> a little smoother.
       </p>
       <sage language="octave">
-        <input>
+      <input>
           format short % without this, complex numbers display as pairs
           M = [3, 0, 1; 9, -1, 2; -9, 4, -1];
           [U,D] = eig(M);
-
           x0 = [1; -1; -1];
           c = U\x0;
-
           lambda = diag(D); % vector of eigenvalues
           x = @(t) U*(c.*exp(lambda*t))
-
           x(0), x(1) % we can evaluate our solution 
-
           % plot of x(t) for 0≤t≤=10
           T=linspace(0, 10);
           pts = x(T);
@@ -2287,24 +2278,62 @@
           ylabel('y')
           zlabel('z')
           legend('x(t)')
-        </input>
-        <output>
+      </input>
+      <output>
           x =
-
           @(t) U * (c .* exp (lambda * t))
-
           ans =
-
             1.0000 - 0.0000i
             -1.0000 + 0.0000i
             -1.0000 + 0.0000i
-
           ans =
-
             1.1274 + 0.0000i
             1.9682 + 0.0000i
             -4.2230 + 0.0000i
-        </output>
+      </output>
+      </sage>
+    </subsection>
+
+
+    <subsection xml:id="subsec-phase-portraits">
+      <title>Phase portraits</title>
+
+      <p>
+        To visualize solutions of first-order systems, we can plot phase portraits in Sage using <c>plot_vector_field</c>:
+      </p>
+      <sage>
+      <input>
+          # Define variables
+          var('y1 y2')
+          # Create phase portrait for system
+          plot_vector_field([2*y1 - 3*y2,-2*y1 + y2],[y1,-2,2],[y2,-2,2])
+      </input>
+      </sage>
+
+      <p>
+        To better visualize how the trajectories of the system move, one can also use <c>streamline_plot</c>:
+      </p>
+      <sage>
+      <input>
+          # Define variables
+          var('y1 y2')
+          # Create phase portrait for system
+          streamline_plot([y2, -y1],[y1,-2,2],[y2,-2,2])
+      </input>
+      </sage>
+
+      <p>
+        Specific trajectories (i.e., those satisfying certain initial conditions) can be plotted by providing a list of points with the optional <c>start_points</c> argument:
+      </p>
+      <sage>
+      <input>
+            # Define variables
+            var('y1 y2')
+            # List initial conditions: y1(0)=-1, y2(0)=3 and y1(0)=2, y2(0)=0
+            pts = [[-1, 3], [2, 0]]
+            # Create phase portrait for system
+            streamline_plot([y2, -y1], [y1,-2,2], [y2,-5,5], start_points=pts)
+      </input>
       </sage>
     </subsection>
   </section>
