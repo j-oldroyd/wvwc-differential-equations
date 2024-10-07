@@ -1,248 +1,62 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 
 <frontmatter xml:id="front" xmlns:xi="http://www.w3.org/2001/XInclude">
-
     <titlepage>
-
         <author>
             <personname>Jesse Oldroyd</personname>
             <department>Department of Mathematics and Computer Science</department>
             <institution>West Virginia Wesleyan College</institution>
             <email>oldroyd.j@wvwc.edu</email>
         </author>
-
-        <!-- <editor>
-            <personname>Isaac Newton</personname>
-            <institution>Trinity College</institution>
-        </editor>
-
-        <credit>
-            <title>Sage Exercises for Abstract Algebra</title>
-            <author>
-                <personname>Robert A. Beezer</personname>
-                <department>Department of Mathematics and Computer Science</department>
-                <institution>University of Puget Sound</institution>
-                <email>beezer@pugetsound.edu</email>
-            </author>
-        </credit> -->
-
         <date><today /></date>
-
     </titlepage>
 
     <colophon xml:id="front-colophon">
-
-        <!-- <credit>
-            <role>Cover Design</role>
-            <entity>Covers 4 U</entity>
-        </credit>
-        <credit>
-            <role>Production Editor</role>
-            <entity>Vilma Mesa</entity>
-        </credit> -->
-
-        <edition>Annual Edition 2023</edition>
-
+        <edition>Annual Edition 2024</edition>
         <website>
-            <url href="https://j-oldroyd.github.io/wvwc-differential-equations/output/html/wvwc-differential-equations.html" visual="j-oldroyd.github.io/wvwc-differential-equations" />
+            <url href="https://j-oldroyd.github.io/wvwc-differential-equations/" visual="j-oldroyd.github.io/wvwc-differential-equations" />
         </website>
 
         <copyright>
-            <year>2016<ndash />2023</year>
+            <year>2016<ndash />2024</year>
             <holder>Jesse Oldroyd</holder>
             <minilicense>GFDL License</minilicense>
-            <shortlicense>Permission is granted to copy, distribute and/or modify this document under the terms of the GNU Free Documentation License, Version 1.2 or any later version published by the Free Software Foundation; with no Invariant Sections, no Front-Cover Texts, and no Back-Cover Texts.  A copy of the license is included in the appendix entitled <q>GNU Free Documentation License.</q>  All trademarks<trademark /> are the registered<registered /> marks of their respective owners.</shortlicense>
+            <shortlicense>
+                Permission is granted to copy, distribute and/or modify this document under the terms of the GNU Free Documentation License, Version 1.2 or any later version published by the Free Software Foundation; with no Invariant Sections, no Front-Cover Texts, and no Back-Cover Texts.
+                A copy of the license is included in the appendix entitled <q>GNU Free Documentation License.</q>  All trademarks<trademark /> are the registered<registered /> marks of their respective owners.
+            </shortlicense>
         </copyright>
-
     </colophon>
 
-    <!-- A section of its own in HTML, migrates to copyright-page in LaTeX -->
-    <!-- Titles are optional, presumably none for single author,           -->
-    <!-- or for every author, even if we test a mix here                   -->
     <biography xml:id="author-bio-JEO">
         <p>
             Go Seahawks.
         </p>
     </biography>
 
+
     <preface xml:id="preface">
-    <p>
-        This document was created to serve as lecture notes for the Differential Equations course at West Virginia Wesleyan College.
-        These notes are divided into two parts.
-        <ul>
-            <li>
-                <p>
-                    The first part, <xref ref="part-odes" text="custom">Ordinary Differential Equations</xref>, introduces differential equations in one variable along with methods for their solution and several applications.
-                </p>
-            </li>
-            <li>
-                <p>
-                    The next part, <xref ref="part-pdes" text="custom">Partial Differential Equations</xref>, introduces Fourier series and differential equations in several variables, building up to solving the heat and wave equations.
-                </p>
-            </li>
-        </ul>
-        You can find a PDF version of these notes <url href="https://j-oldroyd.github.io/wvwc-differential-equations/output/print/wvwc-differential-equations.pdf">here</url>.
-    </p>
-    <p>
-        This document is very much <em>in progress</em> and therefore typos and other errors are to be expected.
-        If you find any, I would appreciate you letting me know by contacting me by email.
-    </p>
+        <p>
+            This document was created to serve as lecture notes for the Differential Equations course at West Virginia Wesleyan College.
+            These notes are divided into two parts.
+            <ul>
+                <li>
+                    <p>
+                        The first part, <xref ref="part-odes" text="custom">Ordinary Differential Equations</xref>, introduces differential equations in one variable along with methods for their solution and several applications.
+                    </p>
+                </li>
+
+                <li>
+                    <p>
+                        The next part, <xref ref="part-pdes" text="custom">Partial Differential Equations</xref>, introduces Fourier series and differential equations in several variables, building up to solving the heat and wave equations.
+                    </p>
+                </li>
+            </ul>
+        </p>
+
+        <p>
+            This document is very much <em>in progress</em> and therefore typos and other errors are to be expected.
+            If you find any, I would appreciate you letting me know by contacting me by email.
+        </p>
     </preface>
-
-    <!-- <preface xml:id="contributors">
-        <title>Contributors to the 4<m>^\mathrm{th}</m> Edition</title>
-
-        <p>Many individuals have made this book possible.  We will try to thank a few of them here, and hope we have not forgotten anybody really important.</p>
-
-        <contributors>
-            <contributor xml:id="tjudson">
-                <personname>Thomas Judson</personname>
-                <department>Department of Mathematics and Statistics</department>
-                <institution>Stephen F. Austin State University</institution>
-                <email>judsontw@sfasu.edu</email>
-            </contributor>
-
-            <contributor xml:id="dfarmer">
-                <personname>David Farmer</personname>
-                <institution>American Institute of Mathematics</institution>
-                <email>farmer@aimath.org</email>
-            </contributor>
-
-            <contributor>
-                <personname>Robert Beezer</personname>
-                <department>Department of Mathematics and Computer Science</department>
-                <institution>University of Puget Sound</institution>
-                <location>Tacoma, Washington, USA</location>
-                <email>beezer@pugetsound.edu</email>
-            </contributor>
-
-            <contributor>
-                <personname>Alex Jordan</personname>
-                <department>Department of Mathematics</department>
-                <institution>Portland Community College</institution>
-                <location>Portland, OR</location>
-                <email>alex.jordan@pcc.edu</email>
-            </contributor>
-
-            <contributor>
-                <personname>Thomas Judson</personname>
-                <department>Department of Mathematics and Statistics</department>
-                <institution>Stephen F. Austin State University</institution>
-                <email>judsontw@sfasu.edu</email>
-            </contributor>
-
-            <contributor>
-                <personname>David Farmer</personname>
-                <institution>American Institute of Mathematics</institution>
-                <email>farmer@aimath.org</email>
-            </contributor>
-
-            <contributor>
-                <personname>Robert Beezer</personname>
-                <department>Department of Mathematics and Computer Science</department>
-                <institution>University of Puget Sound</institution>
-                <location>Tacoma, Washington, USA</location>
-                <email>beezer@pugetsound.edu</email>
-            </contributor>
-
-            <contributor xml:id="ajordan">
-                <personname>Alex Jordan</personname>
-                <department>Department of Mathematics</department>
-                <institution>Portland Community College</institution>
-                <location>Portland, OR</location>
-                <email>alex.jordan@pcc.edu</email>
-            </contributor>
-
-            <contributor>
-                <personname>Thomas Judson</personname>
-                <department>Department of Mathematics and Statistics</department>
-                <institution>Stephen F. Austin State University</institution>
-                <email>judsontw@sfasu.edu</email>
-            </contributor>
-
-            <contributor>
-                <personname>David Farmer</personname>
-                <institution>American Institute of Mathematics</institution>
-                <email>farmer@aimath.org</email>
-            </contributor>
-
-            <contributor>
-                <personname>Robert Beezer</personname>
-                <department>Department of Mathematics and Computer Science</department>
-                <institution>University of Puget Sound</institution>
-                <location>Tacoma, Washington, USA</location>
-                <email>beezer@pugetsound.edu</email>
-            </contributor>
-
-            <contributor>
-                <personname>Alex Jordan</personname>
-                <department>Department of Mathematics</department>
-                <institution>Portland Community College</institution>
-                <location>Portland, OR</location>
-                <email>alex.jordan@pcc.edu</email>
-            </contributor>
-
-            <contributor>
-                <personname>Thomas Judson</personname>
-                <department>Department of Mathematics and Statistics</department>
-                <institution>Stephen F. Austin State University</institution>
-                <email>judsontw@sfasu.edu</email>
-            </contributor>
-
-            <contributor>
-                <personname>David Farmer</personname>
-                <institution>American Institute of Mathematics</institution>
-                <email>farmer@aimath.org</email>
-            </contributor>
-
-            <contributor xml:id="rbeezer">
-                <personname>Robert Beezer</personname>
-                <department>Department of Mathematics and Computer Science</department>
-                <institution>University of Puget Sound</institution>
-                <location>Tacoma, Washington, USA</location>
-                <email>beezer@pugetsound.edu</email>
-            </contributor>
-
-            <contributor>
-                <personname>Alex Jordan</personname>
-                <department>Department of Mathematics</department>
-                <institution>Portland Community College</institution>
-                <location>Portland, OR</location>
-                <email>alex.jordan@pcc.edu</email>
-            </contributor>
-
-            <contributor>
-                <personname>Thomas Judson</personname>
-                <department>Department of Mathematics and Statistics</department>
-                <institution>Stephen F. Austin State University</institution>
-                <email>judsontw@sfasu.edu</email>
-            </contributor>
-
-            <contributor>
-                <personname>David Farmer</personname>
-                <institution>American Institute of Mathematics</institution>
-                <email>farmer@aimath.org</email>
-            </contributor>
-
-            <contributor>
-                <personname>Robert Beezer</personname>
-                <department>Department of Mathematics and Computer Science</department>
-                <institution>University of Puget Sound</institution>
-                <location>Tacoma, Washington, USA</location>
-                <email>beezer@pugetsound.edu</email>
-            </contributor>
-
-            <contributor>
-                <personname>Alex Jordan</personname>
-                <department>Department of Mathematics</department>
-                <institution>Portland Community College</institution>
-                <location>Portland, OR</location>
-                <email>alex.jordan@pcc.edu</email>
-            </contributor>
-        </contributors>
-
-        <p>That's it.  Thanks everybody.</p>
-
-    </preface> -->
-
 </frontmatter>
