@@ -2,59 +2,76 @@
 
 <chapter xml:id="series-solutions" xmlns:xi="http://www.w3.org/2001/XInclude">
   <title>Series Solutions of ODEs</title>
+
   <shorttitle>Series Solutions</shorttitle>
   <introduction>
     <p>
       In <xref ref="linear-odes-constant-coefficients" text="type-global" /> we developed a general method for solving linear ODEs with constant coefficients.
       There were ODEs of the form
-      <me>ay'' + by^\prime + cy = 0</me>
+      <me>
+        ay'' + by^\prime + cy = 0
+      </me>
       for some constants <m>a, b, c</m>.
       We saw that the solution of such ODEs looked like exponentials and then determined which exponentials would provide us with a general solution.
     </p>
+
     <p>
       Now we move on to more complicated (but still linear) ODEs of the form
-      <men xml:id="equation-series-solutions-general">y'' + P(x)y^\prime + Q(x)y = R(x)</men>,
+      <men xml:id="equation-series-solutions-general">
+        y'' + P(x)y^\prime + Q(x)y = R(x)
+      </men>,
       with <m>R(x) = 0</m> typically.
       Some extremely important ODEs of this form include <xref ref="equation-bessel" text="custom">Bessel's equation</xref>.
       However, the method of characteristic equations is not flexible enough to solve come ODEs of this form.
     </p>
+
     <p>
       To address this, we will change our choice of <em>ansatz</em> from exponential solutions <m>y = e^{rx}</m> to <em>power series solutions</em> <m>y = \sum_{k=0}^{\infty}a_k x^{k}</m>.
       This change will allow us more flexibility in finding solutions to equations of the form given in <xref ref="equation-series-solutions-general" text="type-global" />.
     </p>
     <aside>
-      <p>
-        Note that <m>e^{rx} = \sum_{k=0}^{\infty}\frac{r^k}{k!}x^k</m>, and so the exponential solutions found in <xref ref="linear-odes-constant-coefficients" text="type-global" /> were a special case of the more general series solution.
-        In fact, the same is true of the other solution methods we've discussed for ODEs.
-      </p>
+    <p>
+      Note that <m>e^{rx} = \sum_{k=0}^{\infty}\frac{r^k}{k!}x^k</m>, and so the exponential solutions found in <xref ref="linear-odes-constant-coefficients" text="type-global" /> were a special case of the more general series solution.
+      In fact, the same is true of the other solution methods we've discussed for ODEs.
+    </p>
     </aside>
   </introduction>
+
   <section xml:id="section-power-series-method">
-    <title>Power Series Method</title>
+    <title>Power series method</title>
+
     <introduction>
       <p>
         Since power series form the basis of our solution strategy in this chapter, we begin by reviewing some important concepts related to power series and their convergence.
       </p>
     </introduction>
+
+
     <subsection xml:id="subsection-review-of-power-series">
-      <title>Review of Power Series</title>
+      <title>Review of power series</title>
+
       <p>
         In calculus, it's important to know how to differentiate and integrate functions.
         For some functions (say, <m>x-1,x^{2},3-x^{5}</m>) it can be very straightforward, but for others (such as <m>e^{-x^{2}}</m>) it can be impossible.
       </p>
       <aside>
-        <p>
-          At least, it can be impossible to integrate certain functions in terms of the <q>everyday</q>, or <em>elementary</em> functions that we're used to.
-        </p>
+      <p>
+        At least, it can be impossible to integrate certain functions in terms of the <q>everyday</q>, or <em>elementary</em> functions that we're used to.
+      </p>
       </aside>
+
       <p>
         Power series were introduced in calculus to allow us to write complicated functions <m>f(x)</m> in terms of simpler functions <m>1,x,x^{2},\dots</m>.
         In particular, our goal is to write <m>f(x)</m> in the form
-        <men xml:id="series-solution-equation-power-series-at-zero">f(x) = c_{0}+c_{1}x+c_{2}x^{2}+c_{3}x^{3}+\dots = \sum_{k=0}^{\infty}c_{k}x^{k}</men>
+        <men xml:id="series-solution-equation-power-series-at-zero">
+          f(x) = c_{0}+c_{1}x+c_{2}x^{2}+c_{3}x^{3}+\dots = \sum_{k=0}^{\infty}c_{k}x^{k}
+        </men>
         where the coefficients <m>c_{k}</m> are all constants.
       </p>
+
       <definition xml:id="series-solution-definition-power-series-centered-at-0">
         <title>Power series</title>
+
         <idx>power series</idx>
         <statement>
           <p>
@@ -64,16 +81,20 @@
         </statement>
       </definition>
       <aside>
-        <p>
-          A power series doesn't have to start at <m>k=0</m>, but <em>it may not contain any negative powers of <m>x</m></em>.
-        </p>
+      <p>
+        A power series doesn't have to start at <m>k=0</m>, but <em>it may not contain any negative powers of <m>x</m></em>.
+      </p>
       </aside>
+
       <p>
         The question, now, is to determine the values of the coefficients <m>c_{k}</m> to make <xref ref="series-solution-equation-power-series-at-zero" text="type-global" /> true.
         If we look at the equation we see that we can solve for <m>c_{0}</m> very easily.
         All that we need to do is to set <m>x=0</m> in <xref ref="series-solution-equation-power-series-at-zero" text="type-global" /> to make all of the other terms disappear:
-        <me>f(0) = c_{0} + c_{1}\cdot0+\dots = c_{0}</me>.
+        <me>
+          f(0) = c_{0} + c_{1}\cdot0+\dots = c_{0}
+        </me>.
       </p>
+
       <p>
         We can use a similar approach to solve for <m>c_{1}</m> by plugging in <m>x=0</m>, but we need to get rid of the power of <m>x</m> attached to it.
         This is done by taking the derivative of <m>f(x)</m> and then setting <m>x = 0</m>:
@@ -94,52 +115,76 @@
         </md>
         and so <m>c_{3} = \frac{f^{(3)}(0)}{3\cdot2\cdot1}</m>.
       </p>
+
       <p>
         In general, to get the coefficient <m>c_{k}</m> of <m>x^{k}</m> in the power series of <m>f(x)</m>, we have the following equation:
-        <men xml:id="equation-power-series-coefficients-at-zero">c_{k} = \frac{f^{(k)}(0)}{k\cdot(k-1)\cdot\dots\cdot2\cdot1} = \frac{f^{(k)}(0)}{k!}</men>.
+        <men xml:id="equation-power-series-coefficients-at-zero">
+          c_{k} = \frac{f^{(k)}(0)}{k\cdot(k-1)\cdot\dots\cdot2\cdot1} = \frac{f^{(k)}(0)}{k!}
+        </men>.
       </p>
+
       <example xml:id="example-series-exponential">
         <title>Power series of <m>e^x</m></title>
+
         <statement>
           <p>
             Find a power series for the exponential function <m>e^{x}</m>.
           </p>
         </statement>
+
         <solution>
           <p>
             Any power series for <m>f(x) = e^{x}</m> looks like <m>\sum_{k=0}^{\infty}c_{k}x^{k}</m>, where
-            <me>c_{k} = \frac{f^{(k)}(0)}{k!}</me>.
+            <me>
+              c_{k} = \frac{f^{(k)}(0)}{k!}
+            </me>.
             Since <m>e^{x}</m> is its own derivative, <m>f^{(k)}(x) = e^{x}</m> for all choices of <m>k</m>.
             So
-            <me>c_{k} = \frac{e^{0}}{k!} = \frac{1}{k!}</me>
+            <me>
+              c_{k} = \frac{e^{0}}{k!} = \frac{1}{k!}
+            </me>
             and the power series for <m>e^{x}</m> is
-            <me>1+x+\frac{x^{2}}{2}+\frac{x^{3}}{6} + \dots = \sum_{k=0}^{\infty}\frac{x^{k}}{k!}</me>.
+            <me>
+              1+x+\frac{x^{2}}{2}+\frac{x^{3}}{6} + \dots = \sum_{k=0}^{\infty}\frac{x^{k}}{k!}
+            </me>.
             It turns out the <m>f(x) = e^{x}</m> equals its power series for <em>all</em> values of <m>x</m>.
           </p>
         </solution>
       </example>
+
       <p>
         The above power series was written in terms of powers of <m>x</m>, but this doesn't have to be the case.
         We can also write power series in terms of powers of <m>x-a</m>, where <m>a</m> is some constant.
         A power series of the form
-        <me>\sum_{k=0}^{\infty}c_{k}(x-a)^{k}</me>
+        <me>
+          \sum_{k=0}^{\infty}c_{k}(x-a)^{k}
+        </me>
         is said to be <term>centered at <m>a</m></term>.
         For such a series, the formula for the <m>c_{k}</m> is given by
-        <men xml:id="series-solutions-power-series-coeffs-at-a">c_{k} = \frac{f^{(k)}(a)}{k!}</men>.
+        <men xml:id="series-solutions-power-series-coeffs-at-a">
+          c_{k} = \frac{f^{(k)}(a)}{k!}
+        </men>.
       </p>
+
       <example xml:id="example-series-sin-pi-over-2">
         <title>Power series of <m>\sin(t)</m> at <m>a = \frac{\pi}{2}</m></title>
+
         <statement>
           <p>
             Find the power series for <m>g(t) = \sin t</m> centered at <m>a = \frac{\pi}{2}</m>.
           </p>
         </statement>
+
         <solution>
           <p>
             A power series centered at <m>a = \frac{\pi}{2}</m> will look like
-            <me>\sum_{k=0}^{\infty}c_{k}\parens{t-\frac{\pi}{2}}^{k}</me>
+            <me>
+              \sum_{k=0}^{\infty}c_{k}\parens{t-\frac{\pi}{2}}^{k}
+            </me>
             where
-            <me>c_{k} = \frac{g^{(k)}(\frac{\pi}{2})}{k!}</me>.
+            <me>
+              c_{k} = \frac{g^{(k)}(\frac{\pi}{2})}{k!}
+            </me>.
             To find these values, we need to compute the derivatives of <m>g(t)</m> and evaluate them at <m>\frac{\pi}{2}</m>:
             <md>
               <mrow>g^{(0)}(t) \amp= \sin t \amp\Rightarrow g^{(0)}\parens{\frac{\pi}{2}} \amp= 1</mrow>
@@ -148,11 +193,14 @@
               <mrow>g^{(3)}(t) \amp= -\cos t \amp\Rightarrow g^{(3)}\parens{\frac{\pi}{2}} \amp= 0</mrow>
             </md>.
             So the power series centered at <m>\frac{\pi}{2}</m> is
-            <me>1 - \frac{1}{2!}(t-\frac{\pi}{2})^{2} + \frac{1}{4!}(t-\frac{\pi}{2})^{4}+\dots = \sum_{k=0}^{\infty}(-1)^{k}\frac{(t-\frac{\pi}{2})^{2k}}{(2k)!}</me>.
+            <me>
+              1 - \frac{1}{2!}(t-\frac{\pi}{2})^{2} + \frac{1}{4!}(t-\frac{\pi}{2})^{4}+\dots = \sum_{k=0}^{\infty}(-1)^{k}\frac{(t-\frac{\pi}{2})^{2k}}{(2k)!}
+            </me>.
             Just as with <m>e^{x}</m>, <m>\sin t</m> is equal to its power series everywhere.
           </p>
         </solution>
       </example>
+
       <p>
         The following power series are used quite often:
         <md>
@@ -163,13 +211,16 @@
         </md>
         Viewing a function as a power series can be extremely beneficial; if you have a power series expression for some function, it (usually) makes the related calculus operations such as differentiation and integration trivial to perform.
       </p>
+
       <example xml:id="example-series-integral">
         <title>Integrating a series</title>
+
         <statement>
           <p>
             Find <m>\displaystyle\int_{0}^{1}e^{x^{2}}\dd{x}</m>.
           </p>
         </statement>
+
         <solution>
           <p>
             We can't integrate <m>e^{x^{2}}</m> using elementary functions but this is straightforward to integrate using power series:
@@ -180,76 +231,99 @@
             </md>.
           </p>
           <aside>
-            <p>
-              We can also write the integral of <m>e^{x^2}</m> in terms of the <url href="https://en.wikipedia.org/wiki/Error_function" visual="en.wikipedia.org/wiki/Error_function">error function</url>:
-              <me>\int_0^1 e^{x^2}\dd{x} = -\frac{1}{2} i \, \sqrt{\pi} \operatorname{erf}\left(i\right)</me>.
-            </p>
+          <p>
+            We can also write the integral of <m>e^{x^2}</m> in terms of the <url href="https://en.wikipedia.org/wiki/Error_function" visual="en.wikipedia.org/wiki/Error_function">error function</url>:
+            <me>
+              \int_0^1 e^{x^2}\dd{x} = -\frac{1}{2} i \, \sqrt{\pi} \operatorname{erf}\left(i\right)
+            </me>.
+          </p>
           </aside>
         </solution>
       </example>
+
       <p>
         Calculations involving power series are only valid where the series converges.
         The following theorem can be used to determine when a power series converges.
       </p>
+
       <theorem xml:id="theorem-finding-radius-convergence">
         <idx><h>power series</h><h>radius of convergence</h></idx>
         <statement>
           <p>
             Given the power series <m>\sum_{n=0}^{\infty}c_{n}x^{n}</m>, define the number <m>\rho</m> by the limit
-            <me>\rho = \limit{n}{\infty}\left|\frac{c_{n}}{c_{n+1}}\right|</me>.
+            <me>
+              \rho = \limit{n}{\infty}\left|\frac{c_{n}}{c_{n+1}}\right|
+            </me>.
             Suppose the limit exists or is infinite.
             Then <m>\rho</m> is the radius of converengence of the series: if <m>\rho\neq0</m> then the series converges for <m>|x|\lt\rho</m> and diverges for <m>|x|\gt\rho</m>.
             If <m>\rho=0</m> then the series converges only at <m>x=0</m>.
           </p>
           <aside>
-            <p>
-              If <m>0 \lt\rho\lt\infty</m> then convergence at the endpoints of the interval of convergence is not guaranteed and must be checked separately using some appropriate convergence test.
-            </p>
+          <p>
+            If <m>0 \lt\rho\lt\infty</m> then convergence at the endpoints of the interval of convergence is not guaranteed and must be checked separately using some appropriate convergence test.
+          </p>
           </aside>
         </statement>
       </theorem>
+
       <p>
         It must be noted that convergence of the power series of some function <m>f(x)</m> does not guarantee that <m>f(x)</m> can be represented by its power series.
         For instance, consider the function <m>f(x)</m> given by
-        <me>f(x) = \begin{cases}e^{-x^{-2}} \amp\text{if }x\neq0 \\ 0 \amp\text{if }x=0\end{cases}</me>.
+        <me>
+          f(x) = \begin{cases}e^{-x^{-2}} \amp\text{if }x\neq0 \\ 0 \amp\text{if }x=0\end{cases}
+        </me>.
         This has the power series representation <m>0</m> at <m>x=0</m> since <m>f^{(k)}(0) = 0</m> for all integers <m>k</m> with <m>k\geq0</m>.
         However, <m>f(x)\neq0</m> except at <m>x=0</m>, so this power series representation is not very useful for representing <m>f(x)</m> despite the fact that it converges for all <m>x</m>.
       </p>
+
       <p>
         In general, if <m>f(x)</m> has the power series representation <m>\sum_{k=0}^{\infty}a_k(x-a)^k</m> <em>and</em> if this series converges to <m>f(x)</m> for all <m>x</m> in some interval centered at <m>x=a</m>, then we say that the function <m>f(x)</m> is <term>analytic</term> at <m>x=a</m>.
         The previous paragraph shows that
-        <me>f(x) = \begin{cases}e^{-x^{-2}} \amp\text{if }x\neq0 \\ 0 \amp\text{if }x=0\end{cases}</me>
+        <me>
+          f(x) = \begin{cases}e^{-x^{-2}} \amp\text{if }x\neq0 \\ 0 \amp\text{if }x=0\end{cases}
+        </me>
         is not analytic at <m>x=0</m>.
         Thankfully, most of the functions we'll consider are in fact analytic.
       </p>
     </subsection>
+
+
     <subsection xml:id="subsection-solving-differential-equations-with-power-series">
-      <title>Solving Differential Equations with Power Series</title>
+      <title>Solving differential equations with power series</title>
+
       <p>
         We now turn to the main topic of this chapter: solving differential equations with power series.
         This power series method is quite general and can theoretically be used whenever the functions involved in the differential equation are analytic, but we will primarily consider second-order linear ODEs that are homogeneous and have polynomial coefficients.
       </p>
       <aside>
-        <p>
-          Note that polynomials are automatically analytic since they're already power series.
-          Hence a polynomial is its <em>own</em> power series representation.
-        </p>
+      <p>
+        Note that polynomials are automatically analytic since they're already power series.
+        Hence a polynomial is its <em>own</em> power series representation.
+      </p>
       </aside>
+
       <example xml:id="example-series-solve-first-order-linear">
         <title>Solving a first-order differential equation with series</title>
+
         <statement>
           <p>
             Solve the ODE given by
-            <me>\dv{y}{x} = 4y</me>.
+            <me>
+              \dv{y}{x} = 4y
+            </me>.
           </p>
         </statement>
+
         <solution>
           <p>
             We could easily solve this using methods from <xref ref="intro-to-odes" text="type-global" />, but we'll use power series instead to see how this method works.
             To start, we assume that the solution <m>y</m> can be written as a power series:
-            <me>y = \sum_{n=0}^{\infty}c_{n}x^{n}</me>.
+            <me>
+              y = \sum_{n=0}^{\infty}c_{n}x^{n}
+            </me>.
             See <xref ref="theorem-existence-of-series-solutions" text="type-global" /> for the justification behind this step.
           </p>
+
           <p>
             The next step is to plug the ansatz into the ODE.
             Since
@@ -258,15 +332,23 @@
               <mrow>\amp= \sum_{n=1}^{\infty}nc_{n}x^{n-1}</mrow>
             </md>
             we get the equation
-            <men xml:id="equation-series-solutions-first-order">\sum_{n=1}^{\infty}nc_{n}x^{n-1} = 4\sum_{n=0}^{\infty}c_{n}x^{n}</men>.
+            <men xml:id="equation-series-solutions-first-order">
+              \sum_{n=1}^{\infty}nc_{n}x^{n-1} = 4\sum_{n=0}^{\infty}c_{n}x^{n}
+            </men>.
           </p>
+
           <p>
             We need to find the values of the coefficients <m>c_{n}</m>; we will do this by equating coefficients on both sides of <xref ref="equation-series-solutions-first-order" text="type-global" />.
             We want to write both series in terms of <m>x^{n}</m> so that we can equate coefficients, so we need to shift the summation on the left: we replace <m>n</m> with <m>n+1</m> inside the sum and decrease the limit of summation <m>n=1</m> to <m>n=0</m> to get
-            <me>\sum_{n=0}^{\infty}(n+1)c_{n+1}x^{n} = \sum_{n=0}^{\infty}4c_{n}x^{n}</me>.
+            <me>
+              \sum_{n=0}^{\infty}(n+1)c_{n+1}x^{n} = \sum_{n=0}^{\infty}4c_{n}x^{n}
+            </me>.
             Now we can equate coefficients: for <m>n\geq0</m>, we have
-            <men xml:id="equation-series-solutions-first-order-recurrence">(n+1)c_{n+1} = 4c_{n}\qq{or} c_{n+1} = \frac{4}{n+1}c_{n}</men>.
+            <men xml:id="equation-series-solutions-first-order-recurrence">
+              (n+1)c_{n+1} = 4c_{n}\qq{or} c_{n+1} = \frac{4}{n+1}c_{n}
+            </men>.
           </p>
+
           <p>
             The equation <xref ref="equation-series-solutions-first-order-recurrence" text="type-global" /> is a <term>recurrence relation</term> for the coefficients <m>c_n</m>.
             It describes the coefficients in terms of the previous ones, and can be used to determine explicitly what each <m>c_{n}</m> looks like.
@@ -277,15 +359,18 @@
               <mrow>c_{3} \amp= \frac{4}{4}c_{2} = \frac{4^{3}}{4\cdot3\cdot2}c_{0}</mrow>
             </md>
             and in general it appears that
-            <men xml:id="equation-series-solutions-first-order-explicit">c_{n} = \frac{4^{n}}{n!}c_{0}</men>
+            <men xml:id="equation-series-solutions-first-order-explicit">
+              c_{n} = \frac{4^{n}}{n!}c_{0}
+            </men>
             for each <m>n</m>.
           </p>
           <aside>
-            <p>
-              We can't use either <xref ref="equation-series-solutions-first-order-recurrence" text="type-global" /> or <xref ref="equation-series-solutions-first-order-explicit" text="type-global" /> to find the initial constant <m>c_0</m>.
-              This must be given by an initial condition of some kind.
-            </p>
+          <p>
+            We can't use either <xref ref="equation-series-solutions-first-order-recurrence" text="type-global" /> or <xref ref="equation-series-solutions-first-order-explicit" text="type-global" /> to find the initial constant <m>c_0</m>.
+            This must be given by an initial condition of some kind.
+          </p>
           </aside>
+
           <p>
             Now that we've determined the form of the coefficients <m>c_n</m>, we can write down the solution <m>y</m>:
             <md>
@@ -297,6 +382,7 @@
           </p>
         </solution>
       </example>
+
       <p>
         The power series method generally works as we utilized it in <xref ref="example-series-solve-first-order-linear" text="type-global" />.
         In general, the power series method to solve ODEs consists of the following procedure:
@@ -306,16 +392,19 @@
               Write <m>y = \sum_{n=0}^{\infty}c_{n}x^{n}</m>.
             </p>
           </li>
+
           <li>
             <p>
               Use the ODE to build a recurrence relation for the coefficients <m>c_{n}</m>.
             </p>
           </li>
+
           <li>
             <p>
               Find an explicit description of the coefficients.
             </p>
           </li>
+
           <li>
             <p>
               Identify <m>y</m> as the power series of some function.
@@ -323,37 +412,47 @@
           </li>
         </ol>
       </p>
+
       <example xml:id="example-series-solution-first-order-variable-coeffs">
         <title>Solving a first-order ODE with variable coefficients</title>
+
         <statement>
           <p>
             Use power series to solve the ODE <m>y^\prime+2xy=0</m>.
           </p>
         </statement>
+
         <solution>
           <p>
             We will solve this using the steps listed above.
             First, assume <m>y = \sum_{k=0}^{\infty}c_{k}x^{k}</m>.
             Now plug this guess for <m>y</m> into the ODE to get
-            <me>\sum_{k=1}^{\infty}kc_{k}x^{k-1} = -\sum_{k=0}^{\infty}2c_{k}x^{k+1}</me>.
+            <me>
+              \sum_{k=1}^{\infty}kc_{k}x^{k-1} = -\sum_{k=0}^{\infty}2c_{k}x^{k+1}
+            </me>.
           </p>
+
           <p>
             As in <xref ref="example-series-solve-first-order-linear" text="type-global" /> we want to equate coefficients to build a recurrence relation, so we need to rewrite these sums so that the same power of <m>x</m> appears on both sides.
             We do this by shifting the sums, but we need to remember to shift the limits of each sum as well:
           </p>
+
           <table xml:id="table-series-solutions-change-of-summation-limits">
             <title>Changing limits of summation</title>
+
             <tabular top="major">
               <row bottom="major">
                 <cell>Sum</cell>
                 <cell>Index</cell>
                 <cell>Limit</cell>
               </row>
+
               <row>
                 <cell><m>\sum_{k=1}^{\infty}kc_{k}x^{k-1}</m></cell>
                 <cell><m>k-1\to n</m></cell>
                 <cell><m>k=1\to n=0</m></cell>
               </row>
+
               <row bottom="major">
                 <cell><m>-\sum_{k=0}^{\infty}2c_{k}x^{k+1}</m></cell>
                 <cell><m>k+1\to n</m></cell>
@@ -361,22 +460,30 @@
               </row>
             </tabular>
           </table>
+
           <p>
             So we get
-            <men xml:id="equation-series-first-order-variable-coeffs">\sum_{n=0}^{\infty}(n+1)c_{n+1}x^{n} = \sum_{n=1}^{\infty}(-2)c_{n-1}x^{n}</men>.
+            <men xml:id="equation-series-first-order-variable-coeffs">
+              \sum_{n=0}^{\infty}(n+1)c_{n+1}x^{n} = \sum_{n=1}^{\infty}(-2)c_{n-1}x^{n}
+            </men>.
             Hence a recurrence relation for <m>c_{n}</m> is
-            <me>c_{n+1} = -\frac{2}{n+1}c_{n-1}</me>
+            <me>
+              c_{n+1} = -\frac{2}{n+1}c_{n-1}
+            </me>
             which is valid for <m>n\geq1</m>.
           </p>
+
           <p>
             Since this <term>two-step recurrence relation</term> is only valid for <m>n\geq1</m>, it places no restrictions on <m>c_0</m> or <m>c_1</m>.
-            However, the original ODE was first-order!
-            So we should only expect to have one arbitrary constant in our solution, which suggests that one of <m>c_0</m> or <m>c_1</m> must be zero.
+            However, the original ODE was first-order! So we should only expect to have one arbitrary constant in our solution, which suggests that one of <m>c_0</m> or <m>c_1</m> must be zero.
             To determine which constant must vanish, we write out the first couple terms of the sums in <xref ref="equation-series-first-order-variable-coeffs" text="type-global" /> and equate coefficients:
-            <me>c_{1}+2c_{2}x+\dots = -2c_{0}x -2c_{1}x^{2}+\cdots</me>.
+            <me>
+              c_{1}+2c_{2}x+\dots = -2c_{0}x -2c_{1}x^{2}+\cdots
+            </me>.
             This tells us that <m>c_{1} = 0</m>.
             Again, we can't get this information from the recurrence relation!
           </p>
+
           <p>
             Now we try to find an explicit formula for <m>c_{n}</m>.
             Because this is a two-step recurrence, we will write out the coefficients in two columns, one for odd <m>n</m> and one for even <m>n</m>:
@@ -386,9 +493,12 @@
               <mrow>c_{6} \amp= -\frac{2}{6}c_{4} = -\frac{1}{3}\frac{1}{2}\frac{1}{1}c_{0} \amp c_{7} \amp= -\frac{2}{7}c_{5} = 0</mrow>
             </md>.
             So it appears that
-            <me>c_{2k} = \frac{(-1)^{k}}{k!}c_{0}\qq{and}c_{2k+1} = 0</me>
+            <me>
+              c_{2k} = \frac{(-1)^{k}}{k!}c_{0}\qq{and}c_{2k+1} = 0
+            </me>
             for every <m>k</m>.
           </p>
+
           <p>
             Now we plug this into our power series for <m>y</m> to get
             <md>
@@ -401,31 +511,40 @@
           </p>
         </solution>
       </example>
+
       <p>
         Let's now move on to an example where none of our previous methods are easily applicable.
         We will also demonstrate how the method applies to solving IVPs.
       </p>
+
       <example xml:id="example-power-series-method-with-an-ivp">
         <title>Power series method with an IVP</title>
+
         <statement>
           <p>
             Let <m>y(x)</m> denote the solution of
-            <me>y'' + xy^\prime + y = 0, y(0) = 1, y^\prime(0) = 0</me>.
+            <me>
+              y'' + xy^\prime + y = 0, y(0) = 1, y^\prime(0) = 0
+            </me>.
             Find <m>y</m> up to the <m>x^6</m> term and determine the values of <m>y''(0)</m> and <m>y^{(3)}(0)</m>.
           </p>
         </statement>
+
         <solution>
           <p>
             It can be shown that <m>y = e^{-x^2/2}</m>.
           </p>
         </solution>
       </example>
+
       <p>
         Now that we have an idea of how to solve differential equations using power series, it can be useful to know when this method is actually valid, i.e., when power series solutions exist.
         We will be particularly concerned with solutions of second-order linear ODEs of the form <xref ref="equation-series-solutions-general" text="type-global" />.
       </p>
+
       <theorem xml:id="theorem-existence-of-series-solutions">
-        <title>Existence of Series Solutions</title>
+        <title>Existence of series solutions</title>
+
         <idx><h>power series</h><h>existence of series solution</h></idx>
         <statement>
           <p>
@@ -434,122 +553,182 @@
           </p>
         </statement>
       </theorem>
+
       <p>
         Points that satisfy the conditions in <xref ref="theorem-existence-of-series-solutions" text="type-global" /> are also called <term>ordinary points</term> of <xref ref="equation-series-solutions-general" text="type-global" />.
       </p>
+
       <example xml:id="example-a-legendre-equation">
-        <title>A Legendre Equation</title>
+        <title>A Legendre equation</title>
+
         <statement>
           <p>
             Show that
-            <me>(1 - x^{2})y'' - 2xy^\prime + 2y = 0</me>
+            <me>
+              (1 - x^{2})y'' - 2xy^\prime + 2y = 0
+            </me>
             has a series solution centered at <m>0</m> and then find the solution up to the coefficient of <m>x^{6}</m>.
           </p>
         </statement>
+
         <solution>
           <p>
             First, note that the equation can be rewritten
-            <me>y'' - \frac{2x}{1 - x^{2}}y^\prime + \frac{2}{1 - x^{2}}y = 0</me>,
+            <me>
+              y'' - \frac{2x}{1 - x^{2}}y^\prime + \frac{2}{1 - x^{2}}y = 0
+            </me>,
             so we are guaranteed a series solution centered at <m>x = 0</m>.
             Furthermore, this solution has radius of convergence at least <m>R = 1</m>.
           </p>
+
           <p>
             To find the solution, we return to the original equation and substitute <m>y = \sum_{n=0}^{\infty}c_{n}x^{n}</m> to get
-            <me>\sum_{n\geq0}n(n-1)c_{n}x^{n-2} + \sum_{n\geq0}\brackets{-n(n-1) - 2n + 2}c_{n}x^{n} = 0</me>
+            <me>
+              \sum_{n\geq0}n(n-1)c_{n}x^{n-2} + \sum_{n\geq0}\brackets{-n(n-1) - 2n + 2}c_{n}x^{n} = 0
+            </me>
             which becomes
-            <me>\sum_{n\geq0}\brackets{(n + 2)(n+1)c_{n+2} - n(n-1)c_{n} - 2nc_{n} + 2c_{n}}x^{n} = 0</me>.
+            <me>
+              \sum_{n\geq0}\brackets{(n + 2)(n+1)c_{n+2} - n(n-1)c_{n} - 2nc_{n} + 2c_{n}}x^{n} = 0
+            </me>.
             After a little algebra, we get the recurrence relation
-            <me>c_{n+2} = \frac{n-1}{n+1}c_{n}</me>.
+            <me>
+              c_{n+2} = \frac{n-1}{n+1}c_{n}
+            </me>.
             This recurrence is valid for <m>n\geq0</m>.
           </p>
+
           <p>
             Now we can use the recurrence to list the first several terms of the solution:
-            <me>y = c_{1}x + c_{0}(1 - x^{2} - \frac{1}{3}x^{4} - \frac{1}{5}x^{6} - \cdots)</me>
+            <me>
+              y = c_{1}x + c_{0}(1 - x^{2} - \frac{1}{3}x^{4} - \frac{1}{5}x^{6} - \cdots)
+            </me>
             In fact,
-            <me>y = c_{1}x - \sum_{n\geq0}\frac{1}{2n - 1}c_{0}x^{2n} = c_1x + C_0x\ln\parens{\frac{1+x}{1-x}}</me>.
+            <me>
+              y = c_{1}x - \sum_{n\geq0}\frac{1}{2n - 1}c_{0}x^{2n} = c_1x + C_0x\ln\parens{\frac{1+x}{1-x}}
+            </me>.
           </p>
           <aside>
-            <p>
-              In the last equation, <m>C_0</m> has been substituted for <m>-\frac{c_0}{2}</m>.
-            </p>
+          <p>
+            In the last equation, <m>C_0</m> has been substituted for <m>-\frac{c_0}{2}</m>.
+          </p>
           </aside>
         </solution>
       </example>
     </subsection>
   </section>
+
   <section xml:id="section-legendre-s-equation-and-legendre-polynomials">
-    <title>Legendre's Equation and Legendre Polynomials</title>
-    <shorttitle>Legendre's Equation</shorttitle>
+    <title>Legendre's equation and Legendre polynomials</title>
+
+    <shorttitle>Legendre's equation</shorttitle>
     <introduction>
       <p>
         An important differential equation in applications is the <term>Legendre equation</term> given by
-        <men xml:id="equation-legendre-ode">(1 - x^{2})y'' - 2xy^\prime + k(k + 1)y = 0</men>.
+        <men xml:id="equation-legendre-ode">
+          (1 - x^{2})y'' - 2xy^\prime + k(k + 1)y = 0
+        </men>.
         Our first example of this equation (with <m>n = 1</m>) was examined in <xref ref="example-a-legendre-equation" text="type-global" />.
         By this example, we see that <xref ref="equation-legendre-ode" text="type-global" /> has a series solution centered at <m>x = 0</m> with radius of convergence at least <m>1</m>.
         Therefore the power series method is appropriate.
       </p>
     </introduction>
+
+
     <subsection xml:id="subsection-solving-the-legendre-equation">
-      <title>Solving the Legendre Equation</title>
+      <title>Solving the Legendre equation</title>
+
       <p>
         We'll proceed as we did in <xref ref="example-a-legendre-equation" text="type-global" />, altering the last sum as necessary to get
-        <me>\sum_{n\geq0}(n+2)(n+1)c_{n+2}x^{n} - \sum_{n\geq0}n(n-1)c_{n}x^{n} - \sum_{n\geq0}2nc_{n}x^{n} + \sum_{n\geq0}k(k+1)c_{n}x^{n} = 0</me>
+        <me>
+          \sum_{n\geq0}(n+2)(n+1)c_{n+2}x^{n} - \sum_{n\geq0}n(n-1)c_{n}x^{n} - \sum_{n\geq0}2nc_{n}x^{n} + \sum_{n\geq0}k(k+1)c_{n}x^{n} = 0
+        </me>
         which gives (after a bit of algebra, once again)
-        <me>c_{n+2} = -\frac{(k - n)(k + n + 1)}{(n + 2)(n + 1)}c_{n}</me>.
+        <me>
+          c_{n+2} = -\frac{(k - n)(k + n + 1)}{(n + 2)(n + 1)}c_{n}
+        </me>.
       </p>
+
       <p>
         This recurrence is valid for <m>n \geq 0</m>, and allows us to write out the solution <m>y</m> in terms of the parameter <m>k</m> and the arbitrary constants <m>c_{0}</m> and <m>c_{1}</m>:
-        <me>y = c_{0}y_{1}(x) + c_{1}y_{2}(x)</me>
+        <me>
+          y = c_{0}y_{1}(x) + c_{1}y_{2}(x)
+        </me>
         where
         <mdn>
           <mrow xml:id="equation-legendre-soln-y1">y_{1}(x) \amp = 1 - \frac{k(k+1)}{2!}x^{2} + \frac{(k - 2)k(k+1)(k + 3)}{4!}x^{4} - \cdots</mrow>
           <mrow xml:id="equation-legendre-soln-y2">y_{2}(x) \amp = x - \frac{(k-1)(k+2)}{3!}x^{3} + \frac{(k-3)(k-1)(k+2)(k+4)}{5!}x^{5} - \cdots </mrow>
         </mdn>.
       </p>
+
       <p>
         Note that <m>y_{1}</m> and <m>y_{2}</m> form a basis of solutions (<xref ref="definition-basis-of-solutions" text="type-global" />) of the Legendre equation, which means that <m>y = c_{0}y_{1} + c_{1}y_{2}</m> must also be the general solution.
       </p>
     </subsection>
+
+
     <subsection xml:id="subsection-legendre-polynomials">
-      <title>Legendre Polynomials</title>
+      <title>Legendre polynomials</title>
+
       <p>
         Our solution of <xref ref="equation-legendre-ode" text="type-global" /> simplifies greatly if <m>k</m> happens to be an integer.
         In particular, if <m>k</m> is a nonnegative integer then
-        <me>c_{k+2} = c_{k+4} = \cdots = 0</me>.
+        <me>
+          c_{k+2} = c_{k+4} = \cdots = 0
+        </me>.
         If <m>k</m> is even then the solution <m>y_{1}</m> given in <xref ref="equation-legendre-soln-y1" text="type-global" /> becomes a polynomial:
-        <me>y_{1} = 1 - \frac{k(k+1)}{2!}x^{2} + \cdots + (-1)^{k/2}\frac{[k - (k-2)][k - (k-4)]\cdots[k + (k-3)][k + (k-1)]}{k!}x^{k}</me>.
+        <me>
+          y_{1} = 1 - \frac{k(k+1)}{2!}x^{2} + \cdots + (-1)^{k/2}\frac{[k - (k-2)][k - (k-4)]\cdots[k + (k-3)][k + (k-1)]}{k!}x^{k}
+        </me>.
         Likewise, if <m>k</m> is odd then <m>y_{2}</m> given in <xref ref="equation-legendre-soln-y2" text="type-global" /> becomes a polynomial instead:
-        <me>y_{2} = x - \frac{(k-1)(k+2)}{3!}x^{3} + \cdots + (-1)^{\frac{k-1}{2}}\frac{[k - (k - 2)][k - (k - 4)]\cdots[k + (k - 3)][k + (k - 1)]}{k!}x^{k}</me>.
+        <me>
+          y_{2} = x - \frac{(k-1)(k+2)}{3!}x^{3} + \cdots + (-1)^{\frac{k-1}{2}}\frac{[k - (k - 2)][k - (k - 4)]\cdots[k + (k - 3)][k + (k - 1)]}{k!}x^{k}
+        </me>.
       </p>
+
       <p>
         By choosing <m>c_{0}</m> and <m>c_{1}</m> judiciously, we can guarantee that the polynomials <m>c_{0}y_{1}</m> (if <m>k</m> is even) or <m>c_{1}y_{2}</m> (if <m>k</m> is odd) are precisely equal to <m>1</m> at <m>x = 1</m>.
         Doing so gives us the <term>Legendre polynomials</term> <m>P_{n}(x)</m>, defined more precisely in <xref ref="equation-legendre-poly" text="type-global" />:
-        <men xml:id="equation-legendre-poly">P_{n}(x) = \begin{cases} \sum_{j = 0}^{n/2}(-1)^{j}\frac{(2n - 2j)!}{2^{n}j!(n - j)!(n - 2j)!}x^{n - 2j} \amp \text{ if }n\text{ is even} \\
-        \sum_{j = 0}^{(n-1)/2}(-1)^{j}\frac{(2n - 2j)!}{2^{n}j!(n - j)!(n - 2j)!}x^{n - 2j} \amp \text{ if }n\text{ is odd} \\ \end{cases}</men>.
+        <men xml:id="equation-legendre-poly">
+          P_{n}(x) = \begin{cases} \sum_{j = 0}^{n/2}(-1)^{j}\frac{(2n - 2j)!}{2^{n}j!(n - j)!(n - 2j)!}x^{n - 2j} \amp \text{ if }n\text{ is even} \\ \sum_{j = 0}^{(n-1)/2}(-1)^{j}\frac{(2n - 2j)!}{2^{n}j!(n - j)!(n - 2j)!}x^{n - 2j} \amp \text{ if }n\text{ is odd} \\ \end{cases}
+        </men>.
       </p>
+
       <p>
         These polynomials satisfy several nice properties, but one of the most important characteristics they have is that <m>\{P_{n}(x)\}</m> forms an <em>orthogonal set</em> of polynomials on the interval <m>[-1,1]</m>.
         This means that
-        <me>\int_{-1}^{1}P_{m}(x)P_{n}(x)\,dx = 0</me>
+        <me>
+          \int_{-1}^{1}P_{m}(x)P_{n}(x)\,dx = 0
+        </me>
         if <m>m\neq n</m>.
         It can also be shown that
-        <me>\int_{-1}^{1}P_{m}(x)P_{n}(x)\,dx = \frac{2}{2n+1}</me>
+        <me>
+          \int_{-1}^{1}P_{m}(x)P_{n}(x)\,dx = \frac{2}{2n+1}
+        </me>
         if <m>m = n</m>.
       </p>
+
       <p>
         This property allows us to express <em>any</em> polynomial as a finite sum of Legendre polynomials in a computationally efficient manner.
         Furthermore, if we allow infinite series then we can use Legendre polynomials to express any continuous function defined on <m>[-1,1]</m>.
         In particular, if <m>f(x)</m> is continuous on <m>[-1,1]</m> then
-        <me>f(x) = \sum_{n=0}^{\infty}c_nP_n(x)</me>
+        <me>
+          f(x) = \sum_{n=0}^{\infty}c_nP_n(x)
+        </me>
         where
-        <me>c_n = \frac{2n+1}{2}\int_{-1}^{1}f(x)P_{n}(x)\dd{x}</me>.
+        <me>
+          c_n = \frac{2n+1}{2}\int_{-1}^{1}f(x)P_{n}(x)\dd{x}
+        </me>.
       </p>
+
       <p>
         This is demonstrated in <xref ref="figure-series-solutions-legendre-series-approx" text="type-global" /> for the function
-        <me>f(x) = \begin{cases}e^{-x^{-2}} \amp\text{if }x\neq 0 \\ 0 \amp\text{if }x=0\end{cases}</me>.
+        <me>
+          f(x) = \begin{cases}e^{-x^{-2}} \amp\text{if }x\neq 0 \\ 0 \amp\text{if }x=0\end{cases}
+        </me>.
         This approximation is particularly interesting since we've already seen that <m>f(x)</m> is not analytic.
         Hence <m>f(x)</m> has no power series representation at <m>x=0</m> but it still has a Legendre series.
       </p>
+
       <figure xml:id="figure-series-solutions-legendre-series-approx">
         <caption>Legendre series approximation for <m>f(x)</m></caption>
         <image xml:id="image-series-solutions-legendre-series-approx">
@@ -564,48 +743,38 @@
             import gsl;
             size(400);
             defaultpen(fontsize(9pt));
-
             pair a=(-2,-2);
             pair b=(2,2);
-
             real xmin=-1, xmax=1;
             real ymin=-0, ymax=0.5;
             real eps=0;
-
             //exponential function
             real f(real x) {return x==0 ? 0 : exp(-1/x^2);}
-
             //Legendre polynomials
             real P0(real x) {return Pl(0, x);}
             real P2(real x) {return Pl(2, x);}
             real P4(real x) {return Pl(4, x);}
-
             //Legendre polynomials Pl(n, x) multiplied by f
             real L0(real x) {return f(x)*Pl(0, x);}
             real L2(real x) {return f(x)*Pl(2, x);}
             real L4(real x) {return f(x)*Pl(4, x);}
-
             real c0(real x) {return (1/2)*simpson(L0,-1,1)*P0(x);}
             real c2(real x) {return (5/2)*simpson(L2,-1,1)*P2(x);}
             real c4(real x) {return (9/2)*simpson(L4,-1,1)*P4(x);}
-
             //Legendre series approximation of f
             real S0(real x) {return c0(x);}
             real S2(real x) {return c0(x)+c2(x);}
             real S4(real x) {return c0(x)+c2(x)+c4(x);}
-
             //plot annotations
             arrowbar axisarrow = Arrow(TeXHead);
             Label xlabel = Label("$x$", position = EndPoint, align = S);
             Label ylabel = Label("$y$", position = EndPoint, align = E);
             //Label Lf = Label("$f(x)$", deepblue, position=Relative(0.65), align=W);
-
             //graph
             draw(graph(f, xmin, xmax), deepblue, "$y=f(x)$");
             draw(graph(S0, xmin, xmax), red+dotted, "$y=c_0P_0(x)$");
             draw(graph(S2, xmin, xmax), red+dashed, "$y=\sum_{n=0}^2 c_n P_n(x)$");
             draw(graph(S4, xmin, xmax), brown, "$y=\sum_{n=0}^4 c_n P_n(x)$");
-
             //draw labels
             attach(legend(),point(E),20E);
             //label axes and origin
@@ -616,27 +785,30 @@
         </image>
       </figure>
       <aside>
-        <p>
-          Note that we don't need to include the odd Legendre polynomials in <xref ref="figure-series-solutions-legendre-series-approx" text="type-global" />.
-          Since <m>f(x)</m> is an <xref ref="definition-even-and-odd-functions" text="custom">even function</xref>, its integral against any odd function over <m>[-1,1]</m> must be <m>0</m>.
-          Hence the odd degree polynomials contribute nothing to the corresponding Legendre series.
-        </p>
+      <p>
+        Note that we don't need to include the odd Legendre polynomials in <xref ref="figure-series-solutions-legendre-series-approx" text="type-global" />.
+        Since <m>f(x)</m> is an <xref ref="definition-even-and-odd-functions" text="custom">even function</xref>, its integral against any odd function over <m>[-1,1]</m> must be <m>0</m>.
+        Hence the odd degree polynomials contribute nothing to the corresponding Legendre series.
+      </p>
       </aside>
+
       <p>
         For actually computing Legendre polynomials, instead of using <xref ref="equation-legendre-poly" text="type-global" /> we often use <em>Rodrigues' formula</em>
-        <men xml:id="equation-rodrigues"> P_{n}(x) = \frac{1}{2^{n}n!}\dv[n]{}{x}[(x^{2} - 1)^{n}]</men>
+        <men xml:id="equation-rodrigues">
+          P_{n}(x) = \frac{1}{2^{n}n!}\dv[n]{}{x}[(x^{2} - 1)^{n}]
+        </men>
         or <em>Bonnet's recurrence</em>
-        <men xml:id="equation-bonnet-recurrence">(n + 1)P_{n + 1}(x) = (2n + 1)xP_{n}(x) - n P_{n-1}(x)</men>.
+        <men xml:id="equation-bonnet-recurrence">
+          (n + 1)P_{n + 1}(x) = (2n + 1)xP_{n}(x) - n P_{n-1}(x)
+        </men>.
         Either recurrence is simple to program into a CAS, as seen in the Sage cell below:
       </p>
       <sage>
-        <input>
+      <input>
           def rodrigues(n):
           Cn = (1 / (2^n * factorial(n)))
           pn = (x^2 - 1)^n
-
           pretty_print((Cn * diff(pn, n)).full_simplify())
-
           def bonnet(n):
           k = 1
           P0 = 1
@@ -644,47 +816,59 @@
           while k &lt; n:
           P0, P1 = P1, ((2*k + 1) / (k + 1)) * x * P1 - (k / (k + 1)) * P0
           k += 1
-
           pretty_print(P1.full_simplify())
-
           n = 9
           rodrigues(n)
           bonnet(n)
-        </input>
-        <output>
+      </input>
+      <output>
           231/16*x^6 - 315/16*x^4 + 105/16*x^2 - 5/16
-        </output>
+      </output>
       </sage>
     </subsection>
   </section>
+
   <section xml:id="section-frobenius-method">
-    <title>The Method of Frobenius</title>
-    <shorttitle>Frobenius' Method</shorttitle>
+    <title>The method of Frobenius</title>
+
+    <shorttitle>Frobenius' method</shorttitle>
     <introduction>
       <p>
         The power series method is guaranteed to work if the coefficient functions in <xref ref="equation-series-solutions-general" text="type-global" /> are analytic.
         However, there are important examples of ODEs where this property fails (see <xref ref="equation-bessel" text="type-global" />, which is used in the study of vibrating membranes).
         To solve ODEs where analyticity fails, we can sometimes use the <em>method of Frobenius</em>.
       </p>
+
       <p>
         The main idea behind this method is to replace the ansatz <m>y = \sum_{k=0}^{\infty}c_kx^k</m> with the modified guess
-        <men xml:id="equation-frobenius-modified-ansatz">y = x^r\sum_{k=0}^{\infty}c_kx^k</men>.
+        <men xml:id="equation-frobenius-modified-ansatz">
+          y = x^r\sum_{k=0}^{\infty}c_kx^k
+        </men>.
         The value <m>r</m> here is chosen in such a way so as to guarantee a solution of the ODE in <xref ref="equation-series-solutions-general" text="type-global" /> of the form given in <xref ref="equation-frobenius-modified-ansatz" text="type-global" />.
         However, the value of <m>r</m> used might not be a nonnegative whole number and could produce negative or fractional powers of <m>x</m> in the solution.
         Therefore the resulting solution <xref ref="equation-frobenius-modified-ansatz" text="type-global" /> is typically <em>not</em> a power series.
       </p>
     </introduction>
+
+
     <subsection xml:id="subsection-ordinary-points-and-singular-points">
-      <title>Ordinary Points and Singular Points</title>
+      <title>Ordinary points and singular points</title>
+
       <p>
         Recall that a homogeneous, linear second order ODE has the form
-        <me>A(x)y''+B(x)y^\prime+C(x)y = 0</me>.
+        <me>
+          A(x)y''+B(x)y^\prime+C(x)y = 0
+        </me>.
         We can rewrite this in the form
-        <me>y''+P(x)y^\prime+Q(x)y = 0</me>.
+        <me>
+          y''+P(x)y^\prime+Q(x)y = 0
+        </me>.
         As we saw at the end of <xref ref="section-power-series-method" text="type-global" />, the efficacy of the power series method depends on the behavior of <m>P(x)</m> and <m>Q(x)</m> at the point we're centering our series solution at.
       </p>
+
       <definition xml:id="definition-ordinary-points-and-singular-points">
-        <title>Ordinary Points and Singular Points</title>
+        <title>Ordinary points and singular points</title>
+
         <idx>ordinary and singular points</idx>
         <statement>
           <p>
@@ -693,21 +877,27 @@
           </p>
         </statement>
       </definition>
+
       <p>
         Ordinary points of an ODE are precisely the points where the power series method is guaranteed to produce a valid solution.
       </p>
+
       <theorem xml:id="theorem-existence-of-series-solution">
-        <title>Existence of Series Solution</title>
+        <title>Existence of series solution</title>
+
         <idx>Existence of Series Solutions</idx>
         <statement>
           <p>
             Suppose that <m>a</m> is an ordinary point of the differential equation <m>y''+P(x)y^\prime+Q(x)y=0</m>.
             Then the ODE has two linearly independent solutions of the form
-            <me>y(x) = \sum_{n=0}^{\infty}c_{n}(x-a)^{n}</me>.
+            <me>
+              y(x) = \sum_{n=0}^{\infty}c_{n}(x-a)^{n}
+            </me>.
             The radius of convergence of the resulting solution is at least as large as the distance from <m>a</m> to the nearest singular point of the ODE.
           </p>
         </statement>
       </theorem>
+
       <example xml:id="example-frobenius-estimate-radius-series-solution">
         <statement>
           <p>
@@ -715,69 +905,76 @@
             Then solve the ODE.
           </p>
         </statement>
+
         <solution>
           <p>
             The first thing we will do is make sure that the ODE actually has a power series solution at <m>x=0</m>.
             To do this, we need to show that <m>x=0</m> is an ordinary point of the ODE, which requires finding the appropriate <m>P(x)</m> and <m>Q(x)</m> from <xref ref="theorem-existence-of-series-solution" text="type-global" />.
             If we divide through the ODE by <m>x^{2}+2</m> we obtain
-            <me>y''+\frac{4x}{x^{2}+2}y^\prime+\frac{2}{x^{2}+2}y = 0</me>,
+            <me>
+              y''+\frac{4x}{x^{2}+2}y^\prime+\frac{2}{x^{2}+2}y = 0
+            </me>,
             and so
             <md>
               <mrow>P(x) \amp= \frac{4x}{x^{2}+2}</mrow>
               <mrow>Q(x) \amp= \frac{2}{x^{2}+2}</mrow>
             </md>.
           </p>
+
           <p>
             Since both of these functions are analytic at <m>x=0</m> (i.e., they have power series representations centered at <m>x=0</m>), it follows that <m>x=0</m> is an ordinary point of the ODE.
             Therefore the ODE has a power series solution at <m>x=0</m>.
             Since <m>P(x)</m> and <m>Q(x)</m> both have singular points at <m>x=\pm i</m>, it follows that the radius of convergence of the power series solution is at least <m>|i - 0| = 1</m>.
           </p>
           <aside>
-            <p>
-              Here, we're using the formula <m>|a+bi| = \sqrt{a^2 + b^2}.</m>
-              The radius of convergence can also be visualized in the complex plane as marking out a circle of radius <m>1</m> centered at the origin.
-            </p>
+          <p>
+            Here, we're using the formula <m>|a+bi| = \sqrt{a^2 + b^2}.</m> The radius of convergence can also be visualized in the complex plane as marking out a circle of radius <m>1</m> centered at the origin.
+          </p>
           </aside>
+
           <p>
             We can now find our solution just as we did in <xref ref="section-power-series-method" text="type-global" />, we assume the ODE has a series solution of the form <m>y = \sum_{k=0}^{\infty}c_{k}x^{k}</m> (which is justified by the above!).
             We want to return to the original form of the ODE to solve it; if we didn't do so, we would need to expand <m>P(x)</m> and <m>Q(x)</m> using their own power series, and this would <em>greatly</em> complicate the algebra.
             So we will plug <m>y = \sum_{k=0}^{\infty}c_kx^k</m> into
-            <me>(x^2+2)y'' + 4xy^\prime + 2y = 0</me>
+            <me>
+              (x^2+2)y'' + 4xy^\prime + 2y = 0
+            </me>
             and then equate coefficients to get a recurrence relation for <m>c_k</m>.
             This can be done with a little help from Sage:
           </p>
           <sage>
-            <input>
+          <input>
               # Code cell demonstrating series calculations in Sage
               # We start by guessing y = sum(c_k * x^k), which requires
               # creating a list of variables c0, c1, ...,cn for the
               # coefficients ck.
-
               # Specify what term we want to stop at
               n = 5
               # Create a list c0, c1, ..., cn of our coefficients
               coeffs = var([f"c{k}" for k in srange(n+1)])
               # Set up the sum y = c0 + c1*x + c2*x^2 + ... + cn*x^n
               y = sum([coeffs[k]*x^k for k in srange(n+1)])
-
               # Now that we have set up our sum for y, we take this
               # and plug it into the differential equation.
               deqn = (x^2 + 2)*y.diff(x, 2) + 4*x*y.diff(x) + 2*y
-
               # The last step is to collect terms so that we can begin
               # equating coefficients. Note that the higher degree terms
               # should not be used to equate coefficients here!
               show(deqn.collect(x))
-            </input>
-            <output>
+          </input>
+          <output>
               42*c5*x^5 + 30*c4*x^4 + 20*(c3 + 2*c5)*x^3 + 12*(c2 + 2*c4)*x^2 + 6*(c1 + 2*c3)*x + 2*c0 + 4*c2
-            </output>
+          </output>
           </sage>
+
           <p>
             After equating coefficients, our computations with Sage suggest that <m>c_k + 2c_{k+2} = 0</m>, or more simply
-            <me>c_{k+2} = -\frac{1}{2}c_{k}\text{ for }k\geq0</me>.
+            <me>
+              c_{k+2} = -\frac{1}{2}c_{k}\text{ for }k\geq0
+            </me>.
             This can of course be verified algebraically as we've done several times already, but we'll trust Sage for now.
           </p>
+
           <p>
             The next step now that we have a recurrence relation is to find a pattern for the coefficients.
             Since this is a two-step relation, we'll set up two columns: one column for even <m>k</m> and one column for odd <m>k</m>:
@@ -786,8 +983,11 @@
               <mrow>c_{4} \amp= -\frac{1}{2}c_{2} = \frac{1}{2^{2}}c_{0} \amp c_{5} \amp= -\frac{1}{2}c_{3} = \frac{1}{2^{2}}c_{1}</mrow>
             </md>.
             So it appears that
-            <me>c_{2k} = (-1)^{k}\frac{1}{2^{k}}c_{0}\qq{and}c_{2k+1} = (-1)^{k}\frac{1}{2^{k}}c_{1}</me>.
+            <me>
+              c_{2k} = (-1)^{k}\frac{1}{2^{k}}c_{0}\qq{and}c_{2k+1} = (-1)^{k}\frac{1}{2^{k}}c_{1}
+            </me>.
           </p>
+
           <p>
             Therefore the general solution of the ODE is
             <md>
@@ -801,135 +1001,173 @@
         </solution>
       </example>
     </subsection>
+
+
     <subsection xml:id="subsection-solutions-at-singular-points-and-indicial-equations">
-      <title>Solutions at Singular Points and Indicial Equations</title>
+      <title>Solutions at singular points and indicial equations</title>
+
       <p>
         We've seen several examples showing the effectiveness of the power series method at ordinary points, but the situation becomes more complicated at singular points.
         At these points, we may not be guaranteed a power series solution.
       </p>
+
       <example xml:id="example-frobenius-no-power-series-solution">
         <statement>
           <p>
             Attempt to solve the ODE <m>x^{2}y''+x^2y^\prime+y=0</m>.
           </p>
         </statement>
+
         <solution>
           <p>
             We start, just as we did before, by assuming the solution is a power series: <m>y=\sum_{n\geq0}^{}c_{n}x^{n}</m>.
             We will once again use Sage to handle the algebra for us:
           </p>
           <sage>
-            <input>
+          <input>
               # Code cell demonstrating series calculations in Sage
               # We start by guessing y = sum(c_k * x^k), which requires
               # creating a list of variables c0, c1, ...,cn for the
               # coefficients ck.
-
               # Specify what term we want to stop at
               n = 5
               # Create a list c0, c1, ..., cn of our coefficients
               coeffs = var([f"c{k}" for k in srange(n+1)])
               # Set up the sum y = c0 + c1*x + c2*x^2 + ... + cn*x^n
               y = sum([coeffs[k]*x^k for k in srange(n+1)])
-
               # Now that we have set up our sum for y, we take this
               # and plug it into the differential equation.
               deqn = (x^2)*y.diff(x, 2) + x^2*y.diff(x) + y
-
               # The last step is to collect terms so that we can begin
               # equating coefficients. Note that the higher degree terms
               # should not be used to equate coefficients here!
               show(deqn.collect(x))
-            </input>
-            <output>
+          </input>
+          <output>
               5*c5*x^6 + (4*c4 + 21*c5)*x^5 + (3*c3 + 13*c4)*x^4 + (2*c2 + 7*c3)*x^3 + (c1 + 3*c2)*x^2 + c1*x + c0
-            </output>
+          </output>
           </sage>
+
           <p>
             Now let's start equating coefficients.
             First, we immediately get that
-            <me>c_0 = 0\text{ and }c_1 = 0</me>.
+            <me>
+              c_0 = 0\text{ and }c_1 = 0
+            </me>.
             However, this forces <m>c_2 = 0</m> since <m>c_1 + 3c_2 = 0</m>.
             And this in turn forces <m>c_3 = 0</m>, and so on.
           </p>
+
           <p>
             Therefore our series solution is just
-            <me>y = 0 + 0x + 0x^2 + \cdots = 0</me>.
+            <me>
+              y = 0 + 0x + 0x^2 + \cdots = 0
+            </me>.
             This is indeed a solution of the original ODE, but it's <em>not</em> a general solution.
             Our work in this example shows that the general solution of
-            <me>x^2y'' + x^2y^\prime + y = 0</me>
+            <me>
+              x^2y'' + x^2y^\prime + y = 0
+            </me>
             cannot be written as a power series.
           </p>
         </solution>
       </example>
+
       <p>
         The reason we couldn't find a solution of the form <m>y=\sum_{n\geq0}^{}c_{n}x^{n}</m> was because <m>x=0</m> is a singular point of the ODE.
         If we divide through by <m>x^{2}</m> we get
-        <me>y''+y^\prime+\frac{1}{x^{2}}y = 0</me>
+        <me>
+          y''+y^\prime+\frac{1}{x^{2}}y = 0
+        </me>
         and it's obvious that the coefficients have a divide by <m>0</m> problem at <m>x=0</m>.
       </p>
+
       <p>
         Our goal is to find a way of dealing with situations where <m>x=0</m> is a singular point of an ODE of the form
-        <men xml:id="equation-frobenius-homogeneous">x^{2}y''+xp(x)y^\prime+q(x)y=0</men>.
+        <men xml:id="equation-frobenius-homogeneous">
+          x^{2}y''+xp(x)y^\prime+q(x)y=0
+        </men>.
         We know, in general, that we won't be able to find a power series solution <m>\sum_{n\geq0}^{}c_{n}x^{n}</m>; intuitively, a power series solution is too <q>nice</q> to be a solution of this ODE if <m>x=0</m> is a singular point.
       </p>
+
       <p>
         To fix this, we change our guess for <m>y</m> to <m>y=x^{r}\sum_{n\geq0}^{}c_{n}x^{n}</m> or, equivalently,
-        <me>y = \sum_{n\geq0}^{}c_{n}x^{n+r}</me>.
+        <me>
+          y = \sum_{n\geq0}^{}c_{n}x^{n+r}
+        </me>.
         Here, <m>r</m> can be any number (real or complex!), so in general the solution <m>y</m> produced by this method <em>will not be a power series</em>.
         We lose a little bit by no longer assuming that <m>y</m> is a power series, but this expression may be flexible enough to lead to a solution of the ODE at a singular point.
       </p>
       <aside>
-        <p>
-          Recall that a power series, by definition, has only nonnegative whole number powers of <m>x</m>.
-        </p>
+      <p>
+        Recall that a power series, by definition, has only nonnegative whole number powers of <m>x</m>.
+      </p>
       </aside>
+
       <p>
         Our goal now is to find the value of <m>r</m> based on the ODE and the coefficient functions <m>p(x)</m> and <m>q(x)</m>.
         To do so, we will plug <m>y=\sum_{n\geq0}^{}c_{n}x^{n+r}</m> into the ODE
-        <me>x^{2}y''+xp(x)y^\prime+q(x)y = 0</me>
-        and attempt to get some conditions on <m>r</m>. First, note that
+        <me>
+          x^{2}y''+xp(x)y^\prime+q(x)y = 0
+        </me>
+        and attempt to get some conditions on <m>r</m>.
+        First, note that
         <md>
           <mrow>y^\prime \amp= \sum_{n\geq0}^{}(n+r)c_{n}x^{n+r-1}</mrow>
           <mrow>y'' \amp= \sum_{n\geq0}^{}(n+r)(n+r-1)c_{n}x^{n+r-2}</mrow>
         </md>
         so when we plug these into the ODE we get
-        <me>\sum_{n\geq0}^{}(n+r)(n+r-1)c_{n}x^{n+r}+\sum_{n\geq0}^{}p(x)(n+r)c_{n}x^{n+r}+\sum_{n\geq0}^{}q(x)c_{n}x^{n+r} = 0</me>.
+        <me>
+          \sum_{n\geq0}^{}(n+r)(n+r-1)c_{n}x^{n+r}+\sum_{n\geq0}^{}p(x)(n+r)c_{n}x^{n+r}+\sum_{n\geq0}^{}q(x)c_{n}x^{n+r} = 0
+        </me>.
       </p>
+
       <p>
         Now combine everything into one sum to get
-        <me>\sum_{n\geq0}^{}\left[(n+r)(n+r-1)+p(x)(n+r)+q(x)\right]c_{n}x^{n+r} = 0</me>.
+        <me>
+          \sum_{n\geq0}^{}\left[(n+r)(n+r-1)+p(x)(n+r)+q(x)\right]c_{n}x^{n+r} = 0
+        </me>.
         So for this equation to be true, we need to have
-        <me>\left[(n+r)(n+r-1)+p(x)(n+r)+q(x)\right]c_{n} = 0</me>
+        <me>
+          \left[(n+r)(n+r-1)+p(x)(n+r)+q(x)\right]c_{n} = 0
+        </me>
         for every <m>n</m> and every <m>x</m>.
         Since we are trying to find <m>r</m>, we'll pick values for <m>n</m> and <m>x</m>.
         In particular, if we assume that <m>p(x)</m> and <m>q(x)</m> exist at <m>x=0</m> we can pick <m>n=x=0</m> to get
-        <men xml:id="equation-frobenius-indicial">r(r-1)+p(0)r+q(0) = 0</men>
+        <men xml:id="equation-frobenius-indicial">
+          r(r-1)+p(0)r+q(0) = 0
+        </men>
         (we can assume that <m>c_{0}\neq0</m>).
         This equation tells us how to find <m>r</m>.
       </p>
+
       <definition xml:id="definition-indicial-equation">
-        <title>Indicial Equation</title>
+        <title>Indicial equation</title>
+
         <idx>indicial equation</idx>
         <statement>
           <p>
-            Suppose that <m>x=0</m> is a singular point of the ODE in <xref ref="equation-frobenius-homogeneous" text="type-global" />
-            but that <m>p(x)</m> and <m>q(x)</m> have well-defined power series at <m>x=0</m> (i.e., <m>p(0)</m> and <m>q(0)</m> make sense).
+            Suppose that <m>x=0</m> is a singular point of the ODE in <xref ref="equation-frobenius-homogeneous" text="type-global" /> but that <m>p(x)</m> and <m>q(x)</m> have well-defined power series at <m>x=0</m> (i.e., <m>p(0)</m> and <m>q(0)</m> make sense).
             Then <xref ref="equation-frobenius-indicial" text="type-global" /> is called the <term>indicial equation</term> of <xref ref="equation-frobenius-homogeneous" text="type-global" />.
           </p>
         </statement>
       </definition>
+
       <p>
         What we've shown is that if <m>y=x^{r}\sum_{n\geq0}^{}c_{n}x^{n}</m> is a solution of <xref ref="equation-frobenius-homogeneous" text="type-global" />, then <m>r</m> must be a root of the indicial equation.
         In fact, we can say more.
       </p>
+
       <theorem xml:id="theorem-method-of-frobenius">
         <title>Method of Frobenius</title>
+
         <idx>Method of Frobenius</idx>
         <statement>
           <p>
             Consider the ODE
-            <me>x^{2}y''+xp(x)y^\prime+q(x)y=0</me>.
+            <me>
+              x^{2}y''+xp(x)y^\prime+q(x)y=0
+            </me>.
             Suppose that <m>r_{1}\geq r_{2}</m> are (real) roots of the indicial equation <m>r(r-1)+p(0)r+q(0)=0</m>.
             Then the following statements are true:
             <ol>
@@ -938,16 +1176,19 @@
                   There is a solution of the ODE of the form <m>y_{1}(x) = x^{r_{1}}\sum_{n\geq0}^{}c_{n}x^{n}</m>.
                 </p>
               </li>
+
               <li>
                 <p>
                   If <m>r_{1}-r_{2}</m> is <em>not</em> equal to an integer, then there exists a second linearly independent solution of the form <m>y_{2}(x) = x^{r_{2}}\sum_{n\geq0}^{}d_{n}x^{n}</m>.
                 </p>
               </li>
+
               <li>
                 <p>
                   If <m>r_{1} = r_{2}</m>, there exists a second linearly independent solution of the form <m>y_{2}(x) = y_{1}(x)\ln x + x^{r_{1}}(C_{0} + C_{1}x + \cdots )</m>.
                 </p>
               </li>
+
               <li>
                 <p>
                   If <m>r_{1} - r_{2}</m> is a nonzero integer, there exists a second linearly independent solution of the form <m>y_{2}(x) = ky_{1}(x)\ln x + x^{r_{2}}(C_{0} + C_{1}x + \cdots )</m>.
@@ -957,19 +1198,25 @@
           </p>
         </statement>
       </theorem>
+
       <example xml:id="example-using-method-of-frobenius">
-        <title>Using the Method of Frobenius</title>
+        <title>Using the method of Frobenius</title>
+
         <statement>
           <p>
             Find a series solution centered at <m>0</m> of the ODE
-            <me>x^{2}y''+xy^\prime+\parens{x^{2}-\frac{1}{4}}y=0</me>.
+            <me>
+              x^{2}y''+xy^\prime+\parens{x^{2}-\frac{1}{4}}y=0
+            </me>.
           </p>
         </statement>
+
         <solution>
           <p>
             If we divide through the ODE by <m>x^{2}</m> we get a divide-by-zero problem at <m>x=0</m>, so <m>x=0</m> is a singular point.
             Therefore we will use <xref ref="theorem-method-of-frobenius" text="type-global" /> to determine the appropriate form of a series solution for this ODE.
           </p>
+
           <p>
             We have
             <md>
@@ -979,32 +1226,48 @@
             so <m>p(x)</m> and <m>q(x)</m> both have power series representations centered at <m>0</m> (namely, themselves!).
             This means we can use the method of Frobenius to find a solution of the form <m>y = x^r\sum_{n=0}^{\infty}c_n x^n</m>.
           </p>
+
           <p>
             The first step is to set up and solve the indicial equation, which in this case is given by
-            <me>r(r-1)+r-\frac{1}{4} = 0</me>.
+            <me>
+              r(r-1)+r-\frac{1}{4} = 0
+            </me>.
             We solve this algebraically for <m>r</m> to get the roots <m>r_{1}=\frac{1}{2}</m> and <m>r_{2}=-\frac{1}{2}</m>.
             Since <m>r_{1}-r_{2} = 1</m> is an integer, we are guaranteed a solution based on <m>r_{1} = \frac{1}{2}</m> and a second solution based on <m>r_{2} = -\frac{1}{2}</m> and the natural logarithm.
           </p>
+
           <p>
             To continue, we make the guess
-            <me>y = x^{\frac{1}{2}}\sum_{n\geq0}^{}c_{n}x^{n} = \sum_{n\geq0}^{}c_{n}x^{n+\frac{1}{2}}</me>.
+            <me>
+              y = x^{\frac{1}{2}}\sum_{n\geq0}^{}c_{n}x^{n} = \sum_{n\geq0}^{}c_{n}x^{n+\frac{1}{2}}
+            </me>.
             Now we plug this into the ODE to get
-            <me>\sum_{n\geq0}c_{n}\parens{n+\frac{1}{2}}\parens{n-\frac{1}{2}}x^{n+\frac{1}{2}} + \sum_{n\geq0}c_{n}\parens{n+\frac{1}{2}}x^{n+\frac{1}{2}} 
-            + \sum_{n\geq0}c_{n}x^{n+\frac{5}{2}} - \sum_{n\geq0}\frac{1}{4}c_{n}x^{n+\frac{1}{2}}</me>
+            <me>
+              \sum_{n\geq0}c_{n}\parens{n+\frac{1}{2}}\parens{n-\frac{1}{2}}x^{n+\frac{1}{2}} + \sum_{n\geq0}c_{n}\parens{n+\frac{1}{2}}x^{n+\frac{1}{2}} + \sum_{n\geq0}c_{n}x^{n+\frac{5}{2}} - \sum_{n\geq0}\frac{1}{4}c_{n}x^{n+\frac{1}{2}}
+            </me>
             or just
-            <me>\sum_{n\geq0}^{}\left[\parens{n+\frac{1}{2}}\parens{n-\frac{1}{2}}+\parens{n+\frac{1}{2}}-\frac{1}{4}\right]c_{n}x^{n+\frac{1}{2}} 
-            +\sum_{n\geq2}^{}c_{n-2}x^{n+\frac{1}{2}}=0</me>.
+            <me>
+              \sum_{n\geq0}^{}\left[\parens{n+\frac{1}{2}}\parens{n-\frac{1}{2}}+\parens{n+\frac{1}{2}}-\frac{1}{4}\right]c_{n}x^{n+\frac{1}{2}} +\sum_{n\geq2}^{}c_{n-2}x^{n+\frac{1}{2}}=0
+            </me>.
             which simplifies to
-            <me>\sum_{n\geq0} n(n+1)c_{n}x^{n+\frac{1}{2}}+\sum_{n\geq2}c_{n-2}x^{n+\frac{1}{2}} = 0</me>.
+            <me>
+              \sum_{n\geq0} n(n+1)c_{n}x^{n+\frac{1}{2}}+\sum_{n\geq2}c_{n-2}x^{n+\frac{1}{2}} = 0
+            </me>.
             So the recurrence relation the coefficients <m>c_{n}</m> need to satisfy is
-            <me>c_{n} = -\frac{1}{n(n+1)}c_{n-2}\quad\text{for}\quad n\geq2</me>.
+            <me>
+              c_{n} = -\frac{1}{n(n+1)}c_{n-2}\quad\text{for}\quad n\geq2
+            </me>.
           </p>
+
           <p>
             The recurrence relation will tell us <em>nothing</em> about <m>c_{0}</m> and <m>c_{1}</m>, so to see if there are any restrictions on these coefficients we separate the <m>n=0</m> and <m>n=1</m> terms from the summation to get
-            <me>0c_{0}x^{\frac{1}{2}}+2c_{1}x^{\frac{3}{2}}+\sum_{n\geq2}^{}\left[n(n+1)c_{n}+c_{n-2}\right]x^{n+\frac{1}{2}}=0</me>.
+            <me>
+              0c_{0}x^{\frac{1}{2}}+2c_{1}x^{\frac{3}{2}}+\sum_{n\geq2}^{}\left[n(n+1)c_{n}+c_{n-2}\right]x^{n+\frac{1}{2}}=0
+            </me>.
             This equation places no restrictions at all on <m>c_{0}</m>, but it does force <m>c_{1} = 0</m> since we need the <m>x^{\frac{3}{2}}</m> term to disappear to make this equation true.
             This tells us that we can ignore the coefficients <m>c_{n}</m> with odd index, since they will all disappear.
           </p>
+
           <p>
             Now we'll try to find a pattern in the remaining coefficients:
             <md>
@@ -1013,55 +1276,64 @@
               <mrow>c_{6} \amp= -\frac{1}{6\cdot7}c_{4} = \frac{(-1)^{3}}{7!}c_{0}</mrow>
             </md>
             and in general
-            <me>c_{2n} = \frac{(-1)^{n}}{(2n+1)!}c_{0}</me>.
+            <me>
+              c_{2n} = \frac{(-1)^{n}}{(2n+1)!}c_{0}
+            </me>.
           </p>
+
           <p>
             Therefore a solution (but not the general solution!) of this ODE is given by
-            <me>y = \sum_{n\geq0}c_{2n}x^{2n+\frac{1}{2}} = \sum_{n\geq0}\frac{(-1)^{n}}{(2n+1)!}c_{0}x^{2n+\frac{1}{2}}</me>,
+            <me>
+              y = \sum_{n\geq0}c_{2n}x^{2n+\frac{1}{2}} = \sum_{n\geq0}\frac{(-1)^{n}}{(2n+1)!}c_{0}x^{2n+\frac{1}{2}}
+            </me>,
             which is actually just
-            <me>y = c_{0}\frac{\sin x}{\sqrt{x}}</me>.
+            <me>
+              y = c_{0}\frac{\sin x}{\sqrt{x}}
+            </me>.
           </p>
+
           <p>
             Technically, this isn't the general solution of the ODE as we still need a second linearly independent solution to construct it.
             However, we know from <xref ref="theorem-method-of-frobenius" text="type-global" /> that the second solution must be of the form
-            <me>y_2 = k\frac{\sin(x)}{\sqrt{x}}\ln(x) + x^{-\frac{1}{2}}\sum_{n\geq0}C_n x^n.</me>
+            <me>
+              y_2 = k\frac{\sin(x)}{\sqrt{x}}\ln(x) + x^{-\frac{1}{2}}\sum_{n\geq0}C_n x^n.
+            </me>
             We can find appropriate values for <m>k</m> and the coefficients <m>C_n</m> by plugging this guess into the ODE and proceeding much as we did above.
             We will once again let Sage do the heavy lifting:
           </p>
           <sage>
-            <input>
+          <input>
               # Our guess for y2 will be based on y1 and r2
               y1 = sin(x)/sqrt(x)
               r2 = -1/2
-
               # Specify what term we want to stop at
               n = 5
-
               # Create coefficients for y2 guess
               var('k')
               coeffs = var([f"C{k}" for k in srange(n+1)])
-
               # Set up the sum y = k*y1*ln(x) + x^r2*sum(C_k * x^k)
               y = k*y1*ln(x) + x^r2*sum([coeffs[k]*x^k for k in srange(n+1)])
-
               # Now that we have set up our sum for y=y2, we take this
               # and plug it into the differential equation.
               deqn = (x^2)*y.diff(x, 2) + x*y.diff(x) + (x^2 - 1/4)*y
-
               # The last step is to collect terms so that we can begin
               # equating coefficients. Note that the higher degree terms
               # should not be used to equate coefficients here!
               show(deqn.collect(x))
-            </input>
-            <output>
+          </input>
+          <output>
               c5*x^7 + c4*x^6 + 1/4*(4*c3 + 99*c5)*x^5 + 1/4*(4*c2 + 63*c4)*x^4 + 1/4*(4*c1 + 35*c3)*x^3 + 1/4*(4*c0 + 15*c2)*x^2 + 2*k*sqrt(x)*cos(x) + 3/4*c1*x - k*sin(x)/sqrt(x) - 1/4*c0
-            </output>
+          </output>
           </sage>
+
           <p>
             Plugging this into the original ODE (and using a computer algebra system such as Sage), we get
-            <me>{\left(C_{3} + 20 \, C_{5}\right)} x^{\frac{9}{2}} + {\left(C_{2} + 12 \, C_{4}\right)} x^{\frac{7}{2}} + {\left(C_{1} + 6 \, C_{3}\right)} x^{\frac{5}{2}} + {\left(C_{0} + 2 \, C_{2}\right)} x^{\frac{3}{2}} + 2 \, k \sqrt{x} \cos\left(x\right) - \frac{k \sin\left(x\right)}{\sqrt{x}} = 0</me>
+            <me>
+              {\left(C_{3} + 20 \, C_{5}\right)} x^{\frac{9}{2}} + {\left(C_{2} + 12 \, C_{4}\right)} x^{\frac{7}{2}} + {\left(C_{1} + 6 \, C_{3}\right)} x^{\frac{5}{2}} + {\left(C_{0} + 2 \, C_{2}\right)} x^{\frac{3}{2}} + 2 \, k \sqrt{x} \cos\left(x\right) - \frac{k \sin\left(x\right)}{\sqrt{x}} = 0
+            </me>
             after truncating the expansion up to the <m>n=5</m> term.
           </p>
+
           <p>
             This allows us (theoretically) to solve for <m>k</m> and the coefficients <m>C_n</m>.
             In fact, we get
@@ -1071,70 +1343,108 @@
               <mrow>C_{2n+1} \amp= \frac{(-1)^n}{(2n+1)!}C_1</mrow>
             </md>
             and so
-            <me>y_2 = x^{-1/2}\left[C_0\sum_{n=0}^{\infty}\frac{(-1)^n}{(2n)!}x^{2n} + C_1 \sum_{n=0}^{\infty}\frac{(-1)^n}{(2n+1)!}x^{2n+1}\right]</me>.
+            <me>
+              y_2 = x^{-1/2}\left[C_0\sum_{n=0}^{\infty}\frac{(-1)^n}{(2n)!}x^{2n} + C_1 \sum_{n=0}^{\infty}\frac{(-1)^n}{(2n+1)!}x^{2n+1}\right]
+            </me>.
             Since the second series corresponds to a multiple of <m>y_1 = \frac{\sin(x)}{\sqrt{x}}</m>, we can safely set <m>C_1 = 0</m> and get <m>y_2 = C_0\frac{\cos(x)}{\sqrt{x}}</m>.
             Therefore the general solution of the ODE is
-            <me>y = A_1\frac{\sin(x)}{\sqrt{x}} + A_{2}\frac{\cos(x)}{\sqrt{x}}</me>.
+            <me>
+              y = A_1\frac{\sin(x)}{\sqrt{x}} + A_{2}\frac{\cos(x)}{\sqrt{x}}
+            </me>.
           </p>
         </solution>
       </example>
     </subsection>
   </section>
+
   <section xml:id="section-bessel-s-equation">
-    <title>Bessel's Equation</title>
+    <title>Bessel's equation</title>
+
     <introduction>
       <p>
         As with Legendre's Equation <xref ref="equation-legendre-ode" text="type-global" />, another important differential equation in applications is <term>Bessel's equation</term>:
-        <men xml:id="equation-bessel">x^{2}y'' + xy^\prime + (x^{2} - \nu^{2})y = 0</men>,
+        <men xml:id="equation-bessel">
+          x^{2}y'' + xy^\prime + (x^{2} - \nu^{2})y = 0
+        </men>,
         where <m>\nu \geq 0</m>.
         By <xref ref="theorem-method-of-frobenius" text="type-global" />, this equation has a series solution at <m>x = 0</m> of the form
-        <me>y = x^{r}\sum_{k\geq0}c_{k}x^{k}</me>
+        <me>
+          y = x^{r}\sum_{k\geq0}c_{k}x^{k}
+        </me>
         where <m>r</m> is a solution of the indicial equation
-        <me>r(r - 1) + r - \nu^{2} = 0</me>,
+        <me>
+          r(r - 1) + r - \nu^{2} = 0
+        </me>,
         or just
-        <me>r = \pm\nu</me>.
+        <me>
+          r = \pm\nu
+        </me>.
         In particular, there we're guaranteed a series solution by setting <m>r = \nu</m>, since this is the larger root.
         Note that <xref ref="example-using-method-of-frobenius" text="type-global" /> is actually a Bessel equation with parameter <m>\nu = \frac{1}{2}</m>.
       </p>
+
       <p>
         Let
-        <me>y = x^{\nu}\sum_{k\geq0}c_{k}x^{k}</me>.
+        <me>
+          y = x^{\nu}\sum_{k\geq0}c_{k}x^{k}
+        </me>.
         Then we can plug this into <xref ref="equation-bessel" text="type-global" /> to obtain
-        <men xml:id="equation-bessel-plugged-in">\sum_{k\geq0}(k+\nu)(k+\nu-1)c_{k}x^{k + \nu} + \sum_{k\geq0}(k+\nu)c_{k}x^{k + \nu} + \sum_{k\geq2}c_{k-2}x^{k + \nu} - \sum_{k\geq0}\nu^{2}c_{k}x^{k + \nu} = 0</men>,
+        <men xml:id="equation-bessel-plugged-in">
+          \sum_{k\geq0}(k+\nu)(k+\nu-1)c_{k}x^{k + \nu} + \sum_{k\geq0}(k+\nu)c_{k}x^{k + \nu} + \sum_{k\geq2}c_{k-2}x^{k + \nu} - \sum_{k\geq0}\nu^{2}c_{k}x^{k + \nu} = 0
+        </men>,
         which gives
-        <me>c_{k} = -\frac{c_{k-2}}{k(k+2\nu)}\qq{for}k\geq2</me>.
+        <me>
+          c_{k} = -\frac{c_{k-2}}{k(k+2\nu)}\qq{for}k\geq2
+        </me>.
         Since this only gives us data about <m>c_{k}, k\geq 2</m>, we should go back to <xref ref="equation-bessel-plugged-in" text="type-global" /> to see if we can say anything about <m>c_{0}</m> or <m>c_{1}</m>.
         In fact, we get
-        <me>(2\nu + 1)c_{1} = 0 \implies c_{1} = 0</me>.
+        <me>
+          (2\nu + 1)c_{1} = 0 \implies c_{1} = 0
+        </me>.
         Hence our series solution only contains even-indexed coefficients.
         Rewriting the recurrence to reflect this, we get
-        <men xml:id="equation-bessel-recurrence">c_{2k} = -\frac{c_{2k - 2}}{2^{2}k(k + \nu)} = \frac{(-1)^{k}c_{0}}{2^{2k}k!(\nu + 1)(\nu + 2)\cdots(\nu + k)}\qq{for} k\geq2</men>.
+        <men xml:id="equation-bessel-recurrence">
+          c_{2k} = -\frac{c_{2k - 2}}{2^{2}k(k + \nu)} = \frac{(-1)^{k}c_{0}}{2^{2k}k!(\nu + 1)(\nu + 2)\cdots(\nu + k)}\qq{for} k\geq2
+        </men>.
       </p>
     </introduction>
+
+
     <subsection xml:id="subsection-bessel-functions-for-integer--nu-">
-      <title>Bessel Functions for Integer <m>\nu</m></title>
+      <title>Bessel functions for integer <m>\nu</m></title>
+
       <p>
         Now we consider what happens to solutions given by <xref ref="equation-bessel-recurrence" text="type-global" /> if <m>\nu = n</m> is a nonnegative integer.
         To simplify matters (somewhat...), we add the restriction that <m>c_{0} = \frac{1}{2^{n}n!}</m>.
         This allows us to write <xref ref="equation-bessel-recurrence" text="type-global" /> more simply as
-        <men xml:id="equation-bessel-function-nu-integer">c_{2k} = \frac{(-1)^{k}}{2^{2k + n}(n + k)!}</men>.
+        <men xml:id="equation-bessel-function-nu-integer">
+          c_{2k} = \frac{(-1)^{k}}{2^{2k + n}(n + k)!}
+        </men>.
       </p>
+
       <p>
         <notation>
           <usage><m>J_n(x)</m></usage>
-          <description>Bessel function of the first kind of order <m>n</m></description>
+          <description>
+            Bessel function of the first kind of order <m>n</m>
+          </description>
         </notation>
         The resulting series
-        <men xml:id="equation-bessel-function-first-kind">J_{n}(x) = x^{n}\sum_{k\geq0}\frac{(-1)^{k}}{2^{2k + n}k!(n + k)!}x^{2k}</men>
+        <men xml:id="equation-bessel-function-first-kind">
+          J_{n}(x) = x^{n}\sum_{k\geq0}\frac{(-1)^{k}}{2^{2k + n}k!(n + k)!}x^{2k}
+        </men>
         is known as the <term>Bessel function of the first kind</term> of order <m>n</m>.
       </p>
+
       <example xml:id="example-finding-j_-0-m-and-j_-1-m-">
         <title>Finding <m>J_{0}</m> and <m>J_{1}</m></title>
+
         <statement>
           <p>
             Find the zeroth order and first order Bessel functions of the first kind.
           </p>
         </statement>
+
         <solution>
           <p>
             Using <xref ref="equation-bessel-function-first-kind" text="type-global" />, we get
@@ -1145,59 +1455,50 @@
           </p>
         </solution>
       </example>
+
       <p>
         These functions are important enough that they are built-in to most computer algebra systems.
         In Sage, these functions are implemented as <c>bessel_J(n, x)</c>:
       </p>
       <sage>
-        <input>
+      <input>
           J0 = bessel_J(0, x)
           J1 = bessel_J(1, x)
-
           P = plot(J0, (x, -1, 50), legend_label = "$J_{0}(x)$")
           P += plot(J1, (x, -1, 50), color = 'green', legend_label = "$J_{1}(x)$")
           P.show()
-        </input>
+      </input>
       </sage>
+
       <p>
         As we can see, these functions oscillate and tend towards <m>0</m>.
         A useful (asymptotic) approximation is given by
-        <men xml:id="equation-bessel-asymptotic">\sqrt{\frac{2}{\pi x}}\cos\left(x - \frac{n\pi}{2} - \frac{\pi}{4}\right)</men>,
+        <men xml:id="equation-bessel-asymptotic">
+          \sqrt{\frac{2}{\pi x}}\cos\left(x - \frac{n\pi}{2} - \frac{\pi}{4}\right)
+        </men>,
         as shown below.
       </p>
+
       <figure xml:id="figure-bessel-approximation-first-kind">
         <caption>Approximating a Bessel function</caption>
         <image xml:id="image-bessel-approximation-first-kind">
-          <!-- <sageplot>
-            f = sqrt(2 / (pi * x)) * cos(x - 3*pi / 4)
-            J1 = bessel_J(1, x)
-
-            P = plot(J1, (x, -1, 50), legend_label = "$J_{1}(x)$")
-            P += plot(f, (x, -1, 50), color = 'red', legend_label = r"$\sqrt{\frac{2}{\pi x}}\cos(x - 3\pi/4)$")
-            P
-          </sageplot> -->
           <asymptote>
             import graph;
             import fontsize;
-
             defaultpen(fontsize(9pt));
             size(200);
-
             real bessel1(real x) {return Jn(1, x);}
             real bessel1approx(real x) {return sqrt(2/(pi*x))*cos(x-3*pi/4);}
             real xmin=-1, xmax=10;
             real ymin=-2, ymax=2;
             real eps = 0.2;
-
             //plot graphs
             draw(graph(bessel1, -1, 10), deepblue+1bp, "$y = J_1(x)$");
             draw(graph(bessel1approx, 0.05, 10), deepgreen+1bp, "$y = \sqrt{\frac{2}{\pi x}}\cos(x - \frac{3\pi}{4})$");
-
             //plot annotations
             arrowbar axisarrow = Arrow(TeXHead);
             Label xlabel = Label("$x$", position = EndPoint, align = 2E);
             Label ylabel = Label("$y$", position = EndPoint, align = 2N);
-
             xaxis(YEquals(0),xmin - eps,xmax + eps, LeftTicks(NoZeroFormat), L=xlabel, arrow=axisarrow);
             yaxis(XEquals(0),ymin - eps,ymax + eps,RightTicks(NoZeroFormat), L = ylabel, arrow = axisarrow);
             // "Nice" labeling for origin.
@@ -1207,59 +1508,79 @@
         </image>
       </figure>
     </subsection>
+
+
     <subsection xml:id="subsection-bessel-functions-of-the-first-kind-for-nonnegative-order">
-      <title>Bessel Functions of the First Kind for Nonnegative Order</title>
+      <title>Bessel functions of the first kind for nonnegative order</title>
+
       <p>
         Now we try to find a formula for <m>J_{\nu}(x)</m> assuming <m>\nu\geq0</m>.
         To do so, we need to make sense of expressions like <m>(\nu + k)!</m> for noninteger <m>\nu</m>.
         Thankfully, we can do so using the <em>Gamma function</em>.
       </p>
+
       <definition xml:id="definition-gamma-function">
-        <title>Gamma Function</title>
+        <title>Gamma function</title>
+
         <idx><h>Gamma function</h></idx>
         <notation>
           <usage><m>\Gamma(x)</m></usage>
-          <description>Gamma function</description>
+          <description>
+            Gamma function
+          </description>
         </notation>
+
         <statement>
           <p>
             The <term>Gamma function</term> is the function <m>\Gamma(x)</m> given by
-            <me>\Gamma(x) = \int_{0}^{\infty}t^{x-1}e^{-t}\,dt</me>.
+            <me>
+              \Gamma(x) = \int_{0}^{\infty}t^{x-1}e^{-t}\,dt
+            </me>.
           </p>
         </statement>
       </definition>
+
       <p>
         An important property of the Gamma function is the following:
-        <me>\Gamma(x + 1) = x\Gamma(x)</me>.
+        <me>
+          \Gamma(x + 1) = x\Gamma(x)
+        </me>.
         If we replace <m>x</m> with an integer <m>n\geq0</m>, we get
-        <me>\Gamma(n + 1) = n!</me>.
+        <me>
+          \Gamma(n + 1) = n!
+        </me>.
         It turns out that we can replace <m>(\nu + k)!</m> in <xref ref="equation-bessel-function-first-kind" text="type-global" /> with <m>\Gamma(\nu + k + 1)</m>, giving
-        <men xml:id="equation-bessel-first-kind-nonnegative-order">J_{\nu}(x) = \sum_{k\geq0} \frac{(-1)^{k}}{k!\Gamma(\nu + k + 1)}\left(\frac{x}{2}\right)^{2k + \nu}</men>.
+        <men xml:id="equation-bessel-first-kind-nonnegative-order">
+          J_{\nu}(x) = \sum_{k\geq0} \frac{(-1)^{k}}{k!\Gamma(\nu + k + 1)}\left(\frac{x}{2}\right)^{2k + \nu}
+        </men>.
         Note that the asymptotic expansion in <xref ref="equation-bessel-asymptotic" text="type-global" /> holds for noninteger <m>\nu</m> as well.
       </p>
     </subsection>
+
+
     <subsection xml:id="subsection-general-solution-of-bessel-s-equation">
-      <title>General Solution of Bessel's Equation</title>
+      <title>General solution of Bessel's equation</title>
+
       <p>
         Since <xref ref="equation-bessel" text="type-global" /> is second-order, we need a second linearly independent solution in combination with <m>J_{\nu(x)}</m> to get the general solution.
         If <m>\nu</m> is not an integer then we can find the second solution very quickly: <m>J_{-\nu}(x)</m>.
         However, if <m>\nu</m> is an integer then it turns out that <m>J_{-\nu}(x) = (-1)^{n}J_{\nu}(x)</m>, and so fails to be linearly independent from <m>J_{\nu}</m>.
       </p>
+
       <p>
         It turns out that a second, linearly independent solution <m>Y_{\nu}</m> is given as follows:
         <mdn>
-          <mrow xml:id="equation-bessel-second-kind-noninteger">
-            Y_{\nu}(x) \amp = \frac{1}{\sin(\nu\pi)}[J_{\nu}(x)\cos(\nu\pi) - J_{-\nu}(x)]
-          </mrow>
-          <mrow xml:id="equation-bessel-second-kind-integer">
-            Y_{n}(x) \amp = \lim_{\nu\to n}Y_{\nu}(x)
-          </mrow>
+          <mrow xml:id="equation-bessel-second-kind-noninteger"> Y_{\nu}(x) \amp = \frac{1}{\sin(\nu\pi)}[J_{\nu}(x)\cos(\nu\pi) - J_{-\nu}(x)] </mrow>
+          <mrow xml:id="equation-bessel-second-kind-integer"> Y_{n}(x) \amp = \lim_{\nu\to n}Y_{\nu}(x) </mrow>
         </mdn>.
       </p>
+
       <p>
         <notation>
           <usage><m>Y_{n}(x)</m></usage>
-          <description>Bessel function of the second kind of order <m>n</m></description>
+          <description>
+            Bessel function of the second kind of order <m>n</m>
+          </description>
         </notation>
         The functions defined in <xref first="equation-bessel-second-kind-noninteger" last="equation-bessel-second-kind-integer" text="type-global" /> are called <term>Bessel functions of the second kind</term>.
         Sage implements these functions as well using the <c>bessel_Y(n,x)</c> command.
