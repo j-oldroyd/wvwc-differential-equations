@@ -806,17 +806,19 @@
       <sage>
       <input>
           def rodrigues(n):
-          Cn = (1 / (2^n * factorial(n)))
-          pn = (x^2 - 1)^n
-          pretty_print((Cn * diff(pn, n)).full_simplify())
+            Cn = (1 / (2^n * factorial(n)))
+            pn = (x^2 - 1)^n
+            pretty_print((Cn * diff(pn, n)).full_simplify())
+        
           def bonnet(n):
-          k = 1
-          P0 = 1
-          P1 = x
-          while k &lt; n:
-          P0, P1 = P1, ((2*k + 1) / (k + 1)) * x * P1 - (k / (k + 1)) * P0
-          k += 1
-          pretty_print(P1.full_simplify())
+            k = 1
+            P0 = 1
+            P1 = x
+            while k &lt; n:
+            P0, P1 = P1, ((2*k + 1) / (k + 1)) * x * P1 - (k / (k + 1)) * P0
+            k += 1
+            pretty_print(P1.full_simplify())
+          
           n = 9
           rodrigues(n)
           bonnet(n)
