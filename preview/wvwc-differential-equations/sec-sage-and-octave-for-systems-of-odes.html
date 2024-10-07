@@ -378,6 +378,7 @@ true);
 <ul class="structural toc-item-list">
 <li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-sage-and-octave-for-systems-of-odes.html#subsec-vectors-and-matrices" class="internal"><span class="title">Vectors and matrices</span></a></div></li>
 <li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-sage-and-octave-for-systems-of-odes.html#subsec-solving-matrix-odes" class="internal"><span class="title">Solving matrix ODEs</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-sage-and-octave-for-systems-of-odes.html#subsec-phase-portraits" class="internal"><span class="title">Phase portraits</span></a></div></li>
 </ul>
 </li>
 </ul>
@@ -581,9 +582,7 @@ M = [3, 0, 1; 9, -1, 2; -9, 4, -1]
 <div class="para">Each column of the matrix <span class="process-math">\(U\)</span> is an eigenvector of <span class="process-math">\(M\)</span> with corresponding eigenvalue given in the matrix <span class="process-math">\(D\text{.}\)</span> The solution of the system can be given as</div>
 <div class="displaymath process-math">
 \begin{equation*}
-\vec{x}(t) = c_1\begin{bmatrix} 0.2023 + 0.0506i  \\ 0.4551 - 0.1011i  \\ -0.8597 \end{bmatrix}e^{(-1+i)t}
-+ c_2\begin{bmatrix} 0.2023 - 0.0506i \\ 0.4551 + 0.1011i \\ -0.8597\end{bmatrix}e^{(-1-i)t} 
-+ c_3\begin{bmatrix} 0.4061 \\ 0.9138 \\ 0 \end{bmatrix}e^{3t}\text{.}
+\vec{x}(t) = c_1\begin{bmatrix} 0.2023 + 0.0506i  \\ 0.4551 - 0.1011i  \\ -0.8597 \end{bmatrix}e^{(-1+i)t} + c_2\begin{bmatrix} 0.2023 - 0.0506i \\ 0.4551 + 0.1011i \\ -0.8597\end{bmatrix}e^{(-1-i)t} + c_3\begin{bmatrix} 0.4061 \\ 0.9138 \\ 0 \end{bmatrix}e^{3t}\text{.}
 \end{equation*}
 </div>
 <div class="para">Solving for initial conditions requires solving the matrix equation <span class="process-math">\(U\vec{c} = \vec{x}_0\text{.}\)</span> Octave makes this simple by providing the forward slash operator <code class="code-inline tex2jax_ignore">\</code>.</div>
@@ -591,7 +590,6 @@ M = [3, 0, 1; 9, -1, 2; -9, 4, -1]
 <div id="subsec-solving-matrix-odes-9" class="ptx-sagecell sagecell-octave"><script type="text/x-sage">format short % without this, complex numbers display as pairs
 M = [3, 0, 1; 9, -1, 2; -9, 4, -1]
 [U,D] = eig(M)
-
 x0 = [1; -1; -1] % x(0) = [1; -1; -1]
 c = U\x0
 </script></div>
@@ -599,15 +597,11 @@ c = U\x0
 <div id="subsec-solving-matrix-odes-11" class="ptx-sagecell sagecell-octave"><script type="text/x-sage">format short % without this, complex numbers display as pairs
 M = [3, 0, 1; 9, -1, 2; -9, 4, -1];
 [U,D] = eig(M);
-
 x0 = [1; -1; -1];
 c = U\x0;
-
 lambda = diag(D); % vector of eigenvalues
 x = @(t) U*(c.*exp(lambda*t))
-
 x(0), x(1) % we can evaluate our solution 
-
 % plot of x(t) for 0≤t≤=10
 T=linspace(0, 10);
 pts = x(T);
@@ -619,6 +613,28 @@ xlabel('x')
 ylabel('y')
 zlabel('z')
 legend('x(t)')
+</script></div></section><section class="subsection" id="subsec-phase-portraits"><h3 class="heading hide-type">
+<span class="type">Subsection</span><span class="space"> </span><span class="codenumber"></span><span class="space"> </span><span class="title">Phase portraits</span>
+</h3>
+<div class="para" id="subsec-phase-portraits-2">To visualize solutions of first-order systems, we can plot phase portraits in Sage using <code class="code-inline tex2jax_ignore">plot_vector_field</code>:</div>
+<div id="subsec-phase-portraits-3" class="ptx-sagecell sagecell-sage"><script type="text/x-sage"># Define variables
+var('y1 y2')
+# Create phase portrait for system
+plot_vector_field([2*y1 - 3*y2,-2*y1 + y2],[y1,-2,2],[y2,-2,2])
+</script></div>
+<div class="para" id="subsec-phase-portraits-4">To better visualize how the trajectories of the system move, one can also use <code class="code-inline tex2jax_ignore">streamline_plot</code>:</div>
+<div id="subsec-phase-portraits-5" class="ptx-sagecell sagecell-sage"><script type="text/x-sage"># Define variables
+var('y1 y2')
+# Create phase portrait for system
+streamline_plot([y2, -y1],[y1,-2,2],[y2,-2,2])
+</script></div>
+<div class="para" id="subsec-phase-portraits-6">Specific trajectories (i.e., those satisfying certain initial conditions) can be plotted by providing a list of points with the optional <code class="code-inline tex2jax_ignore">start_points</code> argument:</div>
+<div id="subsec-phase-portraits-7" class="ptx-sagecell sagecell-sage"><script type="text/x-sage"># Define variables
+var('y1 y2')
+# List initial conditions: y1(0)=-1, y2(0)=3 and y1(0)=2, y2(0)=0
+pts = [[-1, 3], [2, 0]]
+# Create phase portrait for system
+streamline_plot([y2, -y1], [y1,-2,2], [y2,-5,5], start_points=pts)
 </script></div></section></section></div>
 <div class="ptx-content-footer">
 <a class="previous-button button" href="section-nonlinear-systems.html" title="Previous"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cb;</span><span class="name">Prev</span></a><a class="top-button button" href="#" title="Top"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5ce;</span><span class="name">Top</span></a><a class="next-button button" href="series-solutions.html" title="Next"><span class="name">Next</span><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cc;</span></a>
