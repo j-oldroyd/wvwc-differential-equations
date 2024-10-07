@@ -32,7 +32,8 @@ y_{c} = c_{1}\cos(3x)+c_{2}\sin(3x).
 </div>
 <div class="para">Now we find <span class="process-math">\(y_{p}\text{.}\)</span> Since the RHS of the ODE is <span class="process-math">\(3\cos(3x)\text{,}\)</span> we’ll guess that <span class="process-math">\(y_{p} = A\cos(3x)+B\sin(3x)\text{.}\)</span> However, this will cause us problems! Since <span class="process-math">\(\cos(3x),\sin(3x)\)</span> are both solutions of the corresponding homogeneous ODE, then plugging <span class="process-math">\(y_{p}\)</span> into <span class="process-math">\(y''+9y\)</span> will just give <span class="process-math">\(0\)</span> again, instead of <span class="process-math">\(3\cos(3x)\text{.}\)</span>
 </div>
-</div> <div class="para logical">
+</div>
+<div class="para logical">
 <div class="para">The problem here is that our guess for <span class="process-math">\(y_{p}\)</span> overlaps with <span class="process-math">\(y_{c}\text{.}\)</span> To fix this, we’ll multiply our guess for <span class="process-math">\(y_{p}\)</span> by the <em class="emphasis">smallest</em> power of <span class="process-math">\(x\)</span> that removes the overlap. In this case, we’ll just multiply by <span class="process-math">\(x\)</span> to get</div>
 <div class="displaymath process-math">
 \begin{equation*}
@@ -59,7 +60,8 @@ y_{p} = x\left[\frac{1}{2}\sin(3x)\right],
 y = y_{c}+y_{p} = c_{1}\cos(3x)+c_{2}\sin(3x) + \frac{x}{2}\sin(3x).
 \end{equation*}
 </div>
-</div> <div class="para logical">
+</div>
+<div class="para logical">
 <div class="para">To find the solution of the IVP, we just plug in the initial conditions. Since <span class="process-math">\(y(0) = 1\text{,}\)</span> this gives</div>
 <div class="displaymath process-math">
 \begin{equation*}

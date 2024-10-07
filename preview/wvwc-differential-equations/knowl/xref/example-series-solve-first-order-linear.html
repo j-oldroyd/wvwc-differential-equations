@@ -30,8 +30,9 @@
 y = \sum_{n=0}^{\infty}c_{n}x^{n}\text{.}
 \end{equation*}
 </div>
-<div class="para">See <a href="section-power-series-method.html#theorem-existence-of-series-solutions" class="xref" data-knowl="./knowl/xref/theorem-existence-of-series-solutions.html" data-reveal-label="Reveal" data-close-label="Close" title="Theorem 5.1.10: Existence of Series Solutions">Theorem 5.1.10</a> for the justification behind this step.</div>
-</div> <div class="para logical">
+<div class="para">See <a href="section-power-series-method.html#theorem-existence-of-series-solutions" class="xref" data-knowl="./knowl/xref/theorem-existence-of-series-solutions.html" data-reveal-label="Reveal" data-close-label="Close" title="Theorem 5.1.10: Existence of series solutions">Theorem 5.1.10</a> for the justification behind this step.</div>
+</div>
+<div class="para logical">
 <div class="para">The next step is to plug the ansatz into the ODE. Since</div>
 <div class="displaymath process-math">
 \begin{align*}
@@ -45,7 +46,8 @@ y = \sum_{n=0}^{\infty}c_{n}x^{n}\text{.}
 \sum_{n=1}^{\infty}nc_{n}x^{n-1} = 4\sum_{n=0}^{\infty}c_{n}x^{n}\text{.}\tag{5.5}
 \end{equation}
 </div>
-</div> <div class="para logical">
+</div>
+<div class="para logical">
 <div class="para">We need to find the values of the coefficients <span class="process-math">\(c_{n}\text{;}\)</span> we will do this by equating coefficients on both sides of <a href="section-power-series-method.html#equation-series-solutions-first-order" class="xref" data-knowl="./knowl/xref/equation-series-solutions-first-order.html" data-reveal-label="Reveal" data-close-label="Close" title="Equation 5.5">(5.5)</a>. We want to write both series in terms of <span class="process-math">\(x^{n}\)</span> so that we can equate coefficients, so we need to shift the summation on the left: we replace <span class="process-math">\(n\)</span> with <span class="process-math">\(n+1\)</span> inside the sum and decrease the limit of summation <span class="process-math">\(n=1\)</span> to <span class="process-math">\(n=0\)</span> to get</div>
 <div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/equation-series-solutions-first-order.html">
 \begin{equation*}
@@ -58,7 +60,8 @@ y = \sum_{n=0}^{\infty}c_{n}x^{n}\text{.}
 (n+1)c_{n+1} = 4c_{n}\qq{or} c_{n+1} = \frac{4}{n+1}c_{n}\text{.}\tag{5.6}
 \end{equation}
 </div>
-</div> <div class="para logical">
+</div>
+<div class="para logical">
 <div class="para">The equation <a href="section-power-series-method.html#equation-series-solutions-first-order-recurrence" class="xref" data-knowl="./knowl/xref/equation-series-solutions-first-order-recurrence.html" data-reveal-label="Reveal" data-close-label="Close" title="Equation 5.6">(5.6)</a> is a <dfn class="terminology">recurrence relation</dfn> for the coefficients <span class="process-math">\(c_n\text{.}\)</span> It describes the coefficients in terms of the previous ones, and can be used to determine explicitly what each <span class="process-math">\(c_{n}\)</span> looks like. To see how, we plug several values for <span class="process-math">\(n\)</span> into this recurrence relation to try to determine a pattern:</div>
 <div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/equation-series-solutions-first-order-recurrence.html">
 \begin{align*}
@@ -75,7 +78,8 @@ c_{n} = \frac{4^{n}}{n!}c_{0}\tag{5.7}
 </div>
 <div class="para">for each <span class="process-math">\(n\text{.}\)</span>
 </div>
-</div> <aside class="aside aside-like"><div class="para">We can’t use either <a href="section-power-series-method.html#equation-series-solutions-first-order-recurrence" class="xref" data-knowl="./knowl/xref/equation-series-solutions-first-order-recurrence.html" data-reveal-label="Reveal" data-close-label="Close" title="Equation 5.6">(5.6)</a> or <a href="section-power-series-method.html#equation-series-solutions-first-order-explicit" class="xref" data-knowl="./knowl/xref/equation-series-solutions-first-order-explicit.html" data-reveal-label="Reveal" data-close-label="Close" title="Equation 5.7">(5.7)</a> to find the initial constant <span class="process-math">\(c_0\text{.}\)</span> This must be given by an initial condition of some kind.</div></aside> <div class="para logical">
+</div>
+<aside class="aside aside-like"><div class="para">We can’t use either <a href="section-power-series-method.html#equation-series-solutions-first-order-recurrence" class="xref" data-knowl="./knowl/xref/equation-series-solutions-first-order-recurrence.html" data-reveal-label="Reveal" data-close-label="Close" title="Equation 5.6">(5.6)</a> or <a href="section-power-series-method.html#equation-series-solutions-first-order-explicit" class="xref" data-knowl="./knowl/xref/equation-series-solutions-first-order-explicit.html" data-reveal-label="Reveal" data-close-label="Close" title="Equation 5.7">(5.7)</a> to find the initial constant <span class="process-math">\(c_0\text{.}\)</span> This must be given by an initial condition of some kind.</div></aside><div class="para logical">
 <div class="para">Now that we’ve determined the form of the coefficients <span class="process-math">\(c_n\text{,}\)</span> we can write down the solution <span class="process-math">\(y\text{:}\)</span>
 </div>
 <div class="displaymath process-math">

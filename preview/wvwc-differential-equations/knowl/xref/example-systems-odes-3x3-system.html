@@ -45,13 +45,16 @@ sagecell.makeSagecell({
 \vec{x}^\prime = \begin{bmatrix}3 \amp  0 \amp  1 \\ 9 \amp  -1 \amp  2 \\ -9 \amp  4 \amp  -1\end{bmatrix}\vec{x} = A\vec{x}\text{.}
 \end{equation*}
 </div>
-</div> <div class="para">To find the eigenvalues we must solve the characteristic equation <span class="process-math">\(\det(A-\lambda I)=0\text{.}\)</span> However, we can also use Sage to perform this task.</div> <aside class="aside aside-like"><div class="para">We could also use MATLAB/Octave, but the resulting eigenvectors wouldn’t look as nice as the output provided by Sage. This is because MATLAB’s <code class="code-inline tex2jax_ignore">eig</code> command produces <dfn class="terminology">normalized</dfn> output which often involves dividing entries by square roots.</div></aside> <div id="example-systems-odes-3x3-system-3-4" class="ptx-sagecell sagecell-sage"><script type="text/x-sage"># Define our matrix
+</div>
+<div class="para">To find the eigenvalues we must solve the characteristic equation <span class="process-math">\(\det(A-\lambda I)=0\text{.}\)</span> However, we can also use Sage to perform this task.</div>
+<aside class="aside aside-like"><div class="para">We could also use MATLAB/Octave, but the resulting eigenvectors wouldn’t look as nice as the output provided by Sage. This is because MATLAB’s <code class="code-inline tex2jax_ignore">eig</code> command produces <dfn class="terminology">normalized</dfn> output which often involves dividing entries by square roots.</div></aside><div id="example-systems-odes-3x3-system-3-4" class="ptx-sagecell sagecell-sage"><script type="text/x-sage"># Define our matrix
 M = matrix([ [3, 0, 1],
 [9, -1, 2],
 [-9, 4, -1]] )
 # Finds eigenvectors, corresponding eigenvalues and "algebraic multiplicty".
 M.eigenvectors_right()
-</script></div> <div class="para logical">
+</script></div>
+<div class="para logical">
 <div class="para">This produces a list containing the eigenvalues of <span class="process-math">\(A\)</span> as well as the corresponding eigenvectors. So we see that the eigenvalues are given by</div>
 <div class="displaymath process-math">
 \begin{equation*}
@@ -64,7 +67,8 @@ M.eigenvectors_right()
 \vec{v}_{1} = \begin{bmatrix}1 \\ \frac{9}{4} \\ 0\end{bmatrix}, \quad\vec{v}_{2} = \begin{bmatrix} 1 \\ 2 + i \\ -4 - i \end{bmatrix}\quad\text{and}\vec{v}_{3} = \begin{bmatrix} 1 \\ 2 - i \\ -4 + i \end{bmatrix}\text{.}
 \end{equation*}
 </div>
-</div> <div class="para logical">
+</div>
+<div class="para logical">
 <div class="para">We now have everything we need for the general solution of the matrix ODE. It’s just</div>
 <div class="displaymath process-math">
 \begin{equation*}
