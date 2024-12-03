@@ -6,7 +6,7 @@
 
 <publication>
     <common>
-        <tableofcontents level="3"/>
+        <tableofcontents level="2"/>
     </common>
 
     <source webwork-problems="../generated-assets/webwork/webwork-representations.ptx">
