@@ -6,17 +6,25 @@
   <shorttitle>Introduction</shorttitle>
   <introduction>
     <p>
-      In the sciences, many quantities of interest are varying quantities.
-      Some changing quantities, like the position of a baseball dropped from a height of <quantity><mag>100</mag><unit base="foot"/></quantity>, are relatively simple to determine, but others are more complicated.
-      Think of a wildlife population, which varies from season to season and year to year.
+      In the sciences, many quantities of interest are varying
+      quantities.  Some changing quantities, like the position of a
+      baseball dropped from a height of <quantity><mag>100</mag><unit
+      base="foot"/></quantity>, are relatively simple to determine,
+      but others are more complicated.  Think of a wildlife
+      population, which varies from season to season and year to year.
       How can one accurately estimate the size of such a population?
     </p>
 
     <p>
-      The field of <term>differential equations</term> attempts to answer such questions by providing a model for the quantity of interest using information about its rate of change, which is sometimes easier to obtain than information about the quantity itself.
-      Once we know enough about how a quantity changes, we hope to make a decent estimate for how the quantity actually behaves.
-      There are actually two different types of differential equations that we will look at in this course.
-      The first is the ordinary differential equation.
+      The field of <term>differential equations</term> attempts to
+      answer such questions by providing a model for the quantity of
+      interest using information about its rate of change, which is
+      sometimes easier to obtain than information about the quantity
+      itself.  Once we know enough about how a quantity changes, we
+      hope to make a decent estimate for how the quantity actually
+      behaves.  There are actually two different types of differential
+      equations that we will look at in this course.  The first is the
+      ordinary differential equation.
     </p>
   </introduction>
 
@@ -132,7 +140,7 @@
             real xmin=-2, xmax=2;
             real ymin=-1.2, ymax=3;
             real eps=0.1;
-            
+
             //Draw points for initial conditions and corresponding solutions
             pair C=(0,-0.4);
             draw(curve(C,dy,(xmin,ymin),(xmax,ymax)),deepblue+1bp,"$y=-0.4e^{x^{2}}$");
@@ -1149,7 +1157,7 @@
           </p>
         </statement>
       </theorem>
-      
+
     </subsection>
 
     <subsection xml:id="subsection-existence-and-uniqueness-theorem">
@@ -1452,11 +1460,11 @@
 
               # To get to x = 2 we need n = 4 steps.
               n = 4
-              
+
               # Compute Euler's method approximations.
               for k in range(n):
                 xn, yn = xn + h, yn + h*f(xn, yn)
-              
+
               show((xn, yn))
           </input>
           <output>
@@ -1729,18 +1737,18 @@
             <caption>The phase diagram for <m>x^\prime = f(x).</m></caption>
             <image width="50%">
               <latex-image>
-                \begin{tikzpicture} 
-                % draw the line \draw (-1,0) -- (7,0); 
-                % draw arrows on line \draw[ultra thick,color=blue,&lt;-] (1,0) -- (2,0); 
-                \draw[ultra thick,color=blue,-&gt;] (2,0) -- (3,0); 
-                \draw[ultra thick,color=blue,-&gt;] (4,0) -- (5,0); 
-                \draw[ultra thick,color=blue,&lt;-] (5,0) -- (6,0); 
-                
-                % draw the ticks at critical points 
-                \foreach \x in {2,5} \draw[xshift=\x cm] (0pt,5pt) -- (0pt,-2pt) node[yshift=-.4cm]{$x=\the\numexpr\x$}; 
-                % label the signs \node[yshift=.5cm] at (1,0){$f(x)&lt;0$}; 
-                \node[yshift=.5cm] at (3.5,0){$f(x)&gt;0$}; 
-                \node[yshift=.5cm] at (6,0){$f(x)&lt;0$}; 
+                \begin{tikzpicture}
+                % draw the line \draw (-1,0) -- (7,0);
+                % draw arrows on line \draw[ultra thick,color=blue,&lt;-] (1,0) -- (2,0);
+                \draw[ultra thick,color=blue,-&gt;] (2,0) -- (3,0);
+                \draw[ultra thick,color=blue,-&gt;] (4,0) -- (5,0);
+                \draw[ultra thick,color=blue,&lt;-] (5,0) -- (6,0);
+
+                % draw the ticks at critical points
+                \foreach \x in {2,5} \draw[xshift=\x cm] (0pt,5pt) -- (0pt,-2pt) node[yshift=-.4cm]{$x=\the\numexpr\x$};
+                % label the signs \node[yshift=.5cm] at (1,0){$f(x)&lt;0$};
+                \node[yshift=.5cm] at (3.5,0){$f(x)&gt;0$};
+                \node[yshift=.5cm] at (6,0){$f(x)&lt;0$};
                 \end{tikzpicture}
               </latex-image>
             </image>
@@ -1803,7 +1811,7 @@
                       % draw the line
                       \draw (-1,0) -- (7,0);
 
-                      % draw arrows on line 
+                      % draw arrows on line
                       \draw[ultra thick,color=blue,&lt;-] (1,0) -- (2,0);
                       \draw[ultra thick,color=blue,-&gt;] (2,0) -- (3,0);
                       \draw[ultra thick,color=blue,-&gt;] (4,0) -- (5,0);
@@ -1815,7 +1823,7 @@
                       \draw[xshift=3.5 cm] (0pt,5pt) -- (0pt,-2pt) node[yshift=-.4cm]{$P=15$};
                       \draw[xshift=5 cm] (0pt,5pt) -- (0pt,-2pt) node[yshift=-.4cm]{$P=c_{2}$};
                       \draw[xshift=6.5 cm] (0pt,5pt) -- (0pt,-2pt) node[yshift=-.4cm]{$P=75$};
-                      
+
                       % label the signs
                       \node[yshift=.5cm] at (0,0){$\dv{P}{t}&lt;0$};
                       \node[yshift=.5cm] at (3.5,0){$\dv{P}{t}&gt;0$};
@@ -1848,7 +1856,7 @@
                       % draw the line
                       \draw (0,0) -- (4,0);
 
-                      % draw arrows on line 
+                      % draw arrows on line
                       \draw[ultra thick,color=blue,&lt;-] (1,0) -- (2,0);
                       \draw[ultra thick,color=blue,&lt;-] (2,0) -- (3,0);
 
