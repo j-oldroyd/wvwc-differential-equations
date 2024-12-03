@@ -29,7 +29,9 @@
     <target
       name="epub"
       format="epub"
-      source="wvwc-differential-equations.ptx"/>
+      source="wvwc-differential-equations.ptx"
+      output-filename="wvwc-differential-equations.epub"
+      deploy-dir="preview/wvwc-differential-equations/epub"/>
     <target
       name="kindle"
       format="kindle"
