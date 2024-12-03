@@ -2,16 +2,16 @@
 <!-- This file, the project manifest, provides the overall configuration for your PreTeXt project. To edit the content of your document, open `source/main.ptx`. See https://pretextbook.org/doc/guide/html/processing-CLI.html#cli-project-manifest. -->
 <project ptx-version="2">
   <targets>
-    <target 
-      name="web" 
+    <target
+      name="web"
       format="html"
       source="wvwc-differential-equations.ptx"
       deploy-dir="preview/wvwc-differential-equations"
       output-dir="html">
         <stringparams author.tools="yes"/>
       </target>
-    <target 
-      name="print" 
+    <target
+      name="print"
       format="pdf"
       source="wvwc-differential-equations.ptx"
       output-filename="wvwc-differential-equations.pdf"
@@ -22,8 +22,8 @@
       format="pdf"
       source="wvwc-differential-equations.ptx"
       xsl="wvwc-differential-equations-dyslexic-print.xsl"/>
-    <target 
-      name="print-latex" 
+    <target
+      name="print-latex"
       format="latex"
       source="wvwc-differential-equations.ptx"/>
     <target
