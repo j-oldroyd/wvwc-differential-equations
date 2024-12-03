@@ -33,7 +33,8 @@
 
     <introduction xml:id="introduction-ordinary-differential-equations">
       <p>
-        This section introduces basic concepts from the field of differential equations.
+        This section introduces basic concepts from the field of
+        differential equations.
       </p>
     </introduction>
 
@@ -42,7 +43,8 @@
       <title>Basic concepts</title>
 
       <p>
-        First, a definition of the primary concept in this course: the differential equation.
+        First, a definition of the primary concept in this course: the
+        differential equation.
       </p>
 
       <definition xml:id="definition-differential-equations">
@@ -51,10 +53,18 @@
         <idx><h>differential equations</h><h>definition</h></idx>
         <statement>
           <p>
-            A <term>differential equation</term> is an equation relating some function with its derivatives.
-            A differential equation that involves a function of only one independent variable is called an <term>ordinary differential equation</term>, or ODE.
-            A differential equation that involves a function of more than one independent variable (which you see a lot of in Calculus 3) is called a <term>partial differential equation</term>, or PDE, and will be studied in more detail in <xref ref="partial-differential-equations" text="type-global" />.
-            The <term>order</term> of a differential equation is the highest derivative that appears in the equation.
+            A <term>differential equation</term> is an equation
+            relating some function with its derivatives.  A
+            differential equation that involves a function of only one
+            independent variable is called an <term>ordinary
+            differential equation</term>, or ODE.  A differential
+            equation that involves a function of more than one
+            independent variable (which you see a lot of in Calculus
+            3) is called a <term>partial differential equation</term>,
+            or PDE, and will be studied in more detail in <xref
+            ref="partial-differential-equations" text="type-global"
+            />.  The <term>order</term> of a differential equation is
+            the highest derivative that appears in the equation.
           </p>
         </statement>
       </definition>
@@ -64,20 +74,27 @@
         <ul>
           <li>
             <p>
-              <m>\dv[2]{y}{x} + y = 0</m>; this is a second order ODE relating the unknown function <m>y</m> with its second derivative.
+              <m>\dv[2]{y}{x} + y = 0</m>; this is a second order ODE
+              relating the unknown function <m>y</m> with its second
+              derivative.
             </p>
           </li>
 
           <li>
             <p>
-              <m>5t^{2}x^{'''} - e^{x} = 3t</m>; this is a seventh order ODE involving the derivatives of the unknown function <m>x</m>. Note that in this ODE <m>t</m> is the independent variable whereas <m>x</m> serves as the dependent variable.
+              <m>5t^{2}x^{'''} - e^{x} = 3t</m>; this is a seventh
+              order ODE involving the derivatives of the unknown
+              function <m>x</m>. Note that in this ODE <m>t</m> is the
+              independent variable whereas <m>x</m> serves as the
+              dependent variable.
             </p>
           </li>
         </ul>
       </p>
 
       <p>
-        Just as with equations in algebra, we can sometimes solve a differential equation.
+        Just as with equations in algebra, we can sometimes solve a
+        differential equation.
       </p>
 
       <definition xml:id="definition-solution-of-a-differential-equation">
@@ -86,13 +103,16 @@
         <idx><h>differential equations</h><h>solution</h></idx>
         <statement>
           <p>
-            A function is a <term>solution</term> of a differential equation if it satisfies the differential equation.
+            A function is a <term>solution</term> of a differential
+            equation if it satisfies the differential equation.
           </p>
         </statement>
       </definition>
 
       <p>
-        It is straightforward to check if a function is a solution of some given differential equation, but <em>finding</em> solutions will make up the bulk of this course.
+        It is straightforward to check if a function is a solution of
+        some given differential equation, but <em>finding</em>
+        solutions will make up the bulk of this course.
       </p>
 
       <example xml:id="example-verifying-solutions">
@@ -106,9 +126,11 @@
 
         <solution>
           <p>
-            At this point we don't know how to solve differential equations, but that doesn't mean we can't <em>check</em> solutions of differential equations.
-            To do so, we just plug <m>5e^{x^{2}}</m> wherever <m>y</m> shows up in the ODE and see if the resulting equation is true.
-            So we have
+            At this point we don't know how to solve differential
+            equations, but that doesn't mean we can't <em>check</em>
+            solutions of differential equations.  To do so, we just
+            plug <m>5e^{x^{2}}</m> wherever <m>y</m> shows up in the
+            ODE and see if the resulting equation is true.  So we have
             <md>
               <mrow>y^\prime &amp; = 2xy </mrow>
               <mrow>(5e^{x^{2}})^\prime &amp; = 2x(5e^{x^{2}}) \text{ after substituting }y = 5e^{x^{2}}</mrow>
@@ -121,10 +143,14 @@
       </example>
 
       <p>
-        In <xref ref="example-verifying-solutions" text="type-global" />, <m>y = 5e^{x^{2}}</m> is not the only solution of <m>y^\prime = 2xy</m>.
-        You can check that <m>y = 3e^{x^{2}}</m> and <m>y = -10e^{x^{2}}</m> are also solutions.
-        In fact, <em>any</em> function of the form <m>Ce^{x^{2}}</m> where <m>C</m> is a constant is a solution of <m>y^\prime = 2xy</m>.
-        See <xref ref="figure-family-of-solutions" text="type-global" />.
+        In <xref ref="example-verifying-solutions" text="type-global"
+        />, <m>y = 5e^{x^{2}}</m> is not the only solution of
+        <m>y^\prime = 2xy</m>.  You can check that <m>y =
+        3e^{x^{2}}</m> and <m>y = -10e^{x^{2}}</m> are also solutions.
+        In fact, <em>any</em> function of the form <m>Ce^{x^{2}}</m>
+        where <m>C</m> is a constant is a solution of <m>y^\prime =
+        2xy</m>.  See <xref ref="figure-family-of-solutions"
+        text="type-global" />.
       </p>
 
       <figure xml:id="figure-family-of-solutions">
@@ -160,8 +186,11 @@
       </figure>
 
       <p>
-        Solutions of ODEs that depend on arbitrary constants, such as <m>y = Ce^{x^{2}}</m> above, are called <term>general solutions</term>.
-        Solutions of ODEs that do not depend on arbitrary constants, such as <m>y = 5e^{x^{2}}</m>, are called <term>particular solutions</term>.
+        Solutions of ODEs that depend on arbitrary constants, such as
+        <m>y = Ce^{x^{2}}</m> above, are called <term>general
+        solutions</term>.  Solutions of ODEs that do not depend on
+        arbitrary constants, such as <m>y = 5e^{x^{2}}</m>, are called
+        <term>particular solutions</term>.
       </p>
 
       <example xml:id="example-a-trigonometric-sol">
@@ -169,15 +198,18 @@
 
         <statement>
           <p>
-            Show that <m>x = A\cos(3t) + B\sin(3t)</m>, where <m>A</m> and <m>B</m> are arbitrary constants, is a general solution of <m>x'' + 9x = 0</m>.
-            Then find a particular solution.
+            Show that <m>x = A\cos(3t) + B\sin(3t)</m>, where <m>A</m>
+            and <m>B</m> are arbitrary constants, is a general
+            solution of <m>x'' + 9x = 0</m>.  Then find a particular
+            solution.
           </p>
         </statement>
 
         <solution>
           <p>
-            To check that <m>x = A\cos(3t) + B\sin(3t)</m> is a general solution of <m>x''+9x = 0</m>, we just need to plug it into the ODE and show that it satisfies it.
-            Since
+            To check that <m>x = A\cos(3t) + B\sin(3t)</m> is a
+            general solution of <m>x''+9x = 0</m>, we just need to
+            plug it into the ODE and show that it satisfies it.  Since
             <me>
               x'' = -9(A\cos(3t)+B\sin(3t)) = -9x,
             </me>
@@ -185,22 +217,35 @@
           </p>
 
           <p>
-            To find a particular solution, all we need to do in this case is to pick specific values for <m>A</m> and <m>B</m> (any values will work here).
-            So one particular solution of <m>x''+9x = 0</m> is given by <m>x = \frac{3}{2}\cos(3t) - \sin(3t)</m>, among infinitely many others.
+            To find a particular solution, all we need to do in this
+            case is to pick specific values for <m>A</m> and <m>B</m>
+            (any values will work here).  So one particular solution
+            of <m>x''+9x = 0</m> is given by <m>x =
+            \frac{3}{2}\cos(3t) - \sin(3t)</m>, among infinitely many
+            others.
           </p>
         </solution>
       </example>
 
       <p>
-        In <xref ref="example-a-trigonometric-sol" text="type-global" />, to find a particular solution we just needed to plug in specific values for the arbitrary constants.
-        In general, the particular solutions we'll be interested in are chosen to satisfy a given condition, which we call an <term>initial condition</term>.
-        These conditions often take the form <m>y(x_{0}) = y_{0}</m>.
-        Geometrically, we are picking a specific point <m>(x_{0},y_{0})</m> in the <m>xy</m>-plane that the solution must pass through.
+        In <xref ref="example-a-trigonometric-sol" text="type-global"
+        />, to find a particular solution we just needed to plug in
+        specific values for the arbitrary constants.  In general, the
+        particular solutions we'll be interested in are chosen to
+        satisfy a given condition, which we call an <term>initial
+        condition</term>.  These conditions often take the form
+        <m>y(x_{0}) = y_{0}</m>.  Geometrically, we are picking a
+        specific point <m>(x_{0},y_{0})</m> in the <m>xy</m>-plane
+        that the solution must pass through.
       </p>
 
       <p>
-        An ODE together with an initial condition is called an <term>initial value problem (IVP)</term>.
-        Although ODEs by themselves typically have infinitely many solutions, specifying an initial condition that the solution must satisfy is often enough to get a unique particular solution instead of a general solution.
+        An ODE together with an initial condition is called an
+        <term>initial value problem (IVP)</term>.  Although ODEs by
+        themselves typically have infinitely many solutions,
+        specifying an initial condition that the solution must satisfy
+        is often enough to get a unique particular solution instead of
+        a general solution.
       </p>
 
       <example xml:id="example-solving-an-ivp">
@@ -214,18 +259,23 @@
 
         <solution>
           <p>
-            We need to find a function <m>y</m> that satisfies two different constraints: <m>y^\prime = -xe^{-x^{2}}</m> and <m>y(0)=1</m>.
-            We'll start with the first one, which we actually know how to do from Calculus I.
-            If <m>y^\prime = -xe^{-x^{2}}</m>, then
+            We need to find a function <m>y</m> that satisfies two
+            different constraints: <m>y^\prime = -xe^{-x^{2}}</m> and
+            <m>y(0)=1</m>.  We'll start with the first one, which we
+            actually know how to do from Calculus I.  If <m>y^\prime =
+            -xe^{-x^{2}}</m>, then
             <me>
               y = \int -xe^{-x^{2}}\,dx = \frac{1}{2}e^{-x^{2}}+C.
             </me>
-            Now we need to make sure that <m>y</m> is equal to <m>1</m> if <m>x=0</m>.
-            We do this by setting <m>y=1</m>, <m>x=0</m> and choosing the right value for <m>C</m> to make the resulting equation true:
+            Now we need to make sure that <m>y</m> is equal to
+            <m>1</m> if <m>x=0</m>.  We do this by setting <m>y=1</m>,
+            <m>x=0</m> and choosing the right value for <m>C</m> to
+            make the resulting equation true:
             <me>
               1 = \frac{1}{2} + C \Rightarrow C = \frac{1}{2}.
             </me>
-            So the solution of this IVP is the function <m>y = \frac{e^{-x^{2}}+1}{2}</m>.
+            So the solution of this IVP is the function <m>y =
+            \frac{e^{-x^{2}}+1}{2}</m>.
           </p>
         </solution>
       </example>
@@ -235,14 +285,17 @@
         <ol>
           <li>
             <p>
-              ODEs by themselves have general solutions, whereas IVPs have particular solutions.
+              ODEs by themselves have general solutions, whereas IVPs
+              have particular solutions.
             </p>
           </li>
 
           <li>
             <p>
-              When solving IVPs, it's important to keep track of any arbitrary constants that appear.
-              Neglecting arbitrary constants usually makes it impossible to find the right particular solution.
+              When solving IVPs, it's important to keep track of any
+              arbitrary constants that appear.  Neglecting arbitrary
+              constants usually makes it impossible to find the right
+              particular solution.
             </p>
           </li>
         </ol>
@@ -254,10 +307,17 @@
       <title>Mathematical models</title>
 
       <p>
-        Differential equations are useful because they can provide a mathematical model of a physical quantity.
-        Analyzing the model allows us to infer something meaningful about the quantity in question.
-        A relatively simple model comes from <term>Newton's Law of Cooling</term>, which relates the temperature of an object with the temperature of the surrounding medium (such as air or water).
-        In particular, Newton's Law of Cooling states that the time rate of change of the temperature of an object is proportional to the difference of the temperature of the object with that of the temperature of the surrounding medium.
+        Differential equations are useful because they can provide a
+        mathematical model of a physical quantity.  Analyzing the
+        model allows us to infer something meaningful about the
+        quantity in question.  A relatively simple model comes from
+        <term>Newton's Law of Cooling</term>, which relates the
+        temperature of an object with the temperature of the
+        surrounding medium (such as air or water).  In particular,
+        Newton's Law of Cooling states that the time rate of change of
+        the temperature of an object is proportional to the difference
+        of the temperature of the object with that of the temperature
+        of the surrounding medium.
       </p>
 
       <example xml:id="example-newton-s-law-of-cooling">
@@ -271,9 +331,15 @@
 
         <solution>
           <p>
-            It may not be obvious that Newton's Law of Cooling can be restated as a differential equation, but the phrase "rate of change" that appears in the statement of the law is a good clue that this can be done.
-            To do this, first we need to give the relevant quantities (the temperature of the object and the temperature of the surrounding medium) names.
-            Let <m>T(t)</m> denote the temperature of the object at time <m>t</m> and let <m>A(t)</m> denote the temperature of the surrounding medium at time <m>t</m>.
+            It may not be obvious that Newton's Law of Cooling can be
+            restated as a differential equation, but the phrase "rate
+            of change" that appears in the statement of the law is a
+            good clue that this can be done.  To do this, first we
+            need to give the relevant quantities (the temperature of
+            the object and the temperature of the surrounding medium)
+            names.  Let <m>T(t)</m> denote the temperature of the
+            object at time <m>t</m> and let <m>A(t)</m> denote the
+            temperature of the surrounding medium at time <m>t</m>.
             Then Newton's Law of Cooling says that
             <me>
               \dv{T}{t} = k(T-A)
@@ -282,19 +348,25 @@
           </p>
 
           <p>
-            Although we can't determine <m>k</m> precisely (this would require experimentation and depends on the object and medium in question), we can still say something useful about it.
-            In particular, <m>k</m> must be negative.
-            To see why, consider what the object does if <m>T\gt A</m> and <m>T\lt A</m>.
-            If <m>T\gt A</m>, then the object must be cooling since the surrounding medium is cooler than the object.
-            If the object is cooling, then <m>\dv{T}{t}\lt0</m>.
-            On the other hand, if <m>T\lt A</m> then <m>\dv{T}{t}\gt0</m> since the object would be heating up in this case.
-            The only way for this to occur is if <m>k\lt0</m>.
+            Although we can't determine <m>k</m> precisely (this would
+            require experimentation and depends on the object and
+            medium in question), we can still say something useful
+            about it.  In particular, <m>k</m> must be negative.  To
+            see why, consider what the object does if <m>T\gt A</m>
+            and <m>T\lt A</m>.  If <m>T\gt A</m>, then the object must
+            be cooling since the surrounding medium is cooler than the
+            object.  If the object is cooling, then
+            <m>\dv{T}{t}\lt0</m>.  On the other hand, if <m>T\lt A</m>
+            then <m>\dv{T}{t}\gt0</m> since the object would be
+            heating up in this case.  The only way for this to occur
+            is if <m>k\lt0</m>.
           </p>
         </solution>
       </example>
 
       <p>
-        Most of the mathematical models we'll look at will take the form of an IVP.
+        Most of the mathematical models we'll look at will take the
+        form of an IVP.
       </p>
 
       <example xml:id="example-an-ivp-modeling-a-falling-object">
@@ -302,25 +374,35 @@
 
         <statement>
           <p>
-            A ball weighing <quantity><mag>0.5</mag><unit prefix="kilo" base="gram"/></quantity> is dropped from a height of <quantity><mag>100</mag><unit base="meter"/></quantity> and is acted upon by gravity and air resistance.
-            Assuming that the force of air resistance is proportional to the velocity of the ball, what is an IVP that models the movement of the ball?
+            A ball weighing <quantity><mag>0.5</mag><unit
+            prefix="kilo" base="gram"/></quantity> is dropped from a
+            height of <quantity><mag>100</mag><unit
+            base="meter"/></quantity> and is acted upon by gravity and
+            air resistance.  Assuming that the force of air resistance
+            is proportional to the velocity of the ball, what is an
+            IVP that models the movement of the ball?
           </p>
         </statement>
 
         <solution>
           <p>
-            What we need to do is to translate this physical situation into mathematics, and to do that we need to start assigning names to the quantities of interest.
-            The quantities that matter in this problem are the movement of the ball, the force of gravity and the force of air resistance.
-            We'll name them as follows:
+            What we need to do is to translate this physical situation
+            into mathematics, and to do that we need to start
+            assigning names to the quantities of interest.  The
+            quantities that matter in this problem are the movement of
+            the ball, the force of gravity and the force of air
+            resistance.  We'll name them as follows:
             <md>
               <mrow>\text{height of the ball }t\text{ seconds after its released} &amp;= y(t) </mrow>
               <mrow>\text{force of gravity} &amp;= F_{G} = mg = -4.9</mrow>
               <mrow>\text{force of air resistance} &amp;= F_{R} = k\dv{y}{t} </mrow>
             </md>
-            where <m>C</m> is negative (since air resistance should act <em>against</em> velocity).
-            To get a differential equation out of all this, we'll use Newton's Second Law (which is actually a second-order ODE in disguise).
-            This says that the net force on the ball should be equal to its mass times acceleration: <m>F = ma</m>.
-            So we have
+            where <m>C</m> is negative (since air resistance should
+            act <em>against</em> velocity).  To get a differential
+            equation out of all this, we'll use Newton's Second Law
+            (which is actually a second-order ODE in disguise).  This
+            says that the net force on the ball should be equal to its
+            mass times acceleration: <m>F = ma</m>.  So we have
             <me>
               F_{G}+F_{R} = 0.5\dv[2]{y}{t}
             </me>
@@ -338,17 +420,24 @@
       </example>
 
       <p>
-        One quick note about the IVP in <xref ref="example-an-ivp-modeling-a-falling-object" text="type-global" /> The differential equation was second-order, but there was only one corresponding initial condition.
-        As we'll see later, this is not enough to find a unique solution to this IVP.
-        For most IVPs we'll solve, we'll need as many initial conditions as the order of the ODE.
+        One quick note about the IVP in <xref
+        ref="example-an-ivp-modeling-a-falling-object"
+        text="type-global" /> The differential equation was
+        second-order, but there was only one corresponding initial
+        condition.  As we'll see later, this is not enough to find a
+        unique solution to this IVP.  For most IVPs we'll solve, we'll
+        need as many initial conditions as the order of the ODE.
         Something to look forward to.
       </p>
     </subsection>
 
     <conclusion>
       <p>
-        Now that we have a rough idea of what an ODE and an IVP actually are, we can move on to solving them.
-        In the next section, we'll look at a method that we can use to visualize ODEs and their solutions and another method that can be used to approximate solutions of ODEs.
+        Now that we have a rough idea of what an ODE and an IVP
+        actually are, we can move on to solving them.  In the next
+        section, we'll look at a method that we can use to visualize
+        ODEs and their solutions and another method that can be used
+        to approximate solutions of ODEs.
       </p>
     </conclusion>
   </section>
@@ -358,9 +447,12 @@
 
     <introduction>
       <p>
-        Differential equations can often be quite difficult to solve, if not impossible.
-        In this section we will discuss a method to visualize the behavior of certain first-order differential equations without first solving them.
-        This approach, the <em>direction field</em> or <em>slope field</em>, is one that we will use again in <xref ref="systems-of-odes"/>.
+        Differential equations can often be quite difficult to solve,
+        if not impossible.  In this section we will discuss a method
+        to visualize the behavior of certain first-order differential
+        equations without first solving them.  This approach, the
+        <em>direction field</em> or <em>slope field</em>, is one that
+        we will use again in <xref ref="systems-of-odes"/>.
       </p>
     </introduction>
 
