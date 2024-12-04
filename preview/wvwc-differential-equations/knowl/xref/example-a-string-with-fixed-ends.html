@@ -12,9 +12,9 @@
 </head>
 <body class="ignore-math">
 <article class="example example-like"><h3 class="heading">
-<span class="type">Example</span><span class="space"> </span><span class="codenumber">8.2.2</span><span class="period">.</span><span class="space"> </span><span class="title">A string with fixed ends.</span>
+<span class="type">Example</span><span xmlns:pf="https://prefigure.org" class="space"> </span><span class="codenumber">8.2.2</span><span xmlns:pf="https://prefigure.org" class="period">.</span><span xmlns:pf="https://prefigure.org" class="space"> </span><span class="title">A string with fixed ends.</span>
 </h3>
-<div class="para logical">
+<div xmlns:pf="https://prefigure.org" class="para logical">
 <div class="para">A string at rest has unit length, and is fixed at both ends. Suppose that the string is now stretched into the triangular shape given by the graph of</div>
 <div class="displaymath process-math">
 \begin{equation*}
@@ -24,7 +24,7 @@ f(x) = \begin{cases} 2x \amp 0\leq x\leq \frac{1}{2} \\ 2(1-x) \amp \frac{1}{2}\
 <div class="para">The string is then released at time <span class="process-math">\(t=0\text{.}\)</span> Given <span class="process-math">\(c=4\text{,}\)</span> find the function <span class="process-math">\(u(x,t)\)</span> that models the vertical displacement of the string at position <span class="process-math">\(x\)</span> at time <span class="process-math">\(t\text{.}\)</span>
 </div>
 </div>
-<div class="solutions"><details class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="period">.</span></summary><div class="solution solution-like knowl__content">
+<div class="solutions"><details xmlns:pf="https://prefigure.org" class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="period">.</span></summary><div class="solution solution-like knowl__content">
 <div class="para logical">
 <div class="para">We can model <span class="process-math">\(u(x,t)\)</span> as the solution of the wave equation</div>
 <div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/theorem-solution-of-the-wave-equation.html">
@@ -39,7 +39,8 @@ u(x,0) = f(x)\text{ and }u_{t}(x,0) = 0.
 \end{equation*}
 </div>
 <div class="para">We can find <span class="process-math">\(u(x,t)\)</span> from <a href="section-wave-equation-and-separation-of-variables.html#theorem-solution-of-the-wave-equation" class="xref" data-knowl="./knowl/xref/theorem-solution-of-the-wave-equation.html" data-reveal-label="Reveal" data-close-label="Close" title="Theorem 8.2.1: Solution of the Wave Equation">Theorem 8.2.1</a>.</div>
-</div> <div class="para logical">
+</div>
+<div class="para logical">
 <div class="para">Using the Sage cell below, we get</div>
 <div class="displaymath process-math">
 \begin{equation*}

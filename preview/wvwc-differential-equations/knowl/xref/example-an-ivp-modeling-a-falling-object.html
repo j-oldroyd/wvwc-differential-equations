@@ -12,11 +12,11 @@
 </head>
 <body class="ignore-math">
 <article class="example example-like"><h4 class="heading">
-<span class="type">Example</span><span class="space"> </span><span class="codenumber">1.1.8</span><span class="period">.</span><span class="space"> </span><span class="title">An IVP modeling a falling object.</span>
+<span class="type">Example</span><span xmlns:pf="https://prefigure.org" class="space"> </span><span class="codenumber">1.1.8</span><span xmlns:pf="https://prefigure.org" class="period">.</span><span xmlns:pf="https://prefigure.org" class="space"> </span><span class="title">An IVP modeling a falling object.</span>
 </h4>
-<div class="para">A ball weighing <span class="quantity">0.5 kg</span> is dropped from a height of <span class="quantity">100 m</span> and is acted upon by gravity and air resistance. Assuming that the force of air resistance is proportional to the velocity of the ball, what is an IVP that models the movement of the ball?</div>
-<div class="solutions"><details class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="period">.</span></summary><div class="solution solution-like knowl__content"><div class="para logical">
-<div class="para">What we need to do is to translate this physical situation into mathematics, and to do that we need to start assigning names to the quantities of interest. The quantities that matter in this problem are the movement of the ball, the force of gravity and the force of air resistance. We’ll name them as follows:</div>
+<div xmlns:pf="https://prefigure.org" class="para">A ball weighing <span class="quantity">0.5 kg</span> is dropped from a height of <span class="quantity">100 m</span> and is acted upon by gravity and air resistance.  Assuming that the force of air resistance is proportional to the velocity of the ball, what is an IVP that models the movement of the ball?</div>
+<div class="solutions"><details xmlns:pf="https://prefigure.org" class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="period">.</span></summary><div class="solution solution-like knowl__content"><div class="para logical">
+<div class="para">What we need to do is to translate this physical situation into mathematics, and to do that we need to start assigning names to the quantities of interest.  The quantities that matter in this problem are the movement of the ball, the force of gravity and the force of air resistance.  We’ll name them as follows:</div>
 <div class="displaymath process-math">
 \begin{align*}
 \text{height of the ball }t\text{ seconds after its released} &amp;= y(t) \\
@@ -24,7 +24,7 @@
 \text{force of air resistance} &amp;= F_{R} = k\dv{y}{t} 
 \end{align*}
 </div>
-<div class="para">where <span class="process-math">\(C\)</span> is negative (since air resistance should act <em class="emphasis">against</em> velocity). To get a differential equation out of all this, we’ll use Newton’s Second Law (which is actually a second-order ODE in disguise). This says that the net force on the ball should be equal to its mass times acceleration: <span class="process-math">\(F = ma\text{.}\)</span> So we have</div>
+<div class="para">where <span class="process-math">\(C\)</span> is negative (since air resistance should act <em class="emphasis">against</em> velocity).  To get a differential equation out of all this, we’ll use Newton’s Second Law (which is actually a second-order ODE in disguise).  This says that the net force on the ball should be equal to its mass times acceleration: <span class="process-math">\(F = ma\text{.}\)</span>  So we have</div>
 <div class="displaymath process-math">
 \begin{equation*}
 F_{G}+F_{R} = 0.5\dv[2]{y}{t}

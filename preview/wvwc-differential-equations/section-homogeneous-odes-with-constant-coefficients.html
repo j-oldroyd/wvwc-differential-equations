@@ -8,13 +8,13 @@
 <html lang="en-US" dir="ltr">
 <head xmlns:og="http://ogp.me/ns#" xmlns:book="https://ogp.me/ns/book#">
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>WVWC-DE Homogeneous ODEs with Constant Coefficients</title>
+<title>WVWC-DE Homogeneous ODEs with constant coefficients</title>
 <meta name="Keywords" content="Authored in PreTeXt">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta property="og:type" content="book">
-<meta property="og:image" content="https://j-oldroyd.github.io/wvwc-differential-equations/external/./wvwc-logo.jpg">
-<meta property="book:title" content="Differential Equations Lecture Notes">
-<meta property="book:author" content="Jesse Oldroyd">
+<meta xmlns:pf="https://prefigure.org" property="og:type" content="book">
+<meta xmlns:pf="https://prefigure.org" property="og:image" content="https://j-oldroyd.github.io/wvwc-differential-equations/external/./wvwc-logo.jpg">
+<meta xmlns:pf="https://prefigure.org" property="book:title" content="Differential Equations Lecture Notes">
+<meta xmlns:pf="https://prefigure.org" property="book:author" content="Jesse Oldroyd">
 <script src="https://sagecell.sagemath.org/static/embedded_sagecell.js"></script><script>
 var runestoneMathReady = new Promise((resolve) => window.rsMathReady = resolve);
 window.MathJax = {
@@ -89,13 +89,13 @@ window.MathJax = {
 };
 </script><script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/lunr.js/2.3.9/lunr.min.js" integrity="sha512-4xUl/d6D6THrAnXAwGajXkoWaeMNwEKK4iNfq5DotEbLPAfk6FSxSP3ydNxqDgCw1c/0Z1Jg6L8h2j+++9BZmg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script><script src="lunr-pretext-search-index.js" async=""></script><script src="_static/pretext/js/pretext_search.js"></script><link href="_static/pretext/css/pretext_search.css" rel="stylesheet" type="text/css">
 <script src="_static/pretext/js/lib/jquery.min.js"></script><script src="_static/pretext/js/lib/jquery.sticky.js"></script><script src="_static/pretext/js/lib/jquery.espy.min.js"></script><script src="_static/pretext/js/pretext.js"></script><script src="_static/pretext/js/pretext_add_on.js?x=1"></script><script src="_static/pretext/js/user_preferences.js"></script><script src="_static/pretext/js/lib/knowl.js"></script><!--knowl.js code controls Sage Cells within knowls--><script>sagecellEvalName='Evaluate (Sage)';
-</script><link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
-<link href="https://fonts.googleapis.com/css2?family=Inconsolata:wght@400;700&amp;family=Noto+Serif:ital,wght@0,400;0,700;1,400;1,700&amp;family=Tinos:ital,wght@0,400;0,700;1,400;1,700&amp;display=swap" rel="stylesheet">
-<link href="https://fonts.cdnfonts.com/css/dejavu-serif" rel="stylesheet">
-<link href="https://fonts.googleapis.com/css2?family=Roboto+Serif:opsz,wdth,wght@8..144,50..150,100..900&amp;display=swap" rel="stylesheet">
-<link href="https://fonts.googleapis.com/css2?family=Open+Sans:wdth,wght@75..100,300..800&amp;display=swap" rel="stylesheet">
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200">
+</script><link xmlns:pf="https://prefigure.org" rel="preconnect" href="https://fonts.googleapis.com">
+<link xmlns:pf="https://prefigure.org" rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+<link xmlns:pf="https://prefigure.org" href="https://fonts.googleapis.com/css2?family=Inconsolata:wght@400;700&amp;family=Noto+Serif:ital,wght@0,400;0,700;1,400;1,700&amp;family=Tinos:ital,wght@0,400;0,700;1,400;1,700&amp;display=swap" rel="stylesheet">
+<link xmlns:pf="https://prefigure.org" href="https://fonts.cdnfonts.com/css/dejavu-serif" rel="stylesheet">
+<link xmlns:pf="https://prefigure.org" href="https://fonts.googleapis.com/css2?family=Roboto+Serif:opsz,wdth,wght@8..144,50..150,100..900&amp;display=swap" rel="stylesheet">
+<link xmlns:pf="https://prefigure.org" href="https://fonts.googleapis.com/css2?family=Open+Sans:wdth,wght@75..100,300..800&amp;display=swap" rel="stylesheet">
+<link xmlns:pf="https://prefigure.org" rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200">
 <script src="https://cdn.geogebra.org/apps/deployggb.js"></script><link href="_static/pretext/css/pretext.css" rel="stylesheet" type="text/css">
 <link href="_static/pretext/css/pretext_add_on.css" rel="stylesheet" type="text/css">
 <link href="_static/pretext/css/shell_default.css" rel="stylesheet" type="text/css">
@@ -122,9 +122,9 @@ window.MathJax = {
 #example-types-of-second-order-odes-2-1 { counter-set: example-types-of-second-order-odes-2-1 0; }
 #example-types-of-second-order-odes-2-1 > li::marker { content: ""counter(example-types-of-second-order-odes-2-1,decimal)"."; }
 #example-types-of-second-order-odes-2-1 > li { counter-increment: example-types-of-second-order-odes-2-1; }
-#subsection-free-damped-motion-6 { counter-set: subsection-free-damped-motion-6 0; }
-#subsection-free-damped-motion-6 > li::marker { content: ""counter(subsection-free-damped-motion-6,decimal)":"; }
-#subsection-free-damped-motion-6 > li { counter-increment: subsection-free-damped-motion-6; }
+#subsection-free-damped-motion-5-4 { counter-set: subsection-free-damped-motion-5-4 0; }
+#subsection-free-damped-motion-5-4 > li::marker { content: ""counter(subsection-free-damped-motion-5-4,decimal)":"; }
+#subsection-free-damped-motion-5-4 > li { counter-increment: subsection-free-damped-motion-5-4; }
 #example-systems-odes-solving-system-two-equations-3-1-4 { counter-set: example-systems-odes-solving-system-two-equations-3-1-4 0; }
 #example-systems-odes-solving-system-two-equations-3-1-4 > li::marker { content: ""counter(example-systems-odes-solving-system-two-equations-3-1-4,decimal)"."; }
 #example-systems-odes-solving-system-two-equations-3-1-4 > li { counter-increment: example-systems-odes-solving-system-two-equations-3-1-4; }
@@ -153,11 +153,11 @@ window.MathJax = {
 </head>
 <body class="pretext book ignore-math">
 <a class="assistive" href="#ptx-content">Skip to main content</a><header id="ptx-masthead" class="ptx-masthead"><div class="ptx-banner">
-<a id="logo-link" class="logo-link" target="_blank" href=""><img src="external/./wvwc-logo.jpg" alt="Logo image"></a><div class="title-container">
+<a xmlns:pf="https://prefigure.org" id="logo-link" class="logo-link" target="_blank" href=""><img src="external/./wvwc-logo.jpg" alt="Logo image"></a><div class="title-container">
 <h1 class="heading"><a href="wvwc-differential-equations.html"><span class="title">Differential Equations Lecture Notes:</span> <span class="subtitle">West Virginia Wesleyan College</span></a></h1>
 <p class="byline">Jesse Oldroyd</p>
 </div>
-</div></header><nav id="ptx-navbar" class="ptx-navbar navbar"><button class="toc-toggle button" title="Contents"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5d2;</span><span class="name">Contents</span></button><a class="index-button button" href="backmatter-5.html" title="Index"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe88e;</span><span class="name">Index</span></a><div class="searchbox">
+</div></header><nav xmlns:pf="https://prefigure.org" id="ptx-navbar" class="ptx-navbar navbar"><button class="toc-toggle button" title="Contents"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5d2;</span><span class="name">Contents</span></button><a class="index-button button" href="backmatter-5.html" title="Index"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe88e;</span><span class="name">Index</span></a><div class="searchbox">
 <div class="searchwidget"><button id="searchbutton" class="searchbutton button" type="button" title="Search book"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe8b6;</span><span class="name">Search Book</span></button></div>
 <div id="searchresultsplaceholder" class="searchresultsplaceholder" style="display: none">
 <div class="search-results-controls">
@@ -182,7 +182,7 @@ var ggbApp = new GGBApplet({"appName": "graphing",
     "autoHeight": true,
     "disableAutoScale": false},
 true);
-</script></span><span class="treebuttons"><a class="previous-button button" href="section-second-order-linear-odes.html" title="Previous"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cb;</span><span class="name">Prev</span></a><a class="up-button button" href="linear-odes-constant-coefficients.html" title="Up"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5ce;</span><span class="name">Up</span></a><a class="next-button button" href="section-spring-mass-models.html" title="Next"><span class="name">Next</span><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cc;</span></a></span></nav><div id="latex-macros" class="hidden-content process-math" style="display:none"><span class="process-math">\(\newcommand{\RR}{\mathbb{R}}
+</script></span><span class="treebuttons"><a class="previous-button button" href="section-second-order-linear-odes.html" title="Previous"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cb;</span><span class="name">Prev</span></a><a class="up-button button" href="linear-odes-constant-coefficients.html" title="Up"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5ce;</span><span class="name">Up</span></a><a class="next-button button" href="section-spring-mass-models.html" title="Next"><span class="name">Next</span><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cc;</span></a></span></nav><div xmlns:pf="https://prefigure.org" id="latex-macros" class="hidden-content process-math" style="display:none"><span class="process-math">\(\newcommand{\RR}{\mathbb{R}}
 \newcommand{\QQ}{\mathbb{Q}}
 \newcommand{\NN}{\mathbb{N}}
 \newcommand{\ZZ}{\mathbb{Z}}
@@ -227,7 +227,7 @@ true);
 \newcommand{\fillinmath}[1]{\mathchoice{\colorbox{fillinmathshade}{$\displaystyle     \phantom{\,#1\,}$}}{\colorbox{fillinmathshade}{$\textstyle        \phantom{\,#1\,}$}}{\colorbox{fillinmathshade}{$\scriptstyle      \phantom{\,#1\,}$}}{\colorbox{fillinmathshade}{$\scriptscriptstyle\phantom{\,#1\,}$}}}
 \)</span></div>
 <div class="ptx-page">
-<div id="ptx-sidebar" class="ptx-sidebar"><nav id="ptx-toc" class="ptx-toc depth3 parts"><ul class="structural contains-active toc-item-list">
+<div xmlns:pf="https://prefigure.org" id="ptx-sidebar" class="ptx-sidebar"><nav id="ptx-toc" class="ptx-toc depth2 parts"><ul class="structural contains-active toc-item-list">
 <li class="toc-item toc-frontmatter">
 <div class="toc-title-box"><a href="front.html" class="internal"><span class="title">Front Matter</span></a></div>
 <ul class="structural toc-item-list">
@@ -243,46 +243,46 @@ true);
 <div class="toc-title-box"><a href="intro-to-odes.html" class="internal"><span class="codenumber">1</span> <span class="title">Introduction</span></a></div>
 <ul class="structural toc-item-list">
 <li class="toc-item toc-section">
-<div class="toc-title-box"><a href="section-ordinary-differential-equations.html" class="internal"><span class="codenumber">1.1</span> <span class="title">Ordinary Differential Equations</span></a></div>
+<div class="toc-title-box"><a href="section-ordinary-differential-equations.html" class="internal"><span class="codenumber">1.1</span> <span class="title">Ordinary differential equations</span></a></div>
 <ul class="structural toc-item-list">
-<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="section-ordinary-differential-equations.html#subsection-basic-concepts-for-odes" class="internal"><span class="title">Basic Concepts</span></a></div></li>
-<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="section-ordinary-differential-equations.html#subsection-mathematical-models" class="internal"><span class="title">Mathematical Models</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="section-ordinary-differential-equations.html#subsection-basic-concepts-for-odes" class="internal"><span class="title">Basic concepts</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="section-ordinary-differential-equations.html#subsection-mathematical-models" class="internal"><span class="title">Mathematical models</span></a></div></li>
 </ul>
 </li>
 <li class="toc-item toc-section">
-<div class="toc-title-box"><a href="section-direction-fields.html" class="internal"><span class="codenumber">1.2</span> <span class="title">Direction Fields</span></a></div>
-<ul class="structural toc-item-list"><li class="toc-item toc-subsection"><div class="toc-title-box"><a href="section-direction-fields.html#subsection-direction-fields-and-solution-curves" class="internal"><span class="title">Direction Fields and Solution Curves</span></a></div></li></ul>
+<div class="toc-title-box"><a href="section-direction-fields.html" class="internal"><span class="codenumber">1.2</span> <span class="title">Direction fields</span></a></div>
+<ul class="structural toc-item-list"><li class="toc-item toc-subsection"><div class="toc-title-box"><a href="section-direction-fields.html#subsection-direction-fields-and-solution-curves" class="internal"><span class="title">Direction fields and solution curves</span></a></div></li></ul>
 </li>
 <li class="toc-item toc-section">
-<div class="toc-title-box"><a href="section-separable-odes-and-substitution.html" class="internal"><span class="codenumber">1.3</span> <span class="title">Separable ODEs and Substitution</span></a></div>
+<div class="toc-title-box"><a href="section-separable-odes-and-substitution.html" class="internal"><span class="codenumber">1.3</span> <span class="title">Separable ODEs and substitution</span></a></div>
 <ul class="structural toc-item-list">
 <li class="toc-item toc-subsection"><div class="toc-title-box"><a href="section-separable-odes-and-substitution.html#subsection-separable-odes" class="internal"><span class="title">Separable ODEs</span></a></div></li>
-<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="section-separable-odes-and-substitution.html#subsection-substitution-methods" class="internal"><span class="title">Substitution Methods</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="section-separable-odes-and-substitution.html#subsection-substitution-methods" class="internal"><span class="title">Substitution methods</span></a></div></li>
 </ul>
 </li>
 <li class="toc-item toc-section">
-<div class="toc-title-box"><a href="section-first-order-linear-odes.html" class="internal"><span class="codenumber">1.4</span> <span class="title">First-Order Linear ODEs</span></a></div>
+<div class="toc-title-box"><a href="section-first-order-linear-odes.html" class="internal"><span class="codenumber">1.4</span> <span class="title">First-order linear ODEs</span></a></div>
 <ul class="structural toc-item-list">
-<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="section-first-order-linear-odes.html#subsection-integrating-factors" class="internal"><span class="title">Integrating Factors</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="section-first-order-linear-odes.html#subsection-integrating-factors" class="internal"><span class="title">Integrating factors</span></a></div></li>
 <li class="toc-item toc-subsection"><div class="toc-title-box"><a href="section-first-order-linear-odes.html#subsection-applications" class="internal"><span class="title">Applications</span></a></div></li>
 </ul>
 </li>
 <li class="toc-item toc-section">
-<div class="toc-title-box"><a href="section-existence-and-uniqueness-of-solutions.html" class="internal"><span class="codenumber">1.5</span> <span class="title">Existence and Uniqueness</span></a></div>
+<div class="toc-title-box"><a href="section-existence-and-uniqueness-of-solutions.html" class="internal"><span class="codenumber">1.5</span> <span class="title">Existence and uniqueness</span></a></div>
 <ul class="structural toc-item-list">
 <li class="toc-item toc-subsection"><div class="toc-title-box"><a href="section-existence-and-uniqueness-of-solutions.html#subsec-existence-and-uniqueness-for-linear-differential-equations" class="internal"><span class="title">Existence and uniqueness for linear differential equations</span></a></div></li>
-<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="section-existence-and-uniqueness-of-solutions.html#subsection-existence-and-uniqueness-theorem" class="internal"><span class="title">Existence and Uniqueness Theorem</span></a></div></li>
-<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="section-existence-and-uniqueness-of-solutions.html#subsection-picard-iteration" class="internal"><span class="title">Picard Iteration</span></a></div></li>
-<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="section-existence-and-uniqueness-of-solutions.html#subsection-euler-s-method" class="internal"><span class="title">Euler’s Method</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="section-existence-and-uniqueness-of-solutions.html#subsection-existence-and-uniqueness-theorem" class="internal"><span class="title">Existence and uniqueness theorem</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="section-existence-and-uniqueness-of-solutions.html#subsection-picard-iteration" class="internal"><span class="title">Picard iteration</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="section-existence-and-uniqueness-of-solutions.html#subsection-euler-s-method" class="internal"><span class="title">Euler’s method</span></a></div></li>
 </ul>
 </li>
 <li class="toc-item toc-section">
 <div class="toc-title-box"><a href="section-population-models-and-autonomous-equations.html" class="internal"><span class="codenumber">1.6</span> <span class="title">Autonomous Equations</span></a></div>
 <ul class="structural toc-item-list">
-<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="section-population-models-and-autonomous-equations.html#subsection-population-equations" class="internal"><span class="title">Population Equations</span></a></div></li>
-<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="section-population-models-and-autonomous-equations.html#subsection-the-logistic-equation" class="internal"><span class="title">The Logistic Equation</span></a></div></li>
-<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="section-population-models-and-autonomous-equations.html#section-stability-of-solutions" class="internal"><span class="title">Stability of Solutions</span></a></div></li>
-<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="section-population-models-and-autonomous-equations.html#subsection-linear-stability-analysis" class="internal"><span class="title">Linear Stability Analysis</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="section-population-models-and-autonomous-equations.html#subsection-population-models" class="internal"><span class="title">Population models</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="section-population-models-and-autonomous-equations.html#subsection-the-logistic-equation" class="internal"><span class="title">The logistic equation</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="section-population-models-and-autonomous-equations.html#section-stability-of-solutions" class="internal"><span class="title">Stability of solutions</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="section-population-models-and-autonomous-equations.html#subsection-linear-stability-analysis" class="internal"><span class="title">Linear stability analysis</span></a></div></li>
 </ul>
 </li>
 </ul>
@@ -291,29 +291,29 @@ true);
 <div class="toc-title-box"><a href="linear-odes-constant-coefficients.html" class="internal"><span class="codenumber">2</span> <span class="title">Constant Coefficients</span></a></div>
 <ul class="structural toc-item-list contains-active">
 <li class="toc-item toc-section">
-<div class="toc-title-box"><a href="section-second-order-linear-odes.html" class="internal"><span class="codenumber">2.1</span> <span class="title">Second-Order Linear ODEs</span></a></div>
+<div class="toc-title-box"><a href="section-second-order-linear-odes.html" class="internal"><span class="codenumber">2.1</span> <span class="title">Second-order linear ODEs</span></a></div>
 <ul class="structural toc-item-list">
-<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="section-second-order-linear-odes.html#subsection-types-of-linear-odes" class="internal"><span class="title">Types of Linear ODEs</span></a></div></li>
-<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="section-second-order-linear-odes.html#subsection-solutions-of-second-order-linear-ODEs" class="internal"><span class="title">Solutions of Second-Order Linear ODEs</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="section-second-order-linear-odes.html#subsection-types-of-linear-odes" class="internal"><span class="title">Types of linear ODEs</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="section-second-order-linear-odes.html#subsection-solutions-of-second-order-linear-ODEs" class="internal"><span class="title">Solutions of second-order linear ODEs</span></a></div></li>
 </ul>
 </li>
 <li class="toc-item toc-section active"><div class="toc-title-box"><a href="section-homogeneous-odes-with-constant-coefficients.html" class="internal"><span class="codenumber">2.2</span> <span class="title">Homogeneous ODEs</span></a></div></li>
 <li class="toc-item toc-section">
-<div class="toc-title-box"><a href="section-spring-mass-models.html" class="internal"><span class="codenumber">2.3</span> <span class="title">Spring-Mass Models</span></a></div>
+<div class="toc-title-box"><a href="section-spring-mass-models.html" class="internal"><span class="codenumber">2.3</span> <span class="title">Spring-mass models</span></a></div>
 <ul class="structural toc-item-list">
-<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="section-spring-mass-models.html#subsection-free-undamped-motion" class="internal"><span class="title">Free Undamped Motion</span></a></div></li>
-<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="section-spring-mass-models.html#subsection-free-damped-motion" class="internal"><span class="title">Free Damped Motion</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="section-spring-mass-models.html#subsection-free-undamped-motion" class="internal"><span class="title">Free undamped motion</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="section-spring-mass-models.html#subsection-free-damped-motion" class="internal"><span class="title">Free damped motion</span></a></div></li>
 </ul>
 </li>
 <li class="toc-item toc-section">
-<div class="toc-title-box"><a href="section-solutions-of-nonhomogeneous-equations.html" class="internal"><span class="codenumber">2.4</span> <span class="title">Non-homogeneous Equations</span></a></div>
-<ul class="structural toc-item-list"><li class="toc-item toc-subsection"><div class="toc-title-box"><a href="section-solutions-of-nonhomogeneous-equations.html#subsection-the-method-of-undetermined-coefficients" class="internal"><span class="title">The Method of Undetermined Coefficients</span></a></div></li></ul>
+<div class="toc-title-box"><a href="section-solutions-of-nonhomogeneous-equations.html" class="internal"><span class="codenumber">2.4</span> <span class="title">Non-homogeneous equations</span></a></div>
+<ul class="structural toc-item-list"><li class="toc-item toc-subsection"><div class="toc-title-box"><a href="section-solutions-of-nonhomogeneous-equations.html#subsection-the-method-of-undetermined-coefficients" class="internal"><span class="title">The method of undetermined coefficients</span></a></div></li></ul>
 </li>
 <li class="toc-item toc-section">
-<div class="toc-title-box"><a href="section-forced-oscillations-and-resonance.html" class="internal"><span class="codenumber">2.5</span> <span class="title">Forced Oscillations and Resonance</span></a></div>
+<div class="toc-title-box"><a href="section-forced-oscillations-and-resonance.html" class="internal"><span class="codenumber">2.5</span> <span class="title">Forced oscillations and resonance</span></a></div>
 <ul class="structural toc-item-list">
-<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="section-forced-oscillations-and-resonance.html#subsection-undamped-systems" class="internal"><span class="title">Undamped Systems</span></a></div></li>
-<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="section-forced-oscillations-and-resonance.html#subsection-damped-systems" class="internal"><span class="title">Damped Systems</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="section-forced-oscillations-and-resonance.html#subsection-undamped-systems" class="internal"><span class="title">Undamped systems</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="section-forced-oscillations-and-resonance.html#subsection-damped-systems" class="internal"><span class="title">Damped systems</span></a></div></li>
 </ul>
 </li>
 </ul>
@@ -328,26 +328,34 @@ true);
 <li class="toc-item toc-chapter">
 <div class="toc-title-box"><a href="systems-of-odes.html" class="internal"><span class="codenumber">4</span> <span class="title">Linear Systems</span></a></div>
 <ul class="structural toc-item-list">
-<li class="toc-item toc-section"><div class="toc-title-box"><a href="section-systems-of-odes-as-models.html" class="internal"><span class="codenumber">4.1</span> <span class="title">Systems of ODEs as Models</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="section-systems-of-odes-as-models.html" class="internal"><span class="codenumber">4.1</span> <span class="title">Systems of ODEs as models</span></a></div></li>
 <li class="toc-item toc-section">
-<div class="toc-title-box"><a href="section-constant-coefficient-systems-and-the-phase-plane.html" class="internal"><span class="codenumber">4.2</span> <span class="title">Constant Coefficient Systems</span></a></div>
+<div class="toc-title-box"><a href="section-constant-coefficient-systems-and-the-phase-plane.html" class="internal"><span class="codenumber">4.2</span> <span class="title">Constant coefficient systems</span></a></div>
 <ul class="structural toc-item-list">
 <li class="toc-item toc-subsection"><div class="toc-title-box"><a href="section-constant-coefficient-systems-and-the-phase-plane.html#subsection-matrix-odes-constant-coefficients" class="internal"><span class="title">Solutions of <span class="process-math">\(\vec{x}^\prime = A\vec{x}\)</span></span></a></div></li>
-<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="section-constant-coefficient-systems-and-the-phase-plane.html#subsection-finding-eigenvalues-and-eigenvectors" class="internal"><span class="title">Finding Eigenvalues and Eigenvectors</span></a></div></li>
-<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="section-constant-coefficient-systems-and-the-phase-plane.html#subsection-solving-matrix-odes" class="internal"><span class="title">Solving Matrix ODEs</span></a></div></li>
-<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="section-constant-coefficient-systems-and-the-phase-plane.html#subsection-applications-of-matrix-odes" class="internal"><span class="title">Applications of Matrix ODEs</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="section-constant-coefficient-systems-and-the-phase-plane.html#subsection-finding-eigenvalues-and-eigenvectors" class="internal"><span class="title">Finding eigenvalues and eigenvectors</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="section-constant-coefficient-systems-and-the-phase-plane.html#subsection-solving-matrix-odes" class="internal"><span class="title">Solving matrix odes</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="section-constant-coefficient-systems-and-the-phase-plane.html#subsection-applications-of-matrix-odes" class="internal"><span class="title">Applications of matrix ODEs</span></a></div></li>
 </ul>
 </li>
 <li class="toc-item toc-section">
-<div class="toc-title-box"><a href="section-phase-plane-criteria-for-critical-points-stability.html" class="internal"><span class="codenumber">4.3</span> <span class="title">Phase Portraits and Critical Points</span></a></div>
+<div class="toc-title-box"><a href="section-phase-plane-criteria-for-critical-points-stability.html" class="internal"><span class="codenumber">4.3</span> <span class="title">Phase portraits and critical points</span></a></div>
 <ul class="structural toc-item-list">
-<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="section-phase-plane-criteria-for-critical-points-stability.html#subsection-the-phase-plane" class="internal"><span class="title">The Phase Plane</span></a></div></li>
-<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="section-phase-plane-criteria-for-critical-points-stability.html#subsection-eigenvalue-criteria-for-stability" class="internal"><span class="title">Eigenvalue Criteria for Stability</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="section-phase-plane-criteria-for-critical-points-stability.html#subsection-the-phase-plane" class="internal"><span class="title">The phase plane</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="section-phase-plane-criteria-for-critical-points-stability.html#subsection-eigenvalue-criteria-for-stability" class="internal"><span class="title">Eigenvalue criteria for stability</span></a></div></li>
 </ul>
 </li>
 <li class="toc-item toc-section">
-<div class="toc-title-box"><a href="section-nonlinear-systems.html" class="internal"><span class="codenumber">4.4</span> <span class="title">Nonlinear Systems</span></a></div>
-<ul class="structural toc-item-list"><li class="toc-item toc-subsection"><div class="toc-title-box"><a href="section-nonlinear-systems.html#subsection-classification-of-critical-points-and-linearization" class="internal"><span class="title">Classification of Critical Points and Linearization</span></a></div></li></ul>
+<div class="toc-title-box"><a href="section-nonlinear-systems.html" class="internal"><span class="codenumber">4.4</span> <span class="title">Nonlinear systems</span></a></div>
+<ul class="structural toc-item-list"><li class="toc-item toc-subsection"><div class="toc-title-box"><a href="section-nonlinear-systems.html#subsection-classification-of-critical-points-and-linearization" class="internal"><span class="title">Classification of critical points and linearization</span></a></div></li></ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec-sage-and-octave-for-systems-of-odes.html" class="internal"><span class="codenumber">4.5</span> <span class="title">Sage and Octave for systems of ODEs</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-sage-and-octave-for-systems-of-odes.html#subsec-vectors-and-matrices" class="internal"><span class="title">Vectors and matrices</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-sage-and-octave-for-systems-of-odes.html#subsec-solving-matrix-odes" class="internal"><span class="title">Solving matrix ODEs</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-sage-and-octave-for-systems-of-odes.html#subsec-phase-portraits" class="internal"><span class="title">Phase portraits</span></a></div></li>
+</ul>
 </li>
 </ul>
 </li>
@@ -487,21 +495,23 @@ true);
 </ul>
 </li>
 </ul></nav></div>
-<main class="ptx-main"><div id="ptx-content" class="ptx-content"><section class="section" id="section-homogeneous-odes-with-constant-coefficients"><h2 class="heading hide-type">
-<span class="type">Section</span><span class="space"> </span><span class="codenumber">2.2</span><span class="space"> </span><span class="title">Homogeneous ODEs with Constant Coefficients</span>
+<main class="ptx-main"><div id="ptx-content" class="ptx-content"><section xmlns:pf="https://prefigure.org" class="section" id="section-homogeneous-odes-with-constant-coefficients"><h2 class="heading hide-type">
+<span class="type">Section</span><span class="space"> </span><span class="codenumber">2.2</span><span class="space"> </span><span class="title">Homogeneous ODEs with constant coefficients</span>
 </h2>
 <div class="para" id="section-homogeneous-odes-with-constant-coefficients-3">Now we’ll move on to solving homogeneous ODEs, at least with constant coefficients.</div>
 <article class="example example-like" id="example-solving-a-homogeneous-ode"><h3 class="heading">
 <span class="type">Example</span><span class="space"> </span><span class="codenumber">2.2.1</span><span class="period">.</span><span class="space"> </span><span class="title">Solving a homogeneous ODE.</span>
-</h3> <div class="para logical" id="example-solving-a-homogeneous-ode-2">
-<div class="para">Suppose we wanted to solve <span class="process-math">\(y'' - y^\prime - 6y = 0\text{,}\)</span> where <span class="process-math">\(y=y(x)\text{.}\)</span> If we stare at this for a bit, we may realize the following: the only way for a function <span class="process-math">\(y\)</span> to be a solution of this ODE is for <span class="process-math">\(y\)</span> and its derivatives <span class="process-math">\(y^\prime,y''\)</span> to cancel each other out. In other words, <span class="process-math">\(y\)</span> and its derivatives <em class="emphasis">should be like terms</em>. This is a huge hint that <span class="process-math">\(y\)</span> should look like an exponential function. So we’ll guess that <span class="process-math">\(y = e^{rx}\)</span> for some real number <span class="process-math">\(r\text{,}\)</span> and see if we can’t pick <span class="process-math">\(r\)</span> in just the right way to get a solution to the ODE. If we plug <span class="process-math">\(e^{rx}\)</span> into the ODE, we get</div>
+</h3>
+<div class="para logical" id="example-solving-a-homogeneous-ode-2">
+<div class="para">Suppose we wanted to solve <span class="process-math">\(y'' - y^\prime - 6y = 0\text{,}\)</span> where <span class="process-math">\(y=y(x)\text{.}\)</span>  If we stare at this for a bit, we may realize the following: the only way for a function <span class="process-math">\(y\)</span> to be a solution of this ODE is for <span class="process-math">\(y\)</span> and its derivatives <span class="process-math">\(y^\prime,y''\)</span> to cancel each other out.  In other words, <span class="process-math">\(y\)</span> and its derivatives <em class="emphasis">should be like terms</em>. This is a huge hint that <span class="process-math">\(y\)</span> should look like an exponential function.  So we’ll guess that <span class="process-math">\(y = e^{rx}\)</span> for some real number <span class="process-math">\(r\text{,}\)</span> and see if we can’t pick <span class="process-math">\(r\)</span> in just the right way to get a solution to the ODE. If we plug <span class="process-math">\(e^{rx}\)</span> into the ODE, we get</div>
 <div class="displaymath process-math" id="example-solving-a-homogeneous-ode-2-13">
 \begin{align*}
 y''- y^\prime - 6y &amp; = r^{2}e^{rx} - re^{rx} - 6e^{rx} \\
 &amp; = e^{rx}(r^{2} - r - 6) \text{.}
 \end{align*}
 </div>
-</div> <div class="para logical" id="example-solving-a-homogeneous-ode-3">
+</div>
+<div class="para logical" id="example-solving-a-homogeneous-ode-3">
 <div class="para">So we need to set <span class="process-math">\(e^{rx}(r^{2} - r - 6)\)</span> equal to <span class="process-math">\(0\)</span> and solve for <span class="process-math">\(r\text{,}\)</span> which gives</div>
 <div class="displaymath process-math">
 \begin{equation*}
@@ -514,12 +524,13 @@ r = -2, 3.
 y_{1} = e^{-2x}
 \end{equation*}
 </div>
-<div class="para">and <span class="process-math">\(y_{2} = e^{3x}\text{.}\)</span> Since <span class="process-math">\(W(y_{1},y_{2})\neq0\text{,}\)</span> this means that <span class="process-math">\(c_{1}e^{-2x} + c_{2}e^{3x}\)</span> is actually the general solution of the ODE.</div>
-</div></article><div class="para" id="section-homogeneous-odes-with-constant-coefficients-5">The process in <a href="section-homogeneous-odes-with-constant-coefficients.html#example-solving-a-homogeneous-ode" class="xref" data-knowl="./knowl/xref/example-solving-a-homogeneous-ode.html" data-reveal-label="Reveal" data-close-label="Close" title="Example 2.2.1: Solving a homogeneous ODE">Example 2.2.1</a> will work for <em class="emphasis">every</em> second-order homogeneous ODE with constant coefficients. So solving such an ODE is even easier than integrating: all we need to do is to find the roots of a particular polynomial.</div>
+<div class="para">and <span class="process-math">\(y_{2} = e^{3x}\text{.}\)</span>  Since <span class="process-math">\(W(y_{1},y_{2})\neq0\text{,}\)</span> this means that <span class="process-math">\(c_{1}e^{-2x} + c_{2}e^{3x}\)</span> is actually the general solution of the ODE.</div>
+</div></article><div class="para" id="section-homogeneous-odes-with-constant-coefficients-5">The process in <a href="section-homogeneous-odes-with-constant-coefficients.html#example-solving-a-homogeneous-ode" class="xref" data-knowl="./knowl/xref/example-solving-a-homogeneous-ode.html" data-reveal-label="Reveal" data-close-label="Close" title="Example 2.2.1: Solving a homogeneous ODE">Example 2.2.1</a> will work for <em class="emphasis">every</em> second-order homogeneous ODE with constant coefficients.  So solving such an ODE is even easier than integrating: all we need to do is to find the roots of a particular polynomial.</div>
 <article class="definition definition-like" id="definition-the-characteristic-polynomial"><h3 class="heading">
-<span class="type">Definition</span><span class="space"> </span><span class="codenumber">2.2.2</span><span class="period">.</span><span class="space"> </span><span class="title">The Characteristic Polynomial.</span>
-</h3>  <div class="para logical" id="definition-the-characteristic-polynomial-3-1">
-<div class="para">Let <span class="process-math">\(a,b\)</span> and <span class="process-math">\(c\)</span> be constants. Given the ODE <span class="process-math">\(ay'' + by^\prime + cy = 0\text{,}\)</span> the <dfn class="terminology">characteristic equation</dfn> of this ODE is the polynomial</div>
+<span class="type">Definition</span><span class="space"> </span><span class="codenumber">2.2.2</span><span class="period">.</span><span class="space"> </span><span class="title">The characteristic polynomial.</span>
+</h3>
+<div class="para logical" id="definition-the-characteristic-polynomial-3-1">
+<div class="para">Let <span class="process-math">\(a,b\)</span> and <span class="process-math">\(c\)</span> be constants.  Given the ODE <span class="process-math">\(ay'' + by^\prime + cy = 0\text{,}\)</span> the <dfn class="terminology">characteristic equation</dfn> of this ODE is the polynomial</div>
 <div class="displaymath process-math">
 \begin{equation*}
 ar^{2} + br + c = 0.
@@ -527,10 +538,10 @@ ar^{2} + br + c = 0.
 </div>
 </div></article><div class="para" id="section-homogeneous-odes-with-constant-coefficients-7">We can now state the following result for finding solutions of homogeneous ODEs with constant coefficients.</div>
 <article class="theorem theorem-like" id="theorem-characteristic-equations-with-distinct-roots"><h3 class="heading">
-<span class="type">Theorem</span><span class="space"> </span><span class="codenumber">2.2.3</span><span class="period">.</span><span class="space"> </span><span class="title">Characteristic Equations with Distinct Roots.</span>
+<span class="type">Theorem</span><span class="space"> </span><span class="codenumber">2.2.3</span><span class="period">.</span><span class="space"> </span><span class="title">Characteristic equations with distinct roots.</span>
 </h3>
 <div class="para logical" id="theorem-characteristic-equations-with-distinct-roots-2-1">
-<div class="para">Let <span class="process-math">\(a,b\)</span> and <span class="process-math">\(c\)</span> be constants. Suppose that the characteristic equation of <span class="process-math">\(ay'' + by^\prime + cy = 0\)</span> has distinct roots <span class="process-math">\(r_{1}\)</span> and <span class="process-math">\(r_{2}\text{.}\)</span> Then the general solution of the ODE is given by</div>
+<div class="para">Let <span class="process-math">\(a,b\)</span> and <span class="process-math">\(c\)</span> be constants.  Suppose that the characteristic equation of <span class="process-math">\(ay'' + by^\prime + cy = 0\)</span> has distinct roots <span class="process-math">\(r_{1}\)</span> and <span class="process-math">\(r_{2}\text{.}\)</span>  Then the general solution of the ODE is given by</div>
 <div class="displaymath process-math">
 \begin{equation*}
 c_{1}e^{r_{1}x} + c_{2}e^{r_{2}x}.
@@ -539,7 +550,7 @@ c_{1}e^{r_{1}x} + c_{2}e^{r_{2}x}.
 </div></article><article class="example example-like" id="example-spring-mass-system-revisited"><h3 class="heading">
 <span class="type">Example</span><span class="space"> </span><span class="codenumber">2.2.4</span><span class="period">.</span><span class="space"> </span><span class="title">Spring-mass system revisited.</span>
 </h3>
-<div class="para" id="example-spring-mass-system-revisited-2-1">An object of mass <span class="quantity">4 kg</span> is attached to a horizontal, frictionless spring. Suppose the spring constant is given by <span class="process-math">\(k=16\text{.}\)</span> The mass is held <span class="quantity">3 m</span> to the right of the spring’s equilibrium position, and is then released at time <span class="process-math">\(t=0\)</span> where <span class="process-math">\(t\)</span> is in seconds. Find the displacement <span class="process-math">\(x(t)\)</span> of the mass.</div>
+<div class="para" id="example-spring-mass-system-revisited-2-1">An object of mass <span class="quantity">4 kg</span> is attached to a horizontal, frictionless spring.  Suppose the spring constant is given by <span class="process-math">\(k=16\text{.}\)</span>  The mass is held <span class="quantity">3 m</span> to the right of the spring’s equilibrium position, and is then released at time <span class="process-math">\(t=0\)</span> where <span class="process-math">\(t\)</span> is in seconds. Find the displacement <span class="process-math">\(x(t)\)</span> of the mass.</div>
 <div class="solutions"><details id="example-spring-mass-system-revisited-3" class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="period">.</span></summary><div class="solution solution-like knowl__content">
 <div class="para logical" id="example-spring-mass-system-revisited-3-1">
 <div class="para">We know from <a href="section-second-order-linear-odes.html#example-a-second-order-model" class="xref" data-knowl="./knowl/xref/example-a-second-order-model.html" data-reveal-label="Reveal" data-close-label="Close" title="Example 2.1.4: A second-order model">Example 2.1.4</a> that the second-order ODE given by</div>
@@ -548,30 +559,32 @@ c_{1}e^{r_{1}x} + c_{2}e^{r_{2}x}.
 4x'' + kx = 0\quad\text{or}\quad x'' + 4x = 0
 \end{equation*}
 </div>
-<div class="para">provides a model for <span class="process-math">\(x(t)\text{,}\)</span> but now we are in a position to solve it. The characteristic equation of this ODE is <span class="process-math">\(r^{2} + 4 = 0\text{,}\)</span> which has roots <span class="process-math">\(r=\pm2i\text{.}\)</span> The imaginary roots <em class="emphasis">are not a problem</em>, and in fact provide significant information about the motion of the mass, as we’ll soon see. The general solution of the ODE is</div>
+<div class="para">provides a model for <span class="process-math">\(x(t)\text{,}\)</span> but now we are in a position to solve it.  The characteristic equation of this ODE is <span class="process-math">\(r^{2} + 4 = 0\text{,}\)</span> which has roots <span class="process-math">\(r=\pm2i\text{.}\)</span> The imaginary roots <em class="emphasis">are not a problem</em>, and in fact provide significant information about the motion of the mass, as we’ll soon see.  The general solution of the ODE is</div>
 <div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/example-a-second-order-model.html">
 \begin{equation*}
-x = c_{1}e^{-2it} + c_{2}e^{2it}.
+x = c_{1}e^{-2it} + c_{2}e^{2it}\text{.}
 \end{equation*}
 </div>
-</div> <div class="para logical" id="example-spring-mass-system-revisited-3-2">
+</div>
+<div class="para logical" id="example-spring-mass-system-revisited-3-2">
 <div class="para">The initial conditions are <span class="process-math">\(x(0) = 3\)</span> and <span class="process-math">\(x^\prime(0) = 0\text{,}\)</span> which give the equations</div>
 <div class="displaymath process-math" id="example-spring-mass-system-revisited-3-2-3">
 \begin{align*}
 3 &amp; = c_{1} + c_{2} \\
-0 &amp; = -2ic_{1} + 2ic_{2} 
+0 &amp; = -2ic_{1} + 2ic_{2} \text{.}
 \end{align*}
 </div>
-<div class="para">The second equation implies that <span class="process-math">\(c_{1} = c_{2}\text{,}\)</span> and applying this to the first equation now gives <span class="process-math">\(c_{1} = c_{2} = \frac{3}{2}\text{.}\)</span> Hence the displacement of the mass is given by</div>
+<div class="para">The second equation implies that <span class="process-math">\(c_{1} = c_{2}\text{,}\)</span> and applying this to the first equation now gives <span class="process-math">\(c_{1} =
+c_{2} = \frac{3}{2}\text{.}\)</span>  Hence the displacement of the mass is given by</div>
 <div class="displaymath process-math">
 \begin{equation*}
-x = \frac{3}{2}e^{-2it} + \frac{3}{2}e^{2it}.
+x = \frac{3}{2}e^{-2it} + \frac{3}{2}e^{2it}\text{.}
 \end{equation*}
 </div>
 </div>
-</div></details></div></article><div class="para" id="section-homogeneous-odes-with-constant-coefficients-10">The appearance of the "imaginary" solution in <a href="section-homogeneous-odes-with-constant-coefficients.html#example-spring-mass-system-revisited" class="xref" data-knowl="./knowl/xref/example-spring-mass-system-revisited.html" data-reveal-label="Reveal" data-close-label="Close" title="Example 2.2.4: Spring-mass system revisited">Example 2.2.4</a> may seem strange, but they’re actually quite natural. In fact, we can use <dfn class="terminology">Euler’s formula</dfn> to write the solution in terms of a more familiar function.</div>
+</div></details></div></article><div class="para" id="section-homogeneous-odes-with-constant-coefficients-10">The appearance of the "imaginary" solution in <a href="section-homogeneous-odes-with-constant-coefficients.html#example-spring-mass-system-revisited" class="xref" data-knowl="./knowl/xref/example-spring-mass-system-revisited.html" data-reveal-label="Reveal" data-close-label="Close" title="Example 2.2.4: Spring-mass system revisited">Example 2.2.4</a> may seem strange, but they’re actually quite natural.  In fact, we can use <dfn class="terminology">Euler’s formula</dfn> to write the solution in terms of a more familiar function.</div>
 <article class="theorem theorem-like" id="theorem-euler-s-formula"><h3 class="heading">
-<span class="type">Theorem</span><span class="space"> </span><span class="codenumber">2.2.5</span><span class="period">.</span><span class="space"> </span><span class="title">Euler’s Formula.</span>
+<span class="type">Theorem</span><span class="space"> </span><span class="codenumber">2.2.5</span><span class="period">.</span><span class="space"> </span><span class="title">Euler’s formula.</span>
 </h3>
 <div class="para logical" id="theorem-euler-s-formula-3-1">
 <div class="para">For all <span class="process-math">\(x\text{,}\)</span> the following equations hold:</div>
@@ -579,52 +592,52 @@ x = \frac{3}{2}e^{-2it} + \frac{3}{2}e^{2it}.
 \begin{align*}
 e^{ix} &amp; = \cos x + i\sin x \\
 \cos x &amp; = \frac{e^{ix}+e^{-ix}}{2} \\
-\sin x &amp; = \frac{e^{ix} - e^{-ix}}{2i} 
+\sin x &amp; = \frac{e^{ix} - e^{-ix}}{2i} \text{.}
 \end{align*}
 </div>
 </div></article><div class="para logical" id="section-homogeneous-odes-with-constant-coefficients-12">
-<div class="para">So using Euler’s Formula on the solution from <a href="section-homogeneous-odes-with-constant-coefficients.html#example-spring-mass-system-revisited" class="xref" data-knowl="./knowl/xref/example-spring-mass-system-revisited.html" data-reveal-label="Reveal" data-close-label="Close" title="Example 2.2.4: Spring-mass system revisited">Example 2.2.4</a> gives</div>
+<div class="para">So using Euler’s formula on the solution from <a href="section-homogeneous-odes-with-constant-coefficients.html#example-spring-mass-system-revisited" class="xref" data-knowl="./knowl/xref/example-spring-mass-system-revisited.html" data-reveal-label="Reveal" data-close-label="Close" title="Example 2.2.4: Spring-mass system revisited">Example 2.2.4</a> gives</div>
 <div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/example-spring-mass-system-revisited.html ./knowl/xref/example-spring-mass-system-revisited.html" id="section-homogeneous-odes-with-constant-coefficients-12-2">
 \begin{align*}
 x &amp; = \frac{3}{2}e^{-2it} + \frac{3}{2} e^{2it} \\
 &amp; = 3\frac{e^{-2it} + e^{2it}}{2} \\
-&amp; = 3\cos2t. 
+&amp; = 3\cos2t \text{.}
 \end{align*}
 </div>
-<div class="para">So the imaginary roots <span class="process-math">\(\pm2i\)</span> from <a href="section-homogeneous-odes-with-constant-coefficients.html#example-spring-mass-system-revisited" class="xref" data-knowl="./knowl/xref/example-spring-mass-system-revisited.html" data-reveal-label="Reveal" data-close-label="Close" title="Example 2.2.4: Spring-mass system revisited">Example 2.2.4</a> actually relate to the <em class="emphasis">frequency</em> of the spring-mass system in that problem. This is a trend we will see often in this course: imaginary numbers corresponding to oscillating quantities.</div>
+<div class="para">So the imaginary roots <span class="process-math">\(\pm2i\)</span> from <a href="section-homogeneous-odes-with-constant-coefficients.html#example-spring-mass-system-revisited" class="xref" data-knowl="./knowl/xref/example-spring-mass-system-revisited.html" data-reveal-label="Reveal" data-close-label="Close" title="Example 2.2.4: Spring-mass system revisited">Example 2.2.4</a> actually relate to the <em class="emphasis">frequency</em> of the spring-mass system in that problem.  This is a trend we will see often in this course: imaginary numbers corresponding to oscillating quantities.</div>
 </div>
-<div class="para" id="section-homogeneous-odes-with-constant-coefficients-13">Now we’ll take a look at how to solve second-order homogeneous ODEs whose characteristic equations have repeated roots.</div>
+<div class="para" id="section-homogeneous-odes-with-constant-coefficients-13">Now we’ll take a look at how to solve second-order homogeneous ODEs whose characteristic equations have repeated roots.  This can only happen if the characteristic equation takes the form <span class="process-math">\((r-r_1)^2=0\text{,}\)</span> which means that the original ODE still has <span class="process-math">\(y = e^{r_1x}\)</span> as one solution.  To get the general solution we need a second, linearly independent, solution.  We can guess that this second solution must also involve the exponential <span class="process-math">\(e^{r_1x}\text{,}\)</span> but it can’t be a scalar multiple since we need a linearly independent solution.  Therefore, we will try <span class="process-math">\(xe^{r_1x}\)</span> as our second solution.</div>
 <article class="example example-like" id="example-repeated-roots-in-the-characteristic-equation"><h3 class="heading">
 <span class="type">Example</span><span class="space"> </span><span class="codenumber">2.2.6</span><span class="period">.</span><span class="space"> </span><span class="title">Repeated roots in the characteristic equation.</span>
 </h3>
 <div class="para" id="example-repeated-roots-in-the-characteristic-equation-2-1">Find the general solution of <span class="process-math">\(y'' + 2y^\prime + y = 0\)</span> where <span class="process-math">\(y = y(x)\text{.}\)</span>
 </div>
-<div class="solutions"><details id="example-repeated-roots-in-the-characteristic-equation-3" class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="period">.</span></summary><div class="solution solution-like knowl__content">
-<div class="para logical" id="example-repeated-roots-in-the-characteristic-equation-3-1">
+<div class="solutions"><details id="example-repeated-roots-in-the-characteristic-equation-3" class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="period">.</span></summary><div class="solution solution-like knowl__content"><div class="para logical" id="example-repeated-roots-in-the-characteristic-equation-3-1">
 <div class="para">We begin by solving the characteristic equation, which for this ODE is</div>
 <div class="displaymath process-math">
 \begin{equation*}
 r^{2} + 2r + 1 = 0.
 \end{equation*}
 </div>
-<div class="para">The only solution of this equation is <span class="process-math">\(r=-1\text{,}\)</span> which is a repeated root. We can still get one solution of the ODE using this root, namely <span class="process-math">\(y_{1} = e^{-x}\text{,}\)</span> but we need two linearly independent solutions in order to find the general solution.</div>
-</div> <div class="para logical" id="example-repeated-roots-in-the-characteristic-equation-3-2">
-<div class="para">To get the other solution, we’ll make another guess: whatever it happens to be, it should look quite a bit like the first solution <span class="process-math">\(e^{-x}\text{,}\)</span> since it still needs to cancel out with its derivatives the same way that <span class="process-math">\(e^{-x}\)</span> does. The easiest way to get a function that looks like <span class="process-math">\(e^{-x}\)</span> but is still linearly independent from <span class="process-math">\(e^{-x}\)</span> is to just multiply by <span class="process-math">\(x\text{.}\)</span> In other words, we’ll guess (and check!) that <span class="process-math">\(y_{2} = xe^{-x}\)</span> is another solution of <span class="process-math">\(y''+2y^\prime+y = 0\text{.}\)</span> If we plug <span class="process-math">\(y_{2}\)</span> into the ODE, we get</div>
-<div class="displaymath process-math" id="example-repeated-roots-in-the-characteristic-equation-3-2-9">
+<div class="para">The only solution of this equation is <span class="process-math">\(r=-1\text{,}\)</span> which is a repeated root.  We can still get one solution of the ODE using this root, namely <span class="process-math">\(y_{1} = e^{-x}\text{,}\)</span> but we need two linearly independent solutions in order to find the general solution.  We’ll guess (and check!) that <span class="process-math">\(y_{2} =
+xe^{-x}\)</span> is another solution of <span class="process-math">\(y''+2y'+y = 0\text{.}\)</span>  If we plug <span class="process-math">\(y_{2}\)</span> into the ODE, we get</div>
+<div class="displaymath process-math" id="example-repeated-roots-in-the-characteristic-equation-3-1-7">
 \begin{align*}
-y''_{2} + 2y'_{2} + y_{2} &amp; = \underbrace{-2e^{-x} + xe^{-x}}_{y''_{2}} + \underbrace{2e^{-x} - 2xe^{-x}}_{y'_{2}} + \underbrace{xe^{-x}}_{y_{2}} \\
-&amp; = 0, 
+y''_{2} + 2y'_{2} + y_{2} &amp; =
+\underbrace{-2e^{-x} + xe^{-x}}_{y''_{2}} +
+\underbrace{2e^{-x} - 2xe^{-x}}_{y'_{2}} +
+\underbrace{xe^{-x}}_{y_{2}} \\
+&amp; = 0 
 \end{align*}
 </div>
-<div class="para">which shows that <span class="process-math">\(y_{2}\)</span> is indeed a solution of the ODE. Since it’s also linearly independent (which we can check via the Wronskian), this means that the general solution of <span class="process-math">\(y''+2y^\prime+y=0\)</span> is</div>
+<div class="para">which shows that <span class="process-math">\(y_{2}\)</span> is indeed a solution of the ODE.  Since <span class="process-math">\(\{y_1, y_2\}\)</span> is a linearly independent set of solutions (which we can check via the Wronskian), this means that the general solution of <span class="process-math">\(y''+2y^\prime+y=0\)</span> is</div>
 <div class="displaymath process-math">
 \begin{equation*}
-y = c_{1}y_{1} + c_{2}y_{2} = c_{1}e^{-x} + c_{2}xe^{-x}. 
+y = c_{1}y_{1} + c_{2}y_{2} = c_{1}e^{-x} + c_{2}xe^{-x}\text{.}
 \end{equation*}
 </div>
-</div>
-</div></details></div></article><div class="para" id="section-homogeneous-odes-with-constant-coefficients-15">The method used in <a href="section-homogeneous-odes-with-constant-coefficients.html#example-repeated-roots-in-the-characteristic-equation" class="xref" data-knowl="./knowl/xref/example-repeated-roots-in-the-characteristic-equation.html" data-reveal-label="Reveal" data-close-label="Close" title="Example 2.2.6: Repeated roots in the characteristic equation">Example 2.2.6</a> also works for other homogeneous ODEs with constant coefficients whose characteristic equations have repeated roots. Hence the roots of the characteristic equation <em class="emphasis">completely</em> determine the general solutions of such ODEs. We summarize this in the following table.</div>
-<figure class="table table-like" id="section-homogeneous-odes-with-constant-coefficients-16"><figcaption><span class="type">Table</span><span class="space"> </span><span class="codenumber">2.2.7<span class="period">.</span></span><span class="space"> </span></figcaption><div class="tabular-box natural-width"><table class="tabular">
+</div></div></details></div></article><div class="para" id="section-homogeneous-odes-with-constant-coefficients-15">The method used in <a href="section-homogeneous-odes-with-constant-coefficients.html#example-repeated-roots-in-the-characteristic-equation" class="xref" data-knowl="./knowl/xref/example-repeated-roots-in-the-characteristic-equation.html" data-reveal-label="Reveal" data-close-label="Close" title="Example 2.2.6: Repeated roots in the characteristic equation">Example 2.2.6</a> also works for other homogeneous ODEs with constant coefficients whose characteristic equations have repeated roots.  Hence the roots of the characteristic equation <em class="emphasis">completely</em> determine the general solutions of such ODEs.  We summarize this in the following table.</div>
+<figure class="table table-like" id="section-homogeneous-odes-with-constant-coefficients-16"><figcaption><span class="type">Table</span><span class="space"> </span><span class="codenumber">2.2.7<span class="period">.</span></span><span class="space"> </span>Types of solutions from roots</figcaption><div class="tabular-box natural-width"><table class="tabular">
 <tr>
 <td class="l m b3 r0 l0 t3 lines">Roots</td>
 <td class="l m b3 r0 l0 t3 lines">General solution</td>
@@ -637,13 +650,13 @@ y = c_{1}y_{1} + c_{2}y_{2} = c_{1}e^{-x} + c_{2}xe^{-x}.
 <td class="l m b3 r0 l0 t0 lines"><span class="process-math">\(r_{1} = r_{2}\)</span></td>
 <td class="l m b3 r0 l0 t0 lines"><span class="process-math">\(c_{1}e^{r_{1}x} + c_{2}xe^{r_{1}x}\)</span></td>
 </tr>
-</table></div></figure><div class="para" id="section-homogeneous-odes-with-constant-coefficients-17">Remember that it’s not a problem if the characteristic equation has imaginary roots, and in fact we must account for these in order to completely describe the corresponding physical system. If we have imaginary roots, then we can simply use Euler’s Formula to rewrite the solutions in terms of sine and cosine.</div></section></div>
+</table></div></figure><div class="para" id="section-homogeneous-odes-with-constant-coefficients-17">Remember that it’s not a problem if the characteristic equation has imaginary roots, and in fact we must account for these in order to completely describe the corresponding physical system. If we have imaginary roots, then we can simply use Euler’s formula to rewrite the solutions in terms of sine and cosine.</div></section></div>
 <div class="ptx-content-footer">
-<a class="previous-button button" href="section-second-order-linear-odes.html" title="Previous"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cb;</span><span class="name">Prev</span></a><a class="top-button button" href="#" title="Top"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5ce;</span><span class="name">Top</span></a><a class="next-button button" href="section-spring-mass-models.html" title="Next"><span class="name">Next</span><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cc;</span></a>
+<a class="previous-button button" href="section-second-order-linear-odes.html" title="Previous"><span xmlns:pf="https://prefigure.org" class="icon material-symbols-outlined" aria-hidden="true">&#xe5cb;</span><span class="name">Prev</span></a><a class="top-button button" href="#" title="Top"><span xmlns:pf="https://prefigure.org" class="icon material-symbols-outlined" aria-hidden="true">&#xe5ce;</span><span class="name">Top</span></a><a class="next-button button" href="section-spring-mass-models.html" title="Next"><span class="name">Next</span><span xmlns:pf="https://prefigure.org" class="icon material-symbols-outlined" aria-hidden="true">&#xe5cc;</span></a>
 </div></main>
 </div>
 <div id="ptx-page-footer" class="ptx-page-footer">
-<a class="pretext-link" href="https://pretextbook.org" title="PreTeXt"><div class="logo"><svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" viewBox="338 3000 8772 6866"><g style="stroke-width:.025in; stroke:black; fill:none"><polyline points="472,3590 472,9732 " style="stroke:#000000;stroke-width:174; stroke-linejoin:miter; stroke-linecap:round; "></polyline><path style="stroke:#000000;stroke-width:126;stroke-linecap:butt;" d="M 4724,9448 A 4660 4660  0  0  1  8598  9259"></path><path style="stroke:#000000;stroke-width:174;stroke-linecap:butt;" d="M 4488,9685 A 4228 4228  0  0  0   472  9732"></path><path style="stroke:#000000;stroke-width:126;stroke-linecap:butt;" d="M 4724,3590 A 4241 4241  0  0  1  8598  3496"></path><path style="stroke:#000000;stroke-width:126;stroke-linecap:round;" d="M 850,3496  A 4241 4241  0  0  1  4724  3590"></path><path style="stroke:#000000;stroke-width:126;stroke-linecap:round;" d="M 850,9259  A 4507 4507  0  0  1  4724  9448"></path><polyline points="5385,4299 4062,8125" style="stroke:#000000;stroke-width:300; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="8598,3496 8598,9259" style="stroke:#000000;stroke-width:126; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="850,3496 850,9259" style="stroke:#000000;stroke-width:126; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="4960,9685 4488,9685" style="stroke:#000000;stroke-width:174; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="3070,4582 1889,6141 3070,7700" style="stroke:#000000;stroke-width:300; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="6418,4582 7600,6141 6418,7700" style="stroke:#000000;stroke-width:300; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="8976,3590 8976,9732" style="stroke:#000000;stroke-width:174; stroke-linejoin:miter; stroke-linecap:round;"></polyline><path style="stroke:#000000;stroke-width:174;stroke-linecap:butt;" d="M 4960,9685 A 4228 4228  0  0  1  8976  9732"></path></g></svg></div></a><a class="runestone-link" href="https://runestone.academy" title="Runestone Academy"><img class="logo" src="https://runestone.academy/runestone/static/images/RAIcon_cropped.png"></a><a class="mathjax-link" href="https://www.mathjax.org" title="MathJax"><img class="logo" src="https://www.mathjax.org/badge/badge-square-2.png"></a>
+<a xmlns:pf="https://prefigure.org" class="pretext-link" href="https://pretextbook.org" title="PreTeXt"><div class="logo"><svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" viewBox="338 3000 8772 6866"><g style="stroke-width:.025in; stroke:black; fill:none"><polyline points="472,3590 472,9732 " style="stroke:#000000;stroke-width:174; stroke-linejoin:miter; stroke-linecap:round; "></polyline><path style="stroke:#000000;stroke-width:126;stroke-linecap:butt;" d="M 4724,9448 A 4660 4660  0  0  1  8598  9259"></path><path style="stroke:#000000;stroke-width:174;stroke-linecap:butt;" d="M 4488,9685 A 4228 4228  0  0  0   472  9732"></path><path style="stroke:#000000;stroke-width:126;stroke-linecap:butt;" d="M 4724,3590 A 4241 4241  0  0  1  8598  3496"></path><path style="stroke:#000000;stroke-width:126;stroke-linecap:round;" d="M 850,3496  A 4241 4241  0  0  1  4724  3590"></path><path style="stroke:#000000;stroke-width:126;stroke-linecap:round;" d="M 850,9259  A 4507 4507  0  0  1  4724  9448"></path><polyline points="5385,4299 4062,8125" style="stroke:#000000;stroke-width:300; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="8598,3496 8598,9259" style="stroke:#000000;stroke-width:126; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="850,3496 850,9259" style="stroke:#000000;stroke-width:126; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="4960,9685 4488,9685" style="stroke:#000000;stroke-width:174; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="3070,4582 1889,6141 3070,7700" style="stroke:#000000;stroke-width:300; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="6418,4582 7600,6141 6418,7700" style="stroke:#000000;stroke-width:300; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="8976,3590 8976,9732" style="stroke:#000000;stroke-width:174; stroke-linejoin:miter; stroke-linecap:round;"></polyline><path style="stroke:#000000;stroke-width:174;stroke-linecap:butt;" d="M 4960,9685 A 4228 4228  0  0  1  8976  9732"></path></g></svg></div></a><a xmlns:pf="https://prefigure.org" class="runestone-link" href="https://runestone.academy" title="Runestone Academy"><img class="logo" src="https://runestone.academy/runestone/static/images/RAIcon_cropped.png"></a><a xmlns:pf="https://prefigure.org" class="mathjax-link" href="https://www.mathjax.org" title="MathJax"><img class="logo" src="https://www.mathjax.org/badge/badge-square-2.png"></a>
 </div>
 </body>
 </html>

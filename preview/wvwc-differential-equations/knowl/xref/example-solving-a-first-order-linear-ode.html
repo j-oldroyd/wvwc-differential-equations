@@ -12,12 +12,13 @@
 </head>
 <body class="ignore-math">
 <article class="example example-like"><h4 class="heading">
-<span class="type">Example</span><span class="space"> </span><span class="codenumber">1.4.2</span><span class="period">.</span><span class="space"> </span><span class="title">Solving a first-order linear ODE.</span>
+<span class="type">Example</span><span xmlns:pf="https://prefigure.org" class="space"> </span><span class="codenumber">1.4.2</span><span xmlns:pf="https://prefigure.org" class="period">.</span><span xmlns:pf="https://prefigure.org" class="space"> </span><span class="title">Solving a first-order linear ODE.</span>
 </h4>
-<div class="para">Find the general solution of <span class="process-math">\(\dv{y}{x}+2y = x\text{.}\)</span>
+<div xmlns:pf="https://prefigure.org" class="para">Find the general solution of <span class="process-math">\(\dv{y}{x}+2y = x\text{.}\)</span>
 </div>
-<div class="solutions"><details class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="period">.</span></summary><div class="solution solution-like knowl__content">
-<div class="para">First, note that the ODE is indeed a first-order linear ODE since it takes the form given in <a href="section-first-order-linear-odes.html#definition-first-order-linear-odes" class="xref" data-knowl="./knowl/xref/definition-first-order-linear-odes.html" data-reveal-label="Reveal" data-close-label="Close" title="Definition 1.4.1: First-Order Linear ODEs">Definition 1.4.1</a>. If we stare at the ODE for a bit, we might think that the left hand side looks like something we’d get after using the product rule. Just compare <span class="process-math">\((fg)^\prime = fg^\prime +f^\prime g\)</span> with <span class="process-math">\(\dv{y}{x}+2y\text{,}\)</span> and it appears that the unknown function <span class="process-math">\(y\)</span> is taking the place of <span class="process-math">\(g\)</span> in the product rule formula. If we could just figure out what the function <span class="process-math">\(f\)</span> is supposed to be, then we could drastically simplify the left hand side of the ODE.</div> <div class="para logical">
+<div class="solutions"><details xmlns:pf="https://prefigure.org" class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="period">.</span></summary><div class="solution solution-like knowl__content">
+<div class="para">First, note that the ODE is indeed a first-order linear ODE since it takes the form given in <a href="section-first-order-linear-odes.html#definition-first-order-linear-odes" class="xref" data-knowl="./knowl/xref/definition-first-order-linear-odes.html" data-reveal-label="Reveal" data-close-label="Close" title="Definition 1.4.1: First-order linear ODEs">Definition 1.4.1</a>. If we stare at the ODE for a bit, we might think that the left hand side looks like something we’d get after using the product rule. Just compare <span class="process-math">\((fg)^\prime = fg^\prime +f^\prime g\)</span> with <span class="process-math">\(\dv{y}{x}+2y\text{,}\)</span> and it appears that the unknown function <span class="process-math">\(y\)</span> is taking the place of <span class="process-math">\(g\)</span> in the product rule formula. If we could just figure out what the function <span class="process-math">\(f\)</span> is supposed to be, then we could drastically simplify the left hand side of the ODE.</div>
+<div class="para logical">
 <div class="para">Unfortunately, there is no such function <span class="process-math">\(f\)</span> that works here. If there were, we’d have to have <span class="process-math">\(f^\prime=2\)</span> and <span class="process-math">\(f=2x\text{,}\)</span> and clearly we aren’t multiplying <span class="process-math">\(\dv{y}{x}\)</span> by <span class="process-math">\(2x\)</span> in the ODE. But we can pull a dirty trick here! We’ll multiply through the ODE by <span class="process-math">\(e^{2x}\)</span> to get the new ODE</div>
 <div class="displaymath process-math">
 \begin{equation*}
@@ -30,7 +31,8 @@ e^{2x}\dv{y}{x}+2e^{2x}y = xe^{2x}.
 e^{2x}\dv{y}{x}+2e^{2x}y = \dv{}{x}[e^{2x}y].
 \end{equation*}
 </div>
-</div> <div class="para logical">
+</div>
+<div class="para logical">
 <div class="para">So we can rewrite the entire ODE as</div>
 <div class="displaymath process-math">
 \begin{equation*}

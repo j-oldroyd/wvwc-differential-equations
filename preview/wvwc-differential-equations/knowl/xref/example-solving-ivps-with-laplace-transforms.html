@@ -12,9 +12,9 @@
 </head>
 <body class="ignore-math">
 <article class="example example-like"><h4 class="heading">
-<span class="type">Example</span><span class="space"> </span><span class="codenumber">6.2.3</span><span class="period">.</span><span class="space"> </span><span class="title">Solving a second-order IVP.</span>
+<span class="type">Example</span><span xmlns:pf="https://prefigure.org" class="space"> </span><span class="codenumber">6.2.3</span><span xmlns:pf="https://prefigure.org" class="period">.</span><span xmlns:pf="https://prefigure.org" class="space"> </span><span class="title">Solving a second-order IVP.</span>
 </h4>
-<div class="para logical">
+<div xmlns:pf="https://prefigure.org" class="para logical">
 <div class="para">Solve the IVP</div>
 <div class="displaymath process-math">
 \begin{equation*}
@@ -24,7 +24,7 @@ x''+8x^\prime+15x = 0 \qq{} x(0) = 2, x^\prime(0) = -3
 <div class="para">where <span class="process-math">\(x\)</span> is a function of <span class="process-math">\(t\text{.}\)</span>
 </div>
 </div>
-<div class="solutions"><details class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="period">.</span></summary><div class="solution solution-like knowl__content">
+<div class="solutions"><details xmlns:pf="https://prefigure.org" class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="period">.</span></summary><div class="solution solution-like knowl__content">
 <div class="para logical">
 <div class="para">We will solve this by using Laplace transforms. If we set <span class="process-math">\(X(s) = \Laplace{x(t)}\text{,}\)</span> then</div>
 <div class="displaymath process-math">
@@ -51,7 +51,8 @@ s^{2}X(s)+8sX(s)+15X(s) = 2s+13\text{,}
 X(s) = \frac{2s+13}{s^2+8s+15}\text{.}
 \end{equation*}
 </div>
-</div> <div class="para logical">
+</div>
+<div class="para logical">
 <div class="para">To solve the ODE we need to find <span class="process-math">\(x(t) = \mathcal{L}^{-1}\{X(s)\}\text{.}\)</span> Now, <span class="process-math">\(X(s)\)</span> doesn’t look like the Laplace transform of anything we know at the moment, but we can simplify the right hand side using partial fractions. If we do so, we get</div>
 <div class="displaymath process-math">
 \begin{equation*}

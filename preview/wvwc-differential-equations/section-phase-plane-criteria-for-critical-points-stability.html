@@ -8,13 +8,13 @@
 <html lang="en-US" dir="ltr">
 <head xmlns:og="http://ogp.me/ns#" xmlns:book="https://ogp.me/ns/book#">
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>WVWC-DE Phase Portraits and Critical Points</title>
+<title>WVWC-DE Phase portraits and critical points</title>
 <meta name="Keywords" content="Authored in PreTeXt">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta property="og:type" content="book">
-<meta property="og:image" content="https://j-oldroyd.github.io/wvwc-differential-equations/external/./wvwc-logo.jpg">
-<meta property="book:title" content="Differential Equations Lecture Notes">
-<meta property="book:author" content="Jesse Oldroyd">
+<meta xmlns:pf="https://prefigure.org" property="og:type" content="book">
+<meta xmlns:pf="https://prefigure.org" property="og:image" content="https://j-oldroyd.github.io/wvwc-differential-equations/external/./wvwc-logo.jpg">
+<meta xmlns:pf="https://prefigure.org" property="book:title" content="Differential Equations Lecture Notes">
+<meta xmlns:pf="https://prefigure.org" property="book:author" content="Jesse Oldroyd">
 <script src="https://sagecell.sagemath.org/static/embedded_sagecell.js"></script><script>
 var runestoneMathReady = new Promise((resolve) => window.rsMathReady = resolve);
 window.MathJax = {
@@ -101,13 +101,13 @@ sagecell.makeSagecell({
 });
 </script><script src="https://cdnjs.cloudflare.com/ajax/libs/lunr.js/2.3.9/lunr.min.js" integrity="sha512-4xUl/d6D6THrAnXAwGajXkoWaeMNwEKK4iNfq5DotEbLPAfk6FSxSP3ydNxqDgCw1c/0Z1Jg6L8h2j+++9BZmg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script><script src="lunr-pretext-search-index.js" async=""></script><script src="_static/pretext/js/pretext_search.js"></script><link href="_static/pretext/css/pretext_search.css" rel="stylesheet" type="text/css">
 <script src="_static/pretext/js/lib/jquery.min.js"></script><script src="_static/pretext/js/lib/jquery.sticky.js"></script><script src="_static/pretext/js/lib/jquery.espy.min.js"></script><script src="_static/pretext/js/pretext.js"></script><script src="_static/pretext/js/pretext_add_on.js?x=1"></script><script src="_static/pretext/js/user_preferences.js"></script><script src="_static/pretext/js/lib/knowl.js"></script><!--knowl.js code controls Sage Cells within knowls--><script>sagecellEvalName='Evaluate (Sage)';
-</script><link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
-<link href="https://fonts.googleapis.com/css2?family=Inconsolata:wght@400;700&amp;family=Noto+Serif:ital,wght@0,400;0,700;1,400;1,700&amp;family=Tinos:ital,wght@0,400;0,700;1,400;1,700&amp;display=swap" rel="stylesheet">
-<link href="https://fonts.cdnfonts.com/css/dejavu-serif" rel="stylesheet">
-<link href="https://fonts.googleapis.com/css2?family=Roboto+Serif:opsz,wdth,wght@8..144,50..150,100..900&amp;display=swap" rel="stylesheet">
-<link href="https://fonts.googleapis.com/css2?family=Open+Sans:wdth,wght@75..100,300..800&amp;display=swap" rel="stylesheet">
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200">
+</script><link xmlns:pf="https://prefigure.org" rel="preconnect" href="https://fonts.googleapis.com">
+<link xmlns:pf="https://prefigure.org" rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+<link xmlns:pf="https://prefigure.org" href="https://fonts.googleapis.com/css2?family=Inconsolata:wght@400;700&amp;family=Noto+Serif:ital,wght@0,400;0,700;1,400;1,700&amp;family=Tinos:ital,wght@0,400;0,700;1,400;1,700&amp;display=swap" rel="stylesheet">
+<link xmlns:pf="https://prefigure.org" href="https://fonts.cdnfonts.com/css/dejavu-serif" rel="stylesheet">
+<link xmlns:pf="https://prefigure.org" href="https://fonts.googleapis.com/css2?family=Roboto+Serif:opsz,wdth,wght@8..144,50..150,100..900&amp;display=swap" rel="stylesheet">
+<link xmlns:pf="https://prefigure.org" href="https://fonts.googleapis.com/css2?family=Open+Sans:wdth,wght@75..100,300..800&amp;display=swap" rel="stylesheet">
+<link xmlns:pf="https://prefigure.org" rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200">
 <script src="https://cdn.geogebra.org/apps/deployggb.js"></script><link href="_static/pretext/css/pretext.css" rel="stylesheet" type="text/css">
 <link href="_static/pretext/css/pretext_add_on.css" rel="stylesheet" type="text/css">
 <link href="_static/pretext/css/shell_default.css" rel="stylesheet" type="text/css">
@@ -134,9 +134,9 @@ sagecell.makeSagecell({
 #example-types-of-second-order-odes-2-1 { counter-set: example-types-of-second-order-odes-2-1 0; }
 #example-types-of-second-order-odes-2-1 > li::marker { content: ""counter(example-types-of-second-order-odes-2-1,decimal)"."; }
 #example-types-of-second-order-odes-2-1 > li { counter-increment: example-types-of-second-order-odes-2-1; }
-#subsection-free-damped-motion-6 { counter-set: subsection-free-damped-motion-6 0; }
-#subsection-free-damped-motion-6 > li::marker { content: ""counter(subsection-free-damped-motion-6,decimal)":"; }
-#subsection-free-damped-motion-6 > li { counter-increment: subsection-free-damped-motion-6; }
+#subsection-free-damped-motion-5-4 { counter-set: subsection-free-damped-motion-5-4 0; }
+#subsection-free-damped-motion-5-4 > li::marker { content: ""counter(subsection-free-damped-motion-5-4,decimal)":"; }
+#subsection-free-damped-motion-5-4 > li { counter-increment: subsection-free-damped-motion-5-4; }
 #example-systems-odes-solving-system-two-equations-3-1-4 { counter-set: example-systems-odes-solving-system-two-equations-3-1-4 0; }
 #example-systems-odes-solving-system-two-equations-3-1-4 > li::marker { content: ""counter(example-systems-odes-solving-system-two-equations-3-1-4,decimal)"."; }
 #example-systems-odes-solving-system-two-equations-3-1-4 > li { counter-increment: example-systems-odes-solving-system-two-equations-3-1-4; }
@@ -165,11 +165,11 @@ sagecell.makeSagecell({
 </head>
 <body class="pretext book ignore-math">
 <a class="assistive" href="#ptx-content">Skip to main content</a><header id="ptx-masthead" class="ptx-masthead"><div class="ptx-banner">
-<a id="logo-link" class="logo-link" target="_blank" href=""><img src="external/./wvwc-logo.jpg" alt="Logo image"></a><div class="title-container">
+<a xmlns:pf="https://prefigure.org" id="logo-link" class="logo-link" target="_blank" href=""><img src="external/./wvwc-logo.jpg" alt="Logo image"></a><div class="title-container">
 <h1 class="heading"><a href="wvwc-differential-equations.html"><span class="title">Differential Equations Lecture Notes:</span> <span class="subtitle">West Virginia Wesleyan College</span></a></h1>
 <p class="byline">Jesse Oldroyd</p>
 </div>
-</div></header><nav id="ptx-navbar" class="ptx-navbar navbar"><button class="toc-toggle button" title="Contents"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5d2;</span><span class="name">Contents</span></button><a class="index-button button" href="backmatter-5.html" title="Index"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe88e;</span><span class="name">Index</span></a><div class="searchbox">
+</div></header><nav xmlns:pf="https://prefigure.org" id="ptx-navbar" class="ptx-navbar navbar"><button class="toc-toggle button" title="Contents"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5d2;</span><span class="name">Contents</span></button><a class="index-button button" href="backmatter-5.html" title="Index"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe88e;</span><span class="name">Index</span></a><div class="searchbox">
 <div class="searchwidget"><button id="searchbutton" class="searchbutton button" type="button" title="Search book"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe8b6;</span><span class="name">Search Book</span></button></div>
 <div id="searchresultsplaceholder" class="searchresultsplaceholder" style="display: none">
 <div class="search-results-controls">
@@ -194,7 +194,7 @@ var ggbApp = new GGBApplet({"appName": "graphing",
     "autoHeight": true,
     "disableAutoScale": false},
 true);
-</script></span><span class="treebuttons"><a class="previous-button button" href="section-constant-coefficient-systems-and-the-phase-plane.html" title="Previous"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cb;</span><span class="name">Prev</span></a><a class="up-button button" href="systems-of-odes.html" title="Up"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5ce;</span><span class="name">Up</span></a><a class="next-button button" href="section-nonlinear-systems.html" title="Next"><span class="name">Next</span><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cc;</span></a></span></nav><div id="latex-macros" class="hidden-content process-math" style="display:none"><span class="process-math">\(\newcommand{\RR}{\mathbb{R}}
+</script></span><span class="treebuttons"><a class="previous-button button" href="section-constant-coefficient-systems-and-the-phase-plane.html" title="Previous"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cb;</span><span class="name">Prev</span></a><a class="up-button button" href="systems-of-odes.html" title="Up"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5ce;</span><span class="name">Up</span></a><a class="next-button button" href="section-nonlinear-systems.html" title="Next"><span class="name">Next</span><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cc;</span></a></span></nav><div xmlns:pf="https://prefigure.org" id="latex-macros" class="hidden-content process-math" style="display:none"><span class="process-math">\(\newcommand{\RR}{\mathbb{R}}
 \newcommand{\QQ}{\mathbb{Q}}
 \newcommand{\NN}{\mathbb{N}}
 \newcommand{\ZZ}{\mathbb{Z}}
@@ -239,7 +239,7 @@ true);
 \newcommand{\fillinmath}[1]{\mathchoice{\colorbox{fillinmathshade}{$\displaystyle     \phantom{\,#1\,}$}}{\colorbox{fillinmathshade}{$\textstyle        \phantom{\,#1\,}$}}{\colorbox{fillinmathshade}{$\scriptstyle      \phantom{\,#1\,}$}}{\colorbox{fillinmathshade}{$\scriptscriptstyle\phantom{\,#1\,}$}}}
 \)</span></div>
 <div class="ptx-page">
-<div id="ptx-sidebar" class="ptx-sidebar"><nav id="ptx-toc" class="ptx-toc depth3 parts"><ul class="structural contains-active toc-item-list">
+<div xmlns:pf="https://prefigure.org" id="ptx-sidebar" class="ptx-sidebar"><nav id="ptx-toc" class="ptx-toc depth2 parts"><ul class="structural contains-active toc-item-list">
 <li class="toc-item toc-frontmatter">
 <div class="toc-title-box"><a href="front.html" class="internal"><span class="title">Front Matter</span></a></div>
 <ul class="structural toc-item-list">
@@ -255,46 +255,46 @@ true);
 <div class="toc-title-box"><a href="intro-to-odes.html" class="internal"><span class="codenumber">1</span> <span class="title">Introduction</span></a></div>
 <ul class="structural toc-item-list">
 <li class="toc-item toc-section">
-<div class="toc-title-box"><a href="section-ordinary-differential-equations.html" class="internal"><span class="codenumber">1.1</span> <span class="title">Ordinary Differential Equations</span></a></div>
+<div class="toc-title-box"><a href="section-ordinary-differential-equations.html" class="internal"><span class="codenumber">1.1</span> <span class="title">Ordinary differential equations</span></a></div>
 <ul class="structural toc-item-list">
-<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="section-ordinary-differential-equations.html#subsection-basic-concepts-for-odes" class="internal"><span class="title">Basic Concepts</span></a></div></li>
-<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="section-ordinary-differential-equations.html#subsection-mathematical-models" class="internal"><span class="title">Mathematical Models</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="section-ordinary-differential-equations.html#subsection-basic-concepts-for-odes" class="internal"><span class="title">Basic concepts</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="section-ordinary-differential-equations.html#subsection-mathematical-models" class="internal"><span class="title">Mathematical models</span></a></div></li>
 </ul>
 </li>
 <li class="toc-item toc-section">
-<div class="toc-title-box"><a href="section-direction-fields.html" class="internal"><span class="codenumber">1.2</span> <span class="title">Direction Fields</span></a></div>
-<ul class="structural toc-item-list"><li class="toc-item toc-subsection"><div class="toc-title-box"><a href="section-direction-fields.html#subsection-direction-fields-and-solution-curves" class="internal"><span class="title">Direction Fields and Solution Curves</span></a></div></li></ul>
+<div class="toc-title-box"><a href="section-direction-fields.html" class="internal"><span class="codenumber">1.2</span> <span class="title">Direction fields</span></a></div>
+<ul class="structural toc-item-list"><li class="toc-item toc-subsection"><div class="toc-title-box"><a href="section-direction-fields.html#subsection-direction-fields-and-solution-curves" class="internal"><span class="title">Direction fields and solution curves</span></a></div></li></ul>
 </li>
 <li class="toc-item toc-section">
-<div class="toc-title-box"><a href="section-separable-odes-and-substitution.html" class="internal"><span class="codenumber">1.3</span> <span class="title">Separable ODEs and Substitution</span></a></div>
+<div class="toc-title-box"><a href="section-separable-odes-and-substitution.html" class="internal"><span class="codenumber">1.3</span> <span class="title">Separable ODEs and substitution</span></a></div>
 <ul class="structural toc-item-list">
 <li class="toc-item toc-subsection"><div class="toc-title-box"><a href="section-separable-odes-and-substitution.html#subsection-separable-odes" class="internal"><span class="title">Separable ODEs</span></a></div></li>
-<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="section-separable-odes-and-substitution.html#subsection-substitution-methods" class="internal"><span class="title">Substitution Methods</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="section-separable-odes-and-substitution.html#subsection-substitution-methods" class="internal"><span class="title">Substitution methods</span></a></div></li>
 </ul>
 </li>
 <li class="toc-item toc-section">
-<div class="toc-title-box"><a href="section-first-order-linear-odes.html" class="internal"><span class="codenumber">1.4</span> <span class="title">First-Order Linear ODEs</span></a></div>
+<div class="toc-title-box"><a href="section-first-order-linear-odes.html" class="internal"><span class="codenumber">1.4</span> <span class="title">First-order linear ODEs</span></a></div>
 <ul class="structural toc-item-list">
-<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="section-first-order-linear-odes.html#subsection-integrating-factors" class="internal"><span class="title">Integrating Factors</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="section-first-order-linear-odes.html#subsection-integrating-factors" class="internal"><span class="title">Integrating factors</span></a></div></li>
 <li class="toc-item toc-subsection"><div class="toc-title-box"><a href="section-first-order-linear-odes.html#subsection-applications" class="internal"><span class="title">Applications</span></a></div></li>
 </ul>
 </li>
 <li class="toc-item toc-section">
-<div class="toc-title-box"><a href="section-existence-and-uniqueness-of-solutions.html" class="internal"><span class="codenumber">1.5</span> <span class="title">Existence and Uniqueness</span></a></div>
+<div class="toc-title-box"><a href="section-existence-and-uniqueness-of-solutions.html" class="internal"><span class="codenumber">1.5</span> <span class="title">Existence and uniqueness</span></a></div>
 <ul class="structural toc-item-list">
 <li class="toc-item toc-subsection"><div class="toc-title-box"><a href="section-existence-and-uniqueness-of-solutions.html#subsec-existence-and-uniqueness-for-linear-differential-equations" class="internal"><span class="title">Existence and uniqueness for linear differential equations</span></a></div></li>
-<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="section-existence-and-uniqueness-of-solutions.html#subsection-existence-and-uniqueness-theorem" class="internal"><span class="title">Existence and Uniqueness Theorem</span></a></div></li>
-<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="section-existence-and-uniqueness-of-solutions.html#subsection-picard-iteration" class="internal"><span class="title">Picard Iteration</span></a></div></li>
-<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="section-existence-and-uniqueness-of-solutions.html#subsection-euler-s-method" class="internal"><span class="title">Euler’s Method</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="section-existence-and-uniqueness-of-solutions.html#subsection-existence-and-uniqueness-theorem" class="internal"><span class="title">Existence and uniqueness theorem</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="section-existence-and-uniqueness-of-solutions.html#subsection-picard-iteration" class="internal"><span class="title">Picard iteration</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="section-existence-and-uniqueness-of-solutions.html#subsection-euler-s-method" class="internal"><span class="title">Euler’s method</span></a></div></li>
 </ul>
 </li>
 <li class="toc-item toc-section">
 <div class="toc-title-box"><a href="section-population-models-and-autonomous-equations.html" class="internal"><span class="codenumber">1.6</span> <span class="title">Autonomous Equations</span></a></div>
 <ul class="structural toc-item-list">
-<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="section-population-models-and-autonomous-equations.html#subsection-population-equations" class="internal"><span class="title">Population Equations</span></a></div></li>
-<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="section-population-models-and-autonomous-equations.html#subsection-the-logistic-equation" class="internal"><span class="title">The Logistic Equation</span></a></div></li>
-<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="section-population-models-and-autonomous-equations.html#section-stability-of-solutions" class="internal"><span class="title">Stability of Solutions</span></a></div></li>
-<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="section-population-models-and-autonomous-equations.html#subsection-linear-stability-analysis" class="internal"><span class="title">Linear Stability Analysis</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="section-population-models-and-autonomous-equations.html#subsection-population-models" class="internal"><span class="title">Population models</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="section-population-models-and-autonomous-equations.html#subsection-the-logistic-equation" class="internal"><span class="title">The logistic equation</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="section-population-models-and-autonomous-equations.html#section-stability-of-solutions" class="internal"><span class="title">Stability of solutions</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="section-population-models-and-autonomous-equations.html#subsection-linear-stability-analysis" class="internal"><span class="title">Linear stability analysis</span></a></div></li>
 </ul>
 </li>
 </ul>
@@ -303,29 +303,29 @@ true);
 <div class="toc-title-box"><a href="linear-odes-constant-coefficients.html" class="internal"><span class="codenumber">2</span> <span class="title">Constant Coefficients</span></a></div>
 <ul class="structural toc-item-list">
 <li class="toc-item toc-section">
-<div class="toc-title-box"><a href="section-second-order-linear-odes.html" class="internal"><span class="codenumber">2.1</span> <span class="title">Second-Order Linear ODEs</span></a></div>
+<div class="toc-title-box"><a href="section-second-order-linear-odes.html" class="internal"><span class="codenumber">2.1</span> <span class="title">Second-order linear ODEs</span></a></div>
 <ul class="structural toc-item-list">
-<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="section-second-order-linear-odes.html#subsection-types-of-linear-odes" class="internal"><span class="title">Types of Linear ODEs</span></a></div></li>
-<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="section-second-order-linear-odes.html#subsection-solutions-of-second-order-linear-ODEs" class="internal"><span class="title">Solutions of Second-Order Linear ODEs</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="section-second-order-linear-odes.html#subsection-types-of-linear-odes" class="internal"><span class="title">Types of linear ODEs</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="section-second-order-linear-odes.html#subsection-solutions-of-second-order-linear-ODEs" class="internal"><span class="title">Solutions of second-order linear ODEs</span></a></div></li>
 </ul>
 </li>
 <li class="toc-item toc-section"><div class="toc-title-box"><a href="section-homogeneous-odes-with-constant-coefficients.html" class="internal"><span class="codenumber">2.2</span> <span class="title">Homogeneous ODEs</span></a></div></li>
 <li class="toc-item toc-section">
-<div class="toc-title-box"><a href="section-spring-mass-models.html" class="internal"><span class="codenumber">2.3</span> <span class="title">Spring-Mass Models</span></a></div>
+<div class="toc-title-box"><a href="section-spring-mass-models.html" class="internal"><span class="codenumber">2.3</span> <span class="title">Spring-mass models</span></a></div>
 <ul class="structural toc-item-list">
-<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="section-spring-mass-models.html#subsection-free-undamped-motion" class="internal"><span class="title">Free Undamped Motion</span></a></div></li>
-<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="section-spring-mass-models.html#subsection-free-damped-motion" class="internal"><span class="title">Free Damped Motion</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="section-spring-mass-models.html#subsection-free-undamped-motion" class="internal"><span class="title">Free undamped motion</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="section-spring-mass-models.html#subsection-free-damped-motion" class="internal"><span class="title">Free damped motion</span></a></div></li>
 </ul>
 </li>
 <li class="toc-item toc-section">
-<div class="toc-title-box"><a href="section-solutions-of-nonhomogeneous-equations.html" class="internal"><span class="codenumber">2.4</span> <span class="title">Non-homogeneous Equations</span></a></div>
-<ul class="structural toc-item-list"><li class="toc-item toc-subsection"><div class="toc-title-box"><a href="section-solutions-of-nonhomogeneous-equations.html#subsection-the-method-of-undetermined-coefficients" class="internal"><span class="title">The Method of Undetermined Coefficients</span></a></div></li></ul>
+<div class="toc-title-box"><a href="section-solutions-of-nonhomogeneous-equations.html" class="internal"><span class="codenumber">2.4</span> <span class="title">Non-homogeneous equations</span></a></div>
+<ul class="structural toc-item-list"><li class="toc-item toc-subsection"><div class="toc-title-box"><a href="section-solutions-of-nonhomogeneous-equations.html#subsection-the-method-of-undetermined-coefficients" class="internal"><span class="title">The method of undetermined coefficients</span></a></div></li></ul>
 </li>
 <li class="toc-item toc-section">
-<div class="toc-title-box"><a href="section-forced-oscillations-and-resonance.html" class="internal"><span class="codenumber">2.5</span> <span class="title">Forced Oscillations and Resonance</span></a></div>
+<div class="toc-title-box"><a href="section-forced-oscillations-and-resonance.html" class="internal"><span class="codenumber">2.5</span> <span class="title">Forced oscillations and resonance</span></a></div>
 <ul class="structural toc-item-list">
-<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="section-forced-oscillations-and-resonance.html#subsection-undamped-systems" class="internal"><span class="title">Undamped Systems</span></a></div></li>
-<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="section-forced-oscillations-and-resonance.html#subsection-damped-systems" class="internal"><span class="title">Damped Systems</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="section-forced-oscillations-and-resonance.html#subsection-undamped-systems" class="internal"><span class="title">Undamped systems</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="section-forced-oscillations-and-resonance.html#subsection-damped-systems" class="internal"><span class="title">Damped systems</span></a></div></li>
 </ul>
 </li>
 </ul>
@@ -340,26 +340,34 @@ true);
 <li class="toc-item toc-chapter contains-active">
 <div class="toc-title-box"><a href="systems-of-odes.html" class="internal"><span class="codenumber">4</span> <span class="title">Linear Systems</span></a></div>
 <ul class="structural toc-item-list contains-active">
-<li class="toc-item toc-section"><div class="toc-title-box"><a href="section-systems-of-odes-as-models.html" class="internal"><span class="codenumber">4.1</span> <span class="title">Systems of ODEs as Models</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="section-systems-of-odes-as-models.html" class="internal"><span class="codenumber">4.1</span> <span class="title">Systems of ODEs as models</span></a></div></li>
 <li class="toc-item toc-section">
-<div class="toc-title-box"><a href="section-constant-coefficient-systems-and-the-phase-plane.html" class="internal"><span class="codenumber">4.2</span> <span class="title">Constant Coefficient Systems</span></a></div>
+<div class="toc-title-box"><a href="section-constant-coefficient-systems-and-the-phase-plane.html" class="internal"><span class="codenumber">4.2</span> <span class="title">Constant coefficient systems</span></a></div>
 <ul class="structural toc-item-list">
 <li class="toc-item toc-subsection"><div class="toc-title-box"><a href="section-constant-coefficient-systems-and-the-phase-plane.html#subsection-matrix-odes-constant-coefficients" class="internal"><span class="title">Solutions of <span class="process-math">\(\vec{x}^\prime = A\vec{x}\)</span></span></a></div></li>
-<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="section-constant-coefficient-systems-and-the-phase-plane.html#subsection-finding-eigenvalues-and-eigenvectors" class="internal"><span class="title">Finding Eigenvalues and Eigenvectors</span></a></div></li>
-<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="section-constant-coefficient-systems-and-the-phase-plane.html#subsection-solving-matrix-odes" class="internal"><span class="title">Solving Matrix ODEs</span></a></div></li>
-<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="section-constant-coefficient-systems-and-the-phase-plane.html#subsection-applications-of-matrix-odes" class="internal"><span class="title">Applications of Matrix ODEs</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="section-constant-coefficient-systems-and-the-phase-plane.html#subsection-finding-eigenvalues-and-eigenvectors" class="internal"><span class="title">Finding eigenvalues and eigenvectors</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="section-constant-coefficient-systems-and-the-phase-plane.html#subsection-solving-matrix-odes" class="internal"><span class="title">Solving matrix odes</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="section-constant-coefficient-systems-and-the-phase-plane.html#subsection-applications-of-matrix-odes" class="internal"><span class="title">Applications of matrix ODEs</span></a></div></li>
 </ul>
 </li>
 <li class="toc-item toc-section active">
-<div class="toc-title-box"><a href="section-phase-plane-criteria-for-critical-points-stability.html" class="internal"><span class="codenumber">4.3</span> <span class="title">Phase Portraits and Critical Points</span></a></div>
+<div class="toc-title-box"><a href="section-phase-plane-criteria-for-critical-points-stability.html" class="internal"><span class="codenumber">4.3</span> <span class="title">Phase portraits and critical points</span></a></div>
 <ul class="structural toc-item-list">
-<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="section-phase-plane-criteria-for-critical-points-stability.html#subsection-the-phase-plane" class="internal"><span class="title">The Phase Plane</span></a></div></li>
-<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="section-phase-plane-criteria-for-critical-points-stability.html#subsection-eigenvalue-criteria-for-stability" class="internal"><span class="title">Eigenvalue Criteria for Stability</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="section-phase-plane-criteria-for-critical-points-stability.html#subsection-the-phase-plane" class="internal"><span class="title">The phase plane</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="section-phase-plane-criteria-for-critical-points-stability.html#subsection-eigenvalue-criteria-for-stability" class="internal"><span class="title">Eigenvalue criteria for stability</span></a></div></li>
 </ul>
 </li>
 <li class="toc-item toc-section">
-<div class="toc-title-box"><a href="section-nonlinear-systems.html" class="internal"><span class="codenumber">4.4</span> <span class="title">Nonlinear Systems</span></a></div>
-<ul class="structural toc-item-list"><li class="toc-item toc-subsection"><div class="toc-title-box"><a href="section-nonlinear-systems.html#subsection-classification-of-critical-points-and-linearization" class="internal"><span class="title">Classification of Critical Points and Linearization</span></a></div></li></ul>
+<div class="toc-title-box"><a href="section-nonlinear-systems.html" class="internal"><span class="codenumber">4.4</span> <span class="title">Nonlinear systems</span></a></div>
+<ul class="structural toc-item-list"><li class="toc-item toc-subsection"><div class="toc-title-box"><a href="section-nonlinear-systems.html#subsection-classification-of-critical-points-and-linearization" class="internal"><span class="title">Classification of critical points and linearization</span></a></div></li></ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec-sage-and-octave-for-systems-of-odes.html" class="internal"><span class="codenumber">4.5</span> <span class="title">Sage and Octave for systems of ODEs</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-sage-and-octave-for-systems-of-odes.html#subsec-vectors-and-matrices" class="internal"><span class="title">Vectors and matrices</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-sage-and-octave-for-systems-of-odes.html#subsec-solving-matrix-odes" class="internal"><span class="title">Solving matrix ODEs</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-sage-and-octave-for-systems-of-odes.html#subsec-phase-portraits" class="internal"><span class="title">Phase portraits</span></a></div></li>
+</ul>
 </li>
 </ul>
 </li>
@@ -499,11 +507,11 @@ true);
 </ul>
 </li>
 </ul></nav></div>
-<main class="ptx-main"><div id="ptx-content" class="ptx-content"><section class="section" id="section-phase-plane-criteria-for-critical-points-stability"><h2 class="heading hide-type">
-<span class="type">Section</span><span class="space"> </span><span class="codenumber">4.3</span><span class="space"> </span><span class="title">Phase Portraits and Critical Points</span>
+<main class="ptx-main"><div id="ptx-content" class="ptx-content"><section xmlns:pf="https://prefigure.org" class="section" id="section-phase-plane-criteria-for-critical-points-stability"><h2 class="heading hide-type">
+<span class="type">Section</span><span class="space"> </span><span class="codenumber">4.3</span><span class="space"> </span><span class="title">Phase portraits and critical points</span>
 </h2>
-<section class="introduction" id="section-phase-plane-criteria-for-critical-points-stability-2"><div class="para" id="section-phase-plane-criteria-for-critical-points-stability-2-1">The techniques used in <a href="section-population-models-and-autonomous-equations.html" class="internal" title="Section 1.6: Population Models and Autonomous Equations">Section 1.6</a> to study long-term behavior of solutions near critical points can be adapted to higher dimensional systems as well. The main difference now is that we must consider the <em class="emphasis">phase plane</em> instead of a simple one-dimensional number line. This also allows for different types of behavior at critical points for solutions, or <em class="emphasis">trajectories</em>, near the critical point.</div></section><section class="subsection" id="subsection-the-phase-plane"><h3 class="heading hide-type">
-<span class="type">Subsection</span><span class="space"> </span><span class="codenumber"></span><span class="space"> </span><span class="title">The Phase Plane</span>
+<section class="introduction" id="section-phase-plane-criteria-for-critical-points-stability-2"><div class="para" id="section-phase-plane-criteria-for-critical-points-stability-2-1">The techniques used in <a href="section-population-models-and-autonomous-equations.html" class="internal" title="Section 1.6: Population models and autonomous equations">Section 1.6</a> to study long-term behavior of solutions near critical points can be adapted to higher dimensional systems as well. The main difference now is that we must consider the <em class="emphasis">phase plane</em> instead of a simple one-dimensional number line. This also allows for different types of behavior at critical points for solutions, or <em class="emphasis">trajectories</em>, near the critical point.</div></section><section class="subsection" id="subsection-the-phase-plane"><h3 class="heading hide-type">
+<span class="type">Subsection</span><span class="space"> </span><span class="codenumber"></span><span class="space"> </span><span class="title">The phase plane</span>
 </h3>
 <div class="para logical" id="subsection-the-phase-plane-2">
 <div class="para">Just as we were able to plot direction fields for first-order autonomous ODEs, we can do something similar for autonomous first-order systems with two equations and constant coefficients. These are precisely the systems that can be written as a matrix ODE of the form</div>
@@ -554,7 +562,8 @@ x^\prime_{2}  \amp =  a_{21}x_{1}+  a_{22}x_{2}\notag
 </div>
 <div class="para">Now, we can view <span class="process-math">\(\vec{y}\)</span> as corresponding to a point in the phase plane. Hence <span class="process-math">\(\vec{y}^\prime\)</span> corresponds to a <em class="emphasis">tangent</em> of a trajectory passing through the point <span class="process-math">\(\vec{y}\text{.}\)</span>
 </div>
-</div> <div class="para logical" id="example-sketch-phase-portrait-3-2">
+</div>
+<div class="para logical" id="example-sketch-phase-portrait-3-2">
 <div class="para">For example, let’s find the tangent at the point <span class="process-math">\(\vec{y} = \begin{bmatrix}2\\2\end{bmatrix}\text{.}\)</span> The tangent is given by the corresponding <span class="process-math">\(\vec{y}^\prime\)</span> at this point which is just <span class="process-math">\(A\vec{y}\text{:}\)</span>
 </div>
 <div class="displaymath process-math">
@@ -564,37 +573,38 @@ x^\prime_{2}  \amp =  a_{21}x_{1}+  a_{22}x_{2}\notag
 </div>
 <div class="para">So at the point <span class="process-math">\((2,2)\)</span> in the phase plane, the trajectory should be heading in the same direction as that of the point <span class="process-math">\((-2,-2)\)</span> relative to the origin. In other words, the tangent vector would point two units left and two units down from the point <span class="process-math">\((2,2)\text{.}\)</span>
 </div>
-</div> <div class="para logical" id="example-sketch-phase-portrait-3-3">
+</div>
+<div class="para logical" id="example-sketch-phase-portrait-3-3">
 <div class="para">Similarly, if we let <span class="process-math">\(\vec{y} = \begin{bmatrix}0\\1\end{bmatrix}\)</span> then we get</div>
 <div class="displaymath process-math">
 \begin{equation*}
 \vec{y}^\prime = A\vec{y} = \begin{bmatrix}2 \amp  -3 \\ -2 \amp  1\end{bmatrix}\begin{bmatrix}0\\1\end{bmatrix} = \begin{bmatrix}-3 \\ 1\end{bmatrix}\text{.}
 \end{equation*}
 </div>
-<div class="para">So the trajectory going through <span class="process-math">\((0,1)\)</span> in the phase plane should be heading in the direction of <span class="process-math">\((-3,1)\)</span> viewed from the origin.</div>
-</div> <div class="para logical" id="example-sketch-phase-portrait-3-4">
-<div class="para">Plotting other points in the phase plane like this, we get <a href="section-phase-plane-criteria-for-critical-points-stability.html#figure-sketch-phase-portrait" class="xref" data-knowl="./knowl/xref/figure-sketch-phase-portrait.html" data-reveal-label="Reveal" data-close-label="Close" title="Figure 4.3.2">Figure 4.3.2</a>. One thing we can see from this is that trajectories that lie on the line, equivalently, those with initial conditions <span class="process-math">\(y_{1}(0) = y_{2}(0)\text{,}\)</span> appear to approach the origin while all others move away from the origin. We can see why this is by looking at the general solution of the original system, which is</div>
-<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/figure-sketch-phase-portrait.html">
+<div class="para">So the trajectory going through <span class="process-math">\((0,1)\)</span> in the phase plane should be heading in the direction of <span class="process-math">\((-3,1)\)</span> viewed from the origin. Plotting other points in the phase plane like this, we get the image below.</div>
+</div>
+<div class="image-box" style="width: 50%; margin-left: 25%; margin-right: 25%;"><div class="asymptote-box" style="padding-top: 98.4257951450088%"><iframe src="generated/asymptote/image-sketch-phase-portrait.html" class="asymptote"></iframe></div></div>
+<div class="para logical" id="example-sketch-phase-portrait-3-5">
+<div class="para">One thing we can see from this is that trajectories that lie on the line <span class="process-math">\(y_1 = y_2\text{,}\)</span> which corresponds to the initial conditions <span class="process-math">\(y_{1}(0) = y_{2}(0)\text{,}\)</span> appear to approach the origin while all others move away from the origin. Likewise, the trajectories on the line <span class="process-math">\(y_2 = -\frac{2}{3}y_1\)</span> move directly away from the origin. We can see why this is by looking at the general solution of the original system, which is</div>
+<div class="displaymath process-math">
 \begin{equation*}
 \vec{y} = c_{1}e^{4t}\begin{bmatrix}-3\\2\end{bmatrix}+c_{2}e^{-t}\begin{bmatrix}1\\1\end{bmatrix}\text{.}
 \end{equation*}
 </div>
-</div> <div class="para" id="example-sketch-phase-portrait-3-5">If <span class="process-math">\(\vec{y}\)</span> lies on the line <span class="process-math">\(y_{2} = y_{1}\text{,}\)</span> then <span class="process-math">\(c_{1}\)</span> has to equal <span class="process-math">\(0\text{,}\)</span> which follows from the fact that <span class="process-math">\(\begin{bmatrix}-3\\2\end{bmatrix}\)</span> and <span class="process-math">\(\begin{bmatrix}1\\1\end{bmatrix}\)</span> are linearly independent. So trajectories that lie on the line <span class="process-math">\(y_{2} = y_{1}\)</span> must take the form <span class="process-math">\(\vec{y} = c_{2}e^{-t}\begin{bmatrix}1\\1\end{bmatrix}\text{,}\)</span> and every solution of this form goes to <span class="process-math">\(\vec{0}\)</span> as <span class="process-math">\(t\to\infty\text{.}\)</span> <em class="emphasis">Every other trajectory</em> will move away from the origin as <span class="process-math">\(t\to\infty\text{,}\)</span> although the trajectories that lie on the line <span class="process-math">\(y_{2} = -\frac{2}{3}y_{1}\)</span> will travel to the origin as <span class="process-math">\(t\to-\infty\)</span> (i.e. “backwards in time”):</div>
-</div></details></div></article><figure class="figure figure-like" id="figure-sketch-phase-portrait"><div class="image-box" style="width: 50%; margin-left: 25%; margin-right: 25%;"><div class="asymptote-box" style="padding-top: 98.4257951450088%"><iframe src="generated/asymptote/image-sketch-phase-portrait.html" class="asymptote"></iframe></div></div>
-<figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">4.3.2<span class="period">.</span></span><span class="space"> </span>The phase portrait from <a href="section-phase-plane-criteria-for-critical-points-stability.html#example-sketch-phase-portrait" class="xref" data-knowl="./knowl/xref/example-sketch-phase-portrait.html" data-reveal-label="Reveal" data-close-label="Close" title="Example 4.3.1: Sketching a phase portrait">Example 4.3.1</a>. The blue line represents the two incoming trajectories at <span class="process-math">\(\vec{0}\)</span> and the red line represents two outgoing trajectories at <span class="process-math">\(\vec{0}\text{.}\)</span></figcaption></figure><div class="para" id="subsection-the-phase-plane-7">Vector fields can also be plotted easily using SageMath. The code cell below demonstrates the use of the <code class="code-inline tex2jax_ignore">plot_vector_field</code> command to sketch the phase portrait from <a href="section-phase-plane-criteria-for-critical-points-stability.html#example-sketch-phase-portrait" class="xref" data-knowl="./knowl/xref/example-sketch-phase-portrait.html" data-reveal-label="Reveal" data-close-label="Close" title="Example 4.3.1: Sketching a phase portrait">Example 4.3.1</a>.</div>
-<div id="subsection-the-phase-plane-8" class="ptx-sagecell sagecell-sage"><script type="text/x-sage"># Define variables
+</div>
+<div class="para" id="example-sketch-phase-portrait-3-6">If <span class="process-math">\(\vec{y}\)</span> lies on the line <span class="process-math">\(y_{2} = y_{1}\text{,}\)</span> then <span class="process-math">\(c_{1}\)</span> has to equal <span class="process-math">\(0\text{,}\)</span> which follows from the fact that <span class="process-math">\(\begin{bmatrix}-3\\2\end{bmatrix}\)</span> and <span class="process-math">\(\begin{bmatrix}1\\1\end{bmatrix}\)</span> are linearly independent. So trajectories that lie on the line <span class="process-math">\(y_{2} = y_{1}\)</span> must take the form <span class="process-math">\(\vec{y} = c_{2}e^{-t}\begin{bmatrix}1\\1\end{bmatrix}\text{,}\)</span> and every solution of this form goes to <span class="process-math">\(\vec{0}\)</span> as <span class="process-math">\(t\to\infty\text{.}\)</span> <em class="emphasis">Every other trajectory</em> will move away from the origin as <span class="process-math">\(t\to\infty\text{,}\)</span> although the trajectories that lie on the line <span class="process-math">\(y_{2} = -\frac{2}{3}y_{1}\)</span> will travel to the origin as <span class="process-math">\(t\to-\infty\)</span> (i.e. “backwards in time”):</div>
+</div></details></div></article><div class="para" id="subsection-the-phase-plane-6">Vector fields can also be plotted easily using SageMath. The code cell below demonstrates the use of the <code class="code-inline tex2jax_ignore">plot_vector_field</code> command to sketch the phase portrait from <a href="section-phase-plane-criteria-for-critical-points-stability.html#example-sketch-phase-portrait" class="xref" data-knowl="./knowl/xref/example-sketch-phase-portrait.html" data-reveal-label="Reveal" data-close-label="Close" title="Example 4.3.1: Sketching a phase portrait">Example 4.3.1</a>.</div>
+<div id="subsection-the-phase-plane-7" class="ptx-sagecell sagecell-sage"><script type="text/x-sage"># Define variables
 var('y1 y2')
-
 # Create phase portrait for system
 VF=plot_vector_field([2*y1 - 3*y2,-2*y1 + y2],[y1,-2,2],[y2,-2,2])
-
 # Display the plot
 show(VF)
 </script></div>
-<div class="para" id="subsection-the-phase-plane-9">Note that <span class="process-math">\(\vec{x}=\vec{0}\)</span> is <em class="emphasis">always</em> a solution of <span class="process-math">\(\vec{x}^\prime=A\vec{x}\text{.}\)</span> This is because <span class="process-math">\(\vec{0}^\prime=A\vec{0} = \vec{0}\text{.}\)</span> We call <span class="process-math">\(\vec{x} = \vec{0}\)</span> the <dfn class="terminology">equilibrium solution</dfn> or <dfn class="terminology">critical point</dfn> of the system <span class="process-math">\(\vec{x}^\prime=A\vec{x}\text{.}\)</span> Later in this section, we will be concerned with the behavior of trajectories of the system <span class="process-math">\(\vec{x}^\prime=A\vec{x}\)</span> near the equilibrium solution <span class="process-math">\(\vec{x}=\vec{0}\text{.}\)</span> One thing we will see is that the behavior is determined in large part by the eigenvalues of the matrix <span class="process-math">\(A\text{.}\)</span>
+<div class="para" id="subsection-the-phase-plane-8">Note that <span class="process-math">\(\vec{x}=\vec{0}\)</span> is <em class="emphasis">always</em> a solution of <span class="process-math">\(\vec{x}^\prime=A\vec{x}\text{.}\)</span> This is because <span class="process-math">\(\vec{0}^\prime=A\vec{0} = \vec{0}\text{.}\)</span> We call <span class="process-math">\(\vec{x} = \vec{0}\)</span> the <dfn class="terminology">equilibrium solution</dfn> or <dfn class="terminology">critical point</dfn> of the system <span class="process-math">\(\vec{x}^\prime=A\vec{x}\text{.}\)</span> Later in this section, we will be concerned with the behavior of trajectories of the system <span class="process-math">\(\vec{x}^\prime=A\vec{x}\)</span> near the equilibrium solution <span class="process-math">\(\vec{x}=\vec{0}\text{.}\)</span> One thing we will see is that the behavior is determined in large part by the eigenvalues of the matrix <span class="process-math">\(A\text{.}\)</span>
 </div>
-<div class="para" id="subsection-the-phase-plane-10">We will separate the behavior of trajectories at the critical point <span class="process-math">\(\vec{x} = \vec{0}\)</span> into five different cases:</div>
-<figure class="table table-like" id="table-systems-ode-critical-point-types"><figcaption><span class="type">Table</span><span class="space"> </span><span class="codenumber">4.3.3<span class="period">.</span></span><span class="space"> </span>Types of critical points</figcaption><div class="tabular-box natural-width"><table class="tabular">
+<div class="para" id="subsection-the-phase-plane-9">We will separate the behavior of trajectories at the critical point <span class="process-math">\(\vec{x} = \vec{0}\)</span> into five different cases:</div>
+<figure class="table table-like" id="table-systems-ode-critical-point-types"><figcaption><span class="type">Table</span><span class="space"> </span><span class="codenumber">4.3.2<span class="period">.</span></span><span class="space"> </span>Types of critical points</figcaption><div class="tabular-box natural-width"><table class="tabular">
 <tr>
 <td class="l m b3 r0 l0 t3 lines">Classification</td>
 <td class="l m b3 r0 l0 t3 lines">Behavior at <span class="process-math">\(\vec{0}\)</span>
@@ -625,10 +635,10 @@ show(VF)
 <td class="l m b3 r0 l0 t0 lines">Trajectories spiral inwards or outwards from <span class="process-math">\(\vec{0}\)</span>
 </td>
 </tr>
-</table></div></figure><div class="para" id="subsection-the-phase-plane-12">
-<span class="process-math">\(\vec{0}\)</span> was a saddle point in <a href="section-phase-plane-criteria-for-critical-points-stability.html#example-sketch-phase-portrait" class="xref" data-knowl="./knowl/xref/example-sketch-phase-portrait.html" data-reveal-label="Reveal" data-close-label="Close" title="Example 4.3.1: Sketching a phase portrait">Example 4.3.1</a> since there were incoming trajectories on the line <span class="process-math">\(y_{2} = y_{1}\)</span> and outgoing trajectories on the line <span class="process-math">\(y_{2} = -\frac{2}{3}y_{1}\)</span> as indicated in <a href="section-phase-plane-criteria-for-critical-points-stability.html#figure-sketch-phase-portrait" class="xref" data-knowl="./knowl/xref/figure-sketch-phase-portrait.html" data-reveal-label="Reveal" data-close-label="Close" title="Figure 4.3.2">Figure 4.3.2</a>.</div>
+</table></div></figure><div class="para" id="subsection-the-phase-plane-11">
+<span class="process-math">\(\vec{0}\)</span> was a saddle point in <a href="section-phase-plane-criteria-for-critical-points-stability.html#example-sketch-phase-portrait" class="xref" data-knowl="./knowl/xref/example-sketch-phase-portrait.html" data-reveal-label="Reveal" data-close-label="Close" title="Example 4.3.1: Sketching a phase portrait">Example 4.3.1</a> since there were incoming trajectories on the line <span class="process-math">\(y_{2} = y_{1}\)</span> and outgoing trajectories on the line <span class="process-math">\(y_{2} = -\frac{2}{3}y_{1}\)</span> as indicated in the corresponding phase portrait.</div>
 <article class="example example-like" id="example-stability-equilibrium-solution"><h4 class="heading">
-<span class="type">Example</span><span class="space"> </span><span class="codenumber">4.3.4</span><span class="period">.</span><span class="space"> </span><span class="title">Classifying a critical point using a phase portrait.</span>
+<span class="type">Example</span><span class="space"> </span><span class="codenumber">4.3.3</span><span class="period">.</span><span class="space"> </span><span class="title">Classifying a critical point using a phase portrait.</span>
 </h4>
 <div class="para logical" id="example-stability-equilibrium-solution-2-1">
 <div class="para">Using a phase portrait, determine the type of critical point that <span class="process-math">\(\vec{y} = \vec{0}\)</span> is for the matrix ODE <span class="process-math">\(\vec{y}^\prime=A\vec{y}\)</span> where</div>
@@ -639,27 +649,29 @@ show(VF)
 </div>
 </div>
 <div class="solutions"><details id="example-stability-equilibrium-solution-3" class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="period">.</span></summary><div class="solution solution-like knowl__content">
-<div class="para logical" id="example-stability-equilibrium-solution-3-1">
-<div class="para">As seen in <a href="section-phase-plane-criteria-for-critical-points-stability.html#figure-classify-stability-using-phase-portrait" class="xref" data-knowl="./knowl/xref/figure-classify-stability-using-phase-portrait.html" data-reveal-label="Reveal" data-close-label="Close" title="Figure 4.3.5">Figure 4.3.5</a>, every (nonzero) trajectory will spiral outward from <span class="process-math">\(\vec{y} = \vec{0}\)</span> as <span class="process-math">\(t\to\infty\text{,}\)</span> so <span class="process-math">\(\vec{0}\)</span> is a spiral point of this system. To see why, we only need to look at the eigenvalues of <span class="process-math">\(A\text{,}\)</span> which we find to be</div>
-<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/figure-classify-stability-using-phase-portrait.html">
+<div class="para" id="example-stability-equilibrium-solution-3-1">This system produces the following phase portrait:</div>
+<div class="image-box" style="width: 50%; margin-left: 25%; margin-right: 25%;"><div class="asymptote-box" style="padding-top: 99.227492803015%"><iframe src="generated/asymptote/image-classify-stability-using-phase-portrait.html" class="asymptote"></iframe></div></div>
+<div class="para logical" id="example-stability-equilibrium-solution-3-3">
+<div class="para">As seen above, every (nonzero) trajectory will spiral outward from <span class="process-math">\(\vec{y} = \vec{0}\)</span> as <span class="process-math">\(t\to\infty\text{,}\)</span> so <span class="process-math">\(\vec{0}\)</span> is a spiral point of this system. To see why, we only need to look at the eigenvalues of <span class="process-math">\(A\text{,}\)</span> which we find to be</div>
+<div class="displaymath process-math">
 \begin{equation*}
 \lambda_{1} = 3+4i,\lambda_{2} = 3-4i\text{.}
 \end{equation*}
 </div>
 <div class="para">This means that the general solution of <span class="process-math">\(\vec{y}^\prime = A\vec{y}\)</span> must look like</div>
-<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/figure-classify-stability-using-phase-portrait.html" id="example-stability-equilibrium-solution-3-1-8">
+<div class="displaymath process-math" id="example-stability-equilibrium-solution-3-3-7">
 \begin{align*}
 \vec{y} \amp = c_{1}e^{(3+4i)t}\vec{y}_{1} + c_{2}e^{(3-4i)t}\vec{y}_{2}\\
 \amp = e^{3t}\brackets{c_{1}e^{4it}\vec{y}_{1}+c_{2}e^{-4it}\vec{y}_{2}}\\
 \amp = e^{3t}\brackets{(\cos4t)\vec{x}_{1}+(\sin4t)\vec{x}_{2}}\text{.}
 \end{align*}
 </div>
-</div> <div class="para" id="example-stability-equilibrium-solution-3-2">The real part of the eigenvalues leads to the “growth term” of <span class="process-math">\(e^{3t}\)</span> appearing in the solution, which causes the trajectories to diverge as <span class="process-math">\(t\to\infty\text{.}\)</span> The imaginary part of the eigenvalues leads to the “oscillating terms” of <span class="process-math">\(\cos4t,\sin4t\)</span> appearing in the solution, which gives the trajectories their spiral motion.</div>
-</div></details></div></article><figure class="figure figure-like" id="figure-classify-stability-using-phase-portrait"><div class="image-box" style="width: 50%; margin-left: 25%; margin-right: 25%;"><div class="asymptote-box" style="padding-top: 99.227492803015%"><iframe src="generated/asymptote/image-classify-stability-using-phase-portrait.html" class="asymptote"></iframe></div></div>
-<figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">4.3.5<span class="period">.</span></span><span class="space"> </span>The phase portrait for <a href="section-phase-plane-criteria-for-critical-points-stability.html#example-stability-equilibrium-solution" class="xref" data-knowl="./knowl/xref/example-stability-equilibrium-solution.html" data-reveal-label="Reveal" data-close-label="Close" title="Example 4.3.4: Classifying a critical point using a phase portrait">Example 4.3.4</a>.</figcaption></figure><div class="para" id="subsection-the-phase-plane-15">In general, the eigenvalues of the matrix <span class="process-math">\(A\)</span> in the system <span class="process-math">\(\vec{y}^\prime = A\vec{y}\)</span> will determine the type of critical point that <span class="process-math">\(\vec{0}\)</span> is for the system <span class="process-math">\(\vec{y}^\prime=A\vec{y}\text{.}\)</span>
+</div>
+<div class="para" id="example-stability-equilibrium-solution-3-4">The real part of the eigenvalues leads to the “growth term” of <span class="process-math">\(e^{3t}\)</span> appearing in the solution, which causes the trajectories to diverge as <span class="process-math">\(t\to\infty\text{.}\)</span> The imaginary part of the eigenvalues leads to the “oscillating terms” of <span class="process-math">\(\cos4t,\sin4t\)</span> appearing in the solution, which gives the trajectories their spiral motion.</div>
+</div></details></div></article><div class="para" id="subsection-the-phase-plane-13">In general, the eigenvalues of the matrix <span class="process-math">\(A\)</span> in the system <span class="process-math">\(\vec{y}^\prime = A\vec{y}\)</span> will determine the type of critical point that <span class="process-math">\(\vec{0}\)</span> is for the system <span class="process-math">\(\vec{y}^\prime=A\vec{y}\text{.}\)</span>
 </div>
 <article class="example example-like" id="example-systems-odes-classifying-trajectories-algebraically"><h4 class="heading">
-<span class="type">Example</span><span class="space"> </span><span class="codenumber">4.3.6</span><span class="period">.</span><span class="space"> </span><span class="title">Classifying trajectories algebraically.</span>
+<span class="type">Example</span><span class="space"> </span><span class="codenumber">4.3.4</span><span class="period">.</span><span class="space"> </span><span class="title">Classifying trajectories algebraically.</span>
 </h4>
 <div class="para logical" id="example-systems-odes-classifying-trajectories-algebraically-2-1">
 <div class="para">What kind of critical point is <span class="process-math">\(\vec{y} = \vec{0}\)</span> for the system</div>
@@ -686,12 +698,13 @@ y^\prime_{2}  \amp =  4y_{1}
 2y_{1}^{2} = -2y_{2}^{2}+C\qq{or}y_{1}^{2}+y_{2}^{2} = C_{1}\text{.}
 \end{equation*}
 </div>
-</div> <div class="para" id="example-systems-odes-classifying-trajectories-algebraically-3-2">This is the equation of a circle of radius <span class="process-math">\(\sqrt{C_{1}}\text{,}\)</span> and so every trajectory <span class="process-math">\(\vec{y}\)</span> for this system will be a circle centered at <span class="process-math">\(\vec{0}\text{.}\)</span> Hence <span class="process-math">\(\vec{0}\)</span> is a center.</div>
+</div>
+<div class="para" id="example-systems-odes-classifying-trajectories-algebraically-3-2">This is the equation of a circle of radius <span class="process-math">\(\sqrt{C_{1}}\text{,}\)</span> and so every trajectory <span class="process-math">\(\vec{y}\)</span> for this system will be a circle centered at <span class="process-math">\(\vec{0}\text{.}\)</span> Hence <span class="process-math">\(\vec{0}\)</span> is a center.</div>
 </div></details></div></article></section><section class="subsection" id="subsection-eigenvalue-criteria-for-stability"><h3 class="heading hide-type">
-<span class="type">Subsection</span><span class="space"> </span><span class="codenumber"></span><span class="space"> </span><span class="title">Eigenvalue Criteria for Stability</span>
+<span class="type">Subsection</span><span class="space"> </span><span class="codenumber"></span><span class="space"> </span><span class="title">Eigenvalue criteria for stability</span>
 </h3>
-<div class="para" id="subsection-eigenvalue-criteria-for-stability-2">Consider the matrix ODE <span class="process-math">\(\vec{y}^\prime = A\vec{y}\text{.}\)</span> Let <span class="process-math">\(\lambda_{1},\lambda_{2}\)</span> denote the eigenvalues of the <span class="process-math">\(2\times 2\)</span> matrix <span class="process-math">\(A\text{.}\)</span> Then <span class="process-math">\(\vec{0}\)</span> is a:</div>
-<figure class="table table-like" id="table-eigenvalue-conditions-stability"><figcaption><span class="type">Table</span><span class="space"> </span><span class="codenumber">4.3.7<span class="period">.</span></span><span class="space"> </span>Eigenvalue conditions for stability.</figcaption><div class="tabular-box natural-width"><table class="tabular">
+<div class="para" id="subsection-eigenvalue-criteria-for-stability-2">Consider the matrix ODE <span class="process-math">\(\vec{y}^\prime = A\vec{y}\text{.}\)</span> Let <span class="process-math">\(\lambda_{1},\lambda_{2}\)</span> denote the eigenvalues of the <span class="process-math">\(2\times 2\)</span> matrix <span class="process-math">\(A\text{.}\)</span> Then we can classify <span class="process-math">\(\vec{0}\)</span> using <a href="section-phase-plane-criteria-for-critical-points-stability.html#table-eigenvalue-conditions-stability" class="xref" data-knowl="./knowl/xref/table-eigenvalue-conditions-stability.html" data-reveal-label="Reveal" data-close-label="Close" title="Table 4.3.5: Eigenvalue conditions for stability">Table 4.3.5</a>.</div>
+<figure class="table table-like" id="table-eigenvalue-conditions-stability"><figcaption><span class="type">Table</span><span class="space"> </span><span class="codenumber">4.3.5<span class="period">.</span></span><span class="space"> </span>Eigenvalue conditions for stability</figcaption><div class="tabular-box natural-width"><table class="tabular">
 <tr>
 <td class="l m b3 r0 l0 t3 lines">Name</td>
 <td class="l m b3 r0 l0 t3 lines">Conditions on <span class="process-math">\(\lambda_{1},\lambda_{2}\)</span>
@@ -716,7 +729,7 @@ y^\prime_{2}  \amp =  4y_{1}
 </table></div></figure><aside class="aside aside-like" id="subsection-eigenvalue-criteria-for-stability-4"><div class="para" id="subsection-eigenvalue-criteria-for-stability-4-1">The rule of thumb is this: the real parts of the eigenvalues determine whether a trajectory moves towards or away from the origin, and the imaginary part determines if the trajectory has a periodic/oscillating nature to it.</div></aside><div class="para" id="subsection-eigenvalue-criteria-for-stability-5">We say that the origin is a <dfn class="terminology">stable</dfn> critical point of <span class="process-math">\(\vec{y}^\prime=A\vec{y}\)</span> if all trajectories that start “close” to <span class="process-math">\(\vec{0}\)</span> remain close at all future times. Equivalently, it’s stable if each trajectory will eventually be contained within some circle centered at the origin as <span class="process-math">\(t\to\infty\text{.}\)</span> Otherwise, we say that <span class="process-math">\(\vec{0}\)</span> is <dfn class="terminology">unstable</dfn>. If it so happens that every trajectory that starts close to <span class="process-math">\(\vec{0}\)</span> tends to <span class="process-math">\(\vec{0}\)</span> as <span class="process-math">\(t\to\infty\text{,}\)</span> we then say that <span class="process-math">\(\vec{0}\)</span> is a <dfn class="terminology">stable and attractive</dfn> (or <dfn class="terminology">asymptotically stable</dfn>) critical point. Equivalently, <span class="process-math">\(\vec{0}\)</span> is asymptotically stable if <em class="emphasis">every</em> trajectory goes to <span class="process-math">\(\vec{0}\)</span> as <span class="process-math">\(t\to\infty\text{.}\)</span>
 </div>
 <article class="example example-like" id="example-systems-odes-eigenvalue-conditions-for-asymptotically-stable-critical-points"><h4 class="heading">
-<span class="type">Example</span><span class="space"> </span><span class="codenumber">4.3.8</span><span class="period">.</span><span class="space"> </span><span class="title">Eigenvalue conditions for asymptotic stability.</span>
+<span class="type">Example</span><span class="space"> </span><span class="codenumber">4.3.6</span><span class="period">.</span><span class="space"> </span><span class="title">Eigenvalue conditions for asymptotic stability.</span>
 </h4>
 <div class="para" id="example-systems-odes-eigenvalue-conditions-for-asymptotically-stable-critical-points-2-1">Let <span class="process-math">\(\vec{y}^\prime = A\vec{y}\)</span> denote a matrix ODE where <span class="process-math">\(A\)</span> is a constant <span class="process-math">\(2\times2\)</span> matrix. What conditions on the eigenvalues of <span class="process-math">\(A\)</span> will give an asymptotically stable critical point at <span class="process-math">\(\vec{y}=\vec{0}\text{?}\)</span>
 </div>
@@ -728,7 +741,8 @@ y^\prime_{2}  \amp =  4y_{1}
 \vec{y} = c_{1}e^{\lambda_{1}t}\vec{y}_{1}+c_{2}e^{\lambda_{2}t}\vec{y}_{2}\text{.}
 \end{equation*}
 </div>
-</div> <div class="para logical" id="example-systems-odes-eigenvalue-conditions-for-asymptotically-stable-critical-points-3-2">
+</div>
+<div class="para logical" id="example-systems-odes-eigenvalue-conditions-for-asymptotically-stable-critical-points-3-2">
 <div class="para">The previous paragraph shows that <span class="process-math">\(\vec{y}\)</span> must go to <span class="process-math">\(\vec{0}\)</span> as <span class="process-math">\(t\to\infty\)</span> if either <span class="process-math">\(c_{1}=c_{2}=0\)</span> or if each exponential goes to <span class="process-math">\(0\)</span> as <span class="process-math">\(t\to\infty\text{.}\)</span> Since we assume <span class="process-math">\(\vec{y}\neq\vec{0}\text{,}\)</span> this means we need <span class="process-math">\(e^{\lambda_{i}t}\to0\)</span> for <span class="process-math">\(i=1,2\)</span> as <span class="process-math">\(t\to\infty\text{.}\)</span> This implies that the <em class="emphasis">real part</em> of each eigenvalue must be negative, because the real part of each eigenvalue is what determines the growth of <span class="process-math">\(e^{\lambda_{i}t}\text{:}\)</span> if <span class="process-math">\(\lambda_{i} = a+bi\text{,}\)</span> then</div>
 <div class="displaymath process-math">
 \begin{equation*}
@@ -737,9 +751,9 @@ e^{\lambda_{i}t} = e^{at}[A\cos bt+B\sin bt]\text{.}
 </div>
 <div class="para">So <span class="process-math">\(\vec{0}\)</span> is asymptotically stable if the real parts of <em class="emphasis">both</em> eigenvalues are negative.</div>
 </div>
-</div></details></div></article><div class="para" id="subsection-eigenvalue-criteria-for-stability-7">By a similar argument to that used in <a href="section-phase-plane-criteria-for-critical-points-stability.html#example-systems-odes-eigenvalue-conditions-for-asymptotically-stable-critical-points" class="xref" data-knowl="./knowl/xref/example-systems-odes-eigenvalue-conditions-for-asymptotically-stable-critical-points.html" data-reveal-label="Reveal" data-close-label="Close" title="Example 4.3.8: Eigenvalue conditions for asymptotic stability">Example 4.3.8</a>, we can say that <span class="process-math">\(\vec{0}\)</span> is stable as long as the real part of each eigenvalue is no greater than <span class="process-math">\(0\text{.}\)</span> Likewise, <span class="process-math">\(\vec{0}\)</span> is unstable if the real part of <em class="emphasis">any</em> eigenvalue is positive.</div>
+</div></details></div></article><div class="para" id="subsection-eigenvalue-criteria-for-stability-7">By a similar argument to that used in <a href="section-phase-plane-criteria-for-critical-points-stability.html#example-systems-odes-eigenvalue-conditions-for-asymptotically-stable-critical-points" class="xref" data-knowl="./knowl/xref/example-systems-odes-eigenvalue-conditions-for-asymptotically-stable-critical-points.html" data-reveal-label="Reveal" data-close-label="Close" title="Example 4.3.6: Eigenvalue conditions for asymptotic stability">Example 4.3.6</a>, we can say that <span class="process-math">\(\vec{0}\)</span> is stable as long as the real part of each eigenvalue is no greater than <span class="process-math">\(0\text{.}\)</span> Likewise, <span class="process-math">\(\vec{0}\)</span> is unstable if the real part of <em class="emphasis">any</em> eigenvalue is positive.</div>
 <article class="example example-like" id="example-systems-odes-critical-point-tank-system"><h4 class="heading">
-<span class="type">Example</span><span class="space"> </span><span class="codenumber">4.3.9</span><span class="period">.</span><span class="space"> </span><span class="title">Long term behavior of a system of interconnected tanks.</span>
+<span class="type">Example</span><span class="space"> </span><span class="codenumber">4.3.7</span><span class="period">.</span><span class="space"> </span><span class="title">Long term behavior of a system of interconnected tanks.</span>
 </h4>
 <div class="para logical" id="example-systems-odes-critical-point-tank-system-2-1">
 <div class="para">Two tanks <span class="process-math">\(T_{1}\)</span> and <span class="process-math">\(T_{2}\)</span> containing <span class="quantity">200 gal</span> each of a water-salt mixture are set up as follows:</div>
@@ -767,7 +781,8 @@ y^\prime_{2}  \amp =  16\frac{y_{1}}{200} - 16\frac{y_{2}}{200}\text{.}
 </div>
 <div class="para">We need to determine the long-term behavior of solutions of this ODE, which is itself determined by the eigenvalues of <span class="process-math">\(A\text{.}\)</span>
 </div>
-</div> <div class="para logical" id="example-systems-odes-critical-point-tank-system-3-2">
+</div>
+<div class="para logical" id="example-systems-odes-critical-point-tank-system-3-2">
 <div class="para">The eigenvalues of <span class="process-math">\(A\)</span> are</div>
 <div class="displaymath process-math">
 \begin{equation*}
@@ -779,11 +794,11 @@ y^\prime_{2}  \amp =  16\frac{y_{1}}{200} - 16\frac{y_{2}}{200}\text{.}
 </div>
 </div></details></div></article></section></section></div>
 <div class="ptx-content-footer">
-<a class="previous-button button" href="section-constant-coefficient-systems-and-the-phase-plane.html" title="Previous"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cb;</span><span class="name">Prev</span></a><a class="top-button button" href="#" title="Top"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5ce;</span><span class="name">Top</span></a><a class="next-button button" href="section-nonlinear-systems.html" title="Next"><span class="name">Next</span><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cc;</span></a>
+<a class="previous-button button" href="section-constant-coefficient-systems-and-the-phase-plane.html" title="Previous"><span xmlns:pf="https://prefigure.org" class="icon material-symbols-outlined" aria-hidden="true">&#xe5cb;</span><span class="name">Prev</span></a><a class="top-button button" href="#" title="Top"><span xmlns:pf="https://prefigure.org" class="icon material-symbols-outlined" aria-hidden="true">&#xe5ce;</span><span class="name">Top</span></a><a class="next-button button" href="section-nonlinear-systems.html" title="Next"><span class="name">Next</span><span xmlns:pf="https://prefigure.org" class="icon material-symbols-outlined" aria-hidden="true">&#xe5cc;</span></a>
 </div></main>
 </div>
 <div id="ptx-page-footer" class="ptx-page-footer">
-<a class="pretext-link" href="https://pretextbook.org" title="PreTeXt"><div class="logo"><svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" viewBox="338 3000 8772 6866"><g style="stroke-width:.025in; stroke:black; fill:none"><polyline points="472,3590 472,9732 " style="stroke:#000000;stroke-width:174; stroke-linejoin:miter; stroke-linecap:round; "></polyline><path style="stroke:#000000;stroke-width:126;stroke-linecap:butt;" d="M 4724,9448 A 4660 4660  0  0  1  8598  9259"></path><path style="stroke:#000000;stroke-width:174;stroke-linecap:butt;" d="M 4488,9685 A 4228 4228  0  0  0   472  9732"></path><path style="stroke:#000000;stroke-width:126;stroke-linecap:butt;" d="M 4724,3590 A 4241 4241  0  0  1  8598  3496"></path><path style="stroke:#000000;stroke-width:126;stroke-linecap:round;" d="M 850,3496  A 4241 4241  0  0  1  4724  3590"></path><path style="stroke:#000000;stroke-width:126;stroke-linecap:round;" d="M 850,9259  A 4507 4507  0  0  1  4724  9448"></path><polyline points="5385,4299 4062,8125" style="stroke:#000000;stroke-width:300; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="8598,3496 8598,9259" style="stroke:#000000;stroke-width:126; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="850,3496 850,9259" style="stroke:#000000;stroke-width:126; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="4960,9685 4488,9685" style="stroke:#000000;stroke-width:174; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="3070,4582 1889,6141 3070,7700" style="stroke:#000000;stroke-width:300; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="6418,4582 7600,6141 6418,7700" style="stroke:#000000;stroke-width:300; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="8976,3590 8976,9732" style="stroke:#000000;stroke-width:174; stroke-linejoin:miter; stroke-linecap:round;"></polyline><path style="stroke:#000000;stroke-width:174;stroke-linecap:butt;" d="M 4960,9685 A 4228 4228  0  0  1  8976  9732"></path></g></svg></div></a><a class="runestone-link" href="https://runestone.academy" title="Runestone Academy"><img class="logo" src="https://runestone.academy/runestone/static/images/RAIcon_cropped.png"></a><a class="mathjax-link" href="https://www.mathjax.org" title="MathJax"><img class="logo" src="https://www.mathjax.org/badge/badge-square-2.png"></a>
+<a xmlns:pf="https://prefigure.org" class="pretext-link" href="https://pretextbook.org" title="PreTeXt"><div class="logo"><svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" viewBox="338 3000 8772 6866"><g style="stroke-width:.025in; stroke:black; fill:none"><polyline points="472,3590 472,9732 " style="stroke:#000000;stroke-width:174; stroke-linejoin:miter; stroke-linecap:round; "></polyline><path style="stroke:#000000;stroke-width:126;stroke-linecap:butt;" d="M 4724,9448 A 4660 4660  0  0  1  8598  9259"></path><path style="stroke:#000000;stroke-width:174;stroke-linecap:butt;" d="M 4488,9685 A 4228 4228  0  0  0   472  9732"></path><path style="stroke:#000000;stroke-width:126;stroke-linecap:butt;" d="M 4724,3590 A 4241 4241  0  0  1  8598  3496"></path><path style="stroke:#000000;stroke-width:126;stroke-linecap:round;" d="M 850,3496  A 4241 4241  0  0  1  4724  3590"></path><path style="stroke:#000000;stroke-width:126;stroke-linecap:round;" d="M 850,9259  A 4507 4507  0  0  1  4724  9448"></path><polyline points="5385,4299 4062,8125" style="stroke:#000000;stroke-width:300; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="8598,3496 8598,9259" style="stroke:#000000;stroke-width:126; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="850,3496 850,9259" style="stroke:#000000;stroke-width:126; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="4960,9685 4488,9685" style="stroke:#000000;stroke-width:174; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="3070,4582 1889,6141 3070,7700" style="stroke:#000000;stroke-width:300; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="6418,4582 7600,6141 6418,7700" style="stroke:#000000;stroke-width:300; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="8976,3590 8976,9732" style="stroke:#000000;stroke-width:174; stroke-linejoin:miter; stroke-linecap:round;"></polyline><path style="stroke:#000000;stroke-width:174;stroke-linecap:butt;" d="M 4960,9685 A 4228 4228  0  0  1  8976  9732"></path></g></svg></div></a><a xmlns:pf="https://prefigure.org" class="runestone-link" href="https://runestone.academy" title="Runestone Academy"><img class="logo" src="https://runestone.academy/runestone/static/images/RAIcon_cropped.png"></a><a xmlns:pf="https://prefigure.org" class="mathjax-link" href="https://www.mathjax.org" title="MathJax"><img class="logo" src="https://www.mathjax.org/badge/badge-square-2.png"></a>
 </div>
 </body>
 </html>
