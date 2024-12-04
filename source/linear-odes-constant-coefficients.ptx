@@ -6,8 +6,9 @@
   <shorttitle>Constant Coefficients</shorttitle>
   <introduction>
     <p>
-      Now we move on to solving linear ODEs with constant coefficients.
-      We'll start with solving second-order ODEs since we already know how to solve first-order linear ODEs.
+      Now we move on to solving linear ODEs with constant
+      coefficients.  We'll start with solving second-order ODEs since
+      we already know how to solve first-order linear ODEs.
     </p>
   </introduction>
 
@@ -16,9 +17,11 @@
 
     <introduction>
       <p>
-        Recall that a second-order ODE is an ODE whose highest derivative is the second derivative.
-        In this section, we'll look at how to solve second-order ODEs of a special type.
-        Our method of solution here will be generalized to many, many other ODEs.
+        Recall that a second-order ODE is an ODE whose highest
+        derivative is the second derivative.  In this section, we'll
+        look at how to solve second-order ODEs of a special type.  Our
+        method of solution here will be generalized to many, many
+        other ODEs.
       </p>
     </introduction>
 
@@ -27,8 +30,10 @@
       <title>Types of linear ODEs</title>
 
       <p>
-        A first-order ODE is linear if it can be written in the form <m>y^\prime+P(x)y = Q(x)</m> (see <xref ref="definition-first-order-linear-odes" text="type-global" />).
-        We have a similar definition for second-order ODEs.
+        A first-order ODE is linear if it can be written in the form
+        <m>y^\prime+P(x)y = Q(x)</m> (see <xref
+        ref="definition-first-order-linear-odes" text="type-global"
+        />).  We have a similar definition for second-order ODEs.
       </p>
 
       <definition xml:id="definition-second-order-linear-odes">
@@ -37,11 +42,14 @@
         <idx><h>second-order ODEs</h><h>second-order linear ODEs</h><h>homogeneous and nonhomogeneous</h></idx>
         <statement>
           <p>
-            A second-order ODE is <term>linear</term> if it can be written in the form
+            A second-order ODE is <term>linear</term> if it can be
+            written in the form
             <me>
               y''+P(x)y^\prime+Q(x)y = R(x).
             </me>
-            A second-order linear ODE is <term>homogeneous</term> if <m>R(x) = 0</m> and <term>nonhomogeneous</term> if <m>R(x)\neq0</m>.
+            A second-order linear ODE is <term>homogeneous</term> if
+            <m>R(x) = 0</m> and <term>nonhomogeneous</term> if
+            <m>R(x)\neq0</m>.
           </p>
         </statement>
       </definition>
@@ -68,8 +76,10 @@
       </example>
 
       <p>
-        Newton's Second Law is a great source of linear second-order ODEs, as <xref ref="example-a-second-order-model" text="type-global" /> shows.
-        However, we will first need to state <term>Hooke's law</term>.
+        Newton's Second Law is a great source of linear second-order
+        ODEs, as <xref ref="example-a-second-order-model"
+        text="type-global" /> shows.  However, we will first need to
+        state <term>Hooke's law</term>.
       </p>
 
       <theorem xml:id="theorem-hooke-s-law">
@@ -78,8 +88,10 @@
         <idx>Hooke's law</idx>
         <statement>
           <p>
-            Consider an object attached to a spring.
-            The force exerted by the spring on the object is directly proportional to the displacement of the object from the spring's equilibrium, or at rest, position.
+            Consider an object attached to a spring.  The force
+            exerted by the spring on the object is directly
+            proportional to the displacement of the object from the
+            spring's equilibrium, or at rest, position.
           </p>
         </statement>
       </theorem>
@@ -89,34 +101,46 @@
 
         <statement>
           <p>
-            An object of mass <quantity><mag>4</mag><unit base="gram" prefix="kilo"/></quantity> is attached to a horizontal, frictionless spring.
-            Let <m>x=0</m> denote the equilibrium position of the spring and let <m>x(t)</m> denote the displacement of the mass from the spring's equilibrium position.
-            The only force acting on the mass is the force of the spring itself.
-            Find a mathematical model for <m>x(t)</m>.
+            An object of mass <quantity><mag>4</mag><unit base="gram"
+            prefix="kilo"/></quantity> is attached to a horizontal,
+            frictionless spring.  Let <m>x=0</m> denote the
+            equilibrium position of the spring and let <m>x(t)</m>
+            denote the displacement of the mass from the spring's
+            equilibrium position.  The only force acting on the mass
+            is the force of the spring itself.  Find a mathematical
+            model for <m>x(t)</m>.
           </p>
         </statement>
 
         <solution>
           <p>
-            Let <m>F_{S}</m> denote the force of the spring on the mass.
-            Then by <xref ref="theorem-hooke-s-law" text="type-global" /> we must have <m>F_{S} = -kx</m> for some <m>k&gt;0</m>.
-            Now, by Newton's Second Law we must also have <m>F_{S} = 4x''</m>.
-            Hence
+            Let <m>F_{S}</m> denote the force of the spring on the
+            mass.  Then by <xref ref="theorem-hooke-s-law"
+            text="type-global" /> we must have <m>F_{S} = -kx</m> for
+            some <m>k&gt;0</m>.  Now, by Newton's Second Law we must
+            also have <m>F_{S} = 4x''</m>.  Hence
             <me>
               4x'' = -kx\quad\text{or}\quad4x''+kx = 0.
             </me>
-            So the motion of the mass is modeled by a linear, second-order homogeneous ODE.
+            So the motion of the mass is modeled by a linear,
+            second-order homogeneous ODE.
           </p>
         </solution>
       </example>
       <aside>
       <p>
-        The reason we take <m>F_{S} = -kx</m> in Hooke's law is because we want to emphasize that the spring force is a <em>restoring force</em>, since it acts against the displacement of the mass.
+        The reason we take <m>F_{S} = -kx</m> in Hooke's law is
+        because we want to emphasize that the spring force is a
+        <em>restoring force</em>, since it acts against the
+        displacement of the mass.
       </p>
       </aside>
 
       <p>
-        The general trend that we will see for mathematical models using linear ODEs is that they will be homogeneous if we assume that there is no external force, and nonhomogeneous if we assume there is an external force.
+        The general trend that we will see for mathematical models
+        using linear ODEs is that they will be homogeneous if we
+        assume that there is no external force, and nonhomogeneous if
+        we assume there is an external force.
       </p>
     </subsection>
 
@@ -125,9 +149,11 @@
       <title>Solutions of second-order linear ODEs</title>
 
       <p>
-        The reason we restrict ourselves to linear ODEs is because their solutions behave very nicely.
-        In particular, we have the <xref ref="theorem-the-superposition-principle" text="type-global" />, which is an important principle for homogeneous ODEs.
-        First, some terminology.
+        The reason we restrict ourselves to linear ODEs is because
+        their solutions behave very nicely.  In particular, we have
+        the <xref ref="theorem-the-superposition-principle"
+        text="type-global" />, which is an important principle for
+        homogeneous ODEs.  First, some terminology.
       </p>
 
       <definition xml:id="definition-linear-combinations">
@@ -136,8 +162,10 @@
         <idx><h>linear combination</h><h>two functions</h></idx>
         <statement>
           <p>
-            Let <m>f</m> and <m>g</m> denote functions of <m>x</m>.
-            A <term>linear combination</term> of <m>f</m> and <m>g</m> is a function of the form <m>c_{1}f+c_{2}g</m> where <m>c_{1},c_{2}</m> are constants.
+            Let <m>f</m> and <m>g</m> denote functions of <m>x</m>.  A
+            <term>linear combination</term> of <m>f</m> and <m>g</m>
+            is a function of the form <m>c_{1}f+c_{2}g</m> where
+            <m>c_{1},c_{2}</m> are constants.
           </p>
         </statement>
       </definition>
@@ -148,16 +176,20 @@
         <idx><h>second-order ODEs</h><h>second-order linear ODEs</h><h>superposition principle</h></idx>
         <statement>
           <p>
-            Let <m>y_{1}</m> and <m>y_{2}</m> denote two (possibly different) solutions of the ODE <m>y''+P(x)y^\prime+Q(x)y = 0</m>.
-            Then any linear combination of these solutions is itself another solution of the same ODE.
+            Let <m>y_{1}</m> and <m>y_{2}</m> denote two (possibly
+            different) solutions of the ODE <m>y''+P(x)y^\prime+Q(x)y
+            = 0</m>.  Then any linear combination of these solutions
+            is itself another solution of the same ODE.
           </p>
         </statement>
 
 
         <proof>
           <p>
-            We need to show that <m>y = c_{1}y_{1} + c_{2}y_{2}</m> is another solution of the same ODE, where <m>c_{1},c_{2}</m> are arbitrary constants.
-            To do this, we'll just plug the linear combination into the ODE and simplify:
+            We need to show that <m>y = c_{1}y_{1} + c_{2}y_{2}</m> is
+            another solution of the same ODE, where <m>c_{1},c_{2}</m>
+            are arbitrary constants.  To do this, we'll just plug the
+            linear combination into the ODE and simplify:
             <md>
               <mrow>y''+P(x)y^\prime+Q(x)y &amp; = (c_{1}y_{1}+c_{2}y_{2})''+P(x)(c_{1}y_{1}+c_{2}y_{2})+Q(x)(c_{1}y_{1}+c_{2}y_{2})y </mrow>
               <mrow> &amp; = c_{1}y''_{1}+c_{2}y''_{2} + c_{1}P(x)y'_{1}+c_{2}P(x)y'_{2} + c_{1}Q(x)y_{1} + c_{2}Q(x)y_{2}</mrow>
@@ -169,7 +201,10 @@
       </theorem>
 
       <p>
-        <xref ref="theorem-the-superposition-principle" text="type-global" /> is important because it tells us how to construct new solutions of homogeneous ODEs out of known solutions. The next example demonstrates this.
+        <xref ref="theorem-the-superposition-principle"
+        text="type-global" /> is important because it tells us how to
+        construct new solutions of homogeneous ODEs out of known
+        solutions. The next example demonstrates this.
       </p>
 
       <example xml:id="example-solving-a-second-order-ivp">
@@ -177,7 +212,9 @@
 
         <statement>
           <p>
-            Using the fact that <m>y_{1} = \cosh\frac{x}{2}</m> and <m>y_{2} = \sinh\frac{x}{2}</m> are both solutions of <m>4y''-y = 0</m>, solve the IVP given by
+            Using the fact that <m>y_{1} = \cosh\frac{x}{2}</m> and
+            <m>y_{2} = \sinh\frac{x}{2}</m> are both solutions of
+            <m>4y''-y = 0</m>, solve the IVP given by
             <me>
               4y''-y=0\quad\text{and}\quad y(0)=3,y^\prime(0)=1.
             </me>
@@ -191,11 +228,17 @@
           </p>
 
           <p>
-            To solve the IVP, we'll use the superposition principle to give us as much leeway as possible in constructing a solution of out <m>y_{1}</m> and <m>y_{2}</m>.
-            So we'll guess the solution takes the form <m>y = c_{1}\cosh\frac{x}{2} + c_{2}\sinh\frac{x}{2}</m>.
-            By the superposition principle we're guaranteed that this is a solution of the ODE <m>4y''-y=0</m>, so we just need to pick the constants <m>c_{1},c_{2}</m> in order to satisfy the initial conditions.
-            Let's start with the first initial condition, <m>y(0) = 3</m>.
-            This gives us the equation
+            To solve the IVP, we'll use the superposition principle to
+            give us as much leeway as possible in constructing a
+            solution of out <m>y_{1}</m> and <m>y_{2}</m>.  So we'll
+            guess the solution takes the form <m>y =
+            c_{1}\cosh\frac{x}{2} + c_{2}\sinh\frac{x}{2}</m>.  By the
+            superposition principle we're guaranteed that this is a
+            solution of the ODE <m>4y''-y=0</m>, so we just need to
+            pick the constants <m>c_{1},c_{2}</m> in order to satisfy
+            the initial conditions.  Let's start with the first
+            initial condition, <m>y(0) = 3</m>.  This gives us the
+            equation
             <me>
               3 = c_{1}\cosh0+c_{2}\sinh0 = 3.
             </me>
@@ -213,13 +256,22 @@
       </example>
 
       <p>
-        The reason we were able to solve the IVP in <xref ref="example-solving-a-second-order-ivp" text="type-global" /> was because the individual solutions <m>\cosh\frac{x}{2}</m> and <m>\sinh\frac{x}{2}</m> gave us enough to build the particular solution of the IVP.
-        It turns out that <em>every</em> solution of <m>4y''-y=0</m> can be written as a linear combination of these two functions, so knowing these two functions is enough to solve every IVP involving this ODE.
+        The reason we were able to solve the IVP in <xref
+        ref="example-solving-a-second-order-ivp" text="type-global" />
+        was because the individual solutions <m>\cosh\frac{x}{2}</m>
+        and <m>\sinh\frac{x}{2}</m> gave us enough to build the
+        particular solution of the IVP.  It turns out that
+        <em>every</em> solution of <m>4y''-y=0</m> can be written as a
+        linear combination of these two functions, so knowing these
+        two functions is enough to solve every IVP involving this ODE.
       </p>
 
       <p>
-        In general, our goal will be to describe a "basis" of solutions for a given homogeneous ODE, a finite set of solutions that can be used to describe all possible solutions.
-        This can be done if the functions in the basis aren't too "similar", in the following sense.
+        In general, our goal will be to describe a "basis" of
+        solutions for a given homogeneous ODE, a finite set of
+        solutions that can be used to describe all possible solutions.
+        This can be done if the functions in the basis aren't too
+        "similar", in the following sense.
       </p>
 
       <definition xml:id="definition-linear-independence-of-functions">
@@ -228,17 +280,26 @@
         <idx><h>linear independence</h><h>two functions</h></idx>
         <statement>
           <p>
-            Two functions <m>f</m> and <m>g</m> are said to be <term>linearly independent</term> on an interval <m>I</m> if the linear combination <m>c_{1}f + c_{2}g</m> is equal to <m>0</m> if and only if <m>c_{1} = c_{2} = 0</m>.
-            Otherwise, we say that they are <term>linearly dependent</term>.
+            Two functions <m>f</m> and <m>g</m> are said to be
+            <term>linearly independent</term> on an interval <m>I</m>
+            if the linear combination <m>c_{1}f + c_{2}g</m> is equal
+            to <m>0</m> if and only if <m>c_{1} = c_{2} = 0</m>.
+            Otherwise, we say that they are <term>linearly
+            dependent</term>.
           </p>
         </statement>
       </definition>
 
       <p>
-        The main idea behind <xref ref="definition-linear-independence-of-functions" text="type-global" /> is that <m>f</m> and <m>g</m> are linearly independent if they are not like terms (i.e.
-        they don't cancel each other out).
-        Note that <m>f,g</m> are linearly dependent if and only if <m>f = \alpha g</m> for some <m>\alpha\neq 0</m>.
-        Equivalently, they are linearly dependent if and only if <m>\frac{f}{g} = \alpha</m> for some <m>\alpha\neq0</m>.
+        The main idea behind <xref
+        ref="definition-linear-independence-of-functions"
+        text="type-global" /> is that <m>f</m> and <m>g</m> are
+        linearly independent if they are not like terms (i.e.  they
+        don't cancel each other out).  Note that <m>f,g</m> are
+        linearly dependent if and only if <m>f = \alpha g</m> for some
+        <m>\alpha\neq 0</m>.  Equivalently, they are linearly
+        dependent if and only if <m>\frac{f}{g} = \alpha</m> for some
+        <m>\alpha\neq0</m>.
       </p>
 
       <example xml:id="example-linear-independence-of-sine-and-cosine">
@@ -252,19 +313,28 @@
 
         <solution>
           <p>
-            Since <m>\frac{\sin x}{\cos x} = \tan x</m> is <em>not</em> constant, this means that <m>\sin x</m> and <m>\cos x</m> must be linearly independent.
+            Since <m>\frac{\sin x}{\cos x} = \tan x</m> is
+            <em>not</em> constant, this means that <m>\sin x</m> and
+            <m>\cos x</m> must be linearly independent.
           </p>
         </solution>
       </example>
 
       <p>
-        Although it wasn't too hard to see that the functions in <xref ref="example-linear-independence-of-sine-and-cosine" text="type-global" /> were linearly independent, in other cases it can be much trickier (especially when we move to higher order ODEs).
-        For example, suppose we set <m>f(t) = -5(t-15)^{2} + 450</m> and <m>g(t) = 12t(30-t)</m>.
-        Then it's not obvious at all that these two functions are linearly dependent! In fact,
+        Although it wasn't too hard to see that the functions in <xref
+        ref="example-linear-independence-of-sine-and-cosine"
+        text="type-global" /> were linearly independent, in other
+        cases it can be much trickier (especially when we move to
+        higher order ODEs).  For example, suppose we set <m>f(t) =
+        -5(t-15)^{2} + 450</m> and <m>g(t) = 12t(30-t)</m>.  Then it's
+        not obvious at all that these two functions are linearly
+        dependent! In fact,
         <me>
           \frac{2}{5}f(t) - \frac{1}{6}g(t) = 0.
         </me>
-        So generally when we try to determine if two functions are linearly independent, we'll make use of the <term>Wronskian</term>.
+        So generally when we try to determine if two functions are
+        linearly independent, we'll make use of the
+        <term>Wronskian</term>.
       </p>
 
       <definition xml:id="definition-wronskian-of-two-functions">
@@ -273,8 +343,9 @@
         <idx><h>Wronskian</h><h>two functions</h></idx>
         <statement>
           <p>
-            Let <m>f</m> and <m>g</m> denote two differentiable functions.
-            The Wronskian of <m>f</m> and <m>g</m>, denoted <m>W(f,g)</m>, is given by
+            Let <m>f</m> and <m>g</m> denote two differentiable
+            functions.  The Wronskian of <m>f</m> and <m>g</m>,
+            denoted <m>W(f,g)</m>, is given by
             <me>
               W(f,g) = \left|\begin{matrix} f &amp; g \\ f' &amp; g' \end{matrix}\right| = fg' - f'g.
             </me>
@@ -287,9 +358,14 @@
 
         <statement>
           <p>
-            Let <m>f</m> and <m>g</m> be two functions that are differentiable on some interval <m>I</m>.
-            Then <m>f</m> and <m>g</m> are linearly independent on <m>I</m> if <m>W(f,g) \neq 0</m> <em>somewhere</em> <m>I</m>.
-            Conversely, if <m>W(f,g) = 0</m> <em>and</em> <m>f</m> and <m>g</m> can both be represented by power series on <m>I</m>, then <m>f</m> and <m>g</m> are linearly dependent.
+            Let <m>f</m> and <m>g</m> be two functions that are
+            differentiable on some interval <m>I</m>.  Then <m>f</m>
+            and <m>g</m> are linearly independent on <m>I</m> if
+            <m>W(f,g) \neq 0</m> <em>somewhere</em> <m>I</m>.
+            Conversely, if <m>W(f,g) = 0</m> <em>and</em> <m>f</m> and
+            <m>g</m> can both be represented by power series on
+            <m>I</m>, then <m>f</m> and <m>g</m> are linearly
+            dependent.
           </p>
         </statement>
       </theorem>
@@ -298,14 +374,22 @@
         <title>Using the Wronskian</title>
 
         <p>
-          If we let <m>f(t) = -5(t-15)^{2} + 450</m> and <m>g(t) = 12t(30-t)</m> and compute their Wronskian, we obtain (after a fair bit of algebra) <m>W(f,g) = 0</m>.
-          Since <m>f</m> and <m>g</m> can clearly be represented by power series on any interval <m>I</m> (since, being polynomials, they already <em>are</em> power series), this means that the two functions are linearly independent.
+          If we let <m>f(t) = -5(t-15)^{2} + 450</m> and <m>g(t) =
+          12t(30-t)</m> and compute their Wronskian, we obtain (after
+          a fair bit of algebra) <m>W(f,g) = 0</m>.  Since <m>f</m>
+          and <m>g</m> can clearly be represented by power series on
+          any interval <m>I</m> (since, being polynomials, they
+          already <em>are</em> power series), this means that the two
+          functions are linearly independent.
         </p>
       </example>
 
       <p>
-        We mentioned earlier that we'll try to find a basis of solutions for linear ODEs.
-        Now that we have the concept of linear independence and the Wronskian for checking if two functions are linearly independent, we can make the following definition.
+        We mentioned earlier that we'll try to find a basis of
+        solutions for linear ODEs.  Now that we have the concept of
+        linear independence and the Wronskian for checking if two
+        functions are linearly independent, we can make the following
+        definition.
       </p>
 
       <definition xml:id="definition-basis-of-solutions">
@@ -314,15 +398,21 @@
         <idx><h>second-order ODEs</h><h>second-order linear ODEs</h><h>basis</h></idx>
         <statement>
           <p>
-            Let <m>y_{1}</m> and <m>y_{2}</m> denote solutions of some second-order linear homogeneous ODE.
-            We call <m>\{y_{1},y_{2}\}</m> a <term>basis</term> if <m>y_{1}</m> and <m>y_{2}</m> are also linearly independent.
+            Let <m>y_{1}</m> and <m>y_{2}</m> denote solutions of some
+            second-order linear homogeneous ODE.  We call
+            <m>\{y_{1},y_{2}\}</m> a <term>basis</term> if
+            <m>y_{1}</m> and <m>y_{2}</m> are also linearly
+            independent.
           </p>
         </statement>
       </definition>
 
       <p>
-        Once we have a basis for a second-order linear homogeneous ODE, we can solve any IVP that we wish involving that ODE.
-        In particular, if <m>\{y_{1},y_{2}\}</m> is a basis for such an ODE, then <em>every</em> solution of the ODE can be written as a linear combination of <m>y_{1}</m> and <m>y_{2}</m>.
+        Once we have a basis for a second-order linear homogeneous
+        ODE, we can solve any IVP that we wish involving that ODE.  In
+        particular, if <m>\{y_{1},y_{2}\}</m> is a basis for such an
+        ODE, then <em>every</em> solution of the ODE can be written as
+        a linear combination of <m>y_{1}</m> and <m>y_{2}</m>.
       </p>
 
       <example xml:id="example-linear-independence-using-the-wronskian">
@@ -338,7 +428,8 @@
             <me>
               t^{2}x'' - tx^\prime + 2x = 0,
             </me>
-            solve the corresponding IVP with initial conditions <m>x(1) = 1, x^\prime(1) = -1</m>.
+            solve the corresponding IVP with initial conditions
+            <m>x(1) = 1, x^\prime(1) = -1</m>.
           </p>
         </statement>
 
@@ -349,8 +440,10 @@
             <me>
               W(x_{1},x_{2}) = (t\cos\ln t)(\sin\ln t + \cos\ln t) - (t\sin\ln t)(\cos\ln t - \sin\ln t) = t(\cos^{2}\ln t + \sin^{2}\ln t) = t.
             </me>
-            So <m>W(x_{1},x_{2}) = t</m>, which is clearly nonzero on the interval <m>(0,\infty)</m>.
-            Hence <m>x_{1}</m> and <m>x_{2}</m> are linearly independent, and therefore <m>\{x_{1},x_{2}\}</m> is a basis for the ODE.
+            So <m>W(x_{1},x_{2}) = t</m>, which is clearly nonzero on
+            the interval <m>(0,\infty)</m>.  Hence <m>x_{1}</m> and
+            <m>x_{2}</m> are linearly independent, and therefore
+            <m>\{x_{1},x_{2}\}</m> is a basis for the ODE.
           </p>
 
           <p>
@@ -370,18 +463,24 @@
 
     <shorttitle>Homogeneous ODEs</shorttitle>
     <p>
-      Now we'll move on to solving homogeneous ODEs, at least with constant coefficients.
+      Now we'll move on to solving homogeneous ODEs, at least with
+      constant coefficients.
     </p>
 
     <example xml:id="example-solving-a-homogeneous-ode">
       <title>Solving a homogeneous ODE</title>
 
       <p>
-        Suppose we wanted to solve <m>y'' - y^\prime - 6y = 0</m>, where <m>y=y(x)</m>.
-        If we stare at this for a bit, we may realize the following: the only way for a function <m>y</m> to be a solution of this ODE is for <m>y</m> and its derivatives <m>y^\prime,y''</m> to cancel each other out.
-        In other words, <m>y</m> and its derivatives <em>should be like terms</em>.
-        This is a huge hint that <m>y</m> should look like an exponential function.
-        So we'll guess that <m>y = e^{rx}</m> for some real number <m>r</m>, and see if we can't pick <m>r</m> in just the right way to get a solution to the ODE.
+        Suppose we wanted to solve <m>y'' - y^\prime - 6y = 0</m>,
+        where <m>y=y(x)</m>.  If we stare at this for a bit, we may
+        realize the following: the only way for a function <m>y</m> to
+        be a solution of this ODE is for <m>y</m> and its derivatives
+        <m>y^\prime,y''</m> to cancel each other out.  In other words,
+        <m>y</m> and its derivatives <em>should be like terms</em>.
+        This is a huge hint that <m>y</m> should look like an
+        exponential function.  So we'll guess that <m>y = e^{rx}</m>
+        for some real number <m>r</m>, and see if we can't pick
+        <m>r</m> in just the right way to get a solution to the ODE.
         If we plug <m>e^{rx}</m> into the ODE, we get
         <md>
           <mrow>y''- y^\prime - 6y &amp; = r^{2}e^{rx} - re^{rx} - 6e^{rx} </mrow>
@@ -390,7 +489,8 @@
       </p>
 
       <p>
-        So we need to set <m>e^{rx}(r^{2} - r - 6)</m> equal to <m>0</m> and solve for <m>r</m>, which gives
+        So we need to set <m>e^{rx}(r^{2} - r - 6)</m> equal to
+        <m>0</m> and solve for <m>r</m>, which gives
         <me>
           r = -2, 3.
         </me>
@@ -398,14 +498,18 @@
         <me>
           y_{1} = e^{-2x}
         </me>
-        and <m>y_{2} = e^{3x}</m>.
-        Since <m>W(y_{1},y_{2})\neq0</m>, this means that <m>c_{1}e^{-2x} + c_{2}e^{3x}</m> is actually the general solution of the ODE.
+        and <m>y_{2} = e^{3x}</m>.  Since <m>W(y_{1},y_{2})\neq0</m>,
+        this means that <m>c_{1}e^{-2x} + c_{2}e^{3x}</m> is actually
+        the general solution of the ODE.
       </p>
     </example>
 
     <p>
-      The process in <xref ref="example-solving-a-homogeneous-ode" text="type-global" /> will work for <em>every</em> second-order homogeneous ODE with constant coefficients.
-      So solving such an ODE is even easier than integrating: all we need to do is to find the roots of a particular polynomial.
+      The process in <xref ref="example-solving-a-homogeneous-ode"
+      text="type-global" /> will work for <em>every</em> second-order
+      homogeneous ODE with constant coefficients.  So solving such an
+      ODE is even easier than integrating: all we need to do is to
+      find the roots of a particular polynomial.
     </p>
 
     <definition xml:id="definition-the-characteristic-polynomial">
@@ -414,8 +518,9 @@
       <idx><h>second-order ODEs</h><h>characteristic equation</h></idx>
       <statement>
         <p>
-          Let <m>a,b</m> and <m>c</m> be constants.
-          Given the ODE <m>ay'' + by^\prime + cy = 0</m>, the <term>characteristic equation</term> of this ODE is the polynomial
+          Let <m>a,b</m> and <m>c</m> be constants.  Given the ODE
+          <m>ay'' + by^\prime + cy = 0</m>, the <term>characteristic
+          equation</term> of this ODE is the polynomial
           <me>
             ar^{2} + br + c = 0.
           </me>
@@ -424,7 +529,8 @@
     </definition>
 
     <p>
-      We can now state the following result for finding solutions of homogeneous ODEs with constant coefficients.
+      We can now state the following result for finding solutions of
+      homogeneous ODEs with constant coefficients.
     </p>
 
     <theorem xml:id="theorem-characteristic-equations-with-distinct-roots">
@@ -432,9 +538,10 @@
 
       <statement>
         <p>
-          Let <m>a,b</m> and <m>c</m> be constants.
-          Suppose that the characteristic equation of <m>ay'' + by^\prime + cy = 0</m> has distinct roots <m>r_{1}</m> and <m>r_{2}</m>.
-          Then the general solution of the ODE is given by
+          Let <m>a,b</m> and <m>c</m> be constants.  Suppose that the
+          characteristic equation of <m>ay'' + by^\prime + cy = 0</m>
+          has distinct roots <m>r_{1}</m> and <m>r_{2}</m>.  Then the
+          general solution of the ODE is given by
           <me>
             c_{1}e^{r_{1}x} + c_{2}e^{r_{2}x}.
           </me>
@@ -447,36 +554,45 @@
 
       <statement>
         <p>
-          An object of mass <quantity><mag>4</mag><unit base="gram" prefix="kilo"/></quantity> is attached to a horizontal, frictionless spring.
-          Suppose the spring constant is given by <m>k=16</m>.
-          The mass is held <quantity><mag>3</mag><unit base="meter"/></quantity> to the right of the spring's equilibrium position, and is then released at time <m>t=0</m> where <m>t</m> is in seconds.
+          An object of mass <quantity><mag>4</mag><unit base="gram"
+          prefix="kilo"/></quantity> is attached to a horizontal,
+          frictionless spring.  Suppose the spring constant is given
+          by <m>k=16</m>.  The mass is held
+          <quantity><mag>3</mag><unit base="meter"/></quantity> to the
+          right of the spring's equilibrium position, and is then
+          released at time <m>t=0</m> where <m>t</m> is in seconds.
           Find the displacement <m>x(t)</m> of the mass.
         </p>
       </statement>
 
       <solution>
         <p>
-          We know from <xref ref="example-a-second-order-model" text="type-global" /> that the second-order ODE given by
+          We know from <xref ref="example-a-second-order-model"
+          text="type-global" /> that the second-order ODE given by
           <me>
             4x'' + kx = 0\quad\text{or}\quad x'' + 4x = 0
           </me>
-          provides a model for <m>x(t)</m>, but now we are in a position to solve it.
-          The characteristic equation of this ODE is <m>r^{2} + 4 = 0</m>, which has roots <m>r=\pm2i</m>.
-          The imaginary roots <em>are not a problem</em>, and in fact provide significant information about the motion of the mass, as we'll soon see.
-          The general solution of the ODE is
+          provides a model for <m>x(t)</m>, but now we are in a
+          position to solve it.  The characteristic equation of this
+          ODE is <m>r^{2} + 4 = 0</m>, which has roots <m>r=\pm2i</m>.
+          The imaginary roots <em>are not a problem</em>, and in fact
+          provide significant information about the motion of the
+          mass, as we'll soon see.  The general solution of the ODE is
           <me>
             x = c_{1}e^{-2it} + c_{2}e^{2it}
           </me>.
         </p>
 
         <p>
-          The initial conditions are <m>x(0) = 3</m> and <m>x^\prime(0) = 0</m>, which give the equations
+          The initial conditions are <m>x(0) = 3</m> and
+          <m>x^\prime(0) = 0</m>, which give the equations
           <md>
             <mrow>3 &amp; = c_{1} + c_{2} </mrow>
-            <mrow>0 &amp; = -2ic_{1} + 2ic_{2} </mrow>
-          </md>.
-          The second equation implies that <m>c_{1} = c_{2}</m>, and applying this to the first equation now gives <m>c_{1} = c_{2} = \frac{3}{2}</m>.
-          Hence the displacement of the mass is given by
+            <mrow>0 &amp; = -2ic_{1} + 2ic_{2} </mrow> </md>.  The
+            second equation implies that <m>c_{1} = c_{2}</m>, and
+            applying this to the first equation now gives <m>c_{1} =
+            c_{2} = \frac{3}{2}</m>.  Hence the displacement of the
+            mass is given by
           <me>
             x = \frac{3}{2}e^{-2it} + \frac{3}{2}e^{2it}
           </me>.
@@ -485,8 +601,11 @@
     </example>
 
     <p>
-      The appearance of the "imaginary" solution in <xref ref="example-spring-mass-system-revisited" text="type-global" /> may seem strange, but they're actually quite natural.
-      In fact, we can use <term>Euler's formula</term> to write the solution in terms of a more familiar function.
+      The appearance of the "imaginary" solution in <xref
+      ref="example-spring-mass-system-revisited" text="type-global" />
+      may seem strange, but they're actually quite natural.  In fact,
+      we can use <term>Euler's formula</term> to write the solution in
+      terms of a more familiar function.
     </p>
 
     <theorem xml:id="theorem-euler-s-formula">
@@ -506,22 +625,32 @@
     </theorem>
 
     <p>
-      So using Euler's formula on the solution from <xref ref="example-spring-mass-system-revisited" text="type-global" /> gives
+      So using Euler's formula on the solution from <xref
+      ref="example-spring-mass-system-revisited" text="type-global" />
+      gives
       <md>
         <mrow>x &amp; = \frac{3}{2}e^{-2it} + \frac{3}{2} e^{2it} </mrow>
         <mrow> &amp; = 3\frac{e^{-2it} + e^{2it}}{2} </mrow>
-        <mrow> &amp; = 3\cos2t </mrow>
-      </md>.
-      So the imaginary roots <m>\pm2i</m> from <xref ref="example-spring-mass-system-revisited" text="type-global" /> actually relate to the <em>frequency</em> of the spring-mass system in that problem.
-      This is a trend we will see often in this course: imaginary numbers corresponding to oscillating quantities.
+        <mrow> &amp; = 3\cos2t </mrow> </md>.  So the imaginary roots
+        <m>\pm2i</m> from <xref
+        ref="example-spring-mass-system-revisited" text="type-global"
+        /> actually relate to the <em>frequency</em> of the
+        spring-mass system in that problem.  This is a trend we will
+        see often in this course: imaginary numbers corresponding to
+        oscillating quantities.
     </p>
 
     <p>
-      Now we'll take a look at how to solve second-order homogeneous ODEs whose characteristic equations have repeated roots.
-      This can only happen if the characteristic equation takes the form <m>(r-r_1)^2=0</m>, which means that the original ODE still has <m>y = e^{r_1x}</m> as one solution.
-      To get the general solution we need a second, linearly independent, solution.
-      We can guess that this second solution must also involve the exponential <m>e^{r_1x}</m>, but it can't be a scalar multiple since we need a linearly independent solution.
-      Therefore, we will try <m>xe^{r_1x}</m> as our second solution.
+      Now we'll take a look at how to solve second-order homogeneous
+      ODEs whose characteristic equations have repeated roots.  This
+      can only happen if the characteristic equation takes the form
+      <m>(r-r_1)^2=0</m>, which means that the original ODE still has
+      <m>y = e^{r_1x}</m> as one solution.  To get the general
+      solution we need a second, linearly independent, solution.  We
+      can guess that this second solution must also involve the
+      exponential <m>e^{r_1x}</m>, but it can't be a scalar multiple
+      since we need a linearly independent solution.  Therefore, we
+      will try <m>xe^{r_1x}</m> as our second solution.
     </p>
 
     <example xml:id="example-repeated-roots-in-the-characteristic-equation">
@@ -529,7 +658,8 @@
 
       <statement>
         <p>
-          Find the general solution of <m>y'' + 2y^\prime + y = 0</m> where <m>y = y(x)</m>.
+          Find the general solution of <m>y'' + 2y^\prime + y = 0</m>
+          where <m>y = y(x)</m>.
         </p>
       </statement>
 
@@ -539,16 +669,25 @@
           <me>
             r^{2} + 2r + 1 = 0.
           </me>
-          The only solution of this equation is <m>r=-1</m>, which is a repeated root.
-          We can still get one solution of the ODE using this root, namely <m>y_{1} = e^{-x}</m>, but we need two linearly independent solutions in order to find the general solution.
-          We'll guess (and check!) that <m>y_{2} = xe^{-x}</m> is another solution of <m>y''+2y'+y = 0</m>.
-          If we plug <m>y_{2}</m> into the ODE, we get
+          The only solution of this equation is <m>r=-1</m>, which is
+          a repeated root.  We can still get one solution of the ODE
+          using this root, namely <m>y_{1} = e^{-x}</m>, but we need
+          two linearly independent solutions in order to find the
+          general solution.  We'll guess (and check!) that <m>y_{2} =
+          xe^{-x}</m> is another solution of <m>y''+2y'+y = 0</m>.  If
+          we plug <m>y_{2}</m> into the ODE, we get
           <md>
-            <mrow>y''_{2} + 2y'_{2} + y_{2} &amp; = \underbrace{-2e^{-x} + xe^{-x}}_{y''_{2}} + \underbrace{2e^{-x} - 2xe^{-x}}_{y'_{2}} + \underbrace{xe^{-x}}_{y_{2}} </mrow>
+            <mrow>y''_{2} + 2y'_{2} + y_{2} &amp; =
+            \underbrace{-2e^{-x} + xe^{-x}}_{y''_{2}} +
+            \underbrace{2e^{-x} - 2xe^{-x}}_{y'_{2}} +
+            \underbrace{xe^{-x}}_{y_{2}} </mrow>
             <mrow> &amp; = 0 </mrow>
           </md>
-          which shows that <m>y_{2}</m> is indeed a solution of the ODE.
-          Since <m>\{y_1, y_2\}</m> is a linearly independent set of solutions (which we can check via the Wronskian), this means that the general solution of <m>y''+2y^\prime+y=0</m> is
+          which shows that <m>y_{2}</m> is indeed a solution of the
+          ODE.  Since <m>\{y_1, y_2\}</m> is a linearly independent
+          set of solutions (which we can check via the Wronskian),
+          this means that the general solution of
+          <m>y''+2y^\prime+y=0</m> is
           <me>
             y = c_{1}y_{1} + c_{2}y_{2} = c_{1}e^{-x} + c_{2}xe^{-x}
           </me>.
@@ -557,9 +696,13 @@
     </example>
 
     <p>
-      The method used in <xref ref="example-repeated-roots-in-the-characteristic-equation" text="type-global" /> also works for other homogeneous ODEs with constant coefficients whose characteristic equations have repeated roots.
-      Hence the roots of the characteristic equation <em>completely</em> determine the general solutions of such ODEs.
-      We summarize this in the following table.
+      The method used in <xref
+      ref="example-repeated-roots-in-the-characteristic-equation"
+      text="type-global" /> also works for other homogeneous ODEs with
+      constant coefficients whose characteristic equations have
+      repeated roots.  Hence the roots of the characteristic equation
+      <em>completely</em> determine the general solutions of such
+      ODEs.  We summarize this in the following table.
     </p>
 
     <table>
@@ -584,8 +727,11 @@
     </table>
 
     <p>
-      Remember that it's not a problem if the characteristic equation has imaginary roots, and in fact we must account for these in order to completely describe the corresponding physical system.
-      If we have imaginary roots, then we can simply use Euler's formula to rewrite the solutions in terms of sine and cosine.
+      Remember that it's not a problem if the characteristic equation
+      has imaginary roots, and in fact we must account for these in
+      order to completely describe the corresponding physical system.
+      If we have imaginary roots, then we can simply use Euler's
+      formula to rewrite the solutions in terms of sine and cosine.
     </p>
   </section>
 
@@ -594,10 +740,13 @@
 
     <introduction>
       <p>
-        In this section we examine a common application of second-order ODEs: modeling movement in a spring-mass system.
-        We will look at two different types of motion: undamped and damped.
-        Damped motion will result from forces internal to the system and lead to homogeneous ODEs.
-        External forces lead to non-homogeneous models, which we will consider in <xref ref="section-forced-oscillations-and-resonance"/>.
+        In this section we examine a common application of
+        second-order ODEs: modeling movement in a spring-mass system.
+        We will look at two different types of motion: undamped and
+        damped.  Damped motion will result from forces internal to the
+        system and lead to homogeneous ODEs.  External forces lead to
+        non-homogeneous models, which we will consider in <xref
+        ref="section-forced-oscillations-and-resonance"/>.
       </p>
     </introduction>
 
@@ -606,7 +755,8 @@
       <title>Free undamped motion</title>
 
       <p>
-        Suppose we have a mass <m>m</m> attached to a spring as in the following diagram:
+        Suppose we have a mass <m>m</m> attached to a spring as in the
+        following diagram:
       </p>
 
       <figure xml:id="figure-spring-mass-system">
@@ -630,7 +780,7 @@
             \draw[thick] ($(M1.south east)$) -- ($(M1.south east) + (4,0)$);
             \draw[thick] ($(M1.south east) + (4,0)$) -- ($(M1.north east) + (4,.5)$);
             % This draws the equilibrium position.
-            \draw[dashed] ($(M1.south west)-(2,.5)$) -- ($(M1.south west) - (2,-.5)$) node [below, yshift=-1cm,align=left] {\footnotesize Equilibrium\\ \footnotesize position}; 
+            \draw[dashed] ($(M1.south west)-(2,.5)$) -- ($(M1.south west) - (2,-.5)$) node [below, yshift=-1cm,align=left] {\footnotesize Equilibrium\\ \footnotesize position};
             % This illustrates displacement.
             \draw [decorate,decoration={brace,amplitude=5pt,mirror},yshift=-2pt]
             ($(M1.south west)-(2,0)$) -- ($(M1.south west)$) node [black,midway,yshift=-10pt] {$x$};
@@ -640,7 +790,14 @@
       </figure>
 
       <p>
-        If we let <m>x(t)</m> denote the displacement of the mass from the spring's equilibrium position and let <m>F_{S} = -kx</m> denote the force of the spring on the mass (see <xref ref="theorem-hooke-s-law" text="custom">Hooke's law</xref>), and assume that no other force is acting on the mass, then we know from <xref ref="example-a-second-order-model" text="type-global" /> that <m>x(t)</m> satisfies the second-order ODE given by
+        If we let <m>x(t)</m> denote the displacement of the mass from
+        the spring's equilibrium position and let <m>F_{S} = -kx</m>
+        denote the force of the spring on the mass (see <xref
+        ref="theorem-hooke-s-law" text="custom">Hooke's law</xref>),
+        and assume that no other force is acting on the mass, then we
+        know from <xref ref="example-a-second-order-model"
+        text="type-global" /> that <m>x(t)</m> satisfies the
+        second-order ODE given by
         <me>
           mx'' + kx = 0
         </me>.
@@ -651,8 +808,14 @@
       </p>
 
       <p>
-        One thing we can notice right away about solutions of <m>x''+\omega_{0}^{2}x = 0</m> is that they should all be periodic (see <xref ref="definition-fourier-periodic-functions" text="type-global" />), which, of course, makes sense!
-        To see why, note that the roots of the characteristic equation are <m>\pm i\omega_{0}</m>, which means that the solutions may be written in the form
+        One thing we can notice right away about solutions of
+        <m>x''+\omega_{0}^{2}x = 0</m> is that they should all be
+        periodic (see <xref
+        ref="definition-fourier-periodic-functions" text="type-global"
+        />), which, of course, makes sense!  To see why, note that the
+        roots of the characteristic equation are <m>\pm
+        i\omega_{0}</m>, which means that the solutions may be written
+        in the form
         <me>
           x = c_{1}e^{-i\omega_{0}t} + c_{2}e^{i\omega_{0}t},
         </me>
@@ -665,24 +828,35 @@
       </p>
 
       <p>
-        We can go even further by making use of some clever algebra and the appropriate trigonometric formulas if we assume that <m>x\neq0</m> (i.e.
-        <m>A</m> and <m>B</m> are not <em>both</em> <m>0</m>).
-        In this case, we may write
+        We can go even further by making use of some clever algebra
+        and the appropriate trigonometric formulas if we assume that
+        <m>x\neq0</m> (i.e.  <m>A</m> and <m>B</m> are not
+        <em>both</em> <m>0</m>).  In this case, we may write
         <md>
           <mrow>x &amp; = A\cos\omega_{0}t + B\sin\omega_{0}t </mrow>
-          <mrow> &amp; = \sqrt{A^{2}+B^{2}}\left(\frac{A}{\sqrt{A^{2}+B^{2}}}\cos\omega_{0}t + \frac{B}{\sqrt{A^{2} + B^{2}}}\sin\omega_{0}t\right) </mrow>
+          <mrow> &amp; =
+          \sqrt{A^{2}+B^{2}}\left(\frac{A}{\sqrt{A^{2}+B^{2}}}\cos\omega_{0}t
+          + \frac{B}{\sqrt{A^{2} + B^{2}}}\sin\omega_{0}t\right)
+          </mrow>
         </md>.
         Now set <m>C = \sqrt{A^{2} + B^{2}}</m> and define <m>\varphi</m> implicitly by <m>\cos\varphi = \frac{A}{C}</m> and <m>\sin\varphi = \frac{B}{C}</m>.
         Then we get
         <me>
           x = C(\cos\varphi\cos\omega_{0}t + \sin\varphi\sin\omega_{0}t) = C\cos(\omega_{0}t - \varphi).
         </me>
-        <m>C</m> is the <term>amplitude</term> of the wave <m>x</m>, <m>\omega_{0}</m> is the <term>circular frequency</term>, <m>T = \frac{2\pi}{\omega_{0}}</m> is the <term>period</term> of motion and <m>\varphi</m> is the <term>phase</term>.
+        <m>C</m> is the <term>amplitude</term> of the wave <m>x</m>,
+        <m>\omega_{0}</m> is the <term>circular frequency</term>, <m>T
+        = \frac{2\pi}{\omega_{0}}</m> is the <term>period</term> of
+        motion and <m>\varphi</m> is the <term>phase</term>.
       </p>
       <aside>
       <p>
-        There are infinitely many choices for <m>\varphi</m> here, but we can select a unique one if we make the extra restriction that <m>\varphi\in[0,2\pi)</m>.
-        Computer systems often include a function named <c>atan2</c> to handle the computation of <m>\varphi</m>, although this usually returns an angle in <m>(-\pi, \pi)</m>.
+        There are infinitely many choices for <m>\varphi</m> here, but
+        we can select a unique one if we make the extra restriction
+        that <m>\varphi\in[0,2\pi)</m>.  Computer systems often
+        include a function named <c>atan2</c> to handle the
+        computation of <m>\varphi</m>, although this usually returns
+        an angle in <m>(-\pi, \pi)</m>.
       </p>
       </aside>
 
@@ -691,34 +865,56 @@
 
         <statement>
           <p>
-            An object with a mass of <quantity><mag>5</mag><unit base="gram" prefix="kilo"/></quantity> is fixed to a spring and a force of <quantity><mag>10</mag><unit base="newton"/></quantity> holds the mass <quantity><mag>5</mag><unit base="meter"/></quantity> to the left of the spring's equilibrium position.
-            If the object is released, how long will it take for the mass to return to its original position? And what is the position <m>x(t)</m> of the mass?
+            An object with a mass of <quantity><mag>5</mag><unit
+            base="gram" prefix="kilo"/></quantity> is fixed to a
+            spring and a force of <quantity><mag>10</mag><unit
+            base="newton"/></quantity> holds the mass
+            <quantity><mag>5</mag><unit base="meter"/></quantity> to
+            the left of the spring's equilibrium position.  If the
+            object is released, how long will it take for the mass to
+            return to its original position? And what is the position
+            <m>x(t)</m> of the mass?
           </p>
         </statement>
 
         <solution>
           <p>
-            Let <m>x(t)</m> denote the position of the mass <m>t</m> seconds after being released, so that <m>x(0) = -5</m> and <m>x^\prime(0) = 0</m>.
-            We could find the time it takes for the mass to return to its starting position by first finding <m>x(t)</m>, but a quicker way is to just find the period <m>T</m> of <m>x</m>.
-            To do this, we must find the circular frequency <m>\omega_{0} = \sqrt{\frac{k}{m}}</m>.
-            Thankfully, half of the work is done for us (we know <m>m=5</m>), so we only need the value of <m>k</m> which itself comes from Hooke's law.
+            Let <m>x(t)</m> denote the position of the mass <m>t</m>
+            seconds after being released, so that <m>x(0) = -5</m> and
+            <m>x^\prime(0) = 0</m>.  We could find the time it takes
+            for the mass to return to its starting position by first
+            finding <m>x(t)</m>, but a quicker way is to just find the
+            period <m>T</m> of <m>x</m>.  To do this, we must find the
+            circular frequency <m>\omega_{0} = \sqrt{\frac{k}{m}}</m>.
+            Thankfully, half of the work is done for us (we know
+            <m>m=5</m>), so we only need the value of <m>k</m> which
+            itself comes from Hooke's law.
           </p>
 
           <p>
-            Call the spring force <m>F_{S}</m> and recall that <m>F_{S} = -kx</m>.
-            We know that it takes a force of <quantity><mag>10</mag><unit base="newton"/></quantity> to hold the mass still at <m>x=-5</m>.
-            The spring force must <em>precisely</em> counterbalance this force in order for the mass to remain still as it's held, which means that <m>F_{S} = 10</m> since <m>F_{S}</m> pulls the mass to the right.
-            Therefore <m>-k(-5) = 10</m> and so <m>k=2</m>, which gives <m>\omega_{0} = \sqrt{\frac{2}{5}}</m>.
-            This means that the period of motion is
+            Call the spring force <m>F_{S}</m> and recall that
+            <m>F_{S} = -kx</m>.  We know that it takes a force of
+            <quantity><mag>10</mag><unit base="newton"/></quantity> to
+            hold the mass still at <m>x=-5</m>.  The spring force must
+            <em>precisely</em> counterbalance this force in order for
+            the mass to remain still as it's held, which means that
+            <m>F_{S} = 10</m> since <m>F_{S}</m> pulls the mass to the
+            right.  Therefore <m>-k(-5) = 10</m> and so <m>k=2</m>,
+            which gives <m>\omega_{0} = \sqrt{\frac{2}{5}}</m>.  This
+            means that the period of motion is
             <me>
               T = \frac{2\pi}{\omega_{0}} = 2\pi\sqrt{\frac{5}{2}}.
             </me>
           </p>
 
           <p>
-            To find <m>x(t)</m>, we'll use the fact that it can be written as <m>x = C\cos(\omega_{0}t-\varphi)</m>.
-            Since <m>C = 5</m> (because the mass can never go more than five meters from the equilibrium position) and we already know that <m>\omega_{0} = \sqrt{\frac{2}{5}}</m>, we just need to find <m>\varphi</m>.
-            We can just make use of the initial condition <m>x(0) = -5</m> to get this:
+            To find <m>x(t)</m>, we'll use the fact that it can be
+            written as <m>x = C\cos(\omega_{0}t-\varphi)</m>.  Since
+            <m>C = 5</m> (because the mass can never go more than five
+            meters from the equilibrium position) and we already know
+            that <m>\omega_{0} = \sqrt{\frac{2}{5}}</m>, we just need
+            to find <m>\varphi</m>.  We can just make use of the
+            initial condition <m>x(0) = -5</m> to get this:
             <me>
               -5 = C\cos\varphi = 5\cos\varphi
             </me>
@@ -732,9 +928,13 @@
       </example>
       <aside>
       <p>
-        You may be troubled by the fact that we only explicitly used the first initial condition in this example.
-        However, the second condition <m>x^\prime(0) = 0</m> was actually used implicitly: it allowed us to assume that the amplitude was <m>5</m> as opposed to another number.
-        If <m>x^\prime(0)\neq0</m>, finding <m>C</m> would have been a little trickier.
+        You may be troubled by the fact that we only explicitly used
+        the first initial condition in this example.  However, the
+        second condition <m>x^\prime(0) = 0</m> was actually used
+        implicitly: it allowed us to assume that the amplitude was
+        <m>5</m> as opposed to another number.  If
+        <m>x^\prime(0)\neq0</m>, finding <m>C</m> would have been a
+        little trickier.
       </p>
       </aside>
     </subsection>
@@ -744,8 +944,10 @@
       <title>Free damped motion</title>
 
       <p>
-        Now we look at how the motion of a mass attached to a spring is altered if the motion is <em>damped</em>, say, by a dashpot.
-        See <xref ref="figure-damped-spring" text="type-global" />.
+        Now we look at how the motion of a mass attached to a spring
+        is altered if the motion is <em>damped</em>, say, by a
+        dashpot.  See <xref ref="figure-damped-spring"
+        text="type-global" />.
       </p>
 
       <figure xml:id="figure-damped-spring">
@@ -757,9 +959,9 @@
             % This determines how the spring will look.
             \tikzstyle{spring}=[decorate,decoration={coil,pre length=0.3cm,post
             length=0.3cm,segment length=3,amplitude=1.5mm}]
-            \tikzstyle{damper}=[decoration={markings,  
+            \tikzstyle{damper}=[decoration={markings,
             mark connection node=dmp,
-            mark=at position 0.5 with 
+            mark=at position 0.5 with
             {
             \node (dmp) [thick,inner sep=0pt,transform shape,rotate=-90,minimum
             width=15pt,minimum height=3pt,draw=none] {};
@@ -782,7 +984,7 @@
             \draw[thick] ($(M1.south east)$) -- ($(M1.south east) + (4,0)$);
             \draw[thick] ($(M1.south east) + (4,0)$) -- ($(M1.north east) + (4,.5)$);
             % This draws the equilibrium position.
-            \draw[dashed] ($(M1.south west)-(2,.5)$) -- ($(M1.south west) - (2,-.5)$) node [below, yshift=-1cm,align=left] {\footnotesize Equilibrium\\ \footnotesize position}; 
+            \draw[dashed] ($(M1.south west)-(2,.5)$) -- ($(M1.south west) - (2,-.5)$) node [below, yshift=-1cm,align=left] {\footnotesize Equilibrium\\ \footnotesize position};
             % This illustrates displacement.
             \draw [decorate,decoration={brace,amplitude=5pt,mirror},yshift=-2pt]
             ($(M1.south west)-(2,0)$) -- ($(M1.south west)$) node [black,midway,yshift=-10pt] {$x$};
@@ -792,16 +994,21 @@
       </figure>
 
       <p>
-        Now in addition to the spring force <m>F_{S}</m>, we must also worry about the force <m>F_{R}</m> of the dashpot on the mass.
-        <m>F_{R}</m> is always going to act against the velocity of the mass, so for simplicity we assume that <m>F_{R} = -cx^\prime</m> for some <m>c &gt; 0</m>.
-        Using <m>F_{S} = -kx</m> as usual in conjunction with Newton's Second Law gives us the second-order ODE
+        Now in addition to the spring force <m>F_{S}</m>, we must also
+        worry about the force <m>F_{R}</m> of the dashpot on the mass.
+        <m>F_{R}</m> is always going to act against the velocity of
+        the mass, so for simplicity we assume that <m>F_{R} =
+        -cx^\prime</m> for some <m>c &gt; 0</m>.  Using <m>F_{S} =
+        -kx</m> as usual in conjunction with Newton's Second Law gives
+        us the second-order ODE
         <me>
           -cx^\prime-kx = mx''\quad\text{or}\quad mx'' + cx + kx = 0.
         </me>
       </p>
 
       <p>
-        This ODE is homogeneous and has constant coefficients so we may solve it using the method of characteristic equations.
+        This ODE is homogeneous and has constant coefficients so we
+        may solve it using the method of characteristic equations.
         The characteristic equation of this ODE is
         <men xml:id="equation-characteristic-free-damped">
           mr^{2} + cr + k = 0
@@ -810,7 +1017,8 @@
         <men xml:id="equation-characteristic-free-damped-roots">
           r_{1} = \frac{-c + \sqrt{c^{2} - 4km}}{2m}\quad\text{and}\quad r_{2} = \frac{-c - \sqrt{c^{2} - 4km}}{2m}.
         </men>
-        The behavior of this system therefore depends on the quantity <m>c^{2} - 4km</m>, and so we have three cases to consider:
+        The behavior of this system therefore depends on the quantity
+        <m>c^{2} - 4km</m>, and so we have three cases to consider:
         <ol marker="1:">
           <li>
             <p>
@@ -818,13 +1026,21 @@
             </p>
 
             <p>
-              In this case, the characteristic equation <xref ref="equation-characteristic-free-damped" text="type-global" /> has two real roots, and so the solution <m>x(t)</m> has the form
+              In this case, the characteristic equation <xref
+              ref="equation-characteristic-free-damped"
+              text="type-global" /> has two real roots, and so the
+              solution <m>x(t)</m> has the form
               <me>
                 x(t) = c_{1}e^{r_{1}t} + c_{2}e^{r_{2}t}.
               </me>
-              Now, <m>r_{1}</m> and <m>r_{2}</m> are both negative since <m>c^{2} - 4km \lt c^{2}</m> (remember that we're assuming that <m>k</m> and <m>m</m> are positive!).
+              Now, <m>r_{1}</m> and <m>r_{2}</m> are both negative
+              since <m>c^{2} - 4km \lt c^{2}</m> (remember that we're
+              assuming that <m>k</m> and <m>m</m> are positive!).
               This means that <m>x(t)\to0</m> as <m>t\to\infty</m>.
-              There is no oscillation present in the motion of the mass in this case since the mass never passes through <m>x = 0</m>, so we call this <term>overdamped motion</term>.
+              There is no oscillation present in the motion of the
+              mass in this case since the mass never passes through
+              <m>x = 0</m>, so we call this <term>overdamped
+              motion</term>.
             </p>
           </li>
 
@@ -834,13 +1050,20 @@
             </p>
 
             <p>
-              In this case, the characteristic equation <xref ref="equation-characteristic-free-damped" text="type-global" /> has a repeated (real) root, and so the solution <m>x(t)</m> takes the form
+              In this case, the characteristic equation <xref
+              ref="equation-characteristic-free-damped"
+              text="type-global" /> has a repeated (real) root, and so
+              the solution <m>x(t)</m> takes the form
               <me>
                 x(t) = e^{r_{1}t}(c_{1} + c_{2}t).
               </me>
-              This mass can pass through <m>x = 0</m> only once, at <m>t = -\frac{c_{1}}{c_{2}}</m>.
-              Once it does, the mass will "turn around" soon afterwards and beginning moving back to <m>0</m>, as in the first case.
-              We call this type of motion <term>critically damped</term>, since it's right on the border between overdamped motion and oscillating motion.
+              This mass can pass through <m>x = 0</m> only once, at
+              <m>t = -\frac{c_{1}}{c_{2}}</m>.  Once it does, the mass
+              will "turn around" soon afterwards and beginning moving
+              back to <m>0</m>, as in the first case.  We call this
+              type of motion <term>critically damped</term>, since
+              it's right on the border between overdamped motion and
+              oscillating motion.
             </p>
           </li>
 
@@ -850,7 +1073,10 @@
             </p>
 
             <p>
-              In this case the characteristic equation <xref ref="equation-characteristic-free-damped" text="type-global" /> has two distinct complex roots of the form <m>r = a \pm bi</m>, where
+              In this case the characteristic equation <xref
+              ref="equation-characteristic-free-damped"
+              text="type-global" /> has two distinct complex roots of
+              the form <m>r = a \pm bi</m>, where
               <me>
                 a = -\frac{c}{2m}\quad\text{and}\quad b = \frac{\sqrt{4km - c^{2}}}{2m}.
               </me>
@@ -859,11 +1085,17 @@
               <me>
                 x(t) = e^{at}(A\cos bt + B\sin bt)
               </me>
-              after applying Euler's formula.
-              As in the previous two cases, <m>x(t)\to0</m> as <m>t\to\infty</m>.
-              However, oscillation is now present in the system for all time! We call this motion <term>underdamped</term>, since the damping term <m>e^{at}</m> is not strong enough to cancel out the oscillation present in the system.
-              Note that the real part <m>a</m> contributes to the "amplitude" <m>e^{at}</m> of the motion, while the imaginary part <m>b</m> represents the angular frequency of the motion.
-              The ordinary frequency of the motion is given by <m>\frac{b}{2\pi}</m>.
+              after applying Euler's formula.  As in the previous two
+              cases, <m>x(t)\to0</m> as <m>t\to\infty</m>.  However,
+              oscillation is now present in the system for all time!
+              We call this motion <term>underdamped</term>, since the
+              damping term <m>e^{at}</m> is not strong enough to
+              cancel out the oscillation present in the system.  Note
+              that the real part <m>a</m> contributes to the
+              "amplitude" <m>e^{at}</m> of the motion, while the
+              imaginary part <m>b</m> represents the angular frequency
+              of the motion.  The ordinary frequency of the motion is
+              given by <m>\frac{b}{2\pi}</m>.
             </p>
           </li>
         </ol>
@@ -874,11 +1106,14 @@
 
         <statement>
           <p>
-            Suppose that an object of mass <m>m = 25</m> is attached to both a spring and a dashpot.
-            The mass is held <m>1</m> meter to the left of the spring's equilibrium position <m>x = 0</m>.
-            The force of the spring on the mass is <m>F_{S} = -226x</m> and the force of the dashpot on the mass is <m>F_{R} = -10x^\prime</m>, where <m>x</m> is the displacement of the mass.
-            At time <m>t = 0</m>, the mass is released.
-            Find <m>x(t)</m>.
+            Suppose that an object of mass <m>m = 25</m> is attached
+            to both a spring and a dashpot.  The mass is held <m>1</m>
+            meter to the left of the spring's equilibrium position
+            <m>x = 0</m>.  The force of the spring on the mass is
+            <m>F_{S} = -226x</m> and the force of the dashpot on the
+            mass is <m>F_{R} = -10x^\prime</m>, where <m>x</m> is the
+            displacement of the mass.  At time <m>t = 0</m>, the mass
+            is released.  Find <m>x(t)</m>.
           </p>
         </statement>
 
@@ -892,16 +1127,19 @@
             <me>
               r_{1} = -\frac{1}{5} \pm \frac{1}{5}\sqrt{-225} = -\frac{1}{5}\pm3i.
             </me>
-            We can already see that the motion must be underdamped since we have complex roots, and the position <m>x(t)</m> itself is given by
+            We can already see that the motion must be underdamped
+            since we have complex roots, and the position <m>x(t)</m>
+            itself is given by
             <me>
               x(t) = e^{-\frac{t}{5}}(A\cos3t + B\sin3t).
             </me>
           </p>
 
           <p>
-            Now we can use the initial conditions <m>x(0) = -1</m> and <m>x^\prime(0) = 0</m> to find <m>A</m> and <m>B</m>.
-            Doing so, we quickly get <m>A = -1</m> and <m>B = -\frac{1}{15}</m>.
-            Hence
+            Now we can use the initial conditions <m>x(0) = -1</m> and
+            <m>x^\prime(0) = 0</m> to find <m>A</m> and <m>B</m>.
+            Doing so, we quickly get <m>A = -1</m> and <m>B =
+            -\frac{1}{15}</m>.  Hence
             <me>
               x(t) = -e^{-\frac{t}{5}}\left(\cos3t + \frac{1}{15}\sin3t\right).
             </me>
@@ -910,8 +1148,11 @@
       </example>
 
       <p>
-        As mentioned previously, the exponential term in <m>x(t)</m> from <xref ref="example-a-spring-dashpot-system" text="type-global" /> serves to dampen the motion of the spring.
-        This is illustrated in <xref ref="figure-damped-motion" text="type-global" />.
+        As mentioned previously, the exponential term in <m>x(t)</m>
+        from <xref ref="example-a-spring-dashpot-system"
+        text="type-global" /> serves to dampen the motion of the
+        spring.  This is illustrated in <xref
+        ref="figure-damped-motion" text="type-global" />.
       </p>
 
       <figure xml:id="figure-damped-motion">
@@ -928,11 +1169,11 @@
             ylabel = $x$,
             grid=both
             ]
-            \addplot[domain=0:6*pi,samples=400,smooth,blue]{-exp(-.2*x)*cos(deg(3*x))-(1/15)*exp(-.2*x)*sin(deg(3*x))}; 
+            \addplot[domain=0:6*pi,samples=400,smooth,blue]{-exp(-.2*x)*cos(deg(3*x))-(1/15)*exp(-.2*x)*sin(deg(3*x))};
             \addlegendentry{$x(t)$}
             \addplot[domain=0:6*pi,samples=200,black,dashed]{-exp(-.2*x)};
             \addlegendentry{$e^{-\frac{t}{5}}$}
-            \addplot[domain=0:6*pi,samples=200,black,dashed]{exp(-.2*x)}; 
+            \addplot[domain=0:6*pi,samples=200,black,dashed]{exp(-.2*x)};
             \end{axis}
             \end{tikzpicture}
           </latex-image>
@@ -947,14 +1188,10 @@
     <shorttitle>Non-homogeneous equations</shorttitle>
     <introduction>
       <p>
-        In this section we'll deal with non-homogeneous equations and finding their solutions.
-        This will help us to model systems involving an external force.
+        In this section we'll deal with non-homogeneous equations and
+        finding their solutions.  This will help us to model systems
+        involving an external force.
       </p>
-      <aside>
-      <p>
-        This section corresponds to Section 2.7 of the text.
-      </p>
-      </aside>
     </introduction>
 
 
@@ -964,10 +1201,12 @@
       <p>
         Consider the non-homogeneous linear ODE with constant coefficients given by
         <men xml:id="equation-non-homogeneous">
-          ay'' + by^\prime + cy = f(x)
-        </men>.
-        If <m>f(x)</m> were zero then we could solve this by finding the roots of the characteristic equations and using them to determine the appropriate form of the solution.
-        Although that's no longer enough if <m>f(x)\neq0</m>, our method for solving homogeneous equations still plays an important role.
+          ay'' + by^\prime + cy = f(x) </men>.  If <m>f(x)</m> were
+          zero then we could solve this by finding the roots of the
+          characteristic equations and using them to determine the
+          appropriate form of the solution.  Although that's no longer
+          enough if <m>f(x)\neq0</m>, our method for solving
+          homogeneous equations still plays an important role.
       </p>
 
       <theorem xml:id="theorem-solution-of-non-homogeneous-equations">
@@ -975,19 +1214,33 @@
 
         <statement>
           <p>
-            Consider the ODE given in <xref ref="equation-non-homogeneous" text="type-global" />.
-            Let <m>y_{c}</m> (the <term>complementary solution</term>) denote the solution of the <term>associated homogeneous equation</term>
+            Consider the ODE given in <xref
+            ref="equation-non-homogeneous" text="type-global" />.  Let
+            <m>y_{c}</m> (the <term>complementary solution</term>)
+            denote the solution of the <term>associated homogeneous
+            equation</term>
             <me>
               ay'' + by^\prime + cy = 0
             </me>
-            and let <m>y_{p}</m> (the <term>particular solution</term>) denote a single solution of <xref ref="equation-non-homogeneous" text="type-global" />.
-            Then the general solution of <xref ref="equation-non-homogeneous" text="type-global" /> is given by <m>y = y_{c} + y_{p}</m>.
+            and let <m>y_{p}</m> (the <term>particular
+            solution</term>) denote a single solution of <xref
+            ref="equation-non-homogeneous" text="type-global" />.
+            Then the general solution of <xref
+            ref="equation-non-homogeneous" text="type-global" /> is
+            given by <m>y = y_{c} + y_{p}</m>.
           </p>
         </statement>
       </theorem>
 
       <p>
-        <xref ref="theorem-solution-of-non-homogeneous-equations" text="type-global" /> shows that to solve <xref ref="equation-non-homogeneous" text="type-global" />, we only need to solve the associated homogeneous equation (which we're quite used to by now!) and find a <em>single</em> solution of <xref ref="equation-non-homogeneous" text="type-global" />. The method we will use is the <term>method of undetermined coefficients</term>, which we'll demonstrate by example.
+        <xref ref="theorem-solution-of-non-homogeneous-equations"
+        text="type-global" /> shows that to solve <xref
+        ref="equation-non-homogeneous" text="type-global" />, we only
+        need to solve the associated homogeneous equation (which we're
+        quite used to by now!) and find a <em>single</em> solution of
+        <xref ref="equation-non-homogeneous" text="type-global"
+        />. The method we will use is the <term>method of undetermined
+        coefficients</term>, which we'll demonstrate by example.
       </p>
 
       <example xml:id="example-using-the-method-of-undetermined-coefficients">
@@ -1004,54 +1257,77 @@
 
         <solution>
           <p>
-            To find the general solution we need to do two things: find the complementary solution <m>y_{c}</m> of the associated homogeneous equation and find a single particular solution <m>y_{p}</m> of the given ODE.
-            We already know how to find <m>y_{c},</m> which is just
+            To find the general solution we need to do two things:
+            find the complementary solution <m>y_{c}</m> of the
+            associated homogeneous equation and find a single
+            particular solution <m>y_{p}</m> of the given ODE.  We
+            already know how to find <m>y_{c},</m> which is just
             <me>
               y_{c} = c_{1}e^{x} + c_{2}e^{-2x}.
             </me>
-            Once we can find a single particular solution <m>y_{p}</m> we'll be finished.
+            Once we can find a single particular solution <m>y_{p}</m>
+            we'll be finished.
           </p>
           <aside>
           <p>
-            The characteristic equation of the ODE is <m>(r + 1)(r - 2)</m>.
+            The characteristic equation of the ODE is <m>(r + 1)(r -
+            2)</m>.
           </p>
           </aside>
 
           <p>
-            If we stare that the ODE, then we see that <m>y</m> and its derivatives must cancel each other and leave a polynomial.
-            So it's reasonable to guess that a polynomial might be a solution of the ODE, or equivalently, <m>y_{p}</m> <em>should be a polynomial</em>.
-            Since the degree of the right hand side is <m>1</m>, then <m>y_{p}</m> should probably be degree <m>1</m> as well.
-            This means that <m>y_{p} = A_{1}x + A_{2}</m> for some constants <m>A_{1},A_{2}</m>.
+            If we stare that the ODE, then we see that <m>y</m> and
+            its derivatives must cancel each other and leave a
+            polynomial.  So it's reasonable to guess that a polynomial
+            might be a solution of the ODE, or equivalently,
+            <m>y_{p}</m> <em>should be a polynomial</em>.  Since the
+            degree of the right hand side is <m>1</m>, then
+            <m>y_{p}</m> should probably be degree <m>1</m> as well.
+            This means that <m>y_{p} = A_{1}x + A_{2}</m> for some
+            constants <m>A_{1},A_{2}</m>.
           </p>
           <aside>
           <p>
-            Recall that the degree of a polynomial is just the highest power of the variable in the polynomial.
+            Recall that the degree of a polynomial is just the highest
+            power of the variable in the polynomial.
           </p>
           </aside>
 
           <p>
-            To find these constants (<term>undetermined coefficients</term>), we plug our guess into the ODE to get
+            To find these constants (<term>undetermined
+            coefficients</term>), we plug our guess into the ODE to
+            get
             <me>
               0 - A_{1} - 2A_{1}x - 2A_{2} = 3x + 4.
             </me>
             The only way for this equation to be true is for
             <md>
               <mrow> -A_{1} - 2A_{2} &amp; = 4 </mrow>
-              <mrow> -2A_{1} &amp; = 3</mrow>
-            </md>.
-            So <m>A_{1} = -\frac{3}{2}, A_{2} = \frac{5}{4}</m> and <m>y_{p} = -\frac{3}{2}x + \frac{5}{4}</m>.
-            Hence the general solution of the ODE is
+              <mrow> -2A_{1} &amp; = 3</mrow> </md>.  So <m>A_{1} =
+              -\frac{3}{2}, A_{2} = \frac{5}{4}</m> and <m>y_{p} =
+              -\frac{3}{2}x + \frac{5}{4}</m>.  Hence the general
+              solution of the ODE is
             <me>
-              y = y_{c} + y_{p} = c_{1}e^{x} + c_{2}e^{-2x} - \frac{3}{2}x + \frac{5}{4}.
+              y = y_{c} + y_{p} = c_{1}e^{x} + c_{2}e^{-2x} -
+              \frac{3}{2}x + \frac{5}{4}.
             </me>
           </p>
         </solution>
       </example>
 
       <p>
-        Note that in <xref ref="example-using-the-method-of-undetermined-coefficients" text="type-global" />, we didn't need any initial conditions to find <m>y_{p}</m>.
-        This means that if a non-homogeneous ODE like the one in <xref ref="example-using-the-method-of-undetermined-coefficients" text="type-global" /> represents some physical system, then the initial configuration of that system <em>has no effect on <m>y_{p}</m></em>.
-        We will see soon that particular solutions correspond to external forces on a system, like gravity, whereas complementary solutions correspond to internal forces in a system, such as the spring force.
+        Note that in <xref
+        ref="example-using-the-method-of-undetermined-coefficients"
+        text="type-global" />, we didn't need any initial conditions
+        to find <m>y_{p}</m>.  This means that if a non-homogeneous
+        ODE like the one in <xref
+        ref="example-using-the-method-of-undetermined-coefficients"
+        text="type-global" /> represents some physical system, then
+        the initial configuration of that system <em>has no effect on
+        <m>y_{p}</m></em>.  We will see soon that particular solutions
+        correspond to external forces on a system, like gravity,
+        whereas complementary solutions correspond to internal forces
+        in a system, such as the spring force.
       </p>
 
       <example>
@@ -1066,29 +1342,40 @@
 
         <solution>
           <p>
-            The general solution will take the form <m>y = y_{c} + y_{p}</m>.
-            Once again, we find <m>y_{c}</m> by solving the characteristic equation to get
+            The general solution will take the form <m>y = y_{c} +
+            y_{p}</m>.  Once again, we find <m>y_{c}</m> by solving
+            the characteristic equation to get
             <me>
               y_{c} = c_{1}x + c_{2}xe^{x}.
             </me>
           </p>
 
           <p>
-            Now we can make a guess as to what <m>y_{p}</m> should be, once again based on the right hand side of the ODE.
-            If we want to differentiate <m>y_{p}</m> and obtain <m>x - \sin(2x)</m>, then <m>y_{p}</m> should include both an <m>x</m> term and a <m>\sin(2x)</m> term.
-            If we make the guess that <m>y_{p} = A_{1}x + A_{2}\sin(2x)</m>, then we get
+            Now we can make a guess as to what <m>y_{p}</m> should be,
+            once again based on the right hand side of the ODE.  If we
+            want to differentiate <m>y_{p}</m> and obtain <m>x -
+            \sin(2x)</m>, then <m>y_{p}</m> should include both an
+            <m>x</m> term and a <m>\sin(2x)</m> term.  If we make the
+            guess that <m>y_{p} = A_{1}x + A_{2}\sin(2x)</m>, then we
+            get
             <md>
               <mrow> A_{1}x - 2A_{1} &amp; = x </mrow>
               <mrow> -4A_{2}\cos(2x) - 3A_{2}\sin(2x) &amp; = -\sin(2x) </mrow>
             </md>
-            This forces <m>A_{1} = 1</m> <em>and</em> <m>A_{1} = 0</m>, as well as <m>A_{2} = \frac{1}{3}</m> <em>and</em> <m>A_{2} = 0</m>.
-            Obviously, this is a problem!
+            This forces <m>A_{1} = 1</m> <em>and</em> <m>A_{1} =
+            0</m>, as well as <m>A_{2} = \frac{1}{3}</m> <em>and</em>
+            <m>A_{2} = 0</m>.  Obviously, this is a problem!
           </p>
 
           <p>
-            What happened here is we didn't give our guess for <m>y_{p}</m> enough flexibility.
-            We know we want <m>y_{p}</m> to involve <m>x</m> and <m>\sin(2x)</m>, but as soon as we plug this into the ODE and start differentiating constant terms and cosine terms will begin to appear, and <em>we need to account for these as well</em>.
-            So we'll update our guess for <m>y_{p}</m>, and assume
+            What happened here is we didn't give our guess for
+            <m>y_{p}</m> enough flexibility.  We know we want
+            <m>y_{p}</m> to involve <m>x</m> and <m>\sin(2x)</m>, but
+            as soon as we plug this into the ODE and start
+            differentiating constant terms and cosine terms will begin
+            to appear, and <em>we need to account for these as
+            well</em>.  So we'll update our guess for <m>y_{p}</m>,
+            and assume
             <me>
               y_{p} = A_{1}x + A_{2} + A_{3}\cos(2x) + A_{4}\sin(2x).
             </me>
@@ -1108,7 +1395,8 @@
             </md>
             and the solution of our ODE is
             <me>
-              c_{1}e^{x} + c_{2}xe^{x} + x + 2 - \frac{4}{25}\cos(2x) + \frac{3}{25}\sin(2x).
+              c_{1}e^{x} + c_{2}xe^{x} + x + 2 - \frac{4}{25}\cos(2x)
+              + \frac{3}{25}\sin(2x).
             </me>
           </p>
         </solution>
@@ -1134,25 +1422,32 @@
             <me>
               y_{c} = c_{1}\cos(3x)+c_{2}\sin(3x).
             </me>
-            Now we find <m>y_{p}</m>.
-            Since the RHS of the ODE is <m>3\cos(3x)</m>, we'll guess that <m>y_{p} = A\cos(3x)+B\sin(3x)</m>.
-            However, this will cause us problems! Since <m>\cos(3x),\sin(3x)</m> are both solutions of the corresponding homogeneous ODE, then plugging <m>y_{p}</m> into <m>y''+9y</m> will just give <m>0</m> again, instead of <m>3\cos(3x)</m>.
+            Now we find <m>y_{p}</m>.  Since the RHS of the ODE is
+            <m>3\cos(3x)</m>, we'll guess that <m>y_{p} =
+            A\cos(3x)+B\sin(3x)</m>.  However, this will cause us
+            problems! Since <m>\cos(3x),\sin(3x)</m> are both
+            solutions of the corresponding homogeneous ODE, then
+            plugging <m>y_{p}</m> into <m>y''+9y</m> will just give
+            <m>0</m> again, instead of <m>3\cos(3x)</m>.
           </p>
 
           <p>
-            The problem here is that our guess for <m>y_{p}</m> overlaps with <m>y_{c}</m>.
-            To fix this, we'll multiply our guess for <m>y_{p}</m> by the <em>smallest</em> power of <m>x</m> that removes the overlap.
-            In this case, we'll just multiply by <m>x</m> to get
+            The problem here is that our guess for <m>y_{p}</m>
+            overlaps with <m>y_{c}</m>.  To fix this, we'll multiply
+            our guess for <m>y_{p}</m> by the <em>smallest</em> power
+            of <m>x</m> that removes the overlap.  In this case, we'll
+            just multiply by <m>x</m> to get
             <me>
               y_{p} = x[A\cos(3x)+B\sin(3x)]
             </me>
-            Now, we'll plug our modified guess into the ODE and set it equal to <m>3\cos(3x)</m>:
+            Now, we'll plug our modified guess into the ODE and set it
+            equal to <m>3\cos(3x)</m>:
             <md>
               <mrow>3\cos(3x)&amp; = y_{p}'' + 9y</mrow>
               <mrow>&amp; = -6A\sin(3x)+6B\cos(3x)</mrow>
             </md>
-            So we need <m>-6A = 0</m> and <m>6B = 3</m>, or just <m>A = 0,B = \frac{1}{2}</m>.
-            Hence
+            So we need <m>-6A = 0</m> and <m>6B = 3</m>, or just <m>A
+            = 0,B = \frac{1}{2}</m>.  Hence
             <me>
               y_{p} = x\left[\frac{1}{2}\sin(3x)\right],
             </me>
@@ -1163,14 +1458,15 @@
           </p>
 
           <p>
-            To find the solution of the IVP, we just plug in the initial conditions.
-            Since <m>y(0) = 1</m>, this gives
+            To find the solution of the IVP, we just plug in the
+            initial conditions.  Since <m>y(0) = 1</m>, this gives
             <me>
               1 = c_{1}.
             </me>
             And since
             <me>
-              y^\prime = -3c_{1}\sin(3x)+3c_{2}\cos(3x) + \frac{1}{2}\sin(3x)+\frac{3}{2}x\cos(3x),
+              y^\prime = -3c_{1}\sin(3x)+3c_{2}\cos(3x) +
+              \frac{1}{2}\sin(3x)+\frac{3}{2}x\cos(3x),
             </me>
             <m>y^\prime(0)=-1</m> gives
             <me>
@@ -1185,26 +1481,42 @@
       </example>
 
       <p>
-        What we did in <xref ref="example-method-of-undetermined-coefficients-with-overlap" text="type-global" /> will work in general: if <m>y_{c}</m> and the initial guess for <m>y_{p}</m> overlap, i.e.
-        contain linearly dependent terms, then we multiply <m>y_{p}</m> by the <em>smallest</em> power of <m>x</m> (or the appropriate independent variable) that removes the overlap.
+        What we did in <xref
+        ref="example-method-of-undetermined-coefficients-with-overlap"
+        text="type-global" /> will work in general: if <m>y_{c}</m>
+        and the initial guess for <m>y_{p}</m> overlap, i.e.  contain
+        linearly dependent terms, then we multiply <m>y_{p}</m> by the
+        <em>smallest</em> power of <m>x</m> (or the appropriate
+        independent variable) that removes the overlap.
       </p>
 
       <example xml:id="example-determining-the-appropriate-form-of-the-particular-solution">
-        <title>Determining the appropriate form of the particular solution</title>
+        <title>Determining the appropriate form of the particular
+        solution</title>
 
         <statement>
           <p>
-            Consider the ODE <m>x'' + 4x^\prime + 4 = 3t^{3} - t + t^{2}\sin(2t) + 3e^{-2t}.</m> Find the correct guess for <m>x_{p}</m>.
+            Consider the ODE <m>x'' + 4x^\prime + 4 = 3t^{3} - t +
+            t^{2}\sin(2t) + 3e^{-2t}.</m> Find the correct guess for
+            <m>x_{p}</m>.
           </p>
         </statement>
 
         <solution>
           <p>
-            Before we can do anything with <m>x_{p}</m>, we need to find the complementary solution <m>x_{c}</m>.
-            This is given by <m>x_{c} = c_{1}e^{-2t} + c_{2}te^{-2t}.</m> Now we can try to guess an appropriate form for <m>x_{p}</m> using the right hand side of the ODE.
-            Each "component" of the right hand side contributes to our guess for <m>x_{p}</m> as shown in <xref ref="table-appropriate-form-particular-solution"/>.
-            But now we have a problem, since <m>Ke^{-2t}</m> overlaps with <m>x_{c}</m>.
-            So we multiply by <m>t^{2}</m> to remove the overlap, and hence <m>x_{p} = At^{3} + Bt^{2} + Ct + D + (Et^{2} + Ft + G)\cos(2t) + (Ht^{2} + It + J)\sin(2t) + 3e^{-2t} + Kt^{2}e^{-2t}.</m>
+            Before we can do anything with <m>x_{p}</m>, we need to
+            find the complementary solution <m>x_{c}</m>.  This is
+            given by <m>x_{c} = c_{1}e^{-2t} + c_{2}te^{-2t}.</m> Now
+            we can try to guess an appropriate form for <m>x_{p}</m>
+            using the right hand side of the ODE.  Each "component" of
+            the right hand side contributes to our guess for
+            <m>x_{p}</m> as shown in <xref
+            ref="table-appropriate-form-particular-solution"/>.  But
+            now we have a problem, since <m>Ke^{-2t}</m> overlaps with
+            <m>x_{c}</m>.  So we multiply by <m>t^{2}</m> to remove
+            the overlap, and hence <m>x_{p} = At^{3} + Bt^{2} + Ct + D
+            + (Et^{2} + Ft + G)\cos(2t) + (Ht^{2} + It + J)\sin(2t) +
+            3e^{-2t} + Kt^{2}e^{-2t}.</m>
           </p>
 
           <table xml:id="table-appropriate-form-particular-solution">
@@ -1242,8 +1554,12 @@
 
     <introduction>
       <p>
-        In this section we will develop models for certain systems under the influence of a periodic, external force.
-        The presence of an external force leads to non-homogeneous models, and we will use the techniques we developed in <xref ref="section-solutions-of-nonhomogeneous-equations" text="type-global" /> to deal with these systems.
+        In this section we will develop models for certain systems
+        under the influence of a periodic, external force.  The
+        presence of an external force leads to non-homogeneous models,
+        and we will use the techniques we developed in <xref
+        ref="section-solutions-of-nonhomogeneous-equations"
+        text="type-global" /> to deal with these systems.
       </p>
     </introduction>
 
@@ -1252,23 +1568,36 @@
       <title>Undamped systems</title>
 
       <p>
-        Consider the spring-mass system set up as in <xref ref="figure-spring-mass-system" text="type-global" />.
-        Then we know that the displacement <m>x(t)</m> satisfies <m>x'' + \omega_{0}^{2}x = 0</m>, where <m>\omega_{0} = \sqrt{\frac{k}{m}}</m>.
+        Consider the spring-mass system set up as in <xref
+        ref="figure-spring-mass-system" text="type-global" />.  Then
+        we know that the displacement <m>x(t)</m> satisfies <m>x'' +
+        \omega_{0}^{2}x = 0</m>, where <m>\omega_{0} =
+        \sqrt{\frac{k}{m}}</m>.
       </p>
 
       <p>
-        Now suppose that an external force <m>F_{E} = F_{0}\cos(\omega t)</m> also acts on the mass.
-        Then the ODE that models the displacement <m>x(t)</m> is
+        Now suppose that an external force <m>F_{E} = F_{0}\cos(\omega
+        t)</m> also acts on the mass.  Then the ODE that models the
+        displacement <m>x(t)</m> is
         <me>
           x'' + \omega_{0}^{2}x = \frac{F_{0}}{m}\cos(\omega t).
         </me>
         The solution of this ODE is then <m>x = x_{c} + x_{p}</m>, where
         <md>
-          <mrow>x_{c} &amp;= A\cos(\omega-{0}t) + B\sin(\omega_{0}t)</mrow>
-          <mrow>x_{p} &amp;= \begin{cases} \frac{F_{0}}{m(\omega_{0}^{2} - \omega^{2})} \cos(\omega t) &amp;\text{if }\omega\neq\omega_{0} \\ \frac{F_{0}}{2m\omega_{0}} t\sin(\omega_{0} t) &amp;\text{if }\omega=\omega_{0} \end{cases}</mrow>
+          <mrow>x_{c} &amp;= A\cos(\omega-{0}t) +
+          B\sin(\omega_{0}t)</mrow>
+          <mrow>x_{p} &amp;= \begin{cases}
+          \frac{F_{0}}{m(\omega_{0}^{2} - \omega^{2})} \cos(\omega t)
+          &amp;\text{if }\omega\neq\omega_{0} \\
+          \frac{F_{0}}{2m\omega_{0}} t\sin(\omega_{0} t) &amp;\text{if
+          }\omega=\omega_{0} \end{cases}</mrow>
         </md>
-        Systems where the <term>external frequency</term> <m>\omega</m> is equal to the <term>internal frequency</term> <m>\omega_{0}</m> are said to be in <term>resonance</term>.
-        Without a damping force, the mass in such systems will move wildly out of control <m>|x_{p}(t)|</m> gets arbitrarily large as <m>t\to\infty</m>.
+        Systems where the <term>external frequency</term>
+        <m>\omega</m> is equal to the <term>internal frequency</term>
+        <m>\omega_{0}</m> are said to be in <term>resonance</term>.
+        Without a damping force, the mass in such systems will move
+        wildly out of control <m>|x_{p}(t)|</m> gets arbitrarily large
+        as <m>t\to\infty</m>.
       </p>
 
       <example xml:id="example-determining-resonance">
@@ -1276,18 +1605,30 @@
 
         <statement>
           <p>
-            An object with mass <quantity> <mag>2</mag> <unit prefix="kilo" base="gram" /> </quantity> is attached to a spring and is held <quantity> <mag>1</mag> <unit base="meter" /> </quantity> to the right of the spring's equilibrium position by a force of <quantity> <mag>8</mag> <unit base="newton" /> </quantity> At time <m>t = 0</m> seconds the mass is set in motion with an initial velocity of <quantity> <mag>2</mag> <unit base="meter" /> <per base="second" /> </quantity> to the left.
-            Suppose an external force <m>F_{E} = 3\cos(2t)</m> acts on the mass as well.
-            Will the spring eventually break?
+            An object with mass <quantity> <mag>2</mag> <unit
+            prefix="kilo" base="gram" /> </quantity> is attached to a
+            spring and is held <quantity> <mag>1</mag> <unit
+            base="meter" /> </quantity> to the right of the spring's
+            equilibrium position by a force of <quantity> <mag>8</mag>
+            <unit base="newton" /> </quantity> At time <m>t = 0</m>
+            seconds the mass is set in motion with an initial velocity
+            of <quantity> <mag>2</mag> <unit base="meter" /> <per
+            base="second" /> </quantity> to the left.  Suppose an
+            external force <m>F_{E} = 3\cos(2t)</m> acts on the mass
+            as well.  Will the spring eventually break?
           </p>
         </statement>
 
         <solution>
           <p>
-            We can answer this question by determining if resonance is present in this system.
-            The external frequency is <m>\omega = 2</m>, and the internal frequency is <m>\omega_{0} = \sqrt{\frac{k}{m}}</m>.
-            Since <m>k = 8</m> and <m>m = 2</m>, we have <m>\omega_{0} = \sqrt{\frac{8}{2}} = 2</m>, and so the frequencies match.
-            Hence the system is in resonance, and we can expect the spring to eventually break.
+            We can answer this question by determining if resonance is
+            present in this system.  The external frequency is
+            <m>\omega = 2</m>, and the internal frequency is
+            <m>\omega_{0} = \sqrt{\frac{k}{m}}</m>.  Since <m>k =
+            8</m> and <m>m = 2</m>, we have <m>\omega_{0} =
+            \sqrt{\frac{8}{2}} = 2</m>, and so the frequencies match.
+            Hence the system is in resonance, and we can expect the
+            spring to eventually break.
           </p>
         </solution>
       </example>
@@ -1297,12 +1638,15 @@
         <me>
           x(t) = \frac{1}{4}\cos(2t) - \sin(2t) + \frac{3}{8}t\sin(2t).
         </me>
-        Graphing this, we get the figure produced in <xref ref="figure-forced-oscillations-and-resonance-aside-determining-resonance" text="type-global" />.
+        Graphing this, we get the figure produced in <xref
+        ref="figure-forced-oscillations-and-resonance-aside-determining-resonance"
+        text="type-global" />.
       </p>
       </aside>
 
       <figure xml:id="figure-forced-oscillations-and-resonance-aside-determining-resonance">
-        <caption>A plot of the motion of the mass in <xref ref="example-determining-resonance" text="type-global" />
+        <caption>A plot of the motion of the mass in <xref
+        ref="example-determining-resonance" text="type-global" />
         </caption>
 
         <image xml:id="image-forced-oscillations-and-resonance-aside-determining-resonance" width="50%">
@@ -1328,25 +1672,42 @@
       <title>Damped systems</title>
 
       <p>
-        Now we'll take a look at forced, damped systems.
-        Suppose a mass <m>m</m> is fixed to a spring with spring force <m>F_{S} = -kx</m>, and is acted upon by a dashpot with force <m>F_{R} = -cx^\prime</m>, where <m>c,k \gt 0</m> and <m>x</m> represents the displacement of the mass at time <m>t</m>.
-        If the mass is still acted upon by an external force <m>F_{E} = F_{0}\cos(\omega t)</m>, then by Newton's Second Law the displacement <m>x</m> must satisfy
+        Now we'll take a look at forced, damped systems.  Suppose a
+        mass <m>m</m> is fixed to a spring with spring force <m>F_{S}
+        = -kx</m>, and is acted upon by a dashpot with force <m>F_{R}
+        = -cx^\prime</m>, where <m>c,k \gt 0</m> and <m>x</m>
+        represents the displacement of the mass at time <m>t</m>.  If
+        the mass is still acted upon by an external force <m>F_{E} =
+        F_{0}\cos(\omega t)</m>, then by Newton's Second Law the
+        displacement <m>x</m> must satisfy
         <me>
           mx'' + cx^\prime + kx = F_{0}\cos(\omega t).
         </me>
-        The solution is given by <m>x = x_{c} + x_{p}</m>, where <m>x_{c}</m> is found as in <xref ref="subsection-free-damped-motion" text="title" /> and goes to <m>0</m> as <m>t\to\infty</m>.
-        With a little help from a computer algebra system such as Sage (see below), we see that
+        The solution is given by <m>x = x_{c} + x_{p}</m>, where
+        <m>x_{c}</m> is found as in <xref
+        ref="subsection-free-damped-motion" text="title" /> and goes
+        to <m>0</m> as <m>t\to\infty</m>.  With a little help from a
+        computer algebra system such as Sage (see below), we see that
         <me>
-          x_{p} = \frac{m(\omega_{0}^{2} - \omega^{2})F_{0}}{m^{2}(\omega_{0}^{2} - \omega^{2})^{2} + \omega^{2}c^{2}}\cos(\omega t) + \frac{\omega c F_{0}}{m^{2}(\omega_{0}^{2} - \omega^{2})^{2} + \omega^{2}c^{2}}\sin(\omega t),
+          x_{p} = \frac{m(\omega_{0}^{2} -
+          \omega^{2})F_{0}}{m^{2}(\omega_{0}^{2} - \omega^{2})^{2} +
+          \omega^{2}c^{2}}\cos(\omega t) + \frac{\omega c
+          F_{0}}{m^{2}(\omega_{0}^{2} - \omega^{2})^{2} +
+          \omega^{2}c^{2}}\sin(\omega t),
         </me>
         where <m>\omega_{0} = \sqrt{\frac{k}{m}}</m> as usual.
       </p>
 
       <p>
-        Since <m>x_{c}</m> will always approach <m>0</m> in these situations, as time goes on the position is determined increasingly by <m>x_{p}</m>.
-        We call <m>x_{c}</m> the <term>transient solution</term> and <m>x_{p}</m> the <term>steady-state solution</term>.
-        Note that resonance is impossible in this system since <m>x_{c}</m> and <m>x_{p}</m> can never overlap (assuming the external force is still a sinusoid).
-        Therefore the smallest amount of damping prevents the mass from going out of control.
+        Since <m>x_{c}</m> will always approach <m>0</m> in these
+        situations, as time goes on the position is determined
+        increasingly by <m>x_{p}</m>.  We call <m>x_{c}</m> the
+        <term>transient solution</term> and <m>x_{p}</m> the
+        <term>steady-state solution</term>.  Note that resonance is
+        impossible in this system since <m>x_{c}</m> and <m>x_{p}</m>
+        can never overlap (assuming the external force is still a
+        sinusoid).  Therefore the smallest amount of damping prevents
+        the mass from going out of control.
       </p>
       <sage>
       <input>
@@ -1373,42 +1734,59 @@
 
         <statement>
           <p>
-            An object of mass <quantity> <mag>3</mag> <unit prefix="kilo" base="gram" /> </quantity> is fixed to both a spring and a dashpot with respective forces <m>F_{S} = -9x</m> and <m>F_{R} = -2x^\prime</m>, where <m>x</m> is the displacement of the mass in meters and <m>x = 0</m> is the equilibrium position.
-            An external force <m>F_{E} = 5\cos(\sqrt{3}t)</m> is also applied to the mass, where <m>t</m> is in seconds.
-            The mass was set in motion with an unknown speed and unknown velocity approximately <quantity> <mag>7</mag> <unit base="second" /> </quantity> ago.
-            What will be the approximate position of the mass in <quantity> <mag>40</mag> <unit base="second" /> </quantity>?
+            An object of mass <quantity> <mag>3</mag> <unit
+            prefix="kilo" base="gram" /> </quantity> is fixed to both
+            a spring and a dashpot with respective forces <m>F_{S} =
+            -9x</m> and <m>F_{R} = -2x^\prime</m>, where <m>x</m> is
+            the displacement of the mass in meters and <m>x = 0</m> is
+            the equilibrium position.  An external force <m>F_{E} =
+            5\cos(\sqrt{3}t)</m> is also applied to the mass, where
+            <m>t</m> is in seconds.  The mass was set in motion with
+            an unknown speed and unknown velocity approximately
+            <quantity> <mag>7</mag> <unit base="second" /> </quantity>
+            ago.  What will be the approximate position of the mass in
+            <quantity> <mag>40</mag> <unit base="second" />
+            </quantity>?
           </p>
         </statement>
 
         <solution>
           <p>
-            We know that the position will look like <m>x = x_{c} + x_{p}</m> where <m>x_{c}\to0</m> as <m>t\to\infty</m>, but we can't find the exact form of the transient solution without knowing the initial conditions.
-            So we'll assume that we can estimate the position of the mass using the steady-state solution <m>x_{p}</m>.
-            Since
+            We know that the position will look like <m>x = x_{c} +
+            x_{p}</m> where <m>x_{c}\to0</m> as <m>t\to\infty</m>, but
+            we can't find the exact form of the transient solution
+            without knowing the initial conditions.  So we'll assume
+            that we can estimate the position of the mass using the
+            steady-state solution <m>x_{p}</m>.  Since
             <me>
-              \omega = \omega_{0} = \sqrt{3}, \quad F_{0} = 5\quad\text{and}\quad c = 2,
+              \omega = \omega_{0} = \sqrt{3}, \quad F_{0} =
+              5\quad\text{and}\quad c = 2,
             </me>
             we get
             <me>
               x_{p} = \frac{5}{6}\sqrt{3}\sin(\sqrt{3}t).
             </me>
-            So after <quantity> <mag>40</mag> <unit base="second" /> </quantity> more seconds the mass should be around <m>x_{p}(47)</m>, or about <quantity> <mag>-0.388</mag> <unit base="meter" /> </quantity>.
+            So after <quantity> <mag>40</mag> <unit base="second" />
+            </quantity> more seconds the mass should be around
+            <m>x_{p}(47)</m>, or about <quantity> <mag>-0.388</mag>
+            <unit base="meter" /> </quantity>.
           </p>
         </solution>
       </example>
 
       <p>
-        In fact, the actual initial conditions used in <xref ref="example-steady-state-approximation" text="type-global" /> were <m>x(0) = 1</m> and <m>x^\prime(0) = -2</m>.
-        The corresponding exact solution is
+        In fact, the actual initial conditions used in <xref
+        ref="example-steady-state-approximation" text="type-global" />
+        were <m>x(0) = 1</m> and <m>x^\prime(0) = -2</m>.  The
+        corresponding exact solution is
         <me>
-          x = e^{-\frac{t}{3}}\left[\cos\frac{\sqrt{26}}{3}t - \frac{25}{52}\sin\frac{\sqrt{26}}{3}t\right] + \frac{5}{6}\sqrt{3}\sin(\sqrt{3}t).
+          x = e^{-\frac{t}{3}}\left[\cos\frac{\sqrt{26}}{3}t -
+          \frac{25}{52}\sin\frac{\sqrt{26}}{3}t\right] +
+          \frac{5}{6}\sqrt{3}\sin(\sqrt{3}t).
         </me>
-        The exact value of <m>x(47)</m> is within several <em>millionths</em> of the approximation <m>x_{p}(47)</m>.
+        The exact value of <m>x(47)</m> is within several
+        <em>millionths</em> of the approximation <m>x_{p}(47)</m>.
       </p>
     </subsection>
   </section>
-  <!-- I'm keeping these here for now in case I need to see how this is done later. --> <!--
-  <xi:include href="./sage/integers-sage.xml" />
-  <xi:include href="./sage/integers-sage-exercises.xml" />
-  -->
 </chapter>
