@@ -1,29 +1,32 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 
-<!--********************************************************************
-
-*********************************************************************-->
-<!-- This file was originally part of the book     -->
-<!-- (as copied on 2015/07/12)                     -->
-<!--                                               -->
-<!--   Abstract Algebra: Theory and Applications   -->
-<!--                                               -->
-<!-- Copyright (C) 1997-2014  Thomas W. Judson     -->
-
 <chapter xml:id="partial-differential-equations" xmlns:xi="http://www.w3.org/2001/XInclude">
   <title>Partial Differential Equations</title>
   <introduction>
     <p>
-      Consider a rod that's recently been pulled out of the oven and is now cooling in a room. Let <m>T(t)</m> denote the temperature of the rod at time <m>t</m>, where <m>t</m> represents the amount of time since the rod was pulled out of the oven.
-      Then we can model <m>T(t)</m> by using Newton's Law of Cooling, which states that
-      <me>\frac{dT}{dt} = -k(T-A),</me>
-      where <m>k</m> is a positive constant and <m>A</m> represents the ambient temperature of the room. This is an ordinary differential equation since it involves only one independent variable (<m>t</m>).
+      Consider a rod that's recently been pulled out of the oven and
+      is now cooling in a room. Let <m>T(t)</m> denote the temperature
+      of the rod at time <m>t</m>, where <m>t</m> represents the
+      amount of time since the rod was pulled out of the oven.  Then
+      we can model <m>T(t)</m> by using Newton's Law of Cooling, which
+      states that <me>\frac{dT}{dt} = -k(T-A),</me> where <m>k</m> is
+      a positive constant and <m>A</m> represents the ambient
+      temperature of the room. This is an ordinary differential
+      equation since it involves only one independent variable
+      (<m>t</m>).
     </p>
     <p>
-      This works just fine as a simple model of the temperature of the rod, but in reality the situation is likely to be more complicated.
-      For instance, the temperature of the rod will likely vary over the surface of the rod at any given time <m>t</m>. So it's reasonable to assume that the temperature of the rod should depend on <em>two</em> variables, say, <m>x</m> (position on the rod) and <m>t</m> (time).
-      So the temperature of the rod would be more accurately described by a function <m>u(x,t)</m>.
-      In fact, as we will see later, the temperature <m>u(x,t)</m> can be described by the <term>heat equation</term>.
+      This works just fine as a simple model of the temperature of the
+      rod, but in reality the situation is likely to be more
+      complicated.  For instance, the temperature of the rod will
+      likely vary over the surface of the rod at any given time
+      <m>t</m>. So it's reasonable to assume that the temperature of
+      the rod should depend on <em>two</em> variables, say, <m>x</m>
+      (position on the rod) and <m>t</m> (time).  So the temperature
+      of the rod would be more accurately described by a function
+      <m>u(x,t)</m>.  In fact, as we will see later, the temperature
+      <m>u(x,t)</m> can be described by the <term>heat
+      equation</term>.
     </p>
     <me>
       \frac{\partial u}{\partial t} = \frac{\partial^{2}u}{\partial x^{2}}
@@ -37,9 +40,14 @@
     <subsection xml:id="subsection-partial-derivatives-and-pdes">
       <title>Partial derivatives and PDEs</title>
       <p>
-        Given some quantity <m>u(x)</m> that depends solely on the variable <m>x</m>, <m>\frac{du}{dx} = u^{\prime}(x)</m> represents the rate of change of <m>u</m> with respect to <m>x</m>.
-        More generally, given some quantity <m>u(x,t)</m> that depends on <m>x,t</m>, we can attempt to find the rate of change of <m>u</m> with respect to each of the variables <m>x,t</m>.
-        This idea leads to <term>partial derivatives</term>.
+        Given some quantity <m>u(x)</m> that depends solely on the
+        variable <m>x</m>, <m>\frac{du}{dx} = u^{\prime}(x)</m>
+        represents the rate of change of <m>u</m> with respect to
+        <m>x</m>.  More generally, given some quantity <m>u(x,t)</m>
+        that depends on <m>x,t</m>, we can attempt to find the rate of
+        change of <m>u</m> with respect to each of the variables
+        <m>x,t</m>.  This idea leads to <term>partial
+        derivatives</term>.
       </p>
       <definition xml:id="definition-partial-derivatives">
         <idx><h>Partial derivatives</h></idx>
@@ -310,11 +318,18 @@
       <title>Solution of the Wave Equation</title>
       <statement>
         <p>
-          The solution of the wave equation <xref ref="equation-wave-pde" text="type-global" /> with boundary conditions <xref ref="equation-boundary-conditions" /> and initial conditions <xref ref="equation-initial-condition" /> is given by
-          <me>u(x,t) = \sum_{n=1}^{\infty}\sin\frac{n\pi}{L}x(b_{n}\cos\lambda_{n}t+b^{*}_{b}\sin\lambda_{n}t),</me>
-          where
-          <me>b_{n} = \frac{2}{L}\int_{0}^{L}f(x)\sin\frac{n\pi}{L}\,dx\text{ and }b^{*}_{n} = \frac{2}{cn\pi}\int_{0}^{L}g(x)\sin\frac{n\pi}{L}x\,dx</me>
-          and <m>\lambda_{n} = c\frac{n\pi}{L}</m> for <m>n=1,2,\ldots</m>.
+          The solution of the wave equation <xref
+          ref="equation-wave-pde" text="type-global" /> with boundary
+          conditions <xref ref="equation-boundary-conditions" /> and
+          initial conditions <xref ref="equation-initial-condition" />
+          is given by <me>u(x,t) =
+          \sum_{n=1}^{\infty}\sin\frac{n\pi}{L}x(b_{n}\cos\lambda_{n}t+b^{*}_{n}\sin\lambda_{n}t),</me>
+          where <me>b_{n} =
+          \frac{2}{L}\int_{0}^{L}f(x)\sin\frac{n\pi}{L}\,dx\text{ and
+          }b^{*}_{n} =
+          \frac{2}{cn\pi}\int_{0}^{L}g(x)\sin\frac{n\pi}{L}x\,dx</me>
+          and <m>\lambda_{n} = c\frac{n\pi}{L}</m> for
+          <m>n=1,2,\ldots</m>.
         </p>
       </statement>
     </theorem>
