@@ -56,13 +56,7 @@
         <knowl example="no"/>
         <!-- Set calculator for textbook.-->
         <calculator model="geogebra-graphing"/>
-        <!-- specify the style of the html by giving names to      -->
-        <!-- override defaults.  Ex: to use "style_oscarlevin.css" -->
-        <!-- put <css style="oscarlevin"/>                         -->
-        <!-- @colors now implemented                               -->
-        <!-- also @knowls, @toc, and @banner, although no          -->
-        <!-- alternative styles exist yet for those.               -->
-        <css style="default" colors="default"/>
+        <css theme="denver"/>
         <!-- Google search, via masthead textbox is switched on    -->
         <!-- and associated with a Google account via CX number    -->
         <!-- <search google-cx=""/> -->
