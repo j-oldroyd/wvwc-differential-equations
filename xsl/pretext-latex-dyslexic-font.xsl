@@ -59,9 +59,9 @@ along with PreTeXt.  If not, see <http://www.gnu.org/licenses/>.
     <xsl:text>%% XeLaTeX font configuration from PreTeXt Dyslexic Font style&#xa;</xsl:text>
     <xsl:text>%%&#xa;</xsl:text>
     <xsl:call-template name="xelatex-font-check">
-        <xsl:with-param name="font-name" select="'OpenDyslexic3'"/>
+        <xsl:with-param name="font-name" select="'OpenDyslexic'"/>
     </xsl:call-template>
-    <xsl:text>\setmainfont{OpenDyslexic3}&#xa;</xsl:text>
+    <xsl:text>\setmainfont{OpenDyslexic}&#xa;</xsl:text>
 </xsl:template>
 
 <xsl:template name="font-xelatex-mono">
