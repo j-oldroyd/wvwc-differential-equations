@@ -6,16 +6,21 @@
 <!--*                                          *-->
 <!--********************************************-->
 <html lang="en-US" dir="ltr">
+<!--******************************************-->
+<!--*  Authored with PreTeXt                 *-->
+<!--*  pretextbook.org                       *-->
+<!--*  Theme: denver                         *-->
+<!--*  Palette:                              *-->
+<!--******************************************-->
 <head xmlns:og="http://ogp.me/ns#" xmlns:book="https://ogp.me/ns/book#">
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>WVWC-DE Legendre’s equation and Legendre polynomials</title>
-<meta name="Keywords" content="Authored in PreTeXt">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta xmlns:pf="https://prefigure.org" property="og:type" content="book">
-<meta xmlns:pf="https://prefigure.org" property="og:image" content="https://j-oldroyd.github.io/wvwc-differential-equations/external/./wvwc-logo.jpg">
-<meta xmlns:pf="https://prefigure.org" property="book:title" content="Differential Equations Lecture Notes">
-<meta xmlns:pf="https://prefigure.org" property="book:author" content="Jesse Oldroyd">
-<script src="https://sagecell.sagemath.org/static/embedded_sagecell.js"></script><script>
+<title>WVWC-DE Legendre’s Equation and Legendre Polynomials</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0">
+<link href="_static/pretext/css/theme.css" rel="stylesheet" type="text/css">
+<link href="_static/pretext/css/ol-markers.css" rel="stylesheet" type="text/css">
+<script>
 var runestoneMathReady = new Promise((resolve) => window.rsMathReady = resolve);
 window.MathJax = {
   "tex": {
@@ -87,7 +92,45 @@ window.MathJax = {
     )}
   }
 };
-</script><script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script><script>// Make *any* div with class 'sagecell-sage' an executable Sage cell
+</script><script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script><meta name="Keywords" content="Authored in PreTeXt">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta property="og:type" content="book">
+<meta property="og:image" content="https://j-oldroyd.github.io/wvwc-differential-equations/external/./wvwc-logo-brandlogo.jpg">
+<meta property="book:title" content="Differential Equations Lecture Notes">
+<meta property="book:author" content="Jesse Oldroyd">
+<script src="_static/pretext/js/lib/jquery.min.js"></script><script src="_static/pretext/js/lib/jquery.sticky.js"></script><script src="_static/pretext/js/lib/jquery.espy.min.js"></script><script src="_static/pretext/js/pretext.js"></script><script src="_static/pretext/js/pretext_add_on.js?x=1"></script><script src="_static/pretext/js/user_preferences.js"></script><!--** eBookCongig is necessary to configure interactive       **-->
+<!--** Runestone components to run locally in reader's browser **-->
+<!--** No external communication:                              **-->
+<!--**     log level is 0, Runestone Services are disabled     **-->
+<script type="text/javascript">
+eBookConfig = {};
+eBookConfig.useRunestoneServices = false;
+eBookConfig.host = 'http://127.0.0.1:8000';
+eBookConfig.course = 'PTX_Course_Title_Here';
+eBookConfig.basecourse = 'PTX_Base_Course';
+eBookConfig.isLoggedIn = false;
+eBookConfig.email = '';
+eBookConfig.isInstructor = false;
+eBookConfig.logLevel = 0;
+eBookConfig.username = '';
+eBookConfig.readings = null;
+eBookConfig.activities = null;
+eBookConfig.downloadsEnabled = false;
+eBookConfig.allow_pairs = false;
+eBookConfig.enableScratchAC = false;
+eBookConfig.build_info = "";
+eBookConfig.python3 = null;
+eBookConfig.runestone_version = '7.9.8';
+eBookConfig.jobehost = '';
+eBookConfig.proxyuri_runs = '';
+eBookConfig.proxyuri_files = '';
+eBookConfig.enable_chatcodes =  false;
+</script>
+<!--*** Runestone Services ***-->
+<script src="_static/prefix-runtime.b215b0da62d655bd.bundle.js"></script><script src="_static/prefix-723.3e6434f80549315a.bundle.js"></script><script src="_static/prefix-runestone.28cc3c4821792be5.bundle.js"></script><link rel="stylesheet" type="text/css" href="_static/prefix-723.3bccd435914aa0ff.css">
+<link rel="stylesheet" type="text/css" href="_static/prefix-runestone.8141ae22fd347e48.css">
+<script src="https://sagecell.sagemath.org/static/embedded_sagecell.js"></script><script src="_static/pretext/js/lti_iframe_resizer.js"></script><script src="https://cdn.geogebra.org/apps/deployggb.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/lunr.js/2.3.9/lunr.min.js" integrity="sha512-4xUl/d6D6THrAnXAwGajXkoWaeMNwEKK4iNfq5DotEbLPAfk6FSxSP3ydNxqDgCw1c/0Z1Jg6L8h2j+++9BZmg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script><script src="lunr-pretext-search-index.js" async=""></script><script src="_static/pretext/js/pretext_search.js"></script><script src="_static/pretext/js/lib/knowl.js"></script><!--knowl.js code controls Sage Cells within knowls--><script>sagecellEvalName='Evaluate (Sage)';
+</script><script>// Make *any* div with class 'sagecell-sage' an executable Sage cell
 // Their results will be linked, only within language type
 sagecell.makeSagecell({
   "inputLocation": "div.sagecell-sage",
@@ -99,77 +142,16 @@ sagecell.makeSagecell({
   ],
   "evalButtonText": "Evaluate (Sage)"
 });
-</script><script src="https://cdnjs.cloudflare.com/ajax/libs/lunr.js/2.3.9/lunr.min.js" integrity="sha512-4xUl/d6D6THrAnXAwGajXkoWaeMNwEKK4iNfq5DotEbLPAfk6FSxSP3ydNxqDgCw1c/0Z1Jg6L8h2j+++9BZmg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script><script src="lunr-pretext-search-index.js" async=""></script><script src="_static/pretext/js/pretext_search.js"></script><link href="_static/pretext/css/pretext_search.css" rel="stylesheet" type="text/css">
-<script src="_static/pretext/js/lib/jquery.min.js"></script><script src="_static/pretext/js/lib/jquery.sticky.js"></script><script src="_static/pretext/js/lib/jquery.espy.min.js"></script><script src="_static/pretext/js/pretext.js"></script><script src="_static/pretext/js/pretext_add_on.js?x=1"></script><script src="_static/pretext/js/user_preferences.js"></script><script src="_static/pretext/js/lib/knowl.js"></script><!--knowl.js code controls Sage Cells within knowls--><script>sagecellEvalName='Evaluate (Sage)';
-</script><link xmlns:pf="https://prefigure.org" rel="preconnect" href="https://fonts.googleapis.com">
-<link xmlns:pf="https://prefigure.org" rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
-<link xmlns:pf="https://prefigure.org" href="https://fonts.googleapis.com/css2?family=Inconsolata:wght@400;700&amp;family=Noto+Serif:ital,wght@0,400;0,700;1,400;1,700&amp;family=Tinos:ital,wght@0,400;0,700;1,400;1,700&amp;display=swap" rel="stylesheet">
-<link xmlns:pf="https://prefigure.org" href="https://fonts.cdnfonts.com/css/dejavu-serif" rel="stylesheet">
-<link xmlns:pf="https://prefigure.org" href="https://fonts.googleapis.com/css2?family=Roboto+Serif:opsz,wdth,wght@8..144,50..150,100..900&amp;display=swap" rel="stylesheet">
-<link xmlns:pf="https://prefigure.org" href="https://fonts.googleapis.com/css2?family=Open+Sans:wdth,wght@75..100,300..800&amp;display=swap" rel="stylesheet">
-<link xmlns:pf="https://prefigure.org" rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200">
-<script src="https://cdn.geogebra.org/apps/deployggb.js"></script><link href="_static/pretext/css/pretext.css" rel="stylesheet" type="text/css">
-<link href="_static/pretext/css/pretext_add_on.css" rel="stylesheet" type="text/css">
-<link href="_static/pretext/css/shell_default.css" rel="stylesheet" type="text/css">
-<link href="_static/pretext/css/banner_default.css" rel="stylesheet" type="text/css">
-<link href="_static/pretext/css/navbar_default.css" rel="stylesheet" type="text/css">
-<link href="_static/pretext/css/toc_default.css" rel="stylesheet" type="text/css">
-<link href="_static/pretext/css/knowls_default.css" rel="stylesheet" type="text/css">
-<link href="_static/pretext/css/style_default.css" rel="stylesheet" type="text/css">
-<link href="_static/pretext/css/colors_default.css" rel="stylesheet" type="text/css">
-<link href="_static/pretext/css/setcolors.css" rel="stylesheet" type="text/css">
-<style>
-#subsection-basic-concepts-for-odes-16-1 { counter-set: subsection-basic-concepts-for-odes-16-1 0; }
-#subsection-basic-concepts-for-odes-16-1 > li::marker { content: ""counter(subsection-basic-concepts-for-odes-16-1,decimal)"."; }
-#subsection-basic-concepts-for-odes-16-1 > li { counter-increment: subsection-basic-concepts-for-odes-16-1; }
-#subsection-direction-fields-and-solution-curves-7-2 { counter-set: subsection-direction-fields-and-solution-curves-7-2 0; }
-#subsection-direction-fields-and-solution-curves-7-2 > li::marker { content: ""counter(subsection-direction-fields-and-solution-curves-7-2,decimal)"."; }
-#subsection-direction-fields-and-solution-curves-7-2 > li { counter-increment: subsection-direction-fields-and-solution-curves-7-2; }
-#subsection-existence-and-uniqueness-theorem-2-1 { counter-set: subsection-existence-and-uniqueness-theorem-2-1 0; }
-#subsection-existence-and-uniqueness-theorem-2-1 > li::marker { content: ""counter(subsection-existence-and-uniqueness-theorem-2-1,decimal)"."; }
-#subsection-existence-and-uniqueness-theorem-2-1 > li { counter-increment: subsection-existence-and-uniqueness-theorem-2-1; }
-#example-determining-a-sustainable-population-3-2-5 { counter-set: example-determining-a-sustainable-population-3-2-5 0; }
-#example-determining-a-sustainable-population-3-2-5 > li::marker { content: ""counter(example-determining-a-sustainable-population-3-2-5,decimal)"."; }
-#example-determining-a-sustainable-population-3-2-5 > li { counter-increment: example-determining-a-sustainable-population-3-2-5; }
-#example-types-of-second-order-odes-2-1 { counter-set: example-types-of-second-order-odes-2-1 0; }
-#example-types-of-second-order-odes-2-1 > li::marker { content: ""counter(example-types-of-second-order-odes-2-1,decimal)"."; }
-#example-types-of-second-order-odes-2-1 > li { counter-increment: example-types-of-second-order-odes-2-1; }
-#subsection-free-damped-motion-5-4 { counter-set: subsection-free-damped-motion-5-4 0; }
-#subsection-free-damped-motion-5-4 > li::marker { content: ""counter(subsection-free-damped-motion-5-4,decimal)":"; }
-#subsection-free-damped-motion-5-4 > li { counter-increment: subsection-free-damped-motion-5-4; }
-#example-systems-odes-solving-system-two-equations-3-1-4 { counter-set: example-systems-odes-solving-system-two-equations-3-1-4 0; }
-#example-systems-odes-solving-system-two-equations-3-1-4 > li::marker { content: ""counter(example-systems-odes-solving-system-two-equations-3-1-4,decimal)"."; }
-#example-systems-odes-solving-system-two-equations-3-1-4 > li { counter-increment: example-systems-odes-solving-system-two-equations-3-1-4; }
-#subsection-solving-differential-equations-with-power-series-5-2 { counter-set: subsection-solving-differential-equations-with-power-series-5-2 0; }
-#subsection-solving-differential-equations-with-power-series-5-2 > li::marker { content: ""counter(subsection-solving-differential-equations-with-power-series-5-2,decimal)"."; }
-#subsection-solving-differential-equations-with-power-series-5-2 > li { counter-increment: subsection-solving-differential-equations-with-power-series-5-2; }
-#theorem-method-of-frobenius-3-1-4 { counter-set: theorem-method-of-frobenius-3-1-4 0; }
-#theorem-method-of-frobenius-3-1-4 > li::marker { content: ""counter(theorem-method-of-frobenius-3-1-4,decimal)"."; }
-#theorem-method-of-frobenius-3-1-4 > li { counter-increment: theorem-method-of-frobenius-3-1-4; }
-#section-transformation-of-initial-value-problems-3-1-1 { counter-set: section-transformation-of-initial-value-problems-3-1-1 0; }
-#section-transformation-of-initial-value-problems-3-1-1 > li::marker { content: ""counter(section-transformation-of-initial-value-problems-3-1-1,decimal)"."; }
-#section-transformation-of-initial-value-problems-3-1-1 > li { counter-increment: section-transformation-of-initial-value-problems-3-1-1; }
-#example-computing-the-transform-of-a-time-shifted-function-2-1-1 { counter-set: example-computing-the-transform-of-a-time-shifted-function-2-1-1 0; }
-#example-computing-the-transform-of-a-time-shifted-function-2-1-1 > li::marker { content: ""counter(example-computing-the-transform-of-a-time-shifted-function-2-1-1,decimal)"."; }
-#example-computing-the-transform-of-a-time-shifted-function-2-1-1 > li { counter-increment: example-computing-the-transform-of-a-time-shifted-function-2-1-1; }
-#subsection-important-pdes-3 { counter-set: subsection-important-pdes-3 0; }
-#subsection-important-pdes-3 > li::marker { content: ""counter(subsection-important-pdes-3,decimal)"."; }
-#subsection-important-pdes-3 > li { counter-increment: subsection-important-pdes-3; }
-#subsection-important-pdes-5-1 { counter-set: subsection-important-pdes-5-1 0; }
-#subsection-important-pdes-5-1 > li::marker { content: ""counter(subsection-important-pdes-5-1,decimal)"."; }
-#subsection-important-pdes-5-1 > li { counter-increment: subsection-important-pdes-5-1; }
-#gfdl-section4-3 { counter-set: gfdl-section4-3 0; }
-#gfdl-section4-3 > li::marker { content: ""counter(gfdl-section4-3,upper-alpha)"."; }
-#gfdl-section4-3 > li { counter-increment: gfdl-section4-3; }
-</style>
+</script>
 </head>
 <body class="pretext book ignore-math">
 <a class="assistive" href="#ptx-content">Skip to main content</a><header id="ptx-masthead" class="ptx-masthead"><div class="ptx-banner">
-<a xmlns:pf="https://prefigure.org" id="logo-link" class="logo-link" target="_blank" href=""><img src="external/./wvwc-logo.jpg" alt="Logo image"></a><div class="title-container">
-<h1 class="heading"><a href="wvwc-differential-equations.html"><span class="title">Differential Equations Lecture Notes:</span> <span class="subtitle">West Virginia Wesleyan College</span></a></h1>
+<img src="external/./wvwc-logo-brandlogo.jpg" alt="Logo image"><div class="title-container">
+<h1 class="heading"><a href="wvwc-differential-equations.html"><span class="title">Differential Equations Lecture Notes</span> <span class="subtitle">West Virginia Wesleyan College</span></a></h1>
 <p class="byline">Jesse Oldroyd</p>
 </div>
-</div></header><nav xmlns:pf="https://prefigure.org" id="ptx-navbar" class="ptx-navbar navbar"><button class="toc-toggle button" title="Contents"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5d2;</span><span class="name">Contents</span></button><a class="index-button button" href="backmatter-5.html" title="Index"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe88e;</span><span class="name">Index</span></a><div class="searchbox">
+</div></header><nav id="ptx-navbar" class="ptx-navbar navbar"><div class="ptx-navbar-contents">
+<button class="toc-toggle button" title="Contents"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5d2;</span><span class="name">Contents</span></button><a class="index-button button" href="backmatter-5.html" title="Index"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe88e;</span><span class="name">Index</span></a><div class="searchbox">
 <div class="searchwidget"><button id="searchbutton" class="searchbutton button" type="button" title="Search book"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe8b6;</span><span class="name">Search Book</span></button></div>
 <div id="searchresultsplaceholder" class="searchresultsplaceholder" style="display: none">
 <div class="search-results-controls">
@@ -194,7 +176,8 @@ var ggbApp = new GGBApplet({"appName": "graphing",
     "autoHeight": true,
     "disableAutoScale": false},
 true);
-</script></span><span class="treebuttons"><a class="previous-button button" href="section-power-series-method.html" title="Previous"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cb;</span><span class="name">Prev</span></a><a class="up-button button" href="series-solutions.html" title="Up"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5ce;</span><span class="name">Up</span></a><a class="next-button button" href="section-frobenius-method.html" title="Next"><span class="name">Next</span><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cc;</span></a></span></nav><div xmlns:pf="https://prefigure.org" id="latex-macros" class="hidden-content process-math" style="display:none"><span class="process-math">\(\newcommand{\RR}{\mathbb{R}}
+</script><button id="light-dark-button" class="light-dark-button button" title="Dark Mode"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe51c;</span><span class="name">Dark Mode</span></button></span><span class="treebuttons"><a class="previous-button button" href="section-power-series-method.html" title="Previous"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cb;</span><span class="name">Prev</span></a><a class="up-button button" href="series-solutions.html" title="Up"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5ce;</span><span class="name">Up</span></a><a class="next-button button" href="section-frobenius-method.html" title="Next"><span class="name">Next</span><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cc;</span></a></span>
+</div></nav><div id="latex-macros" class="hidden-content process-math" style="display:none"><span class="process-math">\(\newcommand{\RR}{\mathbb{R}}
 \newcommand{\QQ}{\mathbb{Q}}
 \newcommand{\NN}{\mathbb{N}}
 \newcommand{\ZZ}{\mathbb{Z}}
@@ -239,7 +222,7 @@ true);
 \newcommand{\fillinmath}[1]{\mathchoice{\colorbox{fillinmathshade}{$\displaystyle     \phantom{\,#1\,}$}}{\colorbox{fillinmathshade}{$\textstyle        \phantom{\,#1\,}$}}{\colorbox{fillinmathshade}{$\scriptstyle      \phantom{\,#1\,}$}}{\colorbox{fillinmathshade}{$\scriptscriptstyle\phantom{\,#1\,}$}}}
 \)</span></div>
 <div class="ptx-page">
-<div xmlns:pf="https://prefigure.org" id="ptx-sidebar" class="ptx-sidebar"><nav id="ptx-toc" class="ptx-toc depth2 parts"><ul class="structural contains-active toc-item-list">
+<div id="ptx-sidebar" class="ptx-sidebar"><nav id="ptx-toc" class="ptx-toc depth3 parts focused" data-preexpanded-levels="0" data-max-levels="3"><ul class="structural toc-item-list contains-active">
 <li class="toc-item toc-frontmatter">
 <div class="toc-title-box"><a href="front.html" class="internal"><span class="title">Front Matter</span></a></div>
 <ul class="structural toc-item-list">
@@ -375,32 +358,32 @@ true);
 <div class="toc-title-box"><a href="series-solutions.html" class="internal"><span class="codenumber">5</span> <span class="title">Series Solutions</span></a></div>
 <ul class="structural toc-item-list contains-active">
 <li class="toc-item toc-section">
-<div class="toc-title-box"><a href="section-power-series-method.html" class="internal"><span class="codenumber">5.1</span> <span class="title">Power series method</span></a></div>
+<div class="toc-title-box"><a href="section-power-series-method.html" class="internal"><span class="codenumber">5.1</span> <span class="title">Power Series Method</span></a></div>
 <ul class="structural toc-item-list">
-<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="section-power-series-method.html#subsection-review-of-power-series" class="internal"><span class="title">Review of power series</span></a></div></li>
-<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="section-power-series-method.html#subsection-solving-differential-equations-with-power-series" class="internal"><span class="title">Solving differential equations with power series</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="section-power-series-method.html#subsection-review-of-power-series" class="internal"><span class="title">Review of Power Series</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="section-power-series-method.html#subsection-solving-differential-equations-with-power-series" class="internal"><span class="title">Solving Differential Equations with Power Series</span></a></div></li>
 </ul>
 </li>
-<li class="toc-item toc-section active">
-<div class="toc-title-box"><a href="section-legendre-s-equation-and-legendre-polynomials.html" class="internal"><span class="codenumber">5.2</span> <span class="title">Legendre’s equation</span></a></div>
-<ul class="structural toc-item-list">
-<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="section-legendre-s-equation-and-legendre-polynomials.html#subsection-solving-the-legendre-equation" class="internal"><span class="title">Solving the Legendre equation</span></a></div></li>
-<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="section-legendre-s-equation-and-legendre-polynomials.html#subsection-legendre-polynomials" class="internal"><span class="title">Legendre polynomials</span></a></div></li>
-</ul>
-</li>
-<li class="toc-item toc-section">
-<div class="toc-title-box"><a href="section-frobenius-method.html" class="internal"><span class="codenumber">5.3</span> <span class="title">Frobenius’ method</span></a></div>
-<ul class="structural toc-item-list">
-<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="section-frobenius-method.html#subsection-ordinary-points-and-singular-points" class="internal"><span class="title">Ordinary points and singular points</span></a></div></li>
-<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="section-frobenius-method.html#subsection-solutions-at-singular-points-and-indicial-equations" class="internal"><span class="title">Solutions at singular points and indicial equations</span></a></div></li>
+<li class="toc-item toc-section contains-active">
+<div class="toc-title-box"><a href="section-legendre-s-equation-and-legendre-polynomials.html" class="internal"><span class="codenumber">5.2</span> <span class="title">Legendre’s Equation</span></a></div>
+<ul class="structural toc-item-list active">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="section-legendre-s-equation-and-legendre-polynomials.html#subsection-solving-the-legendre-equation" class="internal"><span class="title">Solving the Legendre Equation</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="section-legendre-s-equation-and-legendre-polynomials.html#subsection-legendre-polynomials" class="internal"><span class="title">Legendre Polynomials</span></a></div></li>
 </ul>
 </li>
 <li class="toc-item toc-section">
-<div class="toc-title-box"><a href="section-bessel-s-equation.html" class="internal"><span class="codenumber">5.4</span> <span class="title">Bessel’s equation</span></a></div>
+<div class="toc-title-box"><a href="section-frobenius-method.html" class="internal"><span class="codenumber">5.3</span> <span class="title">Frobenius’ Method</span></a></div>
 <ul class="structural toc-item-list">
-<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="section-bessel-s-equation.html#subsection-bessel-functions-for-integer--nu-" class="internal"><span class="title">Bessel functions for integer <span class="process-math">\(\nu\)</span></span></a></div></li>
-<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="section-bessel-s-equation.html#subsection-bessel-functions-of-the-first-kind-for-nonnegative-order" class="internal"><span class="title">Bessel functions of the first kind for nonnegative order</span></a></div></li>
-<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="section-bessel-s-equation.html#subsection-general-solution-of-bessel-s-equation" class="internal"><span class="title">General solution of Bessel’s equation</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="section-frobenius-method.html#subsection-ordinary-points-and-singular-points" class="internal"><span class="title">Ordinary Points and Singular Points</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="section-frobenius-method.html#subsection-solutions-at-singular-points-and-indicial-equations" class="internal"><span class="title">Solutions at Singular Points and Indicial Equations</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="section-bessel-s-equation.html" class="internal"><span class="codenumber">5.4</span> <span class="title">Bessel’s Equation</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="section-bessel-s-equation.html#subsection-bessel-functions-for-integer--nu-" class="internal"><span class="title">Bessel Functions for Integer <span class="process-math">\(\nu\)</span></span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="section-bessel-s-equation.html#subsection-bessel-functions-of-the-first-kind-for-nonnegative-order" class="internal"><span class="title">Bessel Functions of the First Kind for Nonnegative Order</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="section-bessel-s-equation.html#subsection-general-solution-of-bessel-s-equation" class="internal"><span class="title">General Solution of Bessel’s Equation</span></a></div></li>
 </ul>
 </li>
 </ul>
@@ -507,13 +490,8 @@ true);
 </ul>
 </li>
 </ul></nav></div>
-<<<<<<< HEAD
-<main class="ptx-main"><div id="ptx-content" class="ptx-content"><section xmlns:pf="https://prefigure.org" class="section" id="section-legendre-s-equation-and-legendre-polynomials"><h2 class="heading hide-type">
-<span class="type">Section</span><span class="space"> </span><span class="codenumber">5.2</span><span class="space"> </span><span class="title">Legendre’s Equation and Legendre Polynomials</span>
-=======
 <main class="ptx-main"><div id="ptx-content" class="ptx-content"><section class="section" id="section-legendre-s-equation-and-legendre-polynomials"><h2 class="heading hide-type">
-<span class="type">Section</span><span class="space"> </span><span class="codenumber">5.2</span><span class="space"> </span><span class="title">Legendre’s equation and Legendre polynomials</span>
->>>>>>> a0db83aad0fcd4491bf5f1d4b35a43c21ae3a40a
+<span class="type">Section</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">5.2</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Legendre’s Equation and Legendre Polynomials</span>
 </h2>
 <section class="introduction" id="section-legendre-s-equation-and-legendre-polynomials-3"><div class="para logical" id="section-legendre-s-equation-and-legendre-polynomials-3-1">
 <div class="para">An important differential equation in applications is the <dfn class="terminology">Legendre equation</dfn> given by</div>
@@ -522,12 +500,13 @@ true);
 (1 - x^{2})y'' - 2xy^\prime + k(k + 1)y = 0\text{.}\tag{5.9}
 \end{equation}
 </div>
-<div class="para">Our first example of this equation (with <span class="process-math">\(n = 1\)</span>) was examined in <a href="section-power-series-method.html#example-a-legendre-equation" class="xref" data-knowl="./knowl/xref/example-a-legendre-equation.html" data-reveal-label="Reveal" data-close-label="Close" title="Example 5.1.11: A Legendre equation">Example 5.1.11</a>. By this example, we see that <a href="section-legendre-s-equation-and-legendre-polynomials.html#equation-legendre-ode" class="xref" data-knowl="./knowl/xref/equation-legendre-ode.html" data-reveal-label="Reveal" data-close-label="Close" title="Equation 5.9">(5.9)</a> has a series solution centered at <span class="process-math">\(x = 0\)</span> with radius of convergence at least <span class="process-math">\(1\text{.}\)</span> Therefore the power series method is appropriate.</div>
+<div class="para">Our first example of this equation (with <span class="process-math">\(n = 1\)</span>) was examined in <a href="section-power-series-method.html#example-a-legendre-equation" class="xref" data-knowl="./knowl/xref/example-a-legendre-equation.html" data-reveal-label="Reveal" data-close-label="Close" title="Example 5.1.11: A Legendre Equation">Example 5.1.11</a>. By this example, we see that <a href="section-legendre-s-equation-and-legendre-polynomials.html#equation-legendre-ode" class="xref" data-knowl="./knowl/xref/equation-legendre-ode.html" data-reveal-label="Reveal" data-close-label="Close" title="Equation 5.9">(5.9)</a> has a series solution centered at <span class="process-math">\(x = 0\)</span> with radius of convergence at least <span class="process-math">\(1\text{.}\)</span> Therefore the power series method is appropriate.</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#section-legendre-s-equation-and-legendre-polynomials-3-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div></section><section class="subsection" id="subsection-solving-the-legendre-equation"><h3 class="heading hide-type">
-<span class="type">Subsection</span><span class="space"> </span><span class="codenumber"></span><span class="space"> </span><span class="title">Solving the Legendre equation</span>
+<span class="type">Subsection</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber"></span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Solving the Legendre Equation</span>
 </h3>
 <div class="para logical" id="subsection-solving-the-legendre-equation-2">
-<div class="para">We’ll proceed as we did in <a href="section-power-series-method.html#example-a-legendre-equation" class="xref" data-knowl="./knowl/xref/example-a-legendre-equation.html" data-reveal-label="Reveal" data-close-label="Close" title="Example 5.1.11: A Legendre equation">Example 5.1.11</a>, altering the last sum as necessary to get</div>
+<div class="para">We’ll proceed as we did in <a href="section-power-series-method.html#example-a-legendre-equation" class="xref" data-knowl="./knowl/xref/example-a-legendre-equation.html" data-reveal-label="Reveal" data-close-label="Close" title="Example 5.1.11: A Legendre Equation">Example 5.1.11</a>, altering the last sum as necessary to get</div>
 <div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/example-a-legendre-equation.html">
 \begin{equation*}
 \sum_{n\geq0}(n+2)(n+1)c_{n+2}x^{n} - \sum_{n\geq0}n(n-1)c_{n}x^{n} - \sum_{n\geq0}2nc_{n}x^{n} + \sum_{n\geq0}k(k+1)c_{n}x^{n} = 0
@@ -539,6 +518,7 @@ true);
 c_{n+2} = -\frac{(k - n)(k + n + 1)}{(n + 2)(n + 1)}c_{n}\text{.}
 \end{equation*}
 </div>
+<div class="autopermalink" data-description="Paragraph"><a href="#subsection-solving-the-legendre-equation-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 <div class="para logical" id="subsection-solving-the-legendre-equation-3">
 <div class="para">This recurrence is valid for <span class="process-math">\(n \geq 0\text{,}\)</span> and allows us to write out the solution <span class="process-math">\(y\)</span> in terms of the parameter <span class="process-math">\(k\)</span> and the arbitrary constants <span class="process-math">\(c_{0}\)</span> and <span class="process-math">\(c_{1}\text{:}\)</span>
@@ -555,13 +535,12 @@ y_{1}(x) \amp = 1 - \frac{k(k+1)}{2!}x^{2} + \frac{(k - 2)k(k+1)(k + 3)}{4!}x^{4
 y_{2}(x) \amp = x - \frac{(k-1)(k+2)}{3!}x^{3} + \frac{(k-3)(k-1)(k+2)(k+4)}{5!}x^{5} - \cdots \text{.}\tag{5.11}
 \end{align}
 </div>
+<div class="autopermalink" data-description="Paragraph"><a href="#subsection-solving-the-legendre-equation-3" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="para" id="subsection-solving-the-legendre-equation-4">Note that <span class="process-math">\(y_{1}\)</span> and <span class="process-math">\(y_{2}\)</span> form a basis of solutions (<a href="section-second-order-linear-odes.html#definition-basis-of-solutions" class="xref" data-knowl="./knowl/xref/definition-basis-of-solutions.html" data-reveal-label="Reveal" data-close-label="Close" title="Definition 2.1.13: Basis of solutions">Definition 2.1.13</a>) of the Legendre equation, which means that <span class="process-math">\(y = c_{0}y_{1} + c_{1}y_{2}\)</span> must also be the general solution.</div></section><section class="subsection" id="subsection-legendre-polynomials"><h3 class="heading hide-type">
-<<<<<<< HEAD
-<span class="type">Subsection</span><span class="space"> </span><span class="codenumber"></span><span class="space"> </span><span class="title">Legendre Polynomials</span>
-=======
-<span class="type">Subsection</span><span class="space"> </span><span class="codenumber"></span><span class="space"> </span><span class="title">Legendre polynomials</span>
->>>>>>> a0db83aad0fcd4491bf5f1d4b35a43c21ae3a40a
+<div class="para" id="subsection-solving-the-legendre-equation-4">Note that <span class="process-math">\(y_{1}\)</span> and <span class="process-math">\(y_{2}\)</span> form a basis of solutions (<a href="section-second-order-linear-odes.html#definition-basis-of-solutions" class="xref" data-knowl="./knowl/xref/definition-basis-of-solutions.html" data-reveal-label="Reveal" data-close-label="Close" title="Definition 2.1.13: Basis of solutions">Definition 2.1.13</a>) of the Legendre equation, which means that <span class="process-math">\(y = c_{0}y_{1} + c_{1}y_{2}\)</span> must also be the general solution.<div class="autopermalink" data-description="Paragraph"><a href="#subsection-solving-the-legendre-equation-4" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Subsection: Solving the Legendre Equation"><a href="#subsection-solving-the-legendre-equation" title="Copy heading and permalink for Subsection: Solving the Legendre Equation" aria-label="Copy heading and permalink for Subsection: Solving the Legendre Equation">🔗</a></div></section><section class="subsection" id="subsection-legendre-polynomials"><h3 class="heading hide-type">
+<span class="type">Subsection</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber"></span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Legendre Polynomials</span>
 </h3>
 <div class="para logical" id="subsection-legendre-polynomials-2">
 <div class="para">Our solution of <a href="section-legendre-s-equation-and-legendre-polynomials.html#equation-legendre-ode" class="xref" data-knowl="./knowl/xref/equation-legendre-ode.html" data-reveal-label="Reveal" data-close-label="Close" title="Equation 5.9">(5.9)</a> simplifies greatly if <span class="process-math">\(k\)</span> happens to be an integer. In particular, if <span class="process-math">\(k\)</span> is a nonnegative integer then</div>
@@ -582,14 +561,17 @@ y_{1} = 1 - \frac{k(k+1)}{2!}x^{2} + \cdots + (-1)^{k/2}\frac{[k - (k-2)][k - (k
 y_{2} = x - \frac{(k-1)(k+2)}{3!}x^{3} + \cdots + (-1)^{\frac{k-1}{2}}\frac{[k - (k - 2)][k - (k - 4)]\cdots[k + (k - 3)][k + (k - 1)]}{k!}x^{k}\text{.}
 \end{equation*}
 </div>
+<div class="autopermalink" data-description="Paragraph"><a href="#subsection-legendre-polynomials-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 <div class="para logical" id="subsection-legendre-polynomials-3">
 <div class="para">By choosing <span class="process-math">\(c_{0}\)</span> and <span class="process-math">\(c_{1}\)</span> judiciously, we can guarantee that the polynomials <span class="process-math">\(c_{0}y_{1}\)</span> (if <span class="process-math">\(k\)</span> is even) or <span class="process-math">\(c_{1}y_{2}\)</span> (if <span class="process-math">\(k\)</span> is odd) are precisely equal to <span class="process-math">\(1\)</span> at <span class="process-math">\(x = 1\text{.}\)</span> Doing so gives us the <dfn class="terminology">Legendre polynomials</dfn> <span class="process-math">\(P_{n}(x)\text{,}\)</span> defined more precisely in <a href="section-legendre-s-equation-and-legendre-polynomials.html#equation-legendre-poly" class="xref" data-knowl="./knowl/xref/equation-legendre-poly.html" data-reveal-label="Reveal" data-close-label="Close" title="Equation 5.12">(5.12)</a>:</div>
 <div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/equation-legendre-poly.html" id="equation-legendre-poly">
 \begin{equation}
-P_{n}(x) = \begin{cases} \sum_{j = 0}^{n/2}(-1)^{j}\frac{(2n - 2j)!}{2^{n}j!(n - j)!(n - 2j)!}x^{n - 2j} \amp \text{ if }n\text{ is even} \\ \sum_{j = 0}^{(n-1)/2}(-1)^{j}\frac{(2n - 2j)!}{2^{n}j!(n - j)!(n - 2j)!}x^{n - 2j} \amp \text{ if }n\text{ is odd} \\ \end{cases}\text{.}\tag{5.12}
+P_{n}(x) = \begin{cases} \sum_{j = 0}^{n/2}(-1)^{j}\frac{(2n - 2j)!}{2^{n}j!(n - j)!(n - 2j)!}x^{n - 2j} \amp \text{ if }n\text{ is even} \\
+\sum_{j = 0}^{(n-1)/2}(-1)^{j}\frac{(2n - 2j)!}{2^{n}j!(n - j)!(n - 2j)!}x^{n - 2j} \amp \text{ if }n\text{ is odd} \\ \end{cases}\text{.}\tag{5.12}
 \end{equation}
 </div>
+<div class="autopermalink" data-description="Paragraph"><a href="#subsection-legendre-polynomials-3" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 <div class="para logical" id="subsection-legendre-polynomials-4">
 <div class="para">These polynomials satisfy several nice properties, but one of the most important characteristics they have is that <span class="process-math">\(\{P_{n}(x)\}\)</span> forms an <em class="emphasis">orthogonal set</em> of polynomials on the interval <span class="process-math">\([-1,1]\text{.}\)</span> This means that</div>
@@ -606,6 +588,7 @@ P_{n}(x) = \begin{cases} \sum_{j = 0}^{n/2}(-1)^{j}\frac{(2n - 2j)!}{2^{n}j!(n -
 </div>
 <div class="para">if <span class="process-math">\(m = n\text{.}\)</span>
 </div>
+<div class="autopermalink" data-description="Paragraph"><a href="#subsection-legendre-polynomials-4" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 <div class="para logical" id="subsection-legendre-polynomials-5">
 <div class="para">This property allows us to express <em class="emphasis">any</em> polynomial as a finite sum of Legendre polynomials in a computationally efficient manner. Furthermore, if we allow infinite series then we can use Legendre polynomials to express any continuous function defined on <span class="process-math">\([-1,1]\text{.}\)</span> In particular, if <span class="process-math">\(f(x)\)</span> is continuous on <span class="process-math">\([-1,1]\)</span> then</div>
@@ -620,6 +603,7 @@ f(x) = \sum_{n=0}^{\infty}c_nP_n(x)
 c_n = \frac{2n+1}{2}\int_{-1}^{1}f(x)P_{n}(x)\dd{x}\text{.}
 \end{equation*}
 </div>
+<div class="autopermalink" data-description="Paragraph"><a href="#subsection-legendre-polynomials-5" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 <div class="para logical" id="subsection-legendre-polynomials-6">
 <div class="para">This is demonstrated in <a href="section-legendre-s-equation-and-legendre-polynomials.html#figure-series-solutions-legendre-series-approx" class="xref" data-knowl="./knowl/xref/figure-series-solutions-legendre-series-approx.html" data-reveal-label="Reveal" data-close-label="Close" title="Figure 5.2.1">Figure 5.2.1</a> for the function</div>
@@ -629,9 +613,11 @@ f(x) = \begin{cases}e^{-x^{-2}} \amp\text{if }x\neq 0 \\ 0 \amp\text{if }x=0\end
 \end{equation*}
 </div>
 <div class="para">This approximation is particularly interesting since we’ve already seen that <span class="process-math">\(f(x)\)</span> is not analytic. Hence <span class="process-math">\(f(x)\)</span> has no power series representation at <span class="process-math">\(x=0\)</span> but it still has a Legendre series.</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#subsection-legendre-polynomials-6" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 <figure class="figure figure-like" id="figure-series-solutions-legendre-series-approx"><div class="image-box" style="width: 100%; margin-left: 0%; margin-right: 0%;"><div class="asymptote-box" style="padding-top: 20.7546927330955%"><iframe src="generated/asymptote/image-series-solutions-legendre-series-approx.html" class="asymptote"></iframe></div></div>
-<figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">5.2.1<span class="period">.</span></span><span class="space"> </span>Legendre series approximation for <span class="process-math">\(f(x)\)</span></figcaption></figure><aside class="aside aside-like" id="subsection-legendre-polynomials-8"><div class="para" id="subsection-legendre-polynomials-8-1">Note that we don’t need to include the odd Legendre polynomials in <a href="section-legendre-s-equation-and-legendre-polynomials.html#figure-series-solutions-legendre-series-approx" class="xref" data-knowl="./knowl/xref/figure-series-solutions-legendre-series-approx.html" data-reveal-label="Reveal" data-close-label="Close" title="Figure 5.2.1">Figure 5.2.1</a>. Since <span class="process-math">\(f(x)\)</span> is an <a href="section-functions-of-arbitrary-period-even-and-odd-extensions.html#definition-even-and-odd-functions" class="xref" data-knowl="./knowl/xref/definition-even-and-odd-functions.html" data-reveal-label="Reveal" data-close-label="Close" title="Definition 7.2.4: Even and Odd Functions">even function</a>, its integral against any odd function over <span class="process-math">\([-1,1]\)</span> must be <span class="process-math">\(0\text{.}\)</span> Hence the odd degree polynomials contribute nothing to the corresponding Legendre series.</div></aside><div class="para logical" id="subsection-legendre-polynomials-9">
+<figcaption><span class="type">Figure</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">5.2.1<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span>Legendre series approximation for <span class="process-math">\(f(x)\)</span><div class="autopermalink" data-description="Figure 5.2.1"><a href="#figure-series-solutions-legendre-series-approx" title="Copy heading and permalink for Figure 5.2.1" aria-label="Copy heading and permalink for Figure 5.2.1">🔗</a></div></figcaption></figure><details id="subsection-legendre-polynomials-8" class="aside aside-like born-hidden-knowl"><summary class="knowl__link"><h4 class="heading"><span class="type">Aside</span></h4></summary><aside class="aside aside-like knowl__content"><div class="para" id="subsection-legendre-polynomials-8-1">Note that we don’t need to include the odd Legendre polynomials in <a href="section-legendre-s-equation-and-legendre-polynomials.html#figure-series-solutions-legendre-series-approx" class="xref" data-knowl="./knowl/xref/figure-series-solutions-legendre-series-approx.html" data-reveal-label="Reveal" data-close-label="Close" title="Figure 5.2.1">Figure 5.2.1</a>. Since <span class="process-math">\(f(x)\)</span> is an <a href="section-functions-of-arbitrary-period-even-and-odd-extensions.html#definition-even-and-odd-functions" class="xref" data-knowl="./knowl/xref/definition-even-and-odd-functions.html" data-reveal-label="Reveal" data-close-label="Close" title="Definition 7.2.4: Even and Odd Functions">even function</a>, its integral against any odd function over <span class="process-math">\([-1,1]\)</span> must be <span class="process-math">\(0\text{.}\)</span> Hence the odd degree polynomials contribute nothing to the corresponding Legendre series.<div class="autopermalink" data-description="Paragraph"><a href="#subsection-legendre-polynomials-8-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div></aside></details><div class="para logical" id="subsection-legendre-polynomials-9">
 <div class="para">For actually computing Legendre polynomials, instead of using <a href="section-legendre-s-equation-and-legendre-polynomials.html#equation-legendre-poly" class="xref" data-knowl="./knowl/xref/equation-legendre-poly.html" data-reveal-label="Reveal" data-close-label="Close" title="Equation 5.12">(5.12)</a> we often use <em class="emphasis">Rodrigues’ formula</em>
 </div>
 <div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/equation-legendre-poly.html" id="equation-rodrigues">
@@ -647,11 +633,14 @@ P_{n}(x) = \frac{1}{2^{n}n!}\dv[n]{}{x}[(x^{2} - 1)^{n}]\tag{5.13}
 \end{equation}
 </div>
 <div class="para">Either recurrence is simple to program into a CAS, as seen in the Sage cell below:</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#subsection-legendre-polynomials-9" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 <div id="subsection-legendre-polynomials-10" class="ptx-sagecell sagecell-sage"><script type="text/x-sage">def rodrigues(n):
 Cn = (1 / (2^n * factorial(n)))
 pn = (x^2 - 1)^n
+
 pretty_print((Cn * diff(pn, n)).full_simplify())
+
 def bonnet(n):
 k = 1
 P0 = 1
@@ -659,17 +648,20 @@ P1 = x
 while k < n:
 P0, P1 = P1, ((2*k + 1) / (k + 1)) * x * P1 - (k / (k + 1)) * P0
 k += 1
+
 pretty_print(P1.full_simplify())
+
 n = 9
 rodrigues(n)
 bonnet(n)
-</script></div></section></section></div>
-<div class="ptx-content-footer">
-<a class="previous-button button" href="section-power-series-method.html" title="Previous"><span xmlns:pf="https://prefigure.org" class="icon material-symbols-outlined" aria-hidden="true">&#xe5cb;</span><span class="name">Prev</span></a><a class="top-button button" href="#" title="Top"><span xmlns:pf="https://prefigure.org" class="icon material-symbols-outlined" aria-hidden="true">&#xe5ce;</span><span class="name">Top</span></a><a class="next-button button" href="section-frobenius-method.html" title="Next"><span class="name">Next</span><span xmlns:pf="https://prefigure.org" class="icon material-symbols-outlined" aria-hidden="true">&#xe5cc;</span></a>
+</script></div>
+<div class="autopermalink" data-description="Subsection: Legendre Polynomials"><a href="#subsection-legendre-polynomials" title="Copy heading and permalink for Subsection: Legendre Polynomials" aria-label="Copy heading and permalink for Subsection: Legendre Polynomials">🔗</a></div></section><div class="autopermalink" data-description="Section 5.2: Legendre’s Equation and Legendre Polynomials"><a href="#section-legendre-s-equation-and-legendre-polynomials" title="Copy heading and permalink for Section 5.2: Legendre’s Equation and Legendre Polynomials" aria-label="Copy heading and permalink for Section 5.2: Legendre’s Equation and Legendre Polynomials">🔗</a></div></section></div>
+<div id="ptx-content-footer" class="ptx-content-footer">
+<a class="previous-button button" href="section-power-series-method.html" title="Previous"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cb;</span><span class="name">Prev</span></a><a class="top-button button" href="#" title="Top"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5ce;</span><span class="name">Top</span></a><a class="next-button button" href="section-frobenius-method.html" title="Next"><span class="name">Next</span><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cc;</span></a>
 </div></main>
 </div>
 <div id="ptx-page-footer" class="ptx-page-footer">
-<a xmlns:pf="https://prefigure.org" class="pretext-link" href="https://pretextbook.org" title="PreTeXt"><div class="logo"><svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" viewBox="338 3000 8772 6866"><g style="stroke-width:.025in; stroke:black; fill:none"><polyline points="472,3590 472,9732 " style="stroke:#000000;stroke-width:174; stroke-linejoin:miter; stroke-linecap:round; "></polyline><path style="stroke:#000000;stroke-width:126;stroke-linecap:butt;" d="M 4724,9448 A 4660 4660  0  0  1  8598  9259"></path><path style="stroke:#000000;stroke-width:174;stroke-linecap:butt;" d="M 4488,9685 A 4228 4228  0  0  0   472  9732"></path><path style="stroke:#000000;stroke-width:126;stroke-linecap:butt;" d="M 4724,3590 A 4241 4241  0  0  1  8598  3496"></path><path style="stroke:#000000;stroke-width:126;stroke-linecap:round;" d="M 850,3496  A 4241 4241  0  0  1  4724  3590"></path><path style="stroke:#000000;stroke-width:126;stroke-linecap:round;" d="M 850,9259  A 4507 4507  0  0  1  4724  9448"></path><polyline points="5385,4299 4062,8125" style="stroke:#000000;stroke-width:300; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="8598,3496 8598,9259" style="stroke:#000000;stroke-width:126; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="850,3496 850,9259" style="stroke:#000000;stroke-width:126; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="4960,9685 4488,9685" style="stroke:#000000;stroke-width:174; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="3070,4582 1889,6141 3070,7700" style="stroke:#000000;stroke-width:300; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="6418,4582 7600,6141 6418,7700" style="stroke:#000000;stroke-width:300; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="8976,3590 8976,9732" style="stroke:#000000;stroke-width:174; stroke-linejoin:miter; stroke-linecap:round;"></polyline><path style="stroke:#000000;stroke-width:174;stroke-linecap:butt;" d="M 4960,9685 A 4228 4228  0  0  1  8976  9732"></path></g></svg></div></a><a xmlns:pf="https://prefigure.org" class="runestone-link" href="https://runestone.academy" title="Runestone Academy"><img class="logo" src="https://runestone.academy/runestone/static/images/RAIcon_cropped.png"></a><a xmlns:pf="https://prefigure.org" class="mathjax-link" href="https://www.mathjax.org" title="MathJax"><img class="logo" src="https://www.mathjax.org/badge/badge-square-2.png"></a>
+<a class="pretext-link" href="https://pretextbook.org" title="PreTeXt"><div class="logo"><svg xmlns="http://www.w3.org/2000/svg" height="100%" viewBox="338 3000 8772 6866" role="img"><title>PreTeXt logo</title><g style="stroke-width:.025in; stroke:currentColor; fill:none"><polyline points="472,3590 472,9732 " style="stroke-width:174; stroke-linejoin:miter; stroke-linecap:round; "></polyline><path style="stroke-width:126;stroke-linecap:butt;" d="M 4724,9448 A 4660 4660  0  0  1  8598  9259"></path><path style="stroke-width:174;stroke-linecap:butt;" d="M 4488,9685 A 4228 4228  0  0  0   472  9732"></path><path style="stroke-width:126;stroke-linecap:butt;" d="M 4724,3590 A 4241 4241  0  0  1  8598  3496"></path><path style="stroke-width:126;stroke-linecap:round;" d="M 850,3496  A 4241 4241  0  0  1  4724  3590"></path><path style="stroke-width:126;stroke-linecap:round;" d="M 850,9259  A 4507 4507  0  0  1  4724  9448"></path><polyline points="5385,4299 4062,8125" style="stroke-width:300; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="8598,3496 8598,9259" style="stroke-width:126; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="850,3496 850,9259" style="stroke-width:126; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="4960,9685 4488,9685" style="stroke-width:174; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="3070,4582 1889,6141 3070,7700" style="stroke-width:300; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="6418,4582 7600,6141 6418,7700" style="stroke-width:300; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="8976,3590 8976,9732" style="stroke-width:174; stroke-linejoin:miter; stroke-linecap:round;"></polyline><path style="stroke-width:174;stroke-linecap:butt;" d="M 4960,9685 A 4228 4228  0  0  1  8976  9732"></path></g></svg></div></a><a class="runestone-link" href="https://runestone.academy" title="Runestone Academy"><img class="logo" src="https://runestone.academy/runestone/static/images/RAIcon_cropped.png" alt="Runstone Academy logo"></a><a class="mathjax-link" href="https://www.mathjax.org" title="MathJax"><img class="logo" src="https://www.mathjax.org/badge/badge-square-2.png" alt="MathJax logo"></a>
 </div>
 </body>
 </html>

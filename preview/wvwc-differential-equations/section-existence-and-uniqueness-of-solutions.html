@@ -6,16 +6,21 @@
 <!--*                                          *-->
 <!--********************************************-->
 <html lang="en-US" dir="ltr">
+<!--******************************************-->
+<!--*  Authored with PreTeXt                 *-->
+<!--*  pretextbook.org                       *-->
+<!--*  Theme: denver                         *-->
+<!--*  Palette:                              *-->
+<!--******************************************-->
 <head xmlns:og="http://ogp.me/ns#" xmlns:book="https://ogp.me/ns/book#">
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>WVWC-DE Existence and uniqueness of solutions</title>
-<meta name="Keywords" content="Authored in PreTeXt">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta xmlns:pf="https://prefigure.org" property="og:type" content="book">
-<meta xmlns:pf="https://prefigure.org" property="og:image" content="https://j-oldroyd.github.io/wvwc-differential-equations/external/./wvwc-logo.jpg">
-<meta xmlns:pf="https://prefigure.org" property="book:title" content="Differential Equations Lecture Notes">
-<meta xmlns:pf="https://prefigure.org" property="book:author" content="Jesse Oldroyd">
-<script src="https://sagecell.sagemath.org/static/embedded_sagecell.js"></script><script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0">
+<link href="_static/pretext/css/theme.css" rel="stylesheet" type="text/css">
+<link href="_static/pretext/css/ol-markers.css" rel="stylesheet" type="text/css">
+<script>
 var runestoneMathReady = new Promise((resolve) => window.rsMathReady = resolve);
 window.MathJax = {
   "tex": {
@@ -87,7 +92,45 @@ window.MathJax = {
     )}
   }
 };
-</script><script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script><script>// Make *any* div with class 'sagecell-sage' an executable Sage cell
+</script><script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script><meta name="Keywords" content="Authored in PreTeXt">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta property="og:type" content="book">
+<meta property="og:image" content="https://j-oldroyd.github.io/wvwc-differential-equations/external/./wvwc-logo-brandlogo.jpg">
+<meta property="book:title" content="Differential Equations Lecture Notes">
+<meta property="book:author" content="Jesse Oldroyd">
+<script src="_static/pretext/js/lib/jquery.min.js"></script><script src="_static/pretext/js/lib/jquery.sticky.js"></script><script src="_static/pretext/js/lib/jquery.espy.min.js"></script><script src="_static/pretext/js/pretext.js"></script><script src="_static/pretext/js/pretext_add_on.js?x=1"></script><script src="_static/pretext/js/user_preferences.js"></script><!--** eBookCongig is necessary to configure interactive       **-->
+<!--** Runestone components to run locally in reader's browser **-->
+<!--** No external communication:                              **-->
+<!--**     log level is 0, Runestone Services are disabled     **-->
+<script type="text/javascript">
+eBookConfig = {};
+eBookConfig.useRunestoneServices = false;
+eBookConfig.host = 'http://127.0.0.1:8000';
+eBookConfig.course = 'PTX_Course_Title_Here';
+eBookConfig.basecourse = 'PTX_Base_Course';
+eBookConfig.isLoggedIn = false;
+eBookConfig.email = '';
+eBookConfig.isInstructor = false;
+eBookConfig.logLevel = 0;
+eBookConfig.username = '';
+eBookConfig.readings = null;
+eBookConfig.activities = null;
+eBookConfig.downloadsEnabled = false;
+eBookConfig.allow_pairs = false;
+eBookConfig.enableScratchAC = false;
+eBookConfig.build_info = "";
+eBookConfig.python3 = null;
+eBookConfig.runestone_version = '7.9.8';
+eBookConfig.jobehost = '';
+eBookConfig.proxyuri_runs = '';
+eBookConfig.proxyuri_files = '';
+eBookConfig.enable_chatcodes =  false;
+</script>
+<!--*** Runestone Services ***-->
+<script src="_static/prefix-runtime.b215b0da62d655bd.bundle.js"></script><script src="_static/prefix-723.3e6434f80549315a.bundle.js"></script><script src="_static/prefix-runestone.28cc3c4821792be5.bundle.js"></script><link rel="stylesheet" type="text/css" href="_static/prefix-723.3bccd435914aa0ff.css">
+<link rel="stylesheet" type="text/css" href="_static/prefix-runestone.8141ae22fd347e48.css">
+<script src="https://sagecell.sagemath.org/static/embedded_sagecell.js"></script><script src="_static/pretext/js/lti_iframe_resizer.js"></script><script src="https://cdn.geogebra.org/apps/deployggb.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/lunr.js/2.3.9/lunr.min.js" integrity="sha512-4xUl/d6D6THrAnXAwGajXkoWaeMNwEKK4iNfq5DotEbLPAfk6FSxSP3ydNxqDgCw1c/0Z1Jg6L8h2j+++9BZmg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script><script src="lunr-pretext-search-index.js" async=""></script><script src="_static/pretext/js/pretext_search.js"></script><script src="_static/pretext/js/lib/knowl.js"></script><!--knowl.js code controls Sage Cells within knowls--><script>sagecellEvalName='Evaluate (Sage)';
+</script><script>// Make *any* div with class 'sagecell-sage' an executable Sage cell
 // Their results will be linked, only within language type
 sagecell.makeSagecell({
   "inputLocation": "div.sagecell-sage",
@@ -99,77 +142,16 @@ sagecell.makeSagecell({
   ],
   "evalButtonText": "Evaluate (Sage)"
 });
-</script><script src="https://cdnjs.cloudflare.com/ajax/libs/lunr.js/2.3.9/lunr.min.js" integrity="sha512-4xUl/d6D6THrAnXAwGajXkoWaeMNwEKK4iNfq5DotEbLPAfk6FSxSP3ydNxqDgCw1c/0Z1Jg6L8h2j+++9BZmg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script><script src="lunr-pretext-search-index.js" async=""></script><script src="_static/pretext/js/pretext_search.js"></script><link href="_static/pretext/css/pretext_search.css" rel="stylesheet" type="text/css">
-<script src="_static/pretext/js/lib/jquery.min.js"></script><script src="_static/pretext/js/lib/jquery.sticky.js"></script><script src="_static/pretext/js/lib/jquery.espy.min.js"></script><script src="_static/pretext/js/pretext.js"></script><script src="_static/pretext/js/pretext_add_on.js?x=1"></script><script src="_static/pretext/js/user_preferences.js"></script><script src="_static/pretext/js/lib/knowl.js"></script><!--knowl.js code controls Sage Cells within knowls--><script>sagecellEvalName='Evaluate (Sage)';
-</script><link xmlns:pf="https://prefigure.org" rel="preconnect" href="https://fonts.googleapis.com">
-<link xmlns:pf="https://prefigure.org" rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
-<link xmlns:pf="https://prefigure.org" href="https://fonts.googleapis.com/css2?family=Inconsolata:wght@400;700&amp;family=Noto+Serif:ital,wght@0,400;0,700;1,400;1,700&amp;family=Tinos:ital,wght@0,400;0,700;1,400;1,700&amp;display=swap" rel="stylesheet">
-<link xmlns:pf="https://prefigure.org" href="https://fonts.cdnfonts.com/css/dejavu-serif" rel="stylesheet">
-<link xmlns:pf="https://prefigure.org" href="https://fonts.googleapis.com/css2?family=Roboto+Serif:opsz,wdth,wght@8..144,50..150,100..900&amp;display=swap" rel="stylesheet">
-<link xmlns:pf="https://prefigure.org" href="https://fonts.googleapis.com/css2?family=Open+Sans:wdth,wght@75..100,300..800&amp;display=swap" rel="stylesheet">
-<link xmlns:pf="https://prefigure.org" rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200">
-<script src="https://cdn.geogebra.org/apps/deployggb.js"></script><link href="_static/pretext/css/pretext.css" rel="stylesheet" type="text/css">
-<link href="_static/pretext/css/pretext_add_on.css" rel="stylesheet" type="text/css">
-<link href="_static/pretext/css/shell_default.css" rel="stylesheet" type="text/css">
-<link href="_static/pretext/css/banner_default.css" rel="stylesheet" type="text/css">
-<link href="_static/pretext/css/navbar_default.css" rel="stylesheet" type="text/css">
-<link href="_static/pretext/css/toc_default.css" rel="stylesheet" type="text/css">
-<link href="_static/pretext/css/knowls_default.css" rel="stylesheet" type="text/css">
-<link href="_static/pretext/css/style_default.css" rel="stylesheet" type="text/css">
-<link href="_static/pretext/css/colors_default.css" rel="stylesheet" type="text/css">
-<link href="_static/pretext/css/setcolors.css" rel="stylesheet" type="text/css">
-<style>
-#subsection-basic-concepts-for-odes-16-1 { counter-set: subsection-basic-concepts-for-odes-16-1 0; }
-#subsection-basic-concepts-for-odes-16-1 > li::marker { content: ""counter(subsection-basic-concepts-for-odes-16-1,decimal)"."; }
-#subsection-basic-concepts-for-odes-16-1 > li { counter-increment: subsection-basic-concepts-for-odes-16-1; }
-#subsection-direction-fields-and-solution-curves-7-2 { counter-set: subsection-direction-fields-and-solution-curves-7-2 0; }
-#subsection-direction-fields-and-solution-curves-7-2 > li::marker { content: ""counter(subsection-direction-fields-and-solution-curves-7-2,decimal)"."; }
-#subsection-direction-fields-and-solution-curves-7-2 > li { counter-increment: subsection-direction-fields-and-solution-curves-7-2; }
-#subsection-existence-and-uniqueness-theorem-2-1 { counter-set: subsection-existence-and-uniqueness-theorem-2-1 0; }
-#subsection-existence-and-uniqueness-theorem-2-1 > li::marker { content: ""counter(subsection-existence-and-uniqueness-theorem-2-1,decimal)"."; }
-#subsection-existence-and-uniqueness-theorem-2-1 > li { counter-increment: subsection-existence-and-uniqueness-theorem-2-1; }
-#example-determining-a-sustainable-population-3-2-5 { counter-set: example-determining-a-sustainable-population-3-2-5 0; }
-#example-determining-a-sustainable-population-3-2-5 > li::marker { content: ""counter(example-determining-a-sustainable-population-3-2-5,decimal)"."; }
-#example-determining-a-sustainable-population-3-2-5 > li { counter-increment: example-determining-a-sustainable-population-3-2-5; }
-#example-types-of-second-order-odes-2-1 { counter-set: example-types-of-second-order-odes-2-1 0; }
-#example-types-of-second-order-odes-2-1 > li::marker { content: ""counter(example-types-of-second-order-odes-2-1,decimal)"."; }
-#example-types-of-second-order-odes-2-1 > li { counter-increment: example-types-of-second-order-odes-2-1; }
-#subsection-free-damped-motion-5-4 { counter-set: subsection-free-damped-motion-5-4 0; }
-#subsection-free-damped-motion-5-4 > li::marker { content: ""counter(subsection-free-damped-motion-5-4,decimal)":"; }
-#subsection-free-damped-motion-5-4 > li { counter-increment: subsection-free-damped-motion-5-4; }
-#example-systems-odes-solving-system-two-equations-3-1-4 { counter-set: example-systems-odes-solving-system-two-equations-3-1-4 0; }
-#example-systems-odes-solving-system-two-equations-3-1-4 > li::marker { content: ""counter(example-systems-odes-solving-system-two-equations-3-1-4,decimal)"."; }
-#example-systems-odes-solving-system-two-equations-3-1-4 > li { counter-increment: example-systems-odes-solving-system-two-equations-3-1-4; }
-#subsection-solving-differential-equations-with-power-series-5-2 { counter-set: subsection-solving-differential-equations-with-power-series-5-2 0; }
-#subsection-solving-differential-equations-with-power-series-5-2 > li::marker { content: ""counter(subsection-solving-differential-equations-with-power-series-5-2,decimal)"."; }
-#subsection-solving-differential-equations-with-power-series-5-2 > li { counter-increment: subsection-solving-differential-equations-with-power-series-5-2; }
-#theorem-method-of-frobenius-3-1-4 { counter-set: theorem-method-of-frobenius-3-1-4 0; }
-#theorem-method-of-frobenius-3-1-4 > li::marker { content: ""counter(theorem-method-of-frobenius-3-1-4,decimal)"."; }
-#theorem-method-of-frobenius-3-1-4 > li { counter-increment: theorem-method-of-frobenius-3-1-4; }
-#section-transformation-of-initial-value-problems-3-1-1 { counter-set: section-transformation-of-initial-value-problems-3-1-1 0; }
-#section-transformation-of-initial-value-problems-3-1-1 > li::marker { content: ""counter(section-transformation-of-initial-value-problems-3-1-1,decimal)"."; }
-#section-transformation-of-initial-value-problems-3-1-1 > li { counter-increment: section-transformation-of-initial-value-problems-3-1-1; }
-#example-computing-the-transform-of-a-time-shifted-function-2-1-1 { counter-set: example-computing-the-transform-of-a-time-shifted-function-2-1-1 0; }
-#example-computing-the-transform-of-a-time-shifted-function-2-1-1 > li::marker { content: ""counter(example-computing-the-transform-of-a-time-shifted-function-2-1-1,decimal)"."; }
-#example-computing-the-transform-of-a-time-shifted-function-2-1-1 > li { counter-increment: example-computing-the-transform-of-a-time-shifted-function-2-1-1; }
-#subsection-important-pdes-3 { counter-set: subsection-important-pdes-3 0; }
-#subsection-important-pdes-3 > li::marker { content: ""counter(subsection-important-pdes-3,decimal)"."; }
-#subsection-important-pdes-3 > li { counter-increment: subsection-important-pdes-3; }
-#subsection-important-pdes-5-1 { counter-set: subsection-important-pdes-5-1 0; }
-#subsection-important-pdes-5-1 > li::marker { content: ""counter(subsection-important-pdes-5-1,decimal)"."; }
-#subsection-important-pdes-5-1 > li { counter-increment: subsection-important-pdes-5-1; }
-#gfdl-section4-3 { counter-set: gfdl-section4-3 0; }
-#gfdl-section4-3 > li::marker { content: ""counter(gfdl-section4-3,upper-alpha)"."; }
-#gfdl-section4-3 > li { counter-increment: gfdl-section4-3; }
-</style>
+</script>
 </head>
 <body class="pretext book ignore-math">
 <a class="assistive" href="#ptx-content">Skip to main content</a><header id="ptx-masthead" class="ptx-masthead"><div class="ptx-banner">
-<a xmlns:pf="https://prefigure.org" id="logo-link" class="logo-link" target="_blank" href=""><img src="external/./wvwc-logo.jpg" alt="Logo image"></a><div class="title-container">
-<h1 class="heading"><a href="wvwc-differential-equations.html"><span class="title">Differential Equations Lecture Notes:</span> <span class="subtitle">West Virginia Wesleyan College</span></a></h1>
+<img src="external/./wvwc-logo-brandlogo.jpg" alt="Logo image"><div class="title-container">
+<h1 class="heading"><a href="wvwc-differential-equations.html"><span class="title">Differential Equations Lecture Notes</span> <span class="subtitle">West Virginia Wesleyan College</span></a></h1>
 <p class="byline">Jesse Oldroyd</p>
 </div>
-</div></header><nav xmlns:pf="https://prefigure.org" id="ptx-navbar" class="ptx-navbar navbar"><button class="toc-toggle button" title="Contents"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5d2;</span><span class="name">Contents</span></button><a class="index-button button" href="backmatter-5.html" title="Index"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe88e;</span><span class="name">Index</span></a><div class="searchbox">
+</div></header><nav id="ptx-navbar" class="ptx-navbar navbar"><div class="ptx-navbar-contents">
+<button class="toc-toggle button" title="Contents"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5d2;</span><span class="name">Contents</span></button><a class="index-button button" href="backmatter-5.html" title="Index"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe88e;</span><span class="name">Index</span></a><div class="searchbox">
 <div class="searchwidget"><button id="searchbutton" class="searchbutton button" type="button" title="Search book"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe8b6;</span><span class="name">Search Book</span></button></div>
 <div id="searchresultsplaceholder" class="searchresultsplaceholder" style="display: none">
 <div class="search-results-controls">
@@ -194,7 +176,8 @@ var ggbApp = new GGBApplet({"appName": "graphing",
     "autoHeight": true,
     "disableAutoScale": false},
 true);
-</script></span><span class="treebuttons"><a class="previous-button button" href="section-first-order-linear-odes.html" title="Previous"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cb;</span><span class="name">Prev</span></a><a class="up-button button" href="intro-to-odes.html" title="Up"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5ce;</span><span class="name">Up</span></a><a class="next-button button" href="section-population-models-and-autonomous-equations.html" title="Next"><span class="name">Next</span><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cc;</span></a></span></nav><div xmlns:pf="https://prefigure.org" id="latex-macros" class="hidden-content process-math" style="display:none"><span class="process-math">\(\newcommand{\RR}{\mathbb{R}}
+</script><button id="light-dark-button" class="light-dark-button button" title="Dark Mode"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe51c;</span><span class="name">Dark Mode</span></button></span><span class="treebuttons"><a class="previous-button button" href="section-first-order-linear-odes.html" title="Previous"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cb;</span><span class="name">Prev</span></a><a class="up-button button" href="intro-to-odes.html" title="Up"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5ce;</span><span class="name">Up</span></a><a class="next-button button" href="section-population-models-and-autonomous-equations.html" title="Next"><span class="name">Next</span><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cc;</span></a></span>
+</div></nav><div id="latex-macros" class="hidden-content process-math" style="display:none"><span class="process-math">\(\newcommand{\RR}{\mathbb{R}}
 \newcommand{\QQ}{\mathbb{Q}}
 \newcommand{\NN}{\mathbb{N}}
 \newcommand{\ZZ}{\mathbb{Z}}
@@ -239,7 +222,7 @@ true);
 \newcommand{\fillinmath}[1]{\mathchoice{\colorbox{fillinmathshade}{$\displaystyle     \phantom{\,#1\,}$}}{\colorbox{fillinmathshade}{$\textstyle        \phantom{\,#1\,}$}}{\colorbox{fillinmathshade}{$\scriptstyle      \phantom{\,#1\,}$}}{\colorbox{fillinmathshade}{$\scriptscriptstyle\phantom{\,#1\,}$}}}
 \)</span></div>
 <div class="ptx-page">
-<div xmlns:pf="https://prefigure.org" id="ptx-sidebar" class="ptx-sidebar"><nav id="ptx-toc" class="ptx-toc depth2 parts"><ul class="structural contains-active toc-item-list">
+<div id="ptx-sidebar" class="ptx-sidebar"><nav id="ptx-toc" class="ptx-toc depth3 parts focused" data-preexpanded-levels="0" data-max-levels="3"><ul class="structural toc-item-list contains-active">
 <li class="toc-item toc-frontmatter">
 <div class="toc-title-box"><a href="front.html" class="internal"><span class="title">Front Matter</span></a></div>
 <ul class="structural toc-item-list">
@@ -279,9 +262,9 @@ true);
 <li class="toc-item toc-subsection"><div class="toc-title-box"><a href="section-first-order-linear-odes.html#subsection-applications" class="internal"><span class="title">Applications</span></a></div></li>
 </ul>
 </li>
-<li class="toc-item toc-section active">
+<li class="toc-item toc-section contains-active">
 <div class="toc-title-box"><a href="section-existence-and-uniqueness-of-solutions.html" class="internal"><span class="codenumber">1.5</span> <span class="title">Existence and uniqueness</span></a></div>
-<ul class="structural toc-item-list">
+<ul class="structural toc-item-list active">
 <li class="toc-item toc-subsection"><div class="toc-title-box"><a href="section-existence-and-uniqueness-of-solutions.html#subsec-existence-and-uniqueness-for-linear-differential-equations" class="internal"><span class="title">Existence and uniqueness for linear differential equations</span></a></div></li>
 <li class="toc-item toc-subsection"><div class="toc-title-box"><a href="section-existence-and-uniqueness-of-solutions.html#subsection-existence-and-uniqueness-theorem" class="internal"><span class="title">Existence and uniqueness theorem</span></a></div></li>
 <li class="toc-item toc-subsection"><div class="toc-title-box"><a href="section-existence-and-uniqueness-of-solutions.html#subsection-picard-iteration" class="internal"><span class="title">Picard iteration</span></a></div></li>
@@ -375,32 +358,32 @@ true);
 <div class="toc-title-box"><a href="series-solutions.html" class="internal"><span class="codenumber">5</span> <span class="title">Series Solutions</span></a></div>
 <ul class="structural toc-item-list">
 <li class="toc-item toc-section">
-<div class="toc-title-box"><a href="section-power-series-method.html" class="internal"><span class="codenumber">5.1</span> <span class="title">Power series method</span></a></div>
+<div class="toc-title-box"><a href="section-power-series-method.html" class="internal"><span class="codenumber">5.1</span> <span class="title">Power Series Method</span></a></div>
 <ul class="structural toc-item-list">
-<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="section-power-series-method.html#subsection-review-of-power-series" class="internal"><span class="title">Review of power series</span></a></div></li>
-<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="section-power-series-method.html#subsection-solving-differential-equations-with-power-series" class="internal"><span class="title">Solving differential equations with power series</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="section-power-series-method.html#subsection-review-of-power-series" class="internal"><span class="title">Review of Power Series</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="section-power-series-method.html#subsection-solving-differential-equations-with-power-series" class="internal"><span class="title">Solving Differential Equations with Power Series</span></a></div></li>
 </ul>
 </li>
 <li class="toc-item toc-section">
-<div class="toc-title-box"><a href="section-legendre-s-equation-and-legendre-polynomials.html" class="internal"><span class="codenumber">5.2</span> <span class="title">Legendre’s equation</span></a></div>
+<div class="toc-title-box"><a href="section-legendre-s-equation-and-legendre-polynomials.html" class="internal"><span class="codenumber">5.2</span> <span class="title">Legendre’s Equation</span></a></div>
 <ul class="structural toc-item-list">
-<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="section-legendre-s-equation-and-legendre-polynomials.html#subsection-solving-the-legendre-equation" class="internal"><span class="title">Solving the Legendre equation</span></a></div></li>
-<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="section-legendre-s-equation-and-legendre-polynomials.html#subsection-legendre-polynomials" class="internal"><span class="title">Legendre polynomials</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="section-legendre-s-equation-and-legendre-polynomials.html#subsection-solving-the-legendre-equation" class="internal"><span class="title">Solving the Legendre Equation</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="section-legendre-s-equation-and-legendre-polynomials.html#subsection-legendre-polynomials" class="internal"><span class="title">Legendre Polynomials</span></a></div></li>
 </ul>
 </li>
 <li class="toc-item toc-section">
-<div class="toc-title-box"><a href="section-frobenius-method.html" class="internal"><span class="codenumber">5.3</span> <span class="title">Frobenius’ method</span></a></div>
+<div class="toc-title-box"><a href="section-frobenius-method.html" class="internal"><span class="codenumber">5.3</span> <span class="title">Frobenius’ Method</span></a></div>
 <ul class="structural toc-item-list">
-<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="section-frobenius-method.html#subsection-ordinary-points-and-singular-points" class="internal"><span class="title">Ordinary points and singular points</span></a></div></li>
-<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="section-frobenius-method.html#subsection-solutions-at-singular-points-and-indicial-equations" class="internal"><span class="title">Solutions at singular points and indicial equations</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="section-frobenius-method.html#subsection-ordinary-points-and-singular-points" class="internal"><span class="title">Ordinary Points and Singular Points</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="section-frobenius-method.html#subsection-solutions-at-singular-points-and-indicial-equations" class="internal"><span class="title">Solutions at Singular Points and Indicial Equations</span></a></div></li>
 </ul>
 </li>
 <li class="toc-item toc-section">
-<div class="toc-title-box"><a href="section-bessel-s-equation.html" class="internal"><span class="codenumber">5.4</span> <span class="title">Bessel’s equation</span></a></div>
+<div class="toc-title-box"><a href="section-bessel-s-equation.html" class="internal"><span class="codenumber">5.4</span> <span class="title">Bessel’s Equation</span></a></div>
 <ul class="structural toc-item-list">
-<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="section-bessel-s-equation.html#subsection-bessel-functions-for-integer--nu-" class="internal"><span class="title">Bessel functions for integer <span class="process-math">\(\nu\)</span></span></a></div></li>
-<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="section-bessel-s-equation.html#subsection-bessel-functions-of-the-first-kind-for-nonnegative-order" class="internal"><span class="title">Bessel functions of the first kind for nonnegative order</span></a></div></li>
-<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="section-bessel-s-equation.html#subsection-general-solution-of-bessel-s-equation" class="internal"><span class="title">General solution of Bessel’s equation</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="section-bessel-s-equation.html#subsection-bessel-functions-for-integer--nu-" class="internal"><span class="title">Bessel Functions for Integer <span class="process-math">\(\nu\)</span></span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="section-bessel-s-equation.html#subsection-bessel-functions-of-the-first-kind-for-nonnegative-order" class="internal"><span class="title">Bessel Functions of the First Kind for Nonnegative Order</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="section-bessel-s-equation.html#subsection-general-solution-of-bessel-s-equation" class="internal"><span class="title">General Solution of Bessel’s Equation</span></a></div></li>
 </ul>
 </li>
 </ul>
@@ -507,19 +490,17 @@ true);
 </ul>
 </li>
 </ul></nav></div>
-<<<<<<< HEAD
-<main class="ptx-main"><div id="ptx-content" class="ptx-content"><section xmlns:pf="https://prefigure.org" class="section" id="section-existence-and-uniqueness-of-solutions"><h2 class="heading hide-type">
-=======
 <main class="ptx-main"><div id="ptx-content" class="ptx-content"><section class="section" id="section-existence-and-uniqueness-of-solutions"><h2 class="heading hide-type">
->>>>>>> a0db83aad0fcd4491bf5f1d4b35a43c21ae3a40a
-<span class="type">Section</span><span class="space"> </span><span class="codenumber">1.5</span><span class="space"> </span><span class="title">Existence and uniqueness of solutions</span>
+<span class="type">Section</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">1.5</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Existence and uniqueness of solutions</span>
 </h2>
-<section class="introduction" id="section-existence-and-uniqueness-of-solutions-3"><div class="para" id="section-existence-and-uniqueness-of-solutions-3-1">Now that we have seen how to solve several different types of differential equations, we will move on to the more general problem of determining when a given differential equation is actually solvable. This section is, therefore, a little unusual in that we don’t actually care about solving the differential equations presented. Despite this, many important differential equations in practice have no “closed-form” solutions and so the best we can often do is approximate solutions. Hence, it will be useful to know when exactly a solution exists in order to justify our approximations. At the end of the section we will examine two approaches to approximating solutions of differential equations.</div></section><section class="subsection" id="subsec-existence-and-uniqueness-for-linear-differential-equations"><h3 class="heading hide-type">
-<span class="type">Subsection</span><span class="space"> </span><span class="codenumber"></span><span class="space"> </span><span class="title">Existence and uniqueness for linear differential equations</span>
+<section class="introduction" id="section-existence-and-uniqueness-of-solutions-3"><div class="para" id="section-existence-and-uniqueness-of-solutions-3-1">Now that we have seen how to solve several different types of differential equations, we will move on to the more general problem of determining when a given differential equation is actually solvable. This section is, therefore, a little unusual in that we don’t actually care about solving the differential equations presented. Despite this, many important differential equations in practice have no “closed-form” solutions and so the best we can often do is approximate solutions. Hence, it will be useful to know when exactly a solution exists in order to justify our approximations. At the end of the section we will examine two approaches to approximating solutions of differential equations.<div class="autopermalink" data-description="Paragraph"><a href="#section-existence-and-uniqueness-of-solutions-3-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div></section><section class="subsection" id="subsec-existence-and-uniqueness-for-linear-differential-equations"><h3 class="heading hide-type">
+<span class="type">Subsection</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber"></span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Existence and uniqueness for linear differential equations</span>
 </h3>
-<div class="para" id="subsec-existence-and-uniqueness-for-linear-differential-equations-2">Recall that a first-order linear ordinary differential equation is one that can be written in the form <a href="section-first-order-linear-odes.html#definition-first-order-linear-odes" class="xref" data-knowl="./knowl/xref/definition-first-order-linear-odes.html" data-reveal-label="Reveal" data-close-label="Close" title="Definition 1.4.1: First-order linear ODEs">Definition 1.4.1</a>. For such equations, we have the following relatively simple test for existence and uniqueness.</div>
+<div class="para" id="subsec-existence-and-uniqueness-for-linear-differential-equations-2">Recall that a first-order linear ordinary differential equation is one that can be written in the form <a href="section-first-order-linear-odes.html#definition-first-order-linear-odes" class="xref" data-knowl="./knowl/xref/definition-first-order-linear-odes.html" data-reveal-label="Reveal" data-close-label="Close" title="Definition 1.4.1: First-order linear ODEs">Definition 1.4.1</a>. For such equations, we have the following relatively simple test for existence and uniqueness.<div class="autopermalink" data-description="Paragraph"><a href="#subsec-existence-and-uniqueness-for-linear-differential-equations-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
 <article class="theorem theorem-like" id="thm-existence-uniqueness-first-order-linear"><h4 class="heading">
-<span class="type">Theorem</span><span class="space"> </span><span class="codenumber">1.5.1</span><span class="period">.</span>
+<span class="type">Theorem</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">1.5.1</span><span class="period heading-divison-mark heading-divison-mark__period">.</span>
 </h4>
 <div class="para logical" id="thm-existence-uniqueness-first-order-linear-1-1">
 <div class="para">Consider the initial value problem given by</div>
@@ -529,29 +510,47 @@ y' + P(x)y = Q(x), y(x_0) = y_0
 \end{equation*}
 </div>
 <div class="para">and let <span class="process-math">\(I\)</span> be an open interval on which <span class="process-math">\(P(x)\)</span> and <span class="process-math">\(Q(x)\)</span> are both continuous, with <span class="process-math">\(b\in I\text{.}\)</span> Then the initial value problem has a unique solution.</div>
-</div></article></section><section class="subsection" id="subsection-existence-and-uniqueness-theorem"><h3 class="heading hide-type">
-<span class="type">Subsection</span><span class="space"> </span><span class="codenumber"></span><span class="space"> </span><span class="title">Existence and uniqueness theorem</span>
+<div class="autopermalink" data-description="Paragraph"><a href="#thm-existence-uniqueness-first-order-linear-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Theorem 1.5.1"><a href="#thm-existence-uniqueness-first-order-linear" title="Copy heading and permalink for Theorem 1.5.1" aria-label="Copy heading and permalink for Theorem 1.5.1">🔗</a></div></article><div class="autopermalink" data-description="Subsection: Existence and uniqueness for linear differential equations"><a href="#subsec-existence-and-uniqueness-for-linear-differential-equations" title="Copy heading and permalink for Subsection: Existence and uniqueness for linear differential equations" aria-label="Copy heading and permalink for Subsection: Existence and uniqueness for linear differential equations">🔗</a></div></section><section class="subsection" id="subsection-existence-and-uniqueness-theorem"><h3 class="heading hide-type">
+<span class="type">Subsection</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber"></span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Existence and uniqueness theorem</span>
 </h3>
 <div class="para logical" id="subsection-existence-and-uniqueness-theorem-2">
 <div class="para">There are two important questions we need to consider when developing a mathematical model using differential equations (i.e. IVPs):</div>
 <ol class="decimal" id="subsection-existence-and-uniqueness-theorem-2-1">
-<li id="subsection-existence-and-uniqueness-theorem-2-1-1"><div class="para" id="p-derived-subsection-existence-and-uniqueness-theorem-2-1-1">Does the initial value problem have a solution? (Existence).</div></li>
-<li id="subsection-existence-and-uniqueness-theorem-2-1-2"><div class="para" id="p-derived-subsection-existence-and-uniqueness-theorem-2-1-2">If it has a solution, is the solution unique? (Uniqueness).</div></li>
+<li id="subsection-existence-and-uniqueness-theorem-2-1-1">
+<div class="para" id="p-derived-subsection-existence-and-uniqueness-theorem-2-1-1">Does the initial value problem have a solution? (Existence).</div>
+<div class="autopermalink" data-description="Item 1"><a href="#subsection-existence-and-uniqueness-theorem-2-1-1" title="Copy heading and permalink for Item 1" aria-label="Copy heading and permalink for Item 1">🔗</a></div>
+</li>
+<li id="subsection-existence-and-uniqueness-theorem-2-1-2">
+<div class="para" id="p-derived-subsection-existence-and-uniqueness-theorem-2-1-2">If it has a solution, is the solution unique? (Uniqueness).</div>
+<div class="autopermalink" data-description="Item 2"><a href="#subsection-existence-and-uniqueness-theorem-2-1-2" title="Copy heading and permalink for Item 2" aria-label="Copy heading and permalink for Item 2">🔗</a></div>
+</li>
 </ol>
 <div class="para">Ideally, the answer to both of these questions will be yes.</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#subsection-existence-and-uniqueness-theorem-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 <article class="example example-like" id="example-the-answer-is-no"><h4 class="heading">
-<span class="type">Example</span><span class="space"> </span><span class="codenumber">1.5.2</span><span class="period">.</span><span class="space"> </span><span class="title">The answer is no.</span>
+<span class="type">Example</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">1.5.2</span><span class="period heading-divison-mark heading-divison-mark__period">.</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">The answer is no.</span>
 </h4>
-<div class="para" id="example-the-answer-is-no-2-1">Does <span class="process-math">\(x\dv{y}{x} = \sqrt[3]{y},y(1) = 0\)</span> have a unique solution?</div>
-<div class="solutions"><details id="example-the-answer-is-no-3" class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="period">.</span></summary><div class="solution solution-like knowl__content"><div class="para" id="example-the-answer-is-no-3-1">We can find a solution to this IVP by treating the ODE as separable. If we do so, we find that <span class="process-math">\(y = \left(\frac{2}{3}\ln x\right)^{\frac{3}{2}}\text{.}\)</span> On the other hand, we can also eyeball a second solution: <span class="process-math">\(y=0\text{.}\)</span> So this IVP has <em class="emphasis">two</em> different solutions: <span class="process-math">\(y_{1} = \left(\frac{2}{3}\ln x\right)^{\frac{3}{2}}\)</span> and <span class="process-math">\(y_{2} = 0\text{.}\)</span>
-</div></div></details></div></article><div class="para" id="subsection-existence-and-uniqueness-theorem-4">Clearly, IVPs don’t always have unique solutions. Sometimes it’s difficult to determine precisely when an IVP can have a unique solution, but most of the cases we’ll care about in this class will fall under the following theorem.</div>
+<div class="para" id="example-the-answer-is-no-2-1">Does <span class="process-math">\(x\dv{y}{x} = \sqrt[3]{y},y(1) = 0\)</span> have a unique solution?<div class="autopermalink" data-description="Paragraph"><a href="#example-the-answer-is-no-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="solutions"><details id="example-the-answer-is-no-3" class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary><div class="solution solution-like knowl__content">
+<div class="para" id="example-the-answer-is-no-3-1">We can find a solution to this IVP by treating the ODE as separable. If we do so, we find that <span class="process-math">\(y = \left(\frac{2}{3}\ln x\right)^{\frac{3}{2}}\text{.}\)</span> On the other hand, we can also eyeball a second solution: <span class="process-math">\(y=0\text{.}\)</span> So this IVP has <em class="emphasis">two</em> different solutions: <span class="process-math">\(y_{1} = \left(\frac{2}{3}\ln x\right)^{\frac{3}{2}}\)</span> and <span class="process-math">\(y_{2} = 0\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#example-the-answer-is-no-3-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Solution 1.5.2.1"><a href="#example-the-answer-is-no-3" title="Copy heading and permalink for Solution 1.5.2.1" aria-label="Copy heading and permalink for Solution 1.5.2.1">🔗</a></div>
+</div></details></div>
+<div class="autopermalink" data-description="Example 1.5.2: The answer is no"><a href="#example-the-answer-is-no" title="Copy heading and permalink for Example 1.5.2: The answer is no" aria-label="Copy heading and permalink for Example 1.5.2: The answer is no">🔗</a></div></article><div class="para" id="subsection-existence-and-uniqueness-theorem-4">Clearly, IVPs don’t always have unique solutions. Sometimes it’s difficult to determine precisely when an IVP can have a unique solution, but most of the cases we’ll care about in this class will fall under the following theorem.<div class="autopermalink" data-description="Paragraph"><a href="#subsection-existence-and-uniqueness-theorem-4" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
 <article class="theorem theorem-like" id="theorem-existence-and-uniqueness-theorem"><h4 class="heading">
-<span class="type">Theorem</span><span class="space"> </span><span class="codenumber">1.5.3</span><span class="period">.</span><span class="space"> </span><span class="title">Existence and uniqueness theorem.</span>
+<span class="type">Theorem</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">1.5.3</span><span class="period heading-divison-mark heading-divison-mark__period">.</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Existence and uniqueness theorem.</span>
 </h4>
-<div class="para" id="theorem-existence-and-uniqueness-theorem-3-1">Consider the IVP given by <span class="process-math">\(\dv{y}{x} = f(x,y), y(x_{0}) = y_{0}\text{.}\)</span> If <span class="process-math">\(f(x,y)\)</span> is bounded and continuous within some rectangle in the plane containing <span class="process-math">\((x_{0},y_{0})\text{,}\)</span> then the IVP has at least one solution. If in addition <span class="process-math">\(f_{y}(x,y)\)</span> is also bounded and continuous within some rectangle containing <span class="process-math">\((x_{0},y_{0})\text{,}\)</span> then the IVP has a unique solution.</div></article><div class="para" id="subsection-existence-and-uniqueness-theorem-6">If we go back to <a href="section-existence-and-uniqueness-of-solutions.html#example-the-answer-is-no" class="xref" data-knowl="./knowl/xref/example-the-answer-is-no.html" data-reveal-label="Reveal" data-close-label="Close" title="Example 1.5.2: The answer is no">Example 1.5.2</a>, then we see that <a href="section-existence-and-uniqueness-of-solutions.html#theorem-existence-and-uniqueness-theorem" class="xref" data-knowl="./knowl/xref/theorem-existence-and-uniqueness-theorem.html" data-reveal-label="Reveal" data-close-label="Close" title="Theorem 1.5.3: Existence and uniqueness theorem">Theorem 1.5.3</a> has something to say about the IVP in that example. In that example, we had <span class="process-math">\(f(x,y) = \sqrt[3]{y}, f_{y}(x,y) = \frac{1}{3}y^{-\frac{2}{3}}\)</span> and <span class="process-math">\((x_{0},y_{0}) = (1,0)\text{.}\)</span> Let’s draw a rectangle around this point:</div>
+<div class="para" id="theorem-existence-and-uniqueness-theorem-3-1">Consider the IVP given by <span class="process-math">\(\dv{y}{x} = f(x,y), y(x_{0}) = y_{0}\text{.}\)</span> If <span class="process-math">\(f(x,y)\)</span> is bounded and continuous within some rectangle in the plane containing <span class="process-math">\((x_{0},y_{0})\text{,}\)</span> then the IVP has at least one solution. If in addition <span class="process-math">\(f_{y}(x,y)\)</span> is also bounded and continuous within some rectangle containing <span class="process-math">\((x_{0},y_{0})\text{,}\)</span> then the IVP has a unique solution.<div class="autopermalink" data-description="Paragraph"><a href="#theorem-existence-and-uniqueness-theorem-3-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Theorem 1.5.3: Existence and uniqueness theorem"><a href="#theorem-existence-and-uniqueness-theorem" title="Copy heading and permalink for Theorem 1.5.3: Existence and uniqueness theorem" aria-label="Copy heading and permalink for Theorem 1.5.3: Existence and uniqueness theorem">🔗</a></div></article><div class="para" id="subsection-existence-and-uniqueness-theorem-6">If we go back to <a href="section-existence-and-uniqueness-of-solutions.html#example-the-answer-is-no" class="xref" data-knowl="./knowl/xref/example-the-answer-is-no.html" data-reveal-label="Reveal" data-close-label="Close" title="Example 1.5.2: The answer is no">Example 1.5.2</a>, then we see that <a href="section-existence-and-uniqueness-of-solutions.html#theorem-existence-and-uniqueness-theorem" class="xref" data-knowl="./knowl/xref/theorem-existence-and-uniqueness-theorem.html" data-reveal-label="Reveal" data-close-label="Close" title="Theorem 1.5.3: Existence and uniqueness theorem">Theorem 1.5.3</a> has something to say about the IVP in that example. In that example, we had <span class="process-math">\(f(x,y) = \sqrt[3]{y}, f_{y}(x,y) = \frac{1}{3}y^{-\frac{2}{3}}\)</span> and <span class="process-math">\((x_{0},y_{0}) = (1,0)\text{.}\)</span> Let’s draw a rectangle around this point:<div class="autopermalink" data-description="Paragraph"><a href="#subsection-existence-and-uniqueness-theorem-6" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
 <figure class="figure figure-like" id="figure-existence-and-uniqueness-1"><div class="image-box" style="width: 50%; margin-left: 25%; margin-right: 25%;"><img src="generated/latex-image/figure-existence-and-uniqueness-1-2.svg" role="img" class="contained"></div>
-<figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">1.5.4<span class="period">.</span></span><span class="space"> </span>A rectangle around <span class="process-math">\((x_0,y_0)\)</span></figcaption></figure><div class="para logical" id="subsection-existence-and-uniqueness-theorem-8">
+<figcaption><span class="type">Figure</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">1.5.4<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span>A rectangle around <span class="process-math">\((x_0,y_0)\)</span><div class="autopermalink" data-description="Figure 1.5.4"><a href="#figure-existence-and-uniqueness-1" title="Copy heading and permalink for Figure 1.5.4" aria-label="Copy heading and permalink for Figure 1.5.4">🔗</a></div></figcaption></figure><div class="para logical" id="subsection-existence-and-uniqueness-theorem-8">
 <div class="para">Now <span class="process-math">\(f\)</span> is continuous and <span class="process-math">\(-\frac{1}{2}\leq y\leq\frac{3}{2}\)</span> within this rectangle, so</div>
 <div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/theorem-existence-and-uniqueness-theorem.html">
 \begin{equation*}
@@ -559,11 +558,15 @@ y' + P(x)y = Q(x), y(x_0) = y_0
 \end{equation*}
 </div>
 <div class="para">everywhere inside of this triangle. So <a href="section-existence-and-uniqueness-of-solutions.html#theorem-existence-and-uniqueness-theorem" class="xref" data-knowl="./knowl/xref/theorem-existence-and-uniqueness-theorem.html" data-reveal-label="Reveal" data-close-label="Close" title="Theorem 1.5.3: Existence and uniqueness theorem">Theorem 1.5.3</a> guarantees <em class="emphasis">at least one</em> solution of the IVP, and indeed there is at least one solution. However, the problem with uniqueness stems from the fact that <span class="process-math">\(f_{y}\)</span> has a divide-by-zero problem inside this rectangle. Furthermore, it’s impossible to draw a rectangle around <span class="process-math">\((1,0)\)</span> that avoids this divide-by-zero problem. Hence there is no guarantee of uniqueness.</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#subsection-existence-and-uniqueness-theorem-8" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="para" id="subsection-existence-and-uniqueness-theorem-9">On the other hand, if we changed the initial condition to <span class="process-math">\(y(1) = 0.000001\)</span> then we would be guaranteed a unique solution. Moving that initial condition off of the <span class="process-math">\(x\)</span>-axis is all we need to do to guarantee uniqueness.</div></section><section class="subsection" id="subsection-picard-iteration"><h3 class="heading hide-type">
-<span class="type">Subsection</span><span class="space"> </span><span class="codenumber"></span><span class="space"> </span><span class="title">Picard iteration</span>
+<div class="para" id="subsection-existence-and-uniqueness-theorem-9">On the other hand, if we changed the initial condition to <span class="process-math">\(y(1) = 0.000001\)</span> then we would be guaranteed a unique solution. Moving that initial condition off of the <span class="process-math">\(x\)</span>-axis is all we need to do to guarantee uniqueness.<div class="autopermalink" data-description="Paragraph"><a href="#subsection-existence-and-uniqueness-theorem-9" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Subsection: Existence and uniqueness theorem"><a href="#subsection-existence-and-uniqueness-theorem" title="Copy heading and permalink for Subsection: Existence and uniqueness theorem" aria-label="Copy heading and permalink for Subsection: Existence and uniqueness theorem">🔗</a></div></section><section class="subsection" id="subsection-picard-iteration"><h3 class="heading hide-type">
+<span class="type">Subsection</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber"></span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Picard iteration</span>
 </h3>
-<div class="para" id="subsection-picard-iteration-2">Now that we know of a way to determine whether or not certain ODEs have solutions, we’d like a method for actually finding these solutions. We’ve seen a few different methods for solving specific first-order ODEs, but what we’ll do now is discuss a method that works for a large class of first-order ODEs. The only catch is that it may take us an infinite amount of time to get the solution.</div>
+<div class="para" id="subsection-picard-iteration-2">Now that we know of a way to determine whether or not certain ODEs have solutions, we’d like a method for actually finding these solutions. We’ve seen a few different methods for solving specific first-order ODEs, but what we’ll do now is discuss a method that works for a large class of first-order ODEs. The only catch is that it may take us an infinite amount of time to get the solution.<div class="autopermalink" data-description="Paragraph"><a href="#subsection-picard-iteration-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
 <div class="para logical" id="subsection-picard-iteration-3">
 <div class="para">Consider the IVP <span class="process-math">\(\dv{y}{x} = f(x,y), y(x_{0}) = y_{0}\text{.}\)</span> We can rewrite this differential equation as an <dfn class="terminology">integral equation</dfn>:</div>
 <div class="displaymath process-math">
@@ -572,6 +575,7 @@ y(x) = y_{0} + \int_{x_{0}}^{x}f(t,y(t))\,dt.
 \end{equation*}
 </div>
 <div class="para">It looks quite a bit different, but solutions of this integral equation are also solutions of the corresponding differential equation. Our goal now is to approximate a solution to this integral equation.</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#subsection-picard-iteration-3" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 <div class="para logical" id="subsection-picard-iteration-4">
 <div class="para">To start, let’s make a guess as to what the solution of our IVP should be. To keep things simple we’ll start with a constant function, say <span class="process-math">\(\phi_{0}(x) = y_{0}\)</span> so that we at least satisfy the initial condition. Now this guess may not be a good match for the solution of the IVP away from the initial condition, so we’ll adjust the guess using the integral equation to get the new function <span class="process-math">\(\phi_{1}\text{:}\)</span>
@@ -583,6 +587,7 @@ y(x) = y_{0} + \int_{x_{0}}^{x}f(t,y(t))\,dt.
 </div>
 <div class="para">Now <span class="process-math">\(\phi_{1}\)</span> may not be a great approximation either away from the initial condition, but we can adjust it using the integral equation just like we did to <span class="process-math">\(\phi_{0}\text{.}\)</span>
 </div>
+<div class="autopermalink" data-description="Paragraph"><a href="#subsection-picard-iteration-4" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 <div class="para logical" id="subsection-picard-iteration-5">
 <div class="para">The method described in the previous paragraph is <dfn class="terminology">Picard’s Method</dfn>. In general, the <span class="process-math">\(n^{\text{th}}\)</span> iteration of Picard’s Method is given by</div>
@@ -598,9 +603,10 @@ y(x) = y_{0} + \int_{x_{0}}^{x}f(t,y(t))\,dt.
 \end{equation*}
 </div>
 <div class="para">for all <span class="process-math">\(n\geq1\text{.}\)</span> This method doesn’t always work, but if <span class="process-math">\(f(x,y)\)</span> satisfies the conditions given in <a href="section-existence-and-uniqueness-of-solutions.html#theorem-existence-and-uniqueness-theorem" class="xref" data-knowl="./knowl/xref/theorem-existence-and-uniqueness-theorem.html" data-reveal-label="Reveal" data-close-label="Close" title="Theorem 1.5.3: Existence and uniqueness theorem">Theorem 1.5.3</a> then this method will (after potentially infinitely many steps) provide a solution to the IVP. Since the computations involved are quite tedious, it’s best to use a CAS if possible.</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#subsection-picard-iteration-5" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 <article class="example example-like" id="example-using-sage-to-compute-picard-iterates"><h4 class="heading">
-<span class="type">Example</span><span class="space"> </span><span class="codenumber">1.5.5</span><span class="period">.</span><span class="space"> </span><span class="title">Using Sage to compute Picard iterates.</span>
+<span class="type">Example</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">1.5.5</span><span class="period heading-divison-mark heading-divison-mark__period">.</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Using Sage to compute Picard iterates.</span>
 </h4>
 <div class="para logical" id="example-using-sage-to-compute-picard-iterates-2-1">
 <div class="para">Consider the initial value problem given by</div>
@@ -610,6 +616,7 @@ y^\prime = x + y^2, y(1) = -1\text{.}
 \end{equation*}
 </div>
 <div class="para">We want to approximate the solution by using Picard iteration (note that the differential equation is neither separable nor linear!). We do this with the Sage cell below:</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#example-using-sage-to-compute-picard-iterates-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div> <div id="example-using-sage-to-compute-picard-iterates-2-2" class="ptx-sagecell sagecell-sage"><script type="text/x-sage"># We need to tell Sage that y is a variable.
 var('t,y')
 
@@ -630,12 +637,14 @@ for k in range(n):
 
 # Display n^th iterate.
 show(yn(x))
-</script></div></article></section><section class="subsection" id="subsection-euler-s-method"><h3 class="heading hide-type">
-<span class="type">Subsection</span><span class="space"> </span><span class="codenumber"></span><span class="space"> </span><span class="title">Euler’s method</span>
+</script></div>
+<div class="autopermalink" data-description="Example 1.5.5: Using Sage to compute Picard iterates"><a href="#example-using-sage-to-compute-picard-iterates" title="Copy heading and permalink for Example 1.5.5: Using Sage to compute Picard iterates" aria-label="Copy heading and permalink for Example 1.5.5: Using Sage to compute Picard iterates">🔗</a></div></article><div class="autopermalink" data-description="Subsection: Picard iteration"><a href="#subsection-picard-iteration" title="Copy heading and permalink for Subsection: Picard iteration" aria-label="Copy heading and permalink for Subsection: Picard iteration">🔗</a></div></section><section class="subsection" id="subsection-euler-s-method"><h3 class="heading hide-type">
+<span class="type">Subsection</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber"></span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Euler’s method</span>
 </h3>
-<div class="para" id="subsection-euler-s-method-2">The Picard iteration approach can be useful for finding series approximations of the solution of an ODE. If a more numerical approach is desired, then <em class="emphasis">Euler’s method</em> might be useful. Euler’s method can be thought of as an algorithmic version of tracing a solution curve through a direction field (see <a href="section-direction-fields.html" class="internal" title="Section 1.2: Direction fields">Section 1.2</a>).</div>
+<div class="para" id="subsection-euler-s-method-2">The Picard iteration approach can be useful for finding series approximations of the solution of an ODE. If a more numerical approach is desired, then <em class="emphasis">Euler’s method</em> might be useful. Euler’s method can be thought of as an algorithmic version of tracing a solution curve through a direction field (see <a href="section-direction-fields.html" class="internal" title="Section 1.2: Direction fields">Section 1.2</a>).<div class="autopermalink" data-description="Paragraph"><a href="#subsection-euler-s-method-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
 <article class="algorithm theorem-like" id="algorithm-euler-s-method"><h4 class="heading">
-<span class="type">Algorithm</span><span class="space"> </span><span class="codenumber">1.5.6</span><span class="period">.</span><span class="space"> </span><span class="title">Euler’s method.</span>
+<span class="type">Algorithm</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">1.5.6</span><span class="period heading-divison-mark heading-divison-mark__period">.</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Euler’s method.</span>
 </h4>
 <div class="para logical" id="algorithm-euler-s-method-2-1">
 <div class="para">Consider the initial value problem</div>
@@ -651,10 +660,12 @@ x_n \amp = x_{n-1} + h \\
 y_n \amp = y_{n-1} + hf(x_{n-1}, y_{n-1}) \text{.}
 \end{align*}
 </div>
-</div></article><div class="para" id="subsection-euler-s-method-4">For Euler’s method, the general rule of thumb is as follows: the smaller <span class="process-math">\(h\)</span> is, the better the approximation. However, one should expect degrading performance as the method moves farther from the initial condition <span class="process-math">\((x_0, y_0)\text{.}\)</span>
+<div class="autopermalink" data-description="Paragraph"><a href="#algorithm-euler-s-method-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Algorithm 1.5.6: Euler’s method"><a href="#algorithm-euler-s-method" title="Copy heading and permalink for Algorithm 1.5.6: Euler’s method" aria-label="Copy heading and permalink for Algorithm 1.5.6: Euler’s method">🔗</a></div></article><div class="para" id="subsection-euler-s-method-4">For Euler’s method, the general rule of thumb is as follows: the smaller <span class="process-math">\(h\)</span> is, the better the approximation. However, one should expect degrading performance as the method moves farther from the initial condition <span class="process-math">\((x_0, y_0)\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#subsection-euler-s-method-4" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 <article class="example example-like" id="example-euler-s-method-applied-to-nonlinear-ode"><h4 class="heading">
-<span class="type">Example</span><span class="space"> </span><span class="codenumber">1.5.7</span><span class="period">.</span><span class="space"> </span><span class="title">Euler’s method applied to a nonlinear ODE.</span>
+<span class="type">Example</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">1.5.7</span><span class="period heading-divison-mark heading-divison-mark__period">.</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Euler’s method applied to a nonlinear ODE.</span>
 </h4>
 <div class="para logical" id="example-euler-s-method-applied-to-nonlinear-ode-2-1">
 <div class="para">Let <span class="process-math">\(y(x)\)</span> denote the solution of the IVP given by</div>
@@ -665,9 +676,11 @@ y^\prime = x + y^2, y(0) = 1\text{.}
 </div>
 <div class="para">Estimate <span class="process-math">\(y(2)\)</span> using Euler’s method with a step size of <span class="process-math">\(h = \frac{1}{2}\text{.}\)</span>
 </div>
+<div class="autopermalink" data-description="Paragraph"><a href="#example-euler-s-method-applied-to-nonlinear-ode-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="solutions"><details id="example-euler-s-method-applied-to-nonlinear-ode-3" class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="period">.</span></summary><div class="solution solution-like knowl__content">
-<div class="para" id="example-euler-s-method-applied-to-nonlinear-ode-3-1">First, note that we are justified in saying the solution exists at all by <a href="section-existence-and-uniqueness-of-solutions.html#theorem-existence-and-uniqueness-theorem" class="xref" data-knowl="./knowl/xref/theorem-existence-and-uniqueness-theorem.html" data-reveal-label="Reveal" data-close-label="Close" title="Theorem 1.5.3: Existence and uniqueness theorem">Theorem 1.5.3</a>. Euler’s method now produces the following approximations:</div>
+<div class="solutions"><details id="example-euler-s-method-applied-to-nonlinear-ode-3" class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary><div class="solution solution-like knowl__content">
+<div class="para" id="example-euler-s-method-applied-to-nonlinear-ode-3-1">First, note that we are justified in saying the solution exists at all by <a href="section-existence-and-uniqueness-of-solutions.html#theorem-existence-and-uniqueness-theorem" class="xref" data-knowl="./knowl/xref/theorem-existence-and-uniqueness-theorem.html" data-reveal-label="Reveal" data-close-label="Close" title="Theorem 1.5.3: Existence and uniqueness theorem">Theorem 1.5.3</a>. Euler’s method now produces the following approximations:<div class="autopermalink" data-description="Paragraph"><a href="#example-euler-s-method-applied-to-nonlinear-ode-3-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
 <div class="tabular-box natural-width"><table class="tabular">
 <tr>
 <td class="l m b3 r0 l0 t0 lines"><span class="process-math">\(n\)</span></td>
@@ -700,7 +713,8 @@ y^\prime = x + y^2, y(0) = 1\text{.}
 <td class="l m b0 r0 l0 t0 lines"><span class="process-math">\(36.441\)</span></td>
 </tr>
 </table></div>
-<div class="para" id="example-euler-s-method-applied-to-nonlinear-ode-3-3">Such computations are best performed using a CAS, such as the Sage code below:</div>
+<div class="para" id="example-euler-s-method-applied-to-nonlinear-ode-3-3">Such computations are best performed using a CAS, such as the Sage code below:<div class="autopermalink" data-description="Paragraph"><a href="#example-euler-s-method-applied-to-nonlinear-ode-3-3" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
 <div id="example-euler-s-method-applied-to-nonlinear-ode-3-4" class="ptx-sagecell sagecell-sage"><script type="text/x-sage"># Define y to be a variable in case this hasn't
 # been done.
 var('y')
@@ -718,13 +732,15 @@ for k in range(n):
 
 show((xn, yn))
 </script></div>
-</div></details></div></article></section></section></div>
-<div class="ptx-content-footer">
-<a class="previous-button button" href="section-first-order-linear-odes.html" title="Previous"><span xmlns:pf="https://prefigure.org" class="icon material-symbols-outlined" aria-hidden="true">&#xe5cb;</span><span class="name">Prev</span></a><a class="top-button button" href="#" title="Top"><span xmlns:pf="https://prefigure.org" class="icon material-symbols-outlined" aria-hidden="true">&#xe5ce;</span><span class="name">Top</span></a><a class="next-button button" href="section-population-models-and-autonomous-equations.html" title="Next"><span class="name">Next</span><span xmlns:pf="https://prefigure.org" class="icon material-symbols-outlined" aria-hidden="true">&#xe5cc;</span></a>
+<div class="autopermalink" data-description="Solution 1.5.7.1"><a href="#example-euler-s-method-applied-to-nonlinear-ode-3" title="Copy heading and permalink for Solution 1.5.7.1" aria-label="Copy heading and permalink for Solution 1.5.7.1">🔗</a></div>
+</div></details></div>
+<div class="autopermalink" data-description="Example 1.5.7: Euler’s method applied to a nonlinear ODE"><a href="#example-euler-s-method-applied-to-nonlinear-ode" title="Copy heading and permalink for Example 1.5.7: Euler’s method applied to a nonlinear ODE" aria-label="Copy heading and permalink for Example 1.5.7: Euler’s method applied to a nonlinear ODE">🔗</a></div></article><div class="autopermalink" data-description="Subsection: Euler’s method"><a href="#subsection-euler-s-method" title="Copy heading and permalink for Subsection: Euler’s method" aria-label="Copy heading and permalink for Subsection: Euler’s method">🔗</a></div></section><div class="autopermalink" data-description="Section 1.5: Existence and uniqueness of solutions"><a href="#section-existence-and-uniqueness-of-solutions" title="Copy heading and permalink for Section 1.5: Existence and uniqueness of solutions" aria-label="Copy heading and permalink for Section 1.5: Existence and uniqueness of solutions">🔗</a></div></section></div>
+<div id="ptx-content-footer" class="ptx-content-footer">
+<a class="previous-button button" href="section-first-order-linear-odes.html" title="Previous"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cb;</span><span class="name">Prev</span></a><a class="top-button button" href="#" title="Top"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5ce;</span><span class="name">Top</span></a><a class="next-button button" href="section-population-models-and-autonomous-equations.html" title="Next"><span class="name">Next</span><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cc;</span></a>
 </div></main>
 </div>
 <div id="ptx-page-footer" class="ptx-page-footer">
-<a xmlns:pf="https://prefigure.org" class="pretext-link" href="https://pretextbook.org" title="PreTeXt"><div class="logo"><svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" viewBox="338 3000 8772 6866"><g style="stroke-width:.025in; stroke:black; fill:none"><polyline points="472,3590 472,9732 " style="stroke:#000000;stroke-width:174; stroke-linejoin:miter; stroke-linecap:round; "></polyline><path style="stroke:#000000;stroke-width:126;stroke-linecap:butt;" d="M 4724,9448 A 4660 4660  0  0  1  8598  9259"></path><path style="stroke:#000000;stroke-width:174;stroke-linecap:butt;" d="M 4488,9685 A 4228 4228  0  0  0   472  9732"></path><path style="stroke:#000000;stroke-width:126;stroke-linecap:butt;" d="M 4724,3590 A 4241 4241  0  0  1  8598  3496"></path><path style="stroke:#000000;stroke-width:126;stroke-linecap:round;" d="M 850,3496  A 4241 4241  0  0  1  4724  3590"></path><path style="stroke:#000000;stroke-width:126;stroke-linecap:round;" d="M 850,9259  A 4507 4507  0  0  1  4724  9448"></path><polyline points="5385,4299 4062,8125" style="stroke:#000000;stroke-width:300; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="8598,3496 8598,9259" style="stroke:#000000;stroke-width:126; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="850,3496 850,9259" style="stroke:#000000;stroke-width:126; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="4960,9685 4488,9685" style="stroke:#000000;stroke-width:174; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="3070,4582 1889,6141 3070,7700" style="stroke:#000000;stroke-width:300; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="6418,4582 7600,6141 6418,7700" style="stroke:#000000;stroke-width:300; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="8976,3590 8976,9732" style="stroke:#000000;stroke-width:174; stroke-linejoin:miter; stroke-linecap:round;"></polyline><path style="stroke:#000000;stroke-width:174;stroke-linecap:butt;" d="M 4960,9685 A 4228 4228  0  0  1  8976  9732"></path></g></svg></div></a><a xmlns:pf="https://prefigure.org" class="runestone-link" href="https://runestone.academy" title="Runestone Academy"><img class="logo" src="https://runestone.academy/runestone/static/images/RAIcon_cropped.png"></a><a xmlns:pf="https://prefigure.org" class="mathjax-link" href="https://www.mathjax.org" title="MathJax"><img class="logo" src="https://www.mathjax.org/badge/badge-square-2.png"></a>
+<a class="pretext-link" href="https://pretextbook.org" title="PreTeXt"><div class="logo"><svg xmlns="http://www.w3.org/2000/svg" height="100%" viewBox="338 3000 8772 6866" role="img"><title>PreTeXt logo</title><g style="stroke-width:.025in; stroke:currentColor; fill:none"><polyline points="472,3590 472,9732 " style="stroke-width:174; stroke-linejoin:miter; stroke-linecap:round; "></polyline><path style="stroke-width:126;stroke-linecap:butt;" d="M 4724,9448 A 4660 4660  0  0  1  8598  9259"></path><path style="stroke-width:174;stroke-linecap:butt;" d="M 4488,9685 A 4228 4228  0  0  0   472  9732"></path><path style="stroke-width:126;stroke-linecap:butt;" d="M 4724,3590 A 4241 4241  0  0  1  8598  3496"></path><path style="stroke-width:126;stroke-linecap:round;" d="M 850,3496  A 4241 4241  0  0  1  4724  3590"></path><path style="stroke-width:126;stroke-linecap:round;" d="M 850,9259  A 4507 4507  0  0  1  4724  9448"></path><polyline points="5385,4299 4062,8125" style="stroke-width:300; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="8598,3496 8598,9259" style="stroke-width:126; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="850,3496 850,9259" style="stroke-width:126; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="4960,9685 4488,9685" style="stroke-width:174; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="3070,4582 1889,6141 3070,7700" style="stroke-width:300; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="6418,4582 7600,6141 6418,7700" style="stroke-width:300; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="8976,3590 8976,9732" style="stroke-width:174; stroke-linejoin:miter; stroke-linecap:round;"></polyline><path style="stroke-width:174;stroke-linecap:butt;" d="M 4960,9685 A 4228 4228  0  0  1  8976  9732"></path></g></svg></div></a><a class="runestone-link" href="https://runestone.academy" title="Runestone Academy"><img class="logo" src="https://runestone.academy/runestone/static/images/RAIcon_cropped.png" alt="Runstone Academy logo"></a><a class="mathjax-link" href="https://www.mathjax.org" title="MathJax"><img class="logo" src="https://www.mathjax.org/badge/badge-square-2.png" alt="MathJax logo"></a>
 </div>
 </body>
 </html>

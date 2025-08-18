@@ -1,5 +1,12 @@
 <!DOCTYPE html>
 <html lang="en-US" dir="ltr">
+<!--******************************************-->
+<!--*  Authored with PreTeXt                 *-->
+<!--*  pretextbook.org                       *-->
+<!--*  Theme: denver                         *-->
+<!--*  Palette:                              *-->
+<!--******************************************-->
+
 <!--********************************************-->
 <!--*       Generated from PreTeXt source      *-->
 <!--*                                          *-->
@@ -12,17 +19,18 @@
 </head>
 <body class="ignore-math">
 <article class="example example-like"><h4 class="heading">
-<span class="type">Example</span><span xmlns:pf="https://prefigure.org" class="space"> </span><span class="codenumber">5.1.6</span><span xmlns:pf="https://prefigure.org" class="period">.</span><span xmlns:pf="https://prefigure.org" class="space"> </span><span class="title">Solving a first-order differential equation with series.</span>
+<span class="type">Example</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">5.1.6</span><span class="period heading-divison-mark heading-divison-mark__period">.</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Solving a first-order differential equation with series.</span>
 </h4>
-<div xmlns:pf="https://prefigure.org" class="para logical">
+<div class="para logical">
 <div class="para">Solve the ODE given by</div>
 <div class="displaymath process-math">
 \begin{equation*}
 \dv{y}{x} = 4y\text{.}
 \end{equation*}
 </div>
+<div class="autopermalink" data-description="Paragraph"><a href="#example-series-solve-first-order-linear-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="solutions"><details xmlns:pf="https://prefigure.org" class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="period">.</span></summary><div class="solution solution-like knowl__content">
+<div class="solutions"><details class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary><div class="solution solution-like knowl__content">
 <div class="para logical">
 <div class="para">We could easily solve this using methods from <a href="intro-to-odes.html" class="internal" title="Chapter 1: Introduction to Ordinary Differential Equations">Chapter 1</a>, but we’ll use power series instead to see how this method works. To start, we assume that the solution <span class="process-math">\(y\)</span> can be written as a power series:</div>
 <div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/intro-to-odes.html ./knowl/xref/theorem-existence-of-series-solutions.html">
@@ -30,11 +38,8 @@
 y = \sum_{n=0}^{\infty}c_{n}x^{n}\text{.}
 \end{equation*}
 </div>
-<<<<<<< HEAD
 <div class="para">See <a href="section-power-series-method.html#theorem-existence-of-series-solutions" class="xref" data-knowl="./knowl/xref/theorem-existence-of-series-solutions.html" data-reveal-label="Reveal" data-close-label="Close" title="Theorem 5.1.10: Existence of Series Solutions">Theorem 5.1.10</a> for the justification behind this step.</div>
-=======
-<div class="para">See <a href="section-power-series-method.html#theorem-existence-of-series-solutions" class="xref" data-knowl="./knowl/xref/theorem-existence-of-series-solutions.html" data-reveal-label="Reveal" data-close-label="Close" title="Theorem 5.1.10: Existence of series solutions">Theorem 5.1.10</a> for the justification behind this step.</div>
->>>>>>> a0db83aad0fcd4491bf5f1d4b35a43c21ae3a40a
+<div class="autopermalink" data-description="Paragraph"><a href="#example-series-solve-first-order-linear-3-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 <div class="para logical">
 <div class="para">The next step is to plug the ansatz into the ODE. Since</div>
@@ -50,6 +55,7 @@ y = \sum_{n=0}^{\infty}c_{n}x^{n}\text{.}
 \sum_{n=1}^{\infty}nc_{n}x^{n-1} = 4\sum_{n=0}^{\infty}c_{n}x^{n}\text{.}\tag{5.5}
 \end{equation}
 </div>
+<div class="autopermalink" data-description="Paragraph"><a href="#example-series-solve-first-order-linear-3-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 <div class="para logical">
 <div class="para">We need to find the values of the coefficients <span class="process-math">\(c_{n}\text{;}\)</span> we will do this by equating coefficients on both sides of <a href="section-power-series-method.html#equation-series-solutions-first-order" class="xref" data-knowl="./knowl/xref/equation-series-solutions-first-order.html" data-reveal-label="Reveal" data-close-label="Close" title="Equation 5.5">(5.5)</a>. We want to write both series in terms of <span class="process-math">\(x^{n}\)</span> so that we can equate coefficients, so we need to shift the summation on the left: we replace <span class="process-math">\(n\)</span> with <span class="process-math">\(n+1\)</span> inside the sum and decrease the limit of summation <span class="process-math">\(n=1\)</span> to <span class="process-math">\(n=0\)</span> to get</div>
@@ -64,6 +70,7 @@ y = \sum_{n=0}^{\infty}c_{n}x^{n}\text{.}
 (n+1)c_{n+1} = 4c_{n}\qq{or} c_{n+1} = \frac{4}{n+1}c_{n}\text{.}\tag{5.6}
 \end{equation}
 </div>
+<div class="autopermalink" data-description="Paragraph"><a href="#example-series-solve-first-order-linear-3-3" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 <div class="para logical">
 <div class="para">The equation <a href="section-power-series-method.html#equation-series-solutions-first-order-recurrence" class="xref" data-knowl="./knowl/xref/equation-series-solutions-first-order-recurrence.html" data-reveal-label="Reveal" data-close-label="Close" title="Equation 5.6">(5.6)</a> is a <dfn class="terminology">recurrence relation</dfn> for the coefficients <span class="process-math">\(c_n\text{.}\)</span> It describes the coefficients in terms of the previous ones, and can be used to determine explicitly what each <span class="process-math">\(c_{n}\)</span> looks like. To see how, we plug several values for <span class="process-math">\(n\)</span> into this recurrence relation to try to determine a pattern:</div>
@@ -82,8 +89,10 @@ c_{n} = \frac{4^{n}}{n!}c_{0}\tag{5.7}
 </div>
 <div class="para">for each <span class="process-math">\(n\text{.}\)</span>
 </div>
+<div class="autopermalink" data-description="Paragraph"><a href="#example-series-solve-first-order-linear-3-4" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<aside class="aside aside-like"><div class="para">We can’t use either <a href="section-power-series-method.html#equation-series-solutions-first-order-recurrence" class="xref" data-knowl="./knowl/xref/equation-series-solutions-first-order-recurrence.html" data-reveal-label="Reveal" data-close-label="Close" title="Equation 5.6">(5.6)</a> or <a href="section-power-series-method.html#equation-series-solutions-first-order-explicit" class="xref" data-knowl="./knowl/xref/equation-series-solutions-first-order-explicit.html" data-reveal-label="Reveal" data-close-label="Close" title="Equation 5.7">(5.7)</a> to find the initial constant <span class="process-math">\(c_0\text{.}\)</span> This must be given by an initial condition of some kind.</div></aside><div class="para logical">
+<details class="aside aside-like born-hidden-knowl"><summary class="knowl__link"><h5 class="heading"><span class="type">Aside</span></h5></summary><aside class="aside aside-like knowl__content"><div class="para">We can’t use either <a href="section-power-series-method.html#equation-series-solutions-first-order-recurrence" class="xref" data-knowl="./knowl/xref/equation-series-solutions-first-order-recurrence.html" data-reveal-label="Reveal" data-close-label="Close" title="Equation 5.6">(5.6)</a> or <a href="section-power-series-method.html#equation-series-solutions-first-order-explicit" class="xref" data-knowl="./knowl/xref/equation-series-solutions-first-order-explicit.html" data-reveal-label="Reveal" data-close-label="Close" title="Equation 5.7">(5.7)</a> to find the initial constant <span class="process-math">\(c_0\text{.}\)</span> This must be given by an initial condition of some kind.<div class="autopermalink" data-description="Paragraph"><a href="#example-series-solve-first-order-linear-3-5-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div></aside></details><div class="para logical">
 <div class="para">Now that we’ve determined the form of the coefficients <span class="process-math">\(c_n\text{,}\)</span> we can write down the solution <span class="process-math">\(y\text{:}\)</span>
 </div>
 <div class="displaymath process-math">
@@ -94,7 +103,10 @@ y \amp= \sum_{n=0}^{\infty}c_{n}x^{n}\\
 \amp= c_{0}e^{4x}\text{.}
 \end{align*}
 </div>
+<div class="autopermalink" data-description="Paragraph"><a href="#example-series-solve-first-order-linear-3-6" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-</div></details></div></article><span class="incontext"><a class="internal" href="section-power-series-method.html#example-series-solve-first-order-linear">in-context</a></span>
+<div class="autopermalink" data-description="Solution 5.1.6.1"><a href="#example-series-solve-first-order-linear-3" title="Copy heading and permalink for Solution 5.1.6.1" aria-label="Copy heading and permalink for Solution 5.1.6.1">🔗</a></div>
+</div></details></div>
+<div class="autopermalink" data-description="Example 5.1.6: Solving a first-order differential equation with series"><a href="#example-series-solve-first-order-linear" title="Copy heading and permalink for Example 5.1.6: Solving a first-order differential equation with series" aria-label="Copy heading and permalink for Example 5.1.6: Solving a first-order differential equation with series">🔗</a></div></article><span class="incontext"><a class="internal" href="section-power-series-method.html#example-series-solve-first-order-linear">in-context</a></span>
 </body>
 </html>

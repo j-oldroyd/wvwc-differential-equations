@@ -1,5 +1,12 @@
 <!DOCTYPE html>
 <html lang="en-US" dir="ltr">
+<!--******************************************-->
+<!--*  Authored with PreTeXt                 *-->
+<!--*  pretextbook.org                       *-->
+<!--*  Theme: denver                         *-->
+<!--*  Palette:                              *-->
+<!--******************************************-->
+
 <!--********************************************-->
 <!--*       Generated from PreTeXt source      *-->
 <!--*                                          *-->
@@ -25,15 +32,9 @@ sagecell.makeSagecell({
 </head>
 <body class="ignore-math">
 <article class="example example-like"><h4 class="heading">
-<<<<<<< HEAD
-<span class="type">Example</span><span xmlns:pf="https://prefigure.org" class="space"> </span><span class="codenumber">4.2.11</span><span xmlns:pf="https://prefigure.org" class="period">.</span><span xmlns:pf="https://prefigure.org" class="space"> </span><span class="title">Solving a system of three differential equations.</span>
-</h4>
-<div xmlns:pf="https://prefigure.org" class="para logical">
-=======
-<span class="type">Example</span><span class="space"> </span><span class="codenumber">4.2.11</span><span class="period">.</span><span class="space"> </span><span class="title">Solving a system of three differential equations.</span>
+<span class="type">Example</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">4.2.11</span><span class="period heading-divison-mark heading-divison-mark__period">.</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Solving a system of three differential equations.</span>
 </h4>
 <div class="para logical">
->>>>>>> a0db83aad0fcd4491bf5f1d4b35a43c21ae3a40a
 <div class="para">Solve the first-order system</div>
 <div class="displaymath process-math">
 \begin{align*}
@@ -42,12 +43,9 @@ sagecell.makeSagecell({
 \dv{x_{3}}{t} \amp = -9x_{1} + 4x_{2} - x_{3}\text{.}
 \end{align*}
 </div>
+<div class="autopermalink" data-description="Paragraph"><a href="#example-systems-odes-3x3-system-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<<<<<<< HEAD
-<div class="solutions"><details xmlns:pf="https://prefigure.org" class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="period">.</span></summary><div class="solution solution-like knowl__content">
-=======
-<div class="solutions"><details class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="period">.</span></summary><div class="solution solution-like knowl__content">
->>>>>>> a0db83aad0fcd4491bf5f1d4b35a43c21ae3a40a
+<div class="solutions"><details class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary><div class="solution solution-like knowl__content">
 <div class="para logical">
 <div class="para">As long as this system has distinct eigenvalues the above method will work. Once again we rewrite the system as a matrix ODE; in this case, the matrix ODE we must solve is</div>
 <div class="displaymath process-math">
@@ -55,9 +53,12 @@ sagecell.makeSagecell({
 \vec{x}^\prime = \begin{bmatrix}3 \amp  0 \amp  1 \\ 9 \amp  -1 \amp  2 \\ -9 \amp  4 \amp  -1\end{bmatrix}\vec{x} = A\vec{x}\text{.}
 \end{equation*}
 </div>
+<div class="autopermalink" data-description="Paragraph"><a href="#example-systems-odes-3x3-system-3-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="para">To find the eigenvalues we must solve the characteristic equation <span class="process-math">\(\det(A-\lambda I)=0\text{.}\)</span> However, we can also use Sage to perform this task.</div>
-<aside class="aside aside-like"><div class="para">We could also use MATLAB/Octave, but the resulting eigenvectors wouldn’t look as nice as the output provided by Sage. This is because MATLAB’s <code class="code-inline tex2jax_ignore">eig</code> command produces <dfn class="terminology">normalized</dfn> output which often involves dividing entries by square roots.</div></aside><div id="example-systems-odes-3x3-system-3-4" class="ptx-sagecell sagecell-sage"><script type="text/x-sage"># Define our matrix
+<div class="para">To find the eigenvalues we must solve the characteristic equation <span class="process-math">\(\det(A-\lambda I)=0\text{.}\)</span> However, we can also use Sage to perform this task.<div class="autopermalink" data-description="Paragraph"><a href="#example-systems-odes-3x3-system-3-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<details class="aside aside-like born-hidden-knowl"><summary class="knowl__link"><h5 class="heading"><span class="type">Aside</span></h5></summary><aside class="aside aside-like knowl__content"><div class="para">We could also use MATLAB/Octave, but the resulting eigenvectors wouldn’t look as nice as the output provided by Sage. This is because MATLAB’s <code class="code-inline tex2jax_ignore">eig</code> command produces <dfn class="terminology">normalized</dfn> output which often involves dividing entries by square roots.<div class="autopermalink" data-description="Paragraph"><a href="#example-systems-odes-3x3-system-3-3-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div></aside></details><div id="example-systems-odes-3x3-system-3-4" class="ptx-sagecell sagecell-sage"><script type="text/x-sage"># Define our matrix
 M = matrix([ [3, 0, 1],
 [9, -1, 2],
 [-9, 4, -1]] )
@@ -77,6 +78,7 @@ M.eigenvectors_right()
 \vec{v}_{1} = \begin{bmatrix}1 \\ \frac{9}{4} \\ 0\end{bmatrix}, \quad\vec{v}_{2} = \begin{bmatrix} 1 \\ 2 + i \\ -4 - i \end{bmatrix}\quad\text{and}\vec{v}_{3} = \begin{bmatrix} 1 \\ 2 - i \\ -4 + i \end{bmatrix}\text{.}
 \end{equation*}
 </div>
+<div class="autopermalink" data-description="Paragraph"><a href="#example-systems-odes-3x3-system-3-5" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 <div class="para logical">
 <div class="para">We now have everything we need for the general solution of the matrix ODE. It’s just</div>
@@ -85,7 +87,10 @@ M.eigenvectors_right()
 \vec{x} = c_{1}e^{3t}\begin{bmatrix}1 \\ \frac{9}{4} \\ 0\end{bmatrix} + c_{2}e^{(-1 - i)t}\begin{bmatrix} 1 \\ 2 + i \\ -4 - i \end{bmatrix} + c_{3}e^{(-1 + i)t}\begin{bmatrix} 1 \\ 2 - i \\ -4 + i \end{bmatrix}\text{.}
 \end{equation*}
 </div>
+<div class="autopermalink" data-description="Paragraph"><a href="#example-systems-odes-3x3-system-3-6" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-</div></details></div></article><span class="incontext"><a class="internal" href="section-constant-coefficient-systems-and-the-phase-plane.html#example-systems-odes-3x3-system">in-context</a></span>
+<div class="autopermalink" data-description="Solution 4.2.11.1"><a href="#example-systems-odes-3x3-system-3" title="Copy heading and permalink for Solution 4.2.11.1" aria-label="Copy heading and permalink for Solution 4.2.11.1">🔗</a></div>
+</div></details></div>
+<div class="autopermalink" data-description="Example 4.2.11: Solving a system of three differential equations"><a href="#example-systems-odes-3x3-system" title="Copy heading and permalink for Example 4.2.11: Solving a system of three differential equations" aria-label="Copy heading and permalink for Example 4.2.11: Solving a system of three differential equations">🔗</a></div></article><span class="incontext"><a class="internal" href="section-constant-coefficient-systems-and-the-phase-plane.html#example-systems-odes-3x3-system">in-context</a></span>
 </body>
 </html>

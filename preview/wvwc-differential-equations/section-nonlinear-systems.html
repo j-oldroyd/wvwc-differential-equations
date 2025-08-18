@@ -6,16 +6,21 @@
 <!--*                                          *-->
 <!--********************************************-->
 <html lang="en-US" dir="ltr">
+<!--******************************************-->
+<!--*  Authored with PreTeXt                 *-->
+<!--*  pretextbook.org                       *-->
+<!--*  Theme: denver                         *-->
+<!--*  Palette:                              *-->
+<!--******************************************-->
 <head xmlns:og="http://ogp.me/ns#" xmlns:book="https://ogp.me/ns/book#">
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>WVWC-DE Nonlinear systems</title>
-<meta name="Keywords" content="Authored in PreTeXt">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta xmlns:pf="https://prefigure.org" property="og:type" content="book">
-<meta xmlns:pf="https://prefigure.org" property="og:image" content="https://j-oldroyd.github.io/wvwc-differential-equations/external/./wvwc-logo.jpg">
-<meta xmlns:pf="https://prefigure.org" property="book:title" content="Differential Equations Lecture Notes">
-<meta xmlns:pf="https://prefigure.org" property="book:author" content="Jesse Oldroyd">
-<script src="https://sagecell.sagemath.org/static/embedded_sagecell.js"></script><script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0">
+<link href="_static/pretext/css/theme.css" rel="stylesheet" type="text/css">
+<link href="_static/pretext/css/ol-markers.css" rel="stylesheet" type="text/css">
+<script>
 var runestoneMathReady = new Promise((resolve) => window.rsMathReady = resolve);
 window.MathJax = {
   "tex": {
@@ -87,77 +92,54 @@ window.MathJax = {
     )}
   }
 };
-</script><script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/lunr.js/2.3.9/lunr.min.js" integrity="sha512-4xUl/d6D6THrAnXAwGajXkoWaeMNwEKK4iNfq5DotEbLPAfk6FSxSP3ydNxqDgCw1c/0Z1Jg6L8h2j+++9BZmg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script><script src="lunr-pretext-search-index.js" async=""></script><script src="_static/pretext/js/pretext_search.js"></script><link href="_static/pretext/css/pretext_search.css" rel="stylesheet" type="text/css">
-<script src="_static/pretext/js/lib/jquery.min.js"></script><script src="_static/pretext/js/lib/jquery.sticky.js"></script><script src="_static/pretext/js/lib/jquery.espy.min.js"></script><script src="_static/pretext/js/pretext.js"></script><script src="_static/pretext/js/pretext_add_on.js?x=1"></script><script src="_static/pretext/js/user_preferences.js"></script><script src="_static/pretext/js/lib/knowl.js"></script><!--knowl.js code controls Sage Cells within knowls--><script>sagecellEvalName='Evaluate (Sage)';
-</script><link xmlns:pf="https://prefigure.org" rel="preconnect" href="https://fonts.googleapis.com">
-<link xmlns:pf="https://prefigure.org" rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
-<link xmlns:pf="https://prefigure.org" href="https://fonts.googleapis.com/css2?family=Inconsolata:wght@400;700&amp;family=Noto+Serif:ital,wght@0,400;0,700;1,400;1,700&amp;family=Tinos:ital,wght@0,400;0,700;1,400;1,700&amp;display=swap" rel="stylesheet">
-<link xmlns:pf="https://prefigure.org" href="https://fonts.cdnfonts.com/css/dejavu-serif" rel="stylesheet">
-<link xmlns:pf="https://prefigure.org" href="https://fonts.googleapis.com/css2?family=Roboto+Serif:opsz,wdth,wght@8..144,50..150,100..900&amp;display=swap" rel="stylesheet">
-<link xmlns:pf="https://prefigure.org" href="https://fonts.googleapis.com/css2?family=Open+Sans:wdth,wght@75..100,300..800&amp;display=swap" rel="stylesheet">
-<link xmlns:pf="https://prefigure.org" rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200">
-<script src="https://cdn.geogebra.org/apps/deployggb.js"></script><link href="_static/pretext/css/pretext.css" rel="stylesheet" type="text/css">
-<link href="_static/pretext/css/pretext_add_on.css" rel="stylesheet" type="text/css">
-<link href="_static/pretext/css/shell_default.css" rel="stylesheet" type="text/css">
-<link href="_static/pretext/css/banner_default.css" rel="stylesheet" type="text/css">
-<link href="_static/pretext/css/navbar_default.css" rel="stylesheet" type="text/css">
-<link href="_static/pretext/css/toc_default.css" rel="stylesheet" type="text/css">
-<link href="_static/pretext/css/knowls_default.css" rel="stylesheet" type="text/css">
-<link href="_static/pretext/css/style_default.css" rel="stylesheet" type="text/css">
-<link href="_static/pretext/css/colors_default.css" rel="stylesheet" type="text/css">
-<link href="_static/pretext/css/setcolors.css" rel="stylesheet" type="text/css">
-<style>
-#subsection-basic-concepts-for-odes-16-1 { counter-set: subsection-basic-concepts-for-odes-16-1 0; }
-#subsection-basic-concepts-for-odes-16-1 > li::marker { content: ""counter(subsection-basic-concepts-for-odes-16-1,decimal)"."; }
-#subsection-basic-concepts-for-odes-16-1 > li { counter-increment: subsection-basic-concepts-for-odes-16-1; }
-#subsection-direction-fields-and-solution-curves-7-2 { counter-set: subsection-direction-fields-and-solution-curves-7-2 0; }
-#subsection-direction-fields-and-solution-curves-7-2 > li::marker { content: ""counter(subsection-direction-fields-and-solution-curves-7-2,decimal)"."; }
-#subsection-direction-fields-and-solution-curves-7-2 > li { counter-increment: subsection-direction-fields-and-solution-curves-7-2; }
-#subsection-existence-and-uniqueness-theorem-2-1 { counter-set: subsection-existence-and-uniqueness-theorem-2-1 0; }
-#subsection-existence-and-uniqueness-theorem-2-1 > li::marker { content: ""counter(subsection-existence-and-uniqueness-theorem-2-1,decimal)"."; }
-#subsection-existence-and-uniqueness-theorem-2-1 > li { counter-increment: subsection-existence-and-uniqueness-theorem-2-1; }
-#example-determining-a-sustainable-population-3-2-5 { counter-set: example-determining-a-sustainable-population-3-2-5 0; }
-#example-determining-a-sustainable-population-3-2-5 > li::marker { content: ""counter(example-determining-a-sustainable-population-3-2-5,decimal)"."; }
-#example-determining-a-sustainable-population-3-2-5 > li { counter-increment: example-determining-a-sustainable-population-3-2-5; }
-#example-types-of-second-order-odes-2-1 { counter-set: example-types-of-second-order-odes-2-1 0; }
-#example-types-of-second-order-odes-2-1 > li::marker { content: ""counter(example-types-of-second-order-odes-2-1,decimal)"."; }
-#example-types-of-second-order-odes-2-1 > li { counter-increment: example-types-of-second-order-odes-2-1; }
-#subsection-free-damped-motion-5-4 { counter-set: subsection-free-damped-motion-5-4 0; }
-#subsection-free-damped-motion-5-4 > li::marker { content: ""counter(subsection-free-damped-motion-5-4,decimal)":"; }
-#subsection-free-damped-motion-5-4 > li { counter-increment: subsection-free-damped-motion-5-4; }
-#example-systems-odes-solving-system-two-equations-3-1-4 { counter-set: example-systems-odes-solving-system-two-equations-3-1-4 0; }
-#example-systems-odes-solving-system-two-equations-3-1-4 > li::marker { content: ""counter(example-systems-odes-solving-system-two-equations-3-1-4,decimal)"."; }
-#example-systems-odes-solving-system-two-equations-3-1-4 > li { counter-increment: example-systems-odes-solving-system-two-equations-3-1-4; }
-#subsection-solving-differential-equations-with-power-series-5-2 { counter-set: subsection-solving-differential-equations-with-power-series-5-2 0; }
-#subsection-solving-differential-equations-with-power-series-5-2 > li::marker { content: ""counter(subsection-solving-differential-equations-with-power-series-5-2,decimal)"."; }
-#subsection-solving-differential-equations-with-power-series-5-2 > li { counter-increment: subsection-solving-differential-equations-with-power-series-5-2; }
-#theorem-method-of-frobenius-3-1-4 { counter-set: theorem-method-of-frobenius-3-1-4 0; }
-#theorem-method-of-frobenius-3-1-4 > li::marker { content: ""counter(theorem-method-of-frobenius-3-1-4,decimal)"."; }
-#theorem-method-of-frobenius-3-1-4 > li { counter-increment: theorem-method-of-frobenius-3-1-4; }
-#section-transformation-of-initial-value-problems-3-1-1 { counter-set: section-transformation-of-initial-value-problems-3-1-1 0; }
-#section-transformation-of-initial-value-problems-3-1-1 > li::marker { content: ""counter(section-transformation-of-initial-value-problems-3-1-1,decimal)"."; }
-#section-transformation-of-initial-value-problems-3-1-1 > li { counter-increment: section-transformation-of-initial-value-problems-3-1-1; }
-#example-computing-the-transform-of-a-time-shifted-function-2-1-1 { counter-set: example-computing-the-transform-of-a-time-shifted-function-2-1-1 0; }
-#example-computing-the-transform-of-a-time-shifted-function-2-1-1 > li::marker { content: ""counter(example-computing-the-transform-of-a-time-shifted-function-2-1-1,decimal)"."; }
-#example-computing-the-transform-of-a-time-shifted-function-2-1-1 > li { counter-increment: example-computing-the-transform-of-a-time-shifted-function-2-1-1; }
-#subsection-important-pdes-3 { counter-set: subsection-important-pdes-3 0; }
-#subsection-important-pdes-3 > li::marker { content: ""counter(subsection-important-pdes-3,decimal)"."; }
-#subsection-important-pdes-3 > li { counter-increment: subsection-important-pdes-3; }
-#subsection-important-pdes-5-1 { counter-set: subsection-important-pdes-5-1 0; }
-#subsection-important-pdes-5-1 > li::marker { content: ""counter(subsection-important-pdes-5-1,decimal)"."; }
-#subsection-important-pdes-5-1 > li { counter-increment: subsection-important-pdes-5-1; }
-#gfdl-section4-3 { counter-set: gfdl-section4-3 0; }
-#gfdl-section4-3 > li::marker { content: ""counter(gfdl-section4-3,upper-alpha)"."; }
-#gfdl-section4-3 > li { counter-increment: gfdl-section4-3; }
-</style>
+</script><script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script><meta name="Keywords" content="Authored in PreTeXt">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta property="og:type" content="book">
+<meta property="og:image" content="https://j-oldroyd.github.io/wvwc-differential-equations/external/./wvwc-logo-brandlogo.jpg">
+<meta property="book:title" content="Differential Equations Lecture Notes">
+<meta property="book:author" content="Jesse Oldroyd">
+<script src="_static/pretext/js/lib/jquery.min.js"></script><script src="_static/pretext/js/lib/jquery.sticky.js"></script><script src="_static/pretext/js/lib/jquery.espy.min.js"></script><script src="_static/pretext/js/pretext.js"></script><script src="_static/pretext/js/pretext_add_on.js?x=1"></script><script src="_static/pretext/js/user_preferences.js"></script><!--** eBookCongig is necessary to configure interactive       **-->
+<!--** Runestone components to run locally in reader's browser **-->
+<!--** No external communication:                              **-->
+<!--**     log level is 0, Runestone Services are disabled     **-->
+<script type="text/javascript">
+eBookConfig = {};
+eBookConfig.useRunestoneServices = false;
+eBookConfig.host = 'http://127.0.0.1:8000';
+eBookConfig.course = 'PTX_Course_Title_Here';
+eBookConfig.basecourse = 'PTX_Base_Course';
+eBookConfig.isLoggedIn = false;
+eBookConfig.email = '';
+eBookConfig.isInstructor = false;
+eBookConfig.logLevel = 0;
+eBookConfig.username = '';
+eBookConfig.readings = null;
+eBookConfig.activities = null;
+eBookConfig.downloadsEnabled = false;
+eBookConfig.allow_pairs = false;
+eBookConfig.enableScratchAC = false;
+eBookConfig.build_info = "";
+eBookConfig.python3 = null;
+eBookConfig.runestone_version = '7.9.8';
+eBookConfig.jobehost = '';
+eBookConfig.proxyuri_runs = '';
+eBookConfig.proxyuri_files = '';
+eBookConfig.enable_chatcodes =  false;
+</script>
+<!--*** Runestone Services ***-->
+<script src="_static/prefix-runtime.b215b0da62d655bd.bundle.js"></script><script src="_static/prefix-723.3e6434f80549315a.bundle.js"></script><script src="_static/prefix-runestone.28cc3c4821792be5.bundle.js"></script><link rel="stylesheet" type="text/css" href="_static/prefix-723.3bccd435914aa0ff.css">
+<link rel="stylesheet" type="text/css" href="_static/prefix-runestone.8141ae22fd347e48.css">
+<script src="https://sagecell.sagemath.org/static/embedded_sagecell.js"></script><script src="_static/pretext/js/lti_iframe_resizer.js"></script><script src="https://cdn.geogebra.org/apps/deployggb.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/lunr.js/2.3.9/lunr.min.js" integrity="sha512-4xUl/d6D6THrAnXAwGajXkoWaeMNwEKK4iNfq5DotEbLPAfk6FSxSP3ydNxqDgCw1c/0Z1Jg6L8h2j+++9BZmg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script><script src="lunr-pretext-search-index.js" async=""></script><script src="_static/pretext/js/pretext_search.js"></script><script src="_static/pretext/js/lib/knowl.js"></script><!--knowl.js code controls Sage Cells within knowls--><script>sagecellEvalName='Evaluate (Sage)';
+</script>
 </head>
 <body class="pretext book ignore-math">
 <a class="assistive" href="#ptx-content">Skip to main content</a><header id="ptx-masthead" class="ptx-masthead"><div class="ptx-banner">
-<a xmlns:pf="https://prefigure.org" id="logo-link" class="logo-link" target="_blank" href=""><img src="external/./wvwc-logo.jpg" alt="Logo image"></a><div class="title-container">
-<h1 class="heading"><a href="wvwc-differential-equations.html"><span class="title">Differential Equations Lecture Notes:</span> <span class="subtitle">West Virginia Wesleyan College</span></a></h1>
+<img src="external/./wvwc-logo-brandlogo.jpg" alt="Logo image"><div class="title-container">
+<h1 class="heading"><a href="wvwc-differential-equations.html"><span class="title">Differential Equations Lecture Notes</span> <span class="subtitle">West Virginia Wesleyan College</span></a></h1>
 <p class="byline">Jesse Oldroyd</p>
 </div>
-</div></header><nav xmlns:pf="https://prefigure.org" id="ptx-navbar" class="ptx-navbar navbar"><button class="toc-toggle button" title="Contents"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5d2;</span><span class="name">Contents</span></button><a class="index-button button" href="backmatter-5.html" title="Index"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe88e;</span><span class="name">Index</span></a><div class="searchbox">
+</div></header><nav id="ptx-navbar" class="ptx-navbar navbar"><div class="ptx-navbar-contents">
+<button class="toc-toggle button" title="Contents"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5d2;</span><span class="name">Contents</span></button><a class="index-button button" href="backmatter-5.html" title="Index"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe88e;</span><span class="name">Index</span></a><div class="searchbox">
 <div class="searchwidget"><button id="searchbutton" class="searchbutton button" type="button" title="Search book"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe8b6;</span><span class="name">Search Book</span></button></div>
 <div id="searchresultsplaceholder" class="searchresultsplaceholder" style="display: none">
 <div class="search-results-controls">
@@ -182,11 +164,8 @@ var ggbApp = new GGBApplet({"appName": "graphing",
     "autoHeight": true,
     "disableAutoScale": false},
 true);
-<<<<<<< HEAD
-</script></span><span class="treebuttons"><a class="previous-button button" href="section-phase-plane-criteria-for-critical-points-stability.html" title="Previous"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cb;</span><span class="name">Prev</span></a><a class="up-button button" href="systems-of-odes.html" title="Up"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5ce;</span><span class="name">Up</span></a><a class="next-button button" href="sec-sage-and-octave-for-systems-of-odes.html" title="Next"><span class="name">Next</span><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cc;</span></a></span></nav><div xmlns:pf="https://prefigure.org" id="latex-macros" class="hidden-content process-math" style="display:none"><span class="process-math">\(\newcommand{\RR}{\mathbb{R}}
-=======
-</script></span><span class="treebuttons"><a class="previous-button button" href="section-phase-plane-criteria-for-critical-points-stability.html" title="Previous"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cb;</span><span class="name">Prev</span></a><a class="up-button button" href="systems-of-odes.html" title="Up"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5ce;</span><span class="name">Up</span></a><a class="next-button button" href="sec-sage-and-octave-for-systems-of-odes.html" title="Next"><span class="name">Next</span><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cc;</span></a></span></nav><div id="latex-macros" class="hidden-content process-math" style="display:none"><span class="process-math">\(\newcommand{\RR}{\mathbb{R}}
->>>>>>> a0db83aad0fcd4491bf5f1d4b35a43c21ae3a40a
+</script><button id="light-dark-button" class="light-dark-button button" title="Dark Mode"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe51c;</span><span class="name">Dark Mode</span></button></span><span class="treebuttons"><a class="previous-button button" href="section-phase-plane-criteria-for-critical-points-stability.html" title="Previous"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cb;</span><span class="name">Prev</span></a><a class="up-button button" href="systems-of-odes.html" title="Up"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5ce;</span><span class="name">Up</span></a><a class="next-button button" href="sec-sage-and-octave-for-systems-of-odes.html" title="Next"><span class="name">Next</span><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cc;</span></a></span>
+</div></nav><div id="latex-macros" class="hidden-content process-math" style="display:none"><span class="process-math">\(\newcommand{\RR}{\mathbb{R}}
 \newcommand{\QQ}{\mathbb{Q}}
 \newcommand{\NN}{\mathbb{N}}
 \newcommand{\ZZ}{\mathbb{Z}}
@@ -231,7 +210,7 @@ true);
 \newcommand{\fillinmath}[1]{\mathchoice{\colorbox{fillinmathshade}{$\displaystyle     \phantom{\,#1\,}$}}{\colorbox{fillinmathshade}{$\textstyle        \phantom{\,#1\,}$}}{\colorbox{fillinmathshade}{$\scriptstyle      \phantom{\,#1\,}$}}{\colorbox{fillinmathshade}{$\scriptscriptstyle\phantom{\,#1\,}$}}}
 \)</span></div>
 <div class="ptx-page">
-<div xmlns:pf="https://prefigure.org" id="ptx-sidebar" class="ptx-sidebar"><nav id="ptx-toc" class="ptx-toc depth2 parts"><ul class="structural contains-active toc-item-list">
+<div id="ptx-sidebar" class="ptx-sidebar"><nav id="ptx-toc" class="ptx-toc depth3 parts focused" data-preexpanded-levels="0" data-max-levels="3"><ul class="structural toc-item-list contains-active">
 <li class="toc-item toc-frontmatter">
 <div class="toc-title-box"><a href="front.html" class="internal"><span class="title">Front Matter</span></a></div>
 <ul class="structural toc-item-list">
@@ -349,9 +328,9 @@ true);
 <li class="toc-item toc-subsection"><div class="toc-title-box"><a href="section-phase-plane-criteria-for-critical-points-stability.html#subsection-eigenvalue-criteria-for-stability" class="internal"><span class="title">Eigenvalue criteria for stability</span></a></div></li>
 </ul>
 </li>
-<li class="toc-item toc-section active">
+<li class="toc-item toc-section contains-active">
 <div class="toc-title-box"><a href="section-nonlinear-systems.html" class="internal"><span class="codenumber">4.4</span> <span class="title">Nonlinear systems</span></a></div>
-<ul class="structural toc-item-list"><li class="toc-item toc-subsection"><div class="toc-title-box"><a href="section-nonlinear-systems.html#subsection-classification-of-critical-points-and-linearization" class="internal"><span class="title">Classification of critical points and linearization</span></a></div></li></ul>
+<ul class="structural toc-item-list active"><li class="toc-item toc-subsection"><div class="toc-title-box"><a href="section-nonlinear-systems.html#subsection-classification-of-critical-points-and-linearization" class="internal"><span class="title">Classification of critical points and linearization</span></a></div></li></ul>
 </li>
 <li class="toc-item toc-section">
 <div class="toc-title-box"><a href="sec-sage-and-octave-for-systems-of-odes.html" class="internal"><span class="codenumber">4.5</span> <span class="title">Sage and Octave for systems of ODEs</span></a></div>
@@ -367,32 +346,32 @@ true);
 <div class="toc-title-box"><a href="series-solutions.html" class="internal"><span class="codenumber">5</span> <span class="title">Series Solutions</span></a></div>
 <ul class="structural toc-item-list">
 <li class="toc-item toc-section">
-<div class="toc-title-box"><a href="section-power-series-method.html" class="internal"><span class="codenumber">5.1</span> <span class="title">Power series method</span></a></div>
+<div class="toc-title-box"><a href="section-power-series-method.html" class="internal"><span class="codenumber">5.1</span> <span class="title">Power Series Method</span></a></div>
 <ul class="structural toc-item-list">
-<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="section-power-series-method.html#subsection-review-of-power-series" class="internal"><span class="title">Review of power series</span></a></div></li>
-<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="section-power-series-method.html#subsection-solving-differential-equations-with-power-series" class="internal"><span class="title">Solving differential equations with power series</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="section-power-series-method.html#subsection-review-of-power-series" class="internal"><span class="title">Review of Power Series</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="section-power-series-method.html#subsection-solving-differential-equations-with-power-series" class="internal"><span class="title">Solving Differential Equations with Power Series</span></a></div></li>
 </ul>
 </li>
 <li class="toc-item toc-section">
-<div class="toc-title-box"><a href="section-legendre-s-equation-and-legendre-polynomials.html" class="internal"><span class="codenumber">5.2</span> <span class="title">Legendre’s equation</span></a></div>
+<div class="toc-title-box"><a href="section-legendre-s-equation-and-legendre-polynomials.html" class="internal"><span class="codenumber">5.2</span> <span class="title">Legendre’s Equation</span></a></div>
 <ul class="structural toc-item-list">
-<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="section-legendre-s-equation-and-legendre-polynomials.html#subsection-solving-the-legendre-equation" class="internal"><span class="title">Solving the Legendre equation</span></a></div></li>
-<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="section-legendre-s-equation-and-legendre-polynomials.html#subsection-legendre-polynomials" class="internal"><span class="title">Legendre polynomials</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="section-legendre-s-equation-and-legendre-polynomials.html#subsection-solving-the-legendre-equation" class="internal"><span class="title">Solving the Legendre Equation</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="section-legendre-s-equation-and-legendre-polynomials.html#subsection-legendre-polynomials" class="internal"><span class="title">Legendre Polynomials</span></a></div></li>
 </ul>
 </li>
 <li class="toc-item toc-section">
-<div class="toc-title-box"><a href="section-frobenius-method.html" class="internal"><span class="codenumber">5.3</span> <span class="title">Frobenius’ method</span></a></div>
+<div class="toc-title-box"><a href="section-frobenius-method.html" class="internal"><span class="codenumber">5.3</span> <span class="title">Frobenius’ Method</span></a></div>
 <ul class="structural toc-item-list">
-<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="section-frobenius-method.html#subsection-ordinary-points-and-singular-points" class="internal"><span class="title">Ordinary points and singular points</span></a></div></li>
-<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="section-frobenius-method.html#subsection-solutions-at-singular-points-and-indicial-equations" class="internal"><span class="title">Solutions at singular points and indicial equations</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="section-frobenius-method.html#subsection-ordinary-points-and-singular-points" class="internal"><span class="title">Ordinary Points and Singular Points</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="section-frobenius-method.html#subsection-solutions-at-singular-points-and-indicial-equations" class="internal"><span class="title">Solutions at Singular Points and Indicial Equations</span></a></div></li>
 </ul>
 </li>
 <li class="toc-item toc-section">
-<div class="toc-title-box"><a href="section-bessel-s-equation.html" class="internal"><span class="codenumber">5.4</span> <span class="title">Bessel’s equation</span></a></div>
+<div class="toc-title-box"><a href="section-bessel-s-equation.html" class="internal"><span class="codenumber">5.4</span> <span class="title">Bessel’s Equation</span></a></div>
 <ul class="structural toc-item-list">
-<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="section-bessel-s-equation.html#subsection-bessel-functions-for-integer--nu-" class="internal"><span class="title">Bessel functions for integer <span class="process-math">\(\nu\)</span></span></a></div></li>
-<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="section-bessel-s-equation.html#subsection-bessel-functions-of-the-first-kind-for-nonnegative-order" class="internal"><span class="title">Bessel functions of the first kind for nonnegative order</span></a></div></li>
-<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="section-bessel-s-equation.html#subsection-general-solution-of-bessel-s-equation" class="internal"><span class="title">General solution of Bessel’s equation</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="section-bessel-s-equation.html#subsection-bessel-functions-for-integer--nu-" class="internal"><span class="title">Bessel Functions for Integer <span class="process-math">\(\nu\)</span></span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="section-bessel-s-equation.html#subsection-bessel-functions-of-the-first-kind-for-nonnegative-order" class="internal"><span class="title">Bessel Functions of the First Kind for Nonnegative Order</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="section-bessel-s-equation.html#subsection-general-solution-of-bessel-s-equation" class="internal"><span class="title">General Solution of Bessel’s Equation</span></a></div></li>
 </ul>
 </li>
 </ul>
@@ -499,12 +478,8 @@ true);
 </ul>
 </li>
 </ul></nav></div>
-<<<<<<< HEAD
-<main class="ptx-main"><div id="ptx-content" class="ptx-content"><section xmlns:pf="https://prefigure.org" class="section" id="section-nonlinear-systems"><h2 class="heading hide-type">
-=======
 <main class="ptx-main"><div id="ptx-content" class="ptx-content"><section class="section" id="section-nonlinear-systems"><h2 class="heading hide-type">
->>>>>>> a0db83aad0fcd4491bf5f1d4b35a43c21ae3a40a
-<span class="type">Section</span><span class="space"> </span><span class="codenumber">4.4</span><span class="space"> </span><span class="title">Nonlinear systems</span>
+<span class="type">Section</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">4.4</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Nonlinear systems</span>
 </h2>
 <section class="introduction" id="section-nonlinear-systems-2"><div class="para logical" id="section-nonlinear-systems-2-1">
 <div class="para">Now we apply phase plane methods to study <dfn class="terminology">nonlinear autonomous systems</dfn>, which for systems involving two ODEs take the form</div>
@@ -516,10 +491,11 @@ y^\prime_{2} \amp = f_{2}(y_{1},y_{2})\text{.}
 </div>
 <div class="para">where <span class="process-math">\(y_{i} = y_{i}(t)\text{.}\)</span>
 </div>
+<div class="autopermalink" data-description="Paragraph"><a href="#section-nonlinear-systems-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<aside class="aside aside-like" id="section-nonlinear-systems-2-2"><div class="para" id="section-nonlinear-systems-2-2-1">
-<em class="emphasis">Autonomous</em> just means we can write the system without explicitly referring to the independent variable <span class="process-math">\(t\text{.}\)</span>
-</div></aside><div class="para logical" id="section-nonlinear-systems-2-3">
+<details id="section-nonlinear-systems-2-2" class="aside aside-like born-hidden-knowl"><summary class="knowl__link"><h3 class="heading"><span class="type">Aside</span></h3></summary><aside class="aside aside-like knowl__content"><div class="para" id="section-nonlinear-systems-2-2-1">
+<em class="emphasis">Autonomous</em> just means we can write the system without explicitly referring to the independent variable <span class="process-math">\(t\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#section-nonlinear-systems-2-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div></aside></details><div class="para logical" id="section-nonlinear-systems-2-3">
 <div class="para">We can also write such a system as a vector equation:</div>
 <div class="displaymath process-math" id="equation-nonlinear-system">
 \begin{equation}
@@ -527,8 +503,10 @@ y^\prime_{2} \amp = f_{2}(y_{1},y_{2})\text{.}
 \end{equation}
 </div>
 <div class="para">although not as a matrix ODE (if the functions <span class="process-math">\(f_{i}\)</span> are nonlinear).</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#section-nonlinear-systems-2-3" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="para" id="section-nonlinear-systems-2-4">Just as in the previous sections, the <dfn class="terminology">phase plane</dfn> is still the <span class="process-math">\(y_{1}y_{2}\)</span>-plane, <dfn class="terminology">trajectories</dfn> are still the solutions <span class="process-math">\(\vec{y}\)</span> of <a href="section-nonlinear-systems.html#equation-nonlinear-system" class="xref" data-knowl="./knowl/xref/equation-nonlinear-system.html" data-reveal-label="Reveal" data-close-label="Close" title="Equation 4.2">(4.2)</a> (represented as curves in the phase plane), and the <dfn class="terminology">phase portrait</dfn> of <a href="section-nonlinear-systems.html#equation-nonlinear-system" class="xref" data-knowl="./knowl/xref/equation-nonlinear-system.html" data-reveal-label="Reveal" data-close-label="Close" title="Equation 4.2">(4.2)</a> is the set of all trajectories in the phase plane.</div>
+<div class="para" id="section-nonlinear-systems-2-4">Just as in the previous sections, the <dfn class="terminology">phase plane</dfn> is still the <span class="process-math">\(y_{1}y_{2}\)</span>-plane, <dfn class="terminology">trajectories</dfn> are still the solutions <span class="process-math">\(\vec{y}\)</span> of <a href="section-nonlinear-systems.html#equation-nonlinear-system" class="xref" data-knowl="./knowl/xref/equation-nonlinear-system.html" data-reveal-label="Reveal" data-close-label="Close" title="Equation 4.2">(4.2)</a> (represented as curves in the phase plane), and the <dfn class="terminology">phase portrait</dfn> of <a href="section-nonlinear-systems.html#equation-nonlinear-system" class="xref" data-knowl="./knowl/xref/equation-nonlinear-system.html" data-reveal-label="Reveal" data-close-label="Close" title="Equation 4.2">(4.2)</a> is the set of all trajectories in the phase plane.<div class="autopermalink" data-description="Paragraph"><a href="#section-nonlinear-systems-2-4" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
 <div class="para logical" id="section-nonlinear-systems-2-5">
 <div class="para">We call a point <span class="process-math">\(P = (y_1, y_2)\)</span> in the phase plane a <dfn class="terminology">critical point</dfn> of <a href="section-nonlinear-systems.html#equation-nonlinear-system" class="xref" data-knowl="./knowl/xref/equation-nonlinear-system.html" data-reveal-label="Reveal" data-close-label="Close" title="Equation 4.2">(4.2)</a> if</div>
 <div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/equation-nonlinear-system.html">
@@ -537,12 +515,14 @@ f_{1}(y_{1},y_{2}) = 0\quad\text{and}\quad f_{2}(y_{1},y_{2}) = 0\text{.}
 \end{equation*}
 </div>
 <div class="para">In other words, <span class="process-math">\(P\)</span> is a critical point of <span class="process-math">\(\vec{y}^\prime = \vec{f}(\vec{y})\)</span> if <span class="process-math">\(\vec{f}(P) = \vec{0}\text{.}\)</span> Just as before, critical points represent solutions of the system that are in equilibrium.</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#section-nonlinear-systems-2-5" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 <article class="example example-like" id="example-systems-odes-pendulum-system"><h3 class="heading">
-<span class="type">Example</span><span class="space"> </span><span class="codenumber">4.4.1</span><span class="period">.</span><span class="space"> </span><span class="title">The pendulum equation.</span>
+<span class="type">Example</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">4.4.1</span><span class="period heading-divison-mark heading-divison-mark__period">.</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">The pendulum equation.</span>
 </h3>
-<div class="para" id="example-systems-odes-pendulum-system-2-1">Express the <em class="emphasis">pendulum equation</em> <span class="process-math">\(\theta''+\frac{g}{l}\sin\theta=0\text{,}\)</span> where <span class="process-math">\(\theta=\theta(t)\)</span> represents the angular displacement of a pendulum from the vertical, as a nonlinear system <span class="process-math">\(\vecm{\theta}^\prime = \vec{f}(\vecm{\theta})\)</span> and then find its critical points.</div>
-<div class="solutions"><details id="example-systems-odes-pendulum-system-3" class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="period">.</span></summary><div class="solution solution-like knowl__content">
+<div class="para" id="example-systems-odes-pendulum-system-2-1">Express the <em class="emphasis">pendulum equation</em> <span class="process-math">\(\theta''+\frac{g}{l}\sin\theta=0\text{,}\)</span> where <span class="process-math">\(\theta=\theta(t)\)</span> represents the angular displacement of a pendulum from the vertical, as a nonlinear system <span class="process-math">\(\vecm{\theta}^\prime = \vec{f}(\vecm{\theta})\)</span> and then find its critical points.<div class="autopermalink" data-description="Paragraph"><a href="#example-systems-odes-pendulum-system-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="solutions"><details id="example-systems-odes-pendulum-system-3" class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary><div class="solution solution-like knowl__content">
 <div class="para logical" id="example-systems-odes-pendulum-system-3-1">
 <div class="para">First, we have to rewrite the pendulum ODE as a first order system. We can do this without too much trouble as follows: set</div>
 <div class="displaymath process-math">
@@ -563,17 +543,21 @@ f_{1}(y_{1},y_{2}) = 0\quad\text{and}\quad f_{2}(y_{1},y_{2}) = 0\text{.}
 \vecm{\theta} = \begin{bmatrix}\theta_{1} \\ \theta_{2}\end{bmatrix}\quad\text{and}\quad \vec{f}(\vecm{\theta}) = \begin{bmatrix}\theta_{2} \\ -\frac{g}{l}\sin\theta_{2}\end{bmatrix}\text{.}
 \end{equation*}
 </div>
+<div class="autopermalink" data-description="Paragraph"><a href="#example-systems-odes-pendulum-system-3-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="para" id="example-systems-odes-pendulum-system-3-2">Now we need to find the critical points <span class="process-math">\(\vecm{\theta}\)</span> in the <span class="process-math">\(\theta_{1}\theta_{2}\)</span>-plane that make <span class="process-math">\(\vec{f}(\vecm{\theta}) = \vec{0}\text{.}\)</span> This requires <span class="process-math">\(\theta_{2} = 0\)</span> and <span class="process-math">\(\theta_{1} = \pm k\pi\)</span> for <span class="process-math">\(k=0,\pm1,\pm2,\dots\text{,}\)</span> and so the critical points of this system are all points of the form <span class="process-math">\((\pm k\pi,0)\text{.}\)</span>
+<div class="para" id="example-systems-odes-pendulum-system-3-2">Now we need to find the critical points <span class="process-math">\(\vecm{\theta}\)</span> in the <span class="process-math">\(\theta_{1}\theta_{2}\)</span>-plane that make <span class="process-math">\(\vec{f}(\vecm{\theta}) = \vec{0}\text{.}\)</span> This requires <span class="process-math">\(\theta_{2} = 0\)</span> and <span class="process-math">\(\theta_{1} = \pm k\pi\)</span> for <span class="process-math">\(k=0,\pm1,\pm2,\dots\text{,}\)</span> and so the critical points of this system are all points of the form <span class="process-math">\((\pm k\pi,0)\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#example-systems-odes-pendulum-system-3-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-</div></details></div></article></section><section class="subsection" id="subsection-classification-of-critical-points-and-linearization"><h3 class="heading hide-type">
-<span class="type">Subsection</span><span class="space"> </span><span class="codenumber"></span><span class="space"> </span><span class="title">Classification of critical points and linearization</span>
+<div class="autopermalink" data-description="Solution 4.4.1.1"><a href="#example-systems-odes-pendulum-system-3" title="Copy heading and permalink for Solution 4.4.1.1" aria-label="Copy heading and permalink for Solution 4.4.1.1">🔗</a></div>
+</div></details></div>
+<div class="autopermalink" data-description="Example 4.4.1: The pendulum equation"><a href="#example-systems-odes-pendulum-system" title="Copy heading and permalink for Example 4.4.1: The pendulum equation" aria-label="Copy heading and permalink for Example 4.4.1: The pendulum equation">🔗</a></div></article></section><section class="subsection" id="subsection-classification-of-critical-points-and-linearization"><h3 class="heading hide-type">
+<span class="type">Subsection</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber"></span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Classification of critical points and linearization</span>
 </h3>
-<div class="para" id="subsection-classification-of-critical-points-and-linearization-2">Critical points of systems are important because they can represent long-term behavior of a system. For example, if we have a first-order system representing the population of two species, and it turns out the the origin is asymptotically stable, then this suggests that both species could be driven to extinction. So we want to classify critical points for nonlinear systems in addition to what we have already for linear systems; unfortunately, nonlinear systems are often difficult, if not outright impossible, to solve exactly.</div>
-<div class="para" id="subsection-classification-of-critical-points-and-linearization-3">Thankfully, in many cases we can approximate a nonlinear system <span class="process-math">\(\vec{y}^\prime = \vec{f}(\vec{y})\)</span> with critical points <span class="process-math">\(P_{i}\)</span> by a suitably chosen linear system <span class="process-math">\(\vec{y}^\prime = A\vec{y}\)</span> at each critical point <span class="process-math">\(P_{i}\text{;}\)</span> we call such a system the <dfn class="terminology">linearization</dfn> at <span class="process-math">\(P_{i}\text{.}\)</span>
+<div class="para" id="subsection-classification-of-critical-points-and-linearization-2">Critical points of systems are important because they can represent long-term behavior of a system. For example, if we have a first-order system representing the population of two species, and it turns out the the origin is asymptotically stable, then this suggests that both species could be driven to extinction. So we want to classify critical points for nonlinear systems in addition to what we have already for linear systems; unfortunately, nonlinear systems are often difficult, if not outright impossible, to solve exactly.<div class="autopermalink" data-description="Paragraph"><a href="#subsection-classification-of-critical-points-and-linearization-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para" id="subsection-classification-of-critical-points-and-linearization-3">Thankfully, in many cases we can approximate a nonlinear system <span class="process-math">\(\vec{y}^\prime = \vec{f}(\vec{y})\)</span> with critical points <span class="process-math">\(P_{i}\)</span> by a suitably chosen linear system <span class="process-math">\(\vec{y}^\prime = A\vec{y}\)</span> at each critical point <span class="process-math">\(P_{i}\text{;}\)</span> we call such a system the <dfn class="terminology">linearization</dfn> at <span class="process-math">\(P_{i}\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#subsection-classification-of-critical-points-and-linearization-3" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 <article class="definition definition-like" id="definition-the-jacobian-of-a-nonlinear-system"><h4 class="heading">
-<span class="type">Definition</span><span class="space"> </span><span class="codenumber">4.4.2</span><span class="period">.</span><span class="space"> </span><span class="title">The Jacobian of a nonlinear system.</span>
+<span class="type">Definition</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">4.4.2</span><span class="period heading-divison-mark heading-divison-mark__period">.</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">The Jacobian of a nonlinear system.</span>
 </h4>
 <div class="para logical" id="definition-the-jacobian-of-a-nonlinear-system-4-1">
 <div class="para">Let</div>
@@ -588,20 +572,24 @@ f_{1}(y_{1},y_{2}) = 0\quad\text{and}\quad f_{2}(y_{1},y_{2}) = 0\text{.}
 J_{\vec{f}}(y_{1},y_{2}) = \begin{bmatrix}\pdv{f_{1}}{y_{1}} \amp  \pdv{f_{1}}{y_{2}} \\ \pdv{f_{2}}{y_{1}} \amp  \pdv{f_{2}}{y_{2}}\end{bmatrix}\text{.}
 \end{equation*}
 </div>
-</div> <aside class="aside aside-like" id="definition-the-jacobian-of-a-nonlinear-system-4-2"><div class="para" id="definition-the-jacobian-of-a-nonlinear-system-4-2-1">If <span class="process-math">\(\vec{f}\)</span> is understood from context, we often write <span class="process-math">\(J\)</span> instead of <span class="process-math">\(J_{\vec{f}}\)</span> for the Jacobian.</div></aside></article><div class="para logical" id="subsection-classification-of-critical-points-and-linearization-5">
+<div class="autopermalink" data-description="Paragraph"><a href="#definition-the-jacobian-of-a-nonlinear-system-4-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div> <details id="definition-the-jacobian-of-a-nonlinear-system-4-2" class="aside aside-like born-hidden-knowl"><summary class="knowl__link"><h5 class="heading"><span class="type">Aside</span></h5></summary><aside class="aside aside-like knowl__content"><div class="para" id="definition-the-jacobian-of-a-nonlinear-system-4-2-1">If <span class="process-math">\(\vec{f}\)</span> is understood from context, we often write <span class="process-math">\(J\)</span> instead of <span class="process-math">\(J_{\vec{f}}\)</span> for the Jacobian.<div class="autopermalink" data-description="Paragraph"><a href="#definition-the-jacobian-of-a-nonlinear-system-4-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div></aside></details><div class="autopermalink" data-description="Definition 4.4.2: The Jacobian of a nonlinear system"><a href="#definition-the-jacobian-of-a-nonlinear-system" title="Copy heading and permalink for Definition 4.4.2: The Jacobian of a nonlinear system" aria-label="Copy heading and permalink for Definition 4.4.2: The Jacobian of a nonlinear system">🔗</a></div></article><div class="para logical" id="subsection-classification-of-critical-points-and-linearization-5">
 <div class="para">The Jacobian is important since it allows us to <em class="emphasis">linearize</em> a nonlinear system. More precisely, the <dfn class="terminology">linearization</dfn> of <span class="process-math">\(\vec{y}^\prime = \vec{f}(\vec{y})\)</span> at the point <span class="process-math">\(P = (p_{1},p_{2})\)</span> is the linear system <span class="process-math">\(\vec{y}^\prime = A\vec{y}\text{,}\)</span> where</div>
 <div class="displaymath process-math">
 \begin{equation*}
 A = J(p_{1},p_{2}).
 \end{equation*}
 </div>
+<div class="autopermalink" data-description="Paragraph"><a href="#subsection-classification-of-critical-points-and-linearization-5" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 <article class="example example-like" id="example-systems-odes-linearize-pendulum-system"><h4 class="heading">
-<span class="type">Example</span><span class="space"> </span><span class="codenumber">4.4.3</span><span class="period">.</span><span class="space"> </span><span class="title">Linearizing the pendulum system.</span>
+<span class="type">Example</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">4.4.3</span><span class="period heading-divison-mark heading-divison-mark__period">.</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Linearizing the pendulum system.</span>
 </h4>
-<div class="para" id="example-systems-odes-linearize-pendulum-system-2-1">Find the linearization of the pendulum system <span class="process-math">\(\vecm{\theta}^\prime = \vec{f}(\vecm{\theta})\)</span> at the critical point <span class="process-math">\((0,0)\text{.}\)</span>
+<div class="para" id="example-systems-odes-linearize-pendulum-system-2-1">Find the linearization of the pendulum system <span class="process-math">\(\vecm{\theta}^\prime = \vec{f}(\vecm{\theta})\)</span> at the critical point <span class="process-math">\((0,0)\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#example-systems-odes-linearize-pendulum-system-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="solutions"><details id="example-systems-odes-linearize-pendulum-system-3" class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="period">.</span></summary><div class="solution solution-like knowl__content"><div class="para logical" id="example-systems-odes-linearize-pendulum-system-3-1">
+<div class="solutions"><details id="example-systems-odes-linearize-pendulum-system-3" class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary><div class="solution solution-like knowl__content">
+<div class="para logical" id="example-systems-odes-linearize-pendulum-system-3-1">
 <div class="para">For this system, we have <span class="process-math">\(f_{1}(\theta_{1},\theta_{2}) = \theta_{2}\)</span> and <span class="process-math">\(f_{2}(\theta_{1},\theta_{2}) = -\frac{g}{l}\sin\theta_{1}\text{.}\)</span> The Jacobian is then given by</div>
 <div class="displaymath process-math">
 \begin{equation*}
@@ -614,10 +602,14 @@ J(\theta_{1},\theta_{2}) = \begin{bmatrix}0 \amp  1 \\ -\frac{g}{l}\cos\theta_{1
 A = J(0,0) = \begin{bmatrix}0 \amp  1 \\ -\frac{g}{l} \amp  0\end{bmatrix}\text{.}
 \end{equation*}
 </div>
-</div></div></details></div></article><div class="para" id="subsection-classification-of-critical-points-and-linearization-7">The linearization of a nonlinear system isn’t just useful for approximating the nonlinear system. It’s also incredibly useful for classifying the critical points of a nonlinear system; for the most part, the eigenvalues of the matrix <span class="process-math">\(A\)</span> from the linearization also classify the critical points of the system <span class="process-math">\(\vec{y}^\prime = \vec{f}(\vec{y})\text{.}\)</span>
+<div class="autopermalink" data-description="Paragraph"><a href="#example-systems-odes-linearize-pendulum-system-3-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Solution 4.4.3.1"><a href="#example-systems-odes-linearize-pendulum-system-3" title="Copy heading and permalink for Solution 4.4.3.1" aria-label="Copy heading and permalink for Solution 4.4.3.1">🔗</a></div>
+</div></details></div>
+<div class="autopermalink" data-description="Example 4.4.3: Linearizing the pendulum system"><a href="#example-systems-odes-linearize-pendulum-system" title="Copy heading and permalink for Example 4.4.3: Linearizing the pendulum system" aria-label="Copy heading and permalink for Example 4.4.3: Linearizing the pendulum system">🔗</a></div></article><div class="para" id="subsection-classification-of-critical-points-and-linearization-7">The linearization of a nonlinear system isn’t just useful for approximating the nonlinear system. It’s also incredibly useful for classifying the critical points of a nonlinear system; for the most part, the eigenvalues of the matrix <span class="process-math">\(A\)</span> from the linearization also classify the critical points of the system <span class="process-math">\(\vec{y}^\prime = \vec{f}(\vec{y})\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#subsection-classification-of-critical-points-and-linearization-7" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 <article class="example example-like" id="example-systems-odes-classify-critical-points-linearization"><h4 class="heading">
-<span class="type">Example</span><span class="space"> </span><span class="codenumber">4.4.4</span><span class="period">.</span><span class="space"> </span><span class="title">Classifying critical points using linearization.</span>
+<span class="type">Example</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">4.4.4</span><span class="period heading-divison-mark heading-divison-mark__period">.</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Classifying critical points using linearization.</span>
 </h4>
 <div class="para logical" id="example-systems-odes-classify-critical-points-linearization-2-1">
 <div class="para">Find and classify the critical points of the nonlinear system</div>
@@ -627,8 +619,9 @@ A = J(0,0) = \begin{bmatrix}0 \amp  1 \\ -\frac{g}{l} \amp  0\end{bmatrix}\text{
 \dv{y}{t} \amp = -x^{2} - y \text{.}
 \end{align*}
 </div>
-</div> <aside class="aside aside-like" id="example-systems-odes-classify-critical-points-linearization-2-2"><div class="para" id="example-systems-odes-classify-critical-points-linearization-2-2-1">This example taken from <a class="external" href="https://www.math.uci.edu/~ndonalds/math3d/nonlinear.pdf" target="_blank">here.</a><details class="ptx-footnote" aria-live="polite" id="example-systems-odes-classify-critical-points-linearization-2-2-1-2"><summary class="ptx-footnote__number" title="Footnote 1"><sup> 1 </sup></summary><div class="ptx-footnote__contents" id="example-systems-odes-classify-critical-points-linearization-2-2-1-2"><code class="code-inline tex2jax_ignore">www.math.uci.edu/~ndonalds/math3d/nonlinear.pdf</code></div></details>
-</div></aside><div class="solutions"><details id="example-systems-odes-classify-critical-points-linearization-3" class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="period">.</span></summary><div class="solution solution-like knowl__content">
+<div class="autopermalink" data-description="Paragraph"><a href="#example-systems-odes-classify-critical-points-linearization-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div> <details id="example-systems-odes-classify-critical-points-linearization-2-2" class="aside aside-like born-hidden-knowl"><summary class="knowl__link"><h5 class="heading"><span class="type">Aside</span></h5></summary><aside class="aside aside-like knowl__content"><div class="para" id="example-systems-odes-classify-critical-points-linearization-2-2-1">This example taken from <a class="external" href="https://www.math.uci.edu/~ndonalds/math3d/nonlinear.pdf" target="_blank">here.</a><div class="autopermalink" data-description="Paragraph"><a href="#example-systems-odes-classify-critical-points-linearization-2-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div></aside></details><div class="solutions"><details id="example-systems-odes-classify-critical-points-linearization-3" class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary><div class="solution solution-like knowl__content">
 <div class="para logical" id="example-systems-odes-classify-critical-points-linearization-3-1">
 <div class="para">The critical points occur at intersections between the nullclines <span class="process-math">\(\dot{x}=0\)</span> and <span class="process-math">\(\dot{y}=0\text{.}\)</span> The equations of the nullclines for <span class="process-math">\(\dot{x}=0\)</span> are</div>
 <div class="displaymath process-math" id="example-systems-odes-classify-critical-points-linearization-3-1-4">
@@ -644,9 +637,10 @@ y = -x^2\text{.}
 \end{equation*}
 </div>
 <div class="para">Now we graph the nullclines (and the phase portrait):</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#example-systems-odes-classify-critical-points-linearization-3-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 <div class="image-box" style="width: 50%; margin-left: 25%; margin-right: 25%;"><div class="asymptote-box" style="padding-top: 99.2736702687997%"><iframe src="generated/asymptote/image-classify-critical-points.html" class="asymptote"></iframe></div></div>
-<div class="para" id="example-systems-odes-classify-critical-points-linearization-3-3">The nullclines for <span class="process-math">\(\dot{x}\)</span> and <span class="process-math">\(\dot{y}\)</span> intersect in three places. Hence, there are three critical points for this system: <span class="process-math">\((0,0), (-1,-1)\)</span> and <span class="process-math">\((1,-1)\text{.}\)</span>
+<div class="para" id="example-systems-odes-classify-critical-points-linearization-3-3">The nullclines for <span class="process-math">\(\dot{x}\)</span> and <span class="process-math">\(\dot{y}\)</span> intersect in three places. Hence, there are three critical points for this system: <span class="process-math">\((0,0), (-1,-1)\)</span> and <span class="process-math">\((1,-1)\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#example-systems-odes-classify-critical-points-linearization-3-3" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 <div class="para logical" id="example-systems-odes-classify-critical-points-linearization-3-4">
 <div class="para">To determine the behavior of solutions at these critical points, we’ll find the Jacobian at each point. First, we have</div>
@@ -662,6 +656,7 @@ J(0,0) = \begin{bmatrix} 1 \amp -1 \\ 0 \amp -1\end{bmatrix}\text{.}
 \end{equation*}
 </div>
 <div class="para">The eigenvalues are <span class="process-math">\(1\)</span> and <span class="process-math">\(-1\text{,}\)</span> meaning that this critical point is a saddle point. This is illustrated in the phase portrait below.</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#example-systems-odes-classify-critical-points-linearization-3-4" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 <div class="image-box" style="width: 50%; margin-left: 25%; margin-right: 25%;"><div class="asymptote-box" style="padding-top: 91.3840275%"><iframe src="generated/asymptote/image-classify-critical-points-linearization-0-0.html" class="asymptote"></iframe></div></div>
 <div class="para logical" id="example-systems-odes-classify-critical-points-linearization-3-6">
@@ -672,6 +667,7 @@ J(-1,-1) = \begin{bmatrix}2 \amp -2 \\ 2 \amp -1\end{bmatrix}
 \end{equation*}
 </div>
 <div class="para">which has eigenvalues <span class="process-math">\(\lambda = \frac{1}{2}\pm\frac{1}{2}\sqrt{7}i\text{.}\)</span> Hence <span class="process-math">\((-1,-1)\)</span> should be a spiral point.</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#example-systems-odes-classify-critical-points-linearization-3-6" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 <div class="image-box" style="width: 50%; margin-left: 25%; margin-right: 25%;"><div class="asymptote-box" style="padding-top: 88.9592929545543%"><iframe src="generated/asymptote/image-classify-critical-points-linearization-neg1-neg1.html" class="asymptote"></iframe></div></div>
 <div class="para logical" id="example-systems-odes-classify-critical-points-linearization-3-8">
@@ -682,11 +678,15 @@ J(1,-1) = \begin{bmatrix} -2 \amp 0 \\ -2 \amp -1\end{bmatrix}\text{,}
 \end{equation*}
 </div>
 <div class="para">which has eigenvalues <span class="process-math">\(-2,-1\text{.}\)</span> Hence <span class="process-math">\((1,-1)\)</span> is an asymptotically stable node.</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#example-systems-odes-classify-critical-points-linearization-3-8" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 <div class="image-box" style="width: 50%; margin-left: 25%; margin-right: 25%;"><div class="asymptote-box" style="padding-top: 94.896701765201%"><iframe src="generated/asymptote/image-classify-critical-points-linearization-1-neg1.html" class="asymptote"></iframe></div></div>
-</div></details></div></article><div class="para" id="subsection-classification-of-critical-points-and-linearization-9">Linearization works well to classify the behavior of systems at certain types of critical points. A critical point <span class="process-math">\(P\)</span> of a system is <dfn class="terminology">hyperbolic</dfn> if the Jacobian <span class="process-math">\(J(P)\)</span> has eigenvalues with nonzero real part. Unfortunately, linearization is not guaranteed to give an accurate description of the behavior of non-hyperbolic critical points.</div>
+<div class="autopermalink" data-description="Solution 4.4.4.1"><a href="#example-systems-odes-classify-critical-points-linearization-3" title="Copy heading and permalink for Solution 4.4.4.1" aria-label="Copy heading and permalink for Solution 4.4.4.1">🔗</a></div>
+</div></details></div>
+<div class="autopermalink" data-description="Example 4.4.4: Classifying critical points using linearization"><a href="#example-systems-odes-classify-critical-points-linearization" title="Copy heading and permalink for Example 4.4.4: Classifying critical points using linearization" aria-label="Copy heading and permalink for Example 4.4.4: Classifying critical points using linearization">🔗</a></div></article><div class="para" id="subsection-classification-of-critical-points-and-linearization-9">Linearization works well to classify the behavior of systems at certain types of critical points. A critical point <span class="process-math">\(P\)</span> of a system is <dfn class="terminology">hyperbolic</dfn> if the Jacobian <span class="process-math">\(J(P)\)</span> has eigenvalues with nonzero real part. Unfortunately, linearization is not guaranteed to give an accurate description of the behavior of non-hyperbolic critical points.<div class="autopermalink" data-description="Paragraph"><a href="#subsection-classification-of-critical-points-and-linearization-9" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
 <article class="example example-like" id="example-systems-odes-lotka-volterra"><h4 class="heading">
-<span class="type">Example</span><span class="space"> </span><span class="codenumber">4.4.5</span><span class="period">.</span><span class="space"> </span><span class="title">The Lotka-Volterra population model.</span>
+<span class="type">Example</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">4.4.5</span><span class="period heading-divison-mark heading-divison-mark__period">.</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">The Lotka-Volterra population model.</span>
 </h4>
 <div class="para logical" id="example-systems-odes-lotka-volterra-2-1">
 <div class="para">Predator-prey populations can be modeled using the <em class="emphasis">Lotka-Volterra model</em>. Let <span class="process-math">\(y_{1}(t)\)</span> denote the population of a prey species at time <span class="process-math">\(t\)</span> and let <span class="process-math">\(y_{2}(t)\)</span> denote the population of a predator species at time <span class="process-math">\(t\text{.}\)</span> Then the <dfn class="terminology">Lotka-Volterra model</dfn> says that</div>
@@ -697,8 +697,9 @@ y^\prime_{2} \amp = ky_{1}y_{2} - ly_{2}\text{,}
 \end{align*}
 </div>
 <div class="para">where <span class="process-math">\(a,b,k,l&gt;0\text{.}\)</span> Find and classify the critical points of this system.</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#example-systems-odes-lotka-volterra-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="solutions"><details id="example-systems-odes-lotka-volterra-3" class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="period">.</span></summary><div class="solution solution-like knowl__content">
+<div class="solutions"><details id="example-systems-odes-lotka-volterra-3" class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary><div class="solution solution-like knowl__content">
 <div class="para logical" id="example-systems-odes-lotka-volterra-3-1">
 <div class="para">The critical points are the points <span class="process-math">\((y_{1},y_{2})\)</span> that satisfy the equations</div>
 <div class="displaymath process-math">
@@ -714,6 +715,7 @@ y_{1}(a-by_{2}) = 0\quad\text{and}\quad y_{2}(ky_{1}-l) = 0.
 </div>
 <div class="para">This has solutions <span class="process-math">\(y_{1} = y_{2} = 0\)</span> and <span class="process-math">\(y_{1} = \frac{l}{k},y_{2} = \frac{a}{b}\text{,}\)</span> which shows that the critical points are <span class="process-math">\((0,0)\)</span> and <span class="process-math">\((\frac{l}{k},\frac{a}{b})\text{.}\)</span>
 </div>
+<div class="autopermalink" data-description="Paragraph"><a href="#example-systems-odes-lotka-volterra-3-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 <div class="para logical" id="example-systems-odes-lotka-volterra-3-2">
 <div class="para">To classify the critical points of this system we will linearize the system. The Jacobian of</div>
@@ -729,6 +731,7 @@ J(y_{1},y_{2}) = \begin{bmatrix}a-by_{2} \amp  -by_{1} \\ ky_{2} \amp  ky_{1} - 
 \end{equation*}
 </div>
 <div class="para">Now we will examine the Jacobian at each critical point.</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#example-systems-odes-lotka-volterra-3-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 <div class="para logical" id="example-systems-odes-lotka-volterra-3-3">
 <div class="para">At <span class="process-math">\((0,0)\text{,}\)</span> we get</div>
@@ -738,6 +741,7 @@ J(0,0) = \begin{bmatrix}a \amp  0 \\ 0 \amp  -l\end{bmatrix}\text{,}
 \end{equation*}
 </div>
 <div class="para">which has eigenvalues <span class="process-math">\(\lambda=a,-l\)</span> which indicate a saddle point. Since these eigenvalues have nonzero real part, the origin is a hyperbolic critical point of the system and so we know that it also behaves as a saddle point in the original system. In particular, there exist trajectories heading into the origin, so it’s possible for both species to go extinct in this model.</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#example-systems-odes-lotka-volterra-3-3" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 <div class="para logical" id="example-systems-odes-lotka-volterra-3-4">
 <div class="para">Now we’ll classify the second critical point <span class="process-math">\((\frac{l}{k},\frac{a}{b})\text{.}\)</span> The Jacobian at this point gives us the matrix</div>
@@ -747,18 +751,17 @@ A = J(\frac{l}{k},\frac{a}{b}) = \begin{bmatrix}0 \amp  -\frac{bl}{k} \\ \frac{a
 \end{equation*}
 </div>
 <div class="para">This matrix has characteristic equation <span class="process-math">\(\lambda^{2} + al = 0\text{,}\)</span> and so has eigenvalues <span class="process-math">\(\lambda=\pm i\sqrt{al}\text{.}\)</span> Since the eigenvalues are pure imaginary, this suggests that <span class="process-math">\((\frac{l}{k},\frac{a}{b})\)</span> is a center, which is indeed the case. In particular, trajectories near this critical point <em class="emphasis">must be periodic</em>. Unfortunately we can’t quite justify this conclusion. This is because both eigenvalues of the Jacobian at this critical point have zero real part, which means that this critical point is not hyperbolic and so the behavior of the linearization is not guaranteed to match the behavior of the original system at this critical point. That said, a more detailed analysis (or simply a sketch of the phase portrait) does indeed confirm that <span class="process-math">\((\frac{l}{k}, \frac{a}{b})\)</span> is a center of the original system.</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#example-systems-odes-lotka-volterra-3-4" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-</div></details></div></article></section></section></div>
-<div class="ptx-content-footer">
-<<<<<<< HEAD
-<a class="previous-button button" href="section-phase-plane-criteria-for-critical-points-stability.html" title="Previous"><span xmlns:pf="https://prefigure.org" class="icon material-symbols-outlined" aria-hidden="true">&#xe5cb;</span><span class="name">Prev</span></a><a class="top-button button" href="#" title="Top"><span xmlns:pf="https://prefigure.org" class="icon material-symbols-outlined" aria-hidden="true">&#xe5ce;</span><span class="name">Top</span></a><a class="next-button button" href="sec-sage-and-octave-for-systems-of-odes.html" title="Next"><span class="name">Next</span><span xmlns:pf="https://prefigure.org" class="icon material-symbols-outlined" aria-hidden="true">&#xe5cc;</span></a>
-=======
+<div class="autopermalink" data-description="Solution 4.4.5.1"><a href="#example-systems-odes-lotka-volterra-3" title="Copy heading and permalink for Solution 4.4.5.1" aria-label="Copy heading and permalink for Solution 4.4.5.1">🔗</a></div>
+</div></details></div>
+<div class="autopermalink" data-description="Example 4.4.5: The Lotka-Volterra population model"><a href="#example-systems-odes-lotka-volterra" title="Copy heading and permalink for Example 4.4.5: The Lotka-Volterra population model" aria-label="Copy heading and permalink for Example 4.4.5: The Lotka-Volterra population model">🔗</a></div></article><div class="autopermalink" data-description="Subsection: Classification of critical points and linearization"><a href="#subsection-classification-of-critical-points-and-linearization" title="Copy heading and permalink for Subsection: Classification of critical points and linearization" aria-label="Copy heading and permalink for Subsection: Classification of critical points and linearization">🔗</a></div></section><div class="autopermalink" data-description="Section 4.4: Nonlinear systems"><a href="#section-nonlinear-systems" title="Copy heading and permalink for Section 4.4: Nonlinear systems" aria-label="Copy heading and permalink for Section 4.4: Nonlinear systems">🔗</a></div></section></div>
+<div id="ptx-content-footer" class="ptx-content-footer">
 <a class="previous-button button" href="section-phase-plane-criteria-for-critical-points-stability.html" title="Previous"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cb;</span><span class="name">Prev</span></a><a class="top-button button" href="#" title="Top"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5ce;</span><span class="name">Top</span></a><a class="next-button button" href="sec-sage-and-octave-for-systems-of-odes.html" title="Next"><span class="name">Next</span><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cc;</span></a>
->>>>>>> a0db83aad0fcd4491bf5f1d4b35a43c21ae3a40a
 </div></main>
 </div>
 <div id="ptx-page-footer" class="ptx-page-footer">
-<a xmlns:pf="https://prefigure.org" class="pretext-link" href="https://pretextbook.org" title="PreTeXt"><div class="logo"><svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" viewBox="338 3000 8772 6866"><g style="stroke-width:.025in; stroke:black; fill:none"><polyline points="472,3590 472,9732 " style="stroke:#000000;stroke-width:174; stroke-linejoin:miter; stroke-linecap:round; "></polyline><path style="stroke:#000000;stroke-width:126;stroke-linecap:butt;" d="M 4724,9448 A 4660 4660  0  0  1  8598  9259"></path><path style="stroke:#000000;stroke-width:174;stroke-linecap:butt;" d="M 4488,9685 A 4228 4228  0  0  0   472  9732"></path><path style="stroke:#000000;stroke-width:126;stroke-linecap:butt;" d="M 4724,3590 A 4241 4241  0  0  1  8598  3496"></path><path style="stroke:#000000;stroke-width:126;stroke-linecap:round;" d="M 850,3496  A 4241 4241  0  0  1  4724  3590"></path><path style="stroke:#000000;stroke-width:126;stroke-linecap:round;" d="M 850,9259  A 4507 4507  0  0  1  4724  9448"></path><polyline points="5385,4299 4062,8125" style="stroke:#000000;stroke-width:300; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="8598,3496 8598,9259" style="stroke:#000000;stroke-width:126; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="850,3496 850,9259" style="stroke:#000000;stroke-width:126; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="4960,9685 4488,9685" style="stroke:#000000;stroke-width:174; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="3070,4582 1889,6141 3070,7700" style="stroke:#000000;stroke-width:300; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="6418,4582 7600,6141 6418,7700" style="stroke:#000000;stroke-width:300; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="8976,3590 8976,9732" style="stroke:#000000;stroke-width:174; stroke-linejoin:miter; stroke-linecap:round;"></polyline><path style="stroke:#000000;stroke-width:174;stroke-linecap:butt;" d="M 4960,9685 A 4228 4228  0  0  1  8976  9732"></path></g></svg></div></a><a xmlns:pf="https://prefigure.org" class="runestone-link" href="https://runestone.academy" title="Runestone Academy"><img class="logo" src="https://runestone.academy/runestone/static/images/RAIcon_cropped.png"></a><a xmlns:pf="https://prefigure.org" class="mathjax-link" href="https://www.mathjax.org" title="MathJax"><img class="logo" src="https://www.mathjax.org/badge/badge-square-2.png"></a>
+<a class="pretext-link" href="https://pretextbook.org" title="PreTeXt"><div class="logo"><svg xmlns="http://www.w3.org/2000/svg" height="100%" viewBox="338 3000 8772 6866" role="img"><title>PreTeXt logo</title><g style="stroke-width:.025in; stroke:currentColor; fill:none"><polyline points="472,3590 472,9732 " style="stroke-width:174; stroke-linejoin:miter; stroke-linecap:round; "></polyline><path style="stroke-width:126;stroke-linecap:butt;" d="M 4724,9448 A 4660 4660  0  0  1  8598  9259"></path><path style="stroke-width:174;stroke-linecap:butt;" d="M 4488,9685 A 4228 4228  0  0  0   472  9732"></path><path style="stroke-width:126;stroke-linecap:butt;" d="M 4724,3590 A 4241 4241  0  0  1  8598  3496"></path><path style="stroke-width:126;stroke-linecap:round;" d="M 850,3496  A 4241 4241  0  0  1  4724  3590"></path><path style="stroke-width:126;stroke-linecap:round;" d="M 850,9259  A 4507 4507  0  0  1  4724  9448"></path><polyline points="5385,4299 4062,8125" style="stroke-width:300; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="8598,3496 8598,9259" style="stroke-width:126; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="850,3496 850,9259" style="stroke-width:126; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="4960,9685 4488,9685" style="stroke-width:174; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="3070,4582 1889,6141 3070,7700" style="stroke-width:300; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="6418,4582 7600,6141 6418,7700" style="stroke-width:300; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="8976,3590 8976,9732" style="stroke-width:174; stroke-linejoin:miter; stroke-linecap:round;"></polyline><path style="stroke-width:174;stroke-linecap:butt;" d="M 4960,9685 A 4228 4228  0  0  1  8976  9732"></path></g></svg></div></a><a class="runestone-link" href="https://runestone.academy" title="Runestone Academy"><img class="logo" src="https://runestone.academy/runestone/static/images/RAIcon_cropped.png" alt="Runstone Academy logo"></a><a class="mathjax-link" href="https://www.mathjax.org" title="MathJax"><img class="logo" src="https://www.mathjax.org/badge/badge-square-2.png" alt="MathJax logo"></a>
 </div>
 </body>
 </html>
