@@ -22,7 +22,6 @@
       format="pdf"
       source="wvwc-differential-equations.ptx"
       output-filename="wvwc-differential-equations-open_dyslexic.pdf"
-      <!-- deploy-dir="preview/wvwc-differential-equations/print-dyslexic" -->
       xsl="wvwc-differential-equations-dyslexic-print.xsl"/>
     <target
       name="print-latex"
